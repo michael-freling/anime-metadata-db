@@ -4,230 +4,251 @@ date: 2026-06-19
 weight: 2
 ---
 
-# Franchise / Anime Series Data Model & Worked Examples
+# Anime Series Data Model & Worked Examples
 
 **Date:** 2026-06-19
 **Author:** Michael Freling (with Claude Code)
 **Status:** Design input — companion to [Anime Series/Franchise Metadata Research](../anime-metadata-research/)
 
 This note refines the flat `Franchise` / `TimelineEntry` sketch from §5.2 of the
-[research note](../anime-metadata-research/) into the familiar
-**`Franchise → Series → Season → Episode`** hierarchy (plus `Movie`) — one clear word
-per level. It is grounded in three cases:
+[research note](../anime-metadata-research/). The base unit is a **`Series`**
+(one storyline); **`Franchise`** is an *optional* parent that groups several Series.
+Worked cases:
 
-- **Fate** — multi-storyline grouping: one franchise, several distinct **Series**,
-  each with its own seasons + movies (including parallel-route adaptations).
-- **Demon Slayer** — the numbering mechanics: an **alternate-cut film** (*Mugen
-  Train*), **split-cour** seasons, and **standalone movies** (*Infinity Castle*).
+- **Gundam** — the optional `Franchise` tier: one brand, many independent Series.
+- **Fate** — two **ordering modes** in one franchise: *Fate/stay night* sorts by
+  release date (parallel routes), *Fate/Zero* uses curated absolute numbers.
+- **Demon Slayer** — a standalone Series with the numbering edge cases: an
+  alternate-cut film, split-cour seasons, and standalone movies.
 - **Rascal Does Not Dream** — the basic two-season + movies case.
 
 > **Scope.** This model owns *ordering and grouping* (R1). Per-season content (R2)
 > stays in AniList; per-episode content (R3) is a known gap (research note §4).
-> AniList IDs, episode counts, and 2025+ release details below are **illustrative** —
+> AniList IDs, episode counts, and 2024+ release details below are **illustrative** —
 > seeded/verified from `anime-offline-database` at build time (§5.3).
 
 ## 1. The hierarchy
 
 ```text
-Franchise            brand umbrella; holds one or MANY Series (hence "franchise")
+Franchise (OPTIONAL)   groups related Series under one brand — present only when there are several
   id
-  titles             { english, romaji, native }
-  series[]           Series
+  titles               { english, romaji, native }
+  series[]             Series
 
-Series               ONE storyline / continuity (Fate/stay night, Fate/Zero, Demon Slayer)
-  id                 absoluteNumber is scoped to a Series, not the whole franchise
-  titles             { english, romaji, native }
-  seasons[]          Season — the numbered TV installments of this storyline
-  movies[]           Movie — films belonging to this storyline
-  specials[]         Special — OVAs / ONAs / specials (side content, no seasonNumber)
-
-Season               ONE numbered TV installment = one AniList media node (a TV cour / part)
+Series                 the base unit: ONE storyline / continuity (Demon Slayer, Fate/Zero)
   id
-  titles             { english, romaji, native }
-  seasonNumber       int    the storyline's Nth season
-  part               int?   split-cour index within the season (1, 2, …); null if one part
-  releaseDate        date
-  sourceRefs         { anilistId, anidbId?, tmdbId?, tvdbId? }   (one media node)
-  episodes[]         Episode
+  titles               { english, romaji, native }
+  ordering             ABSOLUTE — curated absoluteNumber │ RELEASE_DATE — sort members by date
+  seasons[]            Season — the numbered TV installments of this storyline
+  movies[]             Movie — films belonging to this storyline
+  specials[]           Special — OVAs / ONAs / specials (side content, no seasonNumber)
 
-Episode              ONE TV episode
-  absoluteNumber     int    sort key within its Series — spans the storyline's seasons + original movies
-  airedEpisode       int    local number within this season/part
-  releaseDate        date
-  episodeTitle       string?  (R3 — curated / non-commercial TMDB only)
-
-Movie                ONE film = one AniList media node
+Season                 ONE numbered TV installment = one AniList media node (a TV cour / part)
   id
-  titles             { english, romaji, native }
-  releaseDate        date
-  sourceRefs         { anilistId, … }
-  absoluteNumber     int?   original films only — their slot in the Series watch order
-  altCutOf           { seasonId, episodes }?   set when a Season is the canonical
-                                               numbering carrier for this film's content
+  titles               { english, romaji, native }
+  seasonNumber         int    the storyline's Nth season
+  part                 int?   split-cour index within the season (1, 2, …); null if one part
+  releaseDate          date
+  sourceRefs           { anilistId, anidbId?, tmdbId?, tvdbId? }   (one media node)
+  episodes[]           Episode
 
-Special              ONE OVA / ONA / special = one AniList media node — side content
-  id                 NOT part of the numbered run, so it has NO seasonNumber
-  titles             { english, romaji, native }
-  format             OVA | ONA | SPECIAL
-  releaseDate        date
-  sourceRefs         { anilistId, … }
-  episodes[]         Episode    (an OVA series may have several; a one-shot has one)
-  absoluteNumber     int?   only if it's canon you want pinned into the watch order; usually null
+Episode                ONE TV episode
+  absoluteNumber       int?   ABSOLUTE-ordered Series only — sort key across the storyline
+  airedEpisode         int    local number within this season/part
+  releaseDate          date
+  episodeTitle         string?  (R3 — curated / non-commercial TMDB only)
+
+Movie                  ONE film = one AniList media node
+  id
+  titles               { english, romaji, native }
+  releaseDate          date
+  sourceRefs           { anilistId, … }
+  absoluteNumber       int?   original films in an ABSOLUTE-ordered Series — its slot in watch order
+  altCutOf             { seasonId, episodes }?   set when a Season carries this film's numbers
+
+Special                ONE OVA / ONA / special = one AniList media node — side content
+  id                   NOT part of the numbered run, so it has NO seasonNumber
+  titles               { english, romaji, native }
+  format               OVA | ONA | SPECIAL
+  releaseDate          date
+  sourceRefs           { anilistId, … }
+  episodes[]           Episode    (an OVA series may have several; a one-shot has one)
+  absoluteNumber       int?   only if it's canon you want pinned into an ABSOLUTE watch order
 ```
 
-Read top to bottom: a **Franchise** (*Demon Slayer*) holds **Series** (storylines), a
-**Series** holds **Seasons** (the numbered TV run), **Movies**, and **Specials** (OVAs),
-and a **Season** holds **Episodes**. A single-story franchise like Demon Slayer is one
-`Franchise` → one `Series` → many `Season`s; *Fate* is one `Franchise` → many `Series`.
+A **`Series`** is the thing you actually watch as one continuity. A single-storyline
+title (Demon Slayer, Rascal) is just a top-level `Series`. A brand with several
+independent storylines (Gundam, Fate, iDOLM@STER) is a `Franchise` wrapping those
+`Series`. Below a Series: **Seasons** (the numbered TV run), **Movies**, and
+**Specials** (OVAs); a Season holds **Episodes**.
 
-### 1.1 Numbering rules
+### 1.1 Ordering: `ABSOLUTE` vs `RELEASE_DATE`
 
-- **`absoluteNumber` is scoped to a Series.** *Fate/Zero* and *Fate/stay night* number
-  independently; Demon Slayer's single Series numbers 1…63+.
-- **Movies:** an *original* film (unique content) takes its own `absoluteNumber`; an
-  *alternate-cut* film whose content also airs as a Season sets `altCutOf` and takes
-  **no** number — **the Season carries the numbers** (per-episode granularity).
+`absoluteNumber` only makes sense when a storyline is a single linear episode stream,
+so it is **optional** and chosen per Series via `ordering`:
+
+- **`ABSOLUTE`** — a clean linear watch order exists → curate a continuous
+  `absoluteNumber` across the Series' episodes + original movies (Demon Slayer, Rascal,
+  *Fate/Zero*). The costly R1 data — assign it only where it pays off.
+- **`RELEASE_DATE`** — no single episode stream (parallel-route adaptations) → do **not**
+  fabricate `absoluteNumber`; the app sorts the Series' seasons/movies/specials by
+  `releaseDate` (*Fate/stay night*).
+
+For *Fate/stay night*, `RELEASE_DATE` yields Fate route (2006) → Unlimited Blade Works
+(2014) → Heaven's Feel (2017) — also the intended watch order, since the Saber-route
+adaptation aired first. (If an intended order ever diverges from release date, an
+explicit manual sequence is the escape hatch — see Open Questions.)
+
+### 1.2 Numbering rules (ABSOLUTE series)
+
+- **`absoluteNumber` is scoped to a Series.** *Fate/Zero* numbers independently of
+  *Fate/stay night*; Demon Slayer's Series numbers 1…63+.
+- **Movies:** an *original* film takes its own `absoluteNumber`; an *alternate-cut* film
+  whose content also airs as a Season sets `altCutOf` and takes **no** number — the
+  **Season carries the numbers** (per-episode granularity).
 - **Split-cour:** Part 1 / Part 2 of a season are separate `Season`s sharing
-  `seasonNumber`, differing by `part` + `releaseDate` (§4).
+  `seasonNumber`, differing by `part` + `releaseDate` (§5).
 - **OVAs / specials:** side content in `specials[]`, placed by `releaseDate` with **no
-  `seasonNumber`**; they take an `absoluteNumber` only when you want them pinned into the
-  canonical watch order (otherwise null).
+  `seasonNumber`**; given an `absoluteNumber` only when pinned into the canon watch order.
 
-### 1.2 Field reference (selected)
+### 1.3 Field reference (selected)
 
 | Field | Entity | Why it exists |
 |---|---|---|
-| `titles {english,romaji,native}` | Franchise / Series / Season / Movie / Special | Multi-name display — *Bunny Girl Senpai* (en) vs *Seishun Buta Yarō* (romaji) |
-| `series[]` | Franchise | The distinct storylines (1 for Demon Slayer, many for Fate) |
-| `seasons[]` / `movies[]` / `specials[]` | Series | Members of a storyline: numbered TV run, films, OVAs/specials |
-| `seasonNumber` / `part` | Season | Season index, and split-cour part within it (§4) |
-| `format` | Special | OVA / ONA / SPECIAL discriminator for side content |
+| `series[]` | Franchise (optional) | The distinct storylines of a multi-story brand (Gundam, Fate) |
+| `ordering` | Series | `ABSOLUTE` (curated numbers) vs `RELEASE_DATE` (sort by date) |
+| `titles {english,romaji,native}` | all named entities | *Bunny Girl Senpai* (en) vs *Seishun Buta Yarō* (romaji) |
+| `seasons[]` / `movies[]` / `specials[]` | Series | Members: numbered TV run, films, OVAs/specials |
+| `seasonNumber` / `part` | Season | Season index, and split-cour part within it (§5) |
 | `sourceRefs.anilistId` | Season / Movie / Special | **The media id**, once per node — the R2 enrichment key |
-| **`absoluteNumber`** | Episode / Movie | **The one field no free API gives us** — sort key within a Series |
+| **`absoluteNumber`** | Episode / Movie | **The one field no free API gives us** — sort key in an ABSOLUTE Series |
 | `altCutOf` | Movie | Marks a film a Season numbers canonically |
 
 The model **stores facts** (ids, numbers, dates, our `absoluteNumber`) and **fetches
 expression** (synopsis, art, stills) live (research note §5.1a).
 
-## 2. Example A — Fate (one franchise, many series)
+## 2. Example A — Gundam (the optional `Franchise` tier)
 
-*Fate* is the case that forces the `Series` tier: one franchise containing several
-distinct storylines, each with its own seasons and films.
+Gundam is the textbook multi-storyline brand: independent continuities sharing only the
+name, each numbering on its own. This is *why* `Franchise` exists.
+
+```yaml
+Franchise:                                   # present only because Gundam has many storylines
+  id: gundam
+  titles: { english: "Gundam", romaji: "Gundam" }
+  series:
+    - id: gundam-uc                          # Universal Century — one big linear continuity
+      titles: { english: "Mobile Suit Gundam (Universal Century)" }
+      ordering: ABSOLUTE
+      seasons: [ "0079 → Zeta → ZZ → …" ]
+      movies:  [ "Char's Counterattack, F91, …" ]
+    - id: gundam-wing                        # After Colony — independent
+      titles: { english: "Mobile Suit Gundam Wing" }
+      ordering: ABSOLUTE
+      movies:  [ "Endless Waltz" ]
+    - id: gundam-seed                        # Cosmic Era — independent
+      titles: { english: "Mobile Suit Gundam SEED" }
+      ordering: ABSOLUTE
+      seasons: [ "SEED, SEED Destiny" ]
+      movies:  [ "SEED Freedom (2024)" ]
+    - id: gundam-ibo                         # Post Disaster — independent
+      titles: { english: "Mobile Suit Gundam: Iron-Blooded Orphans" }
+      ordering: ABSOLUTE
+    - id: gundam-witch                       # Ad Stella — independent
+      titles: { english: "The Witch from Mercury" }
+      ordering: ABSOLUTE
+```
+
+Each Series is a self-contained watch order — there is **no** franchise-wide
+`absoluteNumber` across Wing and SEED. The `Franchise` is grouping + titling only.
+(Other brands of this shape: *iDOLM@STER*, *Love Live!*, *Precure*, *Yu-Gi-Oh!*,
+*Macross*, *Digimon*.)
+
+## 3. Example B — Fate (two ordering modes in one franchise)
 
 ```yaml
 Franchise:
   id: fate
   titles: { english: "Fate", native: "フェイト" }
   series:
-    - id: fate-stay-night                         # storyline 1
-      titles: { english: "Fate/stay night", romaji: "Fate/stay night" }
+    - id: fate-stay-night
+      titles: { english: "Fate/stay night" }
+      ordering: RELEASE_DATE                 # parallel routes → sort by date, NO absoluteNumber
       seasons:
-        - id: fsn-2006
-          titles: { english: "Fate/stay night (2006)" }       # Studio DEEN, Fate route
-          seasonNumber: 1
-          releaseDate: 2006-01-07
-          sourceRefs: { anilistId: 356 }                      # illustrative
-          episodes: [ "… 24 eps …" ]
-        - id: fsn-unlimited-blade-works
-          titles: { english: "Unlimited Blade Works", romaji: "Unlimited Blade Works" }
-          seasonNumber: 2                                      # UBW route; itself split-cour
-          part: 1
-          releaseDate: 2014-10-12
-          sourceRefs: { anilistId: 20716 }
-          episodes: [ "… part 1 …" ]
-        - id: fsn-ubw-part2
-          titles: { english: "Unlimited Blade Works (Part 2)" }
-          seasonNumber: 2
-          part: 2
-          releaseDate: 2015-04-05
-          sourceRefs: { anilistId: 21001 }                    # illustrative
-          episodes: [ "… part 2 …" ]
-      movies:                                                 # Heaven's Feel route = a film trilogy
+        - { id: fsn-2006, titles: { english: "Fate/stay night (2006)" }, seasonNumber: 1,
+            releaseDate: 2006-01-07, sourceRefs: { anilistId: 356 } }       # Fate/Saber route
+        - { id: fsn-ubw,  titles: { english: "Unlimited Blade Works" }, seasonNumber: 2,
+            releaseDate: 2014-10-12, sourceRefs: { anilistId: 20716 } }     # UBW route (itself split-cour)
+      movies:
         - { id: fsn-hf-1, titles: { english: "Heaven's Feel I" }, releaseDate: 2017-10-14,
-            sourceRefs: { anilistId: 20724 }, absoluteNumber: 1 }
-        - { id: fsn-hf-2, titles: { english: "Heaven's Feel II" }, releaseDate: 2019-01-12,
-            sourceRefs: { anilistId: 100173 }, absoluteNumber: 2 }   # illustrative
-        - { id: fsn-hf-3, titles: { english: "Heaven's Feel III" }, releaseDate: 2020-08-15,
-            sourceRefs: { anilistId: 106562 }, absoluteNumber: 3 }   # illustrative
+            sourceRefs: { anilistId: 20724 } }     # no absoluteNumber under RELEASE_DATE
+        # … Heaven's Feel II (2019-01), III (2020-08) …
 
-    - id: fate-zero                               # storyline 2 (prequel) — numbers on its own
-      titles: { english: "Fate/Zero", romaji: "Fate/Zero" }
+    - id: fate-zero
+      titles: { english: "Fate/Zero" }
+      ordering: ABSOLUTE                      # single linear story (split-cour) → curated numbers
       seasons:
-        - id: fz-s1
-          titles: { english: "Fate/Zero" }
-          seasonNumber: 1
-          part: 1
-          releaseDate: 2011-10-02
-          sourceRefs: { anilistId: 10087 }
-          episodes: [ "… season 1 …" ]
-        - id: fz-s2
-          titles: { english: "Fate/Zero Season 2" }
-          seasonNumber: 1
-          part: 2                                             # split-cour, 2012
-          releaseDate: 2012-04-08
-          sourceRefs: { anilistId: 11741 }                    # illustrative
-          episodes: [ "… season 2 …" ]
+        - { id: fz-s1, seasonNumber: 1, part: 1, releaseDate: 2011-10-02,
+            sourceRefs: { anilistId: 10087 }, episodes: [ "… absolute 1–13 …" ] }
+        - { id: fz-s2, seasonNumber: 1, part: 2, releaseDate: 2012-04-08,
+            sourceRefs: { anilistId: 11741 }, episodes: [ "… absolute 14–25 …" ] }
 ```
 
-What this demonstrates:
+- **`Fate/stay night` → `RELEASE_DATE`.** The 2006 route, UBW, and Heaven's Feel adapt
+  different visual-novel routes — not a linear sequence — so no `absoluteNumber`. Sorting
+  by `releaseDate` gives Fate route → UBW → Heaven's Feel, the intended watch order.
+- **`Fate/Zero` → `ABSOLUTE`.** A single linear story (just split across two cours), so
+  its episodes carry continuous `absoluteNumber` 1–25.
+- Each Series numbers (or doesn't) on its own; the `Franchise` only groups them.
 
-- **The `Series` tier exists.** *Fate/stay night* and *Fate/Zero* are siblings under
-  one `Franchise`, each grouping its own seasons + films.
-- **Parallel adaptations.** Within *Fate/stay night*, the 2006 route, *Unlimited Blade
-  Works*, and *Heaven's Feel* adapt **different visual-novel routes** — they are *not* a
-  linear sequence. So a single `absoluteNumber` across the whole Series does **not**
-  apply; numbering is per linear run (see Open Questions). Here the Heaven's Feel
-  trilogy numbers 1–3 among themselves; the routes are grouping-only.
+## 4. Example C — Demon Slayer (standalone Series, numbering mechanics)
 
-## 3. Example B — Demon Slayer (numbering mechanics)
-
-One `Franchise` → one `Series` → the numbering edge cases.
+Demon Slayer is a single storyline, so it's a **top-level `Series`** — no `Franchise`
+wrapper.
 
 ```yaml
-Franchise:
+Series:
   id: demon-slayer
   titles: { english: "Demon Slayer: Kimetsu no Yaiba", romaji: "Kimetsu no Yaiba", native: "鬼滅の刃" }
-  series:
-    - id: demon-slayer-main
-      titles: { english: "Demon Slayer", romaji: "Kimetsu no Yaiba" }
-      seasons:
-        - id: ds-s1                               # → absolute 1–26
-          seasonNumber: 1
-          releaseDate: 2019-04-06
-          sourceRefs: { anilistId: 101922 }
-          episodes:
-            - { absoluteNumber: 1,  airedEpisode: 1,  releaseDate: 2019-04-06 }
-            # … through 26 …
-        - id: ds-mugen-train-arc                  # Season 2 Part 1 → absolute 27–33
-          titles: { english: "Mugen Train Arc" }  #   THIS carries Mugen Train's numbers
-          seasonNumber: 2
-          part: 1
-          releaseDate: 2021-10-10
-          sourceRefs: { anilistId: 142984 }
-          episodes:
-            - { absoluteNumber: 27, airedEpisode: 1, releaseDate: 2021-10-10 }
-            # … through 33 (7 eps) …
-        - id: ds-entertainment-district           # Season 2 Part 2 → absolute 34–44
-          titles: { english: "Entertainment District Arc" }
-          seasonNumber: 2
-          part: 2
-          releaseDate: 2021-12-05
-          sourceRefs: { anilistId: 142329 }
-          episodes:
-            - { absoluteNumber: 34, airedEpisode: 1, releaseDate: 2021-12-05 }
-            # … through 44 (11 eps); Swordsmith Village (S3) 45–55, Hashira Training (S4) 56–63 …
-      movies:
-        - id: ds-mugen-train-film                 # ALTERNATE CUT — no absoluteNumber
-          titles: { english: "Mugen Train" }
-          releaseDate: 2020-10-16
-          sourceRefs: { anilistId: 112151 }
-          altCutOf: { seasonId: ds-mugen-train-arc, episodes: "1-7" }
-        - id: ds-infinity-castle-1                # ORIGINAL standalone trilogy → own slots
-          titles: { english: "Infinity Castle (Part 1)", romaji: "Mugen Jō-hen" }
-          releaseDate: 2025-07-18                  # illustrative
-          sourceRefs: { anilistId: 178680 }        # illustrative
-          absoluteNumber: 64
-        # … Infinity Castle Part 2 → 65, Part 3 → 66 …
+  ordering: ABSOLUTE
+  seasons:
+    - id: ds-s1                               # → absolute 1–26
+      seasonNumber: 1
+      releaseDate: 2019-04-06
+      sourceRefs: { anilistId: 101922 }
+      episodes:
+        - { absoluteNumber: 1,  airedEpisode: 1,  releaseDate: 2019-04-06 }
+        # … through 26 …
+    - id: ds-mugen-train-arc                  # Season 2 Part 1 → absolute 27–33
+      titles: { english: "Mugen Train Arc" }  #   THIS carries Mugen Train's numbers
+      seasonNumber: 2
+      part: 1
+      releaseDate: 2021-10-10
+      sourceRefs: { anilistId: 142984 }
+      episodes:
+        - { absoluteNumber: 27, airedEpisode: 1, releaseDate: 2021-10-10 }
+        # … through 33 (7 eps) …
+    - id: ds-entertainment-district           # Season 2 Part 2 → absolute 34–44
+      titles: { english: "Entertainment District Arc" }
+      seasonNumber: 2
+      part: 2
+      releaseDate: 2021-12-05
+      sourceRefs: { anilistId: 142329 }
+      episodes:
+        - { absoluteNumber: 34, airedEpisode: 1, releaseDate: 2021-12-05 }
+        # … through 44 (11 eps); Swordsmith Village (S3) 45–55, Hashira Training (S4) 56–63 …
+  movies:
+    - id: ds-mugen-train-film                 # ALTERNATE CUT — no absoluteNumber
+      titles: { english: "Mugen Train" }
+      releaseDate: 2020-10-16
+      sourceRefs: { anilistId: 112151 }
+      altCutOf: { seasonId: ds-mugen-train-arc, episodes: "1-7" }
+    - id: ds-infinity-castle-1                # ORIGINAL standalone trilogy → own slots
+      titles: { english: "Infinity Castle (Part 1)", romaji: "Mugen Jō-hen" }
+      releaseDate: 2025-07-18                  # illustrative
+      sourceRefs: { anilistId: 178680 }        # illustrative
+      absoluteNumber: 64
+    # … Infinity Castle Part 2 → 65, Part 3 → 66 …
 ```
 
 | Concern | How the model handles it |
@@ -237,12 +258,10 @@ Franchise:
 | **Split-cour S2** | Mugen Train Arc (`part: 1`) + Entertainment District (`part: 2`) share `seasonNumber: 2` |
 | **Seasons restart at episode 1** | `absoluteNumber` is the continuous count; `airedEpisode` keeps local numbers |
 
-> **Chronology note.** The *Mugen Train* film (2020) predates its TV cut (2021). We
-> still pick the Season as the numbering carrier; the film stays reachable via
-> `altCutOf`, so a *release-date* watch list can still surface it. Numbering-order vs
-> release-order is a per-app choice, not a data one.
+> **Chronology note.** The *Mugen Train* film (2020) predates its TV cut (2021). We still
+> pick the Season as the numbering carrier; the film stays reachable via `altCutOf`.
 
-## 4. Split-cour: "Part 1 / Part 2" in the same season
+## 5. Split-cour: "Part 1 / Part 2" in the same season
 
 Many seasons air in two cours months — or years — apart, often as **separate AniList
 nodes** (*Attack on Titan: The Final Season* Parts 1–3; *Re:Zero* S2; *Fate/Zero* and
@@ -257,17 +276,17 @@ seasons:
       sourceRefs: { anilistId: 22222 }, episodes: [ "… airedEpisode may continue or reset …" ] }
 ```
 
-- A broadcast **"season"** is the set of `Season`s sharing `seasonNumber`; `part`
-  orders them. (So `seasonNumber` is *not* unique per `Season` — `seasonNumber` + `part` is.)
-- `airedEpisode` follows the broadcast (some split-cours continue the count, some reset);
-  `absoluteNumber` is unaffected — it always flows by release order.
-- **If both cours are a single AniList node**, it's one `Season` whose episodes span
-  two air windows — `releaseDate` captures the gap and `part` stays null.
+- A broadcast **"season"** is the set of `Season`s sharing `seasonNumber`; `part` orders
+  them. (So `seasonNumber` is *not* unique per `Season` — `seasonNumber` + `part` is.)
+- `airedEpisode` follows the broadcast; `absoluteNumber` is unaffected — it flows by
+  release order.
+- **If both cours are a single AniList node**, it's one `Season` whose episodes span two
+  air windows — `releaseDate` captures the gap and `part` stays null.
 
-## 5. Example C — Rascal Does Not Dream (basic two seasons + movies)
+## 6. Example D — Rascal Does Not Dream (basic two seasons + movies)
 
-The motivating case from the research note: one `Series`, two `Season`s, original movies
-interleaved by `releaseDate`.
+The motivating case: a standalone `Series` (`ordering: ABSOLUTE`), two `Season`s,
+original movies interleaved by `releaseDate`.
 
 | `absoluteNumber` | member (kind) | `seasonNumber` | release |
 |:--:|---|:--:|---|
@@ -276,43 +295,36 @@ interleaved by `releaseDate`.
 | 15 | Sister Venturing Out (movie) | — | 2023-06-23 |
 | 16… | Rascal Does Not Dream of Santa Claus (Season) | 2 | 2025-07 (illustrative) |
 
-Season 2 is titled *Rascal Does Not Dream of Santa Claus* (romaji *Seishun Buta Yarō wa
-Santa Claus no Yume wo Minai*), carried in its `Season.titles`.
+Season 2 is *Rascal Does Not Dream of Santa Claus* (romaji *Seishun Buta Yarō wa Santa
+Claus no Yume wo Minai*). Two seasons get a continuous absolute count even though each
+restarts `airedEpisode` at 1, and the movies interleave by release date.
 
-Two seasons get a continuous absolute count even though each restarts `airedEpisode`
-at 1, and the original movies interleave by release date — including a season that airs
-*after* the movies. Structurally identical to Demon Slayer's single Series, minus the
-alt-cut and standalone-movie wrinkles.
-
-## 6. How these records get built
+## 7. How these records get built
 
 Maps to the research note §5.3 pipeline:
 
-1. **Seed** the `Franchise`, its `Series`, and each Series' `seasons[]`/`movies[]`/
-   `specials[]` from `anime-offline-database` clustering — one node per AniList media id,
-   bucketed by AniList `format` (TV → Season, MOVIE → Movie, OVA/ONA/SPECIAL → Special).
-2. **Order** each season's episodes from `anime-list.xml`, then assign `absoluteNumber`
-   per Series across its episodes + original movies in release order.
-3. **Slot movies** from `anime-movieset-list.xml`: original films get a number;
-   alternate cuts get `altCutOf` and none.
-4. **Override** the judgement calls — Series boundaries, alt-cut vs original,
-   `seasonNumber`/`part` labels — in `franchise-overrides.yaml`.
+1. **Seed** the `Series` (and an optional `Franchise` when a brand has several) plus each
+   Series' `seasons[]`/`movies[]`/`specials[]` from `anime-offline-database`, bucketed by
+   AniList `format` (TV → Season, MOVIE → Movie, OVA/ONA/SPECIAL → Special).
+2. **Pick `ordering`** per Series; for `ABSOLUTE`, order episodes from `anime-list.xml`
+   and assign `absoluteNumber` across episodes + original movies in release order.
+3. **Slot movies** from `anime-movieset-list.xml`: original films get a number (ABSOLUTE
+   only); alternate cuts get `altCutOf` and none.
+4. **Override** the judgement calls — Series/Franchise boundaries, `ordering` mode,
+   alt-cut vs original, `seasonNumber`/`part` — in `franchise-overrides.yaml`.
 5. **Store** next to `internal/db/anime.go`; **refresh** on a schedule, overrides win.
 
-## 7. Open questions
+## 8. Open questions
 
-- **Parallel-route ordering** — *Fate/stay night*'s routes (2006 / UBW / Heaven's Feel)
-  aren't linear, so one `absoluteNumber` per Series breaks. Options: number per linear
-  run (per route), or treat such a Series as grouping-only with no franchise number.
-  Modeled here as the latter.
-- **Single-story franchises** — Demon Slayer/Rascal have a `Franchise` wrapping exactly
-  one `Series`. Acceptable boilerplate, or collapse the two when there's one storyline?
-- **OVA / special placement** — by `releaseDate` as side content (default, no
-  `seasonNumber`), or pinned into the watch order with an `absoluteNumber` via override
-  when an OVA is canon (e.g. a recap or a bridging episode)?
+- **Intended order vs release date** — `RELEASE_DATE` works when air order matches the
+  intended watch order (Fate/stay night). If they ever diverge, do we add an explicit
+  manual sequence as a third `ordering` mode?
+- **Cross-Series order** — within *Fate*, some watch *Fate/Zero* (prequel) before
+  *Fate/stay night*. Ordering is per-Series today; a franchise-wide recommended order is
+  out of scope — revisit if needed.
 - **Original vs alternate-cut detection** — no open file flags this; a manual `altCutOf`
   override per film.
-- **`seasonNumber` for parallel routes** — when seasons are alternate adaptations rather
-  than a sequence (Fate/stay night), the season index is a loose by-air-date label.
+- **OVA / special placement** — by `releaseDate` as side content (default), or pinned
+  into the watch order with an `absoluteNumber` via override when an OVA is canon?
 - **R3 `episodeTitle`** — empty here; only populated if curated or from a non-commercial
   build (research note §3.3).
