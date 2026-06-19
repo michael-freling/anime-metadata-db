@@ -8,8 +8,8 @@ theme = ['github.com/alex-shpak/hugo-book']
 
 # Book theme expects the section that holds the menu pages.
 [params]
-  # (Optional) Set the section root for the book menu. Default is "docs".
-  BookSection = 'docs'
+  # Render every top-level section (docs, proposals, ...) in the book menu.
+  BookSection = '*'
 
   # Enable the built-in search.
   BookSearch = true
