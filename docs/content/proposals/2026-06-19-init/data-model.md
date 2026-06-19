@@ -16,8 +16,9 @@ This note refines the flat `Franchise` / `TimelineEntry` sketch from §5.2 of th
 Worked cases:
 
 - **Gundam** — the optional `Franchise` tier: one brand, many independent Series.
-- **Fate** — two **ordering modes** in one franchise: *Fate/stay night* sorts by
-  release date (parallel routes), *Fate/Zero* uses curated absolute numbers.
+- **Fate** — two **ordering modes** in one franchise (*Fate/stay night* sorts by
+  release date, *Fate/Zero* uses curated absolute numbers), plus franchise-wide
+  **watch orders** (release / chronological / recommended) across its Series.
 - **Demon Slayer** — a standalone Series with the numbering edge cases: an
   alternate-cut film, split-cour seasons, and standalone movies.
 - **Rascal Does Not Dream** — the basic two-season + movies case.
@@ -74,6 +75,13 @@ Special                ONE OVA / ONA / special = one AniList media node — side
   sourceRefs           { anilistId, … }
   episodes[]           Episode    (an OVA series may have several; a one-shot has one)
   absoluteNumber       int?   only if it's canon you want pinned into an ABSOLUTE watch order
+
+WatchOrder (OPTIONAL)  a NAMED curated sequence — for cross-Series or alternate orders (§7)
+  id
+  name                 "Release" | "Chronological" | "Recommended" | …
+  scope                { franchiseId } or { seriesId }
+  isDefault            bool    the order to present by default
+  entries[]            ordered refs: { ref: <series|season|movie|special id>, note? }
 ```
 
 A **`Series`** is the thing you actually watch as one continuity. A single-storyline
@@ -96,8 +104,11 @@ so it is **optional** and chosen per Series via `ordering`:
 
 For *Fate/stay night*, `RELEASE_DATE` yields Fate route (2006) → Unlimited Blade Works
 (2014) → Heaven's Feel (2017) — also the intended watch order, since the Saber-route
-adaptation aired first. (If an intended order ever diverges from release date, an
-explicit manual sequence is the escape hatch — see Open Questions.)
+adaptation aired first.
+
+`ordering` is the *micro* order **within** one Series. The *macro* order **across**
+Series (and any alternate orders) is a separate, editorial concern handled by
+`WatchOrder` (§7) — they layer.
 
 ### 1.2 Numbering rules (ABSOLUTE series)
 
@@ -116,7 +127,8 @@ explicit manual sequence is the escape hatch — see Open Questions.)
 | Field | Entity | Why it exists |
 |---|---|---|
 | `series[]` | Franchise (optional) | The distinct storylines of a multi-story brand (Gundam, Fate) |
-| `ordering` | Series | `ABSOLUTE` (curated numbers) vs `RELEASE_DATE` (sort by date) |
+| `ordering` | Series | `ABSOLUTE` (curated numbers) vs `RELEASE_DATE` (sort by date) — *within* a Series |
+| `entries[]` / `scope` | WatchOrder | A named curated sequence *across* Series (release / chronological / recommended) — §7 |
 | `titles {english,romaji,native}` | all named entities | *Bunny Girl Senpai* (en) vs *Seishun Buta Yarō* (romaji) |
 | `seasons[]` / `movies[]` / `specials[]` | Series | Members: numbered TV run, films, OVAs/specials |
 | `seasonNumber` / `part` | Season | Season index, and split-cour part within it (§5) |
@@ -299,7 +311,52 @@ Season 2 is *Rascal Does Not Dream of Santa Claus* (romaji *Seishun Buta Yarō w
 Claus no Yume wo Minai*). Two seasons get a continuous absolute count even though each
 restarts `airedEpisode` at 1, and the movies interleave by release date.
 
-## 7. How these records get built
+## 7. Cross-Series & alternate orders: `WatchOrder`
+
+`absoluteNumber` orders a single linear storyline. It cannot express how *Series* relate
+across a franchise — and that order is **editorial and multi-valued**, so no amount of
+extra numbering captures it. *Fate* (§3) has at least three legitimate orders:
+
+- **Release** — by air date, interleaving Series: stay night (2006) → Fate/Zero (2011) →
+  UBW (2014) → Heaven's Feel (2017…).
+- **Chronological** — the prequel first: Fate/Zero → Fate/stay night.
+- **Recommended** — a common newcomer path: UBW → Heaven's Feel → Fate/Zero last (Zero
+  lands harder once you know stay night).
+
+A single number encodes only one of these, and only within one storyline. So we add a
+first-class **`WatchOrder`**: a named, curated sequence of references.
+
+```yaml
+WatchOrders:                                  # scope: franchise "fate"
+  - name: "Chronological"
+    scope: { franchiseId: fate }
+    entries: [ { ref: fate-zero }, { ref: fate-stay-night } ]
+  - name: "Release"
+    isDefault: true
+    scope: { franchiseId: fate }
+    entries: [ { ref: fsn-2006 }, { ref: fate-zero }, { ref: fsn-ubw },
+               { ref: fsn-hf-1 }, { ref: fsn-hf-2 }, { ref: fsn-hf-3 } ]
+  - name: "Recommended (newcomer)"
+    scope: { franchiseId: fate }
+    entries: [ { ref: fsn-ubw }, { ref: fsn-hf-1 }, { ref: fsn-hf-2 },
+               { ref: fsn-hf-3 }, { ref: fate-zero } ]
+```
+
+How it composes:
+
+- **Macro vs micro.** A `WatchOrder` sequences whole Series / Seasons / Movies; *inside*
+  each referenced node you fall back to that Series' own `ordering` (absoluteNumber or
+  release date). WatchOrder = the cross-node order; `absoluteNumber` = the within-Series
+  order. They layer, they don't compete.
+- **Mixed granularity.** An entry can point at a whole Series (*watch all of Fate/Zero*),
+  a single Season (*UBW*), or a Movie — whatever the guide needs.
+- **Editorial, so curated.** No API or open file knows "watch UBW before Zero"; these are
+  authored in `franchise-overrides.yaml`, the layer the research note says we own.
+- **Also fixes within-Series cases.** *Monogatari*'s broadcast-vs-chronological split is
+  the same mechanism at `seriesId` scope — a `WatchOrder` is the explicit manual sequence
+  the §1.1 fallback hinted at.
+
+## 8. How these records get built
 
 Maps to the research note §5.3 pipeline:
 
@@ -311,17 +368,18 @@ Maps to the research note §5.3 pipeline:
 3. **Slot movies** from `anime-movieset-list.xml`: original films get a number (ABSOLUTE
    only); alternate cuts get `altCutOf` and none.
 4. **Override** the judgement calls — Series/Franchise boundaries, `ordering` mode,
-   alt-cut vs original, `seasonNumber`/`part` — in `franchise-overrides.yaml`.
+   alt-cut vs original, `seasonNumber`/`part`, and any cross-Series `WatchOrder`s — in
+   `franchise-overrides.yaml`.
 5. **Store** next to `internal/db/anime.go`; **refresh** on a schedule, overrides win.
 
-## 8. Open questions
+## 9. Open questions
 
-- **Intended order vs release date** — `RELEASE_DATE` works when air order matches the
-  intended watch order (Fate/stay night). If they ever diverge, do we add an explicit
-  manual sequence as a third `ordering` mode?
-- **Cross-Series order** — within *Fate*, some watch *Fate/Zero* (prequel) before
-  *Fate/stay night*. Ordering is per-Series today; a franchise-wide recommended order is
-  out of scope — revisit if needed.
+- **Unify ordering?** Within-Series order (`absoluteNumber`) and cross-Series order
+  (`WatchOrder`) are two mechanisms. Keep both — number as the cheap materialized path,
+  WatchOrder as the editorial one — or express everything as WatchOrders? Kept separate
+  here so the common case stays a simple integer sort.
+- **Default order + user choice** — which `WatchOrder` is `isDefault`, and is the picked
+  order a catalog-wide setting or a per-user preference?
 - **Original vs alternate-cut detection** — no open file flags this; a manual `altCutOf`
   override per film.
 - **OVA / special placement** — by `releaseDate` as side content (default), or pinned
