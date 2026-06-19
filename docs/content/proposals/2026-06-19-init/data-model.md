@@ -11,104 +11,95 @@ weight: 2
 **Status:** Design input — companion to [Anime Series/Franchise Metadata Research](../anime-metadata-research/)
 
 This note refines the flat `Franchise` / `TimelineEntry` sketch from §5.2 of the
-[research note](../anime-metadata-research/) into a **three-tier model** and grounds
-it in two concrete franchises so the fields are easy to reason about:
+[research note](../anime-metadata-research/) into a model with **first-class series
+and movies**, and grounds it in two concrete franchises:
 
-- **Rascal Does Not Dream** — the motivating case: **two TV seasons plus movies**
-  that only sort correctly with a franchise-wide absolute number.
-- **Demon Slayer** — the dedup case: *Mugen Train* exists **both** as a theatrical
-  movie **and** as a recompiled TV series, so the model has to decide which release
-  carries the canonical numbers.
+- **Rascal Does Not Dream** — two TV seasons plus standalone movies that only sort
+  correctly with a franchise-wide absolute number.
+- **Demon Slayer** — the hard cases: a film that is an **alternate cut of a TV
+  series** (*Mugen Train*), **split-cour** seasons (Part 1 / Part 2 in different
+  years), and **standalone movies with no TV series** (the *Infinity Castle* trilogy).
 
 > **Scope.** This model owns *ordering and grouping* (R1). Per-series content (R2)
 > stays in AniList; per-episode content (R3) is a known gap. See the research note
-> §4 for why. AniList IDs, episode counts, and the Rascal Season 2 details below are
-> **illustrative** — they are seeded/verified from `anime-offline-database` at build
-> time (§5.3), not hand-kept.
+> §4. AniList IDs, episode counts, and the 2025+ release details below are
+> **illustrative** — seeded/verified from `anime-offline-database` at build time
+> (§5.3), not hand-kept.
 
-## 1. Why three tiers
+## 1. The shape: series and movies are both first-class
 
-The §5.2 sketch had two levels (`Franchise` → `TimelineEntry`) and pushed an
-`anilistId` onto every entry. Two problems fell out of that:
-
-1. **No "series" level.** A *franchise* can contain several **distinct** stories —
-   the *Fate* franchise spans *Fate/stay night*, *Fate/Zero*, … — while a TV
-   episode is far too granular to enrich. The natural unit AniList actually
-   describes (one TV season, or one movie) had nowhere to live.
-2. **Duplicated `anilistId`.** All 13 episodes of a season repeated the same media
-   id, and the `Franchise.anilistIds[]` list was just the distinct set of those —
-   redundant, derivable, drift-prone.
-
-Splitting out an **`AnimeSeries`** tier fixes both: it *is* the AniList media node
-(so it owns the `anilistId` exactly once and is the R2 enrichment unit), and
-`Franchise` becomes a thin umbrella that can group one or many series.
+A *franchise* groups **series** (multi-episode TV/OVA broadcasts) and **movies**
+(theatrical films). They are different kinds of thing, so the model keeps them in
+separate lists rather than pretending a movie is a one-episode series:
 
 ```text
-Franchise            umbrella; can hold several distinct AnimeSeries (e.g. Fate)
-  id                 our stable id (e.g. "rascal-does-not-dream")
-  titles             { english, romaji, native }
-  series[]           ordered list of AnimeSeries (in watch / release order)
+Franchise              umbrella; groups the series + movies of one title
+  id                   our stable id (e.g. "demon-slayer")
+  titles               { english, romaji, native }
+  series[]             AnimeSeries — TV / OVA broadcast units (incl. split-cour parts)
+  movies[]             Movie — theatrical films (standalone OR alternate cuts)
 
-AnimeSeries          ONE AniList media node — a single TV season OR a movie/OVA
-  id                 our stable id
-  kind               TV | MOVIE | OVA | SPECIAL
-  titles             { english, romaji, native }   (the part subtitle)
-  airedSeason        int?   (TV only — the franchise's Nth TV season)
-  releaseDate        date
-  sourceRefs         { anilistId, anidbId?, tmdbId?, tvdbId? }   (one media node)
-  timeline[]         ordered list of TimelineEntry
+AnimeSeries            ONE AniList media node — a single TV/OVA broadcast unit (one cour / part)
+  id
+  titles               { english, romaji, native }
+  airedSeason          int    the franchise's Nth season
+  part                 int?   split-cour index within the season (1, 2, …); null if one part
+  releaseDate          date   this part's premiere
+  sourceRefs           { anilistId, anidbId?, tmdbId?, tvdbId? }   (one media node)
+  episodes[]           Episode
 
-TimelineEntry        ONE watchable unit — a single TV episode, or a movie
-  kind               TV_EPISODE | MOVIE | OVA | SPECIAL
-  absoluteNumber     int   <-- franchise-wide sort key, across ALL series
-  airedEpisode       int?  (TV only — local episode number within its season)
-  releaseDate        date
-  episodeTitle       string?  (R3 — only if curated / non-commercial TMDB)
+Episode                ONE TV episode
+  absoluteNumber       int    franchise-wide sort key — spans series AND original movies
+  airedEpisode         int    local number within this part/series
+  releaseDate          date
+  episodeTitle         string?  (R3 — curated / non-commercial TMDB only)
+
+Movie                  ONE AniList media node — a theatrical film
+  id
+  titles               { english, romaji, native }
+  releaseDate          date
+  sourceRefs           { anilistId, anidbId?, tmdbId?, tvdbId? }
+  absoluteNumber       int?   set ONLY for original movies — its slot in watch order
+  altCutOf             { seriesId, episodes }?   set when a TV series is the canonical
+                                                 numbering carrier for this film's content
 ```
 
-`absoluteNumber` is assigned by walking `series[]` in watch order and numbering
-every `TimelineEntry` across all of them — so it spans seasons *and* movies. A movie
-is an `AnimeSeries` (`kind: MOVIE`) containing exactly one `TimelineEntry`, which
-keeps the leaf list a single, uniformly sortable sequence.
+### 1.1 How a movie participates in numbering
 
-### 1.1 Field reference
+A movie is one of two things, and that decides whether it takes an `absoluteNumber`:
 
-| Field | Entity | Why it exists | Storable? (research note §5.1a) |
-|---|---|---|---|
-| `id` | Franchise / AnimeSeries | Our stable key, independent of any upstream | ✅ ours |
-| `titles {english,romaji,native}` | Franchise / AnimeSeries | Multi-name display — *Bunny Girl Senpai* (en) vs *Seishun Buta Yarō* (romaji) | ✅ facts |
-| `series[]` | Franchise | The member series, in watch order | ✅ ours |
-| `kind` | AnimeSeries / TimelineEntry | TV season vs movie vs OVA/special | ✅ fact |
-| `airedSeason` | AnimeSeries | Which franchise TV season this is (1, 2, …) | ✅ fact |
-| `sourceRefs.anilistId` | AnimeSeries | **The one media id**, kept once per series — the R2 enrichment key | ✅ ids are facts |
-| **`absoluteNumber`** | TimelineEntry | **The one field no free API gives us** — franchise-wide sort key | ✅ our derived data |
-| `airedEpisode` | TimelineEntry | Local per-season episode number (what AniList exposes) | ✅ fact |
-| `releaseDate` | AnimeSeries / TimelineEntry | Interleaves movies into watch order | ✅ fact |
-| `episodeTitle` | TimelineEntry | R3 content — optional, only if curated/non-commercial | ⚠️ only if curated/owned |
+| Movie kind | Example | `absoluteNumber`? | `altCutOf`? |
+|---|---|:--:|:--:|
+| **Original** — unique content, no TV equivalent | *Dreaming Girl*, *Infinity Castle* | ✅ its own slot | — |
+| **Alternate cut** — same content also airs as a TV series | *Mugen Train* (film) | ❌ none | ✅ → the TV series |
+
+> **Numbering rule.** When content exists as **both** a film and a TV series, the
+> **TV series carries the numbers** (it has per-episode granularity), and the film
+> sets `altCutOf` and takes no `absoluteNumber`. Original movies — including whole
+> trilogies with no TV series — take their own `absoluteNumber` slots, interleaved by
+> `releaseDate`.
+
+`absoluteNumber` is assigned franchise-wide by walking every TV episode and every
+*original* movie in release order. `airedSeason` / `part` / `airedEpisode` keep the
+local broadcast structure; `absoluteNumber` is the single sort key for watch order.
+
+### 1.2 Field reference (selected)
+
+| Field | Entity | Why it exists |
+|---|---|---|
+| `titles {english,romaji,native}` | Franchise / AnimeSeries / Movie | Multi-name display — *Bunny Girl Senpai* (en) vs *Seishun Buta Yarō* (romaji) |
+| `series[]` / `movies[]` | Franchise | Members, typed: TV broadcasts vs films |
+| `airedSeason` | AnimeSeries | Which franchise season this is (1, 2, …) |
+| `part` | AnimeSeries | Split-cour index — Part 1 / Part 2 of the same season (§4) |
+| `sourceRefs.anilistId` | AnimeSeries / Movie | **The media id**, kept once per node — the R2 enrichment key |
+| **`absoluteNumber`** | Episode / Movie | **The one field no free API gives us** — franchise-wide sort key |
+| `airedEpisode` | Episode | Local per-part episode number (what AniList exposes) |
+| `altCutOf` | Movie | Marks a film whose content a TV series numbers canonically |
 
 The model **stores facts** (ids, numbers, dates, our computed `absoluteNumber`) and
-**fetches expression** (synopsis, cover art, stills) live — never warehousing
-AniList/TMDB content (research note §5.1a).
+**fetches expression** (synopsis, art, stills) live (research note §5.1a).
 
 ## 2. Example A — Rascal Does Not Dream (two seasons + movies)
-
-### 2.1 The problem, in data
-
-This is what the current AniList-only world looks like — independent media nodes,
-each numbered locally, with no field tying them into one order:
-
-| AniList node | kind | local numbering | release |
-|---|---|---|---|
-| *Bunny Girl Senpai* (TV S1) | TV, 13 eps | episodes **1–13** | 2018-10 |
-| *Dreaming Girl* (movie) | Movie | — (its own node) | 2019-06 |
-| *Sister Venturing Out* (movie) | Movie | — | 2023-06 |
-| *Season 2* (TV) | TV | episodes **1–N** | 2025 |
-
-Nothing here says the *Dreaming Girl* movie is watched **after** TV episode 13, that
-Season 2 comes after the movies, or that all of them are one series. That is the gap
-`absoluteNumber` closes.
-
-### 2.2 As a `Franchise` record
 
 ```yaml
 Franchise:
@@ -118,8 +109,7 @@ Franchise:
     romaji:  "Seishun Buta Yarō"
     native:  "青春ブタ野郎"
   series:
-    # ---- TV Season 1 ----
-    - id: rascal-bunny-girl-senpai
+    - id: rascal-bunny-girl-senpai           # TV Season 1
       kind: TV
       titles:
         english: "Rascal Does Not Dream of Bunny Girl Senpai"
@@ -127,86 +117,62 @@ Franchise:
       airedSeason: 1
       releaseDate: 2018-10-03
       sourceRefs: { anilistId: 101291 }
-      timeline:
-        - { kind: TV_EPISODE, absoluteNumber: 1,  airedEpisode: 1,  releaseDate: 2018-10-03 }
+      episodes:
+        - { absoluteNumber: 1,  airedEpisode: 1,  releaseDate: 2018-10-03 }
         # … episodes 2–12 elided …
-        - { kind: TV_EPISODE, absoluteNumber: 13, airedEpisode: 13, releaseDate: 2018-12-27 }
+        - { absoluteNumber: 13, airedEpisode: 13, releaseDate: 2018-12-27 }
 
-    # ---- Movie, slotted AFTER S1 by releaseDate ----
-    - id: rascal-dreaming-girl
-      kind: MOVIE
-      titles:
-        english: "Rascal Does Not Dream of a Dreaming Girl"
-        romaji:  "Seishun Buta Yarō wa Yumemiru Shōjo no Yume wo Minai"
-      releaseDate: 2019-06-15
-      sourceRefs: { anilistId: 104157 }
-      timeline:
-        - { kind: MOVIE, absoluteNumber: 14, releaseDate: 2019-06-15 }
-
-    # ---- Movie ----
-    - id: rascal-sister-venturing-out
-      kind: MOVIE
-      titles:
-        english: "Rascal Does Not Dream of a Sister Venturing Out"
-        romaji:  "Seishun Buta Yarō wa Odekake Sister no Yume wo Minai"
-      releaseDate: 2023-06-23
-      sourceRefs: { anilistId: 143653 }     # illustrative
-      timeline:
-        - { kind: MOVIE, absoluteNumber: 15, releaseDate: 2023-06-23 }
-
-    # ---- TV Season 2, slotted AFTER the movies by releaseDate ----
-    - id: rascal-season-2
+    - id: rascal-season-2                     # TV Season 2 — airs AFTER the movies
       kind: TV
       titles:
         english: "Rascal Does Not Dream (Season 2)"
         romaji:  "Seishun Buta Yarō (Season 2)"
       airedSeason: 2
-      releaseDate: 2025-07-05               # illustrative
-      sourceRefs: { anilistId: 162804 }     # illustrative
-      timeline:
-        - { kind: TV_EPISODE, absoluteNumber: 16, airedEpisode: 1, releaseDate: 2025-07-05 }
-        # … further Season 2 episodes continue 17, 18, … …
+      releaseDate: 2025-07-05                 # illustrative
+      sourceRefs: { anilistId: 162804 }       # illustrative
+      episodes:
+        - { absoluteNumber: 16, airedEpisode: 1, releaseDate: 2025-07-05 }
+        # … Season 2 continues 17, 18, … …
+
+  movies:
+    - id: rascal-dreaming-girl                # original film → own slot
+      titles:
+        english: "Rascal Does Not Dream of a Dreaming Girl"
+        romaji:  "Seishun Buta Yarō wa Yumemiru Shōjo no Yume wo Minai"
+      releaseDate: 2019-06-15
+      sourceRefs: { anilistId: 104157 }
+      absoluteNumber: 14
+
+    - id: rascal-sister-venturing-out         # original film → own slot
+      titles:
+        english: "Rascal Does Not Dream of a Sister Venturing Out"
+        romaji:  "Seishun Buta Yarō wa Odekake Sister no Yume wo Minai"
+      releaseDate: 2023-06-23
+      sourceRefs: { anilistId: 143653 }       # illustrative
+      absoluteNumber: 15
 ```
 
-### 2.3 The resulting watch order
+### 2.1 The resulting watch order
 
-| `absoluteNumber` | series (kind) | `airedSeason` | local # | release |
+| `absoluteNumber` | member (kind) | `airedSeason` | local # | release |
 |:--:|---|:--:|:--:|---|
 | 1 | Bunny Girl Senpai (TV) | 1 | E1 | 2018-10-03 |
 | … | Bunny Girl Senpai (TV) | 1 | … | … |
 | 13 | Bunny Girl Senpai (TV) | 1 | E13 | 2018-12-27 |
-| 14 | Dreaming Girl (MOVIE) | — | — | 2019-06-15 |
-| 15 | Sister Venturing Out (MOVIE) | — | — | 2023-06-23 |
+| 14 | Dreaming Girl (movie) | — | — | 2019-06-15 |
+| 15 | Sister Venturing Out (movie) | — | — | 2023-06-23 |
 | 16 | Season 2 (TV) | 2 | E1 | 2025-07-05 |
 | … | Season 2 (TV) | 2 | … | … |
 
-Sorting by `absoluteNumber` yields the franchise watch order. The two TV seasons get
-a **continuous** absolute count even though each restarts its own `airedEpisode` at
-1, and the movies fall into place by `releaseDate` — including a **TV season that
-airs after the movies**, exactly the sort AniList alone cannot produce.
+Two TV seasons get a **continuous** absolute count even though each restarts its
+`airedEpisode` at 1, and the original movies interleave by `releaseDate` — including
+a TV season that airs *after* the movies.
 
-## 3. Example B — Demon Slayer (the dedup case)
+## 3. Example B — Demon Slayer (alt-cut film + standalone movies)
 
-Demon Slayer stresses a different part of the model: **the same story content ships
-twice** — *Mugen Train* was a 2020 theatrical movie, then re-cut into a 7-episode TV
-series in 2021. The model must pick one canonical `AnimeSeries` so the arc isn't
-double-counted.
+Demon Slayer exercises all three hard cases at once.
 
-### 3.1 The AniList view (locally numbered, content overlaps)
-
-| AniList node | kind | local numbering | release | note |
-|---|---|---|---|---|
-| *Kimetsu no Yaiba* (TV S1) | TV, 26 eps | **1–26** | 2019-04 | AniList 101922 |
-| *Mugen Train* (movie) | Movie | — | 2020-10 | AniList 112151 |
-| *Mugen Train Arc* (TV) | TV, 7 eps | **1–7** | 2021-10 | **recompiles the movie** (142984) |
-| *Entertainment District Arc* | TV, 11 eps | **1–11** | 2021-12 | AniList 142329 |
-| *Swordsmith Village Arc* | TV, 11 eps | **1–11** | 2023-04 | AniList 145139 |
-| *Hashira Training Arc* | TV, 8 eps | **1–8** | 2024-05 | AniList 166240 |
-
-Two problems at once: (a) every series restarts at episode 1, and (b) *Mugen Train*
-appears as both a movie and a TV series covering the same events.
-
-### 3.2 As a `Franchise` record (movie is canonical; TV recompile suppressed)
+### 3.1 As a `Franchise` record
 
 ```yaml
 Franchise:
@@ -216,86 +182,132 @@ Franchise:
     romaji:  "Kimetsu no Yaiba"
     native:  "鬼滅の刃"
   series:
-    # ---- Season 1 (26 episodes) → absolute 1–26 ----
-    - id: demon-slayer-s1
+    - id: ds-s1                               # Season 1 → absolute 1–26
       kind: TV
       titles: { english: "Demon Slayer", romaji: "Kimetsu no Yaiba" }
       airedSeason: 1
       releaseDate: 2019-04-06
       sourceRefs: { anilistId: 101922 }
-      timeline:
-        - { kind: TV_EPISODE, absoluteNumber: 1,  airedEpisode: 1,  releaseDate: 2019-04-06 }
-        # … episodes 2–25 elided …
-        - { kind: TV_EPISODE, absoluteNumber: 26, airedEpisode: 26, releaseDate: 2019-09-28 }
+      episodes:
+        - { absoluteNumber: 1,  airedEpisode: 1,  releaseDate: 2019-04-06 }
+        # … through absoluteNumber 26 …
 
-    # ---- Mugen Train: the THEATRICAL MOVIE is the canonical carrier → absolute 27 ----
-    - id: demon-slayer-mugen-train-movie
-      kind: MOVIE
-      titles: { english: "Mugen Train", romaji: "Kimetsu no Yaiba: Mugen Ressha-hen" }
-      releaseDate: 2020-10-16
-      sourceRefs: { anilistId: 112151 }
-      timeline:
-        - { kind: MOVIE, absoluteNumber: 27, releaseDate: 2020-10-16 }
+    - id: ds-mugen-train-arc                  # Season 2, Part 1 → absolute 27–33
+      kind: TV                                #   THIS carries Mugen Train's numbers
+      titles: { english: "Mugen Train Arc", romaji: "Kimetsu no Yaiba: Mugen Ressha-hen" }
+      airedSeason: 2
+      part: 1
+      releaseDate: 2021-10-10
+      sourceRefs: { anilistId: 142984 }
+      episodes:
+        - { absoluteNumber: 27, airedEpisode: 1, releaseDate: 2021-10-10 }
+        # … through absoluteNumber 33 (7 episodes) …
 
-    # NOTE: the 2021 "Mugen Train Arc" TV series (AniList 142984) is the SAME content.
-    # It is dropped via franchise-overrides.yaml so the arc is counted once. Because
-    # the dedup is now an AnimeSeries-level decision, we simply omit that one series.
-
-    # ---- Entertainment District Arc (11 eps) → absolute 28–38 ----
-    - id: demon-slayer-entertainment-district
+    - id: ds-entertainment-district          # Season 2, Part 2 → absolute 34–44
       kind: TV
       titles: { english: "Entertainment District Arc", romaji: "Kimetsu no Yaiba: Yūkaku-hen" }
       airedSeason: 2
+      part: 2
       releaseDate: 2021-12-05
       sourceRefs: { anilistId: 142329 }
-      timeline:
-        - { kind: TV_EPISODE, absoluteNumber: 28, airedEpisode: 1, releaseDate: 2021-12-05 }
-        # … through absoluteNumber 38 …
+      episodes:
+        - { absoluteNumber: 34, airedEpisode: 1, releaseDate: 2021-12-05 }
+        # … through absoluteNumber 44 (11 episodes) …
 
-    # ---- Swordsmith Village (11) → 39–49, Hashira Training (8) → 50–57 ----
+    # … Swordsmith Village (S3) → 45–55, Hashira Training (S4) → 56–63 …
+
+  movies:
+    - id: ds-mugen-train-film                # ALTERNATE CUT — no absoluteNumber
+      titles: { english: "Mugen Train", romaji: "Kimetsu no Yaiba: Mugen Ressha-hen" }
+      releaseDate: 2020-10-16
+      sourceRefs: { anilistId: 112151 }
+      altCutOf: { seriesId: ds-mugen-train-arc, episodes: "1-7" }
+
+    - id: ds-infinity-castle-1               # ORIGINAL standalone trilogy — own slots
+      titles: { english: "Infinity Castle (Part 1)", romaji: "Mugen Jō-hen" }
+      releaseDate: 2025-07-18                 # illustrative
+      sourceRefs: { anilistId: 178680 }       # illustrative
+      absoluteNumber: 64
+    # … Infinity Castle Part 2 → 65, Part 3 → 66 …
 ```
 
-### 3.3 Why this exercises the model
+### 3.2 Why this exercises the model
 
 | Concern | How the model handles it |
 |---|---|
-| Series restart at episode 1 | `absoluteNumber` provides the continuous franchise count; `airedEpisode` keeps the local numbers |
-| Movie ↔ TV duplicate (*Mugen Train*) | Keep the `kind: MOVIE` series as canonical; **omit the recompiled TV `AnimeSeries`** via `franchise-overrides.yaml` (research note §5.3 step 4) |
-| Movie placement in watch order | `releaseDate: 2020-10-16` slots it between S1 (2019) and Entertainment District (2021) |
-| Which node to enrich (R2) | Each `AnimeSeries.sourceRefs.anilistId` — one per media node; the excluded recompile is simply not a member series |
+| **Mugen Train: film vs TV** | The **TV `ds-mugen-train-arc` carries episodes 27–33**; the film sets `altCutOf` and takes no absolute number — your "use the TV series, not the movie" rule |
+| **Standalone movies** (*Infinity Castle*) | First-class `Movie` entries with **no series**, each taking its own `absoluteNumber` (64, 65, 66) interleaved by `releaseDate` |
+| **Split-cour S2** | Mugen Train Arc (`part: 1`) and Entertainment District (`part: 2`) share `airedSeason: 2` but have distinct `part` + `releaseDate` (§4) |
+| **Seasons restart at episode 1** | `absoluteNumber` is the continuous count; `airedEpisode` keeps the local numbers |
 
-This dedup is a **curation override**, not something any upstream file decides for
-us — exactly the "thin franchise/ordering layer" the research note recommends owning
-(§5.5).
+> **Chronology note.** The *Mugen Train* film (2020) actually predates its TV cut
+> (2021). We still pick the TV series as the numbering carrier per the rule above; the
+> film stays reachable via `altCutOf`, so a *release-date* watch list can still surface
+> it. Which view (numbering vs release-date) wins is a per-app choice, not a data one.
 
-## 4. How these records get built
+## 4. Split-cour: "Part 1 / Part 2" in the same season
 
-Maps to the research note §5.3 pipeline, now producing three tiers:
+Many seasons air in two cours months — or years — apart, often as **separate AniList
+nodes** (e.g. *Attack on Titan: The Final Season* Parts 1–3 in 2020/2022/2023, *Re:Zero*
+Season 2 Parts 1–2 in 2020/2021, and Demon Slayer's S2 above).
 
-1. **Seed** the `Franchise` and its member `AnimeSeries` from
-   `anime-offline-database` clustering → which AniList media ids belong together
-   (one `AnimeSeries` per media id).
-2. **Order** each TV series' episodes from `anime-list.xml` offsets, then assign
-   franchise-wide `absoluteNumber` by walking `series[]` in watch order.
-3. **Add movies** as single-`TimelineEntry` `AnimeSeries`, interleaved by `releaseDate`.
-4. **Override** the gaps — *suppress Demon Slayer's Mugen Train TV recompile*, fix a
-   movie's slot, or correct an `airedSeason` label — in `franchise-overrides.yaml`.
-5. **Store** the resolved records next to the existing `internal/db/anime.go` schema.
-6. **Refresh** upstream files on a schedule; overrides always win.
+Each part is its **own `AnimeSeries`** — its own `anilistId`, `releaseDate`, and
+episode list — tagged with the **same `airedSeason`** and a distinct **`part`**:
 
-## 5. Open questions
+```yaml
+series:
+  - id: show-s2-part1
+    airedSeason: 2
+    part: 1
+    releaseDate: 2020-07-08
+    sourceRefs: { anilistId: 11111 }
+    episodes:
+      - { absoluteNumber: 51, airedEpisode: 1,  releaseDate: 2020-07-08 }
+      # … airedEpisode 1..13 …
+  - id: show-s2-part2
+    airedSeason: 2
+    part: 2
+    releaseDate: 2022-01-09          # different year
+    sourceRefs: { anilistId: 22222 }
+    episodes:
+      - { absoluteNumber: 64, airedEpisode: 1,  releaseDate: 2022-01-09 }
+      # … airedEpisode may continue (14..) or reset (1..) per the broadcast …
+```
 
-- **Movie absolute numbering** — do movies consume an `absoluteNumber` in the same
-  sequence as episodes (as shown), or live in a parallel movie index? Shown here as
-  one shared sequence so a single sort key drives the whole timeline.
-- **Recompiled series** — always prefer the movie as canonical, or prefer the TV
-  recompile when it adds footage (the *Mugen Train* TV cut has an extra episode)?
-  Currently a per-franchise override decision.
-- **`airedSeason` labeling** — when official "seasons" split or merge (Demon Slayer's
-  Mugen Train TV vs Entertainment District), the season index is itself an override
-  call. Above, Entertainment District is labelled season 2 with the recompile suppressed.
+Rules of thumb:
+
+- A **"season"** is the set of `AnimeSeries` sharing `airedSeason`; `part` orders them.
+- `airedEpisode` follows whatever the broadcast used (some split-cours continue the
+  count, some reset). `absoluteNumber` is unaffected — it always flows by release order.
+- **If the two parts are actually a single AniList node** (one media entry for both
+  cours), it's just **one `AnimeSeries`** whose episodes span two air windows — the
+  per-episode `releaseDate` already captures the gap, and `part` stays null.
+
+## 5. How these records get built
+
+Maps to the research note §5.3 pipeline:
+
+1. **Seed** the `Franchise`, its `series[]`, and `movies[]` from
+   `anime-offline-database` clustering — one `AnimeSeries`/`Movie` per AniList media id.
+2. **Order** each series' episodes from `anime-list.xml`, then assign franchise-wide
+   `absoluteNumber` across all episodes + original movies in release order.
+3. **Slot movies** from `anime-movieset-list.xml`: original films get a number;
+   films flagged as alternate cuts get `altCutOf` and no number.
+4. **Override** the judgement calls — alt-cut vs original, `airedSeason`/`part`
+   labels — in `franchise-overrides.yaml`.
+5. **Store** the resolved records next to `internal/db/anime.go`.
+6. **Refresh** upstream on a schedule; overrides always win.
+
+## 6. Open questions
+
+- **Original vs alternate-cut detection** — no open file flags this; it's a manual
+  `altCutOf` override per film. Acceptable, since it's rare.
+- **Do we need an explicit `Season` entity?** Today a season is implied by shared
+  `airedSeason`. A real entity would be warranted only if seasons need their own
+  titles/art beyond their parts.
+- **Numbering vs release-date order** — alt-cut films (Mugen Train) make these differ.
+  The data supports both; the app picks which to show.
 - **Franchise vs. AnimeSeries boundary** — for *Fate*-style umbrellas with several
-  distinct stories, where does one `AnimeSeries` end and another begin, and do we
-  ever need a level *above* `Franchise`?
-- **R3 `episodeTitle`** — left empty here; only populated if curated or sourced from a
+  distinct stories, do we ever need a level *above* `Franchise`?
+- **R3 `episodeTitle`** — empty here; only populated if curated or from a
   non-commercial build (research note §3.3).
