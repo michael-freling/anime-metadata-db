@@ -37,10 +37,11 @@ Franchise            brand umbrella; holds one or MANY Series (hence "franchise"
 Series               ONE storyline / continuity (Fate/stay night, Fate/Zero, Demon Slayer)
   id                 absoluteNumber is scoped to a Series, not the whole franchise
   titles             { english, romaji, native }
-  seasons[]          Season — the TV/OVA broadcasts of this storyline
+  seasons[]          Season — the numbered TV installments of this storyline
   movies[]           Movie — films belonging to this storyline
+  specials[]         Special — OVAs / ONAs / specials (side content, no seasonNumber)
 
-Season               ONE produced anime = one AniList media node (a TV cour / part / OVA)
+Season               ONE numbered TV installment = one AniList media node (a TV cour / part)
   id
   titles             { english, romaji, native }
   seasonNumber       int    the storyline's Nth season
@@ -63,12 +64,21 @@ Movie                ONE film = one AniList media node
   absoluteNumber     int?   original films only — their slot in the Series watch order
   altCutOf           { seasonId, episodes }?   set when a Season is the canonical
                                                numbering carrier for this film's content
+
+Special              ONE OVA / ONA / special = one AniList media node — side content
+  id                 NOT part of the numbered run, so it has NO seasonNumber
+  titles             { english, romaji, native }
+  format             OVA | ONA | SPECIAL
+  releaseDate        date
+  sourceRefs         { anilistId, … }
+  episodes[]         Episode    (an OVA series may have several; a one-shot has one)
+  absoluteNumber     int?   only if it's canon you want pinned into the watch order; usually null
 ```
 
 Read top to bottom: a **Franchise** (*Demon Slayer*) holds **Series** (storylines), a
-**Series** holds **Seasons** (one per produced anime) and **Movies**, and a **Season**
-holds **Episodes**. A single-story franchise like Demon Slayer is one `Franchise` →
-one `Series` → many `Season`s; *Fate* is one `Franchise` → many `Series`.
+**Series** holds **Seasons** (the numbered TV run), **Movies**, and **Specials** (OVAs),
+and a **Season** holds **Episodes**. A single-story franchise like Demon Slayer is one
+`Franchise` → one `Series` → many `Season`s; *Fate* is one `Franchise` → many `Series`.
 
 ### 1.1 Numbering rules
 
@@ -79,16 +89,20 @@ one `Series` → many `Season`s; *Fate* is one `Franchise` → many `Series`.
   **no** number — **the Season carries the numbers** (per-episode granularity).
 - **Split-cour:** Part 1 / Part 2 of a season are separate `Season`s sharing
   `seasonNumber`, differing by `part` + `releaseDate` (§4).
+- **OVAs / specials:** side content in `specials[]`, placed by `releaseDate` with **no
+  `seasonNumber`**; they take an `absoluteNumber` only when you want them pinned into the
+  canonical watch order (otherwise null).
 
 ### 1.2 Field reference (selected)
 
 | Field | Entity | Why it exists |
 |---|---|---|
-| `titles {english,romaji,native}` | Franchise / Series / Season / Movie | Multi-name display — *Bunny Girl Senpai* (en) vs *Seishun Buta Yarō* (romaji) |
+| `titles {english,romaji,native}` | Franchise / Series / Season / Movie / Special | Multi-name display — *Bunny Girl Senpai* (en) vs *Seishun Buta Yarō* (romaji) |
 | `series[]` | Franchise | The distinct storylines (1 for Demon Slayer, many for Fate) |
-| `seasons[]` / `movies[]` | Series | Members of a storyline, typed: TV anime vs films |
+| `seasons[]` / `movies[]` / `specials[]` | Series | Members of a storyline: numbered TV run, films, OVAs/specials |
 | `seasonNumber` / `part` | Season | Season index, and split-cour part within it (§4) |
-| `sourceRefs.anilistId` | Season / Movie | **The media id**, once per node — the R2 enrichment key |
+| `format` | Special | OVA / ONA / SPECIAL discriminator for side content |
+| `sourceRefs.anilistId` | Season / Movie / Special | **The media id**, once per node — the R2 enrichment key |
 | **`absoluteNumber`** | Episode / Movie | **The one field no free API gives us** — sort key within a Series |
 | `altCutOf` | Movie | Marks a film a Season numbers canonically |
 
@@ -260,7 +274,10 @@ interleaved by `releaseDate`.
 | 1–13 | Bunny Girl Senpai (Season) | 1 | 2018-10 … 12 |
 | 14 | Dreaming Girl (movie) | — | 2019-06-15 |
 | 15 | Sister Venturing Out (movie) | — | 2023-06-23 |
-| 16… | Season 2 | 2 | 2025-07 (illustrative) |
+| 16… | Rascal Does Not Dream of Santa Claus (Season) | 2 | 2025-07 (illustrative) |
+
+Season 2 is titled *Rascal Does Not Dream of Santa Claus* (romaji *Seishun Buta Yarō wa
+Santa Claus no Yume wo Minai*), carried in its `Season.titles`.
 
 Two seasons get a continuous absolute count even though each restarts `airedEpisode`
 at 1, and the original movies interleave by release date — including a season that airs
@@ -271,8 +288,9 @@ alt-cut and standalone-movie wrinkles.
 
 Maps to the research note §5.3 pipeline:
 
-1. **Seed** the `Franchise`, its `Series`, and each Series' `seasons[]`/`movies[]` from
-   `anime-offline-database` clustering — one node per AniList media id.
+1. **Seed** the `Franchise`, its `Series`, and each Series' `seasons[]`/`movies[]`/
+   `specials[]` from `anime-offline-database` clustering — one node per AniList media id,
+   bucketed by AniList `format` (TV → Season, MOVIE → Movie, OVA/ONA/SPECIAL → Special).
 2. **Order** each season's episodes from `anime-list.xml`, then assign `absoluteNumber`
    per Series across its episodes + original movies in release order.
 3. **Slot movies** from `anime-movieset-list.xml`: original films get a number;
@@ -289,6 +307,9 @@ Maps to the research note §5.3 pipeline:
   Modeled here as the latter.
 - **Single-story franchises** — Demon Slayer/Rascal have a `Franchise` wrapping exactly
   one `Series`. Acceptable boilerplate, or collapse the two when there's one storyline?
+- **OVA / special placement** — by `releaseDate` as side content (default, no
+  `seasonNumber`), or pinned into the watch order with an `absoluteNumber` via override
+  when an OVA is canon (e.g. a recap or a bridging episode)?
 - **Original vs alternate-cut detection** — no open file flags this; a manual `altCutOf`
   override per film.
 - **`seasonNumber` for parallel routes** — when seasons are alternate adaptations rather
