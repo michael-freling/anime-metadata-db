@@ -9,7 +9,8 @@ weight: 3
 **Date:** 2026-06-19
 **Author:** Michael Freling (with Claude Code)
 **Status:** Design input — companion to [Anime Series/Franchise Metadata Research](../anime-metadata-research/)
-**Related:** [Anime Series Data Model](../data-model-anime-series/) — the R1 spine this joins onto.
+**Related:** [Anime Series Data Model](../data-model-anime-series/) (the R1 spine) ·
+[Staff Data Model](../data-model-staff/) (voice actors + crew that `staffId` resolves to).
 
 Characters are **R2** enrichment (research note §2.1). Unlike the franchise hierarchy — a strict
 `Franchise → Series → Season → Episode` tree — a character cuts **across** it: the same character
@@ -105,9 +106,9 @@ every Fate work — so the default cast lives on the `Character` as `voiceActors
 overrides with its own `voiceActors[]`; otherwise it inherits the default.
 
 `staffId` references a **`Staff`** entity (voice actors + crew) keyed by its AniList staff id — its
-own R2 sub-model, many-to-many like characters, and a sibling doc not yet designed. We store the
-VA *association* (who voices whom, by language — a fact); the staff member's bio and photo are
-expression, fetched live.
+own R2 sub-model, many-to-many like characters; see the [Staff Data Model](../data-model-staff/).
+We store the VA *association* (who voices whom, by language — a fact); the staff member's bio and
+photo are expression, fetched live.
 
 > **No `role` field.** Main/supporting is an *editorial* per-media classification (AniList
 > contributors assign it), not a fact about the world, and it ships with the character payload we
@@ -209,5 +210,5 @@ Isekai Quartet) are simply the distinct Franchises of his appearances — derive
 - **Merge vs split identity** — the per-appearance `externalIds` override (§2.4) lets one
   `Character` span differing AniList ids, but *deciding* whether an alternate-form / what-if
   version is the same character is a curation call — what's the default policy?
-- **Staff sub-model** — `staffId` references a future `Staff` model (VAs + crew, many-to-many);
-  not designed yet. Until it exists, are VA links stored as raw AniList staff ids?
+- **Staff model** — `staffId` resolves to a node in the [Staff Data Model](../data-model-staff/)
+  (voice actors + crew, many-to-many). A `Studio` model (organizations, not people) is still future.
