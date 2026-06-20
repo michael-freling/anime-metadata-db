@@ -122,6 +122,12 @@ could seed membership from anime-offline-database relations — optional sugar, 
 Sources are **bulk files processed locally** — no per-anime API calls, so no rate limits. Scope is
 exactly the `overrides/*.yaml` files that exist (all, or one passed as an argument).
 
+**Build report.** Where the builder *guesses* (chiefly title language tagging — Part 8), it emits a
+**report of low-confidence decisions** — warnings on stdout plus an optional gitignored
+`build-report.yaml` (which synonym it chose as `original`, Latin titles it couldn't split into `en`
+vs `ja-Latn`). That's the review surface: you fix only the flagged cases with an override, instead of
+eyeballing every title.
+
 ---
 
 ## Part 5 — Repo layout
@@ -195,15 +201,21 @@ GraphQL client, no database driver — sources are bulk files, output is YAML.
 Settled during review:
 
 - **Characters & Staff source → Wikidata (CC0).** It's the one major source that's *freely
-  redistributable* and models anime characters + voice actors, so it can ship as open data;
-  Wikipedia/DBpedia (CC BY-SA) is a secondary. AniList / MAL (Jikan) / AniDB / Kitsu / TMDB don't grant
-  redistribution — they stay **runtime-only** (the app may fetch them live for display, storing
-  nothing). Wikidata gaps are filled by hand-authored overrides. (Built in a later iteration — see the
-  [Characters & Staff Data Model](../data-model-characters-staff/).)
-- **Title auto-fill → fill what's script-detectable, author the rest.** anime-offline-database gives a
-  main `title` + *untagged* `synonyms`, so the builder fills `original` from the CJK/native-script
-  synonym and keeps the dump's `title` as a Latin name; precise `translations` (`en` vs `ja-Latn` vs
-  `ko`) are best-effort by script, and overrides correct what the heuristics get wrong.
+  redistributable* and models anime characters + voice actors — and it's **structured (SPARQL/JSON), so
+  it's the easy one to consume**. It would be a builder **source adapter** (pulled by `init`/`refresh`
+  like the others), *not* a separate command. Wikipedia/DBpedia (CC BY-SA) are a **noisy last resort** —
+  prose / messy infobox extraction, plus share-alike obligations — so prefer Wikidata and hand-author
+  the long-tail gaps. AniList / MAL (Jikan) / AniDB / Kitsu / TMDB don't grant redistribution — they
+  stay **runtime-only** (the app may fetch them live for display, storing nothing). (Built in a later
+  iteration — see the [Characters & Staff Data Model](../data-model-characters-staff/).)
+- **Title auto-fill → auto-fill + report + override** (not hand-author every title). The builder fills
+  `original` from the CJK/native-script synonym and keeps the dump's `title` as a Latin name; precise
+  `translations` (`en` vs `ja-Latn` vs `ko`) are best-effort by script. It **reports** the low-confidence
+  guesses (Part 4) and a `title` set in `overrides/` **wins** — so you review only the flagged cases.
+- **Claude-assisted authoring (idea).** For the messy long-tail Wikidata won't cover, a Claude Code
+  **slash command** could extract a title's cast from Wikipedia and *propose* `overrides/` YAML for a
+  human to review — an **authoring aid that produces overrides**, kept separate from the deterministic
+  `builder build`. Worth building once the characters dataset starts.
 - **Incremental vs full → `build` (incremental, add new) + `refresh` (rebuild all)** — Part 3.
 - **Source pinning & drift → `refresh`** bumps pins + checksums and rebuilds (run on a schedule);
   `init` stays pinned/reproducible — Part 3.
