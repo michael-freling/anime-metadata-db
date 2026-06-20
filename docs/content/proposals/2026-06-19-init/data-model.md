@@ -66,7 +66,8 @@ Movie                  ONE film = one AniList media node
   releaseDate          date
   sourceRefs           { anilistId, … }
   absoluteNumber       int?   original films in an ABSOLUTE-ordered Series — its slot in watch order
-  altCutOf             { seasonId, episodes }?   set when a Season carries this film's numbers
+  altCutOf             { seasonId, episodes }?   "alternate cut of" — set when a TV Season, not this
+                                               film, is the canonical numbering carrier for the content
 
 Special                ONE OVA / ONA / special = one AniList media node — side content
   id                   NOT part of the numbered run, so it has NO seasonNumber
@@ -131,7 +132,7 @@ Series is a separate concern handled by the franchise's `watchOrders` (§7) — 
 | `seasonNumber` / `part` | Season | Season index, and split-cour part within it (§5) |
 | `sourceRefs.anilistId` | Season / Movie / Special | **The media id**, once per node — the R2 enrichment key |
 | **`absoluteNumber`** | Episode / Movie | **The one field no free API gives us** — sort key in an ABSOLUTE Series |
-| `altCutOf` | Movie | Marks a film a Season numbers canonically |
+| `altCutOf` | Movie | "Alternate cut of" — links a film to the Season that carries its numbers |
 
 The model **stores facts** (ids, numbers, dates, our `absoluteNumber`) and **fetches
 expression** (synopsis, art, stills) live (research note §5.1a).
@@ -373,11 +374,11 @@ Maps to the research note §5.3 pipeline:
   (`watchOrders`) are two mechanisms. Keep both — number as the cheap materialized path,
   watch order as the curated one — or express everything as watch orders? Kept separate
   here so the common case stays a simple integer sort.
-- **Picking the order** — release is the default; do users opt into a stored alternate
-  (chronological) per session, and is that a catalog-wide setting or a per-user preference?
-- **Original vs alternate-cut detection** — no open file flags this; a manual `altCutOf`
-  override per film.
-- **OVA / special placement** — by `releaseDate` as side content (default), or pinned
-  into the watch order with an `absoluteNumber` via override when an OVA is canon?
-- **R3 `episodeTitle`** — empty here; only populated if curated or from a non-commercial
-  build (research note §3.3).
+- **Picking the order** (product/UX, not data) — release is the default; do users opt into
+  a stored alternate (chronological) per session, and is that catalog-wide or per-user?
+
+Settled during design (no longer open): **OVA / special placement** — the model already
+supports both, side content by `releaseDate` or pinned with an `absoluteNumber` (§1);
+**original vs alternate-cut** — decided as a hand-authored `altCutOf` per film (§4), since
+no open file provides it; **R3 `episodeTitle`** — an optional field, with the sourcing gap
+documented in research note §3.3.
