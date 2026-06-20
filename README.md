@@ -59,5 +59,5 @@ go test -tags e2e -run E2E ./...                       # e2e: downloads the real
 
 CI runs golangci-lint v2 and the test suite with a > 95% coverage gate
 (`.github/workflows/go.yml`). The build-tagged e2e tests download the live
-open-data sources and run on a schedule and on pushes to `main`
-(`.github/workflows/e2e.yml`), guarding against upstream source/URL drift.
+open-data sources and run on every PR (`.github/workflows/e2e.yml`), guarding
+against upstream source/URL drift.
