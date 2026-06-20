@@ -1,0 +1,17 @@
+sources:
+    animeList:
+        url: https://raw.githubusercontent.com/Anime-Lists/anime-lists/master/anime-list-master.xml
+        version: master
+        filename: anime-list.xml
+    movieSetList:
+        url: https://raw.githubusercontent.com/Anime-Lists/anime-lists/master/anime-movieset-list.xml
+        version: master
+        filename: anime-movieset-list.xml
+    offlineDatabase:
+        url: https://raw.githubusercontent.com/manami-project/anime-offline-database/master/anime-offline-database-minified.json
+        version: master
+        filename: anime-offline-database.json
+settings:
+    sourcesDir: .sources
+    overridesDir: overrides
+    dataDir: data

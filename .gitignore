@@ -27,6 +27,11 @@ go.work.sum
 # env file
 .env
 
+# builder: downloaded open-data source cache (pulled by `builder init`) and the
+# optional low-confidence build report. The pinned data/ output IS committed.
+.sources/
+build-report.yaml
+
 # Editor/IDE
 # .idea/
 # .vscode/

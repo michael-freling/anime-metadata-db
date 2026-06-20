@@ -1,0 +1,29 @@
+# Authored override (Demon Slayer) — see docs/proposals "Build CLI Design".
+# Holds only the structure + decisions the open sources cannot express. The
+# builder fills facts (titles, dates, episode counts) and computes
+# absoluteNumber, writing the resolved record to data/. Never hand-edit data/.
+series:
+  id: demon-slayer
+  seasons:
+    - id: ds-s1
+      number: 1
+      externalIds: { anilistId: 101922 }
+    - id: ds-mugen-train-arc # carries Mugen Train's numbering
+      titles: { translations: { en: Mugen Train Arc } }
+      number: 2
+      part: 1
+      externalIds: { anilistId: 142984 }
+    - id: ds-entertainment-district
+      titles: { translations: { en: Entertainment District Arc } }
+      number: 2
+      part: 2
+      externalIds: { anilistId: 142329 }
+  movies:
+    # Alternate cut of the Mugen Train Arc season — takes no absoluteNumber.
+    - id: ds-mugen-train-film
+      titles: { translations: { en: Mugen Train } }
+      externalIds: { anilistId: 112151 }
+      alternateCutOf: { seasonId: ds-mugen-train-arc, episodes: "1-7" }
+# Demon Slayer is one linear storyline, so its episodes carry a continuous
+# absoluteNumber across the seasons.
+numbered: [demon-slayer]

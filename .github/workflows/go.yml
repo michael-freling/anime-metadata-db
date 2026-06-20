@@ -1,0 +1,73 @@
+name: Go
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+env:
+  GOLANGCI_LINT_VERSION: v2.6.0
+  # Minimum total test coverage (percent) required to pass CI.
+  COVERAGE_THRESHOLD: "95"
+
+jobs:
+  lint:
+    name: golangci-lint v2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: stable
+
+      - name: Install golangci-lint
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
+            | sh -s -- -b "${{ runner.temp }}/golangci" "${GOLANGCI_LINT_VERSION}"
+
+      - name: Lint
+        run: "${{ runner.temp }}/golangci/golangci-lint run ./..."
+
+  test:
+    name: Test & coverage (>${{ env.COVERAGE_THRESHOLD }}%)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: stable
+
+      - name: Verify formatting
+        run: |
+          unformatted="$(gofmt -l .)"
+          if [ -n "$unformatted" ]; then
+            echo "::error::These files are not gofmt-formatted:"
+            echo "$unformatted"
+            exit 1
+          fi
+
+      - name: Run tests with coverage
+        run: |
+          go test -race -covermode=atomic -coverpkg=./... -coverprofile=coverage.out ./...
+
+      - name: Enforce coverage threshold
+        run: |
+          total="$(go tool cover -func=coverage.out | awk '/^total:/ {print $3}' | tr -d '%')"
+          echo "Total coverage: ${total}%"
+          awk -v total="$total" -v min="${COVERAGE_THRESHOLD}" 'BEGIN {
+            if (total+0 > min+0) {
+              printf "Coverage %.1f%% exceeds the %s%% threshold.\n", total, min
+              exit 0
+            }
+            printf "::error::Coverage %.1f%% does not exceed the required %s%%.\n", total, min
+            exit 1
+          }'

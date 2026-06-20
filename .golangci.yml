@@ -1,0 +1,39 @@
+# golangci-lint v2 configuration.
+# Docs: https://golangci-lint.run/usage/configuration/
+version: "2"
+
+run:
+  timeout: 5m
+
+linters:
+  # Start from the curated standard set (errcheck, govet, ineffassign,
+  # staticcheck, unused) and add a few high-signal extras.
+  default: standard
+  enable:
+    - revive
+    - misspell
+    - unconvert
+    - gocritic
+  settings:
+    errcheck:
+      # Writes to the user-facing output writer are best-effort.
+      exclude-functions:
+        - fmt.Fprint
+        - fmt.Fprintf
+        - fmt.Fprintln
+  exclusions:
+    generated: lax
+    rules:
+      # Test files may skip error checks on helpers and use dot-style fixtures.
+      - path: _test\.go
+        linters:
+          - errcheck
+
+formatters:
+  enable:
+    - gofmt
+    - goimports
+  settings:
+    goimports:
+      local-prefixes:
+        - github.com/michael-freling/anime-metadata-db
