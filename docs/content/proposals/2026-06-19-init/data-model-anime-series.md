@@ -35,20 +35,20 @@ This note refines the flat `Franchise` / `TimelineEntry` sketch from §5.2 of th
 ```text
 Franchise (OPTIONAL)   groups related Series under one brand — present only when there are several
   id
-  titles               { english, romaji, native }
+  titles               { english, romanized, original }
   series[]             Series
   watchOrders[]        WatchOrder — curated alternate orders, e.g. chronological (§2.5); release is the default
 
 Series                 the base unit: ONE storyline / continuity (Demon Slayer, Fate/Zero)
   id
-  titles               { english, romaji, native }
+  titles               { english, romanized, original }
   seasons[]            Season — the numbered TV installments of this storyline
   movies[]             Movie — films belonging to this storyline
   specials[]           Special — OVAs / ONAs / specials (side content, no season number)
 
 Season                 ONE numbered TV installment = one AniList media node (a TV cour / part)
   id
-  titles               { english, romaji, native }
+  titles               { english, romanized, original }
   number               int    the storyline's Nth season
   part                 int?   split-cour index within the season (1, 2, …); null if one part
   releaseDate          date
@@ -65,7 +65,7 @@ Episode                ONE TV episode
 
 Movie                  ONE film = one AniList media node
   id
-  titles               { english, romaji, native }
+  titles               { english, romanized, original }
   releaseDate          date
   releaseYear          int
   externalIds          { anilistId, … }
@@ -75,7 +75,7 @@ Movie                  ONE film = one AniList media node
 
 Special                ONE OVA / ONA / special = one AniList media node — side content
   id                   NOT part of the numbered run, so it has NO season number
-  titles               { english, romaji, native }
+  titles               { english, romanized, original }
   format               OVA | ONA | SPECIAL
   releaseDate          date
   releaseYear          int
@@ -100,7 +100,7 @@ holds **Episodes**.
 |---|---|---|
 | `series[]` | Franchise (optional) | The distinct storylines of a multi-story brand (Gundam, Fate) |
 | `watchOrders[]` | Franchise | Curated alternate orders across its Series, e.g. chronological (release is the default) — §2.5 |
-| `titles {english,romaji,native}` | all named entities | *Bunny Girl Senpai* (en) vs *Seishun Buta Yarō* (romaji) |
+| `titles {english,romanized,original}` | all named entities | English title · romanized (Latin script) · original (native script) — e.g. *Demon Slayer* / *Kimetsu no Yaiba* / 鬼滅の刃 |
 | `seasons[]` / `movies[]` / `specials[]` | Series | Members: numbered TV run, films, OVAs/specials |
 | `number` / `part` | Season | Season index, and split-cour part within it (§2.3) |
 | `releaseYear` / `releaseSeason` | Season | The airing "season" — e.g. Spring 2012; a primary browse axis (§2.4) |
@@ -231,7 +231,7 @@ each numbering on its own. This is *why* `Franchise` exists.
 ```yaml
 Franchise:                                   # present only because Gundam has many storylines
   id: gundam
-  titles: { english: "Gundam", romaji: "Gundam" }
+  titles: { english: "Gundam", romanized: "Gundam" }
   series:
     - id: gundam-uc                          # Universal Century — one big linear continuity
       titles: { english: "Mobile Suit Gundam (Universal Century)" }
@@ -259,7 +259,7 @@ across Wing and SEED. The `Franchise` is grouping + titling only. (Other brands 
 ```yaml
 Franchise:
   id: fate
-  titles: { english: "Fate", native: "フェイト" }
+  titles: { english: "Fate", original: "フェイト" }
   series:
     - id: fate-stay-night
       titles: { english: "Fate/stay night" }
@@ -302,7 +302,7 @@ It exercises alternate-cut films, split-cour, and standalone movies.
 ```yaml
 Series:
   id: demon-slayer
-  titles: { english: "Demon Slayer: Kimetsu no Yaiba", romaji: "Kimetsu no Yaiba", native: "鬼滅の刃" }
+  titles: { english: "Demon Slayer: Kimetsu no Yaiba", romanized: "Kimetsu no Yaiba", original: "鬼滅の刃" }
   seasons:
     - id: ds-s1                               # → absolute 1–26
       number: 1
@@ -338,7 +338,7 @@ Series:
       externalIds: { anilistId: 112151 }
       alternateCutOf: { seasonId: ds-mugen-train-arc, episodes: "1-7" }
     - id: ds-infinity-castle-1                # ORIGINAL standalone trilogy → own slots
-      titles: { english: "Infinity Castle (Part 1)", romaji: "Mugen Jō-hen" }
+      titles: { english: "Infinity Castle (Part 1)", romanized: "Mugen Jō-hen" }
       releaseDate: 2025-07-18                  # illustrative
       externalIds: { anilistId: 178680 }        # illustrative
       absoluteNumber: 64
@@ -367,7 +367,7 @@ by `releaseDate`.
 | 15 | Sister Venturing Out (movie) | — | 2023-06-23 |
 | 16… | Rascal Does Not Dream of Santa Claus (Season) | 2 | 2025 (illustrative) |
 
-Season 2 is *Rascal Does Not Dream of Santa Claus* (romaji *Seishun Buta Yarō wa Santa Claus no
+Season 2 is *Rascal Does Not Dream of Santa Claus* (romanized *Seishun Buta Yarō wa Santa Claus no
 Yume wo Minai*). Two seasons get a continuous absolute count even though each restarts
 `airedNumber` at 1, and the movies interleave by release date.
 
