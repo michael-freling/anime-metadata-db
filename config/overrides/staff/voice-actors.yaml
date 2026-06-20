@@ -1,7 +1,0 @@
-# Authored staff (voice actors). Global, shared across series; names filled from
-# Wikidata (CC0). The build never accesses AniList/MAL (runtime-only).
-staff:
-  - id: ayako-kawasumi
-    externalIds: { wikidataId: Q49566 }
-  - id: natsuki-hanae
-    externalIds: { wikidataId: Q2596113 }

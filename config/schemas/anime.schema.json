@@ -9,7 +9,6 @@
   "properties": {
     "franchise": { "$ref": "#/$defs/franchise" },
     "series": { "$ref": "#/$defs/series" },
-    "characters": { "type": "array", "items": { "$ref": "#/$defs/character" } },
     "numbered": {
       "type": "array",
       "items": { "type": "string", "minLength": 1 }
@@ -147,7 +146,8 @@
         "titles": { "$ref": "#/$defs/title" },
         "seasons": { "type": "array", "items": { "$ref": "#/$defs/season" } },
         "movies": { "type": "array", "items": { "$ref": "#/$defs/movie" } },
-        "specials": { "type": "array", "items": { "$ref": "#/$defs/special" } }
+        "specials": { "type": "array", "items": { "$ref": "#/$defs/special" } },
+        "characters": { "type": "array", "items": { "$ref": "#/$defs/character" } }
       }
     },
     "franchise": {
@@ -165,7 +165,8 @@
         "watchOrders": {
           "type": "array",
           "items": { "$ref": "#/$defs/watchOrder" }
-        }
+        },
+        "characters": { "type": "array", "items": { "$ref": "#/$defs/character" } }
       }
     },
     "voiceActor": {

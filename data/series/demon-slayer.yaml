@@ -223,19 +223,19 @@ series:
         anilistId: 178788
         anidbId: 18699
       absoluteNumber: 64
-characters:
-  - id: tanjiro-kamado
-    names:
-      original: 竈門炭治郎
-      translations:
-        en: Tanjirō Kamado
-        ja: 竈門炭治郎
-    externalIds:
-      wikidataId: Q85805158
-    voiceActors:
-      - staffId: natsuki-hanae
-        language: ja
-    appearances:
-      - seriesId: demon-slayer
-        scope:
-          - seasonId: demon-slayer-s1
+  characters:
+    - id: tanjiro-kamado
+      names:
+        original: 竈門炭治郎
+        translations:
+          en: Tanjirō Kamado
+          ja: 竈門炭治郎
+      externalIds:
+        wikidataId: Q85805158
+      voiceActors:
+        - staffId: natsuki-hanae
+          language: ja
+      appearances:
+        - seriesId: demon-slayer
+          scope:
+            - seasonId: demon-slayer-s1

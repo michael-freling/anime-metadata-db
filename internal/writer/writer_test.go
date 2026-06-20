@@ -111,7 +111,7 @@ func TestWriteStaffIfChanged(t *testing.T) {
 
 func TestMarshalRecordWithCharacters(t *testing.T) {
 	rec := sampleRecord()
-	rec.Characters = []model.Character{{
+	rec.Series.Characters = []model.Character{{
 		ID:          "tanjiro",
 		Names:       model.Title{Original: "竈門炭治郎"},
 		Appearances: []model.CharacterAppearance{{SeriesID: "demon-slayer"}},

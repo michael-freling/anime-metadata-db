@@ -12,22 +12,22 @@ const staffYAML = `staff:
     externalIds: { wikidataId: Q49566 }
 `
 
-// mergedSeriesYAML is a series file with co-located cast (R1 + characters).
+// mergedSeriesYAML is a series file with its cast nested under the series.
 const mergedSeriesYAML = `series:
   id: demon-slayer
   seasons:
     - id: ds-s1
       number: 1
       externalIds: { anilistId: 101922 }
-characters:
-  - id: tanjiro-kamado
-    externalIds: { wikidataId: Q85805158 }
-    voiceActors:
-      - { staffId: natsuki-hanae, language: ja }
-    appearances:
-      - seriesId: demon-slayer
-        scope:
-          - { seasonId: ds-s1 }
+  characters:
+    - id: tanjiro-kamado
+      externalIds: { wikidataId: Q85805158 }
+      voiceActors:
+        - { staffId: natsuki-hanae, language: ja }
+      appearances:
+        - seriesId: demon-slayer
+          scope:
+            - { seasonId: ds-s1 }
 `
 
 func TestParseStaff(t *testing.T) {
@@ -61,8 +61,8 @@ func TestParseMergedSeriesWithCharacters(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if o.ID() != "demon-slayer" || len(o.Characters) != 1 {
-		t.Fatalf("unexpected: id=%q characters=%d", o.ID(), len(o.Characters))
+	if o.ID() != "demon-slayer" || len(o.Cast()) != 1 {
+		t.Fatalf("unexpected: id=%q characters=%d", o.ID(), len(o.Cast()))
 	}
 	ids := o.IDs()
 	if len(ids) != 2 || ids[0] != "demon-slayer" || ids[1] != "tanjiro-kamado" {
@@ -71,7 +71,7 @@ func TestParseMergedSeriesWithCharacters(t *testing.T) {
 }
 
 func TestParseMergedCharacterNoID(t *testing.T) {
-	bad := "series:\n  id: x\ncharacters:\n  - externalIds: { wikidataId: Q1 }\n"
+	bad := "series:\n  id: x\n  characters:\n    - externalIds: { wikidataId: Q1 }\n"
 	if _, err := Parse([]byte(bad), "x.yaml"); err == nil {
 		t.Error("expected error for character without id")
 	}
@@ -89,7 +89,7 @@ func TestLoadDirRoutesByKind(t *testing.T) {
 	if len(bundle.Series) != 1 || len(bundle.Staff) != 1 {
 		t.Fatalf("expected 1 series + 1 staff, got %d + %d", len(bundle.Series), len(bundle.Staff))
 	}
-	if len(bundle.Series[0].Characters) != 1 {
+	if len(bundle.Series[0].Cast()) != 1 {
 		t.Errorf("series should carry its characters")
 	}
 }

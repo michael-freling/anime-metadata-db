@@ -17,27 +17,24 @@ import (
 )
 
 // e2eOverride is a minimal numbered series referencing a stable, popular AniList
-// id (Demon Slayer season 1) that is present in the real offline database.
+// id (Demon Slayer season 1) present in the real offline database, with a
+// nested character whose real Wikidata QIDs exercise the live Wikidata fetch.
 const e2eOverride = `series:
   id: demon-slayer
   seasons:
     - id: demon-slayer-s1
       number: 1
       externalIds: { anilistId: 101922 }
+  characters:
+    - id: tanjiro-kamado
+      externalIds: { wikidataId: Q85805158 }
+      voiceActors:
+        - { staffId: natsuki-hanae, language: ja }
+      appearances:
+        - seriesId: demon-slayer
+          scope:
+            - { seasonId: demon-slayer-s1 }
 numbered: [demon-slayer]
-`
-
-// e2eCast is the character section appended to the series file, with real
-// Wikidata QIDs (Tanjirō Kamado), exercising the live Wikidata fetch + R2 build.
-const e2eCast = `characters:
-  - id: tanjiro-kamado
-    externalIds: { wikidataId: Q85805158 }
-    voiceActors:
-      - { staffId: natsuki-hanae, language: ja }
-    appearances:
-      - seriesId: demon-slayer
-        scope:
-          - { seasonId: demon-slayer-s1 }
 `
 
 // e2eStaff is the global staff file (Tanjirō's voice actor).
@@ -58,8 +55,8 @@ const e2eStaff = `staff:
 // coverage gate); invoke it explicitly with `go test -tags e2e ./...`.
 func TestE2EInitAndBuild(t *testing.T) {
 	dir := t.TempDir()
-	writeFileE2E(t, filepath.Join(dir, "config", "overrides", "series", "demon-slayer.yaml"), e2eOverride+e2eCast)
-	writeFileE2E(t, filepath.Join(dir, "config", "overrides", "staff", "voice-actors.yaml"), e2eStaff)
+	writeFileE2E(t, filepath.Join(dir, "config", "overrides", "series", "demon-slayer.yaml"), e2eOverride)
+	writeFileE2E(t, filepath.Join(dir, "config", "overrides", "staff", "japanese-voice-actors.yaml"), e2eStaff)
 
 	var out bytes.Buffer
 	// A real HTTP client, with a timeout so a stall fails instead of hanging.
@@ -105,7 +102,7 @@ func TestE2EInitAndBuild(t *testing.T) {
 			t.Errorf("series data missing cast %q (Wikidata fetch/build broken?):\n%s", want, got)
 		}
 	}
-	staff, err := os.ReadFile(filepath.Join(dir, cfg.Settings.DataDir, "staff", "voice-actors.yaml"))
+	staff, err := os.ReadFile(filepath.Join(dir, cfg.Settings.DataDir, "staff", "japanese-voice-actors.yaml"))
 	if err != nil {
 		t.Fatalf("staff data not written: %v", err)
 	}

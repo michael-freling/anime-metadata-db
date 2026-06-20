@@ -195,6 +195,8 @@ type Series struct {
 	Seasons  []Season  `yaml:"seasons,omitempty"`
 	Movies   []Movie   `yaml:"movies,omitempty"`
 	Specials []Special `yaml:"specials,omitempty"`
+	// Characters is the cast nested under this standalone series (R2).
+	Characters []Character `yaml:"characters,omitempty"`
 }
 
 // WatchOrderEntry is one ordered reference within a WatchOrder.
@@ -216,15 +218,17 @@ type Franchise struct {
 	Titles      Title        `yaml:"titles,omitempty"`
 	Series      []Series     `yaml:"series"`
 	WatchOrders []WatchOrder `yaml:"watchOrders,omitempty"`
+	// Characters is the cast nested under this franchise (R2). Franchise-level
+	// because a character spans the franchise's series.
+	Characters []Character `yaml:"characters,omitempty"`
 }
 
 // Record is one generated dataset file: a Franchise or Series (R1 structure)
-// together with the Characters (R2) co-located with it. It is the canonical
-// output shape the writer emits into data/series/.
+// with its cast (R2) nested inside it. It is the canonical output shape the
+// writer emits into data/series/.
 type Record struct {
-	Franchise  *Franchise  `yaml:"franchise,omitempty"`
-	Series     *Series     `yaml:"series,omitempty"`
-	Characters []Character `yaml:"characters,omitempty"`
+	Franchise *Franchise `yaml:"franchise,omitempty"`
+	Series    *Series    `yaml:"series,omitempty"`
 }
 
 // EachSeries calls fn for every Series in the record (the single standalone
@@ -238,4 +242,17 @@ func (r Record) EachSeries(fn func(*Series)) {
 			fn(&r.Franchise.Series[i])
 		}
 	}
+}
+
+// Cast returns the record's characters — nested under the franchise (for a
+// multi-series brand) or the standalone series. The returned slice shares the
+// record's backing array, so elements can be mutated in place.
+func (r Record) Cast() []Character {
+	switch {
+	case r.Franchise != nil:
+		return r.Franchise.Characters
+	case r.Series != nil:
+		return r.Series.Characters
+	}
+	return nil
 }

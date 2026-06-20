@@ -117,18 +117,35 @@ const StaffOverride = `staff:
     externalIds: { wikidataId: Q2596113 }
 `
 
-// DemonSlayerMerged is the Demon Slayer series file with its cast co-located:
-// DemonSlayerOverride plus a character whose VA links to the staff above and the
-// QIDs in WikidataJSON.
-const DemonSlayerMerged = DemonSlayerOverride + `characters:
-  - id: tanjiro-kamado
-    externalIds: { wikidataId: Q85805158 }
-    voiceActors:
-      - { staffId: natsuki-hanae, language: ja }
-    appearances:
-      - seriesId: demon-slayer
-        scope:
-          - { seasonId: ds-s1 }
+// DemonSlayerMerged is the Demon Slayer series file with its cast nested under
+// the series: a character whose VA links to the staff above and the QIDs in
+// WikidataJSON.
+const DemonSlayerMerged = `series:
+  id: demon-slayer
+  seasons:
+    - id: ds-s1
+      number: 1
+      externalIds: { anilistId: 101922 }
+    - id: ds-s2p1
+      number: 2
+      part: 1
+      externalIds: { anilistId: 142984 }
+  movies:
+    - id: ds-mugen-film
+      externalIds: { anilistId: 112151 }
+      alternateCutOf: { seasonId: ds-s2p1, episodes: "1-7" }
+    - id: ds-infinity
+      externalIds: { anilistId: 178680 }
+  characters:
+    - id: tanjiro-kamado
+      externalIds: { wikidataId: Q85805158 }
+      voiceActors:
+        - { staffId: natsuki-hanae, language: ja }
+      appearances:
+        - seriesId: demon-slayer
+          scope:
+            - { seasonId: ds-s1 }
+numbered: [demon-slayer]
 `
 
 // FakeFetcher serves the fixtures above by matching the request URL, with hooks

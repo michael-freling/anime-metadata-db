@@ -18,7 +18,7 @@ import (
 
 // Override is one authored series file. Exactly one of Franchise or Series is
 // set (a multi-storyline brand is a Franchise, a single storyline a standalone
-// Series), and Characters is the cast co-located with it.
+// Series); its cast is nested inside that franchise/series.
 type Override struct {
 	// Path is the file's path relative to the overrides directory, used to
 	// mirror the layout into the data directory. It is not serialised.
@@ -27,11 +27,6 @@ type Override struct {
 	Franchise *model.Franchise `yaml:"franchise,omitempty"`
 	Series    *model.Series    `yaml:"series,omitempty"`
 
-	// Characters are the cast for this series (R2). They are global entities;
-	// a character that spans franchises lives in its home series file and its
-	// appearances reference the other series by id.
-	Characters []model.Character `yaml:"characters,omitempty"`
-
 	// Numbered lists the ids of Series that form a single linear continuity, so
 	// the builder assigns a continuous absoluteNumber across them. It is an
 	// authoring directive consumed by the build; the generated data model
@@ -39,13 +34,25 @@ type Override struct {
 	Numbered []string `yaml:"numbered,omitempty"`
 }
 
+// Cast returns the characters nested under the franchise or series.
+func (o Override) Cast() []model.Character {
+	switch {
+	case o.Franchise != nil:
+		return o.Franchise.Characters
+	case o.Series != nil:
+		return o.Series.Characters
+	}
+	return nil
+}
+
 // IDs returns the franchise/series id plus every character id in the file.
 func (o Override) IDs() []string {
-	ids := make([]string, 0, 1+len(o.Characters))
+	cast := o.Cast()
+	ids := make([]string, 0, 1+len(cast))
 	if id := o.ID(); id != "" {
 		ids = append(ids, id)
 	}
-	for _, c := range o.Characters {
+	for _, c := range cast {
 		ids = append(ids, c.ID)
 	}
 	return ids
@@ -93,8 +100,8 @@ func (o Override) Validate() error {
 	default:
 		return fmt.Errorf("override %q: declares neither franchise nor series", o.Path)
 	}
-	for i := range o.Characters {
-		if o.Characters[i].ID == "" {
+	for _, c := range o.Cast() {
+		if c.ID == "" {
 			return fmt.Errorf("override %q: a character has no id", o.Path)
 		}
 	}
@@ -162,7 +169,7 @@ func detectKind(raw []byte, relPath string) (fileKind, error) {
 	case hasStructure:
 		return kindSeries, nil
 	case hasCharacters:
-		return 0, fmt.Errorf("override %q: characters must be in a series file (with a franchise or series)", relPath)
+		return 0, fmt.Errorf("override %q: characters must be nested under a franchise or series, not top-level", relPath)
 	default:
 		return 0, fmt.Errorf("override %q: no recognized top-level key (franchise, series or staff)", relPath)
 	}

@@ -132,7 +132,7 @@ func collectQIDs(bundle overrides.Bundle) []string {
 		}
 	}
 	for _, o := range bundle.Series {
-		for _, c := range o.Characters {
+		for _, c := range o.Cast() {
 			add(c.ExternalIDs.WikidataID)
 			for _, ap := range c.Appearances {
 				add(ap.ExternalIDs.WikidataID)
@@ -320,7 +320,7 @@ func (a *App) build(cfg config.Config, ids []string) error {
 	ctx := build.CharacterContext{R1: idx, Staff: staffIDs}
 	updated := 0
 	for _, s := range seriesOut {
-		if err := build.ValidateCharacters(s.rec.Characters, ctx); err != nil {
+		if err := build.ValidateCharacters(s.rec.Cast(), ctx); err != nil {
 			return fmt.Errorf("build %s: %w", s.o.ID(), err)
 		}
 		if matchesAny(filter, s.o.IDs()) {

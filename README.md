@@ -32,17 +32,18 @@ Facts come from openly-licensed, redistributable sources (AniList is **not** use
 
 ## Characters & staff (R2)
 
-A series' **cast** is co-located with it: the `characters:` list lives in the
-same `config/overrides/series/<id>.yaml` file as the structure (most characters
-belong to one series; a cross-franchise character lives in its home series file
-and its `appearances` reference the other series by id). **Staff** (voice actors)
-are global, so they live on their own under `config/overrides/staff/`.
+A series' **cast** is co-located with it: the `characters:` list is **nested
+under** the `franchise:`/`series:` in the same `config/overrides/series/<id>.yaml`
+file as the structure (most characters belong to one series; a cross-franchise
+character lives in its home file and its `appearances` reference the other series
+by id). **Staff** (voice actors) are global and grouped by language —
+`config/overrides/staff/japanese-voice-actors.yaml`, etc.
 
 You author the graph — who appears in which series (`appearances` → `seriesId`,
 optionally `scope`d to a season/movie/special), the voice-actor links
 (`voiceActors` → `staffId`), and each node's Wikidata `QID`. The builder fills
 **names** from Wikidata and validates every reference against the R1 ids,
-writing the cast into `data/series/<id>.yaml` and staff into `data/staff/`.
+nesting the cast into `data/series/<id>.yaml` and writing staff to `data/staff/`.
 
 Only **facts** are stored (ids, names, the appearance + voice-actor graph). The
 build never touches AniList/MAL; a consumer fetches *expression* (roles, bios,

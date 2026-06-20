@@ -37,16 +37,16 @@ series:
     - id: demon-slayer-infinity-castle-1
       titles: { translations: { en: Infinity Castle } }
       externalIds: { anilistId: 178788 } # Mugenjou-hen Movie 1 (2025)
+  # Cast (R2) nested under the series; names filled from Wikidata (CC0).
+  characters:
+    - id: tanjiro-kamado
+      externalIds: { wikidataId: Q85805158 }
+      voiceActors:
+        - { staffId: natsuki-hanae, language: ja }
+      appearances:
+        - seriesId: demon-slayer
+          scope:
+            - { seasonId: demon-slayer-s1 }
 # Demon Slayer is one linear storyline, so its episodes carry a continuous
 # absoluteNumber across the seasons (and the original film).
 numbered: [demon-slayer]
-# Cast (R2) co-located with the series.
-characters:
-  - id: tanjiro-kamado
-    externalIds: { wikidataId: Q85805158 }
-    voiceActors:
-      - { staffId: natsuki-hanae, language: ja }
-    appearances:
-      - seriesId: demon-slayer
-        scope:
-          - { seasonId: demon-slayer-s1 }

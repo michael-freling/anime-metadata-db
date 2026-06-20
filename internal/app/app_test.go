@@ -380,9 +380,19 @@ func TestBuildFilterWithCharacters(t *testing.T) {
 
 func TestBuildCharactersUnknownSeries(t *testing.T) {
 	dir := newRepo(t)
-	// A character (in a valid series file) whose appearance references a series
+	// A character (nested in a valid series) whose appearance references a series
 	// that doesn't exist.
-	merged := testsupport.DemonSlayerOverride + "characters:\n  - id: ghost-char\n    appearances:\n      - seriesId: no-such-series\n"
+	merged := `series:
+  id: demon-slayer
+  seasons:
+    - id: ds-s1
+      number: 1
+      externalIds: { anilistId: 101922 }
+  characters:
+    - id: ghost-char
+      appearances:
+        - seriesId: no-such-series
+`
 	writeFileAt(t, dir, "series/demon-slayer.yaml", merged)
 	a, _ := newApp(t, dir, testsupport.FakeFetcher{})
 	ctx := context.Background()
