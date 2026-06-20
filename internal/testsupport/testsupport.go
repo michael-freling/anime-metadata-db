@@ -141,10 +141,6 @@ const DemonSlayerMerged = `series:
       externalIds: { wikidataId: Q85805158 }
       voiceActors:
         - { staffId: natsuki-hanae, language: ja }
-      appearances:
-        - seriesId: demon-slayer
-          scope:
-            - { seasonId: ds-s1 }
 numbered: [demon-slayer]
 `
 

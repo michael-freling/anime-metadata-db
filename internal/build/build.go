@@ -65,13 +65,16 @@ func (b *Builder) Build(o overrides.Override) (model.Record, *Report, error) {
 		return model.Record{}, nil, err
 	}
 
-	// Fill the nested cast's names from Wikidata. Appearance/VA references are
-	// validated in a second pass (ValidateCharacters), once the full R1 id
-	// universe is known across all files.
+	// Fill the nested cast's names from Wikidata and default each character's
+	// appearance to its enclosing series. Appearance/VA references are validated
+	// in a second pass (ValidateCharacters), once the full R1 id universe is
+	// known across all files.
 	cast := rec.Cast()
+	home := homeSeries(rec)
 	for i := range cast {
 		c := &cast[i]
 		b.fillNames("character "+c.ID, &c.Names, c.ExternalIDs.WikidataID, report)
+		defaultAppearances(c, home)
 	}
 
 	report.Sort()

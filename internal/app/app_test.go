@@ -324,7 +324,8 @@ func TestInitBuildCharacters(t *testing.T) {
 	if err != nil {
 		t.Fatalf("series data not written: %v", err)
 	}
-	for _, want := range []string{"id: tanjiro-kamado", "竈門炭治郎", "staffId: natsuki-hanae", "characters:"} {
+	// The default appearance (the enclosing series) is filled in.
+	for _, want := range []string{"id: tanjiro-kamado", "竈門炭治郎", "staffId: natsuki-hanae", "characters:", "seriesId: demon-slayer"} {
 		if !strings.Contains(string(series), want) {
 			t.Errorf("series data missing %q:\n%s", want, series)
 		}

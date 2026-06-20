@@ -192,7 +192,6 @@
     "appearance": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["seriesId"],
       "properties": {
         "seriesId": { "$ref": "#/$defs/id" },
         "scope": { "type": "array", "items": { "$ref": "#/$defs/scopeRef" } },

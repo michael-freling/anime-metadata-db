@@ -116,6 +116,36 @@ func TestFillNames(t *testing.T) {
 	}
 }
 
+func TestDefaultAppearances(t *testing.T) {
+	// Standalone series: no appearances -> one in the home series.
+	c := model.Character{ID: "x"}
+	defaultAppearances(&c, "demon-slayer")
+	if len(c.Appearances) != 1 || c.Appearances[0].SeriesID != "demon-slayer" {
+		t.Errorf("expected default appearance, got %+v", c.Appearances)
+	}
+
+	// Appearance that omits seriesId -> filled; scope preserved.
+	c2 := model.Character{ID: "y", Appearances: []model.CharacterAppearance{{Scope: []model.ScopeRef{{SeasonID: "ds-s1"}}}}}
+	defaultAppearances(&c2, "demon-slayer")
+	if c2.Appearances[0].SeriesID != "demon-slayer" || len(c2.Appearances[0].Scope) != 1 {
+		t.Errorf("seriesId not defaulted / scope lost: %+v", c2.Appearances[0])
+	}
+
+	// Explicit seriesId (another series) is kept.
+	c3 := model.Character{ID: "z", Appearances: []model.CharacterAppearance{{SeriesID: "other"}}}
+	defaultAppearances(&c3, "demon-slayer")
+	if c3.Appearances[0].SeriesID != "other" {
+		t.Errorf("explicit seriesId overwritten: %+v", c3.Appearances[0])
+	}
+
+	// Franchise (no home) -> no defaulting.
+	c4 := model.Character{ID: "w"}
+	defaultAppearances(&c4, "")
+	if len(c4.Appearances) != 0 {
+		t.Errorf("franchise should not default appearances: %+v", c4.Appearances)
+	}
+}
+
 func TestValidateCharactersOK(t *testing.T) {
 	c := sampleCharacter()
 	c.Appearances[0].Scope = []model.ScopeRef{{MovieID: "ds-movie"}, {SpecialID: "ds-ova"}}
@@ -133,6 +163,7 @@ func TestValidateCharactersErrors(t *testing.T) {
 	}{
 		{"no id", func(c *model.Character) { c.ID = "" }},
 		{"no appearances", func(c *model.Character) { c.Appearances = nil }},
+		{"empty seriesId", func(c *model.Character) { c.Appearances[0].SeriesID = "" }},
 		{"unknown series", func(c *model.Character) { c.Appearances[0].SeriesID = "ghost" }},
 		{"unknown scope season", func(c *model.Character) { c.Appearances[0].Scope = []model.ScopeRef{{SeasonID: "ghost"}} }},
 		{"unknown scope movie", func(c *model.Character) { c.Appearances[0].Scope = []model.ScopeRef{{MovieID: "ghost"}} }},

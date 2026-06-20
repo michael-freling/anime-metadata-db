@@ -7,6 +7,9 @@
 # dataset (e.g. demon-slayer-s1 rather than ds-s1).
 series:
   id: demon-slayer
+  # A Series/Franchise is our own grouping with no entry in the open sources, so
+  # its title must be authored (a Season/Movie auto-fills from its source).
+  titles: { original: 鬼滅の刃, translations: { en: Demon Slayer } }
   seasons:
     - id: demon-slayer-s1
       number: 1
@@ -39,14 +42,13 @@ series:
       externalIds: { anilistId: 178788 } # Mugenjou-hen Movie 1 (2025)
   # Cast (R2) nested under the series; names filled from Wikidata (CC0).
   characters:
+    # No appearances needed: a character nested under a standalone series
+    # defaults to appearing in that whole series. Add an appearances entry only
+    # to scope to specific seasons or to reference another series.
     - id: tanjiro-kamado
       externalIds: { wikidataId: Q85805158 }
       voiceActors:
         - { staffId: natsuki-hanae, language: ja }
-      appearances:
-        - seriesId: demon-slayer
-          scope:
-            - { seasonId: demon-slayer-s1 }
 # Demon Slayer is one linear storyline, so its episodes carry a continuous
 # absoluteNumber across the seasons (and the original film).
 numbered: [demon-slayer]

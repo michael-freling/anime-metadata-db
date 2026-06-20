@@ -30,10 +30,6 @@ const e2eOverride = `series:
       externalIds: { wikidataId: Q85805158 }
       voiceActors:
         - { staffId: natsuki-hanae, language: ja }
-      appearances:
-        - seriesId: demon-slayer
-          scope:
-            - { seasonId: demon-slayer-s1 }
 numbered: [demon-slayer]
 `
 
@@ -96,8 +92,9 @@ func TestE2EInitAndBuild(t *testing.T) {
 		t.Errorf("generated data is missing a computed absoluteNumber:\n%s", got)
 	}
 
-	// R2: the cast is co-located in the series file with names from Wikidata.
-	for _, want := range []string{"id: tanjiro-kamado", "竈門炭治郎", "staffId: natsuki-hanae"} {
+	// R2: the cast is co-located in the series file with names from Wikidata,
+	// and the default appearance (the enclosing series) is filled in.
+	for _, want := range []string{"id: tanjiro-kamado", "竈門炭治郎", "staffId: natsuki-hanae", "seriesId: demon-slayer"} {
 		if !strings.Contains(got, want) {
 			t.Errorf("series data missing cast %q (Wikidata fetch/build broken?):\n%s", want, got)
 		}

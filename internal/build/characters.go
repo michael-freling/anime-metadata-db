@@ -49,6 +49,35 @@ type CharacterContext struct {
 	Staff map[string]bool
 }
 
+// homeSeries returns the id of the standalone series a record nests its cast
+// under, or "" for a franchise (which has several series, so there is no single
+// default).
+func homeSeries(rec model.Record) string {
+	if rec.Series != nil {
+		return rec.Series.ID
+	}
+	return ""
+}
+
+// defaultAppearances fills in the enclosing series for a character nested under
+// a standalone series: a character with no appearances gets one in its home
+// series, and an appearance that omits seriesId defaults to it. A character
+// under a franchise must name its series explicitly (home is "").
+func defaultAppearances(c *model.Character, home string) {
+	if home == "" {
+		return
+	}
+	if len(c.Appearances) == 0 {
+		c.Appearances = []model.CharacterAppearance{{SeriesID: home}}
+		return
+	}
+	for i := range c.Appearances {
+		if c.Appearances[i].SeriesID == "" {
+			c.Appearances[i].SeriesID = home
+		}
+	}
+}
+
 // BuildStaff fills staff names from Wikidata.
 func (b *Builder) BuildStaff(o overrides.StaffOverride) (model.StaffRecord, *Report, error) {
 	report := &Report{}
@@ -121,6 +150,9 @@ func ValidateCharacters(characters []model.Character, ctx CharacterContext) erro
 			}
 		}
 		for _, ap := range c.Appearances {
+			if ap.SeriesID == "" {
+				return fmt.Errorf("character %q: appearance has no seriesId (only a character nested under a standalone series defaults it)", c.ID)
+			}
 			if !ctx.R1.Series[ap.SeriesID] {
 				return fmt.Errorf("character %q: appearance references unknown series %q", c.ID, ap.SeriesID)
 			}
