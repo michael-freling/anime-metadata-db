@@ -69,14 +69,17 @@ func (a *App) Init(ctx context.Context) error {
 	sourcesDir := filepath.Join(a.Dir, cfg.Settings.SourcesDir)
 	for _, name := range config.SourceNames() {
 		src := cfg.Sources[name]
-		recorded, err := a.ensureSource(ctx, sourcesDir, &src)
+		status, err := a.ensureSource(ctx, sourcesDir, &src)
 		if err != nil {
 			return err
 		}
 		cfg.Sources[name] = src
-		if recorded {
-			fmt.Fprintf(a.Out, "pinned %s @ %s\n", name, src.SHA256[:12])
-		} else {
+		switch status {
+		case sourcePinned:
+			fmt.Fprintf(a.Out, "pinned %s @ %s\n", name, shortSHA(src.SHA256))
+		case sourceRepinned:
+			fmt.Fprintf(a.Out, "re-pinned %s @ %s (rolling source %q changed upstream)\n", name, shortSHA(src.SHA256), src.Version)
+		default:
 			fmt.Fprintf(a.Out, "verified %s\n", name)
 		}
 	}
@@ -87,30 +90,66 @@ func (a *App) Init(ctx context.Context) error {
 	return nil
 }
 
-// ensureSource makes the cache file present and consistent with its pin. It
-// downloads when the file is missing or fails its pinned checksum, records the
-// checksum the first time a source is pinned, and reports whether it did so.
-func (a *App) ensureSource(ctx context.Context, dir string, src *config.Source) (bool, error) {
+// sourceStatus reports what ensureSource did with a source.
+type sourceStatus int
+
+const (
+	sourceVerified sourceStatus = iota // present and matching its pin
+	sourcePinned                       // downloaded and pinned for the first time
+	sourceRepinned                     // a rolling source changed upstream and was re-pinned
+)
+
+// rollingRefs are version strings that name a moving target rather than an
+// immutable release, so a pinned checksum is advisory (it will legitimately
+// change when upstream updates) instead of a hard integrity gate.
+var rollingRefs = map[string]bool{"latest": true, "master": true, "main": true, "head": true}
+
+// isRollingVersion reports whether a source version names a moving ref.
+func isRollingVersion(version string) bool {
+	return rollingRefs[strings.ToLower(strings.TrimSpace(version))]
+}
+
+// shortSHA truncates a hex checksum for display.
+func shortSHA(sha string) string {
+	if len(sha) > 12 {
+		return sha[:12]
+	}
+	return sha
+}
+
+// ensureSource makes the cache file present and consistent with its pin. A
+// cache hit against the pin is a no-op. Otherwise it downloads and, on a
+// checksum mismatch, re-pins rolling sources (with a warning) but fails sources
+// pinned to a fixed version so tampering is still caught.
+func (a *App) ensureSource(ctx context.Context, dir string, src *config.Source) (sourceStatus, error) {
 	path := filepath.Join(dir, src.Filename)
 	if data, err := os.ReadFile(path); err == nil && src.SHA256 != "" {
 		if fetch.Checksum(data) == src.SHA256 {
-			return false, nil
+			return sourceVerified, nil
 		}
 	}
 	data, err := a.Fetcher.Get(ctx, src.URL)
 	if err != nil {
-		return false, err
+		return sourceVerified, err
 	}
 	sum := fetch.Checksum(data)
-	if src.SHA256 != "" && sum != src.SHA256 {
-		return false, fmt.Errorf("source %s: checksum mismatch (pinned %s, downloaded %s)", src.Filename, src.SHA256, sum)
+	var status sourceStatus
+	switch {
+	case src.SHA256 == "":
+		status = sourcePinned
+	case sum == src.SHA256:
+		status = sourceVerified
+	case isRollingVersion(src.Version):
+		status = sourceRepinned
+	default:
+		return sourceVerified, fmt.Errorf("source %s: checksum mismatch (pinned %s, downloaded %s); run `builder refresh` to update the pin",
+			src.Filename, shortSHA(src.SHA256), shortSHA(sum))
 	}
-	recorded := src.SHA256 == ""
 	src.SHA256 = sum
 	if err := writeFile(path, data); err != nil {
-		return false, err
+		return sourceVerified, err
 	}
-	return recorded, nil
+	return status, nil
 }
 
 // Refresh re-downloads every source to its latest version, bumps the pinned
@@ -133,7 +172,7 @@ func (a *App) Refresh(ctx context.Context) error {
 		}
 		src.SHA256 = fetch.Checksum(data)
 		cfg.Sources[name] = src
-		fmt.Fprintf(a.Out, "refreshed %s @ %s\n", name, src.SHA256[:12])
+		fmt.Fprintf(a.Out, "refreshed %s @ %s\n", name, shortSHA(src.SHA256))
 	}
 	if err := cfg.Save(a.configPath()); err != nil {
 		return err

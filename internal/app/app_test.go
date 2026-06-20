@@ -9,6 +9,7 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/michael-freling/anime-metadata-db/internal/config"
 	"github.com/michael-freling/anime-metadata-db/internal/testsupport"
 )
 
@@ -103,6 +104,55 @@ func TestInitChecksumMismatch(t *testing.T) {
 	a, _ := newApp(t, dir, testsupport.FakeFetcher{})
 	if err := a.Init(context.Background()); err == nil {
 		t.Error("expected checksum mismatch error")
+	}
+}
+
+func TestInitRepinsRollingSource(t *testing.T) {
+	dir := newRepo(t)
+	// Pin offlineDatabase to a wrong checksum but keep its rolling "latest"
+	// version: init must re-pin (with a warning), not fail.
+	cfg := config.Default()
+	s := cfg.Sources[config.SourceOfflineDatabase]
+	s.SHA256 = "deadbeef"
+	cfg.Sources[config.SourceOfflineDatabase] = s
+	if err := cfg.Save(filepath.Join(dir, "config.yaml")); err != nil {
+		t.Fatal(err)
+	}
+
+	a, out := newApp(t, dir, testsupport.FakeFetcher{})
+	if err := a.Init(context.Background()); err != nil {
+		t.Fatalf("init should re-pin a rolling source, not fail: %v", err)
+	}
+	if !strings.Contains(out.String(), "re-pinned offlineDatabase") {
+		t.Errorf("expected a re-pin message, got: %q", out.String())
+	}
+	got, err := config.Load(filepath.Join(dir, "config.yaml"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if got.Sources[config.SourceOfflineDatabase].SHA256 == "deadbeef" {
+		t.Error("rolling source checksum should have been updated")
+	}
+}
+
+func TestInitReverifiesAfterCacheCleared(t *testing.T) {
+	dir := newRepo(t)
+	a, out := newApp(t, dir, testsupport.FakeFetcher{})
+	ctx := context.Background()
+	if err := a.Init(ctx); err != nil {
+		t.Fatal(err)
+	}
+	// Drop the cache but keep the freshly pinned config; re-init must
+	// re-download and verify against the recorded pin without re-pinning.
+	if err := os.RemoveAll(filepath.Join(dir, ".sources")); err != nil {
+		t.Fatal(err)
+	}
+	out.Reset()
+	if err := a.Init(ctx); err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(out.String(), "verified offlineDatabase") {
+		t.Errorf("expected verified after re-download, got: %q", out.String())
 	}
 }
 

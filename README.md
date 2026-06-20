@@ -30,7 +30,11 @@ Facts come from openly-licensed, redistributable sources (AniList is **not** use
 - [`Anime-Lists/anime-lists`](https://github.com/Anime-Lists/anime-lists) — AniDB↔TVDB mapping and movie-set grouping.
 
 Sources are **not committed**; `builder init` downloads them into a gitignored
-cache (`.sources/`) at the versions pinned in [`config.yaml`](config.yaml).
+cache (`.sources/`) at the versions pinned in [`config.yaml`](config.yaml). A
+source pinned to a rolling ref (`latest`/`master`) is re-pinned automatically
+when it changes upstream; a source pinned to a fixed version fails the build on
+a checksum mismatch (tamper detection). Use `builder refresh` to update all
+pins deliberately.
 
 ## Usage
 
