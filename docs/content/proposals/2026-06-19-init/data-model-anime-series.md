@@ -35,20 +35,20 @@ This note refines the flat `Franchise` / `TimelineEntry` sketch from §5.2 of th
 ```text
 Franchise (OPTIONAL)   groups related Series under one brand — present only when there are several
   id
-  titles               { original, english?, localized?, aliases? }   (see §1.2)
+  titles               { original, translations }   (see §1.2)
   series[]             Series
   watchOrders[]        WatchOrder — curated alternate orders, e.g. chronological (§2.5); release is the default
 
 Series                 the base unit: ONE storyline / continuity (Demon Slayer, Fate/Zero)
   id
-  titles               { original, english?, localized?, aliases? }   (see §1.2)
+  titles               { original, translations }   (see §1.2)
   seasons[]            Season — the numbered TV installments of this storyline
   movies[]             Movie — films belonging to this storyline
   specials[]           Special — OVAs / ONAs / specials (side content, no season number)
 
 Season                 ONE numbered TV installment = one AniList media node (a TV cour / part)
   id
-  titles               { original, english?, localized?, aliases? }   (see §1.2)
+  titles               { original, translations }   (see §1.2)
   number               int    the storyline's Nth season
   part                 int?   split-cour index within the season (1, 2, …); null if one part
   releaseDate          date
@@ -65,7 +65,7 @@ Episode                ONE TV episode
 
 Movie                  ONE film = one AniList media node
   id
-  titles               { original, english?, localized?, aliases? }   (see §1.2)
+  titles               { original, translations }   (see §1.2)
   releaseDate          date
   releaseYear          int
   externalIds          { anilistId, … }
@@ -75,7 +75,7 @@ Movie                  ONE film = one AniList media node
 
 Special                ONE OVA / ONA / special = one AniList media node — side content
   id                   NOT part of the numbered run, so it has NO season number
-  titles               { original, english?, localized?, aliases? }   (see §1.2)
+  titles               { original, translations }   (see §1.2)
   format               OVA | ONA | SPECIAL
   releaseDate          date
   releaseYear          int
@@ -100,7 +100,7 @@ holds **Episodes**.
 |---|---|---|
 | `series[]` | Franchise (optional) | The distinct storylines of a multi-story brand (Gundam, Fate) |
 | `watchOrders[]` | Franchise | Curated alternate orders across its Series, e.g. chronological (release is the default) — §2.5 |
-| `titles` | all named entities | Localized titles: `original` (native script, e.g. 鬼滅の刃), `english` (Demon Slayer), `localized` map by BCP-47 code — incl. `ja-Latn` for romanization (Kimetsu no Yaiba) — and `aliases[]` for informal/alternate names |
+| `titles` | all named entities | `original` (native script, e.g. 鬼滅の刃) + `translations`, a map by BCP-47 code: `en` (Demon Slayer), `ja-Latn` for romanization (Kimetsu no Yaiba), `ko`, … |
 | `seasons[]` / `movies[]` / `specials[]` | Series | Members: numbered TV run, films, OVAs/specials |
 | `number` / `part` | Season | Season index, and split-cour part within it (§2.3) |
 | `releaseYear` / `releaseSeason` | Season | The airing "season" — e.g. Spring 2012; a primary browse axis (§2.4) |
@@ -231,23 +231,23 @@ each numbering on its own. This is *why* `Franchise` exists.
 ```yaml
 Franchise:                                   # present only because Gundam has many storylines
   id: gundam
-  titles: { english: "Gundam", original: "ガンダム" }
+  titles: { original: "ガンダム", translations: { en: "Gundam" } }
   series:
     - id: gundam-uc                          # Universal Century — one big linear continuity
-      titles: { english: "Mobile Suit Gundam (Universal Century)" }
+      titles: { translations: { en: "Mobile Suit Gundam (Universal Century)" } }
       seasons: [ "0079 → Zeta → ZZ → …" ]
       movies:  [ "Char's Counterattack, F91, …" ]
     - id: gundam-wing                        # After Colony — independent
-      titles: { english: "Mobile Suit Gundam Wing" }
+      titles: { translations: { en: "Mobile Suit Gundam Wing" } }
       movies:  [ "Endless Waltz" ]
     - id: gundam-seed                        # Cosmic Era — independent
-      titles: { english: "Mobile Suit Gundam SEED" }
+      titles: { translations: { en: "Mobile Suit Gundam SEED" } }
       seasons: [ "SEED, SEED Destiny" ]
       movies:  [ "SEED Freedom (2024)" ]
     - id: gundam-ibo                         # Post Disaster — independent
-      titles: { english: "Mobile Suit Gundam: Iron-Blooded Orphans" }
+      titles: { translations: { en: "Mobile Suit Gundam: Iron-Blooded Orphans" } }
     - id: gundam-witch                       # Ad Stella — independent
-      titles: { english: "The Witch from Mercury" }
+      titles: { translations: { en: "The Witch from Mercury" } }
 ```
 
 Each Series is a self-contained watch order — there is **no** franchise-wide `absoluteNumber`
@@ -259,25 +259,25 @@ across Wing and SEED. The `Franchise` is grouping + titling only. (Other brands 
 ```yaml
 Franchise:
   id: fate
-  titles: { english: "Fate", original: "フェイト" }
+  titles: { original: "フェイト", translations: { en: "Fate" } }
   series:
     - id: fate-stay-night
-      titles: { english: "Fate/stay night" }
+      titles: { translations: { en: "Fate/stay night" } }
       # parallel routes → no absoluteNumber, so members sort by releaseDate
       seasons:
-        - { id: fsn-2006, titles: { english: "Fate/stay night (2006)" }, number: 1,
+        - { id: fsn-2006, titles: { translations: { en: "Fate/stay night (2006)" } }, number: 1,
             releaseDate: 2006-01-07, releaseYear: 2006, releaseSeason: WINTER,
             externalIds: { anilistId: 356 } }                                # Fate/Saber route
-        - { id: fsn-ubw,  titles: { english: "Unlimited Blade Works" }, number: 2,
+        - { id: fsn-ubw,  titles: { translations: { en: "Unlimited Blade Works" } }, number: 2,
             releaseDate: 2014-10-12, releaseYear: 2014, releaseSeason: FALL,
             externalIds: { anilistId: 20716 } }                              # UBW route (itself split-cour)
       movies:
-        - { id: fsn-hf-1, titles: { english: "Heaven's Feel I" }, releaseDate: 2017-10-14,
+        - { id: fsn-hf-1, titles: { translations: { en: "Heaven's Feel I" } }, releaseDate: 2017-10-14,
             releaseYear: 2017, externalIds: { anilistId: 20724 } }           # no absoluteNumber → sorts by date
         # … Heaven's Feel II (2019), III (2020) …
 
     - id: fate-zero
-      titles: { english: "Fate/Zero" }
+      titles: { translations: { en: "Fate/Zero" } }
       # single linear story (split-cour) → episodes carry absoluteNumber
       seasons:
         - { id: fz-s1, number: 1, part: 1, releaseDate: 2011-10-02, releaseYear: 2011, releaseSeason: FALL,
@@ -304,9 +304,7 @@ Series:
   id: demon-slayer
   titles:
     original: "鬼滅の刃"
-    english: "Demon Slayer: Kimetsu no Yaiba"
-    localized: { ja-Latn: "Kimetsu no Yaiba", ko: "귀멸의 칼날" }   # romanization is just ja-Latn
-    aliases: [ "Blade of Demon Destruction" ]
+    translations: { en: "Demon Slayer: Kimetsu no Yaiba", ja-Latn: "Kimetsu no Yaiba", ko: "귀멸의 칼날" }
   seasons:
     - id: ds-s1                               # → absolute 1–26
       number: 1
@@ -318,7 +316,7 @@ Series:
         - { absoluteNumber: 1,  airedNumber: 1,  releaseDate: 2019-04-06 }
         # … through 26 …
     - id: ds-mugen-train-arc                  # Season 2 Part 1 → absolute 27–33
-      titles: { english: "Mugen Train Arc" }  #   THIS carries Mugen Train's numbers
+      titles: { translations: { en: "Mugen Train Arc" } }  # THIS carries Mugen Train's numbers
       number: 2
       part: 1
       releaseDate: 2021-10-10
@@ -327,7 +325,7 @@ Series:
         - { absoluteNumber: 27, airedNumber: 1, releaseDate: 2021-10-10 }
         # … through 33 (7 eps) …
     - id: ds-entertainment-district           # Season 2 Part 2 → absolute 34–44
-      titles: { english: "Entertainment District Arc" }
+      titles: { translations: { en: "Entertainment District Arc" } }
       number: 2
       part: 2
       releaseDate: 2021-12-05
@@ -337,12 +335,12 @@ Series:
         # … through 44 (11 eps); Swordsmith Village (S3) 45–55, Hashira Training (S4) 56–63 …
   movies:
     - id: ds-mugen-train-film                 # ALTERNATE CUT — no absoluteNumber
-      titles: { english: "Mugen Train" }
+      titles: { translations: { en: "Mugen Train" } }
       releaseDate: 2020-10-16
       externalIds: { anilistId: 112151 }
       alternateCutOf: { seasonId: ds-mugen-train-arc, episodes: "1-7" }
     - id: ds-infinity-castle-1                # ORIGINAL standalone trilogy → own slots
-      titles: { english: "Infinity Castle (Part 1)", localized: { ja-Latn: "Mugen Jō-hen" } }
+      titles: { original: "無限城編", translations: { en: "Infinity Castle (Part 1)", ja-Latn: "Mugen Jō-hen" } }
       releaseDate: 2025-07-18                  # illustrative
       externalIds: { anilistId: 178680 }        # illustrative
       absoluteNumber: 64
