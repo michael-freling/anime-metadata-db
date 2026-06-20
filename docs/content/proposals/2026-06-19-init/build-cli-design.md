@@ -12,25 +12,29 @@ weight: 4
 **Related:** [Anime Series Data Model](../data-model-anime-series/) ·
 [Characters & Staff Data Model](../data-model-characters-staff/) — the schema this tool produces.
 
-A Go **CLI** that builds the anime-metadata database from open-data sources plus our curation
-overrides. It assembles the **R1** ordering/grouping model and the **storable R2 facts**
-(ids, names, the character/voice-actor graph) into one deterministic artifact. It deliberately does
-**not** fetch or store "expression" (synopses, art, episode stills) — per the research note's
-facts-vs-expression rule (§5.1a), the *app* fetches those live at display time.
+A Go CLI named **`builder`** that builds the anime-metadata dataset from open-data sources plus our
+curation overrides, and writes it as **data files committed to this GitHub repo** — so the dataset is
+itself **open data**. It assembles the **R1** ordering/grouping model and the **storable R2 facts**
+(ids, names, the character/voice-actor graph). It deliberately does **not** fetch or store
+"expression" (synopses, art, episode stills) — per the research note's facts-vs-expression rule
+(§5.1a), the *app* fetches those live at display time.
 
-> **TL;DR on the CLI-vs-API question (Part 6):** build with a **CLI**, keep curation in **YAML files
-> in git**, and let the app read the built DB directly. A write/management **API is not needed now**.
+> **TL;DR:** it's **one command** — `builder build` — that turns config + overrides + sources into
+> JSON data files in the repo. **Git is the database, the diff, the history, and the management
+> layer**, so there's no `validate`/`diff`/`inspect`/`fetch` subcommand and **no management API** (Part 3, Part 6).
 
 ---
 
 ## Part 1 — What it builds, and where it runs
 
-- **Output:** one portable database artifact (SQLite recommended — Part 5) holding the resolved
+- **Output:** **diff-friendly JSON files committed to the repo** (Part 5) holding the resolved
   `Franchise → Series → Season → Episode` tree plus `Movie`, `Special`, `WatchOrder`, and the
-  `Character` / `Staff` graph from the data-model docs — **facts only**.
-- **Shape:** a **batch CLI**, not a long-running service. It runs locally, in CI, or on a schedule
-  (refresh sources → rebuild → review diff → commit). The build is **deterministic and
-  reproducible**: same pinned inputs + same overrides ⇒ same DB.
+  `Character` / `Staff` graph from the data-model docs — **facts only**. The committed files *are*
+  the open dataset; anyone can browse, diff, or download them straight from GitHub.
+- **Shape:** a **batch CLI**, not a long-running service. The workflow is: edit overrides → run
+  `builder build` → review the `git diff` → commit/PR. The build is **deterministic and reproducible**:
+  same pinned inputs + same overrides ⇒ byte-identical output (stable key order, fixed formatting), so
+  diffs reflect real changes only.
 
 ---
 
@@ -51,25 +55,27 @@ limits. `overrides/` is the layer we own — everything a source gets wrong or c
 
 ---
 
-## Part 3 — Commands
+## Part 3 — One command
+
+The whole tool is essentially one command — it writes the dataset into the repo:
 
 ```
-animedb fetch              # download / refresh vendored sources to the pinned versions
-animedb build              # run the full pipeline → write the DB artifact
-animedb validate           # check overrides + resolved model (schema, referential integrity)
-animedb diff               # show what changed vs the current DB (review before committing)
-animedb inspect <id>       # print a resolved Franchise / Series / Character (debug)
+builder build                       # config + overrides + sources → write data/*.json (validates as it builds)
+builder build --update-sources      # refresh the vendored open-data sources first, then build
+builder build --scope franchise=fate  # build a subset while iterating
 ```
 
-| Command | What it does |
+We **don't** need the usual `fetch` / `validate` / `diff` / `inspect` subcommands, because the output
+lives in git:
+
+| Would-be command | Why it's unnecessary |
 |---|---|
-| `fetch` | Pulls source files to `config.yaml` pins; updates a lockfile of checksums |
-| `build` | The pipeline (Part 4); `--scope franchise=fate` to build a subset, `--out db.sqlite` |
-| `validate` | Fails CI on dangling refs, unknown override targets, or schema violations |
-| `diff` | Prints added/changed/removed records vs the previous DB — the curation review surface |
-| `inspect` | Renders one resolved record as YAML/JSON for debugging |
+| `diff` | `git diff` already shows exactly what changed in `data/` |
+| `inspect` / history | Open the JSON file; `git log` / `git blame` for history |
+| `validate` | Validation is **intrinsic to `build`** — it fails on dangling refs, unknown override targets, or schema violations (so CI just runs `build` and checks the tree is clean) |
+| `fetch` | A `--update-sources` flag on `build`; refreshing pinned sources isn't a separate workflow |
 
-Curation is **editing `overrides/*.yaml` + `validate` + `build` + `diff`** — no bespoke admin tool.
+Curation is just: **edit `overrides/*.yaml` → `builder build` → review the `git diff` → commit/PR.**
 
 ---
 
@@ -88,8 +94,10 @@ Implements research note §5.3 and the "Building the records" sections of the da
    **Overrides always win.**
 5. **Resolve facts** from AniList: titles `{ original, translations }`, `releaseYear`/`releaseSeason`,
    and the character + voice-actor graph (appearances, default VAs) — **facts only**.
-6. **Validate** referential integrity (every edge resolves), schema, and override targets.
-7. **Store** the resolved records to the artifact (Part 5), deterministically.
+6. **Validate** referential integrity (every edge resolves), schema, and override targets — the build
+   **aborts** here on any failure, so a successful build is always a valid dataset.
+7. **Write** the resolved records to `data/*.json` (Part 5), deterministically — stable key order and
+   fixed formatting so the `git diff` shows only real changes.
 
 > Expression (synopses, cover art, stills, bios) is **out of scope** here — the app fetches it live
 > from AniList/TMDB keyed by the `externalIds` this tool stores.
@@ -98,39 +106,53 @@ Implements research note §5.3 and the "Building the records" sections of the da
 
 ## Part 5 — Storage / output
 
-**Recommendation: SQLite.** It's an embeddable, portable, read-mostly artifact — ideal for a metadata
-DB the app can ship with and query directly, and a single file is trivial to diff, cache, and
-distribute. The schema mirrors the data-model docs (tables for `franchise`, `series`, `season`,
-`episode`, `movie`, `special`, `watch_order`, `character`, `character_appearance`, `staff`, and the
-`character_voice_actor` link). Go can use a pure-Go driver (`modernc.org/sqlite`) so builds need no
-cgo.
+**Recommendation: JSON files committed to the repo.** The dataset is open data, so it should be
+**human-readable, diffable, and downloadable straight from GitHub** — which rules out SQLite (a binary
+blob produces no meaningful `git diff` and can't be reviewed in a PR). One JSON file per top-level
+record keeps diffs small and PRs focused:
 
-Alternatives, if needs change: **Postgres** (only if we need a hosted, multi-writer managed service),
-or **flat JSON/YAML** committed to git (most diff-friendly, but weak for queries at scale). Start with
-SQLite; revisit if a hosted service appears.
+```
+data/
+  franchises/<franchise-id>.json   # franchise + its series / seasons / episodes / movies / specials / watchOrders
+  characters/<character-id>.json
+  staff/<staff-id>.json
+  index.json                       # manifest: ids → paths, for consumers
+overrides/                         # hand-authored YAML  (input)
+sources/                           # vendored open data, pinned  (input)
+config.yaml                        # source pins + build settings  (input)
+```
+
+JSON (not YAML) for the **generated** files: canonical, stable formatting gives clean diffs and it's
+the obvious format for consumers to fetch. Overrides stay **YAML** (hand-authored, friendlier).
+
+If a consumer later wants a queryable database, building a **SQLite** file *from* these JSON files is a
+trivial, optional secondary step — but the committed JSON remains the source of truth.
 
 ---
 
 ## Part 6 — CLI, or an API too?
 
-| Concern | Recommended interface | Why |
-|---|---|---|
-| **Build / ETL** | **CLI** (`animedb build`) | Batch, reproducible, runs in CI/cron; output is a static artifact — no service to operate |
-| **Curation / data management** | **YAML in git + `validate`/`diff`** | Overrides are files → review, history, rollback, and blame come free; `diff` is the review surface |
-| **Serving to the app** | App reads the built DB; fetches expression live | Read-mostly; ship the SQLite file or expose a thin **read-only** API only if several consumers need it |
-| **Admin write API / UI** | **Deferred** | Premature until curation volume outgrows hand-edited YAML |
+Because the dataset is **open files in a GitHub repo**, git already provides what a management API
+would: storage, review (PRs), history, blame, and rollback.
 
-**So: CLI-first.** A management/write API is **not required** — git + YAML + the CLI cover authoring,
-review, and audit. Reach for an API only when (a) multiple independent services need to read the data
-(a read-only query API), or (b) curation grows enough to want a web admin UI over the overrides (then
-the API wraps the same override + build pipeline, it doesn't replace it).
+| Concern | Interface | Why |
+|---|---|---|
+| **Build** | **CLI** (`builder build`) | Batch, reproducible, runs in CI; writes the data files |
+| **Curation / data management** | **GitHub itself** — edit `overrides/*.yaml`, open a PR | Review, history, rollback, and audit are built into git/GitHub; no service to operate |
+| **Serving to consumers** | The raw JSON files in the repo (or a CDN/GitHub Pages mirror) | The committed files *are* the public dataset — fetch them directly |
+| **Admin write API / UI** | **Deferred** | Premature until curation outgrows hand-edited YAML |
+
+**So: CLI-first, and GitHub is the database.** A management/write API is **not required**. Reach for an
+API only when (a) consumers want server-side querying/filtering rather than fetching whole files (a
+thin **read-only** API over the JSON), or (b) curation grows enough to want a web admin UI — which
+would wrap the same `overrides` + `builder build` pipeline behind a PR, not replace it.
 
 ---
 
 ## Part 7 — Go package layout (sketch)
 
 ```
-cmd/animedb/                 # cobra entrypoint: fetch / build / validate / diff / inspect
+cmd/builder/                 # cobra entrypoint: the single `build` command (+ flags)
 internal/
   config/                    # config.yaml + source pins + lockfile
   sources/
@@ -140,25 +162,25 @@ internal/
   overrides/                 # YAML override loader + schema
   model/                     # the entities from the data-model docs
   resolve/                   # seed → order → apply overrides → resolve facts
-  validate/                  # referential integrity + schema checks
-  store/sqlite/              # schema + writer (modernc.org/sqlite)
+  validate/                  # referential integrity + schema checks (run inside build)
+  writer/                    # deterministic JSON writer → data/*.json
 ```
 
-Suggested libraries: **cobra** (commands), **koanf**/**viper** (config), **modernc.org/sqlite**
-(cgo-free), a GraphQL client for AniList. Source adapters share a small interface so a source can be
-swapped or pinned independently.
+Suggested libraries: **cobra** (the one command + flags), **koanf**/**viper** (config), a GraphQL
+client for AniList. Source adapters share a small interface so a source can be swapped or pinned
+independently. No database driver needed — the writer emits canonical JSON.
 
 ---
 
 ## Part 8 — Open questions
 
-- **Store choice** — SQLite is the default (Part 5); revisit if a hosted multi-writer service is ever
-  needed (then Postgres).
+- **File granularity** — one JSON file per franchise/character/staff (Part 5) keeps PR diffs small; do
+  any huge franchises (long-running shōnen) need splitting further (e.g. episodes in their own file)?
 - **Incremental vs full rebuild** — start with deterministic **full** rebuilds (simple, reproducible);
   add incremental only if build time becomes a problem.
 - **AniList fact-fetch budget** — keyless ~90 req/min; the `anilist` cache + a rate limiter keep builds
   polite. How aggressively to pre-warm vs fetch lazily?
-- **Override authoring at scale** — hand-edited YAML is fine now; a future web admin UI would wrap the
-  same `overrides` + `build` pipeline behind an API (Part 6), not replace it.
+- **Override authoring at scale** — hand-edited YAML + PRs is fine now; a future web admin UI would wrap
+  the same `overrides` + `builder build` pipeline behind a PR (Part 6), not replace it.
 - **Source pinning & drift** — `fetch` records checksums; how often to bump pins, and how to surface
   upstream schema changes in CI.
