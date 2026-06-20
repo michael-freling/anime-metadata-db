@@ -218,11 +218,13 @@ type Franchise struct {
 	WatchOrders []WatchOrder `yaml:"watchOrders,omitempty"`
 }
 
-// Record is one generated dataset file: exactly one of Franchise or Series is
-// set. It is the canonical output shape the writer emits into data/.
+// Record is one generated dataset file: a Franchise or Series (R1 structure)
+// together with the Characters (R2) co-located with it. It is the canonical
+// output shape the writer emits into data/series/.
 type Record struct {
-	Franchise *Franchise `yaml:"franchise,omitempty"`
-	Series    *Series    `yaml:"series,omitempty"`
+	Franchise  *Franchise  `yaml:"franchise,omitempty"`
+	Series     *Series     `yaml:"series,omitempty"`
+	Characters []Character `yaml:"characters,omitempty"`
 }
 
 // EachSeries calls fn for every Series in the record (the single standalone

@@ -111,12 +111,16 @@ const WikidataJSON = `{
   "success": 1
 }`
 
-// CharactersOverride is an R2 override referencing the Demon Slayer series/season
-// declared by DemonSlayerOverride and the QIDs in WikidataJSON.
-const CharactersOverride = `staff:
+// StaffOverride is a global staff file (separate from the series files).
+const StaffOverride = `staff:
   - id: natsuki-hanae
     externalIds: { wikidataId: Q2596113 }
-characters:
+`
+
+// DemonSlayerMerged is the Demon Slayer series file with its cast co-located:
+// DemonSlayerOverride plus a character whose VA links to the staff above and the
+// QIDs in WikidataJSON.
+const DemonSlayerMerged = DemonSlayerOverride + `characters:
   - id: tanjiro-kamado
     externalIds: { wikidataId: Q85805158 }
     voiceActors:

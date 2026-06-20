@@ -16,6 +16,7 @@ import (
 	"github.com/michael-freling/anime-metadata-db/internal/build"
 	"github.com/michael-freling/anime-metadata-db/internal/config"
 	"github.com/michael-freling/anime-metadata-db/internal/fetch"
+	"github.com/michael-freling/anime-metadata-db/internal/model"
 	"github.com/michael-freling/anime-metadata-db/internal/overrides"
 	"github.com/michael-freling/anime-metadata-db/internal/sources/animelists"
 	"github.com/michael-freling/anime-metadata-db/internal/sources/offlinedb"
@@ -106,7 +107,7 @@ func (a *App) ensureWikidata(ctx context.Context, cfg config.Config) error {
 	if err != nil {
 		return err
 	}
-	qids := collectQIDs(bundle.Characters)
+	qids := collectQIDs(bundle)
 	if len(qids) == 0 {
 		return nil
 	}
@@ -121,24 +122,26 @@ func (a *App) ensureWikidata(ctx context.Context, cfg config.Config) error {
 	return nil
 }
 
-// collectQIDs gathers every Wikidata QID referenced by the character overrides
-// (on characters, staff, and per-appearance id overrides).
-func collectQIDs(cos []overrides.CharactersOverride) []string {
+// collectQIDs gathers every Wikidata QID referenced by the overrides: character
+// and per-appearance ids in the series files, and staff ids in the staff files.
+func collectQIDs(bundle overrides.Bundle) []string {
 	var qids []string
 	add := func(id string) {
 		if id != "" {
 			qids = append(qids, id)
 		}
 	}
-	for _, o := range cos {
-		for _, s := range o.Staff {
-			add(s.ExternalIDs.WikidataID)
-		}
+	for _, o := range bundle.Series {
 		for _, c := range o.Characters {
 			add(c.ExternalIDs.WikidataID)
 			for _, ap := range c.Appearances {
 				add(ap.ExternalIDs.WikidataID)
 			}
+		}
+	}
+	for _, o := range bundle.Staff {
+		for _, s := range o.Staff {
+			add(s.ExternalIDs.WikidataID)
 		}
 	}
 	return qids
@@ -248,11 +251,25 @@ func (a *App) Build(_ context.Context, ids ...string) error {
 	return a.build(cfg, ids)
 }
 
-// build is the shared body of Build and Refresh. It resolves the R1 series
-// records first (collecting the id universe), then the R2 character records
-// (validated against it), writing only changed files. All R1 records are
-// resolved even under a filter so R2 references always validate against the
-// whole tree; only matching files are written.
+// resolvedSeries pairs an override with its resolved record and report.
+type resolvedSeries struct {
+	o      overrides.Override
+	rec    model.Record
+	report *build.Report
+}
+
+// resolvedStaff pairs a staff override with its resolved record and report.
+type resolvedStaff struct {
+	o      overrides.StaffOverride
+	rec    model.StaffRecord
+	report *build.Report
+}
+
+// build is the shared body of Build and Refresh. It resolves staff and series
+// records (the latter carry their co-located cast), validates every character's
+// references against the full R1 id universe + declared staff, then writes the
+// changed files. Everything is resolved even under a filter so references always
+// validate against the whole tree; only matching files are written.
 func (a *App) build(cfg config.Config, ids []string) error {
 	sources, err := a.loadSources(cfg)
 	if err != nil {
@@ -269,11 +286,26 @@ func (a *App) build(cfg config.Config, ids []string) error {
 
 	builder := build.New(sources)
 	dataDir := filepath.Join(a.Dir, cfg.Settings.DataDir)
-	expected := make(map[string]bool, len(bundle.Series)+len(bundle.Characters))
-	updated := 0
+	expected := make(map[string]bool, len(bundle.Series)+len(bundle.Staff))
 
-	// R1: resolve every series, collecting ids; write matching files.
+	// Staff first: resolve names and collect the staff id universe.
+	staffIDs := map[string]bool{}
+	staffOut := make([]resolvedStaff, 0, len(bundle.Staff))
+	for _, o := range bundle.Staff {
+		expected[filepath.FromSlash(o.Path)] = true
+		rec, report, err := builder.BuildStaff(o)
+		if err != nil {
+			return fmt.Errorf("build %s: %w", o.Path, err)
+		}
+		for _, s := range rec.Staff {
+			staffIDs[s.ID] = true
+		}
+		staffOut = append(staffOut, resolvedStaff{o, rec, report})
+	}
+
+	// Series: resolve structure + cast names, collecting the R1 id universe.
 	idx := build.NewIDIndex()
+	seriesOut := make([]resolvedSeries, 0, len(bundle.Series))
 	for _, o := range bundle.Series {
 		expected[filepath.FromSlash(o.Path)] = true
 		rec, report, err := builder.Build(o)
@@ -281,29 +313,31 @@ func (a *App) build(cfg config.Config, ids []string) error {
 			return fmt.Errorf("build %s: %w", o.ID(), err)
 		}
 		idx.Collect(rec)
-		if matchesFilter(filter, o.ID()) {
-			wrote, err := writer.WriteIfChanged(dataDir, o.Path, rec)
-			if err != nil {
-				return err
-			}
-			updated += a.reportBuilt(wrote, o.Path, o.ID(), report)
-		}
+		seriesOut = append(seriesOut, resolvedSeries{o, rec, report})
 	}
 
-	// R2: characters/staff, validated against the R1 ids + all declared staff.
-	ctx := build.CharacterContext{R1: idx, Staff: staffIDs(bundle.Characters)}
-	for _, o := range bundle.Characters {
-		expected[filepath.FromSlash(o.Path)] = true
-		rec, report, err := builder.BuildCharacters(o, ctx)
-		if err != nil {
-			return fmt.Errorf("build %s: %w", o.Path, err)
+	// Validate every cast against the full id universe, then write what matches.
+	ctx := build.CharacterContext{R1: idx, Staff: staffIDs}
+	updated := 0
+	for _, s := range seriesOut {
+		if err := build.ValidateCharacters(s.rec.Characters, ctx); err != nil {
+			return fmt.Errorf("build %s: %w", s.o.ID(), err)
 		}
-		if matchesAny(filter, o.IDs()) {
-			wrote, err := writer.WriteCharactersIfChanged(dataDir, o.Path, rec)
+		if matchesAny(filter, s.o.IDs()) {
+			wrote, err := writer.WriteIfChanged(dataDir, s.o.Path, s.rec)
 			if err != nil {
 				return err
 			}
-			updated += a.reportBuilt(wrote, o.Path, o.Path, report)
+			updated += a.reportBuilt(wrote, s.o.Path, s.o.ID(), s.report)
+		}
+	}
+	for _, s := range staffOut {
+		if matchesAny(filter, s.o.IDs()) {
+			wrote, err := writer.WriteStaffIfChanged(dataDir, s.o.Path, s.rec)
+			if err != nil {
+				return err
+			}
+			updated += a.reportBuilt(wrote, s.o.Path, s.o.Path, s.report)
 		}
 	}
 
@@ -348,12 +382,8 @@ func (a *App) reportBuilt(wrote bool, path, label string, report *build.Report) 
 	return 0
 }
 
-// matchesFilter reports whether an id should be built: no filter means all.
-func matchesFilter(filter map[string]bool, id string) bool {
-	return len(filter) == 0 || filter[id]
-}
-
-// matchesAny reports whether any of ids is selected by the filter.
+// matchesAny reports whether any of ids is selected by the filter (no filter
+// means all).
 func matchesAny(filter map[string]bool, ids []string) bool {
 	if len(filter) == 0 {
 		return true
@@ -366,28 +396,19 @@ func matchesAny(filter map[string]bool, ids []string) bool {
 	return false
 }
 
-// staffIDs collects every declared staff id across the character overrides.
-func staffIDs(cos []overrides.CharactersOverride) map[string]bool {
-	ids := map[string]bool{}
-	for _, o := range cos {
-		for _, s := range o.Staff {
-			ids[s.ID] = true
-		}
-	}
-	return ids
-}
-
-// knownID reports whether id names any series/franchise or character/staff
+// knownID reports whether id names any series/franchise, character or staff
 // declared in the bundle.
 func knownID(bundle overrides.Bundle, id string) bool {
 	for _, o := range bundle.Series {
-		if o.ID() == id {
-			return true
+		for _, oid := range o.IDs() {
+			if oid == id {
+				return true
+			}
 		}
 	}
-	for _, o := range bundle.Characters {
-		for _, cid := range o.IDs() {
-			if cid == id {
+	for _, o := range bundle.Staff {
+		for _, sid := range o.IDs() {
+			if sid == id {
 				return true
 			}
 		}

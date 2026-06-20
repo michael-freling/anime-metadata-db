@@ -279,9 +279,10 @@ func TestBuildPrunesOrphans(t *testing.T) {
 	}
 }
 
-func writeCharacterOverride(t *testing.T, dir, content string) {
+// writeFileAt writes content to a path under the repo's config/overrides.
+func writeFileAt(t *testing.T, dir, rel, content string) {
 	t.Helper()
-	path := filepath.Join(dir, "config", "overrides", "characters", "demon-slayer.yaml")
+	path := filepath.Join(dir, "config", "overrides", filepath.FromSlash(rel))
 	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
 		t.Fatal(err)
 	}
@@ -290,9 +291,18 @@ func writeCharacterOverride(t *testing.T, dir, content string) {
 	}
 }
 
+// newCharacterRepo writes a merged series file (structure + cast) plus a global
+// staff file.
+func newCharacterRepo(t *testing.T) string {
+	t.Helper()
+	dir := t.TempDir()
+	writeFileAt(t, dir, "series/demon-slayer.yaml", testsupport.DemonSlayerMerged)
+	writeFileAt(t, dir, "staff/voice-actors.yaml", testsupport.StaffOverride)
+	return dir
+}
+
 func TestInitBuildCharacters(t *testing.T) {
-	dir := newRepo(t)
-	writeCharacterOverride(t, dir, testsupport.CharactersOverride)
+	dir := newCharacterRepo(t)
 	a, out := newApp(t, dir, testsupport.FakeFetcher{})
 	ctx := context.Background()
 
@@ -309,48 +319,60 @@ func TestInitBuildCharacters(t *testing.T) {
 	if err := a.Build(ctx); err != nil {
 		t.Fatalf("build: %v", err)
 	}
-	data, err := os.ReadFile(filepath.Join(dir, "data", "characters", "demon-slayer.yaml"))
+	// Cast is co-located in the series file; staff in its own file.
+	series, err := os.ReadFile(filepath.Join(dir, "data", "series", "demon-slayer.yaml"))
 	if err != nil {
-		t.Fatalf("characters data not written: %v", err)
+		t.Fatalf("series data not written: %v", err)
 	}
-	got := string(data)
-	for _, want := range []string{"id: tanjiro-kamado", "竈門炭治郎", "Tanjirō Kamado", "staffId: natsuki-hanae", "花江夏樹"} {
-		if !strings.Contains(got, want) {
-			t.Errorf("characters data missing %q:\n%s", want, got)
+	for _, want := range []string{"id: tanjiro-kamado", "竈門炭治郎", "staffId: natsuki-hanae", "characters:"} {
+		if !strings.Contains(string(series), want) {
+			t.Errorf("series data missing %q:\n%s", want, series)
+		}
+	}
+	staff, err := os.ReadFile(filepath.Join(dir, "data", "staff", "voice-actors.yaml"))
+	if err != nil {
+		t.Fatalf("staff data not written: %v", err)
+	}
+	for _, want := range []string{"id: natsuki-hanae", "花江夏樹"} {
+		if !strings.Contains(string(staff), want) {
+			t.Errorf("staff data missing %q:\n%s", want, staff)
 		}
 	}
 }
 
 func TestBuildFilterWithCharacters(t *testing.T) {
-	dir := newRepo(t)
-	writeCharacterOverride(t, dir, testsupport.CharactersOverride)
+	dir := newCharacterRepo(t)
 	a, _ := newApp(t, dir, testsupport.FakeFetcher{})
 	ctx := context.Background()
 	if err := a.Init(ctx); err != nil {
 		t.Fatal(err)
 	}
-	charsData := filepath.Join(dir, "data", "characters", "demon-slayer.yaml")
+	seriesData := filepath.Join(dir, "data", "series", "demon-slayer.yaml")
+	staffData := filepath.Join(dir, "data", "staff", "voice-actors.yaml")
 
-	// Filter by a character id -> the characters file is built.
+	// Filter by a character id -> its series file is built (cast is co-located).
 	if err := a.Build(ctx, "tanjiro-kamado"); err != nil {
 		t.Fatal(err)
 	}
-	if _, err := os.Stat(charsData); err != nil {
-		t.Errorf("filtering by character id should build the file: %v", err)
+	if _, err := os.Stat(seriesData); err != nil {
+		t.Errorf("filtering by character id should build its series file: %v", err)
 	}
 
-	// Filter by the R1 series id -> the characters file is NOT (re)built.
-	if err := os.Remove(charsData); err != nil {
+	// Filter by a staff id -> only the staff file is built.
+	if err := os.Remove(seriesData); err != nil {
 		t.Fatal(err)
 	}
-	if err := a.Build(ctx, "demon-slayer"); err != nil {
+	if err := a.Build(ctx, "natsuki-hanae"); err != nil {
 		t.Fatal(err)
 	}
-	if _, err := os.Stat(charsData); !os.IsNotExist(err) {
-		t.Error("R1-only filter should not rebuild the characters file")
+	if _, err := os.Stat(staffData); err != nil {
+		t.Errorf("filtering by staff id should build the staff file: %v", err)
+	}
+	if _, err := os.Stat(seriesData); !os.IsNotExist(err) {
+		t.Error("staff filter should not rebuild the series file")
 	}
 
-	// Unknown id across both layers -> error.
+	// Unknown id across all layers -> error.
 	if err := a.Build(ctx, "ghost"); err == nil {
 		t.Error("expected unknown-id error")
 	}
@@ -358,8 +380,10 @@ func TestBuildFilterWithCharacters(t *testing.T) {
 
 func TestBuildCharactersUnknownSeries(t *testing.T) {
 	dir := newRepo(t)
-	bad := "characters:\n  - id: ghost-char\n    appearances:\n      - seriesId: no-such-series\n"
-	writeCharacterOverride(t, dir, bad)
+	// A character (in a valid series file) whose appearance references a series
+	// that doesn't exist.
+	merged := testsupport.DemonSlayerOverride + "characters:\n  - id: ghost-char\n    appearances:\n      - seriesId: no-such-series\n"
+	writeFileAt(t, dir, "series/demon-slayer.yaml", merged)
 	a, _ := newApp(t, dir, testsupport.FakeFetcher{})
 	ctx := context.Background()
 	if err := a.Init(ctx); err != nil {

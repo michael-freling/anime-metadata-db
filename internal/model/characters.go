@@ -45,9 +45,8 @@ type Staff struct {
 	ExternalIDs ExternalIDs `yaml:"externalIds,omitempty"`
 }
 
-// CharactersRecord is one generated R2 dataset file: the characters and staff
-// it declares.
-type CharactersRecord struct {
-	Characters []Character `yaml:"characters,omitempty"`
-	Staff      []Staff     `yaml:"staff,omitempty"`
+// StaffRecord is one generated staff dataset file (data/staff/). Staff are
+// global, so they live apart from the series records.
+type StaffRecord struct {
+	Staff []Staff `yaml:"staff,omitempty"`
 }

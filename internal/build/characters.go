@@ -42,29 +42,20 @@ func (x IDIndex) Collect(rec model.Record) {
 	})
 }
 
-// CharacterContext carries the cross-file id universes an R2 build validates
-// against: the R1 node ids and every declared staff id.
+// CharacterContext carries the cross-file id universes the character graph is
+// validated against: the R1 node ids and every declared staff id.
 type CharacterContext struct {
 	R1    IDIndex
 	Staff map[string]bool
 }
 
-// BuildCharacters fills character/staff names from Wikidata and validates the
-// appearance + voice-actor graph against ctx. It fails on any dangling
-// reference, so a successful build is always a consistent R2 record.
-func (b *Builder) BuildCharacters(o overrides.CharactersOverride, ctx CharacterContext) (model.CharactersRecord, *Report, error) {
+// BuildStaff fills staff names from Wikidata.
+func (b *Builder) BuildStaff(o overrides.StaffOverride) (model.StaffRecord, *Report, error) {
 	report := &Report{}
-	rec := model.CharactersRecord{Characters: o.Characters, Staff: o.Staff}
+	rec := model.StaffRecord{Staff: o.Staff}
 	for i := range rec.Staff {
 		s := &rec.Staff[i]
 		b.fillNames("staff "+s.ID, &s.Names, s.ExternalIDs.WikidataID, report)
-	}
-	for i := range rec.Characters {
-		c := &rec.Characters[i]
-		b.fillNames("character "+c.ID, &c.Names, c.ExternalIDs.WikidataID, report)
-	}
-	if err := validateCharacters(rec, ctx); err != nil {
-		return model.CharactersRecord{}, nil, err
 	}
 	report.Sort()
 	return rec, report, nil
@@ -112,10 +103,12 @@ func addTranslation(dst *model.Title, code, val string) {
 	dst.Translations[code] = val
 }
 
-// validateCharacters enforces referential integrity of one R2 record.
-func validateCharacters(rec model.CharactersRecord, ctx CharacterContext) error {
-	for i := range rec.Characters {
-		c := &rec.Characters[i]
+// ValidateCharacters enforces referential integrity of a record's cast: every
+// appearance resolves to a known R1 series/scope node and every voice actor to
+// a declared staff id. It runs after all R1 ids are known.
+func ValidateCharacters(characters []model.Character, ctx CharacterContext) error {
+	for i := range characters {
+		c := &characters[i]
 		if c.ID == "" {
 			return fmt.Errorf("a character has no id")
 		}

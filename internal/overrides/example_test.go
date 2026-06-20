@@ -24,9 +24,9 @@ func TestExampleOverridesParse(t *testing.T) {
 			t.Errorf("override %q has no id", o.Path)
 		}
 	}
-	for _, o := range bundle.Characters {
+	for _, o := range bundle.Staff {
 		if len(o.IDs()) == 0 {
-			t.Errorf("characters override %q has no ids", o.Path)
+			t.Errorf("staff override %q has no ids", o.Path)
 		}
 	}
 }

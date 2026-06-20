@@ -16,9 +16,9 @@ import (
 	"github.com/michael-freling/anime-metadata-db/internal/model"
 )
 
-// Override is one authored file. Exactly one of Franchise or Series is set: a
-// multi-storyline brand is a Franchise, a single storyline is a standalone
-// Series.
+// Override is one authored series file. Exactly one of Franchise or Series is
+// set (a multi-storyline brand is a Franchise, a single storyline a standalone
+// Series), and Characters is the cast co-located with it.
 type Override struct {
 	// Path is the file's path relative to the overrides directory, used to
 	// mirror the layout into the data directory. It is not serialised.
@@ -27,11 +27,28 @@ type Override struct {
 	Franchise *model.Franchise `yaml:"franchise,omitempty"`
 	Series    *model.Series    `yaml:"series,omitempty"`
 
+	// Characters are the cast for this series (R2). They are global entities;
+	// a character that spans franchises lives in its home series file and its
+	// appearances reference the other series by id.
+	Characters []model.Character `yaml:"characters,omitempty"`
+
 	// Numbered lists the ids of Series that form a single linear continuity, so
 	// the builder assigns a continuous absoluteNumber across them. It is an
 	// authoring directive consumed by the build; the generated data model
 	// carries the decision implicitly via the presence of absoluteNumber.
 	Numbered []string `yaml:"numbered,omitempty"`
+}
+
+// IDs returns the franchise/series id plus every character id in the file.
+func (o Override) IDs() []string {
+	ids := make([]string, 0, 1+len(o.Characters))
+	if id := o.ID(); id != "" {
+		ids = append(ids, id)
+	}
+	for _, c := range o.Characters {
+		ids = append(ids, c.ID)
+	}
+	return ids
 }
 
 // IsNumbered reports whether seriesID was marked as a linear/numbered series.
@@ -76,6 +93,11 @@ func (o Override) Validate() error {
 	default:
 		return fmt.Errorf("override %q: declares neither franchise nor series", o.Path)
 	}
+	for i := range o.Characters {
+		if o.Characters[i].ID == "" {
+			return fmt.Errorf("override %q: a character has no id", o.Path)
+		}
+	}
 	return nil
 }
 
@@ -105,11 +127,11 @@ func Load(absPath, relPath string) (Override, error) {
 	return Parse(raw, relPath)
 }
 
-// Bundle is the result of loading an overrides directory: the R1 series /
-// franchise files and the R2 character / staff files, routed by content.
+// Bundle is the result of loading an overrides directory: the series files
+// (structure + co-located characters) and the global staff files.
 type Bundle struct {
-	Series     []Override
-	Characters []CharactersOverride
+	Series []Override
+	Staff  []StaffOverride
 }
 
 // fileKind distinguishes the two override shapes.
@@ -117,11 +139,11 @@ type fileKind int
 
 const (
 	kindSeries fileKind = iota
-	kindCharacters
+	kindStaff
 )
 
-// detectKind inspects a file's top-level keys to route it without strict
-// field checking.
+// detectKind inspects a file's top-level keys to route it. A series file holds
+// franchise/series (optionally with characters); a staff file holds only staff.
 func detectKind(raw []byte, relPath string) (fileKind, error) {
 	var top map[string]yaml.Node
 	if err := yaml.Unmarshal(raw, &top); err != nil {
@@ -131,17 +153,18 @@ func detectKind(raw []byte, relPath string) (fileKind, error) {
 	_, hasStaff := top["staff"]
 	_, hasFranchise := top["franchise"]
 	_, hasSeries := top["series"]
-	r2 := hasCharacters || hasStaff
-	r1 := hasFranchise || hasSeries
+	hasStructure := hasFranchise || hasSeries
 	switch {
-	case r1 && r2:
-		return 0, fmt.Errorf("override %q: mixes series/franchise with characters/staff", relPath)
-	case r2:
-		return kindCharacters, nil
-	case r1:
+	case hasStaff && (hasStructure || hasCharacters):
+		return 0, fmt.Errorf("override %q: staff must be in its own file (no franchise/series/characters)", relPath)
+	case hasStaff:
+		return kindStaff, nil
+	case hasStructure:
 		return kindSeries, nil
+	case hasCharacters:
+		return 0, fmt.Errorf("override %q: characters must be in a series file (with a franchise or series)", relPath)
 	default:
-		return 0, fmt.Errorf("override %q: no recognized top-level key (franchise, series, characters or staff)", relPath)
+		return 0, fmt.Errorf("override %q: no recognized top-level key (franchise, series or staff)", relPath)
 	}
 }
 
@@ -201,24 +224,26 @@ func LoadDir(dir string) (Bundle, error) {
 			return Bundle{}, err
 		}
 		switch kind {
-		case kindCharacters:
-			co, err := ParseCharacters(raw, relPath)
+		case kindStaff:
+			so, err := ParseStaff(raw, relPath)
 			if err != nil {
 				return Bundle{}, err
 			}
-			for _, id := range co.IDs() {
-				if err := register(id, co.Path); err != nil {
+			for _, id := range so.IDs() {
+				if err := register(id, so.Path); err != nil {
 					return Bundle{}, err
 				}
 			}
-			bundle.Characters = append(bundle.Characters, co)
+			bundle.Staff = append(bundle.Staff, so)
 		default:
 			o, err := Parse(raw, relPath)
 			if err != nil {
 				return Bundle{}, err
 			}
-			if err := register(o.ID(), o.Path); err != nil {
-				return Bundle{}, err
+			for _, id := range o.IDs() {
+				if err := register(id, o.Path); err != nil {
+					return Bundle{}, err
+				}
 			}
 			bundle.Series = append(bundle.Series, o)
 		}

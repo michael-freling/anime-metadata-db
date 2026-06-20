@@ -9,6 +9,7 @@
   "properties": {
     "franchise": { "$ref": "#/$defs/franchise" },
     "series": { "$ref": "#/$defs/series" },
+    "characters": { "type": "array", "items": { "$ref": "#/$defs/character" } },
     "numbered": {
       "type": "array",
       "items": { "type": "string", "minLength": 1 }
@@ -47,7 +48,8 @@
         "anilistId": { "type": "integer" },
         "anidbId": { "type": "integer" },
         "tmdbId": { "type": "integer" },
-        "tvdbId": { "type": "integer" }
+        "tvdbId": { "type": "integer" },
+        "wikidataId": { "type": "string", "pattern": "^Q[0-9]+$" }
       }
     },
     "episode": {
@@ -164,6 +166,49 @@
           "type": "array",
           "items": { "$ref": "#/$defs/watchOrder" }
         }
+      }
+    },
+    "voiceActor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["staffId", "language"],
+      "properties": {
+        "staffId": { "$ref": "#/$defs/id" },
+        "language": { "type": "string", "minLength": 1 }
+      }
+    },
+    "scopeRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "maxProperties": 1,
+      "properties": {
+        "seasonId": { "$ref": "#/$defs/id" },
+        "movieId": { "$ref": "#/$defs/id" },
+        "specialId": { "$ref": "#/$defs/id" }
+      }
+    },
+    "appearance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["seriesId"],
+      "properties": {
+        "seriesId": { "$ref": "#/$defs/id" },
+        "scope": { "type": "array", "items": { "$ref": "#/$defs/scopeRef" } },
+        "voiceActors": { "type": "array", "items": { "$ref": "#/$defs/voiceActor" } },
+        "externalIds": { "$ref": "#/$defs/externalIds" }
+      }
+    },
+    "character": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "names": { "$ref": "#/$defs/title" },
+        "externalIds": { "$ref": "#/$defs/externalIds" },
+        "voiceActors": { "type": "array", "items": { "$ref": "#/$defs/voiceActor" } },
+        "appearances": { "type": "array", "items": { "$ref": "#/$defs/appearance" } }
       }
     }
   }

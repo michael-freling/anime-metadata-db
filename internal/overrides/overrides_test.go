@@ -118,7 +118,7 @@ func TestLoadDirMissing(t *testing.T) {
 	if err != nil {
 		t.Fatalf("missing dir should be no error: %v", err)
 	}
-	if len(bundle.Series) != 0 || len(bundle.Characters) != 0 {
+	if len(bundle.Series) != 0 || len(bundle.Staff) != 0 {
 		t.Errorf("expected empty bundle, got %+v", bundle)
 	}
 }

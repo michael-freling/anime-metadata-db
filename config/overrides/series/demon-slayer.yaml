@@ -40,3 +40,13 @@ series:
 # Demon Slayer is one linear storyline, so its episodes carry a continuous
 # absoluteNumber across the seasons (and the original film).
 numbered: [demon-slayer]
+# Cast (R2) co-located with the series.
+characters:
+  - id: tanjiro-kamado
+    externalIds: { wikidataId: Q85805158 }
+    voiceActors:
+      - { staffId: natsuki-hanae, language: ja }
+    appearances:
+      - seriesId: demon-slayer
+        scope:
+          - { seasonId: demon-slayer-s1 }

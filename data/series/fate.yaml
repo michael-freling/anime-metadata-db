@@ -175,3 +175,18 @@ franchise:
       entries:
         - ref: fate-zero
         - ref: fate-stay-night
+characters:
+  - id: artoria-pendragon
+    names:
+      original: セイバー
+      translations:
+        en: Saber
+        ja: セイバー
+    externalIds:
+      wikidataId: Q4918886
+    voiceActors:
+      - staffId: ayako-kawasumi
+        language: ja
+    appearances:
+      - seriesId: fate-stay-night
+      - seriesId: fate-zero

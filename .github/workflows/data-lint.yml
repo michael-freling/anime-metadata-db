@@ -41,12 +41,13 @@ jobs:
           printf 'yamllint:\n'; printf '  %s\n' "${all[@]}"
           yamllint -c .yamllint.yml "${all[@]}"
 
-          # R1 series/franchise files and R2 characters/staff files use different schemas.
+          # Series files (structure + co-located cast) and global staff files use
+          # different schemas.
           mapfile -t series < <(yaml config/overrides/series data/series)
-          mapfile -t characters < <(yaml config/overrides/characters data/characters)
+          mapfile -t staff < <(yaml config/overrides/staff data/staff)
           if [ ${#series[@]} -gt 0 ]; then
             check-jsonschema --schemafile config/schemas/anime.schema.json "${series[@]}"
           fi
-          if [ ${#characters[@]} -gt 0 ]; then
-            check-jsonschema --schemafile config/schemas/characters.schema.json "${characters[@]}"
+          if [ ${#staff[@]} -gt 0 ]; then
+            check-jsonschema --schemafile config/schemas/staff.schema.json "${staff[@]}"
           fi

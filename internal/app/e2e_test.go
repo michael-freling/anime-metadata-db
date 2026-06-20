@@ -27,12 +27,9 @@ const e2eOverride = `series:
 numbered: [demon-slayer]
 `
 
-// e2eCharacters references the series above plus real Wikidata QIDs (Tanjirō
-// Kamado and his voice actor), exercising the live Wikidata fetch + R2 build.
-const e2eCharacters = `staff:
-  - id: natsuki-hanae
-    externalIds: { wikidataId: Q2596113 }
-characters:
+// e2eCast is the character section appended to the series file, with real
+// Wikidata QIDs (Tanjirō Kamado), exercising the live Wikidata fetch + R2 build.
+const e2eCast = `characters:
   - id: tanjiro-kamado
     externalIds: { wikidataId: Q85805158 }
     voiceActors:
@@ -41,6 +38,12 @@ characters:
       - seriesId: demon-slayer
         scope:
           - { seasonId: demon-slayer-s1 }
+`
+
+// e2eStaff is the global staff file (Tanjirō's voice actor).
+const e2eStaff = `staff:
+  - id: natsuki-hanae
+    externalIds: { wikidataId: Q2596113 }
 `
 
 // TestE2EInitAndBuild downloads the real, pinned open-data sources over the
@@ -55,8 +58,8 @@ characters:
 // coverage gate); invoke it explicitly with `go test -tags e2e ./...`.
 func TestE2EInitAndBuild(t *testing.T) {
 	dir := t.TempDir()
-	writeFileE2E(t, filepath.Join(dir, "config", "overrides", "series", "demon-slayer.yaml"), e2eOverride)
-	writeFileE2E(t, filepath.Join(dir, "config", "overrides", "characters", "demon-slayer.yaml"), e2eCharacters)
+	writeFileE2E(t, filepath.Join(dir, "config", "overrides", "series", "demon-slayer.yaml"), e2eOverride+e2eCast)
+	writeFileE2E(t, filepath.Join(dir, "config", "overrides", "staff", "voice-actors.yaml"), e2eStaff)
 
 	var out bytes.Buffer
 	// A real HTTP client, with a timeout so a stall fails instead of hanging.
@@ -96,16 +99,18 @@ func TestE2EInitAndBuild(t *testing.T) {
 		t.Errorf("generated data is missing a computed absoluteNumber:\n%s", got)
 	}
 
-	// R2: the characters file must have names filled live from Wikidata.
-	chars, err := os.ReadFile(filepath.Join(dir, cfg.Settings.DataDir, "characters", "demon-slayer.yaml"))
-	if err != nil {
-		t.Fatalf("characters data not written: %v", err)
-	}
-	cs := string(chars)
-	for _, want := range []string{"id: tanjiro-kamado", "竈門炭治郎", "staffId: natsuki-hanae", "花江夏樹"} {
-		if !strings.Contains(cs, want) {
-			t.Errorf("characters data missing %q (Wikidata fetch/build broken?):\n%s", want, cs)
+	// R2: the cast is co-located in the series file with names from Wikidata.
+	for _, want := range []string{"id: tanjiro-kamado", "竈門炭治郎", "staffId: natsuki-hanae"} {
+		if !strings.Contains(got, want) {
+			t.Errorf("series data missing cast %q (Wikidata fetch/build broken?):\n%s", want, got)
 		}
+	}
+	staff, err := os.ReadFile(filepath.Join(dir, cfg.Settings.DataDir, "staff", "voice-actors.yaml"))
+	if err != nil {
+		t.Fatalf("staff data not written: %v", err)
+	}
+	if !strings.Contains(string(staff), "花江夏樹") {
+		t.Errorf("staff data missing the Wikidata name:\n%s", staff)
 	}
 }
 

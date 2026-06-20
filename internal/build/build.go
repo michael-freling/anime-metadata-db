@@ -64,6 +64,16 @@ func (b *Builder) Build(o overrides.Override) (model.Record, *Report, error) {
 	if err := validate(rec); err != nil {
 		return model.Record{}, nil, err
 	}
+
+	// Attach the co-located cast and fill names from Wikidata. Appearance/VA
+	// references are validated in a second pass (ValidateCharacters), once the
+	// full R1 id universe is known across all files.
+	rec.Characters = o.Characters
+	for i := range rec.Characters {
+		c := &rec.Characters[i]
+		b.fillNames("character "+c.ID, &c.Names, c.ExternalIDs.WikidataID, report)
+	}
+
 	report.Sort()
 	return rec, report, nil
 }

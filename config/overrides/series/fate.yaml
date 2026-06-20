@@ -41,3 +41,13 @@ franchise:
         - { ref: fate-zero }
         - { ref: fate-stay-night }
 numbered: [fate-zero]
+# Cast (R2) co-located with the series; names filled from Wikidata (CC0).
+characters:
+  - id: artoria-pendragon
+    externalIds: { wikidataId: Q4918886 } # Saber
+    # Default cast across all appearances (one Character node, many series).
+    voiceActors:
+      - { staffId: ayako-kawasumi, language: ja }
+    appearances:
+      - { seriesId: fate-stay-night }
+      - { seriesId: fate-zero }

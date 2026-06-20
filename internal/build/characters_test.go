@@ -33,18 +33,14 @@ func charCtx() CharacterContext {
 	return CharacterContext{R1: idx, Staff: map[string]bool{"natsuki-hanae": true}}
 }
 
-func sampleChars() overrides.CharactersOverride {
-	return overrides.CharactersOverride{
-		Path:  "characters/demon-slayer.yaml",
-		Staff: []model.Staff{{ID: "natsuki-hanae", ExternalIDs: model.ExternalIDs{WikidataID: "Q2596113"}}},
-		Characters: []model.Character{{
-			ID:          "tanjiro-kamado",
-			ExternalIDs: model.ExternalIDs{WikidataID: "Q85805158"},
-			VoiceActors: []model.VoiceActor{{StaffID: "natsuki-hanae", Language: "ja"}},
-			Appearances: []model.CharacterAppearance{{
-				SeriesID: "demon-slayer",
-				Scope:    []model.ScopeRef{{SeasonID: "ds-s1"}},
-			}},
+func sampleCharacter() model.Character {
+	return model.Character{
+		ID:          "tanjiro-kamado",
+		ExternalIDs: model.ExternalIDs{WikidataID: "Q85805158"},
+		VoiceActors: []model.VoiceActor{{StaffID: "natsuki-hanae", Language: "ja"}},
+		Appearances: []model.CharacterAppearance{{
+			SeriesID: "demon-slayer",
+			Scope:    []model.ScopeRef{{SeasonID: "ds-s1"}},
 		}},
 	}
 }
@@ -62,37 +58,29 @@ func TestIDIndexCollect(t *testing.T) {
 	}
 }
 
-func TestBuildCharacters(t *testing.T) {
-	rec, _, err := New(wdSources(t)).BuildCharacters(sampleChars(), charCtx())
+func TestBuildStaff(t *testing.T) {
+	o := overrides.StaffOverride{Staff: []model.Staff{
+		{ID: "natsuki-hanae", ExternalIDs: model.ExternalIDs{WikidataID: "Q2596113"}},
+	}}
+	rec, _, err := New(wdSources(t)).BuildStaff(o)
 	if err != nil {
 		t.Fatal(err)
 	}
-	c := rec.Characters[0]
-	if c.Names.Original != "竈門炭治郎" || c.Names.Translations["en"] != "Tanjirō Kamado" || c.Names.Translations["ja"] != "竈門炭治郎" {
-		t.Errorf("character names not filled: %+v", c.Names)
-	}
-	if rec.Staff[0].Names.Translations["en"] != "Natsuki Hanae" {
-		t.Errorf("staff names not filled: %+v", rec.Staff[0].Names)
-	}
-}
-
-func TestBuildCharactersAuthoredNameWins(t *testing.T) {
-	o := sampleChars()
-	o.Characters[0].Names = model.Title{Translations: map[string]string{"en": "Tanjiro"}}
-	rec, _, err := New(wdSources(t)).BuildCharacters(o, charCtx())
-	if err != nil {
-		t.Fatal(err)
-	}
-	if got := rec.Characters[0].Names.Translations["en"]; got != "Tanjiro" {
-		t.Errorf("authored en should win, got %q", got)
-	}
-	if rec.Characters[0].Names.Translations["ja"] != "竈門炭治郎" {
-		t.Errorf("ja should still be filled: %+v", rec.Characters[0].Names.Translations)
+	n := rec.Staff[0].Names
+	if n.Original != "花江夏樹" || n.Translations["en"] != "Natsuki Hanae" || n.Translations["ja"] != "花江夏樹" {
+		t.Errorf("staff names not filled: %+v", n)
 	}
 }
 
 func TestFillNames(t *testing.T) {
 	b := New(wdSources(t))
+
+	// Authored name wins; ja is still filled.
+	authored := &model.Title{Translations: map[string]string{"en": "Tanjiro"}}
+	b.fillNames("character a", authored, "Q85805158", &Report{})
+	if authored.Translations["en"] != "Tanjiro" || authored.Translations["ja"] != "竈門炭治郎" {
+		t.Errorf("merge wrong: %+v", authored.Translations)
+	}
 
 	// Missing QID -> note, no fill.
 	r := &Report{}
@@ -121,71 +109,54 @@ func TestFillNames(t *testing.T) {
 	}
 
 	// Nil Wikidata source -> no-op, no panic.
-	nb := New(Sources{})
 	var t4 model.Title
-	nb.fillNames("character w", &t4, "Q1", &Report{})
+	New(Sources{}).fillNames("character w", &t4, "Q1", &Report{})
 	if !t4.IsZero() {
 		t.Error("nil source should not fill names")
 	}
 }
 
-func TestValidateCharactersErrors(t *testing.T) {
-	ctx := charCtx()
-	good := sampleChars()
-
-	tests := []struct {
-		name   string
-		mutate func(*overrides.CharactersOverride)
-	}{
-		{"no appearances", func(o *overrides.CharactersOverride) { o.Characters[0].Appearances = nil }},
-		{"unknown series", func(o *overrides.CharactersOverride) { o.Characters[0].Appearances[0].SeriesID = "ghost" }},
-		{"unknown scope season", func(o *overrides.CharactersOverride) {
-			o.Characters[0].Appearances[0].Scope = []model.ScopeRef{{SeasonID: "ghost"}}
-		}},
-		{"unknown scope movie", func(o *overrides.CharactersOverride) {
-			o.Characters[0].Appearances[0].Scope = []model.ScopeRef{{MovieID: "ghost"}}
-		}},
-		{"unknown scope special", func(o *overrides.CharactersOverride) {
-			o.Characters[0].Appearances[0].Scope = []model.ScopeRef{{SpecialID: "ghost"}}
-		}},
-		{"scope sets none", func(o *overrides.CharactersOverride) {
-			o.Characters[0].Appearances[0].Scope = []model.ScopeRef{{}}
-		}},
-		{"scope sets two", func(o *overrides.CharactersOverride) {
-			o.Characters[0].Appearances[0].Scope = []model.ScopeRef{{SeasonID: "ds-s1", MovieID: "ds-movie"}}
-		}},
-		{"unknown default VA staff", func(o *overrides.CharactersOverride) {
-			o.Characters[0].VoiceActors = []model.VoiceActor{{StaffID: "ghost", Language: "ja"}}
-		}},
-		{"unknown appearance VA staff", func(o *overrides.CharactersOverride) {
-			o.Characters[0].Appearances[0].VoiceActors = []model.VoiceActor{{StaffID: "ghost", Language: "ja"}}
-		}},
-		{"VA no staffId", func(o *overrides.CharactersOverride) {
-			o.Characters[0].VoiceActors = []model.VoiceActor{{Language: "ja"}}
-		}},
-		{"VA no language", func(o *overrides.CharactersOverride) {
-			o.Characters[0].VoiceActors = []model.VoiceActor{{StaffID: "natsuki-hanae"}}
-		}},
-		{"character no id", func(o *overrides.CharactersOverride) { o.Characters[0].ID = "" }},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			o := good // copy of the struct; slices are shared but mutated fields are replaced
-			o.Characters = append([]model.Character(nil), good.Characters...)
-			o.Characters[0].Appearances = append([]model.CharacterAppearance(nil), good.Characters[0].Appearances...)
-			tt.mutate(&o)
-			if _, _, err := New(wdSources(t)).BuildCharacters(o, ctx); err == nil {
-				t.Error("expected validation error")
-			}
-		})
+func TestValidateCharactersOK(t *testing.T) {
+	c := sampleCharacter()
+	c.Appearances[0].Scope = []model.ScopeRef{{MovieID: "ds-movie"}, {SpecialID: "ds-ova"}}
+	c.Appearances[0].VoiceActors = []model.VoiceActor{{StaffID: "natsuki-hanae", Language: "en"}}
+	if err := ValidateCharacters([]model.Character{c}, charCtx()); err != nil {
+		t.Errorf("expected valid, got %v", err)
 	}
 }
 
-func TestValidateCharactersOKWithScopes(t *testing.T) {
-	o := sampleChars()
-	o.Characters[0].Appearances[0].Scope = []model.ScopeRef{{MovieID: "ds-movie"}, {SpecialID: "ds-ova"}}
-	o.Characters[0].Appearances[0].VoiceActors = []model.VoiceActor{{StaffID: "natsuki-hanae", Language: "en"}}
-	if _, _, err := New(wdSources(t)).BuildCharacters(o, charCtx()); err != nil {
-		t.Errorf("expected valid, got %v", err)
+func TestValidateCharactersErrors(t *testing.T) {
+	ctx := charCtx()
+	tests := []struct {
+		name   string
+		mutate func(*model.Character)
+	}{
+		{"no id", func(c *model.Character) { c.ID = "" }},
+		{"no appearances", func(c *model.Character) { c.Appearances = nil }},
+		{"unknown series", func(c *model.Character) { c.Appearances[0].SeriesID = "ghost" }},
+		{"unknown scope season", func(c *model.Character) { c.Appearances[0].Scope = []model.ScopeRef{{SeasonID: "ghost"}} }},
+		{"unknown scope movie", func(c *model.Character) { c.Appearances[0].Scope = []model.ScopeRef{{MovieID: "ghost"}} }},
+		{"unknown scope special", func(c *model.Character) { c.Appearances[0].Scope = []model.ScopeRef{{SpecialID: "ghost"}} }},
+		{"scope none", func(c *model.Character) { c.Appearances[0].Scope = []model.ScopeRef{{}} }},
+		{"scope two", func(c *model.Character) {
+			c.Appearances[0].Scope = []model.ScopeRef{{SeasonID: "ds-s1", MovieID: "ds-movie"}}
+		}},
+		{"unknown default VA", func(c *model.Character) { c.VoiceActors = []model.VoiceActor{{StaffID: "ghost", Language: "ja"}} }},
+		{"unknown appearance VA", func(c *model.Character) {
+			c.Appearances[0].VoiceActors = []model.VoiceActor{{StaffID: "ghost", Language: "ja"}}
+		}},
+		{"VA no staffId", func(c *model.Character) { c.VoiceActors = []model.VoiceActor{{Language: "ja"}} }},
+		{"VA no language", func(c *model.Character) { c.VoiceActors = []model.VoiceActor{{StaffID: "natsuki-hanae"}} }},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			c := sampleCharacter()
+			c.VoiceActors = append([]model.VoiceActor(nil), c.VoiceActors...)
+			c.Appearances = append([]model.CharacterAppearance(nil), c.Appearances...)
+			tt.mutate(&c)
+			if err := ValidateCharacters([]model.Character{c}, ctx); err == nil {
+				t.Error("expected validation error")
+			}
+		})
 	}
 }
