@@ -8,8 +8,8 @@ sources:
         version: master
         filename: anime-movieset-list.xml
     offlineDatabase:
-        url: https://raw.githubusercontent.com/manami-project/anime-offline-database/master/anime-offline-database-minified.json
-        version: master
+        url: https://github.com/manami-project/anime-offline-database/releases/latest/download/anime-offline-database-minified.json
+        version: latest
         filename: anime-offline-database.json
 settings:
     sourcesDir: .sources

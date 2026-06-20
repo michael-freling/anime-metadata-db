@@ -4,6 +4,9 @@ version: "2"
 
 run:
   timeout: 5m
+  # Also analyze the build-tagged e2e tests.
+  build-tags:
+    - e2e
 
 linters:
   # Start from the curated standard set (errcheck, govet, ineffassign,

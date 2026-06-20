@@ -51,10 +51,13 @@ title-language tagging) it prints a report; pin those cases with an override.
 ## Development
 
 ```sh
-go test ./...                                          # run the tests
+go test ./...                                          # unit tests (no network)
 golangci-lint run ./...                                # lint (golangci-lint v2)
 go test -coverpkg=./... -coverprofile=coverage.out ./... && go tool cover -func=coverage.out
+go test -tags e2e -run E2E ./...                       # e2e: downloads the real sources, no mocks
 ```
 
-CI (`.github/workflows/go.yml`) runs golangci-lint v2 and the test suite, and
-requires total coverage above 95%.
+CI runs golangci-lint v2 and the test suite with a > 95% coverage gate
+(`.github/workflows/go.yml`). The build-tagged e2e tests download the live
+open-data sources and run on a schedule and on pushes to `main`
+(`.github/workflows/e2e.yml`), guarding against upstream source/URL drift.

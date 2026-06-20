@@ -57,8 +57,11 @@ func Default() Config {
 	return Config{
 		Sources: map[string]Source{
 			SourceOfflineDatabase: {
-				URL:      "https://raw.githubusercontent.com/manami-project/anime-offline-database/master/anime-offline-database-minified.json",
-				Version:  "master",
+				// The dataset is published as a GitHub release asset (it is no
+				// longer committed to the repo tree). The releases/latest alias
+				// always resolves to the newest weekly release.
+				URL:      "https://github.com/manami-project/anime-offline-database/releases/latest/download/anime-offline-database-minified.json",
+				Version:  "latest",
 				Filename: "anime-offline-database.json",
 			},
 			SourceAnimeList: {

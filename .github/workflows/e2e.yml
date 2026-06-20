@@ -1,0 +1,30 @@
+name: E2E
+
+# The e2e tests download the real open-data sources over the network, so they
+# run on a schedule (to catch upstream URL/source drift like a moved release
+# asset), on pushes to main, and on demand — not on every PR.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 6 * * 1" # weekly, Monday 06:00 UTC
+
+permissions:
+  contents: read
+
+jobs:
+  e2e:
+    name: E2E (live sources)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Run e2e tests (no mocks)
+        run: go test -tags e2e -run E2E -timeout 15m ./...
