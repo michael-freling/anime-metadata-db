@@ -35,3 +35,6 @@ go.work.sum
 docs/public/
 docs/resources/
 .hugo_build.lock
+
+# Pinned Hugo binary downloaded by the Makefile
+docs/.hugo/
