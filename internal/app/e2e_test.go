@@ -67,7 +67,7 @@ func TestE2EInitAndBuild(t *testing.T) {
 	if err := a.Build(ctx); err != nil {
 		t.Fatalf("build failed: %v", err)
 	}
-	data, err := os.ReadFile(filepath.Join(dir, cfg.Settings.DataDir, "demon-slayer.yaml"))
+	data, err := os.ReadFile(filepath.Join(dir, cfg.Settings.DataDir, "series", "demon-slayer.yaml"))
 	if err != nil {
 		t.Fatalf("data not written: %v", err)
 	}
