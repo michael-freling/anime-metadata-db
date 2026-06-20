@@ -2,11 +2,12 @@
 series:
   id: demon-slayer
   seasons:
-    - id: ds-s1
+    - id: demon-slayer-s1
       titles:
         original: 鬼滅の刃
         translations:
           en: Kimetsu no Yaiba
+          ja: 鬼滅の刃
       number: 1
       releaseYear: 2019
       releaseSeason: SPRING
@@ -67,54 +68,18 @@ series:
           airedNumber: 25
         - absoluteNumber: 26
           airedNumber: 26
-    - id: ds-mugen-train-arc
+    - id: demon-slayer-s2
       titles:
+        original: 鬼滅の刃 無限列車編
         translations:
           en: Mugen Train Arc
+          ja: 鬼滅の刃 無限列車編
       number: 2
-      part: 1
-      releaseYear: 2022
-      releaseSeason: SPRING
+      releaseYear: 2021
+      releaseSeason: FALL
       externalIds:
-        anilistId: 142984
-        anidbId: 17072
-        tvdbId: 402412
-      episodes:
-        - absoluteNumber: 38
-          airedNumber: 1
-        - absoluteNumber: 39
-          airedNumber: 2
-        - absoluteNumber: 40
-          airedNumber: 3
-        - absoluteNumber: 41
-          airedNumber: 4
-        - absoluteNumber: 42
-          airedNumber: 5
-        - absoluteNumber: 43
-          airedNumber: 6
-        - absoluteNumber: 44
-          airedNumber: 7
-        - absoluteNumber: 45
-          airedNumber: 8
-        - absoluteNumber: 46
-          airedNumber: 9
-        - absoluteNumber: 47
-          airedNumber: 10
-        - absoluteNumber: 48
-          airedNumber: 11
-        - absoluteNumber: 49
-          airedNumber: 12
-    - id: ds-entertainment-district
-      titles:
-        translations:
-          en: Entertainment District Arc
-      number: 2
-      part: 2
-      releaseYear: 2022
-      releaseSeason: WINTER
-      externalIds:
-        anilistId: 142329
-        anidbId: 16054
+        anilistId: 129874
+        anidbId: 16803
         tvdbId: 348545
       episodes:
         - absoluteNumber: 27
@@ -131,24 +96,130 @@ series:
           airedNumber: 6
         - absoluteNumber: 33
           airedNumber: 7
-        - absoluteNumber: 34
-          airedNumber: 8
-        - absoluteNumber: 35
-          airedNumber: 9
-        - absoluteNumber: 36
-          airedNumber: 10
-        - absoluteNumber: 37
-          airedNumber: 11
-  movies:
-    - id: ds-mugen-train-film
+    - id: demon-slayer-s3
       titles:
+        original: 鬼滅の刃 遊郭編
+        translations:
+          en: Entertainment District Arc
+          ja: 鬼滅の刃 遊郭編
+      number: 3
+      releaseYear: 2022
+      releaseSeason: WINTER
+      externalIds:
+        anilistId: 142329
+        anidbId: 16054
+        tvdbId: 348545
+      episodes:
+        - absoluteNumber: 34
+          airedNumber: 1
+        - absoluteNumber: 35
+          airedNumber: 2
+        - absoluteNumber: 36
+          airedNumber: 3
+        - absoluteNumber: 37
+          airedNumber: 4
+        - absoluteNumber: 38
+          airedNumber: 5
+        - absoluteNumber: 39
+          airedNumber: 6
+        - absoluteNumber: 40
+          airedNumber: 7
+        - absoluteNumber: 41
+          airedNumber: 8
+        - absoluteNumber: 42
+          airedNumber: 9
+        - absoluteNumber: 43
+          airedNumber: 10
+        - absoluteNumber: 44
+          airedNumber: 11
+    - id: demon-slayer-s4
+      titles:
+        original: 鬼滅の刃 刀鍛冶の里編
+        translations:
+          en: Swordsmith Village Arc
+          ja: 鬼滅の刃 刀鍛冶の里編
+      number: 4
+      releaseYear: 2023
+      releaseSeason: SPRING
+      externalIds:
+        anilistId: 145139
+        anidbId: 17198
+        tvdbId: 348545
+      episodes:
+        - absoluteNumber: 45
+          airedNumber: 1
+        - absoluteNumber: 46
+          airedNumber: 2
+        - absoluteNumber: 47
+          airedNumber: 3
+        - absoluteNumber: 48
+          airedNumber: 4
+        - absoluteNumber: 49
+          airedNumber: 5
+        - absoluteNumber: 50
+          airedNumber: 6
+        - absoluteNumber: 51
+          airedNumber: 7
+        - absoluteNumber: 52
+          airedNumber: 8
+        - absoluteNumber: 53
+          airedNumber: 9
+        - absoluteNumber: 54
+          airedNumber: 10
+        - absoluteNumber: 55
+          airedNumber: 11
+    - id: demon-slayer-s5
+      titles:
+        original: 鬼滅の刃 柱稽古編
+        translations:
+          en: Hashira Training Arc
+          ja: 鬼滅の刃 柱稽古編
+      number: 5
+      releaseYear: 2024
+      releaseSeason: SPRING
+      externalIds:
+        anilistId: 166240
+        anidbId: 18067
+        tvdbId: 348545
+      episodes:
+        - absoluteNumber: 56
+          airedNumber: 1
+        - absoluteNumber: 57
+          airedNumber: 2
+        - absoluteNumber: 58
+          airedNumber: 3
+        - absoluteNumber: 59
+          airedNumber: 4
+        - absoluteNumber: 60
+          airedNumber: 5
+        - absoluteNumber: 61
+          airedNumber: 6
+        - absoluteNumber: 62
+          airedNumber: 7
+        - absoluteNumber: 63
+          airedNumber: 8
+  movies:
+    - id: demon-slayer-mugen-train-film
+      titles:
+        original: 劇場版 鬼滅の刃 無限列車編
         translations:
           en: Mugen Train
+          ja: 劇場版 鬼滅の刃 無限列車編
       releaseYear: 2020
       externalIds:
         anilistId: 112151
         anidbId: 15113
         tvdbId: 348545
       alternateCutOf:
-        seasonId: ds-mugen-train-arc
-        episodes: 1-7
+        seasonId: demon-slayer-s2
+    - id: demon-slayer-infinity-castle-1
+      titles:
+        original: 劇場版 鬼滅の刃 無限城編
+        translations:
+          en: Infinity Castle
+          ja: 劇場版 鬼滅の刃 無限城編
+      releaseYear: 2025
+      externalIds:
+        anilistId: 178788
+        anidbId: 18699
+      absoluteNumber: 64

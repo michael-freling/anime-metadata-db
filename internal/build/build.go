@@ -115,16 +115,29 @@ func (b *Builder) fillExternalIDs(ids *model.ExternalIDs, a offlinedb.Anime) {
 	}
 }
 
-// fillTitles fills a node's titles from the offline entry unless the override
-// already set them (override wins, design Part 4 step 5).
+// fillTitles merges inferred facts into a node's titles per field: an authored
+// original or translation always wins, but any field the override left unset is
+// filled from the source. So an override that sets only translations.en still
+// gets a Japanese (`ja`) name and an `original` added automatically.
 func fillTitles(entity string, dst *model.Title, a offlinedb.Anime, report *Report) {
-	if !dst.IsZero() {
-		return
+	inferred := inferTitle(a)
+	if dst.Original == "" && inferred.Original != "" {
+		dst.Original = inferred.Original
 	}
-	title, notes := inferTitle(a)
-	*dst = title
-	for _, n := range notes {
-		report.add(entity, "titles", n)
+	for code, val := range inferred.Translations {
+		if _, ok := dst.Translations[code]; ok {
+			continue // override wins for this language
+		}
+		if dst.Translations == nil {
+			dst.Translations = make(map[string]string)
+		}
+		dst.Translations[code] = val
+		if code == "en" {
+			report.add(entity, "titles", fmt.Sprintf("filled translations.en from source title %q (verify it is not just a romanization)", val))
+		}
+	}
+	if dst.Original == "" {
+		report.add(entity, "titles", "no native-script title found; original left empty")
 	}
 }
 

@@ -1,0 +1,41 @@
+name: Data lint
+
+# Lints the dataset YAML in overrides/ and data/: yamllint for formatting, and
+# JSON Schema validation for structure and enum values (e.g. releaseSeason must
+# be WINTER/SPRING/SUMMER/FALL, special format must be OVA/ONA/SPECIAL).
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Lint dataset YAML
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install linters
+        run: pip install --upgrade yamllint check-jsonschema
+
+      - name: Lint and schema-validate dataset YAML
+        run: |
+          set -euo pipefail
+          mapfile -t files < <(find overrides data -type f \( -name '*.yaml' -o -name '*.yml' \) 2>/dev/null | sort)
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "No dataset YAML files found; nothing to lint."
+            exit 0
+          fi
+          printf 'Linting:\n'; printf '  %s\n' "${files[@]}"
+          yamllint -c .yamllint.yml "${files[@]}"
+          check-jsonschema --schemafile schemas/anime.schema.json "${files[@]}"

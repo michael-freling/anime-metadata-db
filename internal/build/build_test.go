@@ -43,37 +43,53 @@ func TestHasNativeScript(t *testing.T) {
 }
 
 func TestInferTitle(t *testing.T) {
-	// Latin title + native synonym: native -> ja, Latin -> ja-Latn.
-	title, notes := inferTitle(offlinedb.Anime{Title: "Kimetsu no Yaiba", Synonyms: []string{"x", "鬼滅の刃"}})
-	if title.Original != "鬼滅の刃" || title.Translations["ja"] != "鬼滅の刃" || title.Translations["ja-Latn"] != "Kimetsu no Yaiba" {
+	// Latin title + native synonym: native -> original/ja, Latin -> en.
+	title := inferTitle(offlinedb.Anime{Title: "Kimetsu no Yaiba", Synonyms: []string{"x", "鬼滅の刃"}})
+	if title.Original != "鬼滅の刃" || title.Translations["ja"] != "鬼滅の刃" || title.Translations["en"] != "Kimetsu no Yaiba" {
 		t.Errorf("unexpected title: %+v", title)
 	}
-	if title.Translations["en"] != "" {
-		t.Errorf("Japanese title should not be tagged en: %+v", title.Translations)
-	}
-	if len(notes) != 2 { // "chose synonym" + "tagged ja-Latn"
-		t.Errorf("expected 2 notes, got %v", notes)
-	}
 
-	// Native title, no latin: only the ja translation.
-	title, notes = inferTitle(offlinedb.Anime{Title: "鬼滅の刃"})
+	// Native title, no latin: ja only, no en.
+	title = inferTitle(offlinedb.Anime{Title: "鬼滅の刃"})
 	if title.Original != "鬼滅の刃" || title.Translations["ja"] != "鬼滅の刃" {
 		t.Errorf("native-only title: %+v", title)
 	}
-	if _, ok := title.Translations["ja-Latn"]; ok {
-		t.Errorf("native-only should have no ja-Latn: %+v", title.Translations)
-	}
-	if len(notes) != 0 {
-		t.Errorf("expected 0 notes, got %v", notes)
+	if _, ok := title.Translations["en"]; ok {
+		t.Errorf("native-only should have no en: %+v", title.Translations)
 	}
 
-	// No native anywhere: fall back to a best-effort en tag.
-	title, notes = inferTitle(offlinedb.Anime{Title: "Fate/stay night", Synonyms: []string{"FSN"}})
+	// No native anywhere: en only, empty original.
+	title = inferTitle(offlinedb.Anime{Title: "Fate/stay night", Synonyms: []string{"FSN"}})
 	if title.Original != "" || title.Translations["en"] != "Fate/stay night" {
 		t.Errorf("no-native: %+v", title)
 	}
-	if len(notes) != 2 { // "no native-script" + "assumed en"
-		t.Errorf("expected 2 notes, got %v", notes)
+	if _, ok := title.Translations["ja"]; ok {
+		t.Errorf("no-native should have no ja: %+v", title.Translations)
+	}
+}
+
+func TestFillTitlesMerge(t *testing.T) {
+	a := offlinedb.Anime{Title: "Kimetsu no Yaiba", Synonyms: []string{"鬼滅の刃"}}
+
+	// An override that authored only translations.en keeps it, and gains ja +
+	// original from the source.
+	dst := &model.Title{Translations: map[string]string{"en": "Demon Slayer"}}
+	fillTitles("season x", dst, a, &Report{})
+	if dst.Translations["en"] != "Demon Slayer" {
+		t.Errorf("authored en should be kept, got %q", dst.Translations["en"])
+	}
+	if dst.Translations["ja"] != "鬼滅の刃" {
+		t.Errorf("ja should be filled, got %q", dst.Translations["ja"])
+	}
+	if dst.Original != "鬼滅の刃" {
+		t.Errorf("original should be filled, got %q", dst.Original)
+	}
+
+	// An empty title gets both en and ja.
+	empty := &model.Title{}
+	fillTitles("season y", empty, a, &Report{})
+	if empty.Translations["en"] != "Kimetsu no Yaiba" || empty.Translations["ja"] != "鬼滅の刃" {
+		t.Errorf("empty title not filled with both: %+v", empty.Translations)
 	}
 }
 
@@ -189,6 +205,10 @@ func TestBuildDemonSlayer(t *testing.T) {
 		t.Fatal(err)
 	}
 	s := rec.Series
+	// Auto-filled titles carry both English and Japanese by default.
+	if s.Seasons[0].Titles.Translations["en"] == "" || s.Seasons[0].Titles.Translations["ja"] == "" {
+		t.Errorf("season title should have en and ja: %+v", s.Seasons[0].Titles.Translations)
+	}
 	if got := len(s.Seasons[0].Episodes); got != 26 {
 		t.Fatalf("s1 episodes = %d", got)
 	}

@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/michael-freling/anime-metadata-db/schemas/anime.schema.json",
+  "title": "Anime franchise record",
+  "description": "Schema for both authored overrides/ and generated data/ YAML files.",
+  "type": "object",
+  "additionalProperties": false,
+  "minProperties": 1,
+  "properties": {
+    "franchise": { "$ref": "#/$defs/franchise" },
+    "series": { "$ref": "#/$defs/series" },
+    "numbered": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  },
+  "anyOf": [
+    { "required": ["franchise"] },
+    { "required": ["series"] }
+  ],
+  "$defs": {
+    "id": { "type": "string", "minLength": 1 },
+    "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "releaseSeason": {
+      "type": "string",
+      "enum": ["WINTER", "SPRING", "SUMMER", "FALL"]
+    },
+    "specialFormat": {
+      "type": "string",
+      "enum": ["OVA", "ONA", "SPECIAL"]
+    },
+    "title": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "original": { "type": "string" },
+        "translations": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    },
+    "externalIds": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "anilistId": { "type": "integer" },
+        "anidbId": { "type": "integer" },
+        "tmdbId": { "type": "integer" },
+        "tvdbId": { "type": "integer" }
+      }
+    },
+    "episode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["airedNumber"],
+      "properties": {
+        "absoluteNumber": { "type": "integer", "minimum": 1 },
+        "airedNumber": { "type": "integer", "minimum": 1 },
+        "releaseDate": { "$ref": "#/$defs/date" },
+        "title": { "type": "string" }
+      }
+    },
+    "season": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "number"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "titles": { "$ref": "#/$defs/title" },
+        "number": { "type": "integer", "minimum": 1 },
+        "part": { "type": "integer", "minimum": 1 },
+        "releaseDate": { "$ref": "#/$defs/date" },
+        "releaseYear": { "type": "integer" },
+        "releaseSeason": { "$ref": "#/$defs/releaseSeason" },
+        "externalIds": { "$ref": "#/$defs/externalIds" },
+        "episodes": { "type": "array", "items": { "$ref": "#/$defs/episode" } }
+      }
+    },
+    "alternateCutOf": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["seasonId"],
+      "properties": {
+        "seasonId": { "$ref": "#/$defs/id" },
+        "episodes": { "type": "string" }
+      }
+    },
+    "movie": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "titles": { "$ref": "#/$defs/title" },
+        "releaseDate": { "$ref": "#/$defs/date" },
+        "releaseYear": { "type": "integer" },
+        "externalIds": { "$ref": "#/$defs/externalIds" },
+        "absoluteNumber": { "type": "integer", "minimum": 1 },
+        "alternateCutOf": { "$ref": "#/$defs/alternateCutOf" }
+      }
+    },
+    "special": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "titles": { "$ref": "#/$defs/title" },
+        "format": { "$ref": "#/$defs/specialFormat" },
+        "releaseDate": { "$ref": "#/$defs/date" },
+        "releaseYear": { "type": "integer" },
+        "externalIds": { "$ref": "#/$defs/externalIds" },
+        "episodes": { "type": "array", "items": { "$ref": "#/$defs/episode" } },
+        "absoluteNumber": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "watchOrder": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "entries"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "entries": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["ref"],
+            "properties": {
+              "ref": { "$ref": "#/$defs/id" },
+              "note": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "series": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "titles": { "$ref": "#/$defs/title" },
+        "seasons": { "type": "array", "items": { "$ref": "#/$defs/season" } },
+        "movies": { "type": "array", "items": { "$ref": "#/$defs/movie" } },
+        "specials": { "type": "array", "items": { "$ref": "#/$defs/special" } }
+      }
+    },
+    "franchise": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "series"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "titles": { "$ref": "#/$defs/title" },
+        "series": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/series" }
+        },
+        "watchOrders": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/watchOrder" }
+        }
+      }
+    }
+  }
+}

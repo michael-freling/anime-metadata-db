@@ -175,6 +175,60 @@ func TestBuildError(t *testing.T) {
 	}
 }
 
+func TestBuildPrunesOrphans(t *testing.T) {
+	dir := newRepo(t)
+	a, out := newApp(t, dir, testsupport.FakeFetcher{})
+	ctx := context.Background()
+	if err := a.Init(ctx); err != nil {
+		t.Fatal(err)
+	}
+	if err := a.Build(ctx); err != nil {
+		t.Fatal(err)
+	}
+
+	// Simulate a stale generated file left behind by a moved/deleted override
+	// (e.g. data/franchises/fate.yaml after fate moved to data/series/).
+	orphan := filepath.Join(dir, "data", "franchises", "fate.yaml")
+	if err := os.MkdirAll(filepath.Dir(orphan), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(orphan, []byte("franchise: {id: stale}\n"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+
+	out.Reset()
+	if err := a.Build(ctx); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := os.Stat(orphan); !os.IsNotExist(err) {
+		t.Errorf("orphaned data file should have been removed, stat err = %v", err)
+	}
+	if _, err := os.Stat(filepath.Dir(orphan)); !os.IsNotExist(err) {
+		t.Errorf("emptied orphan directory should have been removed")
+	}
+	if !strings.Contains(out.String(), "removed orphaned franchises/fate.yaml") {
+		t.Errorf("expected removal to be reported, got: %q", out.String())
+	}
+	// The real data file is still present.
+	if _, err := os.Stat(filepath.Join(dir, "data", "series", "demon-slayer.yaml")); err != nil {
+		t.Errorf("live data file should remain: %v", err)
+	}
+
+	// A filtered build must NOT prune.
+	if err := os.MkdirAll(filepath.Dir(orphan), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(orphan, []byte("franchise: {id: stale}\n"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := a.Build(ctx, "demon-slayer"); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := os.Stat(orphan); err != nil {
+		t.Errorf("filtered build must not prune orphans: %v", err)
+	}
+}
+
 func TestRefresh(t *testing.T) {
 	dir := newRepo(t)
 	a, out := newApp(t, dir, testsupport.FakeFetcher{})

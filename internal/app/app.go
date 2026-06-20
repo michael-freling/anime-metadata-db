@@ -7,8 +7,11 @@ import (
 	"context"
 	"fmt"
 	"io"
+	"io/fs"
 	"os"
 	"path/filepath"
+	"sort"
+	"strings"
 
 	"github.com/michael-freling/anime-metadata-db/internal/build"
 	"github.com/michael-freling/anime-metadata-db/internal/config"
@@ -166,8 +169,10 @@ func (a *App) build(cfg config.Config, ids []string) error {
 
 	builder := build.New(sources)
 	dataDir := filepath.Join(a.Dir, cfg.Settings.DataDir)
+	expected := make(map[string]bool, len(ovs))
 	updated := 0
 	for _, o := range ovs {
+		expected[filepath.FromSlash(o.Path)] = true
 		if len(filter) > 0 && !filter[o.ID()] {
 			continue
 		}
@@ -194,8 +199,82 @@ func (a *App) build(cfg config.Config, ids []string) error {
 			}
 		}
 	}
+
+	// A full build owns the whole data tree: remove generated files (and now-empty
+	// directories) whose override was deleted or moved, so data/ never keeps a
+	// stale record. A filtered build only touches the requested ids.
+	if len(filter) == 0 {
+		removed, err := pruneData(dataDir, expected)
+		if err != nil {
+			return err
+		}
+		for _, rel := range removed {
+			fmt.Fprintf(a.Out, "removed orphaned %s\n", rel)
+		}
+		updated += len(removed)
+	}
+
 	fmt.Fprintf(a.Out, "build complete: %d file(s) updated\n", updated)
 	return nil
+}
+
+// pruneData deletes every *.yaml under dataDir whose relative path is not in
+// expected, then removes any directories left empty. It returns the relative
+// paths that were removed. A missing dataDir is a no-op.
+func pruneData(dataDir string, expected map[string]bool) ([]string, error) {
+	var removed []string
+	err := filepath.WalkDir(dataDir, func(path string, d fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+		if d.IsDir() {
+			return nil
+		}
+		if ext := strings.ToLower(filepath.Ext(path)); ext != ".yaml" && ext != ".yml" {
+			return nil
+		}
+		rel, err := filepath.Rel(dataDir, path)
+		if err != nil {
+			return err
+		}
+		if expected[rel] {
+			return nil
+		}
+		if err := os.Remove(path); err != nil {
+			return fmt.Errorf("remove orphaned data file: %w", err)
+		}
+		removed = append(removed, filepath.ToSlash(rel))
+		return nil
+	})
+	if err != nil {
+		if os.IsNotExist(err) {
+			return nil, nil
+		}
+		return nil, fmt.Errorf("prune data dir: %w", err)
+	}
+	if len(removed) > 0 {
+		removeEmptyDirs(dataDir)
+	}
+	sort.Strings(removed)
+	return removed, nil
+}
+
+// removeEmptyDirs removes empty subdirectories under root (deepest first),
+// leaving root itself in place. Best-effort: errors are ignored.
+func removeEmptyDirs(root string) {
+	var dirs []string
+	_ = filepath.WalkDir(root, func(path string, d fs.DirEntry, err error) error {
+		if err == nil && d.IsDir() && path != root {
+			dirs = append(dirs, path)
+		}
+		return nil
+	})
+	// Deepest paths last lexically is not guaranteed, so remove by descending
+	// length, which removes children before parents.
+	sort.Slice(dirs, func(i, j int) bool { return len(dirs[i]) > len(dirs[j]) })
+	for _, dir := range dirs {
+		_ = os.Remove(dir) // fails (and is skipped) when the directory is non-empty
+	}
 }
 
 // loadSources loads the cached open-data sources, pointing the user at `init`

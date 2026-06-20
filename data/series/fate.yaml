@@ -11,11 +11,12 @@ franchise:
         translations:
           en: Fate/stay night
       seasons:
-        - id: fsn-2006
+        - id: fate-stay-night-s1
           titles:
             original: フェイト/ステイナイト
             translations:
               en: Fate/stay night
+              ja: フェイト/ステイナイト
           number: 1
           releaseYear: 2006
           releaseSeason: WINTER
@@ -48,16 +49,19 @@ franchise:
             - airedNumber: 22
             - airedNumber: 23
             - airedNumber: 24
-        - id: fsn-ubw
+        - id: fate-stay-night-s2
           titles:
+            original: フェイト/ステイナイト (2014)
             translations:
               en: Unlimited Blade Works
+              ja: フェイト/ステイナイト (2014)
           number: 2
           releaseYear: 2014
-          releaseSeason: SPRING
+          releaseSeason: FALL
           externalIds:
-            anilistId: 20716
-            anidbId: 10584
+            anilistId: 19603
+            anidbId: 9977
+            tvdbId: 278626
           episodes:
             - airedNumber: 1
             - airedNumber: 2
@@ -72,25 +76,26 @@ franchise:
             - airedNumber: 11
             - airedNumber: 12
       movies:
-        - id: fsn-hf-1
+        - id: fate-stay-night-hf-1
           titles:
+            original: 劇場版「Fate/stay night [Heaven's Feel] Ⅰ.presage flower」
             translations:
               en: Heaven's Feel I
-          releaseYear: 2015
+              ja: 劇場版「Fate/stay night [Heaven's Feel] Ⅰ.presage flower」
+          releaseYear: 2017
           externalIds:
-            anilistId: 20724
-            anidbId: 10648
-            tvdbId: 278127
+            anilistId: 20791
     - id: fate-zero
       titles:
         translations:
           en: Fate/Zero
       seasons:
-        - id: fz-s1
+        - id: fate-zero-s1
           titles:
             original: フェイト/ゼロ
             translations:
               en: Fate/Zero
+              ja: フェイト/ゼロ
           number: 1
           part: 1
           releaseYear: 2011
@@ -126,11 +131,12 @@ franchise:
               airedNumber: 12
             - absoluteNumber: 13
               airedNumber: 13
-        - id: fz-s2
+        - id: fate-zero-s2
           titles:
             original: Fate Zero 第2季
             translations:
               en: Fate/Zero 2nd Season
+              ja: Fate Zero 第2季
           number: 1
           part: 2
           releaseYear: 2012
