@@ -17,7 +17,7 @@ import (
 func newRepo(t *testing.T) string {
 	t.Helper()
 	dir := t.TempDir()
-	path := filepath.Join(dir, "overrides", "series", "demon-slayer.yaml")
+	path := filepath.Join(dir, "config", "overrides", "series", "demon-slayer.yaml")
 	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
 		t.Fatal(err)
 	}
@@ -207,7 +207,7 @@ func TestBuildNoOverridesDir(t *testing.T) {
 func TestBuildError(t *testing.T) {
 	dir := t.TempDir()
 	// Override references an AniList id absent from the fixtures.
-	path := filepath.Join(dir, "overrides", "bad.yaml")
+	path := filepath.Join(dir, "config", "overrides", "bad.yaml")
 	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
 		t.Fatal(err)
 	}

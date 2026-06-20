@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/michael-freling/anime-metadata-db/schemas/anime.schema.json",
+  "$id": "https://github.com/michael-freling/anime-metadata-db/config/schemas/anime.schema.json",
   "title": "Anime franchise record",
   "description": "Schema for both authored overrides/ and generated data/ YAML files.",
   "type": "object",

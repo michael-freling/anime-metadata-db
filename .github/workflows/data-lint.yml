@@ -31,11 +31,11 @@ jobs:
       - name: Lint and schema-validate dataset YAML
         run: |
           set -euo pipefail
-          mapfile -t files < <(find overrides data -type f \( -name '*.yaml' -o -name '*.yml' \) 2>/dev/null | sort)
+          mapfile -t files < <(find config/overrides data -type f \( -name '*.yaml' -o -name '*.yml' \) 2>/dev/null | sort)
           if [ ${#files[@]} -eq 0 ]; then
             echo "No dataset YAML files found; nothing to lint."
             exit 0
           fi
           printf 'Linting:\n'; printf '  %s\n' "${files[@]}"
           yamllint -c .yamllint.yml "${files[@]}"
-          check-jsonschema --schemafile schemas/anime.schema.json "${files[@]}"
+          check-jsonschema --schemafile config/schemas/anime.schema.json "${files[@]}"

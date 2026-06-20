@@ -14,7 +14,7 @@ can never clobber authored work:
 
 | Layer | Who writes it | Holds |
 |---|---|---|
-| [`overrides/`](overrides/) | **you** (hand-edited) | Structure + decisions the open sources can't express: Series/Franchise boundaries, ordering, `alternateCutOf`, `WatchOrder`s, which series are linearly `numbered`. |
+| [`config/overrides/`](config/overrides/) | **you** (hand-edited) | Structure + decisions the open sources can't express: Series/Franchise boundaries, ordering, `alternateCutOf`, `WatchOrder`s, which series are linearly `numbered`. |
 | `data/` | `builder build` (generated) | The full resolved records: overrides **+** facts filled from open data **+** computed `absoluteNumber`. Never hand-edit. |
 
 `builder build` treats `overrides/` as read-only input, so builds are
@@ -47,9 +47,10 @@ go build ./cmd/builder
 ./builder refresh              # update sources to latest, bump pins, rebuild all
 ```
 
-A new entry = create `overrides/series/<id>.yaml` and run `builder build`. Both
-standalone Series and multi-storyline Franchises live together under
-`overrides/series/` (the builder mirrors that layout into `data/series/`), so a
+A new entry = create `config/overrides/series/<id>.yaml` and run `builder build`.
+Both standalone Series and multi-storyline Franchises live together under
+`config/overrides/series/` (the builder mirrors that layout into `data/series/`),
+so a
 file's `series:` or `franchise:` key — not its directory — determines its kind.
 The build fails on any unknown id, dangling reference, or schema violation, so a
 successful build is always a valid dataset. Where it makes a low-confidence guess

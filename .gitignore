@@ -43,3 +43,4 @@ docs/resources/
 
 # Pinned Hugo binary downloaded by the Makefile
 docs/.hugo/
+coverage.out

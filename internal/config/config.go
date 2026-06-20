@@ -77,7 +77,7 @@ func Default() Config {
 		},
 		Settings: Settings{
 			SourcesDir:   ".sources",
-			OverridesDir: "overrides",
+			OverridesDir: "config/overrides",
 			DataDir:      "data",
 		},
 	}

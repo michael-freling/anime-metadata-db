@@ -16,5 +16,5 @@ sources:
         filename: anime-offline-database.json
 settings:
     sourcesDir: .sources
-    overridesDir: overrides
+    overridesDir: config/overrides
     dataDir: data

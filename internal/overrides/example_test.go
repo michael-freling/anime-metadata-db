@@ -8,7 +8,7 @@ import (
 // TestExampleOverridesParse guards the committed example overrides in the repo
 // root: they must always parse and pass schema validation.
 func TestExampleOverridesParse(t *testing.T) {
-	const dir = "../../overrides"
+	const dir = "../../config/overrides"
 	if _, err := os.Stat(dir); err != nil {
 		t.Skip("no example overrides directory")
 	}

@@ -13,7 +13,7 @@ import (
 func repoDir(t *testing.T) string {
 	t.Helper()
 	dir := t.TempDir()
-	path := filepath.Join(dir, "overrides", "demon-slayer.yaml")
+	path := filepath.Join(dir, "config", "overrides", "demon-slayer.yaml")
 	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
 		t.Fatal(err)
 	}
@@ -68,7 +68,7 @@ func TestRunUnknownCommand(t *testing.T) {
 
 func TestRunBuildError(t *testing.T) {
 	dir := t.TempDir()
-	path := filepath.Join(dir, "overrides", "bad.yaml")
+	path := filepath.Join(dir, "config", "overrides", "bad.yaml")
 	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
 		t.Fatal(err)
 	}
