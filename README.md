@@ -28,6 +28,20 @@ Facts come from openly-licensed, redistributable sources (AniList is **not** use
 
 - [`anime-offline-database`](https://github.com/manami-project/anime-offline-database) (ODbL) — titles, season/year, episode counts, cross-IDs.
 - [`Anime-Lists/anime-lists`](https://github.com/Anime-Lists/anime-lists) — AniDB↔TVDB mapping and movie-set grouping.
+- [Wikidata](https://www.wikidata.org) (CC0) — character & staff **names** (R2), resolved by QID via the wbgetentities API.
+
+## Characters & staff (R2)
+
+Characters and voice-actor staff are **global, many-to-many** nodes that attach
+onto the series spine. You author the graph under `config/overrides/characters/`
+— who appears in which series (`appearances` → `seriesId`, optionally `scope`d to
+a season/movie/special), the voice-actor links (`voiceActors` → `staffId`), and
+each node's Wikidata `QID`. The builder fills **names** from Wikidata and
+validates every reference against the R1 ids, writing `data/characters/`.
+
+Only **facts** are stored (ids, names, the appearance + voice-actor graph). The
+build never touches AniList/MAL; a consumer fetches *expression* (roles, bios,
+images) live at runtime using the stored ids, storing nothing.
 
 Sources are **not committed**; `builder init` downloads them into a gitignored
 cache (`.sources/`) at the versions pinned in [`config.yaml`](config.yaml). A

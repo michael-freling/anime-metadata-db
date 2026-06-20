@@ -15,6 +15,10 @@ import (
 // (the real sources are a few tens of MB).
 const maxSourceBytes = 512 << 20 // 512 MiB
 
+// userAgent identifies the client. Wikimedia APIs reject requests without a
+// descriptive User-Agent, so we always send one.
+const userAgent = "anime-metadata-db builder (+https://github.com/michael-freling/anime-metadata-db)"
+
 // Client downloads sources over HTTP.
 type Client struct {
 	HTTP *http.Client
@@ -35,6 +39,7 @@ func (c *Client) Get(ctx context.Context, url string) ([]byte, error) {
 	if err != nil {
 		return nil, fmt.Errorf("build request for %s: %w", url, err)
 	}
+	req.Header.Set("User-Agent", userAgent)
 	resp, err := c.HTTP.Do(req)
 	if err != nil {
 		return nil, fmt.Errorf("get %s: %w", url, err)

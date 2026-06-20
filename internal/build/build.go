@@ -12,13 +12,16 @@ import (
 	"github.com/michael-freling/anime-metadata-db/internal/overrides"
 	"github.com/michael-freling/anime-metadata-db/internal/sources/animelists"
 	"github.com/michael-freling/anime-metadata-db/internal/sources/offlinedb"
+	"github.com/michael-freling/anime-metadata-db/internal/sources/wikidata"
 )
 
-// Sources bundles the loaded open-data inputs the build reads from.
+// Sources bundles the loaded open-data inputs the build reads from. Wikidata is
+// only required when building characters/staff (R2).
 type Sources struct {
 	Offline   *offlinedb.Database
 	AnimeList *animelists.AnimeList
 	MovieSets *animelists.MovieSetList
+	Wikidata  *wikidata.Entities
 }
 
 // Builder runs the build pipeline against a fixed set of sources.

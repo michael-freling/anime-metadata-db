@@ -10,9 +10,10 @@ func TestFakeFetcherRouting(t *testing.T) {
 	ctx := context.Background()
 	f := FakeFetcher{}
 	cases := map[string]string{
-		"http://x/anime-offline-database.json": OfflineDBJSON,
-		"http://x/anime-movieset-list.xml":     MovieSetXML,
-		"http://x/anime-list-master.xml":       AnimeListXML,
+		"http://x/anime-offline-database.json":      OfflineDBJSON,
+		"http://x/anime-movieset-list.xml":          MovieSetXML,
+		"http://x/anime-list-master.xml":            AnimeListXML,
+		"https://www.wikidata.org/w/api.php?ids=Q1": WikidataJSON,
 	}
 	for url, want := range cases {
 		got, err := f.Get(ctx, url)

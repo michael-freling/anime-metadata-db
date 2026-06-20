@@ -279,6 +279,97 @@ func TestBuildPrunesOrphans(t *testing.T) {
 	}
 }
 
+func writeCharacterOverride(t *testing.T, dir, content string) {
+	t.Helper()
+	path := filepath.Join(dir, "config", "overrides", "characters", "demon-slayer.yaml")
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(path, []byte(content), 0o644); err != nil {
+		t.Fatal(err)
+	}
+}
+
+func TestInitBuildCharacters(t *testing.T) {
+	dir := newRepo(t)
+	writeCharacterOverride(t, dir, testsupport.CharactersOverride)
+	a, out := newApp(t, dir, testsupport.FakeFetcher{})
+	ctx := context.Background()
+
+	if err := a.Init(ctx); err != nil {
+		t.Fatalf("init: %v", err)
+	}
+	if !strings.Contains(out.String(), "fetched wikidata") {
+		t.Errorf("init should fetch wikidata: %q", out.String())
+	}
+	if _, err := os.Stat(filepath.Join(dir, ".sources", "wikidata-entities.json")); err != nil {
+		t.Errorf("wikidata cache not written: %v", err)
+	}
+
+	if err := a.Build(ctx); err != nil {
+		t.Fatalf("build: %v", err)
+	}
+	data, err := os.ReadFile(filepath.Join(dir, "data", "characters", "demon-slayer.yaml"))
+	if err != nil {
+		t.Fatalf("characters data not written: %v", err)
+	}
+	got := string(data)
+	for _, want := range []string{"id: tanjiro-kamado", "竈門炭治郎", "Tanjirō Kamado", "staffId: natsuki-hanae", "花江夏樹"} {
+		if !strings.Contains(got, want) {
+			t.Errorf("characters data missing %q:\n%s", want, got)
+		}
+	}
+}
+
+func TestBuildFilterWithCharacters(t *testing.T) {
+	dir := newRepo(t)
+	writeCharacterOverride(t, dir, testsupport.CharactersOverride)
+	a, _ := newApp(t, dir, testsupport.FakeFetcher{})
+	ctx := context.Background()
+	if err := a.Init(ctx); err != nil {
+		t.Fatal(err)
+	}
+	charsData := filepath.Join(dir, "data", "characters", "demon-slayer.yaml")
+
+	// Filter by a character id -> the characters file is built.
+	if err := a.Build(ctx, "tanjiro-kamado"); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := os.Stat(charsData); err != nil {
+		t.Errorf("filtering by character id should build the file: %v", err)
+	}
+
+	// Filter by the R1 series id -> the characters file is NOT (re)built.
+	if err := os.Remove(charsData); err != nil {
+		t.Fatal(err)
+	}
+	if err := a.Build(ctx, "demon-slayer"); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := os.Stat(charsData); !os.IsNotExist(err) {
+		t.Error("R1-only filter should not rebuild the characters file")
+	}
+
+	// Unknown id across both layers -> error.
+	if err := a.Build(ctx, "ghost"); err == nil {
+		t.Error("expected unknown-id error")
+	}
+}
+
+func TestBuildCharactersUnknownSeries(t *testing.T) {
+	dir := newRepo(t)
+	bad := "characters:\n  - id: ghost-char\n    appearances:\n      - seriesId: no-such-series\n"
+	writeCharacterOverride(t, dir, bad)
+	a, _ := newApp(t, dir, testsupport.FakeFetcher{})
+	ctx := context.Background()
+	if err := a.Init(ctx); err != nil {
+		t.Fatal(err)
+	}
+	if err := a.Build(ctx); err == nil {
+		t.Error("expected build error for unknown series reference")
+	}
+}
+
 func TestRefresh(t *testing.T) {
 	dir := newRepo(t)
 	a, out := newApp(t, dir, testsupport.FakeFetcher{})

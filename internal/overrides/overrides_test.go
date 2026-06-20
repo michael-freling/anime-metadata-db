@@ -100,26 +100,26 @@ func TestLoadDir(t *testing.T) {
 	mustWrite(t, filepath.Join(dir, "series", "demon-slayer.yaml"), seriesYAML)
 	mustWrite(t, filepath.Join(dir, "README.md"), "not yaml")
 
-	ovs, err := LoadDir(dir)
+	bundle, err := LoadDir(dir)
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(ovs) != 2 {
-		t.Fatalf("expected 2 overrides, got %d", len(ovs))
+	if len(bundle.Series) != 2 {
+		t.Fatalf("expected 2 series overrides, got %d", len(bundle.Series))
 	}
 	// Sorted by relative path: franchises/ before series/.
-	if ovs[0].Path != "franchises/fate.yaml" || ovs[1].Path != "series/demon-slayer.yaml" {
-		t.Errorf("unexpected order/paths: %q, %q", ovs[0].Path, ovs[1].Path)
+	if bundle.Series[0].Path != "franchises/fate.yaml" || bundle.Series[1].Path != "series/demon-slayer.yaml" {
+		t.Errorf("unexpected order/paths: %q, %q", bundle.Series[0].Path, bundle.Series[1].Path)
 	}
 }
 
 func TestLoadDirMissing(t *testing.T) {
-	ovs, err := LoadDir(filepath.Join(t.TempDir(), "does-not-exist"))
+	bundle, err := LoadDir(filepath.Join(t.TempDir(), "does-not-exist"))
 	if err != nil {
 		t.Fatalf("missing dir should be no error: %v", err)
 	}
-	if ovs != nil {
-		t.Errorf("expected nil overrides, got %v", ovs)
+	if len(bundle.Series) != 0 || len(bundle.Characters) != 0 {
+		t.Errorf("expected empty bundle, got %+v", bundle)
 	}
 }
 

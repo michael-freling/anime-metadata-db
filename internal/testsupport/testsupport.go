@@ -101,6 +101,32 @@ const DemonSlayerOverride = `series:
 numbered: [demon-slayer]
 `
 
+// WikidataJSON is a wbgetentities-shaped fixture covering the QIDs referenced
+// by CharactersOverride.
+const WikidataJSON = `{
+  "entities": {
+    "Q2596113": {"id":"Q2596113","labels":{"en":{"language":"en","value":"Natsuki Hanae"},"ja":{"language":"ja","value":"花江夏樹"}}},
+    "Q85805158": {"id":"Q85805158","labels":{"en":{"language":"en","value":"Tanjirō Kamado"},"ja":{"language":"ja","value":"竈門炭治郎"}}}
+  },
+  "success": 1
+}`
+
+// CharactersOverride is an R2 override referencing the Demon Slayer series/season
+// declared by DemonSlayerOverride and the QIDs in WikidataJSON.
+const CharactersOverride = `staff:
+  - id: natsuki-hanae
+    externalIds: { wikidataId: Q2596113 }
+characters:
+  - id: tanjiro-kamado
+    externalIds: { wikidataId: Q85805158 }
+    voiceActors:
+      - { staffId: natsuki-hanae, language: ja }
+    appearances:
+      - seriesId: demon-slayer
+        scope:
+          - { seasonId: ds-s1 }
+`
+
 // FakeFetcher serves the fixtures above by matching the request URL, with hooks
 // to simulate failures.
 type FakeFetcher struct {
@@ -119,6 +145,8 @@ func (f FakeFetcher) Get(_ context.Context, url string) ([]byte, error) {
 		return nil, fmt.Errorf("fake fetch failed for %s", url)
 	}
 	switch {
+	case strings.Contains(url, "wikidata"):
+		return []byte(WikidataJSON), nil
 	case strings.Contains(url, "offline"):
 		return []byte(OfflineDBJSON), nil
 	case strings.Contains(url, "movieset"):

@@ -65,13 +65,15 @@ func (t Title) IsZero() bool {
 	return t.Original == "" && len(t.Translations) == 0
 }
 
-// ExternalIDs cross-maps a media node to external databases. AnilistID is the
-// primary join key; the others are optional.
+// ExternalIDs cross-maps a node to external databases. AnilistID is the primary
+// join key for media and R2 nodes; WikidataID (a QID) is the build-time key for
+// characters and staff. All are optional.
 type ExternalIDs struct {
-	AnilistID int `yaml:"anilistId,omitempty"`
-	AnidbID   int `yaml:"anidbId,omitempty"`
-	TmdbID    int `yaml:"tmdbId,omitempty"`
-	TvdbID    int `yaml:"tvdbId,omitempty"`
+	AnilistID  int    `yaml:"anilistId,omitempty"`
+	AnidbID    int    `yaml:"anidbId,omitempty"`
+	TmdbID     int    `yaml:"tmdbId,omitempty"`
+	TvdbID     int    `yaml:"tvdbId,omitempty"`
+	WikidataID string `yaml:"wikidataId,omitempty"`
 }
 
 // IsZero reports whether no external id is set, so the field is omitted from

@@ -19,6 +19,7 @@ import (
 	"github.com/michael-freling/anime-metadata-db/internal/overrides"
 	"github.com/michael-freling/anime-metadata-db/internal/sources/animelists"
 	"github.com/michael-freling/anime-metadata-db/internal/sources/offlinedb"
+	"github.com/michael-freling/anime-metadata-db/internal/sources/wikidata"
 	"github.com/michael-freling/anime-metadata-db/internal/writer"
 )
 
@@ -83,11 +84,64 @@ func (a *App) Init(ctx context.Context) error {
 			fmt.Fprintf(a.Out, "verified %s\n", name)
 		}
 	}
+	if err := a.ensureWikidata(ctx, cfg); err != nil {
+		return err
+	}
 	if err := cfg.Save(a.configPath()); err != nil {
 		return err
 	}
 	fmt.Fprintln(a.Out, "init complete")
 	return nil
+}
+
+// ensureWikidata fetches Wikidata labels for every QID referenced by the
+// character overrides into the source cache. It is a no-op when the source is
+// unconfigured or no character override references a QID.
+func (a *App) ensureWikidata(ctx context.Context, cfg config.Config) error {
+	src, ok := cfg.Sources[config.SourceWikidata]
+	if !ok || src.URL == "" {
+		return nil
+	}
+	bundle, err := overrides.LoadDir(filepath.Join(a.Dir, cfg.Settings.OverridesDir))
+	if err != nil {
+		return err
+	}
+	qids := collectQIDs(bundle.Characters)
+	if len(qids) == 0 {
+		return nil
+	}
+	raw, entities, err := wikidata.FetchLabels(ctx, a.Fetcher.Get, src.URL, qids)
+	if err != nil {
+		return err
+	}
+	if err := writeFile(a.wikidataCachePath(cfg), raw); err != nil {
+		return err
+	}
+	fmt.Fprintf(a.Out, "fetched wikidata: %d/%d entities\n", entities.Len(), len(qids))
+	return nil
+}
+
+// collectQIDs gathers every Wikidata QID referenced by the character overrides
+// (on characters, staff, and per-appearance id overrides).
+func collectQIDs(cos []overrides.CharactersOverride) []string {
+	var qids []string
+	add := func(id string) {
+		if id != "" {
+			qids = append(qids, id)
+		}
+	}
+	for _, o := range cos {
+		for _, s := range o.Staff {
+			add(s.ExternalIDs.WikidataID)
+		}
+		for _, c := range o.Characters {
+			add(c.ExternalIDs.WikidataID)
+			for _, ap := range c.Appearances {
+				add(ap.ExternalIDs.WikidataID)
+			}
+		}
+	}
+	return qids
 }
 
 // sourceStatus reports what ensureSource did with a source.
@@ -174,6 +228,9 @@ func (a *App) Refresh(ctx context.Context) error {
 		cfg.Sources[name] = src
 		fmt.Fprintf(a.Out, "refreshed %s @ %s\n", name, shortSHA(src.SHA256))
 	}
+	if err := a.ensureWikidata(ctx, cfg); err != nil {
+		return err
+	}
 	if err := cfg.Save(a.configPath()); err != nil {
 		return err
 	}
@@ -191,13 +248,17 @@ func (a *App) Build(_ context.Context, ids ...string) error {
 	return a.build(cfg, ids)
 }
 
-// build is the shared body of Build and Refresh.
+// build is the shared body of Build and Refresh. It resolves the R1 series
+// records first (collecting the id universe), then the R2 character records
+// (validated against it), writing only changed files. All R1 records are
+// resolved even under a filter so R2 references always validate against the
+// whole tree; only matching files are written.
 func (a *App) build(cfg config.Config, ids []string) error {
 	sources, err := a.loadSources(cfg)
 	if err != nil {
 		return err
 	}
-	ovs, err := overrides.LoadDir(filepath.Join(a.Dir, cfg.Settings.OverridesDir))
+	bundle, err := overrides.LoadDir(filepath.Join(a.Dir, cfg.Settings.OverridesDir))
 	if err != nil {
 		return err
 	}
@@ -208,32 +269,47 @@ func (a *App) build(cfg config.Config, ids []string) error {
 
 	builder := build.New(sources)
 	dataDir := filepath.Join(a.Dir, cfg.Settings.DataDir)
-	expected := make(map[string]bool, len(ovs))
+	expected := make(map[string]bool, len(bundle.Series)+len(bundle.Characters))
 	updated := 0
-	for _, o := range ovs {
+
+	// R1: resolve every series, collecting ids; write matching files.
+	idx := build.NewIDIndex()
+	for _, o := range bundle.Series {
 		expected[filepath.FromSlash(o.Path)] = true
-		if len(filter) > 0 && !filter[o.ID()] {
-			continue
-		}
 		rec, report, err := builder.Build(o)
 		if err != nil {
 			return fmt.Errorf("build %s: %w", o.ID(), err)
 		}
-		wrote, err := writer.WriteIfChanged(dataDir, o.Path, rec)
-		if err != nil {
-			return err
-		}
-		if wrote {
-			updated++
-			fmt.Fprintf(a.Out, "built %s\n", o.Path)
-		}
-		if !report.Empty() {
-			fmt.Fprintf(a.Out, "report for %s (low-confidence guesses):\n%s", o.ID(), report.String())
+		idx.Collect(rec)
+		if matchesFilter(filter, o.ID()) {
+			wrote, err := writer.WriteIfChanged(dataDir, o.Path, rec)
+			if err != nil {
+				return err
+			}
+			updated += a.reportBuilt(wrote, o.Path, o.ID(), report)
 		}
 	}
+
+	// R2: characters/staff, validated against the R1 ids + all declared staff.
+	ctx := build.CharacterContext{R1: idx, Staff: staffIDs(bundle.Characters)}
+	for _, o := range bundle.Characters {
+		expected[filepath.FromSlash(o.Path)] = true
+		rec, report, err := builder.BuildCharacters(o, ctx)
+		if err != nil {
+			return fmt.Errorf("build %s: %w", o.Path, err)
+		}
+		if matchesAny(filter, o.IDs()) {
+			wrote, err := writer.WriteCharactersIfChanged(dataDir, o.Path, rec)
+			if err != nil {
+				return err
+			}
+			updated += a.reportBuilt(wrote, o.Path, o.Path, report)
+		}
+	}
+
 	if len(filter) > 0 {
 		for id := range filter {
-			if !containsID(ovs, id) {
+			if !knownID(bundle, id) {
 				return fmt.Errorf("build: no override found for id %q", id)
 			}
 		}
@@ -255,6 +331,68 @@ func (a *App) build(cfg config.Config, ids []string) error {
 
 	fmt.Fprintf(a.Out, "build complete: %d file(s) updated\n", updated)
 	return nil
+}
+
+// reportBuilt prints the built/report lines for one record and returns 1 if it
+// was written (for the updated counter), else 0.
+func (a *App) reportBuilt(wrote bool, path, label string, report *build.Report) int {
+	if wrote {
+		fmt.Fprintf(a.Out, "built %s\n", path)
+	}
+	if !report.Empty() {
+		fmt.Fprintf(a.Out, "report for %s (low-confidence guesses):\n%s", label, report.String())
+	}
+	if wrote {
+		return 1
+	}
+	return 0
+}
+
+// matchesFilter reports whether an id should be built: no filter means all.
+func matchesFilter(filter map[string]bool, id string) bool {
+	return len(filter) == 0 || filter[id]
+}
+
+// matchesAny reports whether any of ids is selected by the filter.
+func matchesAny(filter map[string]bool, ids []string) bool {
+	if len(filter) == 0 {
+		return true
+	}
+	for _, id := range ids {
+		if filter[id] {
+			return true
+		}
+	}
+	return false
+}
+
+// staffIDs collects every declared staff id across the character overrides.
+func staffIDs(cos []overrides.CharactersOverride) map[string]bool {
+	ids := map[string]bool{}
+	for _, o := range cos {
+		for _, s := range o.Staff {
+			ids[s.ID] = true
+		}
+	}
+	return ids
+}
+
+// knownID reports whether id names any series/franchise or character/staff
+// declared in the bundle.
+func knownID(bundle overrides.Bundle, id string) bool {
+	for _, o := range bundle.Series {
+		if o.ID() == id {
+			return true
+		}
+	}
+	for _, o := range bundle.Characters {
+		for _, cid := range o.IDs() {
+			if cid == id {
+				return true
+			}
+		}
+	}
+	return false
 }
 
 // pruneData deletes every *.yaml under dataDir whose relative path is not in
@@ -333,17 +471,30 @@ func (a *App) loadSources(cfg config.Config) (build.Sources, error) {
 	if err != nil {
 		return build.Sources{}, fmt.Errorf("%w (run `builder init`)", err)
 	}
-	return build.Sources{Offline: off, AnimeList: al, MovieSets: msl}, nil
-}
+	sources := build.Sources{Offline: off, AnimeList: al, MovieSets: msl}
 
-// containsID reports whether any override has the given id.
-func containsID(ovs []overrides.Override, id string) bool {
-	for _, o := range ovs {
-		if o.ID() == id {
-			return true
+	// Wikidata (R2 names) is optional: load it when the cache exists, otherwise
+	// leave it nil and let the character build report unfilled names.
+	if wdPath := a.wikidataCachePath(cfg); wdPath != "" {
+		if _, err := os.Stat(wdPath); err == nil {
+			wd, err := wikidata.Load(wdPath)
+			if err != nil {
+				return build.Sources{}, err
+			}
+			sources.Wikidata = wd
 		}
 	}
-	return false
+	return sources, nil
+}
+
+// wikidataCachePath returns the cache path for the Wikidata source, or "" when
+// the source is not configured.
+func (a *App) wikidataCachePath(cfg config.Config) string {
+	src, ok := cfg.Sources[config.SourceWikidata]
+	if !ok || src.Filename == "" {
+		return ""
+	}
+	return filepath.Join(a.Dir, cfg.Settings.SourcesDir, src.Filename)
 }
 
 // writeFile writes data to path, creating parent directories.

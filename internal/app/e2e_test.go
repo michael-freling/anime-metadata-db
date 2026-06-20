@@ -21,10 +21,26 @@ import (
 const e2eOverride = `series:
   id: demon-slayer
   seasons:
-    - id: ds-s1
+    - id: demon-slayer-s1
       number: 1
       externalIds: { anilistId: 101922 }
 numbered: [demon-slayer]
+`
+
+// e2eCharacters references the series above plus real Wikidata QIDs (Tanjirō
+// Kamado and his voice actor), exercising the live Wikidata fetch + R2 build.
+const e2eCharacters = `staff:
+  - id: natsuki-hanae
+    externalIds: { wikidataId: Q2596113 }
+characters:
+  - id: tanjiro-kamado
+    externalIds: { wikidataId: Q85805158 }
+    voiceActors:
+      - { staffId: natsuki-hanae, language: ja }
+    appearances:
+      - seriesId: demon-slayer
+        scope:
+          - { seasonId: demon-slayer-s1 }
 `
 
 // TestE2EInitAndBuild downloads the real, pinned open-data sources over the
@@ -40,6 +56,7 @@ numbered: [demon-slayer]
 func TestE2EInitAndBuild(t *testing.T) {
 	dir := t.TempDir()
 	writeFileE2E(t, filepath.Join(dir, "config", "overrides", "series", "demon-slayer.yaml"), e2eOverride)
+	writeFileE2E(t, filepath.Join(dir, "config", "overrides", "characters", "demon-slayer.yaml"), e2eCharacters)
 
 	var out bytes.Buffer
 	// A real HTTP client, with a timeout so a stall fails instead of hanging.
@@ -77,6 +94,18 @@ func TestE2EInitAndBuild(t *testing.T) {
 	}
 	if !strings.Contains(got, "absoluteNumber: 1") {
 		t.Errorf("generated data is missing a computed absoluteNumber:\n%s", got)
+	}
+
+	// R2: the characters file must have names filled live from Wikidata.
+	chars, err := os.ReadFile(filepath.Join(dir, cfg.Settings.DataDir, "characters", "demon-slayer.yaml"))
+	if err != nil {
+		t.Fatalf("characters data not written: %v", err)
+	}
+	cs := string(chars)
+	for _, want := range []string{"id: tanjiro-kamado", "竈門炭治郎", "staffId: natsuki-hanae", "花江夏樹"} {
+		if !strings.Contains(cs, want) {
+			t.Errorf("characters data missing %q (Wikidata fetch/build broken?):\n%s", want, cs)
+		}
 	}
 }
 

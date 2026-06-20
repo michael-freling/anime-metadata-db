@@ -14,6 +14,10 @@ const (
 	SourceOfflineDatabase = "offlineDatabase"
 	SourceAnimeList       = "animeList"
 	SourceMovieSetList    = "movieSetList"
+	// SourceWikidata is the CC0 names source for characters/staff (R2). Unlike
+	// the others it is fetched per-QID via the wbgetentities API, so it is
+	// optional and handled outside the standard single-file source loop.
+	SourceWikidata = "wikidata"
 )
 
 // requiredSources are the sources every config must define, in canonical order.
@@ -73,6 +77,11 @@ func Default() Config {
 				URL:      "https://raw.githubusercontent.com/Anime-Lists/anime-lists/master/anime-movieset-list.xml",
 				Version:  "master",
 				Filename: "anime-movieset-list.xml",
+			},
+			SourceWikidata: {
+				URL:      "https://www.wikidata.org/w/api.php",
+				Version:  "latest",
+				Filename: "wikidata-entities.json",
 			},
 		},
 		Settings: Settings{
