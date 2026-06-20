@@ -1,5 +1,5 @@
 ---
-title: "Franchise Data Model & Examples"
+title: "Anime Series Data Model"
 date: 2026-06-19
 weight: 2
 ---
@@ -9,6 +9,11 @@ weight: 2
 **Date:** 2026-06-19
 **Author:** Michael Freling (with Claude Code)
 **Status:** Design input — companion to [Anime Series/Franchise Metadata Research](../anime-metadata-research/)
+**Related:** [Characters Data Model](../data-model-characters/) — R2 enrichment that joins onto this hierarchy.
+
+This is the **R1** model — the franchise / series / season / episode hierarchy and watch
+ordering. Character, staff, and other per-title enrichment (R2) live in sibling docs and attach
+to this spine via `externalIds`.
 
 This note refines the flat `Franchise` / `TimelineEntry` sketch from §5.2 of the
 [research note](../anime-metadata-research/) into a small hierarchy —
