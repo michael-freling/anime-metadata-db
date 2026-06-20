@@ -1,6 +1,8 @@
 # Authored override (Fate) — a multi-storyline brand, so a Franchise wrapping
 # several Series. Fate/Zero is one linear story (numbered); Fate/stay night
 # adapts parallel routes, so it has no absoluteNumber and sorts by release date.
+#
+# Franchise and Series overrides live together under overrides/series/.
 franchise:
   id: fate
   titles: { original: フェイト, translations: { en: Fate } }
@@ -10,26 +12,26 @@ franchise:
       seasons:
         - id: fsn-2006
           number: 1
-          externalIds: { anilistId: 356 }
+          externalIds: { anilistId: 356 } # Fate/stay night (2006)
         - id: fsn-ubw
           titles: { translations: { en: Unlimited Blade Works } }
           number: 2
-          externalIds: { anilistId: 20716 }
+          externalIds: { anilistId: 19603 } # Unlimited Blade Works (2014)
       movies:
         - id: fsn-hf-1
           titles: { translations: { en: Heaven's Feel I } }
-          externalIds: { anilistId: 20724 }
+          externalIds: { anilistId: 20791 } # Heaven's Feel I (2017)
     - id: fate-zero
       titles: { translations: { en: Fate/Zero } }
       seasons:
         - id: fz-s1
           number: 1
           part: 1
-          externalIds: { anilistId: 10087 }
+          externalIds: { anilistId: 10087 } # Fate/Zero (2011)
         - id: fz-s2
           number: 1
           part: 2
-          externalIds: { anilistId: 11741 }
+          externalIds: { anilistId: 11741 } # Fate/Zero 2nd Season (2012)
   # Release order is the default (derived from release dates); only the curated
   # in-universe order is stored.
   watchOrders:

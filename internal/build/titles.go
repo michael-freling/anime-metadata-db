@@ -52,12 +52,27 @@ func inferTitle(a offlinedb.Anime) (model.Title, []string) {
 	}
 
 	title := model.Title{Original: original}
-	if original == "" {
+	translations := map[string]string{}
+	if original != "" {
+		// Anime originals are Japanese by default: expose the native title under
+		// the `ja` key, and treat the dump's Latin main title as its Japanese
+		// romanization (`ja-Latn`).
+		translations["ja"] = original
+		if latin != "" {
+			translations["ja-Latn"] = latin
+			notes = append(notes, fmt.Sprintf("tagged %q as ja-Latn (romanization); set translations.en via an override if it is English", latin))
+		}
+	} else {
+		// No native script found, so the language of the Latin title is unknown;
+		// fall back to a best-effort English tag.
 		notes = append(notes, "no native-script title found; original left empty")
+		if latin != "" {
+			translations["en"] = latin
+			notes = append(notes, fmt.Sprintf("assumed %q is English (en)", latin))
+		}
 	}
-	if latin != "" {
-		title.Translations = map[string]string{"en": latin}
-		notes = append(notes, fmt.Sprintf("assumed %q is English (en); could be a romanization (ja-Latn)", latin))
+	if len(translations) > 0 {
+		title.Translations = translations
 	}
 	return title, notes
 }

@@ -43,22 +43,31 @@ func TestHasNativeScript(t *testing.T) {
 }
 
 func TestInferTitle(t *testing.T) {
-	// Latin title + native synonym.
+	// Latin title + native synonym: native -> ja, Latin -> ja-Latn.
 	title, notes := inferTitle(offlinedb.Anime{Title: "Kimetsu no Yaiba", Synonyms: []string{"x", "鬼滅の刃"}})
-	if title.Original != "鬼滅の刃" || title.Translations["en"] != "Kimetsu no Yaiba" {
+	if title.Original != "鬼滅の刃" || title.Translations["ja"] != "鬼滅の刃" || title.Translations["ja-Latn"] != "Kimetsu no Yaiba" {
 		t.Errorf("unexpected title: %+v", title)
 	}
-	if len(notes) != 2 {
+	if title.Translations["en"] != "" {
+		t.Errorf("Japanese title should not be tagged en: %+v", title.Translations)
+	}
+	if len(notes) != 2 { // "chose synonym" + "tagged ja-Latn"
 		t.Errorf("expected 2 notes, got %v", notes)
 	}
 
-	// Native title, no latin.
+	// Native title, no latin: only the ja translation.
 	title, notes = inferTitle(offlinedb.Anime{Title: "鬼滅の刃"})
-	if title.Original != "鬼滅の刃" || title.Translations != nil || len(notes) != 0 {
-		t.Errorf("native-only: %+v notes=%v", title, notes)
+	if title.Original != "鬼滅の刃" || title.Translations["ja"] != "鬼滅の刃" {
+		t.Errorf("native-only title: %+v", title)
+	}
+	if _, ok := title.Translations["ja-Latn"]; ok {
+		t.Errorf("native-only should have no ja-Latn: %+v", title.Translations)
+	}
+	if len(notes) != 0 {
+		t.Errorf("expected 0 notes, got %v", notes)
 	}
 
-	// No native anywhere.
+	// No native anywhere: fall back to a best-effort en tag.
 	title, notes = inferTitle(offlinedb.Anime{Title: "Fate/stay night", Synonyms: []string{"FSN"}})
 	if title.Original != "" || title.Translations["en"] != "Fate/stay night" {
 		t.Errorf("no-native: %+v", title)

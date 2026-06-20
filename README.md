@@ -43,10 +43,14 @@ go build ./cmd/builder
 ./builder refresh              # update sources to latest, bump pins, rebuild all
 ```
 
-A new entry = create `overrides/<...>.yaml` and run `builder build`. The build
-fails on any unknown id, dangling reference, or schema violation, so a successful
-build is always a valid dataset. Where it makes a low-confidence guess (chiefly
-title-language tagging) it prints a report; pin those cases with an override.
+A new entry = create `overrides/series/<id>.yaml` and run `builder build`. Both
+standalone Series and multi-storyline Franchises live together under
+`overrides/series/` (the builder mirrors that layout into `data/series/`), so a
+file's `series:` or `franchise:` key — not its directory — determines its kind.
+The build fails on any unknown id, dangling reference, or schema violation, so a
+successful build is always a valid dataset. Where it makes a low-confidence guess
+(chiefly title-language tagging) it prints a report; pin those cases with an
+override. Auto-filled titles default to Japanese (`ja` + romanized `ja-Latn`).
 
 ## Development
 

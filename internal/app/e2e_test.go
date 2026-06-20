@@ -39,7 +39,7 @@ numbered: [demon-slayer]
 // coverage gate); invoke it explicitly with `go test -tags e2e ./...`.
 func TestE2EInitAndBuild(t *testing.T) {
 	dir := t.TempDir()
-	writeFileE2E(t, filepath.Join(dir, "overrides", "demon-slayer.yaml"), e2eOverride)
+	writeFileE2E(t, filepath.Join(dir, "overrides", "series", "demon-slayer.yaml"), e2eOverride)
 
 	var out bytes.Buffer
 	// A real HTTP client, with a timeout so a stall fails instead of hanging.

@@ -7,23 +7,33 @@ series:
   seasons:
     - id: ds-s1
       number: 1
-      externalIds: { anilistId: 101922 }
-    - id: ds-mugen-train-arc # carries Mugen Train's numbering
+      externalIds: { anilistId: 101922 } # Kimetsu no Yaiba (2019)
+    - id: ds-mugen-train-arc
       titles: { translations: { en: Mugen Train Arc } }
       number: 2
-      part: 1
-      externalIds: { anilistId: 142984 }
+      externalIds: { anilistId: 129874 } # Mugen Ressha-hen (TV, 2021)
     - id: ds-entertainment-district
       titles: { translations: { en: Entertainment District Arc } }
-      number: 2
-      part: 2
-      externalIds: { anilistId: 142329 }
+      number: 3
+      externalIds: { anilistId: 142329 } # Yuukaku-hen (2021-2022)
+    - id: ds-swordsmith-village
+      titles: { translations: { en: Swordsmith Village Arc } }
+      number: 4
+      externalIds: { anilistId: 145139 } # Katanakaji no Sato-hen (2023)
+    - id: ds-hashira-training
+      titles: { translations: { en: Hashira Training Arc } }
+      number: 5
+      externalIds: { anilistId: 166240 } # Hashira Geiko-hen (2024)
   movies:
     # Alternate cut of the Mugen Train Arc season — takes no absoluteNumber.
     - id: ds-mugen-train-film
       titles: { translations: { en: Mugen Train } }
-      externalIds: { anilistId: 112151 }
-      alternateCutOf: { seasonId: ds-mugen-train-arc, episodes: "1-7" }
+      externalIds: { anilistId: 112151 } # film (2020)
+      alternateCutOf: { seasonId: ds-mugen-train-arc }
+    # Original film — takes its own slot in the numbered run.
+    - id: ds-infinity-castle-1
+      titles: { translations: { en: Infinity Castle } }
+      externalIds: { anilistId: 178788 } # Mugenjou-hen Movie 1 (2025)
 # Demon Slayer is one linear storyline, so its episodes carry a continuous
-# absoluteNumber across the seasons.
+# absoluteNumber across the seasons (and the original film).
 numbered: [demon-slayer]
