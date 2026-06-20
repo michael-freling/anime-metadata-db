@@ -25,8 +25,8 @@ The output is YAML committed to the repo, so the dataset is itself **open data**
 > **TL;DR**
 > - Two files, never mixed: hand-edit **`overrides/`**, the builder generates **`data/`** from it +
 >   open sources. So `build` is **idempotent** and **can't lose authored data**.
-> - Two commands: **`builder init`** pulls the open-data sources locally (not committed); **`builder
->   build`** regenerates `data/`.
+> - Commands: **`builder init`** (pull pinned sources) · **`builder build`** (incremental — add new) ·
+>   **`builder refresh`** (update sources + rebuild all). Sources aren't committed.
 > - **GitHub is the database, diff, history, and management layer** — no extra subcommands, **no API**.
 > - **No AniList** — its ToS forbids redistribution, incompatible with open data (Part 2).
 
@@ -72,22 +72,32 @@ Pins + checksums in `config.yaml` keep builds reproducible.
 
 ---
 
-## Part 3 — Two commands
+## Part 3 — Commands
 
 ```
-builder init                 # download the open-data sources into the gitignored cache, at pinned versions
-builder build                # overrides/ + sources → (re)generate data/, validating as it goes
-builder build <franchise>    # regenerate just one franchise while iterating
+builder init                 # download the open-data sources into the gitignored cache, at the PINNED versions
+builder build                # incremental: generate data/ for NEW or changed overrides only
+builder build <franchise>    # build / rebuild just one franchise
+builder refresh              # update sources to LATEST (bump pins) + rebuild ALL of data/
 ```
 
-That's the whole surface. We **don't** need `fetch` / `validate` / `diff` / `inspect`:
+The `overrides/*.yaml` files **are** "the list of anime we want," so:
+
+- **`build` is incremental** — it only (re)generates `data/` for overrides that are new or changed (no
+  up-to-date output). Adding a franchise is fast: write its override, run `build`.
+- **`refresh` is the full update** — it re-pulls the sources to their latest versions (bumping the pins
+  + checksums in `config.yaml`) and rebuilds **every** `data/` file, so upstream changes (new episodes,
+  corrected titles) flow in. Run it periodically (e.g. a scheduled CI job).
+- **`init`** fetches only the *pinned* sources — for a fresh clone or CI, reproducibly (no bump).
+
+We still **don't** need `fetch` / `validate` / `diff` / `inspect`:
 
 | Would-be command | Why it's unnecessary |
 |---|---|
-| `fetch` | That's `init` (re-run it to refresh the cache to new pins) |
+| `fetch` | `init` fetches pinned sources; `refresh` bumps them |
 | `diff` | `git diff data/` shows exactly what changed |
 | `inspect` / history | Open the YAML; `git log` / `git blame` for history |
-| `validate` | Validation is **intrinsic to `build`** — it aborts on missing ids, dangling refs, or schema violations (CI just runs `build` and checks the tree is clean) |
+| `validate` | Intrinsic to `build`/`refresh` — aborts on missing ids, dangling refs, or schema violations (CI just runs `build` and checks the tree is clean) |
 
 A new franchise = create `overrides/franchises/<id>.yaml` and run `build`. (A future `--scaffold` helper
 could seed membership from anime-offline-database relations — optional sugar, Part 8.)
@@ -176,16 +186,24 @@ GraphQL client, no database driver — sources are bulk files, output is YAML.
 
 ## Part 8 — Open questions
 
-- **Characters & Staff sourcing — the big one.** anime-offline-database is anime-level only and AniList
-  can't be redistributed, so that dataset has **no permissive bulk source**. Options: hand-author it
-  too (its own `overrides/`), find a redistribution-friendly source (Kitsu? Jikan/MAL? — licensing
-  needs checking), or keep characters/voice-actors **runtime-only** in the app.
 - **How much do overrides carry?** anime-offline-database `relations` can *propose* a franchise cluster,
   so overrides might only adjust boundaries — or, if clustering is unreliable, overrides list membership
-  explicitly. Which is less work in practice?
-- **Title auto-fill** — `synonyms` aren't language-tagged, so filling `{ original, translations }`
-  cleanly is fuzzy. How much does the builder fill vs how much do we put in overrides?
-- **Incremental vs full rebuild** — start with deterministic **full** rebuilds; add incremental only if
-  build time becomes a problem.
-- **Source pinning & drift** — `init` records checksums; how often to bump pins, and how to surface
-  upstream schema changes in CI.
+  explicitly. Which is less work in practice? (Affects how big `overrides/` files get.)
+- **Wikidata coverage** — using Wikidata for characters/VAs (below) means **lower coverage** than
+  AniList; how much hand-authoring will the long-tail gaps actually need before it's useful?
+
+Settled during review:
+
+- **Characters & Staff source → Wikidata (CC0).** It's the one major source that's *freely
+  redistributable* and models anime characters + voice actors, so it can ship as open data;
+  Wikipedia/DBpedia (CC BY-SA) is a secondary. AniList / MAL (Jikan) / AniDB / Kitsu / TMDB don't grant
+  redistribution — they stay **runtime-only** (the app may fetch them live for display, storing
+  nothing). Wikidata gaps are filled by hand-authored overrides. (Built in a later iteration — see the
+  [Characters & Staff Data Model](../data-model-characters-staff/).)
+- **Title auto-fill → fill what's script-detectable, author the rest.** anime-offline-database gives a
+  main `title` + *untagged* `synonyms`, so the builder fills `original` from the CJK/native-script
+  synonym and keeps the dump's `title` as a Latin name; precise `translations` (`en` vs `ja-Latn` vs
+  `ko`) are best-effort by script, and overrides correct what the heuristics get wrong.
+- **Incremental vs full → `build` (incremental, add new) + `refresh` (rebuild all)** — Part 3.
+- **Source pinning & drift → `refresh`** bumps pins + checksums and rebuilds (run on a schedule);
+  `init` stays pinned/reproducible — Part 3.
