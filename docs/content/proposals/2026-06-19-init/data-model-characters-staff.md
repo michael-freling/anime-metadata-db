@@ -32,7 +32,7 @@ tightly linked: a character's voice actor *is* a `Staff` member, which is why th
 ```text
 Character               GLOBAL fictional entity — owned by no Franchise or Series
   id
-  names                 { english?, romanized, original, aliases[]? }
+  names                 { original, english?, localized?, aliases? }   (see §1.2)
   externalIds           { anilistId, … }
   voiceActors[]         DEFAULT cast: { staffId, language } — the usual VA across appearances (§2.3)
   appearances[]         CharacterAppearance
@@ -45,7 +45,7 @@ CharacterAppearance     a Character ↔ Series link (many-to-many edge)
 
 Staff                   GLOBAL real person — currently only voice actors (credits deferred)
   id
-  names                 { english?, romanized, original, aliases[]? }
+  names                 { original, english?, localized?, aliases? }   (see §1.2)
   externalIds           { anilistId, … }
 ```
 
@@ -55,15 +55,18 @@ A `Staff` is reached only from the character side: `Character.voiceActors.staffI
 
 ### 1.2 Naming fields
 
-Every title/name uses the same language-agnostic triple (works call it `titles`, people call it
+Every title/name uses the same language-agnostic shape (works call it `titles`, people call it
 `names`):
 
 | Key | Meaning | Example |
 |---|---|---|
-| `english` | The English title/name | *Saber* |
-| `romanized` | The original transliterated to Latin script (romaji / pinyin / RR — not Japan-specific) | *Seibā* |
-| `original` | The title/name in its original language & script | セイバー |
-| `aliases[]` | Other known names / spoiler names (optional) | — |
+| `original` | The title/name in its original language & script — **required** | セイバー |
+| `english` | The English title/name (the display default) | Saber |
+| `localized` | Map of other languages by **BCP-47** code — incl. `ja-Latn` for romanization | `{ ja-Latn: "Seibā", ko: "세이버" }` |
+| `aliases[]` | Informal / alternate / abbreviated / spoiler names | "Artoria" |
+
+There is **no Japan-specific `romanized` field**: romanization is just the `ja-Latn` entry in
+`localized` (Korean romanization would be `ko-Latn`, and so on).
 
 ### 1.3 Field reference
 
@@ -138,7 +141,7 @@ Saber appears across several *Fate* Series (see
 ```yaml
 Character:
   id: artoria-pendragon
-  names: { english: "Saber (Artoria Pendragon)", romanized: "Seibā", original: "セイバー" }
+  names: { original: "セイバー", english: "Saber (Artoria Pendragon)", localized: { ja-Latn: "Seibā" }, aliases: [ "Artoria" ] }
   externalIds: { anilistId: 497 }                              # illustrative
   voiceActors: [ { staffId: ayako-kawasumi, language: ja } ]   # default cast across all Fate works
   appearances:
@@ -155,7 +158,7 @@ Quartet** Franchises — one `Character`, appearances into Series of different F
 ```yaml
 Character:
   id: subaru-natsuki
-  names: { english: "Subaru Natsuki", romanized: "Natsuki Subaru", original: "ナツキ・スバル" }
+  names: { original: "ナツキ・スバル", english: "Subaru Natsuki", localized: { ja-Latn: "Natsuki Subaru" } }
   externalIds: { anilistId: 119377 }                           # illustrative
   voiceActors: [ { staffId: yusuke-kobayashi, language: ja } ]
   appearances:
@@ -168,7 +171,7 @@ Character:
 ```yaml
 Staff:
   id: ayako-kawasumi
-  names: { english: "Ayako Kawasumi", romanized: "Ayako Kawasumi", original: "川澄綾子" }
+  names: { original: "川澄綾子", english: "Ayako Kawasumi" }   # romanization == english here, so no ja-Latn needed
   externalIds: { anilistId: 95012 }     # illustrative
 ```
 
