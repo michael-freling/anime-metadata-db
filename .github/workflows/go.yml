@@ -35,7 +35,7 @@ jobs:
         run: "${{ runner.temp }}/golangci/golangci-lint run ./..."
 
   test:
-    name: Test & coverage (>${{ env.COVERAGE_THRESHOLD }}%)
+    name: Test & coverage (>95%)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
