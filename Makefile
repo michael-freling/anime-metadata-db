@@ -8,6 +8,7 @@
 HUGO_VERSION ?= 0.163.3
 DOCS_DIR     ?= docs
 HUGO_PORT    ?= 1313
+HUGO_BIND    ?= 0.0.0.0
 
 # --- Pinned local Hugo (extended) -------------------------------------------
 # Detect platform for the GitHub release asset.
@@ -54,8 +55,8 @@ deps: $(HUGO_BIN) ## Fetch/update the hugo-book theme via Hugo Modules
 	cd $(DOCS_DIR) && $(HUGO_BIN) mod get -u
 
 .PHONY: serve
-serve: $(HUGO_BIN) ## Start the Hugo dev server with live reload (http://localhost:$(HUGO_PORT))
-	cd $(DOCS_DIR) && $(HUGO_BIN) server --port $(HUGO_PORT) --buildDrafts --disableFastRender
+serve: $(HUGO_BIN) ## Start the Hugo dev server with live reload (binds $(HUGO_BIND):$(HUGO_PORT))
+	cd $(DOCS_DIR) && $(HUGO_BIN) server --bind $(HUGO_BIND) --port $(HUGO_PORT) --buildDrafts --disableFastRender
 
 .PHONY: build
 build: $(HUGO_BIN) ## Build the static site into docs/public
