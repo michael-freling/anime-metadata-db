@@ -1,0 +1,30 @@
+name: Docs
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build Hugo site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Hugo Modules (the hugo-book theme) are fetched via Go.
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: stable
+          cache-dependency-path: docs/go.sum
+
+      # `make build` downloads the pinned Hugo extended binary and runs `hugo --minify`,
+      # so CI uses the exact same Hugo version as local development. It fails the job on
+      # any template or render error.
+      - name: Build the docs site
+        run: make build
