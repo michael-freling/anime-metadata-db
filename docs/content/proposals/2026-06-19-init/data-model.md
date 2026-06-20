@@ -343,8 +343,13 @@ How it composes:
 - **Mixed granularity.** An entry can point at a whole Series (*all of Fate/Zero*), a
   single Season (*UBW*), or a Movie — whatever the order needs.
 - **Lives under the Franchise.** Cross-Series order only exists when a brand has several
-  Series; a standalone `Series` just uses its own `ordering`. Release is the default
-  everywhere (derived from `releaseDate`); only curated alternates like chronological are stored.
+  Series. Release is the default everywhere (derived from `releaseDate`); only curated
+  alternates like chronological are stored.
+- **A standalone `Series` needs no `watchOrders`.** It already carries two orders for
+  free — **release** (via `releaseDate`) and its **canonical** order (via `absoluteNumber`).
+  They agree for most shows and diverge exactly when a single storyline has two legit
+  orders: *Monogatari*'s broadcast order is `releaseDate`, its chronological order is
+  `absoluteNumber`. No degenerate one-Series franchise required.
 
 ## 8. How these records get built
 
@@ -370,9 +375,6 @@ Maps to the research note §5.3 pipeline:
   here so the common case stays a simple integer sort.
 - **Picking the order** — release is the default; do users opt into a stored alternate
   (chronological) per session, and is that a catalog-wide setting or a per-user preference?
-- **Alternate order for a standalone Series** — a Series outside a Franchise has only its
-  own `ordering`. If one ever needs a second objective order (e.g. *Monogatari* broadcast
-  vs chronological), do we wrap it in a degenerate one-Series Franchise, or revisit then?
 - **Original vs alternate-cut detection** — no open file flags this; a manual `altCutOf`
   override per film.
 - **OVA / special placement** — by `releaseDate` as side content (default), or pinned
