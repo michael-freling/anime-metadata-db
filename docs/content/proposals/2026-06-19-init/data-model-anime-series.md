@@ -9,8 +9,7 @@ weight: 2
 **Date:** 2026-06-19
 **Author:** Michael Freling (with Claude Code)
 **Status:** Design input — companion to [Anime Series/Franchise Metadata Research](../anime-metadata-research/)
-**Related:** R2 enrichment that joins onto this hierarchy —
-[Characters](../data-model-characters/) · [Staff](../data-model-staff/).
+**Related:** [Characters & Staff Data Model](../data-model-characters-staff/) — R2 enrichment that joins onto this hierarchy.
 
 This is the **R1** model — the franchise / series / season / episode hierarchy and watch
 ordering. Character, staff, and other per-title enrichment (R2) live in sibling docs and attach
