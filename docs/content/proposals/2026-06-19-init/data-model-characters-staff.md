@@ -96,6 +96,9 @@ nodes — `{seasonId}` / `{movieId}` / `{specialId}` — to narrow when the char
 Series. Characters are usually consistent across a Series' seasons and movies, so whole-Series is the
 default; `scope[]` covers a character who debuts in one film or a single OVA.
 
+Node-level (Season / Movie / Special) is the **finest** scope — per-Episode is intentionally not
+supported (too granular).
+
 ### 2.3 Voice actors: default on the Character, overridable per appearance
 
 A character usually keeps the **same voice actor across series** (Saber is Ayako Kawasumi in every
@@ -106,16 +109,23 @@ Fate work), so the default cast lives on the `Character` as `voiceActors[]`, one
 ### 2.4 Voice roles live on the character side
 
 A `Staff` node holds only the person (names + ids) — the **voice roles live on the character side**
-as `CharacterAppearance.voiceActors`. "Characters voiced by this Staff" is a query over those edges
-by `staffId`, not a list stored on `Staff`. (When production credits are added later, they'll hang
-off `Staff`; voice roles stay here.)
+as `CharacterAppearance.voiceActors`. (When production credits are added later, they'll hang off
+`Staff`; voice roles stay here.)
 
-### 2.5 Per-edge AniList id overrides
+**Reverse index (wanted).** "Which characters does this voice actor play?" is a first-class lookup
+we want — an index over the `voiceActors` edges keyed by `staffId`. It stores nothing new: it's
+derived from the same edges, just queried from the staff side.
 
-We unify a character/person under one node (our `id`) even when AniList doesn't — AniList sometimes
-lists the "same" one under **different ids** in different media (alternate forms, data splits). The
-appearance then carries its own `externalIds` so the live fetch for that media hits the right node,
-while everything still rolls up to one `Character`. Omit it to inherit the node's canonical id.
+### 2.5 Identity: one node per AniList id, merge by override
+
+**Default — trust AniList:** one `Character` / `Staff` per AniList id. So alternate-form or "what-if"
+versions that AniList lists separately (e.g. *Saber* vs *Saber Alter*) stay as **separate** nodes
+unless we deliberately decide otherwise.
+
+**Override — merge:** when curation decides two AniList ids really are the same node, the edge carries
+its own `externalIds` so that media's live fetch still hits the right AniList entry while everything
+rolls up to one node. (This also covers AniList listing one character under different ids across media
+— a plain data split.) Omit `externalIds` to inherit the node's canonical id.
 
 ### 2.6 Storage: facts vs expression
 
@@ -197,13 +207,11 @@ read from those character edges (§2.4), not stored on the `Staff` node.
 
 ## Part 5 — Open questions
 
-- **Scope granularity** — `scope[]` reaches Season / Movie / Special; is anything finer
-  (per-Episode) ever needed, or is node-level enough?
-- **Merge vs split identity** — the per-edge `externalIds` override (§2.5) lets one node span
-  differing AniList ids, but *deciding* whether an alternate-form / what-if version is the same
-  character (or person) is a curation call — what's the default policy?
-- **VA reverse-index** — "characters voiced by this Staff" is a query over the character edges
-  (§2.4); materialize it for performance, or resolve on demand?
 - **Deferred: production credits & studios** — `Staff` currently covers only voice actors; crew
   credits (director, music, …) and a `Studio` model (organizations, also many-to-many) are future
   sibling work.
+
+Settled during design: **scope granularity** — node-level (Season / Movie / Special) is the finest;
+per-Episode is intentionally out (§2.2). **VA reverse-index** — wanted; an index/query over the
+`voiceActors` edges by `staffId`, storing nothing new (§2.4). **Identity** — one node per AniList id
+by default, merge differing ids only via curation override (§2.5).
