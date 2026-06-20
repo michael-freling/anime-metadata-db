@@ -205,9 +205,9 @@ func TestBuildDemonSlayer(t *testing.T) {
 		t.Fatal(err)
 	}
 	s := rec.Series
-	// Auto-filled titles carry both English and Japanese by default.
-	if s.Seasons[0].Titles.Translations["en"] == "" || s.Seasons[0].Titles.Translations["ja"] == "" {
-		t.Errorf("season title should have en and ja: %+v", s.Seasons[0].Titles.Translations)
+	// An unauthored season is not given a fabricated title.
+	if !s.Seasons[0].Titles.IsZero() {
+		t.Errorf("unauthored season should have no auto-filled title: %+v", s.Seasons[0].Titles)
 	}
 	if got := len(s.Seasons[0].Episodes); got != 26 {
 		t.Fatalf("s1 episodes = %d", got)
@@ -303,6 +303,33 @@ func TestBuildFranchiseNonNumbered(t *testing.T) {
 	// Movie release year filled from its release date.
 	if s.Movies[0].ReleaseYear != 2017 {
 		t.Errorf("movie release year = %d", s.Movies[0].ReleaseYear)
+	}
+}
+
+func TestBuildSeasonTitles(t *testing.T) {
+	db := `{"data":[
+	  {"sources":["https://anilist.co/anime/1"],"title":"Foo","type":"TV","episodes":12,"synonyms":["フー"]},
+	  {"sources":["https://anilist.co/anime/2"],"title":"Foo 2nd Season","type":"TV","episodes":12,"synonyms":["フー2"]}
+	]}`
+	b := New(mustSources(t, db, "<anime-list/>", "<anime-movieset-list/>"))
+	o := overrides.Override{Series: &model.Series{ID: "foo", Seasons: []model.Season{
+		// No authored title -> stays title-less (no fabricated "Foo"/"フー").
+		{ID: "foo-s1", Number: 1, ExternalIDs: model.ExternalIDs{AnilistID: 1}},
+		// Authored arc name -> kept, with native name filled in.
+		{ID: "foo-s2", Number: 1, Part: intp(2),
+			Titles:      model.Title{Translations: map[string]string{"en": "Second Cour"}},
+			ExternalIDs: model.ExternalIDs{AnilistID: 2}},
+	}}}
+	rec, _, err := b.Build(o)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !rec.Series.Seasons[0].Titles.IsZero() {
+		t.Errorf("unauthored season should have no title: %+v", rec.Series.Seasons[0].Titles)
+	}
+	s2 := rec.Series.Seasons[1].Titles
+	if s2.Translations["en"] != "Second Cour" || s2.Translations["ja"] == "" {
+		t.Errorf("authored season should keep en and gain ja: %+v", s2)
 	}
 }
 

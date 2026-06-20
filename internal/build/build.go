@@ -185,7 +185,13 @@ func (b *Builder) fillSeason(s *model.Season, report *Report) error {
 	if err != nil {
 		return err
 	}
-	fillTitles(entity, &s.Titles, a, report)
+	// A season is identified by its number/part; only complete a title the author
+	// already started (e.g. an arc name), never fabricate one for a plain
+	// "Season N" or a split-cour part — that just duplicates the series name or
+	// surfaces an upstream "2nd Season"/mistranslated synonym.
+	if !s.Titles.IsZero() {
+		fillTitles(entity, &s.Titles, a, report)
+	}
 	fillReleaseSeason(&s.ReleaseYear, &s.ReleaseSeason, s.ReleaseDate, a)
 	b.fillExternalIDs(&s.ExternalIDs, a)
 	if len(s.Episodes) == 0 && a.Episodes > 0 {

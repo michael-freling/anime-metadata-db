@@ -12,11 +12,6 @@ franchise:
           en: Fate/stay night
       seasons:
         - id: fate-stay-night-s1
-          titles:
-            original: フェイト/ステイナイト
-            translations:
-              en: Fate/stay night
-              ja: フェイト/ステイナイト
           number: 1
           releaseYear: 2006
           releaseSeason: WINTER
@@ -91,11 +86,6 @@ franchise:
           en: Fate/Zero
       seasons:
         - id: fate-zero-s1
-          titles:
-            original: フェイト/ゼロ
-            translations:
-              en: Fate/Zero
-              ja: フェイト/ゼロ
           number: 1
           part: 1
           releaseYear: 2011
@@ -132,11 +122,6 @@ franchise:
             - absoluteNumber: 13
               airedNumber: 13
         - id: fate-zero-s2
-          titles:
-            original: Fate Zero 第2季
-            translations:
-              en: Fate/Zero 2nd Season
-              ja: Fate Zero 第2季
           number: 1
           part: 2
           releaseYear: 2012
@@ -177,11 +162,6 @@ franchise:
         - ref: fate-stay-night
   characters:
     - id: artoria-pendragon
-      names:
-        original: セイバー
-        translations:
-          en: Saber
-          ja: セイバー
       externalIds:
         wikidataId: Q4918886
       voiceActors:
