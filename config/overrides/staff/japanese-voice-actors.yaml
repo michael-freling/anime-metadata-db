@@ -1,0 +1,7 @@
+# Authored staff — Japanese voice actors. Staff are global and organized by
+# language (others go in their own file). Names filled from Wikidata (CC0).
+staff:
+  - id: ayako-kawasumi
+    externalIds: { wikidataId: Q49566 }
+  - id: natsuki-hanae
+    externalIds: { wikidataId: Q2596113 }

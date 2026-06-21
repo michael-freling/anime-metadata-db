@@ -1,0 +1,53 @@
+name: Data lint
+
+# Lints the dataset YAML in overrides/ and data/: yamllint for formatting, and
+# JSON Schema validation for structure and enum values (e.g. releaseSeason must
+# be WINTER/SPRING/SUMMER/FALL, special format must be OVA/ONA/SPECIAL).
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Lint dataset YAML
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install linters
+        run: pip install --upgrade yamllint check-jsonschema
+
+      - name: Lint and schema-validate dataset YAML
+        run: |
+          set -euo pipefail
+          yaml() { find "$@" -type f \( -name '*.yaml' -o -name '*.yml' \) 2>/dev/null | sort; }
+
+          mapfile -t all < <(yaml config/overrides data)
+          if [ ${#all[@]} -eq 0 ]; then
+            echo "No dataset YAML files found; nothing to lint."
+            exit 0
+          fi
+          printf 'yamllint:\n'; printf '  %s\n' "${all[@]}"
+          yamllint -c .yamllint.yml "${all[@]}"
+
+          # Series files (structure + co-located cast) and global staff files use
+          # different schemas.
+          mapfile -t series < <(yaml config/overrides/series data/series)
+          mapfile -t staff < <(yaml config/overrides/staff data/staff)
+          if [ ${#series[@]} -gt 0 ]; then
+            check-jsonschema --schemafile config/schemas/anime.schema.json "${series[@]}"
+          fi
+          if [ ${#staff[@]} -gt 0 ]; then
+            check-jsonschema --schemafile config/schemas/staff.schema.json "${staff[@]}"
+          fi

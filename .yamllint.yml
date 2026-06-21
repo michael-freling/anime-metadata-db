@@ -1,0 +1,20 @@
+# yamllint config for the dataset YAML in overrides/ and data/.
+# Relaxes purely stylistic rules (the generated files use a fixed canonical
+# style; the authored files use flow maps and trailing comments) while keeping
+# the structural ones (syntax errors, duplicate keys, trailing spaces).
+extends: default
+
+rules:
+  document-start: disable
+  line-length: disable
+  comments-indentation: disable
+  comments:
+    min-spaces-from-content: 1
+  braces:
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+  brackets:
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+  truthy:
+    check-keys: false
