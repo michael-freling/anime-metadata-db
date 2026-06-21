@@ -1,0 +1,7 @@
+# The dataset under data/ is embedded into the Go function and MUST ship.
+# Everything below is irrelevant to the serverless build, so skip uploading it.
+docs/
+proto/
+.sources/
+config/
+coverage.out

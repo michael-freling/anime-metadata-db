@@ -1,0 +1,203 @@
+syntax = "proto3";
+
+// Package anime.v1 is the read-only Connect API over the committed anime
+// franchise dataset (the R1 model: Franchise -> Series -> Season -> Episode,
+// plus Movie and Special). It mirrors internal/model; the R2 cast (characters
+// and staff) is intentionally not exposed yet.
+package anime.v1;
+
+option go_package = "github.com/michael-freling/anime-metadata-db/gen/anime/v1;animev1";
+
+// Title holds a localized title: the original native-script form plus
+// translations keyed by BCP-47 code (en, ja, ...).
+message Title {
+  string original = 1;
+  map<string, string> translations = 2;
+}
+
+// ExternalIds cross-maps a node to external databases. All fields are optional.
+message ExternalIds {
+  int32 anilist_id = 1;
+  int32 anidb_id = 2;
+  int32 tmdb_id = 3;
+  int32 tvdb_id = 4;
+  string wikidata_id = 5;
+}
+
+// ReleaseSeason is the calendar quarter an installment premiered in.
+enum ReleaseSeason {
+  RELEASE_SEASON_UNSPECIFIED = 0;
+  RELEASE_SEASON_WINTER = 1;
+  RELEASE_SEASON_SPRING = 2;
+  RELEASE_SEASON_SUMMER = 3;
+  RELEASE_SEASON_FALL = 4;
+}
+
+// SpecialFormat is the kind of side content a Special represents.
+enum SpecialFormat {
+  SPECIAL_FORMAT_UNSPECIFIED = 0;
+  SPECIAL_FORMAT_OVA = 1;
+  SPECIAL_FORMAT_ONA = 2;
+  SPECIAL_FORMAT_SPECIAL = 3;
+}
+
+// EntryKind distinguishes a top-level catalog entry's type in search results.
+enum EntryKind {
+  ENTRY_KIND_UNSPECIFIED = 0;
+  ENTRY_KIND_FRANCHISE = 1;
+  ENTRY_KIND_SERIES = 2;
+}
+
+// Episode is one TV episode. Dates are serialized as YYYY-MM-DD strings.
+message Episode {
+  optional int32 absolute_number = 1;
+  int32 aired_number = 2;
+  string release_date = 3;
+  string title = 4;
+}
+
+// Season is one numbered TV installment (one media node / cour).
+message Season {
+  string id = 1;
+  Title titles = 2;
+  int32 number = 3;
+  optional int32 part = 4;
+  string release_date = 5;
+  int32 release_year = 6;
+  ReleaseSeason release_season = 7;
+  ExternalIds external_ids = 8;
+  repeated Episode episodes = 9;
+}
+
+// AlternateCutOf links an alternate-cut film to the Season it re-cuts.
+message AlternateCutOf {
+  string season_id = 1;
+  string episodes = 2;
+}
+
+// Movie is one film (one media node).
+message Movie {
+  string id = 1;
+  Title titles = 2;
+  string release_date = 3;
+  int32 release_year = 4;
+  ExternalIds external_ids = 5;
+  optional int32 absolute_number = 6;
+  AlternateCutOf alternate_cut_of = 7;
+}
+
+// Special is one OVA / ONA / special (side content, no season number).
+message Special {
+  string id = 1;
+  Title titles = 2;
+  SpecialFormat format = 3;
+  string release_date = 4;
+  int32 release_year = 5;
+  ExternalIds external_ids = 6;
+  repeated Episode episodes = 7;
+  optional int32 absolute_number = 8;
+}
+
+// Series is the base unit: one storyline / continuity.
+message Series {
+  string id = 1;
+  Title titles = 2;
+  repeated Season seasons = 3;
+  repeated Movie movies = 4;
+  repeated Special specials = 5;
+}
+
+// WatchOrderEntry is one ordered reference within a WatchOrder.
+message WatchOrderEntry {
+  string ref = 1;
+  string note = 2;
+}
+
+// WatchOrder is a named curated alternate order across a Franchise's Series.
+message WatchOrder {
+  string name = 1;
+  repeated WatchOrderEntry entries = 2;
+}
+
+// Franchise groups related Series under one brand.
+message Franchise {
+  string id = 1;
+  Title titles = 2;
+  repeated Series series = 3;
+  repeated WatchOrder watch_orders = 4;
+}
+
+// SearchResult is one match: a top-level franchise or a series.
+message SearchResult {
+  EntryKind kind = 1;
+  string id = 2;
+  Title titles = 3;
+  // franchise_id is set when kind is SERIES and the series belongs to a
+  // franchise; empty for a standalone series or a franchise result.
+  string franchise_id = 4;
+}
+
+// DatasetStats summarizes the loaded dataset.
+message DatasetStats {
+  int32 franchises = 1;
+  int32 series = 2;
+  int32 seasons = 3;
+  int32 episodes = 4;
+}
+
+message ListFranchisesRequest {}
+
+message ListFranchisesResponse {
+  repeated Franchise franchises = 1;
+}
+
+message GetFranchiseRequest {
+  string id = 1;
+}
+
+message GetFranchiseResponse {
+  Franchise franchise = 1;
+}
+
+message GetSeriesRequest {
+  string id = 1;
+}
+
+message GetSeriesResponse {
+  Series series = 1;
+  // franchise_id is the owning franchise, or empty for a standalone series.
+  string franchise_id = 2;
+}
+
+message SearchRequest {
+  string query = 1;
+  // limit caps the number of results; <= 0 applies a server default.
+  int32 limit = 2;
+}
+
+message SearchResponse {
+  repeated SearchResult results = 1;
+}
+
+message GetHealthRequest {}
+
+message GetHealthResponse {
+  string status = 1;
+  string version = 2;
+  DatasetStats stats = 3;
+}
+
+// AnimeService is the read-only API over the committed dataset.
+service AnimeService {
+  // ListFranchises returns every multi-series franchise in the catalog.
+  // Standalone series are reachable via GetSeries and Search.
+  rpc ListFranchises(ListFranchisesRequest) returns (ListFranchisesResponse) {}
+  // GetFranchise returns one franchise with its full nested structure.
+  rpc GetFranchise(GetFranchiseRequest) returns (GetFranchiseResponse) {}
+  // GetSeries returns one series (under a franchise or standalone) by id.
+  rpc GetSeries(GetSeriesRequest) returns (GetSeriesResponse) {}
+  // Search matches franchises and series by title (case-insensitive substring).
+  rpc Search(SearchRequest) returns (SearchResponse) {}
+  // GetHealth reports liveness, build version and dataset stats.
+  rpc GetHealth(GetHealthRequest) returns (GetHealthResponse) {}
+}
