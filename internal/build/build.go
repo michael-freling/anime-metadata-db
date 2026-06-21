@@ -99,10 +99,45 @@ func (b *Builder) buildSeries(s *model.Series, numbered bool, report *Report) er
 			return err
 		}
 	}
+	b.fillSeriesTitle(s, report)
 	if numbered {
 		assignAbsoluteNumbers(s)
 	}
 	return nil
+}
+
+// fillSeriesTitle derives a Series' title from its primary (lowest number/part)
+// season's source, merged in per field — so a Series with no authored title
+// inherits its first season's name, and one that authored only a curated
+// English name still gains the native original/ja. A Series is our own grouping
+// with no source row of its own, so this is the only way to fill its title.
+func (b *Builder) fillSeriesTitle(s *model.Series, report *Report) {
+	first := primarySeason(s.Seasons)
+	if first == nil {
+		return
+	}
+	a, ok := b.sources.Offline.Lookup(first.ExternalIDs.AnilistID)
+	if !ok {
+		return
+	}
+	fillTitles("series "+s.ID, &s.Titles, a, report)
+}
+
+// primarySeason returns the season with the lowest (number, part) that resolves
+// to a source entry, or nil when none do.
+func primarySeason(seasons []model.Season) *model.Season {
+	var best *model.Season
+	for i := range seasons {
+		s := &seasons[i]
+		if s.ExternalIDs.AnilistID == 0 {
+			continue
+		}
+		if best == nil || s.Number < best.Number ||
+			(s.Number == best.Number && partOf(s.Part) < partOf(best.Part)) {
+			best = s
+		}
+	}
+	return best
 }
 
 // lookup resolves an AniList id against the offline database, failing on an

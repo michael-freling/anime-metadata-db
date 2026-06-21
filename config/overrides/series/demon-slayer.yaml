@@ -7,9 +7,9 @@
 # dataset (e.g. demon-slayer-s1 rather than ds-s1).
 series:
   id: demon-slayer
-  # A Series/Franchise is our own grouping with no entry in the open sources, so
-  # its title must be authored (a Season/Movie auto-fills from its source).
-  titles: { original: 鬼滅の刃, translations: { en: Demon Slayer } }
+  # A Series has no source row of its own; its title is inherited from the first
+  # season (here 鬼滅の刃), so we author only the curated English name.
+  titles: { translations: { en: Demon Slayer } }
   seasons:
     - id: demon-slayer-s1
       number: 1

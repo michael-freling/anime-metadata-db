@@ -333,6 +333,38 @@ func TestBuildSeasonTitles(t *testing.T) {
 	}
 }
 
+func TestBuildSeriesTitleInference(t *testing.T) {
+	db := `{"data":[
+	  {"sources":["https://anilist.co/anime/1"],"title":"Kimetsu no Yaiba","type":"TV","episodes":26,"synonyms":["鬼滅の刃"]}
+	]}`
+	b := New(mustSources(t, db, "<anime-list/>", "<anime-movieset-list/>"))
+
+	// No authored series title -> inherited from the primary season's source.
+	rec, _, err := b.Build(overrides.Override{Series: &model.Series{ID: "demon-slayer", Seasons: []model.Season{
+		{ID: "s2", Number: 2, ExternalIDs: model.ExternalIDs{AnilistID: 1}},
+		{ID: "s1", Number: 1, ExternalIDs: model.ExternalIDs{AnilistID: 1}},
+	}}})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if ti := rec.Series.Titles; ti.Original != "鬼滅の刃" || ti.Translations["en"] != "Kimetsu no Yaiba" {
+		t.Errorf("series title not inferred: %+v", ti)
+	}
+
+	// Authored English wins; the native name is still filled from the season.
+	rec2, _, err := b.Build(overrides.Override{Series: &model.Series{
+		ID:      "demon-slayer",
+		Titles:  model.Title{Translations: map[string]string{"en": "Demon Slayer"}},
+		Seasons: []model.Season{{ID: "s1", Number: 1, ExternalIDs: model.ExternalIDs{AnilistID: 1}}},
+	}})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if ti := rec2.Series.Titles; ti.Translations["en"] != "Demon Slayer" || ti.Original != "鬼滅の刃" {
+		t.Errorf("authored series title merge wrong: %+v", ti)
+	}
+}
+
 func TestBuildErrors(t *testing.T) {
 	srcs := mustSources(t, fateDB, "<anime-list/>", "<anime-movieset-list/>")
 	b := New(srcs)

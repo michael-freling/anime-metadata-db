@@ -8,8 +8,10 @@ franchise:
   series:
     - id: fate-stay-night
       titles:
+        original: フェイト/ステイナイト
         translations:
           en: Fate/stay night
+          ja: フェイト/ステイナイト
       seasons:
         - id: fate-stay-night-s1
           number: 1
@@ -82,8 +84,10 @@ franchise:
             anilistId: 20791
     - id: fate-zero
       titles:
+        original: フェイト/ゼロ
         translations:
           en: Fate/Zero
+          ja: フェイト/ゼロ
       seasons:
         - id: fate-zero-s1
           number: 1
@@ -162,6 +166,11 @@ franchise:
         - ref: fate-stay-night
   characters:
     - id: artoria-pendragon
+      names:
+        original: セイバー
+        translations:
+          en: Saber
+          ja: セイバー
       externalIds:
         wikidataId: Q4918886
       voiceActors:
