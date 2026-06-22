@@ -12,8 +12,37 @@ env:
   GOLANGCI_LINT_VERSION: v2.6.0
   # Minimum total test coverage (percent) required to pass CI.
   COVERAGE_THRESHOLD: "95"
+  # Pinned protobuf toolchain for the generated-code drift check.
+  BUF_VERSION: v1.71.0
 
 jobs:
+  proto:
+    name: Protobuf codegen up to date
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Install buf and protoc plugins
+        run: |
+          go install "github.com/bufbuild/buf/cmd/buf@${BUF_VERSION}"
+          go install google.golang.org/protobuf/cmd/protoc-gen-go
+          go install connectrpc.com/connect/cmd/protoc-gen-connect-go
+          echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
+
+      - name: Regenerate and verify no diff
+        run: |
+          buf generate
+          if ! git diff --exit-code -- gen; then
+            echo "::error::gen/ is out of date; run 'make generate' and commit the result."
+            exit 1
+          fi
+
   lint:
     name: golangci-lint v2
     runs-on: ubuntu-latest
@@ -61,8 +90,12 @@ jobs:
 
       - name: Enforce coverage threshold
         run: |
-          total="$(go tool cover -func=coverage.out | awk '/^total:/ {print $3}' | tr -d '%')"
-          echo "Total coverage: ${total}%"
+          # Generated protobuf/Connect code under gen/ is excluded: it is not
+          # hand-written and carries no tests, so it should not count toward the
+          # threshold. The "mode:" header line is preserved by the filter.
+          grep -v '/gen/' coverage.out > coverage.filtered
+          total="$(go tool cover -func=coverage.filtered | awk '/^total:/ {print $3}' | tr -d '%')"
+          echo "Total coverage (excluding gen/): ${total}%"
           awk -v total="$total" -v min="${COVERAGE_THRESHOLD}" 'BEGIN {
             if (total+0 > min+0) {
               printf "Coverage %.1f%% exceeds the %s%% threshold.\n", total, min
