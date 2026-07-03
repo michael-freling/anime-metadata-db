@@ -10,6 +10,7 @@ import (
 )
 
 func TestNewServerServesHealth(t *testing.T) {
+	t.Setenv("PORT", "") // ensure the local default, independent of the CI env
 	srv, err := newServer(nil, io.Discard)
 	if err != nil {
 		t.Fatalf("newServer: %v", err)
@@ -39,5 +40,27 @@ func TestRunListenError(t *testing.T) {
 	var out bytes.Buffer
 	if err := run([]string{"-addr", "bogus-no-port"}, &out); err == nil {
 		t.Error("expected ListenAndServe error for a portless address")
+	}
+}
+
+func TestDefaultAddrUsesPort(t *testing.T) {
+	t.Setenv("PORT", "3000")
+	if got := defaultAddr(); got != ":3000" {
+		t.Errorf("defaultAddr() with PORT=3000 = %q, want :3000", got)
+	}
+	t.Setenv("PORT", "")
+	if got := defaultAddr(); got != ":8080" {
+		t.Errorf("defaultAddr() fallback = %q, want :8080", got)
+	}
+}
+
+func TestResolveVersion(t *testing.T) {
+	t.Setenv("VERCEL_GIT_COMMIT_SHA", "abc123")
+	if got := resolveVersion(); got != "abc123" {
+		t.Errorf("resolveVersion() = %q, want abc123", got)
+	}
+	t.Setenv("VERCEL_GIT_COMMIT_SHA", "")
+	if got := resolveVersion(); got != version {
+		t.Errorf("resolveVersion() fallback = %q, want %q", got, version)
 	}
 }

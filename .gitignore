@@ -44,3 +44,10 @@ docs/resources/
 # Pinned Hugo binary downloaded by the Makefile
 docs/.hugo/
 coverage.out
+.vercel
+.env*
+
+# Local Vercel CLI, installed as a dev tool (not part of the Go build/deploy)
+node_modules/
+package.json
+package-lock.json

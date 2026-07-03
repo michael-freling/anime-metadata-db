@@ -104,13 +104,16 @@ curl -X POST localhost:8080/anime.v1.AnimeService/Search \
 
 ### Hosting (Vercel)
 
-The service deploys to Vercel's free tier as a single Go serverless function:
-[`api/index.go`](api/index.go) wraps the same `http.Handler`, and
-[`vercel.json`](vercel.json) rewrites every route to it. Connect-protocol,
-gRPC-Web and JSON clients all work over Vercel's HTTP/1.1; full gRPC (HTTP/2
-streaming) is available only from `cmd/api`. Deploy with `vercel deploy` (or
-connect the repo in the Vercel dashboard) — no configuration beyond the
-committed files is needed.
+The service deploys to Vercel's free tier using Vercel's native **Go web-server**
+builder: it compiles [`cmd/api`](cmd/api) and runs it as a server, injecting the
+listen port via `$PORT` (which the server binds automatically). No `vercel.json`
+or serverless-function wrapper is needed — every request is proxied to the
+server. `GetHealth` reports `$VERCEL_GIT_COMMIT_SHA` as its `version`.
+
+Connect-protocol, gRPC-Web and JSON clients all work over Vercel; deploy by
+connecting the repo in the Vercel dashboard (pushes to the production branch
+auto-deploy) or with `vercel deploy`. No configuration beyond the committed
+files is needed.
 
 ### Regenerating the protobuf code
 
