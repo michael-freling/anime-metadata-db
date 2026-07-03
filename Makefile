@@ -69,3 +69,13 @@ clean: ## Remove generated site output (keeps the downloaded Hugo binary)
 .PHONY: clean-all
 clean-all: clean ## Also remove the downloaded Hugo binary
 	rm -rf $(DOCS_DIR)/.hugo
+
+# --- API: protobuf codegen + local server ----------------------------------
+
+.PHONY: generate
+generate: ## Regenerate the committed Connect/protobuf Go code under gen/ (needs buf)
+	buf generate
+
+.PHONY: api
+api: ## Run the read-only Connect API server locally (defaults to :8080)
+	go run ./cmd/api

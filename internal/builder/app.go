@@ -1,7 +1,9 @@
-// Package app wires the config, sources, build pipeline and writer into the
-// three high-level operations the CLI exposes: init, build and refresh. It is
-// kept free of cobra so the operations are unit-testable with a fake fetcher.
-package app
+// Package builder wires the config, sources, build pipeline and writer into the
+// three high-level operations the builder CLI exposes: init, build and refresh.
+// It is kept free of cobra so the operations are unit-testable with a fake
+// fetcher, and is deliberately separate from internal/api (the read-only
+// Connect service that serves the dataset this package produces).
+package builder
 
 import (
 	"context"

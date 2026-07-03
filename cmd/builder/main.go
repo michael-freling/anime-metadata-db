@@ -15,7 +15,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/michael-freling/anime-metadata-db/internal/app"
+	"github.com/michael-freling/anime-metadata-db/internal/builder"
 )
 
 func main() {
@@ -24,7 +24,7 @@ func main() {
 
 // run builds and executes the root command. fetcher may be nil to use a real
 // HTTP client. It returns the process exit code.
-func run(args []string, fetcher app.Fetcher, stdout, stderr io.Writer) int {
+func run(args []string, fetcher builder.Fetcher, stdout, stderr io.Writer) int {
 	root := newRootCmd(fetcher)
 	root.SetArgs(args)
 	root.SetOut(stdout)
@@ -38,7 +38,7 @@ func run(args []string, fetcher app.Fetcher, stdout, stderr io.Writer) int {
 
 // newRootCmd assembles the cobra command tree. A nil fetcher makes each command
 // use a real HTTP client.
-func newRootCmd(fetcher app.Fetcher) *cobra.Command {
+func newRootCmd(fetcher builder.Fetcher) *cobra.Command {
 	var dir string
 
 	root := &cobra.Command{
@@ -49,8 +49,8 @@ func newRootCmd(fetcher app.Fetcher) *cobra.Command {
 	}
 	root.PersistentFlags().StringVar(&dir, "dir", ".", "repo root directory")
 
-	newApp := func(cmd *cobra.Command) *app.App {
-		return app.New(dir, fetcher, cmd.OutOrStdout())
+	newApp := func(cmd *cobra.Command) *builder.App {
+		return builder.New(dir, fetcher, cmd.OutOrStdout())
 	}
 
 	root.AddCommand(

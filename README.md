@@ -77,6 +77,53 @@ successful build is always a valid dataset. Where it makes a low-confidence gues
 (chiefly title-language tagging) it prints a report; pin those cases with an
 override. Auto-filled titles default to Japanese (`ja` + romanized `ja-Latn`).
 
+## API
+
+The same dataset is served read-only over a [Connect RPC](https://connectrpc.com)
+service defined in [`proto/anime/v1/anime.proto`](proto/anime/v1/anime.proto).
+Connect speaks the **Connect protocol, gRPC and gRPC-Web over plain HTTP**, so
+clients can call it with an ordinary HTTP `POST` + JSON, no special tooling
+required. The dataset is compiled into the binary with `go:embed`, so the server
+is stateless and self-contained.
+
+The code is split to keep the two concerns explicit: `internal/builder` (+
+`cmd/builder`) **writes** `data/`; `internal/api` (+ `cmd/api`) **reads** the
+embedded copy and serves it. `internal/model` is the shared data model.
+
+`AnimeService` exposes: `ListFranchises`, `GetFranchise`, `GetSeries`, `Search`
+and `GetHealth`. Run it locally:
+
+```sh
+go run ./cmd/api                 # listens on :8080 (HTTP/1.1 + cleartext HTTP/2)
+
+curl -X POST localhost:8080/anime.v1.AnimeService/GetHealth \
+  -H 'Content-Type: application/json' -d '{}'
+curl -X POST localhost:8080/anime.v1.AnimeService/Search \
+  -H 'Content-Type: application/json' -d '{"query":"demon"}'
+```
+
+### Hosting (Vercel)
+
+The service deploys to Vercel's free tier using Vercel's native **Go web-server**
+builder: it compiles [`cmd/api`](cmd/api) and runs it as a server, injecting the
+listen port via `$PORT` (which the server binds automatically). No `vercel.json`
+or serverless-function wrapper is needed — every request is proxied to the
+server. `GetHealth` reports `$VERCEL_GIT_COMMIT_SHA` as its `version`.
+
+Connect-protocol, gRPC-Web and JSON clients all work over Vercel; deploy by
+connecting the repo in the Vercel dashboard (pushes to the production branch
+auto-deploy) or with `vercel deploy`. No configuration beyond the committed
+files is needed.
+
+### Regenerating the protobuf code
+
+The generated Go under `gen/` is committed (and excluded from the coverage
+gate). Regenerate it with [buf](https://buf.build) after editing the `.proto`:
+
+```sh
+make generate                    # buf generate (needs buf + protoc-gen-go + protoc-gen-connect-go)
+```
+
 ## Development
 
 ```sh

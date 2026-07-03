@@ -36,6 +36,11 @@ formatters:
   enable:
     - gofmt
     - goimports
+  exclusions:
+    # Generated protobuf/Connect code under gen/ is not ours to format.
+    generated: lax
+    paths:
+      - gen
   settings:
     goimports:
       local-prefixes:
