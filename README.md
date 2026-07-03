@@ -102,6 +102,21 @@ curl -X POST localhost:8080/anime.v1.AnimeService/Search \
   -H 'Content-Type: application/json' -d '{"query":"demon"}'
 ```
 
+**Localized titles.** Each node returns a single `title` resolved from the
+request's `Accept-Language` header (default `en`); resolution falls back
+requested-language → native original (for non-English) → English → any. Send
+`Accept-Language: *` to additionally receive the full multilingual
+`localized_title` (native `original` + all `translations`) on every node.
+
+```sh
+# Japanese titles where available, else the native original:
+curl -X POST localhost:8080/anime.v1.AnimeService/GetSeries \
+  -H 'Content-Type: application/json' -H 'Accept-Language: ja' -d '{"id":"demon-slayer"}'
+# Every language on every node:
+curl -X POST localhost:8080/anime.v1.AnimeService/ListFranchises \
+  -H 'Content-Type: application/json' -H 'Accept-Language: *' -d '{}'
+```
+
 ### Hosting (Vercel)
 
 The service deploys to Vercel's free tier using Vercel's native **Go web-server**
@@ -117,8 +132,9 @@ files is needed.
 
 ### Regenerating the protobuf code
 
-The generated Go under `gen/` is committed (and excluded from the coverage
-gate). Regenerate it with [buf](https://buf.build) after editing the `.proto`:
+The generated Go under `internal/gen/` is committed (and excluded from the
+coverage gate). Regenerate it with [buf](https://buf.build) after editing the
+`.proto`:
 
 ```sh
 make generate                    # buf generate (needs buf + protoc-gen-go + protoc-gen-connect-go)

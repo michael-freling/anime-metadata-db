@@ -185,9 +185,15 @@ func (EntryKind) EnumDescriptor() ([]byte, []int) {
 	return file_anime_v1_anime_proto_rawDescGZIP(), []int{2}
 }
 
-// Title holds a localized title: the original native-script form plus
-// translations keyed by BCP-47 code (en, ja, ...).
-type Title struct {
+// LocalizedTitle holds a title across languages: the original native-script
+// form plus translations keyed by BCP-47 code (en, ja, ...).
+//
+// Every title-bearing message carries a resolved `title` (a single string for
+// the request's Accept-Language, defaulting to English) plus this full
+// `localized_title`. To keep responses small, `localized_title` is populated
+// ONLY when the client sends `Accept-Language: *`; otherwise just `title` is
+// returned. See AnimeService for the language-resolution rules.
+type LocalizedTitle struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Original      string                 `protobuf:"bytes,1,opt,name=original,proto3" json:"original,omitempty"`
 	Translations  map[string]string      `protobuf:"bytes,2,rep,name=translations,proto3" json:"translations,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
@@ -195,20 +201,20 @@ type Title struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *Title) Reset() {
-	*x = Title{}
+func (x *LocalizedTitle) Reset() {
+	*x = LocalizedTitle{}
 	mi := &file_anime_v1_anime_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *Title) String() string {
+func (x *LocalizedTitle) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*Title) ProtoMessage() {}
+func (*LocalizedTitle) ProtoMessage() {}
 
-func (x *Title) ProtoReflect() protoreflect.Message {
+func (x *LocalizedTitle) ProtoReflect() protoreflect.Message {
 	mi := &file_anime_v1_anime_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -220,19 +226,19 @@ func (x *Title) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Title.ProtoReflect.Descriptor instead.
-func (*Title) Descriptor() ([]byte, []int) {
+// Deprecated: Use LocalizedTitle.ProtoReflect.Descriptor instead.
+func (*LocalizedTitle) Descriptor() ([]byte, []int) {
 	return file_anime_v1_anime_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *Title) GetOriginal() string {
+func (x *LocalizedTitle) GetOriginal() string {
 	if x != nil {
 		return x.Original
 	}
 	return ""
 }
 
-func (x *Title) GetTranslations() map[string]string {
+func (x *LocalizedTitle) GetTranslations() map[string]string {
 	if x != nil {
 		return x.Translations
 	}
@@ -387,18 +393,21 @@ func (x *Episode) GetTitle() string {
 
 // Season is one numbered TV installment (one media node / cour).
 type Season struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Titles        *Title                 `protobuf:"bytes,2,opt,name=titles,proto3" json:"titles,omitempty"`
-	Number        int32                  `protobuf:"varint,3,opt,name=number,proto3" json:"number,omitempty"`
-	Part          *int32                 `protobuf:"varint,4,opt,name=part,proto3,oneof" json:"part,omitempty"`
-	ReleaseDate   string                 `protobuf:"bytes,5,opt,name=release_date,json=releaseDate,proto3" json:"release_date,omitempty"`
-	ReleaseYear   int32                  `protobuf:"varint,6,opt,name=release_year,json=releaseYear,proto3" json:"release_year,omitempty"`
-	ReleaseSeason ReleaseSeason          `protobuf:"varint,7,opt,name=release_season,json=releaseSeason,proto3,enum=anime.v1.ReleaseSeason" json:"release_season,omitempty"`
-	ExternalIds   *ExternalIds           `protobuf:"bytes,8,opt,name=external_ids,json=externalIds,proto3" json:"external_ids,omitempty"`
-	Episodes      []*Episode             `protobuf:"bytes,9,rep,name=episodes,proto3" json:"episodes,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	Id    string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// title is resolved for the request's Accept-Language.
+	Title string `protobuf:"bytes,10,opt,name=title,proto3" json:"title,omitempty"`
+	// localized_title carries every language; set only for Accept-Language: *.
+	LocalizedTitle *LocalizedTitle `protobuf:"bytes,2,opt,name=localized_title,json=localizedTitle,proto3" json:"localized_title,omitempty"`
+	Number         int32           `protobuf:"varint,3,opt,name=number,proto3" json:"number,omitempty"`
+	Part           *int32          `protobuf:"varint,4,opt,name=part,proto3,oneof" json:"part,omitempty"`
+	ReleaseDate    string          `protobuf:"bytes,5,opt,name=release_date,json=releaseDate,proto3" json:"release_date,omitempty"`
+	ReleaseYear    int32           `protobuf:"varint,6,opt,name=release_year,json=releaseYear,proto3" json:"release_year,omitempty"`
+	ReleaseSeason  ReleaseSeason   `protobuf:"varint,7,opt,name=release_season,json=releaseSeason,proto3,enum=anime.v1.ReleaseSeason" json:"release_season,omitempty"`
+	ExternalIds    *ExternalIds    `protobuf:"bytes,8,opt,name=external_ids,json=externalIds,proto3" json:"external_ids,omitempty"`
+	Episodes       []*Episode      `protobuf:"bytes,9,rep,name=episodes,proto3" json:"episodes,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *Season) Reset() {
@@ -438,9 +447,16 @@ func (x *Season) GetId() string {
 	return ""
 }
 
-func (x *Season) GetTitles() *Title {
+func (x *Season) GetTitle() string {
 	if x != nil {
-		return x.Titles
+		return x.Title
+	}
+	return ""
+}
+
+func (x *Season) GetLocalizedTitle() *LocalizedTitle {
+	if x != nil {
+		return x.LocalizedTitle
 	}
 	return nil
 }
@@ -549,14 +565,17 @@ func (x *AlternateCutOf) GetEpisodes() string {
 
 // Movie is one film (one media node).
 type Movie struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	Id             string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Titles         *Title                 `protobuf:"bytes,2,opt,name=titles,proto3" json:"titles,omitempty"`
-	ReleaseDate    string                 `protobuf:"bytes,3,opt,name=release_date,json=releaseDate,proto3" json:"release_date,omitempty"`
-	ReleaseYear    int32                  `protobuf:"varint,4,opt,name=release_year,json=releaseYear,proto3" json:"release_year,omitempty"`
-	ExternalIds    *ExternalIds           `protobuf:"bytes,5,opt,name=external_ids,json=externalIds,proto3" json:"external_ids,omitempty"`
-	AbsoluteNumber *int32                 `protobuf:"varint,6,opt,name=absolute_number,json=absoluteNumber,proto3,oneof" json:"absolute_number,omitempty"`
-	AlternateCutOf *AlternateCutOf        `protobuf:"bytes,7,opt,name=alternate_cut_of,json=alternateCutOf,proto3" json:"alternate_cut_of,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	Id    string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// title is resolved for the request's Accept-Language.
+	Title string `protobuf:"bytes,8,opt,name=title,proto3" json:"title,omitempty"`
+	// localized_title carries every language; set only for Accept-Language: *.
+	LocalizedTitle *LocalizedTitle `protobuf:"bytes,2,opt,name=localized_title,json=localizedTitle,proto3" json:"localized_title,omitempty"`
+	ReleaseDate    string          `protobuf:"bytes,3,opt,name=release_date,json=releaseDate,proto3" json:"release_date,omitempty"`
+	ReleaseYear    int32           `protobuf:"varint,4,opt,name=release_year,json=releaseYear,proto3" json:"release_year,omitempty"`
+	ExternalIds    *ExternalIds    `protobuf:"bytes,5,opt,name=external_ids,json=externalIds,proto3" json:"external_ids,omitempty"`
+	AbsoluteNumber *int32          `protobuf:"varint,6,opt,name=absolute_number,json=absoluteNumber,proto3,oneof" json:"absolute_number,omitempty"`
+	AlternateCutOf *AlternateCutOf `protobuf:"bytes,7,opt,name=alternate_cut_of,json=alternateCutOf,proto3" json:"alternate_cut_of,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -598,9 +617,16 @@ func (x *Movie) GetId() string {
 	return ""
 }
 
-func (x *Movie) GetTitles() *Title {
+func (x *Movie) GetTitle() string {
 	if x != nil {
-		return x.Titles
+		return x.Title
+	}
+	return ""
+}
+
+func (x *Movie) GetLocalizedTitle() *LocalizedTitle {
+	if x != nil {
+		return x.LocalizedTitle
 	}
 	return nil
 }
@@ -642,15 +668,18 @@ func (x *Movie) GetAlternateCutOf() *AlternateCutOf {
 
 // Special is one OVA / ONA / special (side content, no season number).
 type Special struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	Id             string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Titles         *Title                 `protobuf:"bytes,2,opt,name=titles,proto3" json:"titles,omitempty"`
-	Format         SpecialFormat          `protobuf:"varint,3,opt,name=format,proto3,enum=anime.v1.SpecialFormat" json:"format,omitempty"`
-	ReleaseDate    string                 `protobuf:"bytes,4,opt,name=release_date,json=releaseDate,proto3" json:"release_date,omitempty"`
-	ReleaseYear    int32                  `protobuf:"varint,5,opt,name=release_year,json=releaseYear,proto3" json:"release_year,omitempty"`
-	ExternalIds    *ExternalIds           `protobuf:"bytes,6,opt,name=external_ids,json=externalIds,proto3" json:"external_ids,omitempty"`
-	Episodes       []*Episode             `protobuf:"bytes,7,rep,name=episodes,proto3" json:"episodes,omitempty"`
-	AbsoluteNumber *int32                 `protobuf:"varint,8,opt,name=absolute_number,json=absoluteNumber,proto3,oneof" json:"absolute_number,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	Id    string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// title is resolved for the request's Accept-Language.
+	Title string `protobuf:"bytes,9,opt,name=title,proto3" json:"title,omitempty"`
+	// localized_title carries every language; set only for Accept-Language: *.
+	LocalizedTitle *LocalizedTitle `protobuf:"bytes,2,opt,name=localized_title,json=localizedTitle,proto3" json:"localized_title,omitempty"`
+	Format         SpecialFormat   `protobuf:"varint,3,opt,name=format,proto3,enum=anime.v1.SpecialFormat" json:"format,omitempty"`
+	ReleaseDate    string          `protobuf:"bytes,4,opt,name=release_date,json=releaseDate,proto3" json:"release_date,omitempty"`
+	ReleaseYear    int32           `protobuf:"varint,5,opt,name=release_year,json=releaseYear,proto3" json:"release_year,omitempty"`
+	ExternalIds    *ExternalIds    `protobuf:"bytes,6,opt,name=external_ids,json=externalIds,proto3" json:"external_ids,omitempty"`
+	Episodes       []*Episode      `protobuf:"bytes,7,rep,name=episodes,proto3" json:"episodes,omitempty"`
+	AbsoluteNumber *int32          `protobuf:"varint,8,opt,name=absolute_number,json=absoluteNumber,proto3,oneof" json:"absolute_number,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -692,9 +721,16 @@ func (x *Special) GetId() string {
 	return ""
 }
 
-func (x *Special) GetTitles() *Title {
+func (x *Special) GetTitle() string {
 	if x != nil {
-		return x.Titles
+		return x.Title
+	}
+	return ""
+}
+
+func (x *Special) GetLocalizedTitle() *LocalizedTitle {
+	if x != nil {
+		return x.LocalizedTitle
 	}
 	return nil
 }
@@ -743,14 +779,17 @@ func (x *Special) GetAbsoluteNumber() int32 {
 
 // Series is the base unit: one storyline / continuity.
 type Series struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Titles        *Title                 `protobuf:"bytes,2,opt,name=titles,proto3" json:"titles,omitempty"`
-	Seasons       []*Season              `protobuf:"bytes,3,rep,name=seasons,proto3" json:"seasons,omitempty"`
-	Movies        []*Movie               `protobuf:"bytes,4,rep,name=movies,proto3" json:"movies,omitempty"`
-	Specials      []*Special             `protobuf:"bytes,5,rep,name=specials,proto3" json:"specials,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	Id    string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// title is resolved for the request's Accept-Language.
+	Title string `protobuf:"bytes,6,opt,name=title,proto3" json:"title,omitempty"`
+	// localized_title carries every language; set only for Accept-Language: *.
+	LocalizedTitle *LocalizedTitle `protobuf:"bytes,2,opt,name=localized_title,json=localizedTitle,proto3" json:"localized_title,omitempty"`
+	Seasons        []*Season       `protobuf:"bytes,3,rep,name=seasons,proto3" json:"seasons,omitempty"`
+	Movies         []*Movie        `protobuf:"bytes,4,rep,name=movies,proto3" json:"movies,omitempty"`
+	Specials       []*Special      `protobuf:"bytes,5,rep,name=specials,proto3" json:"specials,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *Series) Reset() {
@@ -790,9 +829,16 @@ func (x *Series) GetId() string {
 	return ""
 }
 
-func (x *Series) GetTitles() *Title {
+func (x *Series) GetTitle() string {
 	if x != nil {
-		return x.Titles
+		return x.Title
+	}
+	return ""
+}
+
+func (x *Series) GetLocalizedTitle() *LocalizedTitle {
+	if x != nil {
+		return x.LocalizedTitle
 	}
 	return nil
 }
@@ -926,13 +972,16 @@ func (x *WatchOrder) GetEntries() []*WatchOrderEntry {
 
 // Franchise groups related Series under one brand.
 type Franchise struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Titles        *Title                 `protobuf:"bytes,2,opt,name=titles,proto3" json:"titles,omitempty"`
-	Series        []*Series              `protobuf:"bytes,3,rep,name=series,proto3" json:"series,omitempty"`
-	WatchOrders   []*WatchOrder          `protobuf:"bytes,4,rep,name=watch_orders,json=watchOrders,proto3" json:"watch_orders,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	Id    string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// title is resolved for the request's Accept-Language.
+	Title string `protobuf:"bytes,5,opt,name=title,proto3" json:"title,omitempty"`
+	// localized_title carries every language; set only for Accept-Language: *.
+	LocalizedTitle *LocalizedTitle `protobuf:"bytes,2,opt,name=localized_title,json=localizedTitle,proto3" json:"localized_title,omitempty"`
+	Series         []*Series       `protobuf:"bytes,3,rep,name=series,proto3" json:"series,omitempty"`
+	WatchOrders    []*WatchOrder   `protobuf:"bytes,4,rep,name=watch_orders,json=watchOrders,proto3" json:"watch_orders,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *Franchise) Reset() {
@@ -972,9 +1021,16 @@ func (x *Franchise) GetId() string {
 	return ""
 }
 
-func (x *Franchise) GetTitles() *Title {
+func (x *Franchise) GetTitle() string {
 	if x != nil {
-		return x.Titles
+		return x.Title
+	}
+	return ""
+}
+
+func (x *Franchise) GetLocalizedTitle() *LocalizedTitle {
+	if x != nil {
+		return x.LocalizedTitle
 	}
 	return nil
 }
@@ -995,10 +1051,13 @@ func (x *Franchise) GetWatchOrders() []*WatchOrder {
 
 // SearchResult is one match: a top-level franchise or a series.
 type SearchResult struct {
-	state  protoimpl.MessageState `protogen:"open.v1"`
-	Kind   EntryKind              `protobuf:"varint,1,opt,name=kind,proto3,enum=anime.v1.EntryKind" json:"kind,omitempty"`
-	Id     string                 `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
-	Titles *Title                 `protobuf:"bytes,3,opt,name=titles,proto3" json:"titles,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	Kind  EntryKind              `protobuf:"varint,1,opt,name=kind,proto3,enum=anime.v1.EntryKind" json:"kind,omitempty"`
+	Id    string                 `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
+	// title is resolved for the request's Accept-Language.
+	Title string `protobuf:"bytes,5,opt,name=title,proto3" json:"title,omitempty"`
+	// localized_title carries every language; set only for Accept-Language: *.
+	LocalizedTitle *LocalizedTitle `protobuf:"bytes,3,opt,name=localized_title,json=localizedTitle,proto3" json:"localized_title,omitempty"`
 	// franchise_id is set when kind is SERIES and the series belongs to a
 	// franchise; empty for a standalone series or a franchise result.
 	FranchiseId   string `protobuf:"bytes,4,opt,name=franchise_id,json=franchiseId,proto3" json:"franchise_id,omitempty"`
@@ -1050,9 +1109,16 @@ func (x *SearchResult) GetId() string {
 	return ""
 }
 
-func (x *SearchResult) GetTitles() *Title {
+func (x *SearchResult) GetTitle() string {
 	if x != nil {
-		return x.Titles
+		return x.Title
+	}
+	return ""
+}
+
+func (x *SearchResult) GetLocalizedTitle() *LocalizedTitle {
+	if x != nil {
+		return x.LocalizedTitle
 	}
 	return nil
 }
@@ -1595,10 +1661,10 @@ var File_anime_v1_anime_proto protoreflect.FileDescriptor
 
 const file_anime_v1_anime_proto_rawDesc = "" +
 	"\n" +
-	"\x14anime/v1/anime.proto\x12\banime.v1\"\xab\x01\n" +
-	"\x05Title\x12\x1a\n" +
-	"\boriginal\x18\x01 \x01(\tR\boriginal\x12E\n" +
-	"\ftranslations\x18\x02 \x03(\v2!.anime.v1.Title.TranslationsEntryR\ftranslations\x1a?\n" +
+	"\x14anime/v1/anime.proto\x12\banime.v1\"\xbd\x01\n" +
+	"\x0eLocalizedTitle\x12\x1a\n" +
+	"\boriginal\x18\x01 \x01(\tR\boriginal\x12N\n" +
+	"\ftranslations\x18\x02 \x03(\v2*.anime.v1.LocalizedTitle.TranslationsEntryR\ftranslations\x1a?\n" +
 	"\x11TranslationsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\x9a\x01\n" +
@@ -1615,10 +1681,12 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\faired_number\x18\x02 \x01(\x05R\vairedNumber\x12!\n" +
 	"\frelease_date\x18\x03 \x01(\tR\vreleaseDate\x12\x14\n" +
 	"\x05title\x18\x04 \x01(\tR\x05titleB\x12\n" +
-	"\x10_absolute_number\"\xea\x02\n" +
+	"\x10_absolute_number\"\x9a\x03\n" +
 	"\x06Season\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12'\n" +
-	"\x06titles\x18\x02 \x01(\v2\x0f.anime.v1.TitleR\x06titles\x12\x16\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
+	"\x05title\x18\n" +
+	" \x01(\tR\x05title\x12A\n" +
+	"\x0flocalized_title\x18\x02 \x01(\v2\x18.anime.v1.LocalizedTitleR\x0elocalizedTitle\x12\x16\n" +
 	"\x06number\x18\x03 \x01(\x05R\x06number\x12\x17\n" +
 	"\x04part\x18\x04 \x01(\x05H\x00R\x04part\x88\x01\x01\x12!\n" +
 	"\frelease_date\x18\x05 \x01(\tR\vreleaseDate\x12!\n" +
@@ -1629,29 +1697,32 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\x05_part\"I\n" +
 	"\x0eAlternateCutOf\x12\x1b\n" +
 	"\tseason_id\x18\x01 \x01(\tR\bseasonId\x12\x1a\n" +
-	"\bepisodes\x18\x02 \x01(\tR\bepisodes\"\xc6\x02\n" +
+	"\bepisodes\x18\x02 \x01(\tR\bepisodes\"\xf6\x02\n" +
 	"\x05Movie\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12'\n" +
-	"\x06titles\x18\x02 \x01(\v2\x0f.anime.v1.TitleR\x06titles\x12!\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
+	"\x05title\x18\b \x01(\tR\x05title\x12A\n" +
+	"\x0flocalized_title\x18\x02 \x01(\v2\x18.anime.v1.LocalizedTitleR\x0elocalizedTitle\x12!\n" +
 	"\frelease_date\x18\x03 \x01(\tR\vreleaseDate\x12!\n" +
 	"\frelease_year\x18\x04 \x01(\x05R\vreleaseYear\x128\n" +
 	"\fexternal_ids\x18\x05 \x01(\v2\x15.anime.v1.ExternalIdsR\vexternalIds\x12,\n" +
 	"\x0fabsolute_number\x18\x06 \x01(\x05H\x00R\x0eabsoluteNumber\x88\x01\x01\x12B\n" +
 	"\x10alternate_cut_of\x18\a \x01(\v2\x18.anime.v1.AlternateCutOfR\x0ealternateCutOfB\x12\n" +
-	"\x10_absolute_number\"\xe4\x02\n" +
+	"\x10_absolute_number\"\x94\x03\n" +
 	"\aSpecial\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12'\n" +
-	"\x06titles\x18\x02 \x01(\v2\x0f.anime.v1.TitleR\x06titles\x12/\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
+	"\x05title\x18\t \x01(\tR\x05title\x12A\n" +
+	"\x0flocalized_title\x18\x02 \x01(\v2\x18.anime.v1.LocalizedTitleR\x0elocalizedTitle\x12/\n" +
 	"\x06format\x18\x03 \x01(\x0e2\x17.anime.v1.SpecialFormatR\x06format\x12!\n" +
 	"\frelease_date\x18\x04 \x01(\tR\vreleaseDate\x12!\n" +
 	"\frelease_year\x18\x05 \x01(\x05R\vreleaseYear\x128\n" +
 	"\fexternal_ids\x18\x06 \x01(\v2\x15.anime.v1.ExternalIdsR\vexternalIds\x12-\n" +
 	"\bepisodes\x18\a \x03(\v2\x11.anime.v1.EpisodeR\bepisodes\x12,\n" +
 	"\x0fabsolute_number\x18\b \x01(\x05H\x00R\x0eabsoluteNumber\x88\x01\x01B\x12\n" +
-	"\x10_absolute_number\"\xc5\x01\n" +
+	"\x10_absolute_number\"\xf5\x01\n" +
 	"\x06Series\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12'\n" +
-	"\x06titles\x18\x02 \x01(\v2\x0f.anime.v1.TitleR\x06titles\x12*\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
+	"\x05title\x18\x06 \x01(\tR\x05title\x12A\n" +
+	"\x0flocalized_title\x18\x02 \x01(\v2\x18.anime.v1.LocalizedTitleR\x0elocalizedTitle\x12*\n" +
 	"\aseasons\x18\x03 \x03(\v2\x10.anime.v1.SeasonR\aseasons\x12'\n" +
 	"\x06movies\x18\x04 \x03(\v2\x0f.anime.v1.MovieR\x06movies\x12-\n" +
 	"\bspecials\x18\x05 \x03(\v2\x11.anime.v1.SpecialR\bspecials\"7\n" +
@@ -1661,16 +1732,18 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\n" +
 	"WatchOrder\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x123\n" +
-	"\aentries\x18\x02 \x03(\v2\x19.anime.v1.WatchOrderEntryR\aentries\"\xa7\x01\n" +
+	"\aentries\x18\x02 \x03(\v2\x19.anime.v1.WatchOrderEntryR\aentries\"\xd7\x01\n" +
 	"\tFranchise\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12'\n" +
-	"\x06titles\x18\x02 \x01(\v2\x0f.anime.v1.TitleR\x06titles\x12(\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
+	"\x05title\x18\x05 \x01(\tR\x05title\x12A\n" +
+	"\x0flocalized_title\x18\x02 \x01(\v2\x18.anime.v1.LocalizedTitleR\x0elocalizedTitle\x12(\n" +
 	"\x06series\x18\x03 \x03(\v2\x10.anime.v1.SeriesR\x06series\x127\n" +
-	"\fwatch_orders\x18\x04 \x03(\v2\x14.anime.v1.WatchOrderR\vwatchOrders\"\x93\x01\n" +
+	"\fwatch_orders\x18\x04 \x03(\v2\x14.anime.v1.WatchOrderR\vwatchOrders\"\xc3\x01\n" +
 	"\fSearchResult\x12'\n" +
 	"\x04kind\x18\x01 \x01(\x0e2\x13.anime.v1.EntryKindR\x04kind\x12\x0e\n" +
-	"\x02id\x18\x02 \x01(\tR\x02id\x12'\n" +
-	"\x06titles\x18\x03 \x01(\v2\x0f.anime.v1.TitleR\x06titles\x12!\n" +
+	"\x02id\x18\x02 \x01(\tR\x02id\x12\x14\n" +
+	"\x05title\x18\x05 \x01(\tR\x05title\x12A\n" +
+	"\x0flocalized_title\x18\x03 \x01(\v2\x18.anime.v1.LocalizedTitleR\x0elocalizedTitle\x12!\n" +
 	"\ffranchise_id\x18\x04 \x01(\tR\vfranchiseId\"|\n" +
 	"\fDatasetStats\x12\x1e\n" +
 	"\n" +
@@ -1723,7 +1796,7 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\fGetFranchise\x12\x1d.anime.v1.GetFranchiseRequest\x1a\x1e.anime.v1.GetFranchiseResponse\"\x00\x12F\n" +
 	"\tGetSeries\x12\x1a.anime.v1.GetSeriesRequest\x1a\x1b.anime.v1.GetSeriesResponse\"\x00\x12=\n" +
 	"\x06Search\x12\x17.anime.v1.SearchRequest\x1a\x18.anime.v1.SearchResponse\"\x00\x12F\n" +
-	"\tGetHealth\x12\x1a.anime.v1.GetHealthRequest\x1a\x1b.anime.v1.GetHealthResponse\"\x00BCZAgithub.com/michael-freling/anime-metadata-db/gen/anime/v1;animev1b\x06proto3"
+	"\tGetHealth\x12\x1a.anime.v1.GetHealthRequest\x1a\x1b.anime.v1.GetHealthResponse\"\x00BLZJgithub.com/michael-freling/anime-metadata-db/internal/gen/anime/v1;animev1b\x06proto3"
 
 var (
 	file_anime_v1_anime_proto_rawDescOnce sync.Once
@@ -1743,7 +1816,7 @@ var file_anime_v1_anime_proto_goTypes = []any{
 	(ReleaseSeason)(0),             // 0: anime.v1.ReleaseSeason
 	(SpecialFormat)(0),             // 1: anime.v1.SpecialFormat
 	(EntryKind)(0),                 // 2: anime.v1.EntryKind
-	(*Title)(nil),                  // 3: anime.v1.Title
+	(*LocalizedTitle)(nil),         // 3: anime.v1.LocalizedTitle
 	(*ExternalIds)(nil),            // 4: anime.v1.ExternalIds
 	(*Episode)(nil),                // 5: anime.v1.Episode
 	(*Season)(nil),                 // 6: anime.v1.Season
@@ -1766,31 +1839,31 @@ var file_anime_v1_anime_proto_goTypes = []any{
 	(*SearchResponse)(nil),         // 23: anime.v1.SearchResponse
 	(*GetHealthRequest)(nil),       // 24: anime.v1.GetHealthRequest
 	(*GetHealthResponse)(nil),      // 25: anime.v1.GetHealthResponse
-	nil,                            // 26: anime.v1.Title.TranslationsEntry
+	nil,                            // 26: anime.v1.LocalizedTitle.TranslationsEntry
 }
 var file_anime_v1_anime_proto_depIdxs = []int32{
-	26, // 0: anime.v1.Title.translations:type_name -> anime.v1.Title.TranslationsEntry
-	3,  // 1: anime.v1.Season.titles:type_name -> anime.v1.Title
+	26, // 0: anime.v1.LocalizedTitle.translations:type_name -> anime.v1.LocalizedTitle.TranslationsEntry
+	3,  // 1: anime.v1.Season.localized_title:type_name -> anime.v1.LocalizedTitle
 	0,  // 2: anime.v1.Season.release_season:type_name -> anime.v1.ReleaseSeason
 	4,  // 3: anime.v1.Season.external_ids:type_name -> anime.v1.ExternalIds
 	5,  // 4: anime.v1.Season.episodes:type_name -> anime.v1.Episode
-	3,  // 5: anime.v1.Movie.titles:type_name -> anime.v1.Title
+	3,  // 5: anime.v1.Movie.localized_title:type_name -> anime.v1.LocalizedTitle
 	4,  // 6: anime.v1.Movie.external_ids:type_name -> anime.v1.ExternalIds
 	7,  // 7: anime.v1.Movie.alternate_cut_of:type_name -> anime.v1.AlternateCutOf
-	3,  // 8: anime.v1.Special.titles:type_name -> anime.v1.Title
+	3,  // 8: anime.v1.Special.localized_title:type_name -> anime.v1.LocalizedTitle
 	1,  // 9: anime.v1.Special.format:type_name -> anime.v1.SpecialFormat
 	4,  // 10: anime.v1.Special.external_ids:type_name -> anime.v1.ExternalIds
 	5,  // 11: anime.v1.Special.episodes:type_name -> anime.v1.Episode
-	3,  // 12: anime.v1.Series.titles:type_name -> anime.v1.Title
+	3,  // 12: anime.v1.Series.localized_title:type_name -> anime.v1.LocalizedTitle
 	6,  // 13: anime.v1.Series.seasons:type_name -> anime.v1.Season
 	8,  // 14: anime.v1.Series.movies:type_name -> anime.v1.Movie
 	9,  // 15: anime.v1.Series.specials:type_name -> anime.v1.Special
 	11, // 16: anime.v1.WatchOrder.entries:type_name -> anime.v1.WatchOrderEntry
-	3,  // 17: anime.v1.Franchise.titles:type_name -> anime.v1.Title
+	3,  // 17: anime.v1.Franchise.localized_title:type_name -> anime.v1.LocalizedTitle
 	10, // 18: anime.v1.Franchise.series:type_name -> anime.v1.Series
 	12, // 19: anime.v1.Franchise.watch_orders:type_name -> anime.v1.WatchOrder
 	2,  // 20: anime.v1.SearchResult.kind:type_name -> anime.v1.EntryKind
-	3,  // 21: anime.v1.SearchResult.titles:type_name -> anime.v1.Title
+	3,  // 21: anime.v1.SearchResult.localized_title:type_name -> anime.v1.LocalizedTitle
 	13, // 22: anime.v1.ListFranchisesResponse.franchises:type_name -> anime.v1.Franchise
 	13, // 23: anime.v1.GetFranchiseResponse.franchise:type_name -> anime.v1.Franchise
 	10, // 24: anime.v1.GetSeriesResponse.series:type_name -> anime.v1.Series
