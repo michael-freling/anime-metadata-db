@@ -5,8 +5,14 @@ on:
   push:
     branches: [main]
 
+# Least privilege by default; the deploy job opts into the extra scopes it needs.
 permissions:
   contents: read
+
+# Allow one concurrent Pages deployment; don't cancel an in-flight publish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -23,8 +29,41 @@ jobs:
           go-version: stable
           cache-dependency-path: docs/go.sum
 
+      # Computes the correct base URL for the project Pages site
+      # (https://<owner>.github.io/<repo>/) and exposes it as an output.
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
       # `make build` downloads the pinned Hugo extended binary and runs `hugo --minify`,
       # so CI uses the exact same Hugo version as local development. It fails the job on
-      # any template or render error.
+      # any template or render error. HUGO_BASEURL overrides baseURL in hugo.toml so the
+      # published site resolves assets/links under the project subpath.
       - name: Build the docs site
         run: make build
+        env:
+          HUGO_BASEURL: ${{ steps.pages.outputs.base_url }}
+
+      # Package docs/public for the deploy job. Runs on PRs too, which exercises
+      # the upload step without publishing.
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/public
+
+  deploy:
+    name: Deploy to GitHub Pages
+    # Only publish from the default branch; PRs stop after the build above.
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write # to deploy to Pages
+      id-token: write # to verify the deployment originates from this workflow
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
