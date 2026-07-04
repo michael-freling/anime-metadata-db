@@ -6,7 +6,7 @@ import (
 
 	"connectrpc.com/connect"
 
-	animev1 "github.com/michael-freling/anime-metadata-db/gen/anime/v1"
+	animev1 "github.com/michael-freling/anime-metadata-db/internal/gen/anime/v1"
 )
 
 // newTestService builds a Service over the standard fixtures.
@@ -26,8 +26,13 @@ func TestListFranchises(t *testing.T) {
 		t.Fatalf("got %d franchises, want 1", len(got))
 	}
 	f := got[0]
-	if f.GetId() != "aaa" || f.GetTitles().GetTranslations()["en"] != "Alpha Franchise" {
+	// Default request (no Accept-Language) resolves the title to English and
+	// omits the full multilingual set.
+	if f.GetId() != "aaa" || f.GetTitle() != "Alpha Franchise" {
 		t.Errorf("unexpected franchise %+v", f)
+	}
+	if f.GetLocalizedTitle() != nil {
+		t.Errorf("localized_title should be omitted without Accept-Language: *, got %+v", f.GetLocalizedTitle())
 	}
 	// Watch orders survive conversion.
 	if len(f.GetWatchOrders()) != 1 || f.GetWatchOrders()[0].GetEntries()[0].GetNote() != "start here" {
@@ -154,7 +159,7 @@ func TestGetSeries(t *testing.T) {
 	if err != nil {
 		t.Fatalf("GetSeries(minimal): %v", err)
 	}
-	if resp.Msg.GetSeries().GetTitles() != nil || len(resp.Msg.GetSeries().GetSeasons()) != 0 {
+	if resp.Msg.GetSeries().GetTitle() != "" || resp.Msg.GetSeries().GetLocalizedTitle() != nil || len(resp.Msg.GetSeries().GetSeasons()) != 0 {
 		t.Errorf("minimal series not empty: %+v", resp.Msg.GetSeries())
 	}
 }
@@ -198,5 +203,46 @@ func TestGetHealth(t *testing.T) {
 	}
 	if st := resp.Msg.GetStats(); st.GetFranchises() != 1 || st.GetSeries() != 3 || st.GetSeasons() != 5 || st.GetEpisodes() != 3 {
 		t.Errorf("stats = %+v", resp.Msg.GetStats())
+	}
+}
+
+// reqWithLang builds a request carrying an Accept-Language header.
+func reqWithLang[T any](msg *T, lang string) *connect.Request[T] {
+	r := connect.NewRequest(msg)
+	r.Header().Set("Accept-Language", lang)
+	return r
+}
+
+func TestGetFranchiseLanguage(t *testing.T) {
+	svc := newTestService(t)
+
+	// A Japanese request with no ja translation falls back to the native original.
+	resp, err := svc.GetFranchise(context.Background(), reqWithLang(&animev1.GetFranchiseRequest{Id: "aaa"}, "ja"))
+	if err != nil {
+		t.Fatalf("GetFranchise(ja): %v", err)
+	}
+	if got := resp.Msg.GetFranchise().GetTitle(); got != "エー" {
+		t.Errorf("ja title = %q, want native エー", got)
+	}
+	if resp.Msg.GetFranchise().GetLocalizedTitle() != nil {
+		t.Error("ja request should not include the full localized_title")
+	}
+
+	// Accept-Language: * returns the English title plus the full multilingual set.
+	resp, err = svc.GetFranchise(context.Background(), reqWithLang(&animev1.GetFranchiseRequest{Id: "aaa"}, "*"))
+	if err != nil {
+		t.Fatalf("GetFranchise(*): %v", err)
+	}
+	f := resp.Msg.GetFranchise()
+	if f.GetTitle() != "Alpha Franchise" {
+		t.Errorf("* title = %q, want English default", f.GetTitle())
+	}
+	lt := f.GetLocalizedTitle()
+	if lt.GetOriginal() != "エー" || lt.GetTranslations()["en"] != "Alpha Franchise" {
+		t.Errorf("* localized_title = %+v", lt)
+	}
+	// A node with no title still omits localized_title even in full mode.
+	if f.GetSeries()[0].GetSeasons()[0].GetLocalizedTitle() != nil {
+		t.Error("empty-title season should have nil localized_title")
 	}
 }

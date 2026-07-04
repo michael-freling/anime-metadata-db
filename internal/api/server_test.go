@@ -48,6 +48,10 @@ func TestHandlerServesConnectJSON(t *testing.T) {
 			t.Errorf("body %s missing %q", body, want)
 		}
 	}
+	// The interceptor marks responses as varying by Accept-Language.
+	if vary := resp.Header.Get("Vary"); !strings.Contains(vary, "Accept-Language") {
+		t.Errorf("Vary header = %q, want it to include Accept-Language", vary)
+	}
 }
 
 func TestHandlerIndexAndNotFound(t *testing.T) {

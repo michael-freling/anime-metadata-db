@@ -6,11 +6,17 @@ syntax = "proto3";
 // and staff) is intentionally not exposed yet.
 package anime.v1;
 
-option go_package = "github.com/michael-freling/anime-metadata-db/gen/anime/v1;animev1";
+option go_package = "github.com/michael-freling/anime-metadata-db/internal/gen/anime/v1;animev1";
 
-// Title holds a localized title: the original native-script form plus
-// translations keyed by BCP-47 code (en, ja, ...).
-message Title {
+// LocalizedTitle holds a title across languages: the original native-script
+// form plus translations keyed by BCP-47 code (en, ja, ...).
+//
+// Every title-bearing message carries a resolved `title` (a single string for
+// the request's Accept-Language, defaulting to English) plus this full
+// `localized_title`. To keep responses small, `localized_title` is populated
+// ONLY when the client sends `Accept-Language: *`; otherwise just `title` is
+// returned. See AnimeService for the language-resolution rules.
+message LocalizedTitle {
   string original = 1;
   map<string, string> translations = 2;
 }
@@ -59,7 +65,10 @@ message Episode {
 // Season is one numbered TV installment (one media node / cour).
 message Season {
   string id = 1;
-  Title titles = 2;
+  // title is resolved for the request's Accept-Language.
+  string title = 10;
+  // localized_title carries every language; set only for Accept-Language: *.
+  LocalizedTitle localized_title = 2;
   int32 number = 3;
   optional int32 part = 4;
   string release_date = 5;
@@ -78,7 +87,10 @@ message AlternateCutOf {
 // Movie is one film (one media node).
 message Movie {
   string id = 1;
-  Title titles = 2;
+  // title is resolved for the request's Accept-Language.
+  string title = 8;
+  // localized_title carries every language; set only for Accept-Language: *.
+  LocalizedTitle localized_title = 2;
   string release_date = 3;
   int32 release_year = 4;
   ExternalIds external_ids = 5;
@@ -89,7 +101,10 @@ message Movie {
 // Special is one OVA / ONA / special (side content, no season number).
 message Special {
   string id = 1;
-  Title titles = 2;
+  // title is resolved for the request's Accept-Language.
+  string title = 9;
+  // localized_title carries every language; set only for Accept-Language: *.
+  LocalizedTitle localized_title = 2;
   SpecialFormat format = 3;
   string release_date = 4;
   int32 release_year = 5;
@@ -101,7 +116,10 @@ message Special {
 // Series is the base unit: one storyline / continuity.
 message Series {
   string id = 1;
-  Title titles = 2;
+  // title is resolved for the request's Accept-Language.
+  string title = 6;
+  // localized_title carries every language; set only for Accept-Language: *.
+  LocalizedTitle localized_title = 2;
   repeated Season seasons = 3;
   repeated Movie movies = 4;
   repeated Special specials = 5;
@@ -122,7 +140,10 @@ message WatchOrder {
 // Franchise groups related Series under one brand.
 message Franchise {
   string id = 1;
-  Title titles = 2;
+  // title is resolved for the request's Accept-Language.
+  string title = 5;
+  // localized_title carries every language; set only for Accept-Language: *.
+  LocalizedTitle localized_title = 2;
   repeated Series series = 3;
   repeated WatchOrder watch_orders = 4;
 }
@@ -131,7 +152,10 @@ message Franchise {
 message SearchResult {
   EntryKind kind = 1;
   string id = 2;
-  Title titles = 3;
+  // title is resolved for the request's Accept-Language.
+  string title = 5;
+  // localized_title carries every language; set only for Accept-Language: *.
+  LocalizedTitle localized_title = 3;
   // franchise_id is set when kind is SERIES and the series belongs to a
   // franchise; empty for a standalone series or a franchise result.
   string franchise_id = 4;
@@ -188,6 +212,13 @@ message GetHealthResponse {
 }
 
 // AnimeService is the read-only API over the committed dataset.
+//
+// Title localization: every title-bearing message returns a single resolved
+// `title` string chosen from the request's `Accept-Language` header (default
+// `en`). Resolution per title: the requested language, then — for a non-English
+// request — the native `original`, then English, then the native `original`,
+// then any available translation. Send `Accept-Language: *` to additionally
+// receive the full `localized_title` (every language) on each node.
 service AnimeService {
   // ListFranchises returns every multi-series franchise in the catalog.
   // Standalone series are reachable via GetSeries and Search.

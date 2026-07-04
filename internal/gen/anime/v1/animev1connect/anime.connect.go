@@ -12,7 +12,7 @@ import (
 	connect "connectrpc.com/connect"
 	context "context"
 	errors "errors"
-	v1 "github.com/michael-freling/anime-metadata-db/gen/anime/v1"
+	v1 "github.com/michael-freling/anime-metadata-db/internal/gen/anime/v1"
 	http "net/http"
 	strings "strings"
 )

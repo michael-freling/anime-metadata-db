@@ -38,8 +38,8 @@ jobs:
       - name: Regenerate and verify no diff
         run: |
           buf generate
-          if ! git diff --exit-code -- gen; then
-            echo "::error::gen/ is out of date; run 'make generate' and commit the result."
+          if ! git diff --exit-code -- internal/gen; then
+            echo "::error::internal/gen is out of date; run 'make generate' and commit the result."
             exit 1
           fi
 
@@ -90,12 +90,12 @@ jobs:
 
       - name: Enforce coverage threshold
         run: |
-          # Generated protobuf/Connect code under gen/ is excluded: it is not
-          # hand-written and carries no tests, so it should not count toward the
-          # threshold. The "mode:" header line is preserved by the filter.
-          grep -v '/gen/' coverage.out > coverage.filtered
+          # Generated protobuf/Connect code under internal/gen/ is excluded: it
+          # is not hand-written and carries no tests, so it should not count
+          # toward the threshold. The "mode:" header line is preserved.
+          grep -v '/internal/gen/' coverage.out > coverage.filtered
           total="$(go tool cover -func=coverage.filtered | awk '/^total:/ {print $3}' | tr -d '%')"
-          echo "Total coverage (excluding gen/): ${total}%"
+          echo "Total coverage (excluding internal/gen/): ${total}%"
           awk -v total="$total" -v min="${COVERAGE_THRESHOLD}" 'BEGIN {
             if (total+0 > min+0) {
               printf "Coverage %.1f%% exceeds the %s%% threshold.\n", total, min

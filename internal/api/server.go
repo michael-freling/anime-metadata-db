@@ -1,12 +1,15 @@
 package api
 
 import (
+	"context"
 	"fmt"
 	"io/fs"
 	"net/http"
 
+	"connectrpc.com/connect"
+
 	animedb "github.com/michael-freling/anime-metadata-db"
-	"github.com/michael-freling/anime-metadata-db/gen/anime/v1/animev1connect"
+	"github.com/michael-freling/anime-metadata-db/internal/gen/anime/v1/animev1connect"
 )
 
 // NewHandler builds the HTTP handler that serves AnimeService over the Connect,
@@ -14,10 +17,24 @@ import (
 func NewHandler(store *Store, version string) http.Handler {
 	svc := NewService(store, version)
 	mux := http.NewServeMux()
-	rpcPath, h := animev1connect.NewAnimeServiceHandler(svc)
+	rpcPath, h := animev1connect.NewAnimeServiceHandler(svc, connect.WithInterceptors(varyAcceptLanguage()))
 	mux.Handle(rpcPath, h)
 	mux.HandleFunc("/", indexHandler(rpcPath))
 	return mux
+}
+
+// varyAcceptLanguage marks every response as varying by Accept-Language, since
+// titles are resolved from that header, so caches key entries per language.
+func varyAcceptLanguage() connect.UnaryInterceptorFunc {
+	return func(next connect.UnaryFunc) connect.UnaryFunc {
+		return func(ctx context.Context, req connect.AnyRequest) (connect.AnyResponse, error) {
+			resp, err := next(ctx, req)
+			if resp != nil {
+				resp.Header().Add("Vary", "Accept-Language")
+			}
+			return resp, err
+		}
+	}
 }
 
 // New loads the embedded dataset and returns the API handler. It is the
