@@ -22,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Hugo Modules (the hugo-book theme) are fetched via Go.
+      # Hugo Modules (the Hextra theme) are fetched via Go.
       - name: Set up Go
         uses: actions/setup-go@v5
         with:

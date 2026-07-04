@@ -1,7 +1,6 @@
 ---
 title: Development
 weight: 3
-bookCollapseSection: true
 # Internal docs: draft on this section node and cascaded to every page under it,
 # so the whole tree renders under `make serve` (which passes --buildDrafts) but is
 # excluded from the production build published to GitHub Pages.

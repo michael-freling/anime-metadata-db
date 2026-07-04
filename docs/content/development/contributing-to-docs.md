@@ -6,7 +6,7 @@ weight: 1
 # Contributing to the docs
 
 This documentation site is built with [Hugo](https://gohugo.io) and the
-[hugo-book](https://github.com/alex-shpak/hugo-book) theme. This page is
+[Hextra](https://github.com/imfing/hextra) theme. This page is
 internal (part of the local-only **Development** section) and is not published
 to the live site.
 
