@@ -9,9 +9,8 @@ An open dataset of anime **franchise / series / season / episode** metadata, plu
 the `builder` CLI that compiles it and a read-only [Connect RPC](https://connectrpc.com)
 API that serves it.
 
-This site documents the project. Use the menu on the left to browse the guides and
-the [design proposals]({{< relref "/proposals" >}}) that define the data model and
-the build tool. The source lives on
+This site documents the project. Use the menu on the left to browse the guides.
+The source lives on
 [GitHub](https://github.com/michael-freling/anime-metadata-db).
 
 ## What's in the repository
@@ -63,7 +62,5 @@ stateless and self-contained, and it deploys free on Vercel's Go builder.
 
 - [Getting Started]({{< relref "/docs/getting-started" >}}) — run this
   documentation site locally.
-- [Proposals]({{< relref "/proposals" >}}) — the data-model and builder design
-  notes the implementation follows.
 - [README on GitHub](https://github.com/michael-freling/anime-metadata-db#readme) —
   full CLI and API usage.
