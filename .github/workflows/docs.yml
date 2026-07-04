@@ -29,41 +29,56 @@ jobs:
           go-version: stable
           cache-dependency-path: docs/go.sum
 
-      # Computes the correct base URL for the project Pages site
-      # (https://<owner>.github.io/<repo>/) and exposes it as an output.
-      - name: Configure Pages
-        id: pages
-        uses: actions/configure-pages@v5
-
       # `make build` downloads the pinned Hugo extended binary and runs `hugo --minify`,
       # so CI uses the exact same Hugo version as local development. It fails the job on
-      # any template or render error. HUGO_BASEURL overrides baseURL in hugo.toml so the
-      # published site resolves assets/links under the project subpath.
+      # any template or render error. This validates every PR; the deploy job below does
+      # its own base-URL-aware build when publishing from main.
       - name: Build the docs site
         run: make build
-        env:
-          HUGO_BASEURL: ${{ steps.pages.outputs.base_url }}
-
-      # Package docs/public for the deploy job. Runs on PRs too, which exercises
-      # the upload step without publishing.
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: docs/public
 
   deploy:
     name: Deploy to GitHub Pages
-    # Only publish from the default branch; PRs stop after the build above.
+    # Only publish from the default branch; PRs stop after the validation build above.
     if: github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
     permissions:
-      pages: write # to deploy to Pages
+      pages: write # to enable and deploy to Pages
       id-token: write # to verify the deployment originates from this workflow
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: stable
+          cache-dependency-path: docs/go.sum
+
+      # Enables Pages on first run (enablement: true, so no manual repo setup is
+      # required) and outputs the project site's base URL
+      # (https://<owner>.github.io/<repo>/).
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      # HUGO_BASEURL overrides baseURL in hugo.toml so the published site resolves
+      # assets/links under the project subpath.
+      - name: Build the docs site
+        run: make build
+        env:
+          HUGO_BASEURL: ${{ steps.pages.outputs.base_url }}
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/public
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
