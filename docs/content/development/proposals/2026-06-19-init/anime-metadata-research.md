@@ -4,7 +4,6 @@ date: 2026-06-19
 weight: 1
 ---
 
-# Research Note: Anime Series/Franchise Metadata for anime-image-viewer
 
 **Date:** 2026-06-19
 **Author:** Michael Freling (with Claude Code)

@@ -2,4 +2,6 @@ module github.com/michael-freling/docs
 
 go 1.25
 
-require github.com/alex-shpak/hugo-book v0.14.0 // indirect
+require (
+	github.com/imfing/hextra v0.12.3 // indirect
+)

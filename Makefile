@@ -1,6 +1,6 @@
-# Makefile for the Hugo documentation site (docs/) using the hugo-book theme.
+# Makefile for the Hugo documentation site (docs/) using the Hextra theme.
 #
-# The hugo-book theme requires Hugo extended >= 0.158. To avoid depending on
+# The Hextra theme requires Hugo extended >= 0.158. To avoid depending on
 # whatever Hugo happens to be installed, these targets download a pinned Hugo
 # extended binary into docs/.hugo/ and use that. Override with `make HUGO=hugo ...`
 # to use a system Hugo instead (must be extended and new enough).
@@ -51,7 +51,7 @@ $(HUGO_BIN):
 hugo: $(HUGO_BIN) ## Download the pinned Hugo extended binary into docs/.hugo/
 
 .PHONY: deps
-deps: $(HUGO_BIN) ## Fetch/update the hugo-book theme via Hugo Modules
+deps: $(HUGO_BIN) ## Fetch/update the Hextra theme via Hugo Modules
 	cd $(DOCS_DIR) && $(HUGO_BIN) mod get -u
 
 .PHONY: serve

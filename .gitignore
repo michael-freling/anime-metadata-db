@@ -43,6 +43,9 @@ docs/resources/
 
 # Pinned Hugo binary downloaded by the Makefile
 docs/.hugo/
+
+# Screenshot tooling + output for the verify-docs-layout skill
+docs/.screenshots/
 coverage.out
 .vercel
 .env*

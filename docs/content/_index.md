@@ -1,21 +1,46 @@
 ---
-title: Introduction
-type: docs
+title: anime-metadata-db
+layout: hextra-home
 ---
 
-# Introduction
+{{< hextra/hero-badge >}}Experimental · open & free{{< /hextra/hero-badge >}}
 
-Welcome to the documentation. This site is built with [Hugo](https://gohugo.io)
-and the [hugo-book](https://github.com/alex-shpak/hugo-book) theme.
+<div style="margin: 2rem 0 1.75rem;">
+{{< hextra/hero-headline >}}
+  An <span class="hero-gradient">open</span> dataset and API for anime
+{{< /hextra/hero-headline >}}
+</div>
 
-## Getting started
+<div style="margin-bottom: 3rem; max-width: 42rem;">
+{{< hextra/hero-subtitle >}}
+  Openly licensed, redistributable anime metadata — franchises, series, seasons
+  and episodes — served over a free, read-only API. Early days: the dataset is
+  small and growing.
+{{< /hextra/hero-subtitle >}}
+</div>
 
-Run the local development server from the repository root:
+<div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 4.5rem;">
+{{< hextra/hero-button text="Get started" link="docs/using-the-api" >}}
+{{< hextra/hero-button text="View on GitHub →" link="https://github.com/michael-freling/anime-metadata-db" >}}
+</div>
 
-```bash
-make serve
-```
-
-Then open <http://localhost:1313> in your browser.
-
-Use the menu on the left to browse the documentation.
+{{< hextra/feature-grid >}}
+  {{< hextra/feature-card
+    title="Using the API"
+    icon="code"
+    subtitle="Query the hosted, read-only service with a plain HTTP POST + JSON — no client library or codegen."
+    link="docs/using-the-api"
+  >}}
+  {{< hextra/feature-card
+    title="Using the dataset"
+    icon="database"
+    subtitle="Read the committed YAML directly and learn the Franchise → Series → Season → Episode model."
+    link="docs/using-the-dataset"
+  >}}
+  {{< hextra/feature-card
+    title="Building the dataset"
+    icon="terminal"
+    subtitle="Compile the dataset and author your own entries with the deterministic builder CLI."
+    link="docs/building-the-dataset"
+  >}}
+{{< /hextra/feature-grid >}}
