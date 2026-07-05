@@ -58,14 +58,16 @@ jobs:
           go-version: stable
           cache-dependency-path: docs/go.sum
 
-      # Enables Pages on first run (enablement: true, so no manual repo setup is
-      # required) and outputs the project site's base URL
-      # (https://<owner>.github.io/<repo>/).
+      # Reads the Pages configuration and outputs the project site's base URL
+      # (https://<owner>.github.io/<repo>/). Pages must already be enabled with
+      # its source set to "GitHub Actions" (Settings > Pages > Build and
+      # deployment > Source). We intentionally do NOT pass enablement: true: the
+      # workflow's GITHUB_TOKEN cannot create a Pages site (the API rejects it
+      # with "Resource not accessible by integration"), so relying on it makes
+      # the first deploy fail. Enabling Pages is a one-time manual/admin step.
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       # HUGO_BASEURL overrides baseURL in hugo.toml so the published site resolves
       # assets/links under the project subpath.
