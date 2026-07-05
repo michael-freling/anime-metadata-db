@@ -49,16 +49,3 @@ layout: hextra-home
     link="docs/building-the-dataset"
   >}}
 {{< /hextra/feature-grid >}}
-
-<div class="hx-mt-16 hx-mb-4 hx-text-center">
-  <span class="hx-text-sm hx-font-semibold hx-tracking-wide hx-text-gray-400 dark:hx-text-gray-500">TRY IT — ONE CURL, NO SETUP</span>
-</div>
-
-```sh
-curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/GetHealth \
-  -H 'Content-Type: application/json' -d '{}'
-```
-
-```json
-{"status":"ok","version":"<commit>","stats":{"franchises":1,"series":3,"seasons":9,"episodes":124}}
-```
