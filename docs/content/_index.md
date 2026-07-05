@@ -3,31 +3,26 @@ title: anime-metadata-db
 layout: hextra-home
 ---
 
-{{< hextra/hero-badge >}}
-  <div class="hx-w-2 hx-h-2 hx-rounded-full hx-bg-primary-400"></div>
-  Open dataset · free hosted API
-{{< /hextra/hero-badge >}}
+{{< hextra/hero-badge >}}Open dataset · free hosted API{{< /hextra/hero-badge >}}
 
-<div class="hx-mt-6 hx-mb-6">
+<div style="margin: 2rem 0 1.75rem;">
 {{< hextra/hero-headline >}}
-  Anime franchise metadata,&nbsp;<br class="sm:hx-block hx-hidden" />
+  Anime franchise metadata,&nbsp;<br />
   <span class="hero-gradient">structured &amp; open</span>
 {{< /hextra/hero-headline >}}
 </div>
 
-<div class="hx-mb-12">
+<div style="margin-bottom: 3rem; max-width: 42rem;">
 {{< hextra/hero-subtitle >}}
-  An open dataset of anime **franchise → series → season → episode** metadata,&nbsp;<br class="sm:hx-block hx-hidden" />
+  An open dataset of anime **franchise → series → season → episode** metadata,
   with a builder CLI that compiles it and a read-only Connect RPC API that serves it.
 {{< /hextra/hero-subtitle >}}
 </div>
 
-<div class="hx-mb-6 hx-flex hx-flex-wrap hx-gap-4">
+<div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 4.5rem;">
 {{< hextra/hero-button text="Get started" link="docs/using-the-api" >}}
 {{< hextra/hero-button text="View on GitHub →" link="https://github.com/michael-freling/anime-metadata-db" >}}
 </div>
-
-<div class="hx-mt-6"></div>
 
 {{< hextra/feature-grid >}}
   {{< hextra/feature-card

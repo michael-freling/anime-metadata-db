@@ -19,7 +19,13 @@
   color: transparent;
 }
 
-/* Give the hero a touch more vertical breathing room. */
-.hextra-hero {
-  padding-top: 1rem;
+/* More air between the feature cards (theme ships a tight 1rem gap). */
+.hextra-feature-grid {
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+/* A little more breathing room inside each card. */
+.hextra-feature-card {
+  padding: 0.5rem;
 }
