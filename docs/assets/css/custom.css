@@ -1,0 +1,25 @@
+/* Site accent color — Hextra derives buttons, links and highlights from these. */
+:root {
+  --primary-hue: 255deg;
+  --primary-saturation: 88%;
+  --primary-lightness: 62%;
+}
+
+.dark {
+  --primary-hue: 255deg;
+  --primary-saturation: 90%;
+  --primary-lightness: 68%;
+}
+
+/* Gradient accent for part of the hero headline. */
+.hero-gradient {
+  background-image: linear-gradient(92deg, hsl(255 88% 62%) 0%, hsl(322 85% 60%) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Give the hero a touch more vertical breathing room. */
+.hextra-hero {
+  padding-top: 1rem;
+}

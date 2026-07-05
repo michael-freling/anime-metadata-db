@@ -3,7 +3,6 @@ title: Contributing to the docs
 weight: 1
 ---
 
-# Contributing to the docs
 
 This documentation site is built with [Hugo](https://gohugo.io) and the
 [Hextra](https://github.com/imfing/hextra) theme. This page is

@@ -3,7 +3,6 @@ title: Using the API
 weight: 1
 ---
 
-# Using the API
 
 The dataset is served read-only by a [Connect RPC](https://connectrpc.com)
 service. You can call it with an ordinary HTTP `POST` and a JSON body — no client

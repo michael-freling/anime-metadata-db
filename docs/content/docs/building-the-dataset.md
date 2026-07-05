@@ -3,7 +3,6 @@ title: Building the dataset
 weight: 3
 ---
 
-# Building the dataset
 
 The dataset is compiled by the `builder` CLI from two committed layers, so a
 rebuild can never clobber authored work:

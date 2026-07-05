@@ -4,7 +4,6 @@ date: 2026-06-19
 weight: 3
 ---
 
-# Characters & Staff Data Model & Worked Examples
 
 **Date:** 2026-06-19
 **Author:** Michael Freling (with Claude Code)

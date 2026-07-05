@@ -3,7 +3,6 @@ title: Guides
 weight: 1
 ---
 
-# Guides
 
 Task-focused guides for consuming and building the dataset:
 

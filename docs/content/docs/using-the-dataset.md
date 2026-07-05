@@ -3,7 +3,6 @@ title: Using the dataset
 weight: 2
 ---
 
-# Using the dataset
 
 If you'd rather not call the API, the compiled dataset is committed as plain
 YAML you can read directly from the repository.

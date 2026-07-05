@@ -10,7 +10,8 @@ layout: hextra-home
 
 <div class="hx-mt-6 hx-mb-6">
 {{< hextra/hero-headline >}}
-  Anime franchise metadata,&nbsp;<br class="sm:hx-block hx-hidden" />structured and open
+  Anime franchise metadata,&nbsp;<br class="sm:hx-block hx-hidden" />
+  <span class="hero-gradient">structured &amp; open</span>
 {{< /hextra/hero-headline >}}
 </div>
 
@@ -21,10 +22,9 @@ layout: hextra-home
 {{< /hextra/hero-subtitle >}}
 </div>
 
-<div class="hx-mb-6">
+<div class="hx-mb-6 hx-flex hx-flex-wrap hx-gap-4">
 {{< hextra/hero-button text="Get started" link="docs/using-the-api" >}}
-&nbsp;
-{{< hextra/hero-button text="View on GitHub" link="https://github.com/michael-freling/anime-metadata-db" style="background: var(--hextra-default-hover-bg-color)" >}}
+{{< hextra/hero-button text="View on GitHub →" link="https://github.com/michael-freling/anime-metadata-db" >}}
 </div>
 
 <div class="hx-mt-6"></div>
@@ -32,26 +32,27 @@ layout: hextra-home
 {{< hextra/feature-grid >}}
   {{< hextra/feature-card
     title="Using the API"
+    icon="code"
     subtitle="Query the hosted, read-only service with a plain HTTP POST + JSON — no client library or codegen."
     link="docs/using-the-api"
   >}}
   {{< hextra/feature-card
     title="Using the dataset"
+    icon="database"
     subtitle="Read the committed YAML directly and learn the Franchise → Series → Season → Episode model."
     link="docs/using-the-dataset"
   >}}
   {{< hextra/feature-card
     title="Building the dataset"
+    icon="terminal"
     subtitle="Compile the dataset and author your own entries with the deterministic builder CLI."
     link="docs/building-the-dataset"
   >}}
 {{< /hextra/feature-grid >}}
 
-<div class="hx-mt-12"></div>
-
-## Try it
-
-The dataset is live on a hosted, read-only API. One `curl`, no setup:
+<div class="hx-mt-16 hx-mb-4 hx-text-center">
+  <span class="hx-text-sm hx-font-semibold hx-tracking-wide hx-text-gray-400 dark:hx-text-gray-500">TRY IT — ONE CURL, NO SETUP</span>
+</div>
 
 ```sh
 curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/GetHealth \

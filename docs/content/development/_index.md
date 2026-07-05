@@ -9,8 +9,6 @@ cascade:
   draft: true
 ---
 
-# Development
-
 Internal design docs and research notes. These pages are built **only for local
 preview** (`make serve`); the production build that publishes to GitHub Pages
 excludes them.
