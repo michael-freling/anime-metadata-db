@@ -3,19 +3,19 @@ title: anime-metadata-db
 layout: hextra-home
 ---
 
-{{< hextra/hero-badge >}}Open dataset · free hosted API{{< /hextra/hero-badge >}}
+{{< hextra/hero-badge >}}Experimental · open & free{{< /hextra/hero-badge >}}
 
 <div style="margin: 2rem 0 1.75rem;">
 {{< hextra/hero-headline >}}
-  Anime franchise metadata,&nbsp;<br />
-  <span class="hero-gradient">structured &amp; open</span>
+  An <span class="hero-gradient">open</span> dataset and API for anime
 {{< /hextra/hero-headline >}}
 </div>
 
 <div style="margin-bottom: 3rem; max-width: 42rem;">
 {{< hextra/hero-subtitle >}}
-  An open dataset of anime **franchise → series → season → episode** metadata,
-  with a builder CLI that compiles it and a read-only Connect RPC API that serves it.
+  Openly licensed, redistributable anime metadata — franchises, series, seasons
+  and episodes — served over a free, read-only API. Early days: the dataset is
+  small and growing.
 {{< /hextra/hero-subtitle >}}
 </div>
 
