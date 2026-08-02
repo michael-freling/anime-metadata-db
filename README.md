@@ -23,12 +23,20 @@ produce the same `data/`.
 
 ## Inputs
 
-Facts come from openly-licensed, redistributable sources (AniList is **not** used
-— its ToS forbids redistribution):
+Facts come from open data sources, each on its own terms — listed below and set
+out in full in
+[Sources and licensing](https://michael-freling.github.io/anime-metadata-db/docs/sources-and-licensing/).
+AniList is **not** used: its ToS forbids storing or redistributing its content.
 
-- [`anime-offline-database`](https://github.com/manami-project/anime-offline-database) (ODbL) — titles, season/year, episode counts, cross-IDs.
-- [`Anime-Lists/anime-lists`](https://github.com/Anime-Lists/anime-lists) — AniDB↔TVDB mapping and movie-set grouping.
+- [`anime-offline-database`](https://github.com/manami-project/anime-offline-database) (ODbL + DbCL) — titles, season/year, episode counts, cross-IDs.
+- [`Anime-Lists/anime-lists`](https://github.com/Anime-Lists/anime-lists) (no stated licence; bare ID pairs) — AniDB↔TVDB mapping and movie-set grouping.
 - [Wikidata](https://www.wikidata.org) (CC0) — character & staff **names** (R2), resolved by QID via the wbgetentities API.
+
+The `anilistId` on each node is an identifier parsed out of the cross-reference
+URLs the offline database publishes — a join key into that ODbL source, not
+AniList data. See [`NOTICE`](NOTICE) and the
+[Sources and licensing](https://michael-freling.github.io/anime-metadata-db/docs/sources-and-licensing/)
+guide.
 
 ## Characters & staff (R2)
 
@@ -162,3 +170,23 @@ CI runs golangci-lint v2 and the test suite with a > 95% coverage gate
 (`.github/workflows/go.yml`). The build-tagged e2e tests download the live
 open-data sources and run on every PR (`.github/workflows/e2e.yml`), guarding
 against upstream source/URL drift.
+
+## Licensing
+
+The code and the data are licensed **separately**:
+
+| | Licence | |
+|---|---|---|
+| Code — everything except `data/` | MIT | [`LICENSE`](LICENSE) |
+| `data/` as a database | ODbL v1.0 | [`LICENSE-DATA`](LICENSE-DATA) |
+| `data/` individual records | DbCL v1.0 | [`LICENSE-DATA`](LICENSE-DATA) |
+
+`data/` is a derivative database of `anime-offline-database`, and the ODbL's
+share-alike term reaches derivative databases — so the compiled dataset is
+offered on the terms it was received under. Publishing a modified dataset means
+publishing it under ODbL too, and because [`dataset.go`](dataset.go) embeds
+`data/`, those terms travel with any binary built from this repository.
+Attribution for every upstream source is in [`NOTICE`](NOTICE); the full picture
+is in the
+[Sources and licensing](https://michael-freling.github.io/anime-metadata-db/docs/sources-and-licensing/)
+guide.

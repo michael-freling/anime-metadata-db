@@ -51,12 +51,16 @@ cross-IDs) from the open sources and writes the resolved record to
 
 ## Sources
 
-Facts come from openly-licensed, redistributable sources (AniList is **not**
-used — its ToS forbids redistribution):
+Facts come from open data sources, each on its own terms. AniList is **not**
+used: its ToS forbids storing or redistributing its content.
 
-- [`anime-offline-database`](https://github.com/manami-project/anime-offline-database) (ODbL) — titles, season / year, episode counts, cross-IDs.
-- [`Anime-Lists/anime-lists`](https://github.com/Anime-Lists/anime-lists) — AniDB↔TVDB mapping and movie-set grouping.
+- [`anime-offline-database`](https://github.com/manami-project/anime-offline-database) (ODbL + DbCL) — titles, season / year, episode counts, cross-IDs.
+- [`Anime-Lists/anime-lists`](https://github.com/Anime-Lists/anime-lists) (no stated licence; bare ID pairs) — AniDB↔TVDB mapping and movie-set grouping.
 - [Wikidata](https://www.wikidata.org) (CC0) — character & staff names, resolved by QID.
+
+What each source contributes, and what the terms mean for anyone redistributing
+the result, is set out in
+[Sources and licensing]({{< relref "/docs/sources-and-licensing" >}}).
 
 Sources are **not committed**. `builder init` downloads them into a gitignored
 `.sources/` cache at the versions pinned in `config.yaml`, and `builder refresh`

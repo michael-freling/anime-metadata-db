@@ -10,3 +10,4 @@ Task-focused guides for consuming and building the dataset:
 - [Using the dataset]({{< relref "/docs/using-the-dataset" >}}) — read the YAML and the data model.
 - [Building the dataset]({{< relref "/docs/building-the-dataset" >}}) — compile it with the `builder` CLI.
 - [Coverage]({{< relref "/docs/coverage" >}}) — how many works are managed, by year and season.
+- [Sources and licensing]({{< relref "/docs/sources-and-licensing" >}}) — where each fact comes from and what you may do with it.
