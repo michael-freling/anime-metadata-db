@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: kamiina-botan-yoeru-sugata-wa-yuri-no-hana
+  titles:
+    original: 上伊那ぼたん, 酔へる姿は百合の花
+    translations: { en: "Kamiina Botan, Yoeru Sugata wa Yuri no Hana" }
+  seasons:
+    - id: kamiina-botan-yoeru-sugata-wa-yuri-no-hana-s1
+      number: 1
+      externalIds: { anilistId: 187869 } # Kamiina Botan, Yoeru Sugata wa Yuri no Hana (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kamiina-botan-yoeru-sugata-wa-yuri-no-hana]

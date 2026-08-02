@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: ganbare-nakamura-kun
+  titles:
+    original: "ガンバレ! 中村くん!!"
+    translations: { en: "Ganbare! Nakamura-kun!!" }
+  seasons:
+    - id: ganbare-nakamura-kun-s1
+      number: 1
+      externalIds: { anilistId: 180228 } # Ganbare! Nakamura-kun!! (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ganbare-nakamura-kun]

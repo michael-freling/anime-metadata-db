@@ -1,0 +1,17 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: bungou-stray-dogs-wan
+  titles:
+    original: "文豪ストレイドッグス わん!"
+    translations: { en: "Bungou Stray Dogs Wan!" }
+  seasons:
+    - id: bungou-stray-dogs-wan-s1
+      number: 1
+      externalIds: { anilistId: 120150 } # Bungou Stray Dogs Wan! (Winter 2021)
+    - id: bungou-stray-dogs-wan-s2
+      number: 2
+      externalIds: { anilistId: 201667 } # Bungou Stray Dogs Wan! 2 (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bungou-stray-dogs-wan]

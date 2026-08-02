@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: watashi-ga-koibito-ni-nareru-wake-naijan-murimuri-muri-ja
+  titles:
+    original: "わたしが恋人になれるわけないじゃん、ムリムリ! (※ムリじゃなかった!?) ~Next Shine~"
+    translations: { en: "Watashi ga Koibito ni Nareru Wake Naijan, Murimuri! (※Muri ja Nakatta!?): Next Shine!" }
+  seasons:
+    - id: watashi-ga-koibito-ni-nareru-wake-naijan-murimuri-muri-ja-s1
+      number: 1
+      externalIds: { anilistId: 199112 } # Watashi ga Koibito ni Nareru Wake Naijan, Murimuri! (※Muri ja Nakatta!?): Next Shine! (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [watashi-ga-koibito-ni-nareru-wake-naijan-murimuri-muri-ja]

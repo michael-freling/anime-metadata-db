@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: otaku-ni-yasashii-gal-wa-inai
+  titles:
+    original: "オタクに優しいギャルはいない!?"
+    translations: { en: "Otaku ni Yasashii Gal wa Inai!?" }
+  seasons:
+    - id: otaku-ni-yasashii-gal-wa-inai-s1
+      number: 1
+      externalIds: { anilistId: 199588 } # Otaku ni Yasashii Gal wa Inai!? (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [otaku-ni-yasashii-gal-wa-inai]

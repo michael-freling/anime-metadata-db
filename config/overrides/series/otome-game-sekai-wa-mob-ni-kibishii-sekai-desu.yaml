@@ -1,0 +1,17 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: otome-game-sekai-wa-mob-ni-kibishii-sekai-desu
+  titles:
+    original: 乙女ゲー世界はモブに厳しい世界です
+    translations: { en: Otome Game Sekai wa Mob ni Kibishii Sekai desu }
+  seasons:
+    - id: otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-s1
+      number: 1
+      externalIds: { anilistId: 142074 } # Otome Game Sekai wa Mob ni Kibishii Sekai desu (Spring 2022)
+    - id: otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-s2
+      number: 2
+      externalIds: { anilistId: 159309 } # Otome Game Sekai wa Mob ni Kibishii Sekai desu 2 (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [otome-game-sekai-wa-mob-ni-kibishii-sekai-desu]

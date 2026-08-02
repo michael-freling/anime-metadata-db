@@ -1,0 +1,15 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: yoroi-shin-den-samurai-troopers
+  titles:
+    original: 鎧真伝サムライトルーパー
+    translations: { en: Yoroi Shin Den Samurai Troopers }
+  seasons:
+    - id: yoroi-shin-den-samurai-troopers-s1
+      number: 1
+      externalIds: { anilistId: 194318 } # Yoroi Shin Den Samurai Troopers (Winter 2026)
+# Scope stops at Spring 2026: a later announced season is left out until it airs.
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yoroi-shin-den-samurai-troopers]

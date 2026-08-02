@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: okiraku-ryoushu-no-tanoshii-ryouchi-bouei-seisankei
+  titles:
+    original: お気楽領主の楽しい領地防衛 ～生産系魔術で名もなき村を最強の城塞都市に～
+    translations: { en: "Okiraku Ryoushu no Tanoshii Ryouchi Bouei: Seisankei Majutsu de Na mo Naki Mura wo Saikyou no Jousai Toshi ni" }
+  seasons:
+    - id: okiraku-ryoushu-no-tanoshii-ryouchi-bouei-seisankei-s1
+      number: 1
+      externalIds: { anilistId: 191205 } # Okiraku Ryoushu no Tanoshii Ryouchi Bouei: Seisankei Majutsu de Na mo Naki Mura wo Saikyou no Jousai Toshi ni (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [okiraku-ryoushu-no-tanoshii-ryouchi-bouei-seisankei]

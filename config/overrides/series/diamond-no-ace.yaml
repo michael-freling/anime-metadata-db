@@ -1,0 +1,26 @@
+# Authored override — Winter/Spring 2026 catalogue import, corrected by hand.
+# Act II continues the same storyline with the same cast, so the four TV runs
+# are seasons 1-4 of one Series. The generator had read the "II" of "Act II" as
+# a season marker and split them into parts of season 2.
+series:
+  id: diamond-no-ace
+  titles:
+    original: "ダイヤのA[エース]"
+    translations: { en: Diamond no Ace }
+  seasons:
+    - id: diamond-no-ace-s1
+      number: 1
+      externalIds: { anilistId: 18689 } # Diamond no Ace (Fall 2013)
+    - id: diamond-no-ace-s2
+      number: 2
+      externalIds: { anilistId: 21085 } # Diamond no Ace: Second Season (Spring 2015)
+    - id: diamond-no-ace-s3
+      titles: { translations: { en: Act II } }
+      number: 3
+      externalIds: { anilistId: 105749 } # Diamond no Ace: Act II (Spring 2019)
+    - id: diamond-no-ace-s4
+      titles: { translations: { en: Act II Second Season } }
+      number: 4
+      externalIds: { anilistId: 177634 } # Diamond no Ace: Act II Second Season (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [diamond-no-ace]

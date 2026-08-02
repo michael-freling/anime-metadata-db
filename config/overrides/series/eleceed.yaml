@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: eleceed
+  titles:
+    original: エレキシード / 일렉시드
+    translations: { en: Eleceed }
+  seasons:
+    - id: eleceed-s1
+      number: 1
+      externalIds: { anilistId: 195350 } # Eleceed (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [eleceed]

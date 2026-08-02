@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: hoppe-chan-sun-oukoku-to-kuro-hoppe-dan-no-himitsu
+  titles:
+    original: ほっぺちゃん ~サン王国と黒ほっぺ団の秘密~
+    translations: { en: "Hoppe-chan: Sun Oukoku to Kuro Hoppe-dan no Himitsu" }
+  seasons:
+    - id: hoppe-chan-sun-oukoku-to-kuro-hoppe-dan-no-himitsu-s1
+      number: 1
+      externalIds: { anilistId: 203148 } # Hoppe-chan: Sun Oukoku to Kuro Hoppe-dan no Himitsu (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hoppe-chan-sun-oukoku-to-kuro-hoppe-dan-no-himitsu]

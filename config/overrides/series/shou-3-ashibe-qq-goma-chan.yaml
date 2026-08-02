@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: shou-3-ashibe-qq-goma-chan
+  titles:
+    original: 小3アシベ QQゴマちゃん
+    translations: { en: Shou 3 Ashibe QQ Goma-chan }
+  seasons:
+    - id: shou-3-ashibe-qq-goma-chan-s1
+      number: 1
+      externalIds: { anilistId: 202386 } # Shou 3 Ashibe QQ Goma-chan (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shou-3-ashibe-qq-goma-chan]

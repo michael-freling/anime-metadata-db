@@ -11,9 +11,11 @@
 # Test binary, built with `go test -c`
 *.test
 
-# Code coverage profiles and other test artifacts
+# Code coverage profiles and other test artifacts. These are anchored to the
+# repository root: an unanchored `coverage.*` also matches content that merely
+# shares the name, such as the docs site's coverage page.
 *.out
-coverage.*
+/coverage.*
 *.coverprofile
 profile.cov
 

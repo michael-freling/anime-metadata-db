@@ -33,6 +33,14 @@ franchise:
           number: 1
           part: 2
           externalIds: { anilistId: 11741 } # Fate/Zero 2nd Season (2012)
+    # A separate continuity (a Fake Holy Grail War in Snowfield), so its own
+    # Series under the franchise rather than a season of stay night or Zero.
+    - id: fate-strange-fake
+      titles: { translations: { en: Fate/strange Fake } }
+      seasons:
+        - id: fate-strange-fake-s1
+          number: 1
+          externalIds: { anilistId: 166617 } # Fate/strange Fake (Winter 2026)
   # Release order is the default (derived from release dates); only the curated
   # in-universe order is stored.
   watchOrders:
@@ -50,4 +58,4 @@ franchise:
       appearances:
         - { seriesId: fate-stay-night }
         - { seriesId: fate-zero }
-numbered: [fate-zero]
+numbered: [fate-zero, fate-strange-fake]

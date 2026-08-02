@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: goumon-baito-kun-no-nichijou
+  titles:
+    original: 拷問バイトくんの日常
+    translations: { en: Goumon Baito-kun no Nichijou }
+  seasons:
+    - id: goumon-baito-kun-no-nichijou-s1
+      number: 1
+      externalIds: { anilistId: 197731 } # Goumon Baito-kun no Nichijou (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [goumon-baito-kun-no-nichijou]

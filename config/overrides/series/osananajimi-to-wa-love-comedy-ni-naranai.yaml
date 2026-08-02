@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: osananajimi-to-wa-love-comedy-ni-naranai
+  titles:
+    original: 幼馴染とはラブコメにならない
+    translations: { en: Osananajimi to wa Love Comedy ni Naranai }
+  seasons:
+    - id: osananajimi-to-wa-love-comedy-ni-naranai-s1
+      number: 1
+      externalIds: { anilistId: 189565 } # Osananajimi to wa Love Comedy ni Naranai (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [osananajimi-to-wa-love-comedy-ni-naranai]

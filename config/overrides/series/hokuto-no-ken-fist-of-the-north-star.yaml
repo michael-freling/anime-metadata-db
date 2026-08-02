@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: hokuto-no-ken-fist-of-the-north-star
+  titles:
+    original: 北斗の拳 -FIST OF THE NORTH STAR-
+    translations: { en: "Hokuto no Ken: Fist of the North Star" }
+  seasons:
+    - id: hokuto-no-ken-fist-of-the-north-star-s1
+      number: 1
+      externalIds: { anilistId: 169228 } # Hokuto no Ken: Fist of the North Star (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hokuto-no-ken-fist-of-the-north-star]

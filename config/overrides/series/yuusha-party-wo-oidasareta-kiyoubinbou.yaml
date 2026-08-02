@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: yuusha-party-wo-oidasareta-kiyoubinbou
+  titles:
+    original: 勇者パーティを追い出された器用貧乏
+    translations: { en: Yuusha Party wo Oidasareta Kiyoubinbou }
+  seasons:
+    - id: yuusha-party-wo-oidasareta-kiyoubinbou-s1
+      number: 1
+      externalIds: { anilistId: 187264 } # Yuusha Party wo Oidasareta Kiyoubinbou (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yuusha-party-wo-oidasareta-kiyoubinbou]

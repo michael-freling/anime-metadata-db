@@ -1,0 +1,25 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: enen-no-shouboutai
+  titles:
+    original: 炎炎ノ消防隊
+    translations: { en: Enen no Shouboutai }
+  seasons:
+    - id: enen-no-shouboutai-s1
+      number: 1
+      externalIds: { anilistId: 105310 } # Enen no Shouboutai (Summer 2019)
+    - id: enen-no-shouboutai-s2
+      number: 2
+      externalIds: { anilistId: 114236 } # Enen no Shouboutai: Ni no Shou (Summer 2020)
+    - id: enen-no-shouboutai-s3p1
+      number: 3
+      part: 1
+      externalIds: { anilistId: 149118 } # Enen no Shouboutai: San no Shou (Spring 2025)
+    - id: enen-no-shouboutai-s3p2
+      number: 3
+      part: 2
+      externalIds: { anilistId: 179062 } # Enen no Shouboutai: San no Shou Part 2 (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [enen-no-shouboutai]

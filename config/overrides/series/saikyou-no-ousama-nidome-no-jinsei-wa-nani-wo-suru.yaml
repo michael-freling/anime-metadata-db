@@ -1,0 +1,17 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: saikyou-no-ousama-nidome-no-jinsei-wa-nani-wo-suru
+  titles:
+    original: 最強の王様, 二度目の人生は何をする?
+    translations: { en: "Saikyou no Ousama, Nidome no Jinsei wa Nani wo Suru?" }
+  seasons:
+    - id: saikyou-no-ousama-nidome-no-jinsei-wa-nani-wo-suru-s1
+      number: 1
+      externalIds: { anilistId: 183161 } # Saikyou no Ousama, Nidome no Jinsei wa Nani wo Suru? (Spring 2025)
+    - id: saikyou-no-ousama-nidome-no-jinsei-wa-nani-wo-suru-s2
+      number: 2
+      externalIds: { anilistId: 194317 } # Saikyou no Ousama, Nidome no Jinsei wa Nani wo Suru? Season 2 (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [saikyou-no-ousama-nidome-no-jinsei-wa-nani-wo-suru]

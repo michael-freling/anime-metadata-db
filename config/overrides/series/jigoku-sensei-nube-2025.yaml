@@ -1,0 +1,15 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: jigoku-sensei-nube-2025
+  titles:
+    original: 地獄先生ぬ～べ～ (2025) 第2クール
+    translations: { en: Jigoku Sensei Nube (2025) }
+  seasons:
+    - id: jigoku-sensei-nube-2025-s1p2
+      number: 1
+      part: 2
+      externalIds: { anilistId: 191967 } # Jigoku Sensei Nube (2025) Part 2 (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jigoku-sensei-nube-2025]

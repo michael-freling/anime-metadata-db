@@ -1,0 +1,26 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: golden-kamuy
+  titles:
+    original: ゴールデンカムイ
+    translations: { en: Golden Kamuy }
+  seasons:
+    - id: golden-kamuy-s1
+      number: 1
+      externalIds: { anilistId: 99699 } # Golden Kamuy (Spring 2018)
+    - id: golden-kamuy-s2
+      number: 2
+      externalIds: { anilistId: 102977 } # Golden Kamuy 2nd Season (Fall 2018)
+    - id: golden-kamuy-s3
+      number: 3
+      externalIds: { anilistId: 110355 } # Golden Kamuy 3rd Season (Fall 2020)
+    - id: golden-kamuy-s4
+      number: 4
+      externalIds: { anilistId: 142343 } # Golden Kamuy 4th Season (Fall 2022)
+    - id: golden-kamuy-s5
+      number: 5
+      externalIds: { anilistId: 166521 } # Golden Kamuy: Saishuushou (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [golden-kamuy]

@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: tensei-shitara-dragon-no-tamago-datta
+  titles:
+    original: 転生したらドラゴンの卵だった ～最強以外目指さねぇ～
+    translations: { en: Tensei shitara Dragon no Tamago datta }
+  seasons:
+    - id: tensei-shitara-dragon-no-tamago-datta-s1
+      number: 1
+      externalIds: { anilistId: 187941 } # Tensei shitara Dragon no Tamago datta (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tensei-shitara-dragon-no-tamago-datta]

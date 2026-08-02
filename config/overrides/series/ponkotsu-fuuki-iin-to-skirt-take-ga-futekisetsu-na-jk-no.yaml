@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: ponkotsu-fuuki-iin-to-skirt-take-ga-futekisetsu-na-jk-no
+  titles:
+    original: ポンコツ風紀委員とスカート丈が不適切なJKの話
+    translations: { en: Ponkotsu Fuuki Iin to Skirt-take ga Futekisetsu na JK no Hanashi }
+  seasons:
+    - id: ponkotsu-fuuki-iin-to-skirt-take-ga-futekisetsu-na-jk-no-s1
+      number: 1
+      externalIds: { anilistId: 189987 } # Ponkotsu Fuuki Iin to Skirt-take ga Futekisetsu na JK no Hanashi (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ponkotsu-fuuki-iin-to-skirt-take-ga-futekisetsu-na-jk-no]

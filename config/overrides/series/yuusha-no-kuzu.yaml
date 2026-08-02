@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: yuusha-no-kuzu
+  titles:
+    original: 勇者のクズ
+    translations: { en: Yuusha no Kuzu }
+  seasons:
+    - id: yuusha-no-kuzu-s1
+      number: 1
+      externalIds: { anilistId: 187989 } # Yuusha no Kuzu (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yuusha-no-kuzu]

@@ -1,0 +1,17 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: mato-seihei-no-slave
+  titles:
+    original: 魔都精兵のスレイブ
+    translations: { en: Mato Seihei no Slave }
+  seasons:
+    - id: mato-seihei-no-slave-s1
+      number: 1
+      externalIds: { anilistId: 141821 } # Mato Seihei no Slave (Winter 2024)
+    - id: mato-seihei-no-slave-s2
+      number: 2
+      externalIds: { anilistId: 176276 } # Mato Seihei no Slave 2 (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mato-seihei-no-slave]

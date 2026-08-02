@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: zombie-no-afureta-sekai-de-ore-dake-ga-osowarenai
+  titles:
+    original: ゾンビのあふれた世界で俺だけが襲われない
+    translations: { en: Zombie no Afureta Sekai de Ore dake ga Osowarenai }
+  seasons:
+    - id: zombie-no-afureta-sekai-de-ore-dake-ga-osowarenai-s1
+      number: 1
+      externalIds: { anilistId: 174427 } # Zombie no Afureta Sekai de Ore dake ga Osowarenai (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zombie-no-afureta-sekai-de-ore-dake-ga-osowarenai]

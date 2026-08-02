@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: metal-cardbot-w
+  titles:
+    original: 메탈카드봇W
+    translations: { en: Metal Cardbot W }
+  seasons:
+    - id: metal-cardbot-w-s1
+      number: 1
+      externalIds: { anilistId: 204626 } # Metal Cardbot W (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [metal-cardbot-w]

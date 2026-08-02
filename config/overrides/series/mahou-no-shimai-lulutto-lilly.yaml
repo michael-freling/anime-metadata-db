@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: mahou-no-shimai-lulutto-lilly
+  titles:
+    original: 魔法の姉妹ルルットリリィ
+    translations: { en: Mahou no Shimai Lulutto Lilly }
+  seasons:
+    - id: mahou-no-shimai-lulutto-lilly-s1
+      number: 1
+      externalIds: { anilistId: 178749 } # Mahou no Shimai Lulutto Lilly (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mahou-no-shimai-lulutto-lilly]

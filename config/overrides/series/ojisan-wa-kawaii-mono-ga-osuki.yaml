@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: ojisan-wa-kawaii-mono-ga-osuki
+  titles:
+    original: おじさんはカワイイものがお好き.
+    translations: { en: Ojisan wa Kawaii Mono ga Osuki. }
+  seasons:
+    - id: ojisan-wa-kawaii-mono-ga-osuki-s1
+      number: 1
+      externalIds: { anilistId: 202079 } # Ojisan wa Kawaii Mono ga Osuki. (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ojisan-wa-kawaii-mono-ga-osuki]

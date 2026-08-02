@@ -1,0 +1,15 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: seihantai-na-kimi-to-boku
+  titles:
+    original: 正反対な君と僕
+    translations: { en: Seihantai na Kimi to Boku }
+  seasons:
+    - id: seihantai-na-kimi-to-boku-s1
+      number: 1
+      externalIds: { anilistId: 184951 } # Seihantai na Kimi to Boku (Winter 2026)
+# Scope stops at Spring 2026: a later announced season is left out until it airs.
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [seihantai-na-kimi-to-boku]

@@ -1,0 +1,22 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: jujutsu-kaisen
+  titles:
+    original: 呪術廻戦
+    translations: { en: Jujutsu Kaisen }
+  seasons:
+    - id: jujutsu-kaisen-s1
+      number: 1
+      externalIds: { anilistId: 113415 } # Jujutsu Kaisen (Fall 2020)
+    - id: jujutsu-kaisen-s2
+      number: 2
+      externalIds: { anilistId: 145064 } # Jujutsu Kaisen 2nd Season (Summer 2023)
+    - id: jujutsu-kaisen-s3p1
+      titles: { translations: { en: Shimetsu Kaiyuu } }
+      number: 3
+      part: 1
+      externalIds: { anilistId: 172463 } # Jujutsu Kaisen: Shimetsu Kaiyuu - Zenpen (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jujutsu-kaisen]

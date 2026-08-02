@@ -1,0 +1,17 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: yozakura-san-chi-no-daisakusen
+  titles:
+    original: 夜桜さんちの大作戦
+    translations: { en: Yozakura-san Chi no Daisakusen }
+  seasons:
+    - id: yozakura-san-chi-no-daisakusen-s1
+      number: 1
+      externalIds: { anilistId: 158898 } # Yozakura-san Chi no Daisakusen (Spring 2024)
+    - id: yozakura-san-chi-no-daisakusen-s2
+      number: 2
+      externalIds: { anilistId: 182578 } # Yozakura-san Chi no Daisakusen 2nd Season (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yozakura-san-chi-no-daisakusen]

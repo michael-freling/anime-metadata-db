@@ -1,0 +1,15 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai
+  titles:
+    original: ヘルモード ~やり込み好きのゲーマーは廃設定の異世界で無双する~ はじまりの召喚士
+    translations: { en: "Hell Mode: Yarikomizuki no Gamer wa Hai Settei no Isekai de Musou suru" }
+  seasons:
+    - id: hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai-s1
+      number: 1
+      externalIds: { anilistId: 185262 } # Hell Mode: Yarikomizuki no Gamer wa Hai Settei no Isekai de Musou suru (Winter 2026)
+# Scope stops at Spring 2026: a later announced season is left out until it airs.
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai]

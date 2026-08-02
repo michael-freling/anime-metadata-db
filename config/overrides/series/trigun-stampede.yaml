@@ -1,0 +1,19 @@
+# Authored override — Winter/Spring 2026 catalogue import, corrected by hand.
+# Stargaze is billed as TRIGUN STAMPEDE 完結編 ("final chapter") and is the direct
+# continuation of Stampede, so it is season 2 of one Series rather than a
+# separate one. The 1998 Trigun is a different adaptation and is not in scope.
+series:
+  id: trigun-stampede
+  titles:
+    original: トライガン スタンピード
+    translations: { en: Trigun Stampede }
+  seasons:
+    - id: trigun-stampede-s1
+      number: 1
+      externalIds: { anilistId: 151040 } # Trigun Stampede (Winter 2023)
+    - id: trigun-stampede-s2
+      titles: { translations: { en: Trigun Stargaze } }
+      number: 2
+      externalIds: { anilistId: 163144 } # Trigun Stargaze (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [trigun-stampede]

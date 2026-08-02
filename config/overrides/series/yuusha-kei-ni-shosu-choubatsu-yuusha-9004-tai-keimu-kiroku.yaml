@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku
+  titles:
+    original: 勇者刑に処す 懲罰勇者9004隊刑務記録
+    translations: { en: "Yuusha-kei ni Shosu: Choubatsu Yuusha 9004-tai Keimu Kiroku" }
+  seasons:
+    - id: yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku-s1
+      number: 1
+      externalIds: { anilistId: 167152 } # Yuusha-kei ni Shosu: Choubatsu Yuusha 9004-tai Keimu Kiroku (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku]

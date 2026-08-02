@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: meitantei-precure
+  titles:
+    original: TanPre (たんプリ)
+    translations: { en: "Meitantei Precure!" }
+  seasons:
+    - id: meitantei-precure-s1
+      number: 1
+      externalIds: { anilistId: 202957 } # Meitantei Precure! (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [meitantei-precure]
