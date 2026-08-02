@@ -90,8 +90,9 @@ The code is split to keep the two concerns explicit: `internal/builder` (+
 `cmd/builder`) **writes** `data/`; `internal/api` (+ `cmd/api`) **reads** the
 embedded copy and serves it. `internal/model` is the shared data model.
 
-`AnimeService` exposes: `ListFranchises`, `GetFranchise`, `GetSeries`, `Search`
-and `GetHealth`. Run it locally:
+`AnimeService` exposes the structure — `ListFranchises`, `GetFranchise`,
+`GetSeries`, `Search` — the R2 cast — `GetCharacter`, `ListCharacters`,
+`GetStaff`, `ListStaff` — and `GetHealth`. Run it locally:
 
 ```sh
 go run ./cmd/api                 # listens on :8080 (HTTP/1.1 + cleartext HTTP/2)
@@ -100,7 +101,15 @@ curl -X POST localhost:8080/anime.v1.AnimeService/GetHealth \
   -H 'Content-Type: application/json' -d '{}'
 curl -X POST localhost:8080/anime.v1.AnimeService/Search \
   -H 'Content-Type: application/json' -d '{"query":"demon"}'
+curl -X POST localhost:8080/anime.v1.AnimeService/GetStaff \
+  -H 'Content-Type: application/json' -d '{"id":"ayako-kawasumi"}'
 ```
+
+**Cast.** Characters and staff are global, so a character is reachable nested in
+a series' `characters`, by id from `GetCharacter`, or as a credit from
+`GetStaff` — always carrying every series it appears in. A character's
+`voiceActors` is the default cast; an `appearance` may override it and `scope`
+it to specific seasons, movies or specials.
 
 **Localized titles.** Each node returns a single `title` resolved from the
 request's `Accept-Language` header (default `en`); resolution falls back

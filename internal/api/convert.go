@@ -251,10 +251,129 @@ func toSpecial(loc localizer, sp model.Special) *animev1.Special {
 	}
 }
 
-// toSeries converts one series and its installments (cast is not exposed yet).
-func toSeries(loc localizer, s *model.Series) *animev1.Series {
+// toVoiceActor converts one voice-actor link, denormalizing the staff member's
+// name so a client does not have to call GetStaff to display the cast.
+func toVoiceActor(loc localizer, store *Store, va model.VoiceActor) *animev1.VoiceActor {
+	out := &animev1.VoiceActor{StaffId: va.StaffID, Language: va.Language}
+	if st, ok := store.Staff(va.StaffID); ok {
+		out.StaffName = resolveTitle(st.Names, loc.lang)
+	}
+	return out
+}
+
+// toVoiceActors converts a slice of links, returning nil for an empty input.
+func toVoiceActors(loc localizer, store *Store, in []model.VoiceActor) []*animev1.VoiceActor {
+	if len(in) == 0 {
+		return nil
+	}
+	out := make([]*animev1.VoiceActor, len(in))
+	for i := range in {
+		out[i] = toVoiceActor(loc, store, in[i])
+	}
+	return out
+}
+
+// toAppearance converts one Character <-> Series edge.
+func toAppearance(loc localizer, store *Store, a model.CharacterAppearance) *animev1.CharacterAppearance {
+	out := &animev1.CharacterAppearance{
+		SeriesId:    a.SeriesID,
+		VoiceActors: toVoiceActors(loc, store, a.VoiceActors),
+		ExternalIds: toExternalIDs(a.ExternalIDs),
+	}
+	if len(a.Scope) > 0 {
+		out.Scope = make([]*animev1.ScopeRef, len(a.Scope))
+		for i, sc := range a.Scope {
+			out.Scope[i] = &animev1.ScopeRef{
+				SeasonId:  sc.SeasonID,
+				MovieId:   sc.MovieID,
+				SpecialId: sc.SpecialID,
+			}
+		}
+	}
+	return out
+}
+
+// toCharacter converts one character, resolving its name via loc.
+func toCharacter(loc localizer, store *Store, c *model.Character) *animev1.Character {
+	name, full := loc.title(c.Names)
+	out := &animev1.Character{
+		Id:            c.ID,
+		Name:          name,
+		LocalizedName: full,
+		ExternalIds:   toExternalIDs(c.ExternalIDs),
+		VoiceActors:   toVoiceActors(loc, store, c.VoiceActors),
+	}
+	if len(c.Appearances) > 0 {
+		out.Appearances = make([]*animev1.CharacterAppearance, len(c.Appearances))
+		for i := range c.Appearances {
+			out.Appearances[i] = toAppearance(loc, store, c.Appearances[i])
+		}
+	}
+	return out
+}
+
+// toCharacters converts a slice of characters, returning nil for an empty input.
+func toCharacters(loc localizer, store *Store, in []*model.Character) []*animev1.Character {
+	if len(in) == 0 {
+		return nil
+	}
+	out := make([]*animev1.Character, len(in))
+	for i, c := range in {
+		out[i] = toCharacter(loc, store, c)
+	}
+	return out
+}
+
+// toStaff converts one staff member, resolving their name via loc.
+func toStaff(loc localizer, st *model.Staff) *animev1.Staff {
+	name, full := loc.title(st.Names)
+	return &animev1.Staff{
+		Id:            st.ID,
+		Name:          name,
+		LocalizedName: full,
+		ExternalIds:   toExternalIDs(st.ExternalIDs),
+	}
+}
+
+// toStaffList converts a slice of staff, returning nil for an empty input.
+func toStaffList(loc localizer, in []*model.Staff) []*animev1.Staff {
+	if len(in) == 0 {
+		return nil
+	}
+	out := make([]*animev1.Staff, len(in))
+	for i, st := range in {
+		out[i] = toStaff(loc, st)
+	}
+	return out
+}
+
+// toStaffCredits converts a staff member's roles, resolving each character's
+// name via loc.
+func toStaffCredits(loc localizer, in []StaffCredit) []*animev1.StaffCredit {
+	if len(in) == 0 {
+		return nil
+	}
+	out := make([]*animev1.StaffCredit, len(in))
+	for i, credit := range in {
+		out[i] = &animev1.StaffCredit{
+			CharacterId:   credit.Character.ID,
+			CharacterName: resolveTitle(credit.Character.Names, loc.lang),
+			Language:      credit.Language,
+			SeriesIds:     credit.SeriesIDs,
+		}
+	}
+	return out
+}
+
+// toSeries converts one series, its installments and the cast appearing in it.
+func toSeries(loc localizer, store *Store, s *model.Series) *animev1.Series {
 	title, full := loc.title(s.Titles)
-	out := &animev1.Series{Id: s.ID, Title: title, LocalizedTitle: full}
+	out := &animev1.Series{
+		Id:             s.ID,
+		Title:          title,
+		LocalizedTitle: full,
+		Characters:     toCharacters(loc, store, store.Characters(s.ID, 0)),
+	}
 	if len(s.Seasons) > 0 {
 		out.Seasons = make([]*animev1.Season, len(s.Seasons))
 		for i := range s.Seasons {
@@ -277,13 +396,14 @@ func toSeries(loc localizer, s *model.Series) *animev1.Series {
 }
 
 // toFranchise converts one franchise and its nested series and watch orders.
-func toFranchise(loc localizer, f *model.Franchise) *animev1.Franchise {
+// The cast is carried by each nested series, not by the franchise itself.
+func toFranchise(loc localizer, store *Store, f *model.Franchise) *animev1.Franchise {
 	title, full := loc.title(f.Titles)
 	out := &animev1.Franchise{Id: f.ID, Title: title, LocalizedTitle: full}
 	if len(f.Series) > 0 {
 		out.Series = make([]*animev1.Series, len(f.Series))
 		for i := range f.Series {
-			out.Series[i] = toSeries(loc, &f.Series[i])
+			out.Series[i] = toSeries(loc, store, &f.Series[i])
 		}
 	}
 	if len(f.WatchOrders) > 0 {

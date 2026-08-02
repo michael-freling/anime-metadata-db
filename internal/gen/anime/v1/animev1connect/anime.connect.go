@@ -3,9 +3,16 @@
 // Source: anime/v1/anime.proto
 
 // Package anime.v1 is the read-only Connect API over the committed anime
-// franchise dataset (the R1 model: Franchise -> Series -> Season -> Episode,
-// plus Movie and Special). It mirrors internal/model; the R2 cast (characters
-// and staff) is intentionally not exposed yet.
+// franchise dataset: the R1 model (Franchise -> Series -> Season -> Episode,
+// plus Movie and Special) and the R2 cast (Character and Staff). It mirrors
+// internal/model.
+//
+// The cast is a global, many-to-many layer that attaches onto the R1 spine
+// through a Character's appearances, so a character reached from a Series is
+// the same node reachable by id from GetCharacter — it just carries every
+// series it appears in. Only facts are served (ids, names, the appearance and
+// voice-actor graph); expression (roles, bios, images) is left to the consumer
+// to fetch live from the external ids.
 package animev1connect
 
 import (
@@ -47,6 +54,16 @@ const (
 	AnimeServiceGetSeriesProcedure = "/anime.v1.AnimeService/GetSeries"
 	// AnimeServiceSearchProcedure is the fully-qualified name of the AnimeService's Search RPC.
 	AnimeServiceSearchProcedure = "/anime.v1.AnimeService/Search"
+	// AnimeServiceGetCharacterProcedure is the fully-qualified name of the AnimeService's GetCharacter
+	// RPC.
+	AnimeServiceGetCharacterProcedure = "/anime.v1.AnimeService/GetCharacter"
+	// AnimeServiceListCharactersProcedure is the fully-qualified name of the AnimeService's
+	// ListCharacters RPC.
+	AnimeServiceListCharactersProcedure = "/anime.v1.AnimeService/ListCharacters"
+	// AnimeServiceGetStaffProcedure is the fully-qualified name of the AnimeService's GetStaff RPC.
+	AnimeServiceGetStaffProcedure = "/anime.v1.AnimeService/GetStaff"
+	// AnimeServiceListStaffProcedure is the fully-qualified name of the AnimeService's ListStaff RPC.
+	AnimeServiceListStaffProcedure = "/anime.v1.AnimeService/ListStaff"
 	// AnimeServiceGetHealthProcedure is the fully-qualified name of the AnimeService's GetHealth RPC.
 	AnimeServiceGetHealthProcedure = "/anime.v1.AnimeService/GetHealth"
 )
@@ -62,6 +79,16 @@ type AnimeServiceClient interface {
 	GetSeries(context.Context, *connect.Request[v1.GetSeriesRequest]) (*connect.Response[v1.GetSeriesResponse], error)
 	// Search matches franchises and series by title (case-insensitive substring).
 	Search(context.Context, *connect.Request[v1.SearchRequest]) (*connect.Response[v1.SearchResponse], error)
+	// GetCharacter returns one character by id, with every appearance and the
+	// voice actors cast for it.
+	GetCharacter(context.Context, *connect.Request[v1.GetCharacterRequest]) (*connect.Response[v1.GetCharacterResponse], error)
+	// ListCharacters returns the whole cast, or just one series' cast.
+	ListCharacters(context.Context, *connect.Request[v1.ListCharactersRequest]) (*connect.Response[v1.ListCharactersResponse], error)
+	// GetStaff returns one staff member by id, with the characters they voice.
+	GetStaff(context.Context, *connect.Request[v1.GetStaffRequest]) (*connect.Response[v1.GetStaffResponse], error)
+	// ListStaff returns every staff member, optionally filtered by the language
+	// they are credited in.
+	ListStaff(context.Context, *connect.Request[v1.ListStaffRequest]) (*connect.Response[v1.ListStaffResponse], error)
 	// GetHealth reports liveness, build version and dataset stats.
 	GetHealth(context.Context, *connect.Request[v1.GetHealthRequest]) (*connect.Response[v1.GetHealthResponse], error)
 }
@@ -101,6 +128,30 @@ func NewAnimeServiceClient(httpClient connect.HTTPClient, baseURL string, opts .
 			connect.WithSchema(animeServiceMethods.ByName("Search")),
 			connect.WithClientOptions(opts...),
 		),
+		getCharacter: connect.NewClient[v1.GetCharacterRequest, v1.GetCharacterResponse](
+			httpClient,
+			baseURL+AnimeServiceGetCharacterProcedure,
+			connect.WithSchema(animeServiceMethods.ByName("GetCharacter")),
+			connect.WithClientOptions(opts...),
+		),
+		listCharacters: connect.NewClient[v1.ListCharactersRequest, v1.ListCharactersResponse](
+			httpClient,
+			baseURL+AnimeServiceListCharactersProcedure,
+			connect.WithSchema(animeServiceMethods.ByName("ListCharacters")),
+			connect.WithClientOptions(opts...),
+		),
+		getStaff: connect.NewClient[v1.GetStaffRequest, v1.GetStaffResponse](
+			httpClient,
+			baseURL+AnimeServiceGetStaffProcedure,
+			connect.WithSchema(animeServiceMethods.ByName("GetStaff")),
+			connect.WithClientOptions(opts...),
+		),
+		listStaff: connect.NewClient[v1.ListStaffRequest, v1.ListStaffResponse](
+			httpClient,
+			baseURL+AnimeServiceListStaffProcedure,
+			connect.WithSchema(animeServiceMethods.ByName("ListStaff")),
+			connect.WithClientOptions(opts...),
+		),
 		getHealth: connect.NewClient[v1.GetHealthRequest, v1.GetHealthResponse](
 			httpClient,
 			baseURL+AnimeServiceGetHealthProcedure,
@@ -116,6 +167,10 @@ type animeServiceClient struct {
 	getFranchise   *connect.Client[v1.GetFranchiseRequest, v1.GetFranchiseResponse]
 	getSeries      *connect.Client[v1.GetSeriesRequest, v1.GetSeriesResponse]
 	search         *connect.Client[v1.SearchRequest, v1.SearchResponse]
+	getCharacter   *connect.Client[v1.GetCharacterRequest, v1.GetCharacterResponse]
+	listCharacters *connect.Client[v1.ListCharactersRequest, v1.ListCharactersResponse]
+	getStaff       *connect.Client[v1.GetStaffRequest, v1.GetStaffResponse]
+	listStaff      *connect.Client[v1.ListStaffRequest, v1.ListStaffResponse]
 	getHealth      *connect.Client[v1.GetHealthRequest, v1.GetHealthResponse]
 }
 
@@ -139,6 +194,26 @@ func (c *animeServiceClient) Search(ctx context.Context, req *connect.Request[v1
 	return c.search.CallUnary(ctx, req)
 }
 
+// GetCharacter calls anime.v1.AnimeService.GetCharacter.
+func (c *animeServiceClient) GetCharacter(ctx context.Context, req *connect.Request[v1.GetCharacterRequest]) (*connect.Response[v1.GetCharacterResponse], error) {
+	return c.getCharacter.CallUnary(ctx, req)
+}
+
+// ListCharacters calls anime.v1.AnimeService.ListCharacters.
+func (c *animeServiceClient) ListCharacters(ctx context.Context, req *connect.Request[v1.ListCharactersRequest]) (*connect.Response[v1.ListCharactersResponse], error) {
+	return c.listCharacters.CallUnary(ctx, req)
+}
+
+// GetStaff calls anime.v1.AnimeService.GetStaff.
+func (c *animeServiceClient) GetStaff(ctx context.Context, req *connect.Request[v1.GetStaffRequest]) (*connect.Response[v1.GetStaffResponse], error) {
+	return c.getStaff.CallUnary(ctx, req)
+}
+
+// ListStaff calls anime.v1.AnimeService.ListStaff.
+func (c *animeServiceClient) ListStaff(ctx context.Context, req *connect.Request[v1.ListStaffRequest]) (*connect.Response[v1.ListStaffResponse], error) {
+	return c.listStaff.CallUnary(ctx, req)
+}
+
 // GetHealth calls anime.v1.AnimeService.GetHealth.
 func (c *animeServiceClient) GetHealth(ctx context.Context, req *connect.Request[v1.GetHealthRequest]) (*connect.Response[v1.GetHealthResponse], error) {
 	return c.getHealth.CallUnary(ctx, req)
@@ -155,6 +230,16 @@ type AnimeServiceHandler interface {
 	GetSeries(context.Context, *connect.Request[v1.GetSeriesRequest]) (*connect.Response[v1.GetSeriesResponse], error)
 	// Search matches franchises and series by title (case-insensitive substring).
 	Search(context.Context, *connect.Request[v1.SearchRequest]) (*connect.Response[v1.SearchResponse], error)
+	// GetCharacter returns one character by id, with every appearance and the
+	// voice actors cast for it.
+	GetCharacter(context.Context, *connect.Request[v1.GetCharacterRequest]) (*connect.Response[v1.GetCharacterResponse], error)
+	// ListCharacters returns the whole cast, or just one series' cast.
+	ListCharacters(context.Context, *connect.Request[v1.ListCharactersRequest]) (*connect.Response[v1.ListCharactersResponse], error)
+	// GetStaff returns one staff member by id, with the characters they voice.
+	GetStaff(context.Context, *connect.Request[v1.GetStaffRequest]) (*connect.Response[v1.GetStaffResponse], error)
+	// ListStaff returns every staff member, optionally filtered by the language
+	// they are credited in.
+	ListStaff(context.Context, *connect.Request[v1.ListStaffRequest]) (*connect.Response[v1.ListStaffResponse], error)
 	// GetHealth reports liveness, build version and dataset stats.
 	GetHealth(context.Context, *connect.Request[v1.GetHealthRequest]) (*connect.Response[v1.GetHealthResponse], error)
 }
@@ -190,6 +275,30 @@ func NewAnimeServiceHandler(svc AnimeServiceHandler, opts ...connect.HandlerOpti
 		connect.WithSchema(animeServiceMethods.ByName("Search")),
 		connect.WithHandlerOptions(opts...),
 	)
+	animeServiceGetCharacterHandler := connect.NewUnaryHandler(
+		AnimeServiceGetCharacterProcedure,
+		svc.GetCharacter,
+		connect.WithSchema(animeServiceMethods.ByName("GetCharacter")),
+		connect.WithHandlerOptions(opts...),
+	)
+	animeServiceListCharactersHandler := connect.NewUnaryHandler(
+		AnimeServiceListCharactersProcedure,
+		svc.ListCharacters,
+		connect.WithSchema(animeServiceMethods.ByName("ListCharacters")),
+		connect.WithHandlerOptions(opts...),
+	)
+	animeServiceGetStaffHandler := connect.NewUnaryHandler(
+		AnimeServiceGetStaffProcedure,
+		svc.GetStaff,
+		connect.WithSchema(animeServiceMethods.ByName("GetStaff")),
+		connect.WithHandlerOptions(opts...),
+	)
+	animeServiceListStaffHandler := connect.NewUnaryHandler(
+		AnimeServiceListStaffProcedure,
+		svc.ListStaff,
+		connect.WithSchema(animeServiceMethods.ByName("ListStaff")),
+		connect.WithHandlerOptions(opts...),
+	)
 	animeServiceGetHealthHandler := connect.NewUnaryHandler(
 		AnimeServiceGetHealthProcedure,
 		svc.GetHealth,
@@ -206,6 +315,14 @@ func NewAnimeServiceHandler(svc AnimeServiceHandler, opts ...connect.HandlerOpti
 			animeServiceGetSeriesHandler.ServeHTTP(w, r)
 		case AnimeServiceSearchProcedure:
 			animeServiceSearchHandler.ServeHTTP(w, r)
+		case AnimeServiceGetCharacterProcedure:
+			animeServiceGetCharacterHandler.ServeHTTP(w, r)
+		case AnimeServiceListCharactersProcedure:
+			animeServiceListCharactersHandler.ServeHTTP(w, r)
+		case AnimeServiceGetStaffProcedure:
+			animeServiceGetStaffHandler.ServeHTTP(w, r)
+		case AnimeServiceListStaffProcedure:
+			animeServiceListStaffHandler.ServeHTTP(w, r)
 		case AnimeServiceGetHealthProcedure:
 			animeServiceGetHealthHandler.ServeHTTP(w, r)
 		default:
@@ -231,6 +348,22 @@ func (UnimplementedAnimeServiceHandler) GetSeries(context.Context, *connect.Requ
 
 func (UnimplementedAnimeServiceHandler) Search(context.Context, *connect.Request[v1.SearchRequest]) (*connect.Response[v1.SearchResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.Search is not implemented"))
+}
+
+func (UnimplementedAnimeServiceHandler) GetCharacter(context.Context, *connect.Request[v1.GetCharacterRequest]) (*connect.Response[v1.GetCharacterResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.GetCharacter is not implemented"))
+}
+
+func (UnimplementedAnimeServiceHandler) ListCharacters(context.Context, *connect.Request[v1.ListCharactersRequest]) (*connect.Response[v1.ListCharactersResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.ListCharacters is not implemented"))
+}
+
+func (UnimplementedAnimeServiceHandler) GetStaff(context.Context, *connect.Request[v1.GetStaffRequest]) (*connect.Response[v1.GetStaffResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.GetStaff is not implemented"))
+}
+
+func (UnimplementedAnimeServiceHandler) ListStaff(context.Context, *connect.Request[v1.ListStaffRequest]) (*connect.Response[v1.ListStaffResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.ListStaff is not implemented"))
 }
 
 func (UnimplementedAnimeServiceHandler) GetHealth(context.Context, *connect.Request[v1.GetHealthRequest]) (*connect.Response[v1.GetHealthResponse], error) {

@@ -43,10 +43,16 @@ own, start the server locally (`go run ./cmd/api`, see
 | `GetFranchise` | `{"id": "..."}` | one franchise with its nested series |
 | `GetSeries` | `{"id": "..."}` | one series (standalone or under a franchise) |
 | `Search` | `{"query": "...", "limit": 10}` | matching franchises and series |
+| `GetCharacter` | `{"id": "..."}` | one character with every appearance and its cast |
+| `ListCharacters` | `{"seriesId": "...", "limit": 10}` | the whole cast, or one series' cast |
+| `GetStaff` | `{"id": "..."}` | one staff member with the characters they voice |
+| `ListStaff` | `{"language": "ja", "limit": 10}` | staff, optionally by credited language |
 
 `ListFranchises` returns only multi-series **franchises**; a standalone series is
 reachable through `Search` and `GetSeries`. For `Search`, `limit` is optional
-(defaults to 50) and a blank `query` matches nothing.
+(defaults to 50) and a blank `query` matches nothing. For the two list methods
+`limit` defaults to 100; an unknown `seriesId` is a `not_found` error rather than
+an empty list, so a typo is not mistaken for a series with no cast.
 
 ## Examples
 
@@ -98,6 +104,79 @@ each carrying `episodes`. Dates are `YYYY-MM-DD` strings; `externalIds`
 cross-maps each node to AniList, AniDB, TMDB, TVDB and Wikidata. Field names in
 the JSON are camelCase (`releaseYear`, `externalIds`, `absoluteNumber`). See
 [Using the dataset]({{< relref "/docs/using-the-dataset" >}}) for the full model.
+
+## Characters and staff
+
+Characters and staff are **global** nodes, not children of a series. A character
+attaches onto the structure through its `appearances`, so the same node is
+reachable three ways — nested in a series' `characters`, by id from
+`GetCharacter`, and as a credit from `GetStaff` — and it always carries every
+series it appears in:
+
+```sh
+curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/GetCharacter \
+  -H 'Content-Type: application/json' -d '{"id": "artoria-pendragon"}'
+```
+
+```json
+{
+  "character": {
+    "id": "artoria-pendragon",
+    "externalIds": {"wikidataId": "Q4918886"},
+    "voiceActors": [
+      {"staffId": "ayako-kawasumi", "language": "ja"}
+    ],
+    "appearances": [
+      {"seriesId": "fate-stay-night"},
+      {"seriesId": "fate-zero"}
+    ]
+  }
+}
+```
+
+That response has no `name` or `staffName`, and it is not a bug: names are
+filled from Wikidata **at build time**, and the committed dataset was built
+without the Wikidata fetch. Run `builder init` before `builder build` and the
+same call returns `"name": "Artoria Pendragon"` on the character and
+`"staffName": "Ayako Kawasumi"` on each voice-actor link. Every other field is
+independent of it, so the graph is fully usable by id either way.
+
+`voiceActors` on the character is the **default cast**; an appearance may carry
+its own `voiceActors` to override it for that series, and a `scope` to narrow it
+to specific seasons, movies or specials. Each link repeats the staff member's
+resolved `staffName`, so rendering a cast list needs no second call.
+
+`GetStaff` is the inverse — the characters a person is cast as, with the
+language and the series each casting covers:
+
+```sh
+curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/GetStaff \
+  -H 'Content-Type: application/json' -d '{"id": "ayako-kawasumi"}'
+```
+
+```json
+{
+  "staff": {"id": "ayako-kawasumi", "externalIds": {"wikidataId": "Q49566"}},
+  "credits": [
+    {
+      "characterId": "artoria-pendragon",
+      "language": "ja",
+      "seriesIds": ["fate-stay-night", "fate-zero"]
+    }
+  ]
+}
+```
+
+One credit is emitted per character and language, listing every series the
+casting covers — so a voice actor who plays the same character across a whole
+franchise appears once, not once per series.
+
+Names follow the same `Accept-Language` rules as titles, via `name` and (with
+`Accept-Language: *`) `localizedName`.
+
+Only **facts** are served: ids, names, and the appearance and voice-actor graph.
+Roles, biographies and images are deliberately absent; fetch those live from the
+external ids.
 
 ## Localized titles
 
