@@ -1,0 +1,24 @@
+# Authored override (Wistoria: Wand and Sword) — a standalone Series, so no
+# Franchise wrapper. Holds only the structure the open sources cannot express;
+# the builder fills facts (titles, dates, episode counts) from the pinned
+# sources and writes the resolved record to data/. Never hand-edit data/.
+#
+# Node ids are prefixed with the series id so they stay unambiguous across the
+# dataset.
+series:
+  id: wistoria
+  # A Series/Franchise is our own grouping with no entry in the open sources, so
+  # its title must be authored (a Season/Movie auto-fills from its source).
+  titles:
+    original: 杖と剣のウィストリア
+    translations: { en: "Wistoria: Wand and Sword" }
+  seasons:
+    - id: wistoria-s1
+      number: 1
+      externalIds: { anilistId: 174576 } # Tsue to Tsurugi no Wistoria (2024)
+    - id: wistoria-s2
+      number: 2
+      externalIds: { anilistId: 182300 } # Season 2 (2026)
+# One linear storyline, so its episodes carry a continuous absoluteNumber across
+# the seasons.
+numbered: [wistoria]
