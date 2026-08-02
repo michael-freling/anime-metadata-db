@@ -39,3 +39,30 @@ series:
           airedNumber: 11
         - absoluteNumber: 12
           airedNumber: 12
+  characters:
+    - id: serafina-de-lavillant
+      names:
+        original: セラフィーナ・ド・ラヴィラント
+        translations:
+          en: Serafina de Lavillant
+          ja: セラフィーナ・ド・ラヴィラント
+      externalIds:
+        wikidataId: Q138603758
+      voiceActors:
+        - staffId: sayumi-suzushiro
+          language: ja
+      appearances:
+        - seriesId: himekishi-wa-barbaroi-no-yome
+    - id: veor
+      names:
+        original: ヴェーオル
+        translations:
+          en: Veor
+          ja: ヴェーオル
+      externalIds:
+        wikidataId: Q138603773
+      voiceActors:
+        - staffId: satoshi-inomata
+          language: ja
+      appearances:
+        - seriesId: himekishi-wa-barbaroi-no-yome

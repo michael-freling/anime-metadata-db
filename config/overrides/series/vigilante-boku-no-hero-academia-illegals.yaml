@@ -13,5 +13,17 @@ series:
     - id: vigilante-boku-no-hero-academia-illegals-s2
       number: 2
       externalIds: { anilistId: 195322 } # Vigilante: Boku no Hero Academia Illegals 2nd Season (Winter 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: all-might
+      externalIds: { wikidataId: Q63109256 }  # All Might
+      voiceActors:
+        - { staffId: kenta-miyake, language: ja }  # Kenta Miyake
+    - id: izuku-midoriya
+      externalIds: { wikidataId: Q65037327 }  # Izuku Midoriya
+      voiceActors:
+        - { staffId: akeno-watanabe, language: ja }  # Akeno Watanabe
+        - { staffId: daiki-yamashita, language: ja }  # Daiki Yamashita
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [vigilante-boku-no-hero-academia-illegals]

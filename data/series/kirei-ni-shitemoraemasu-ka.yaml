@@ -39,3 +39,95 @@ series:
           airedNumber: 11
         - absoluteNumber: 12
           airedNumber: 12
+  characters:
+    - id: aji
+      names:
+        original: 安治
+        translations:
+          en: Aji
+          ja: 安治
+      externalIds:
+        wikidataId: Q137262251
+      voiceActors:
+        - staffId: wasabi-mizuta
+          language: ja
+      appearances:
+        - seriesId: kirei-ni-shitemoraemasu-ka
+    - id: asami-yagara
+      names:
+        original: 矢柄麻未
+        translations:
+          en: Asami Yagara
+          ja: 矢柄麻未
+      externalIds:
+        wikidataId: Q137262062
+      voiceActors:
+        - staffId: ami-koshimizu
+          language: ja
+      appearances:
+        - seriesId: kirei-ni-shitemoraemasu-ka
+    - id: kuriru-wakasagi
+      names:
+        original: 鰙久里留
+        translations:
+          en: Kuriru Wakasagi
+          ja: 鰙久里留
+      externalIds:
+        wikidataId: Q137261958
+      voiceActors:
+        - staffId: yoshino-aoyama
+          language: ja
+      appearances:
+        - seriesId: kirei-ni-shitemoraemasu-ka
+    - id: kyusho-ishimochi
+      names:
+        original: 石持毬祥
+        translations:
+          en: Kyūshō Ishimochi
+          ja: 石持毬祥
+      externalIds:
+        wikidataId: Q137261217
+      voiceActors:
+        - staffId: shuichiro-umeda
+          language: ja
+      appearances:
+        - seriesId: kirei-ni-shitemoraemasu-ka
+    - id: moruda-wakasagi
+      names:
+        original: 鰙守大
+        translations:
+          en: Moruda Wakasagi
+          ja: 鰙守大
+      externalIds:
+        wikidataId: Q137261974
+      voiceActors:
+        - staffId: kento-shiraishi
+          language: ja
+      appearances:
+        - seriesId: kirei-ni-shitemoraemasu-ka
+    - id: nairo-katakuchi
+      names:
+        original: 片口那色
+        translations:
+          en: Nairo Katakuchi
+          ja: 片口那色
+      externalIds:
+        wikidataId: Q137261653
+      voiceActors:
+        - staffId: konomi-inagaki
+          language: ja
+      appearances:
+        - seriesId: kirei-ni-shitemoraemasu-ka
+    - id: wakana-kinme
+      names:
+        original: 金目綿花奈
+        translations:
+          en: Wakana Kinme
+          ja: 金目綿花奈
+      externalIds:
+        wikidataId: Q137258495
+      voiceActors:
+        - staffId: sayumi-suzushiro
+          language: ja
+      appearances:
+        - seriesId: kirei-ni-shitemoraemasu-ka

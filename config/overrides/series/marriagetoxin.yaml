@@ -10,5 +10,16 @@ series:
     - id: marriagetoxin-s1
       number: 1
       externalIds: { anilistId: 199547 } # Marriagetoxin (Spring 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: hikaru-gero
+      externalIds: { wikidataId: Q138297495 }  # Hikaru Gero
+      voiceActors:
+        - { staffId: haruki-ishiya, language: ja }  # Haruki Ishiya
+    - id: mei-kinosaki
+      externalIds: { wikidataId: Q138297496 }  # Mei Kinosaki
+      voiceActors:
+        - { staffId: shion-wakayama, language: ja }  # Shion Wakayama
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [marriagetoxin]

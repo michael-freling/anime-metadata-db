@@ -74,3 +74,199 @@ series:
           airedNumber: 11
         - absoluteNumber: 25
           airedNumber: 12
+  characters:
+    - id: aza-chobei
+      names:
+        original: 亜左弔兵衛
+        translations:
+          en: Aza Chōbei
+          ja: 亜左弔兵衛
+      externalIds:
+        wikidataId: Q115807094
+      voiceActors:
+        - staffId: ryohei-kimura
+          language: ja
+      appearances:
+        - seriesId: jigokuraku
+    - id: aza-toma
+      names:
+        original: 亜左桐馬
+        translations:
+          en: Aza Tōma
+          ja: 亜左桐馬
+      externalIds:
+        wikidataId: Q115807161
+      voiceActors:
+        - staffId: kensho-ono
+          language: ja
+      appearances:
+        - seriesId: jigokuraku
+    - id: gabimaru
+      names:
+        original: 画眉丸
+        translations:
+          en: Gabimaru
+          ja: 画眉丸
+      externalIds:
+        wikidataId: Q115806771
+      voiceActors:
+        - staffId: chiaki-kobayashi
+          language: ja
+      appearances:
+        - seriesId: jigokuraku
+    - id: nurugai
+      names:
+        original: ヌルガイ
+        translations:
+          en: Nurugai
+          ja: ヌルガイ
+      externalIds:
+        wikidataId: Q116520255
+      voiceActors:
+        - staffId: makoto-koichi
+          language: ja
+      appearances:
+        - seriesId: jigokuraku
+    - id: tamiya-gantetsusai
+      names:
+        original: 民谷巌鉄斎
+        translations:
+          en: Tamiya Gantetsusai
+          ja: 民谷巌鉄斎
+      externalIds:
+        wikidataId: Q115807327
+      voiceActors:
+        - staffId: tetsu-inada
+          language: ja
+      appearances:
+        - seriesId: jigokuraku
+    - id: tokugawa-nariyoshi
+      names:
+        original: 徳川斉慶
+        translations:
+          en: Tokugawa Nariyoshi
+          ja: 徳川斉慶
+      externalIds:
+        wikidataId: Q117663196
+      voiceActors:
+        - staffId: chafurin
+          language: ja
+      appearances:
+        - seriesId: jigokuraku
+    - id: yamada-asaemon-eizen
+      names:
+        original: 山田浅ェ門衛善
+        translations:
+          en: Yamada Asaemon Eizen
+          ja: 山田浅ェ門衛善
+      externalIds:
+        wikidataId: Q117663135
+      voiceActors:
+        - staffId: makoto-furukawa
+          language: ja
+      appearances:
+        - seriesId: jigokuraku
+    - id: yamada-asaemon-fuchi
+      names:
+        original: 山田浅ェ門付知
+        translations:
+          en: Yamada Asaemon Fuchi
+          ja: 山田浅ェ門付知
+      externalIds:
+        wikidataId: Q115807719
+      voiceActors:
+        - staffId: aoi-ichikawa
+          language: ja
+      appearances:
+        - seriesId: jigokuraku
+    - id: yamada-asaemon-genji
+      names:
+        original: 山田浅ェ門源嗣
+        translations:
+          en: Yamada Asaemon Genji
+          ja: 山田浅ェ門源嗣
+      externalIds:
+        wikidataId: Q117667806
+      voiceActors:
+        - staffId: volcano-ota
+          language: ja
+      appearances:
+        - seriesId: jigokuraku
+    - id: yamada-asaemon-kisho
+      names:
+        original: 山田浅ェ門期聖
+        translations:
+          en: Yamada Asaemon Kishō
+          ja: 山田浅ェ門期聖
+      externalIds:
+        wikidataId: Q117667609
+      voiceActors:
+        - staffId: shun-ichi-toki
+          language: ja
+      appearances:
+        - seriesId: jigokuraku
+    - id: yamada-asaemon-sagiri
+      names:
+        original: 山田浅ェ門佐切
+        translations:
+          en: Yamada Asaemon Sagiri
+          ja: 山田浅ェ門佐切
+      externalIds:
+        wikidataId: Q115806980
+      voiceActors:
+        - staffId: yumiri-hanamori
+          language: ja
+      appearances:
+        - seriesId: jigokuraku
+    - id: yamada-asaemon-senta
+      names:
+        original: 山田浅ェ門仙汰
+        translations:
+          en: Yamada Asaemon Senta
+          ja: 山田浅ェ門仙汰
+      externalIds:
+        wikidataId: Q116520333
+      voiceActors:
+        - staffId: daiki-yamashita
+          language: ja
+      appearances:
+        - seriesId: jigokuraku
+    - id: yamada-asaemon-shion
+      names:
+        original: 山田浅ェ門士遠
+        translations:
+          en: Yamada Asaemon Shion
+          ja: 山田浅ェ門士遠
+      externalIds:
+        wikidataId: Q116520031
+      voiceActors:
+        - staffId: chikahiro-kobayashi
+          language: ja
+      appearances:
+        - seriesId: jigokuraku
+    - id: yamada-asaemon-tenza
+      names:
+        original: 山田浅ェ門典坐
+        translations:
+          en: Yamada Asaemon Tenza
+          ja: 山田浅ェ門典坐
+      externalIds:
+        wikidataId: Q116520148
+      voiceActors:
+        - staffId: yusuke-kobayashi
+          language: ja
+      appearances:
+        - seriesId: jigokuraku
+    - id: yuzuriha
+      names:
+        original: 杠
+        translations:
+          en: Yuzuriha
+          ja: 杠
+      externalIds:
+        wikidataId: Q115807208
+      voiceActors:
+        - staffId: rie-takahashi
+          language: ja
+      appearances:
+        - seriesId: jigokuraku

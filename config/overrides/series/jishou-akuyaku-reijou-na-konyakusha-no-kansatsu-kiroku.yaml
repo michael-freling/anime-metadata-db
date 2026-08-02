@@ -10,5 +10,16 @@ series:
     - id: jishou-akuyaku-reijou-na-konyakusha-no-kansatsu-kiroku-s1
       number: 1
       externalIds: { anilistId: 192808 } # Jishou Akuyaku Reijou na Konyakusha no Kansatsu Kiroku. (Spring 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: bertia-ibil-noches
+      externalIds: { wikidataId: Q140073577 }  # Bertia Ibil Noches
+      voiceActors:
+        - { staffId: miyu-tomita, language: ja }  # Miyu Tomita
+    - id: cecil-glo-alphasta
+      externalIds: { wikidataId: Q140073576 }  # Cecil Glo Alphasta
+      voiceActors:
+        - { staffId: yusuke-kobayashi, language: ja }  # Yūsuke Kobayashi
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [jishou-akuyaku-reijou-na-konyakusha-no-kansatsu-kiroku]

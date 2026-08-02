@@ -10,5 +10,24 @@ series:
     - id: yuusha-no-kuzu-s1
       number: 1
       externalIds: { anilistId: 187989 } # Yuusha no Kuzu (Winter 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: aki-jogamine
+      externalIds: { wikidataId: Q137545557 }  # Aki Jōgamine
+      voiceActors:
+        - { staffId: akari-kito, language: ja }  # Akari Kitō
+    - id: sara-kashiwagi-pendragon
+      externalIds: { wikidataId: Q137545600 }  # Sara Kashiwagi Pendragon
+      voiceActors:
+        - { staffId: yumiri-hanamori, language: ja }  # Yumiri Hanamori
+    - id: yashiro
+      externalIds: { wikidataId: Q137545518 }  # Yashiro
+      voiceActors:
+        - { staffId: ryota-suzuki, language: ja }  # Ryōta Suzuki
+    - id: yukine-indo
+      externalIds: { wikidataId: Q137545583 }  # Yukine Indō
+      voiceActors:
+        - { staffId: momo-harumi, language: ja }  # Momo Harumi
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [yuusha-no-kuzu]

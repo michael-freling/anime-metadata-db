@@ -39,3 +39,82 @@ series:
           airedNumber: 11
         - absoluteNumber: 12
           airedNumber: 12
+  characters:
+    - id: akemi-abikura
+      names:
+        original: 阿比倉朱美
+        translations:
+          en: Akemi Abikura
+          ja: 阿比倉朱美
+      externalIds:
+        wikidataId: Q140247725
+      voiceActors:
+        - staffId: mai-nakahara
+          language: ja
+      appearances:
+        - seriesId: yowayowa-sensei
+    - id: akihito-abikura
+      names:
+        original: 阿比倉章人
+        translations:
+          en: Akihito Abikura
+          ja: 阿比倉章人
+      externalIds:
+        wikidataId: Q140247701
+      voiceActors:
+        - staffId: kakeru-hatano
+          language: ja
+      appearances:
+        - seriesId: yowayowa-sensei
+    - id: hiyori-hiwamura
+      names:
+        original: 鶸村ひより
+        translations:
+          en: Hiyori Hiwamura
+          ja: 鶸村ひより
+      externalIds:
+        wikidataId: Q140247723
+      voiceActors:
+        - staffId: marika-kono
+          language: ja
+      appearances:
+        - seriesId: yowayowa-sensei
+    - id: kaya-kuguri
+      names:
+        original: 九栗香夜
+        translations:
+          en: Kaya Kuguri
+          ja: 九栗香夜
+      externalIds:
+        wikidataId: Q140247727
+      voiceActors:
+        - staffId: yuko-natsuyoshi
+          language: ja
+      appearances:
+        - seriesId: yowayowa-sensei
+    - id: mizuki-mukubayashi
+      names:
+        original: 椋林瑞希
+        translations:
+          en: Mizuki Mukubayashi
+          ja: 椋林瑞希
+      externalIds:
+        wikidataId: Q140247724
+      voiceActors:
+        - staffId: yurie-igoma
+          language: ja
+      appearances:
+        - seriesId: yowayowa-sensei
+    - id: yuki-yukishita
+      names:
+        original: 雪下祐樹
+        translations:
+          en: Yūki Yukishita
+          ja: 雪下祐樹
+      externalIds:
+        wikidataId: Q140247726
+      voiceActors:
+        - staffId: yu-sasahara
+          language: ja
+      appearances:
+        - seriesId: yowayowa-sensei

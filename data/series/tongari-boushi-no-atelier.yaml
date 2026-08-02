@@ -41,3 +41,193 @@ series:
           airedNumber: 12
         - absoluteNumber: 13
           airedNumber: 13
+  characters:
+    - id: agott
+      names:
+        original: アガット
+        translations:
+          en: Agott
+          ja: アガット
+      externalIds:
+        wikidataId: Q138386969
+      voiceActors:
+        - staffId: hibiku-yamamura
+          language: ja
+      appearances:
+        - seriesId: tongari-boushi-no-atelier
+    - id: alaira
+      names:
+        original: アライラ
+        translations:
+          en: Alaira
+          ja: アライラ
+      externalIds:
+        wikidataId: Q139495276
+      voiceActors:
+        - staffId: kotono-mitsuishi
+          language: ja
+      appearances:
+        - seriesId: tongari-boushi-no-atelier
+    - id: coco
+      names:
+        original: ココ
+        translations:
+          en: Coco
+          ja: ココ
+      externalIds:
+        wikidataId: Q138386911
+      voiceActors:
+        - staffId: rena-motomura
+          language: ja
+      appearances:
+        - seriesId: tongari-boushi-no-atelier
+    - id: custas
+      names:
+        original: クスタス
+        translations:
+          en: Custas
+          ja: クスタス
+      externalIds:
+        wikidataId: Q139754787
+      voiceActors:
+        - staffId: toshiki-kumagai
+          language: ja
+      appearances:
+        - seriesId: tongari-boushi-no-atelier
+    - id: dagda
+      names:
+        original: ダグダ
+        translations:
+          en: Dagda
+          ja: ダグダ
+      externalIds:
+        wikidataId: Q139754786
+      voiceActors:
+        - staffId: katsuyuki-konishi
+          language: ja
+      appearances:
+        - seriesId: tongari-boushi-no-atelier
+    - id: easthies
+      names:
+        original: イースヒース
+        translations:
+          en: Easthies
+          ja: イースヒース
+      externalIds:
+        wikidataId: Q139754847
+      appearances:
+        - seriesId: tongari-boushi-no-atelier
+    - id: galga
+      names:
+        original: ガルガ
+        translations:
+          en: Galga
+          ja: ガルガ
+      externalIds:
+        wikidataId: Q139754914
+      voiceActors:
+        - staffId: hiroki-yasumoto
+          language: ja
+      appearances:
+        - seriesId: tongari-boushi-no-atelier
+    - id: iguin
+      names:
+        original: イグイーン
+        translations:
+          en: Iguin
+          ja: イグイーン
+      externalIds:
+        wikidataId: Q138386974
+      appearances:
+        - seriesId: tongari-boushi-no-atelier
+    - id: luluci
+      names:
+        original: ルルシィ
+        translations:
+          en: Luluci
+          ja: ルルシィ
+      externalIds:
+        wikidataId: Q139754865
+      voiceActors:
+        - staffId: yui-ishikawa
+          language: ja
+      appearances:
+        - seriesId: tongari-boushi-no-atelier
+    - id: nolnoa
+      names:
+        original: ノルノア
+        translations:
+          en: Nolnoa
+          ja: ノルノア
+      externalIds:
+        wikidataId: Q139495277
+      voiceActors:
+        - staffId: yoshito-yasuhara
+          language: ja
+      appearances:
+        - seriesId: tongari-boushi-no-atelier
+    - id: olruggio
+      names:
+        original: オルーギオ
+        translations:
+          en: Olruggio
+          ja: オルーギオ
+      externalIds:
+        wikidataId: Q138386973
+      voiceActors:
+        - staffId: yuichi-nakamura
+          language: ja
+      appearances:
+        - seriesId: tongari-boushi-no-atelier
+    - id: richeh
+      names:
+        original: リチェ
+        translations:
+          en: Richeh
+          ja: リチェ
+      externalIds:
+        wikidataId: Q138386972
+      voiceActors:
+        - staffId: hika-tsukishiro
+          language: ja
+      appearances:
+        - seriesId: tongari-boushi-no-atelier
+    - id: tartah
+      names:
+        original: タータ
+        translations:
+          en: Tartah
+          ja: タータ
+      externalIds:
+        wikidataId: Q139495273
+      voiceActors:
+        - staffId: mutsumi-tamura
+          language: ja
+      appearances:
+        - seriesId: tongari-boushi-no-atelier
+    - id: tetia
+      names:
+        original: テティア
+        translations:
+          en: Tetia
+          ja: テティア
+      externalIds:
+        wikidataId: Q138386970
+      voiceActors:
+        - staffId: kurumi-haruki
+          language: ja
+      appearances:
+        - seriesId: tongari-boushi-no-atelier
+    - id: utowin
+      names:
+        original: ウトウィン
+        translations:
+          en: Utowin
+          ja: ウトウィン
+      externalIds:
+        wikidataId: Q139754891
+      voiceActors:
+        - staffId: jun-kasama
+          language: ja
+      appearances:
+        - seriesId: tongari-boushi-no-atelier

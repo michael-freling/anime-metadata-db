@@ -10,5 +10,36 @@ series:
     - id: haibara-kun-no-tsuyokute-seishun-new-game-s1
       number: 1
       externalIds: { anilistId: 195333 } # Haibara-kun no Tsuyokute Seishun New Game (Spring 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: hikari-hoshimiya
+      externalIds: { wikidataId: Q138585770 }  # Hikari Hoshimiya
+      voiceActors:
+        - { staffId: kanon-takao, language: ja }  # Kanon Takao
+    - id: miori-motomiya
+      externalIds: { wikidataId: Q138585954 }  # Miori Motomiya
+      voiceActors:
+        - { staffId: kanna-nakamura, language: ja }  # Kanna Nakamura
+    - id: natsuki-haibara
+      externalIds: { wikidataId: Q138578039 }  # Natsuki Haibara
+      voiceActors:
+        - { staffId: yuto-uemura, language: ja }  # Yūto Uemura
+    - id: reita-shiratori
+      externalIds: { wikidataId: Q138586194 }  # Reita Shiratori
+      voiceActors:
+        - { staffId: tomohiro-ono, language: ja }  # Tomohiro Ōno
+    - id: tatsuya-nagiura
+      externalIds: { wikidataId: Q138586150 }  # Tatsuya Nagiura
+      voiceActors:
+        - { staffId: ryota-suzuki, language: ja }  # Ryōta Suzuki
+    - id: uta-sakura
+      externalIds: { wikidataId: Q138586020 }  # Uta Sakura
+      voiceActors:
+        - { staffId: aya-yamane, language: ja }  # Aya Yamane
+    - id: yuino-nanase
+      externalIds: { wikidataId: Q138586080 }  # Yuino Nanase
+      voiceActors:
+        - { staffId: sayumi-suzushiro, language: ja }  # Sayumi Suzushiro
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [haibara-kun-no-tsuyokute-seishun-new-game]

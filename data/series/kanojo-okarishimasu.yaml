@@ -171,3 +171,63 @@ series:
           airedNumber: 11
         - absoluteNumber: 60
           airedNumber: 12
+  characters:
+    - id: chizuru-ichinose
+      names:
+        original: 一ノ瀬ちづる
+        translations:
+          en: Chizuru Ichinose
+          ja: 一ノ瀬ちづる
+      externalIds:
+        wikidataId: Q112940099
+      voiceActors:
+        - staffId: sora-amamiya
+          language: ja
+      appearances:
+        - seriesId: kanojo-okarishimasu
+    - id: kinoshita-kazuya
+      names:
+        original: 木ノ下和也
+        translations:
+          en: Kinoshita Kazuya
+          ja: 木ノ下和也
+      externalIds:
+        wikidataId: Q112940087
+      appearances:
+        - seriesId: kanojo-okarishimasu
+    - id: mami-nanami
+      names:
+        original: 七海麻美
+        translations:
+          en: Mami Nanami
+          ja: 七海麻美
+      externalIds:
+        wikidataId: Q112958828
+      voiceActors:
+        - staffId: aoi-yuki
+          language: ja
+      appearances:
+        - seriesId: kanojo-okarishimasu
+    - id: sarashina-ruka
+      names:
+        original: 更科瑠夏
+        translations:
+          en: Sarashina Ruka
+          ja: 更科瑠夏
+      externalIds:
+        wikidataId: Q112997112
+      appearances:
+        - seriesId: kanojo-okarishimasu
+    - id: sumi-sakurasawa
+      names:
+        original: 桜沢墨
+        translations:
+          en: Sumi Sakurasawa
+          ja: 桜沢墨
+      externalIds:
+        wikidataId: Q114853101
+      voiceActors:
+        - staffId: rie-takahashi
+          language: ja
+      appearances:
+        - seriesId: kanojo-okarishimasu

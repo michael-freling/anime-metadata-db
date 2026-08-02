@@ -72,3 +72,531 @@ series:
           airedNumber: 11
         - absoluteNumber: 24
           airedNumber: 12
+  characters:
+    - id: aaron-masterias-oldking
+      names:
+        original: アロン・マステリアス・オールドキング
+        translations:
+          en: Aaron Masterias Oldking
+          ja: アロン・マステリアス・オールドキング
+      externalIds:
+        wikidataId: Q129262486
+      voiceActors:
+        - staffId: hochu-otsuka
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: brandtal-les-ailes
+      names:
+        original: ブランタール・レゼール
+        translations:
+          en: Brandtal les Ailes
+          ja: ブランタール・レゼール
+      externalIds:
+        wikidataId: Q139998038
+      voiceActors:
+        - staffId: shinnosuke-tachibana
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: caldron-anouve
+      names:
+        original: コルドロン・アヌーブ
+        translations:
+          en: Caldron Anouve
+          ja: コルドロン・アヌーブ
+      externalIds:
+        wikidataId: Q129262485
+      voiceActors:
+        - staffId: reiko-suzuki
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: cariott-incindia-wiseman
+      names:
+        original: キャリオット・インスティア・ワイズマン
+        translations:
+          en: Cariott Incindia Wiseman
+          ja: キャリオット・インスティア・ワイズマン
+      externalIds:
+        wikidataId: Q129262487
+      voiceActors:
+        - staffId: jun-fukuyama
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: cerridwen
+      names:
+        original: ケリドウェン
+        translations:
+          en: Cerridwen
+          ja: ケリドウェン
+      externalIds:
+        wikidataId: Q139997959
+      voiceActors:
+        - staffId: sayaka-ohara
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: clairie-serah
+      names:
+        original: クレイルウィ・セラ
+        translations:
+          en: Clairie Serah
+          ja: クレイルウィ・セラ
+      externalIds:
+        wikidataId: Q139997944
+      voiceActors:
+        - staffId: mai-nakahara
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: colette-loire
+      names:
+        original: コレット・ロワール
+        translations:
+          en: Colette Loire
+          ja: コレット・ロワール
+      externalIds:
+        wikidataId: Q129262459
+      voiceActors:
+        - staffId: satomi-amano
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: donan
+      names:
+        original: ドナン
+        translations:
+          en: Donan
+          ja: ドナン
+      externalIds:
+        wikidataId: Q129263367
+      voiceActors:
+        - staffId: ryo-sugisaki
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: edward-serfence
+      names:
+        original: エドワルド・セルフェンス
+        translations:
+          en: Edward Serfence
+          ja: エドワルド・セルフェンス
+      externalIds:
+        wikidataId: Q129262484
+      voiceActors:
+        - staffId: koji-yusa
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: elfaria-albis-serfort
+      names:
+        original: エルファリア・アルヴィス・セルフォルト
+        translations:
+          en: Elfaria Albis Serfort
+          ja: エルファリア・アルヴィス・セルフォルト
+      externalIds:
+        wikidataId: Q129262456
+      voiceActors:
+        - staffId: akira-sekine
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: eliza-nosferat
+      names:
+        original: エリザ・ノスフェラート
+        translations:
+          en: Eliza Nosferat
+          ja: エリザ・ノスフェラート
+      externalIds:
+        wikidataId: Q130260274
+      voiceActors:
+        - staffId: ami-koshimizu
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: ellenor-ljos-alf
+      names:
+        original: エルノール・リヨス・アールヴ
+        translations:
+          en: Ellenor Ljos Alf
+          ja: エルノール・リヨス・アールヴ
+      externalIds:
+        wikidataId: Q129262490
+      voiceActors:
+        - staffId: sora-amamiya
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: emma-klever
+      names:
+        original: エマ・クレバー
+        translations:
+          en: Emma Klever
+          ja: エマ・クレバー
+      externalIds:
+        wikidataId: Q129748618
+      voiceActors:
+        - staffId: sayumi-suzushiro
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: filvis-challia
+      names:
+        original: フイルヴイス・シヤリア
+        translations:
+          en: Filvis Challia
+          ja: フイルヴイス・シヤリア
+      externalIds:
+        wikidataId: Q129263230
+      voiceActors:
+        - staffId: hisako-kanemoto
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: finn
+      names:
+        original: フィン
+        translations:
+          en: Finn
+          ja: フィン
+      externalIds:
+        wikidataId: Q130382849
+      voiceActors:
+        - staffId: mutsumi-tamura
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: flip-marteau
+      names:
+        original: フリップ・マルトー
+        translations:
+          en: Flip Marteau
+          ja: フリップ・マルトー
+      externalIds:
+        wikidataId: Q130214642
+      voiceActors:
+        - staffId: tomohiro-ono
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: gina
+      names:
+        original: ジーナ
+        translations:
+          en: Gina
+          ja: ジーナ
+      externalIds:
+        wikidataId: Q129263460
+      voiceActors:
+        - staffId: kyo-yaoya
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: gordon-vally
+      names:
+        original: ゴードン・バレー
+        translations:
+          en: Gordon Vally
+          ja: ゴードン・バレー
+      externalIds:
+        wikidataId: Q129262473
+      voiceActors:
+        - staffId: kazuki-ura
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: guilford-zurgas
+      names:
+        original: ギルフォード・ズルガス
+        translations:
+          en: Guilford Zurgas
+          ja: ギルフォード・ズルガス
+      externalIds:
+        wikidataId: Q140197938
+      appearances:
+        - seriesId: wistoria
+    - id: iris-x-stellamaris
+      names:
+        original: アイリス・X・ステラマリス
+        translations:
+          en: Iris X. Stellamaris
+          ja: アイリス・X・ステラマリス
+      externalIds:
+        wikidataId: Q129262469
+      voiceActors:
+        - staffId: rumi-okubo
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: jorua-moraine
+      names:
+        original: ジョルア・モレーン
+        translations:
+          en: Jorua Moraine
+          ja: ジョルア・モレーン
+      externalIds:
+        wikidataId: Q129262480
+      voiceActors:
+        - staffId: atsushi-tamaru
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: julius-reinberg
+      names:
+        original: ユリウス・レインバーグ
+        translations:
+          en: Julius Reinberg
+          ja: ユリウス・レインバーグ
+      externalIds:
+        wikidataId: Q129262463
+      voiceActors:
+        - staffId: tetsuya-kakihara
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: kiki
+      names:
+        original: キキ
+        translations:
+          en: Kiki
+          ja: キキ
+      externalIds:
+        wikidataId: Q129262584
+      voiceActors:
+        - staffId: aoi-inase
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: kreutz-harlon
+      names:
+        original: クロイツ・ハーロン
+        translations:
+          en: Kreutz Harlon
+          ja: クロイツ・ハーロン
+      externalIds:
+        wikidataId: Q139997966
+      voiceActors:
+        - staffId: seiro-ogino
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: lefiya-viridis
+      names:
+        original: レフィーヤ・ウィリディス
+        translations:
+          en: Lefiya Viridis
+          ja: レフィーヤ・ウィリディス
+      externalIds:
+        wikidataId: Q129263281
+      voiceActors:
+        - staffId: juri-kimura
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: lihanna-owenzaus
+      names:
+        original: リアーナ・オーウェンザウス
+        translations:
+          en: Lihanna Owenzaus
+          ja: リアーナ・オーウェンザウス
+      externalIds:
+        wikidataId: Q129262467
+      voiceActors:
+        - staffId: lynn
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: logwell
+      names:
+        original: ログウェル
+        translations:
+          en: Logwell
+          ja: ログウェル
+      externalIds:
+        wikidataId: Q129262491
+      voiceActors:
+        - staffId: akio-otsuka
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: lyril-mars
+      names:
+        original: リリール・マース
+        translations:
+          en: Lyril Mars
+          ja: リリール・マース
+      externalIds:
+        wikidataId: Q129262475
+      voiceActors:
+        - staffId: tomohiro-ono
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: marze
+      names:
+        original: マルゼ
+        translations:
+          en: Marze
+          ja: マルゼ
+      externalIds:
+        wikidataId: Q130260246
+      voiceActors:
+        - staffId: nobuhiko-okamoto
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: mike-maius
+      names:
+        original: マイク・マイウス
+        translations:
+          en: Mike Maius
+          ja: マイク・マイウス
+      externalIds:
+        wikidataId: Q129262990
+      voiceActors:
+        - staffId: atsushi-kosaka
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: palm-snoke
+      names:
+        original: パーム・スノック
+        translations:
+          en: Palm Snoke
+          ja: パーム・スノック
+      externalIds:
+        wikidataId: Q129263516
+      voiceActors:
+        - staffId: hiromichi-tezuka
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: renaisse-arette
+      names:
+        original: ルナイス・アレート
+        translations:
+          en: Renaisse Arette
+          ja: ルナイス・アレート
+      externalIds:
+        wikidataId: Q129262478
+      voiceActors:
+        - staffId: shin-ya-takahashi
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: rodge-holland
+      names:
+        original: ロッジ・ホランド
+        translations:
+          en: Rodge Holland
+          ja: ロッジ・ホランド
+      externalIds:
+        wikidataId: Q129748501
+      voiceActors:
+        - staffId: atsushi-tamaru
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: rose-prehnite
+      names:
+        original: ロゼ・プレナイト
+        translations:
+          en: Rose Prehnite
+          ja: ロゼ・プレナイト
+      externalIds:
+        wikidataId: Q129263152
+      voiceActors:
+        - staffId: maki-kawase
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: rosti-nauman
+      names:
+        original: ロスティ・ナウマン
+        translations:
+          en: Rosti Nauman
+          ja: ロスティ・ナウマン
+      externalIds:
+        wikidataId: Q129262471
+      appearances:
+        - seriesId: wistoria
+    - id: sarissa-alfeld
+      names:
+        original: サリサ・アルフェルト
+        translations:
+          en: Sarissa Alfeld
+          ja: サリサ・アルフェルト
+      externalIds:
+        wikidataId: Q129748703
+      voiceActors:
+        - staffId: ayaka-shimizu
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: sion-ulster
+      names:
+        original: シオン・アルスター
+        translations:
+          en: Sion Ulster
+          ja: シオン・アルスター
+      externalIds:
+        wikidataId: Q129262460
+      voiceActors:
+        - staffId: masaaki-mizunaka
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: wignall-lindor
+      names:
+        original: グノール・リンドール
+        translations:
+          en: Wignall Lindor
+          ja: グノール・リンドール
+      externalIds:
+        wikidataId: Q129262464
+      voiceActors:
+        - staffId: kengo-kawanishi
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: will-serfort
+      names:
+        original: ウィル・セルフォルト
+        translations:
+          en: Will Serfort
+          ja: ウィル・セルフォルト
+      externalIds:
+        wikidataId: Q129262452
+      voiceActors:
+        - staffId: kohei-amasaki
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: workner-norgram
+      names:
+        original: ワークナー・ノーグラム
+        translations:
+          en: Workner Norgram
+          ja: ワークナー・ノーグラム
+      externalIds:
+        wikidataId: Q129262482
+      voiceActors:
+        - staffId: tomokazu-seki
+          language: ja
+      appearances:
+        - seriesId: wistoria
+    - id: zeo-thorzeus-reinbolt
+      names:
+        original: ゼオ・トルゼウス・ラインボルト
+        translations:
+          en: Zeo Thorzeus Reinbolt
+          ja: ゼオ・トルゼウス・ラインボルト
+      externalIds:
+        wikidataId: Q129262492
+      voiceActors:
+        - staffId: makoto-furukawa
+          language: ja
+      appearances:
+        - seriesId: wistoria

@@ -39,3 +39,30 @@ series:
           airedNumber: 11
         - absoluteNumber: 12
           airedNumber: 12
+  characters:
+    - id: hikaru-gero
+      names:
+        original: 下呂ヒカル
+        translations:
+          en: Hikaru Gero
+          ja: 下呂ヒカル
+      externalIds:
+        wikidataId: Q138297495
+      voiceActors:
+        - staffId: haruki-ishiya
+          language: ja
+      appearances:
+        - seriesId: marriagetoxin
+    - id: mei-kinosaki
+      names:
+        original: 城崎メイ
+        translations:
+          en: Mei Kinosaki
+          ja: 城崎メイ
+      externalIds:
+        wikidataId: Q138297496
+      voiceActors:
+        - staffId: shion-wakayama
+          language: ja
+      appearances:
+        - seriesId: marriagetoxin

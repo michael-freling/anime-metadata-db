@@ -10,5 +10,56 @@ series:
     - id: yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku-s1
       number: 1
       externalIds: { anilistId: 167152 } # Yuusha-kei ni Shosu: Choubatsu Yuusha 9004-tai Keimu Kiroku (Winter 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: dotta-luzulas
+      externalIds: { wikidataId: Q137407987 }  # Dotta Luzulas
+      voiceActors:
+        - { staffId: shun-horie, language: ja }  # Shun Horie
+    - id: frenci-mastibolt
+      externalIds: { wikidataId: Q137409856 }  # Frenci Mastibolt
+      voiceActors:
+        - { staffId: saori-onishi, language: ja }  # Saori Ōnishi
+    - id: jayce-partiract
+      externalIds: { wikidataId: Q137409834 }  # Jayce Partiract
+      voiceActors:
+        - { staffId: shoya-chiba, language: ja }  # Shōya Chiba
+    - id: neely
+      externalIds: { wikidataId: Q137409845 }  # Neely
+      voiceActors:
+        - { staffId: yoko-hikasa, language: ja }  # Yōko Hikasa
+    - id: norgalle-senridge
+      externalIds: { wikidataId: Q137409796 }  # Norgalle Senridge
+      voiceActors:
+        - { staffId: yoji-ueda, language: ja }  # Yōji Ueda
+    - id: patausche-kivia
+      externalIds: { wikidataId: Q137407713 }  # Patausche Kivia
+      voiceActors:
+        - { staffId: shizuka-ishigami, language: ja }  # Shizuka Ishigami
+    - id: rhyno
+      externalIds: { wikidataId: Q137409854 }  # Rhyno
+      voiceActors:
+        - { staffId: yuichi-nakamura, language: ja }  # Yūichi Nakamura
+    - id: tatsuya
+      externalIds: { wikidataId: Q137409812 }  # Tatsuya
+      voiceActors:
+        - { staffId: yoshitsugu-matsuoka, language: ja }  # Yoshitsugu Matsuoka
+    - id: teoritta
+      externalIds: { wikidataId: Q137407424 }  # Teoritta
+      voiceActors:
+        - { staffId: mayu-iizuka, language: ja }  # Mayu Iizuka
+    - id: tsav
+      externalIds: { wikidataId: Q137409827 }  # Tsav
+      voiceActors:
+        - { staffId: jun-fukushima, language: ja }  # Jun Fukushima
+    - id: venetim-leopool
+      externalIds: { wikidataId: Q137408447 }  # Venetim Leopool
+      voiceActors:
+        - { staffId: shun-ichi-toki, language: ja }  # Shun'ichi Toki
+    - id: xylo-forbartz
+      externalIds: { wikidataId: Q137407232 }  # Xylo Forbartz
+      voiceActors:
+        - { staffId: yohei-azakami, language: ja }  # Yōhei Azakami
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku]

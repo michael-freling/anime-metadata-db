@@ -72,3 +72,56 @@ series:
           airedNumber: 11
         - absoluteNumber: 24
           airedNumber: 12
+  characters:
+    - id: hiraku-machio
+      names:
+        original: 街尾火楽
+        translations:
+          en: Hiraku Machio
+          ja: 街尾火楽
+      externalIds:
+        wikidataId: Q116753333
+      voiceActors:
+        - staffId: atsushi-abe
+          language: ja
+      appearances:
+        - seriesId: isekai-nonbiri-nouka
+    - id: ria
+      names:
+        original: リア
+        translations:
+          en: Ria
+          ja: リア
+      externalIds:
+        wikidataId: Q116755797
+      voiceActors:
+        - staffId: lynn
+          language: ja
+      appearances:
+        - seriesId: isekai-nonbiri-nouka
+    - id: ru
+      names:
+        original: ルールーシー＝ルー
+        translations:
+          en: Ru
+          ja: ルールーシー＝ルー
+      externalIds:
+        wikidataId: Q116755792
+      voiceActors:
+        - staffId: shino-shimoji
+          language: ja
+      appearances:
+        - seriesId: isekai-nonbiri-nouka
+    - id: tia
+      names:
+        original: ティア
+        translations:
+          en: Tia
+          ja: ティア
+      externalIds:
+        wikidataId: Q116755795
+      voiceActors:
+        - staffId: aya-suzaki
+          language: ja
+      appearances:
+        - seriesId: isekai-nonbiri-nouka

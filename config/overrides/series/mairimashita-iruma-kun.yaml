@@ -19,5 +19,96 @@ series:
     - id: mairimashita-iruma-kun-s4
       number: 4
       externalIds: { anilistId: 184492 } # Mairimashita! Iruma-kun 4th Season (Spring 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: alice-asmodeus
+      externalIds: { wikidataId: Q115283845 }  # Alice Asmodeus
+      voiceActors:
+        - { staffId: ryohei-kimura, language: ja }  # Ryōhei Kimura
+    - id: allocer-schneider
+      externalIds: { wikidataId: Q115317382 }  # Allocer Schneider
+      voiceActors:
+        - { staffId: shun-ichi-toki, language: ja }  # Shun'ichi Toki
+    - id: amaryllis-asmodeus
+      externalIds: { wikidataId: Q115360838 }  # Amaryllis Asmodeus
+      voiceActors:
+        - { staffId: yumi-kakazu, language: ja }  # Yumi Kakazu
+    - id: amelie-azazel
+      externalIds: { wikidataId: Q115286348 }  # Amelie Azazel
+      voiceActors:
+        - { staffId: saori-hayami, language: ja }  # Saori Hayami
+    - id: clara-valac
+      externalIds: { wikidataId: Q115283891 }  # Clara Valac
+      voiceActors:
+        - { staffId: ayaka-asai, language: ja }  # Ayaka Asai
+    - id: elizabetta-ix
+      externalIds: { wikidataId: Q115306947 }  # Elizabetta Ix
+      voiceActors:
+        - { staffId: kaede-hondo, language: ja }  # Kaede Hondo
+    - id: gaap-goemon
+      externalIds: { wikidataId: Q115308887 }  # Gaap Goemon
+      voiceActors:
+        - { staffId: genki-okawa, language: ja }  # Genki Ōkawa
+    - id: henri-azazel
+      externalIds: { wikidataId: Q115394926 }  # Henri Azazel
+      voiceActors:
+        - { staffId: koji-yusa, language: ja }  # Kōji Yusa
+    - id: iruma-suzuki
+      externalIds: { wikidataId: Q115283749 }  # Iruma Suzuki
+      voiceActors:
+        - { staffId: ayumu-murase, language: ja }  # Ayumu Murase
+    - id: jazz-m-andro
+      externalIds: { wikidataId: Q115306840 }  # Jazz M. Andro
+      voiceActors:
+        - { staffId: tetsuya-kakihara, language: ja }  # Tetsuya Kakihara
+    - id: kalego-naberius
+      externalIds: { wikidataId: Q115297501 }  # Kalego Naberius
+      voiceActors:
+        - { staffId: daisuke-ono, language: ja }  # Daisuke Ono
+    - id: kamui-caim
+      externalIds: { wikidataId: Q115308238 }  # Kamui Caim
+      voiceActors:
+        - { staffId: gakuto-kajiwara, language: ja }  # Gakuto Kajiwara
+    - id: kerori-crocell
+      externalIds: { wikidataId: Q115306799 }  # Kerori Crocell
+      voiceActors:
+        - { staffId: nao-toyama, language: ja }  # Nao Tōyama
+    - id: kimaris-quichelight
+      externalIds: { wikidataId: Q115360695 }  # Kimaris Quichelight
+      voiceActors:
+        - { staffId: taku-yashiro, language: ja }  # Taku Yashiro
+    - id: kirio-amy
+      externalIds: { wikidataId: Q115360786 }  # Kirio Amy
+      voiceActors:
+        - { staffId: ryota-osaka, language: ja }  # Ryōta Ōsaka
+    - id: lied-shax
+      externalIds: { wikidataId: Q115306888 }  # Lied Shax
+      voiceActors:
+        - { staffId: yoshitaka-yamaya, language: ja }  # Yoshitaka Yamaya
+    - id: opera
+      externalIds: { wikidataId: Q115300889 }  # Opera
+      voiceActors:
+        - { staffId: mitsuki-saiga, language: ja }  # Mitsuki Saiga
+    - id: picero-agares
+      externalIds: { wikidataId: Q115394693 }  # Picero Agares
+      voiceActors:
+        - { staffId: takuto-yoshinaga, language: ja }  # Takuto Yoshinaga
+    - id: robin-bars
+      externalIds: { wikidataId: Q115308279 }  # Robin Bars
+      voiceActors:
+        - { staffId: takuto-yoshinaga, language: ja }  # Takuto Yoshinaga
+    - id: sabro-sabnock
+      externalIds: { wikidataId: Q115301213 }  # Sabro Sabnock
+      voiceActors:
+        - { staffId: takuya-sato, language: ja }  # Takuya Satō
+    - id: sullivan
+      externalIds: { wikidataId: Q115300876 }  # Sullivan
+      voiceActors:
+        - { staffId: takaya-kuroda, language: ja }  # Takaya Kuroda
+    - id: zagan-johnny-western
+      externalIds: { wikidataId: Q115317391 }  # Zagan Johnny Western
+      voiceActors:
+        - { staffId: takuya-eguchi, language: ja }  # Takuya Eguchi
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [mairimashita-iruma-kun]

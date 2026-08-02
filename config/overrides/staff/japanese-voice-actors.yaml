@@ -5,3 +5,831 @@ staff:
     externalIds: { wikidataId: Q49566 }
   - id: natsuki-hanae
     externalIds: { wikidataId: Q2596113 }
+  - id: ai-kakuma
+    externalIds: { wikidataId: Q498632 }
+  - id: aimi
+    externalIds: { wikidataId: Q11457880 }
+  - id: akane-kumada
+    externalIds: { wikidataId: Q59072330 }
+  - id: akane-tomonaga
+    externalIds: { wikidataId: Q845936 }
+  - id: akari-kito
+    externalIds: { wikidataId: Q20039636 }
+  - id: akeno-watanabe
+    externalIds: { wikidataId: Q1323415 }
+  - id: aki-toyosaki
+    externalIds: { wikidataId: Q242014 }
+  - id: akio-otsuka
+    externalIds: { wikidataId: Q418649 }
+  - id: akira-ishida
+    externalIds: { wikidataId: Q418736 }
+  - id: akira-sekine
+    externalIds: { wikidataId: Q17160276 }
+  - id: ami-koshimizu
+    externalIds: { wikidataId: Q236715 }
+  - id: anji-iwata
+    externalIds: { wikidataId: Q134508433 }
+  - id: anna-nagase
+    externalIds: { wikidataId: Q108110143 }
+  - id: anzu-haruno
+    externalIds: { wikidataId: Q30922639 }
+  - id: aoi-ichikawa
+    externalIds: { wikidataId: Q48760762 }
+  - id: aoi-inase
+    externalIds: { wikidataId: Q24874042 }
+  - id: aoi-koga
+    externalIds: { wikidataId: Q26678197 }
+  - id: aoi-yuki
+    externalIds: { wikidataId: Q1347031 }
+  - id: asami-seto
+    externalIds: { wikidataId: Q4703774 }
+  - id: asuka-nishi
+    externalIds: { wikidataId: Q11485494 }
+  - id: asuna-tomari
+    externalIds: { wikidataId: Q26043249 }
+  - id: atsuko-tanaka
+    externalIds: { wikidataId: Q1208611 }
+  - id: atsumi-tanezaki
+    externalIds: { wikidataId: Q3183413 }
+  - id: atsushi-abe
+    externalIds: { wikidataId: Q939679 }
+  - id: atsushi-imaruoka
+    externalIds: { wikidataId: Q392207 }
+  - id: atsushi-kosaka
+    externalIds: { wikidataId: Q6643546 }
+  - id: atsushi-miyauchi
+    externalIds: { wikidataId: Q11453317 }
+  - id: atsushi-ono
+    externalIds: { wikidataId: Q11500800 }
+  - id: atsushi-tamaru
+    externalIds: { wikidataId: Q4896220 }
+  - id: aya-endo
+    externalIds: { wikidataId: Q1369247 }
+  - id: aya-hisakawa
+    externalIds: { wikidataId: Q49573 }
+  - id: aya-suzaki
+    externalIds: { wikidataId: Q888218 }
+  - id: aya-uchida
+    externalIds: { wikidataId: Q4822691 }
+  - id: aya-yamane
+    externalIds: { wikidataId: Q57314549 }
+  - id: ayaka-asai
+    externalIds: { wikidataId: Q17685820 }
+  - id: ayaka-nanase
+    externalIds: { wikidataId: Q22126767 }
+  - id: ayaka-shimizu
+    externalIds: { wikidataId: Q11254552 }
+  - id: ayana-taketatsu
+    externalIds: { wikidataId: Q1204576 }
+  - id: ayano-shibuya
+    externalIds: { wikidataId: Q30924445 }
+  - id: ayumu-asakura
+    externalIds: { wikidataId: Q6643543 }
+  - id: ayumu-murase
+    externalIds: { wikidataId: Q11523377 }
+  - id: azumi-waki
+    externalIds: { wikidataId: Q23948485 }
+  - id: azusa-tachibana
+    externalIds: { wikidataId: Q124943862 }
+  - id: azusa-tadokoro
+    externalIds: { wikidataId: Q247629 }
+  - id: bin-shimada
+    externalIds: { wikidataId: Q1323728 }
+  - id: chafurin
+    externalIds: { wikidataId: Q2714894 }
+  - id: chiaki-kobayashi
+    externalIds: { wikidataId: Q56808711 }
+  - id: chiharu-sawashiro
+    externalIds: { wikidataId: Q17159211 }
+  - id: chika-anzai
+    externalIds: { wikidataId: Q11450941 }
+  - id: chikahiro-kobayashi
+    externalIds: { wikidataId: Q17158231 }
+  - id: chinatsu-akasaki
+    externalIds: { wikidataId: Q5100189 }
+  - id: chiyo-tomaru
+    externalIds: { wikidataId: Q17161754 }
+  - id: daiki-kobayashi
+    externalIds: { wikidataId: Q24865397 }
+  - id: daiki-yamashita
+    externalIds: { wikidataId: Q15975368 }
+  - id: daisuke-namikawa
+    externalIds: { wikidataId: Q1145291 }
+  - id: daisuke-ono
+    externalIds: { wikidataId: Q718358 }
+  - id: daisuke-sakuma
+    externalIds: { wikidataId: Q20040262 }
+  - id: eiji-hanawa
+    externalIds: { wikidataId: Q11284088 }
+  - id: eiji-takemoto
+    externalIds: { wikidataId: Q604099 }
+  - id: eiko-yamada
+    externalIds: { wikidataId: Q2706764 }
+  - id: eri-yukimura
+    externalIds: { wikidataId: Q59141816 }
+  - id: fairouz-ai
+    externalIds: { wikidataId: Q65600537 }
+  - id: fuka-izumi
+    externalIds: { wikidataId: Q71679217 }
+  - id: fumiko-orikasa
+    externalIds: { wikidataId: Q49547 }
+  - id: fumiya-imai
+    externalIds: { wikidataId: Q68185187 }
+  - id: gakuto-kajiwara
+    externalIds: { wikidataId: Q45819909 }
+  - id: gen-sato
+    externalIds: { wikidataId: Q64782625 }
+  - id: genki-muro
+    externalIds: { wikidataId: Q11452982 }
+  - id: genki-okawa
+    externalIds: { wikidataId: Q9125044 }
+  - id: hajime-iijima
+    externalIds: { wikidataId: Q5639967 }
+  - id: hana-sato
+    externalIds: { wikidataId: Q20040353 }
+  - id: haruka-aikawa
+    externalIds: { wikidataId: Q117481662 }
+  - id: haruka-shiraishi
+    externalIds: { wikidataId: Q17993659 }
+  - id: haruka-terui
+    externalIds: { wikidataId: Q11567752 }
+  - id: haruka-tomatsu
+    externalIds: { wikidataId: Q50025 }
+  - id: haruki-ishiya
+    externalIds: { wikidataId: Q18335661 }
+  - id: haruna-asami
+    externalIds: { wikidataId: Q98117540 }
+  - id: hayato-fujii
+    externalIds: { wikidataId: Q64782549 }
+  - id: hibiku-yamamura
+    externalIds: { wikidataId: Q11469493 }
+  - id: hideo-ishikawa
+    externalIds: { wikidataId: Q1204249 }
+  - id: hideyuki-tanaka
+    externalIds: { wikidataId: Q2440809 }
+  - id: hika-tsukishiro
+    externalIds: { wikidataId: Q85884118 }
+  - id: hikari-senga
+    externalIds: { wikidataId: Q137534224 }
+  - id: hina-tachibana
+    externalIds: { wikidataId: Q63050400 }
+  - id: hiroki-tochi
+    externalIds: { wikidataId: Q2704867 }
+  - id: hiroki-yasumoto
+    externalIds: { wikidataId: Q1365535 }
+  - id: hiroko-emori
+    externalIds: { wikidataId: Q3089633 }
+  - id: hiromichi-tezuka
+    externalIds: { wikidataId: Q17161488 }
+  - id: hiromu-mineta
+    externalIds: { wikidataId: Q68185038 }
+  - id: hiroshi-izawa
+    externalIds: { wikidataId: Q3546217 }
+  - id: hiroshi-naka
+    externalIds: { wikidataId: Q1060969 }
+  - id: hiroshi-takemura
+    externalIds: { wikidataId: Q4450268 }
+  - id: hiroshi-yanaka
+    externalIds: { wikidataId: Q1000626 }
+  - id: hisako-kanemoto
+    externalIds: { wikidataId: Q50031 }
+  - id: hisako-tojo
+    externalIds: { wikidataId: Q17220436 }
+  - id: hisao-egawa
+    externalIds: { wikidataId: Q1349299 }
+  - id: hitomi-nabatame
+    externalIds: { wikidataId: Q1142387 }
+  - id: hiyori-kono
+    externalIds: { wikidataId: Q43427019 }
+  - id: hochu-otsuka
+    externalIds: { wikidataId: Q520669 }
+  - id: ikumi-hasegawa
+    externalIds: { wikidataId: Q48765485 }
+  - id: inori-minase
+    externalIds: { wikidataId: Q11548933 }
+  - id: issei-futamata
+    externalIds: { wikidataId: Q2463489 }
+  - id: itaru-yamamoto
+    externalIds: { wikidataId: Q11469140 }
+  - id: jiro-saito
+    externalIds: { wikidataId: Q11500307 }
+  - id: joji-nakata
+    externalIds: { wikidataId: Q1372791 }
+  - id: jun-fukushima
+    externalIds: { wikidataId: Q1826251 }
+  - id: jun-fukuyama
+    externalIds: { wikidataId: Q441288 }
+  - id: jun-ichi-kanemaru
+    externalIds: { wikidataId: Q1351561 }
+  - id: jun-ichi-yanagita
+    externalIds: { wikidataId: Q11534574 }
+  - id: jun-kasama
+    externalIds: { wikidataId: Q27150536 }
+  - id: junichi-suwabe
+    externalIds: { wikidataId: Q1331947 }
+  - id: junya-enoki
+    externalIds: { wikidataId: Q16264591 }
+  - id: juri-kimura
+    externalIds: { wikidataId: Q18048266 }
+  - id: kaede-hondo
+    externalIds: { wikidataId: Q22130427 }
+  - id: kaho-koda
+    externalIds: { wikidataId: Q6347112 }
+  - id: kaito-ishikawa
+    externalIds: { wikidataId: Q1964086 }
+  - id: kakeru-hatano
+    externalIds: { wikidataId: Q118330668 }
+  - id: kana-asumi
+    externalIds: { wikidataId: Q49474 }
+  - id: kana-ichinose
+    externalIds: { wikidataId: Q48761396 }
+  - id: kana-yuki
+    externalIds: { wikidataId: Q17225102 }
+  - id: kanae-ito
+    externalIds: { wikidataId: Q50022 }
+  - id: kanako-miyamoto
+    externalIds: { wikidataId: Q7485228 }
+  - id: kanehira-yamamoto
+    externalIds: { wikidataId: Q11468888 }
+  - id: kaneto-shiozawa
+    externalIds: { wikidataId: Q2447488 }
+  - id: kanna-nakamura
+    externalIds: { wikidataId: Q109657760 }
+  - id: kanon-takao
+    externalIds: { wikidataId: Q22124852 }
+  - id: kaori-maeda
+    externalIds: { wikidataId: Q41693141 }
+  - id: kaoru-sakura
+    externalIds: { wikidataId: Q11383006 }
+  - id: kappei-yamaguchi
+    externalIds: { wikidataId: Q355173 }
+  - id: katsuyuki-konishi
+    externalIds: { wikidataId: Q725392 }
+  - id: kazuhiko-inoue
+    externalIds: { wikidataId: Q225654 }
+  - id: kazuhiro-nakaya
+    externalIds: { wikidataId: Q11367121 }
+  - id: kazuki-ogawa
+    externalIds: { wikidataId: Q11460334 }
+  - id: kazuki-ura
+    externalIds: { wikidataId: Q81028715 }
+  - id: kazumi-amemiya
+    externalIds: { wikidataId: Q11659676 }
+  - id: kazuo-oka
+    externalIds: { wikidataId: Q1093241 }
+  - id: kazuya-nakai
+    externalIds: { wikidataId: Q540366 }
+  - id: kazuyuki-okitsu
+    externalIds: { wikidataId: Q868226 }
+  - id: keiichi-nanba
+    externalIds: { wikidataId: Q430395 }
+  - id: ken-narita
+    externalIds: { wikidataId: Q1317207 }
+  - id: kengo-kawanishi
+    externalIds: { wikidataId: Q11554087 }
+  - id: kengo-takanashi
+    externalIds: { wikidataId: Q11670701 }
+  - id: kenichi-ogata
+    externalIds: { wikidataId: Q2707888 }
+  - id: kenji-hamada
+    externalIds: { wikidataId: Q1076842 }
+  - id: kenji-nojima
+    externalIds: { wikidataId: Q1155778 }
+  - id: kenji-nomura
+    externalIds: { wikidataId: Q2705748 }
+  - id: kenjiro-tsuda
+    externalIds: { wikidataId: Q1255370 }
+  - id: kensho-ono
+    externalIds: { wikidataId: Q1139912 }
+  - id: kensuke-shimizu
+    externalIds: { wikidataId: Q88724202 }
+  - id: kenta-miyake
+    externalIds: { wikidataId: Q2779622 }
+  - id: kento-ito
+    externalIds: { wikidataId: Q16264168 }
+  - id: kento-shiraishi
+    externalIds: { wikidataId: Q64782533 }
+  - id: kenyu-horiuchi
+    externalIds: { wikidataId: Q1202136 }
+  - id: kikuko-inoue
+    externalIds: { wikidataId: Q1154469 }
+  - id: kikunosuke-toya
+    externalIds: { wikidataId: Q113452137 }
+  - id: kisho-taniyama
+    externalIds: { wikidataId: Q1142407 }
+  - id: kiyono-yasuno
+    externalIds: { wikidataId: Q11451654 }
+  - id: kohei-amasaki
+    externalIds: { wikidataId: Q20038507 }
+  - id: koichi-kitamura
+    externalIds: { wikidataId: Q4353745 }
+  - id: koichi-soma
+    externalIds: { wikidataId: Q11582498 }
+  - id: koji-okino
+    externalIds: { wikidataId: Q18383331 }
+  - id: koji-takahashi
+    externalIds: { wikidataId: Q11671168 }
+  - id: koji-totani
+    externalIds: { wikidataId: Q3045663 }
+  - id: koji-yusa
+    externalIds: { wikidataId: Q1351599 }
+  - id: koki-osuzu
+    externalIds: { wikidataId: Q112239249 }
+  - id: koki-uchiyama
+    externalIds: { wikidataId: Q1320826 }
+  - id: kokoro-omori
+    externalIds: { wikidataId: Q135967744 }
+  - id: konatsu-hirabayashi
+    externalIds: { wikidataId: Q135922633 }
+  - id: konomi-inagaki
+    externalIds: { wikidataId: Q112241886 }
+  - id: konomi-kohara
+    externalIds: { wikidataId: Q29350701 }
+  - id: kosuke-katayama
+    externalIds: { wikidataId: Q79017539 }
+  - id: kosuke-kobayashi
+    externalIds: { wikidataId: Q11461582 }
+  - id: kosuke-okano
+    externalIds: { wikidataId: Q1091562 }
+  - id: kosuke-toriumi
+    externalIds: { wikidataId: Q1372804 }
+  - id: kotaro-nishiyama
+    externalIds: { wikidataId: Q17211665 }
+  - id: kotono-mitsuishi
+    externalIds: { wikidataId: Q18735 }
+  - id: kozo-shioya
+    externalIds: { wikidataId: Q1059620 }
+  - id: kurumi-haruki
+    externalIds: { wikidataId: Q138386666 }
+  - id: kyo-yaoya
+    externalIds: { wikidataId: Q17220993 }
+  - id: kyohei-natsume
+    externalIds: { wikidataId: Q120908033 }
+  - id: lynn
+    externalIds: { wikidataId: Q22046619 }
+  - id: maaya-sakamoto
+    externalIds: { wikidataId: Q235216 }
+  - id: maaya-uchida
+    externalIds: { wikidataId: Q44552 }
+  - id: madoka-asahina
+    externalIds: { wikidataId: Q20038446 }
+  - id: mai-nakahara
+    externalIds: { wikidataId: Q237361 }
+  - id: maki-kawase
+    externalIds: { wikidataId: Q24867153 }
+  - id: makoto-furukawa
+    externalIds: { wikidataId: Q11411149 }
+  - id: makoto-koichi
+    externalIds: { wikidataId: Q20039931 }
+  - id: makoto-yasumura
+    externalIds: { wikidataId: Q850865 }
+  - id: mami
+    externalIds: { wikidataId: Q3284992 }
+  - id: manaka-iwami
+    externalIds: { wikidataId: Q29479266 }
+  - id: manami-numakura
+    externalIds: { wikidataId: Q3844242 }
+  - id: mao-ichimichi
+    externalIds: { wikidataId: Q1186964 }
+  - id: mari-hino
+    externalIds: { wikidataId: Q11510537 }
+  - id: mari-yokoo
+    externalIds: { wikidataId: Q11542438 }
+  - id: marie-miyake
+    externalIds: { wikidataId: Q6127820 }
+  - id: marie-oi
+    externalIds: { wikidataId: Q11432243 }
+  - id: marika-kono
+    externalIds: { wikidataId: Q17130365 }
+  - id: mariko-higashiuchi
+    externalIds: { wikidataId: Q17223258 }
+  - id: marina-inoue
+    externalIds: { wikidataId: Q1329906 }
+  - id: mariya-ise
+    externalIds: { wikidataId: Q1333938 }
+  - id: masaaki-mizunaka
+    externalIds: { wikidataId: Q27917957 }
+  - id: masafumi-kobatake
+    externalIds: { wikidataId: Q22125368 }
+  - id: masaharu-sato
+    externalIds: { wikidataId: Q531846 }
+  - id: masako-katsuki
+    externalIds: { wikidataId: Q2665343 }
+  - id: masashi-nogawa
+    externalIds: { wikidataId: Q11645437 }
+  - id: masashi-yamane
+    externalIds: { wikidataId: Q64782567 }
+  - id: matsumi-oshiro
+    externalIds: { wikidataId: Q6788128 }
+  - id: mayu-iizuka
+    externalIds: { wikidataId: Q18700531 }
+  - id: mayu-minami
+    externalIds: { wikidataId: Q40034390 }
+  - id: mayumi-sho
+    externalIds: { wikidataId: Q3031438 }
+  - id: megumi-han
+    externalIds: { wikidataId: Q8966502 }
+  - id: megumi-nakajima
+    externalIds: { wikidataId: Q271869 }
+  - id: megumi-ogata
+    externalIds: { wikidataId: Q254368 }
+  - id: megumi-toyoguchi
+    externalIds: { wikidataId: Q864846 }
+  - id: miho-okasaki
+    externalIds: { wikidataId: Q51676463 }
+  - id: miho-wataya
+    externalIds: { wikidataId: Q28691932 }
+  - id: mikako-komatsu
+    externalIds: { wikidataId: Q1593184 }
+  - id: miki-takahashi
+    externalIds: { wikidataId: Q11671543 }
+  - id: miku-ito
+    externalIds: { wikidataId: Q16264202 }
+  - id: minako-kotobuki
+    externalIds: { wikidataId: Q50029 }
+  - id: minori-suzuki
+    externalIds: { wikidataId: Q22129371 }
+  - id: misato-matsuoka
+    externalIds: { wikidataId: Q76283342 }
+  - id: mitsuaki-hoshino
+    externalIds: { wikidataId: Q305023 }
+  - id: mitsuki-saiga
+    externalIds: { wikidataId: Q1371697 }
+  - id: mitsuo-iwata
+    externalIds: { wikidataId: Q1142399 }
+  - id: miyu-tomita
+    externalIds: { wikidataId: Q22131362 }
+  - id: miyuki-sakurai
+    externalIds: { wikidataId: Q121323857 }
+  - id: miyuri-shimabukuro
+    externalIds: { wikidataId: Q54370392 }
+  - id: moe-kahara
+    externalIds: { wikidataId: Q106479481 }
+  - id: momo-harumi
+    externalIds: { wikidataId: Q133282695 }
+  - id: mugihito
+    externalIds: { wikidataId: Q2462286 }
+  - id: mutsumi-tamura
+    externalIds: { wikidataId: Q6132945 }
+  - id: nagisa-maruyama
+    externalIds: { wikidataId: Q139917213 }
+  - id: nao-toyama
+    externalIds: { wikidataId: Q865906 }
+  - id: naoki-tatsuta
+    externalIds: { wikidataId: Q933540 }
+  - id: naoko-matsui
+    externalIds: { wikidataId: Q1193618 }
+  - id: naoya-nosaka
+    externalIds: { wikidataId: Q11645275 }
+  - id: natsumi-haruse
+    externalIds: { wikidataId: Q24875141 }
+  - id: natsumi-kawaida
+    externalIds: { wikidataId: Q60986805 }
+  - id: nene-hieda
+    externalIds: { wikidataId: Q48763264 }
+  - id: nobuhiko-okamoto
+    externalIds: { wikidataId: Q1345336 }
+  - id: nobunaga-shimazaki
+    externalIds: { wikidataId: Q5968283 }
+  - id: nobuyuki-hiyama
+    externalIds: { wikidataId: Q2273472 }
+  - id: noriko-uemura
+    externalIds: { wikidataId: Q7051287 }
+  - id: rebecca-danae
+    externalIds: { wikidataId: Q139576178 }
+  - id: reiji-kawashima
+    externalIds: { wikidataId: Q96716618 }
+  - id: reiko-suzuki
+    externalIds: { wikidataId: Q1067536 }
+  - id: reina-ueda
+    externalIds: { wikidataId: Q16264425 }
+  - id: rena-hasegawa
+    externalIds: { wikidataId: Q59134513 }
+  - id: rena-motomura
+    externalIds: { wikidataId: Q130396708 }
+  - id: rie-kugimiya
+    externalIds: { wikidataId: Q49554 }
+  - id: rie-murakawa
+    externalIds: { wikidataId: Q2811985 }
+  - id: rie-takahashi
+    externalIds: { wikidataId: Q17160610 }
+  - id: rie-tanaka
+    externalIds: { wikidataId: Q237371 }
+  - id: rika-kinugawa
+    externalIds: { wikidataId: Q23948927 }
+  - id: rikiya-koyama
+    externalIds: { wikidataId: Q1204898 }
+  - id: rikuya-yasuda
+    externalIds: { wikidataId: Q55535277 }
+  - id: rina-hidaka
+    externalIds: { wikidataId: Q152707 }
+  - id: rumi-okubo
+    externalIds: { wikidataId: Q902038 }
+  - id: ryo-horikawa
+    externalIds: { wikidataId: Q2540053 }
+  - id: ryo-sugisaki
+    externalIds: { wikidataId: Q11521986 }
+  - id: ryohei-arai
+    externalIds: { wikidataId: Q19726283 }
+  - id: ryohei-kimura
+    externalIds: { wikidataId: Q1138419 }
+  - id: ryota-osaka
+    externalIds: { wikidataId: Q9351342 }
+  - id: ryota-suzuki
+    externalIds: { wikidataId: Q38276919 }
+  - id: ryotaro-okiayu
+    externalIds: { wikidataId: Q1199055 }
+  - id: ryuho-nagaoka
+    externalIds: { wikidataId: Q110403875 }
+  - id: ryuichi-kijima
+    externalIds: { wikidataId: Q11518345 }
+  - id: sachiko-okada
+    externalIds: { wikidataId: Q11473528 }
+  - id: sakura-shinfuku
+    externalIds: { wikidataId: Q115734789 }
+  - id: saori-hayami
+    externalIds: { wikidataId: Q1153079 }
+  - id: saori-onishi
+    externalIds: { wikidataId: Q15973074 }
+  - id: satomi-amano
+    externalIds: { wikidataId: Q62023684 }
+  - id: satomi-arai
+    externalIds: { wikidataId: Q1343959 }
+  - id: satoshi-hino
+    externalIds: { wikidataId: Q1142853 }
+  - id: satoshi-inomata
+    externalIds: { wikidataId: Q64782621 }
+  - id: sayaka-ohara
+    externalIds: { wikidataId: Q2325296 }
+  - id: sayaka-senbongi
+    externalIds: { wikidataId: Q17160365 }
+  - id: sayumi-suzushiro
+    externalIds: { wikidataId: Q56259856 }
+  - id: seiichiro-yamashita
+    externalIds: { wikidataId: Q17230607 }
+  - id: seiro-ogino
+    externalIds: { wikidataId: Q11619043 }
+  - id: shigeru-chiba
+    externalIds: { wikidataId: Q2444815 }
+  - id: shigeru-nakahara
+    externalIds: { wikidataId: Q2663030 }
+  - id: shin-ichiro-miki
+    externalIds: { wikidataId: Q719326 }
+  - id: shin-ya-takahashi
+    externalIds: { wikidataId: Q9448725 }
+  - id: shinji-kawada
+    externalIds: { wikidataId: Q1135000 }
+  - id: shinnosuke-tachibana
+    externalIds: { wikidataId: Q1041924 }
+  - id: shino-shimoji
+    externalIds: { wikidataId: Q17159583 }
+  - id: shion-wakayama
+    externalIds: { wikidataId: Q11616308 }
+  - id: shizuka-ishigami
+    externalIds: { wikidataId: Q11584776 }
+  - id: sho-hayami
+    externalIds: { wikidataId: Q1355841 }
+  - id: sho-karino
+    externalIds: { wikidataId: Q17686378 }
+  - id: sho-nogami
+    externalIds: { wikidataId: Q18460273 }
+  - id: shogo-sakata
+    externalIds: { wikidataId: Q68185104 }
+  - id: shohei-komatsu
+    externalIds: { wikidataId: Q24877064 }
+  - id: shoto-kashii
+    externalIds: { wikidataId: Q8189014 }
+  - id: shou-komura
+    externalIds: { wikidataId: Q125314127 }
+  - id: shoya-chiba
+    externalIds: { wikidataId: Q11406719 }
+  - id: shoya-ishige
+    externalIds: { wikidataId: Q11586731 }
+  - id: shuichiro-umeda
+    externalIds: { wikidataId: Q69635227 }
+  - id: shun-horie
+    externalIds: { wikidataId: Q22129969 }
+  - id: shun-ichi-maki
+    externalIds: { wikidataId: Q22131341 }
+  - id: shun-ichi-toki
+    externalIds: { wikidataId: Q18457703 }
+  - id: shunsuke-sakuya
+    externalIds: { wikidataId: Q7505133 }
+  - id: shunsuke-takeuchi
+    externalIds: { wikidataId: Q18759065 }
+  - id: so-takeuchi
+    externalIds: { wikidataId: Q17160692 }
+  - id: sora-amamiya
+    externalIds: { wikidataId: Q14635194 }
+  - id: sora-tokui
+    externalIds: { wikidataId: Q420417 }
+  - id: soshiro-hori
+    externalIds: { wikidataId: Q27151268 }
+  - id: subaru-kimura
+    externalIds: { wikidataId: Q7630810 }
+  - id: taishi-murata
+    externalIds: { wikidataId: Q11523423 }
+  - id: taito-ban
+    externalIds: { wikidataId: Q61058294 }
+  - id: takaaki-torashima
+    externalIds: { wikidataId: Q28691559 }
+  - id: takaaki-uchino
+    externalIds: { wikidataId: Q18545782 }
+  - id: takahiro-miyamoto
+    externalIds: { wikidataId: Q11454827 }
+  - id: takahiro-sakurai
+    externalIds: { wikidataId: Q459902 }
+  - id: takaya-hashi
+    externalIds: { wikidataId: Q3275906 }
+  - id: takaya-kuroda
+    externalIds: { wikidataId: Q3275921 }
+  - id: takayuki-nakatsukasa
+    externalIds: { wikidataId: Q20041826 }
+  - id: takehiro-hasu
+    externalIds: { wikidataId: Q11621659 }
+  - id: takehito-koyasu
+    externalIds: { wikidataId: Q464348 }
+  - id: takeo-otsuka
+    externalIds: { wikidataId: Q55536620 }
+  - id: taku-yashiro
+    externalIds: { wikidataId: Q23846671 }
+  - id: takugo-iwakawa
+    externalIds: { wikidataId: Q29841173 }
+  - id: takuma-terashima
+    externalIds: { wikidataId: Q1041912 }
+  - id: takuro-kitagawa
+    externalIds: { wikidataId: Q7678611 }
+  - id: takuto-yoshinaga
+    externalIds: { wikidataId: Q11413381 }
+  - id: takuya-eguchi
+    externalIds: { wikidataId: Q3268048 }
+  - id: takuya-sato
+    externalIds: { wikidataId: Q9076955 }
+  - id: taro-kiuchi
+    externalIds: { wikidataId: Q38276955 }
+  - id: taro-yamaguchi
+    externalIds: { wikidataId: Q11466747 }
+  - id: tarusuke-shingaki
+    externalIds: { wikidataId: Q5356263 }
+  - id: tasuku-hatanaka
+    externalIds: { wikidataId: Q7687763 }
+  - id: tatsumaru-tachibana
+    externalIds: { wikidataId: Q66365025 }
+  - id: tessho-genda
+    externalIds: { wikidataId: Q2529130 }
+  - id: tetsu-inada
+    externalIds: { wikidataId: Q1206700 }
+  - id: tetsuya-kakihara
+    externalIds: { wikidataId: Q708022 }
+  - id: tomiko-suzuki
+    externalIds: { wikidataId: Q1117893 }
+  - id: tomoaki-maeno
+    externalIds: { wikidataId: Q1206674 }
+  - id: tomohiro-ono
+    externalIds: { wikidataId: Q98734286 }
+  - id: tomohito-takatsuka
+    externalIds: { wikidataId: Q21019125 }
+  - id: tomokazu-seki
+    externalIds: { wikidataId: Q284401 }
+  - id: tomokazu-sugita
+    externalIds: { wikidataId: Q579296 }
+  - id: tomori-kusunoki
+    externalIds: { wikidataId: Q41698621 }
+  - id: tomoyo-kurosawa
+    externalIds: { wikidataId: Q1955926 }
+  - id: tomoyo-takayanagi
+    externalIds: { wikidataId: Q28691709 }
+  - id: tomoyuki-shimura
+    externalIds: { wikidataId: Q1749211 }
+  - id: toru-furuya
+    externalIds: { wikidataId: Q917318 }
+  - id: toshihiko-seki
+    externalIds: { wikidataId: Q1201334 }
+  - id: toshiki-kumagai
+    externalIds: { wikidataId: Q98758320 }
+  - id: toshitsugu-takashina
+    externalIds: { wikidataId: Q11673204 }
+  - id: toshiyuki-morikawa
+    externalIds: { wikidataId: Q460361 }
+  - id: tsuyoshi-koyama
+    externalIds: { wikidataId: Q4261875 }
+  - id: volcano-ota
+    externalIds: { wikidataId: Q11328674 }
+  - id: wakana-maruoka
+    externalIds: { wikidataId: Q56702852 }
+  - id: wasabi-mizuta
+    externalIds: { wikidataId: Q287166 }
+  - id: wataru-hatano
+    externalIds: { wikidataId: Q1153870 }
+  - id: wataru-kato
+    externalIds: { wikidataId: Q68185024 }
+  - id: wataru-komada
+    externalIds: { wikidataId: Q20040112 }
+  - id: yasuaki-takumi
+    externalIds: { wikidataId: Q11393876 }
+  - id: yasunori-matsumoto
+    externalIds: { wikidataId: Q1192158 }
+  - id: yo-inoue
+    externalIds: { wikidataId: Q2564944 }
+  - id: yo-taichi
+    externalIds: { wikidataId: Q14527810 }
+  - id: yohei-azakami
+    externalIds: { wikidataId: Q11657409 }
+  - id: yohei-hamada
+    externalIds: { wikidataId: Q27917945 }
+  - id: yoji-ueda
+    externalIds: { wikidataId: Q576142 }
+  - id: yoko-hikasa
+    externalIds: { wikidataId: Q50023 }
+  - id: yoshiki-nakajima
+    externalIds: { wikidataId: Q11364383 }
+  - id: yoshimasa-hosoya
+    externalIds: { wikidataId: Q1139886 }
+  - id: yoshino-aoyama
+    externalIds: { wikidataId: Q17988251 }
+  - id: yoshitaka-yamaya
+    externalIds: { wikidataId: Q16746698 }
+  - id: yoshito-yasuhara
+    externalIds: { wikidataId: Q2778060 }
+  - id: yoshitsugu-matsuoka
+    externalIds: { wikidataId: Q957795 }
+  - id: yoshiyuki-ito
+    externalIds: { wikidataId: Q139889656 }
+  - id: yu-sasahara
+    externalIds: { wikidataId: Q48765539 }
+  - id: yu-serizawa
+    externalIds: { wikidataId: Q11616039 }
+  - id: yuga-sato
+    externalIds: { wikidataId: Q108776560 }
+  - id: yuhi-asagiri
+    externalIds: { wikidataId: Q63975279 }
+  - id: yui-horie
+    externalIds: { wikidataId: Q50033 }
+  - id: yui-ishikawa
+    externalIds: { wikidataId: Q8973140 }
+  - id: yui-ogura
+    externalIds: { wikidataId: Q2477774 }
+  - id: yuichi-nakamura
+    externalIds: { wikidataId: Q984641 }
+  - id: yuichiro-umehara
+    externalIds: { wikidataId: Q18225739 }
+  - id: yuji-murai
+    externalIds: { wikidataId: Q52717763 }
+  - id: yuka-iguchi
+    externalIds: { wikidataId: Q1183854 }
+  - id: yuki-hirose
+    externalIds: { wikidataId: Q20042582 }
+  - id: yuki-ishikari
+    externalIds: { wikidataId: Q11586860 }
+  - id: yuki-nagano
+    externalIds: { wikidataId: Q30108577 }
+  - id: yuki-okada
+    externalIds: { wikidataId: Q112238426 }
+  - id: yukiya-matsui
+    externalIds: { wikidataId: Q123405318 }
+  - id: yuko-kaida
+    externalIds: { wikidataId: Q2710143 }
+  - id: yuko-mita
+    externalIds: { wikidataId: Q3113201 }
+  - id: yuko-natsuyoshi
+    externalIds: { wikidataId: Q66365004 }
+  - id: yuko-sanpei
+    externalIds: { wikidataId: Q958874 }
+  - id: yuko-tachibana
+    externalIds: { wikidataId: Q5356584 }
+  - id: yuma-uchida
+    externalIds: { wikidataId: Q17349748 }
+  - id: yume-miyamoto
+    externalIds: { wikidataId: Q11454795 }
+  - id: yumi-kakazu
+    externalIds: { wikidataId: Q1373594 }
+  - id: yumi-uchiyama
+    externalIds: { wikidataId: Q322979 }
+  - id: yumiko-shibata
+    externalIds: { wikidataId: Q8061128 }
+  - id: yumiri-hanamori
+    externalIds: { wikidataId: Q17219891 }
+  - id: yuna-taniguchi
+    externalIds: { wikidataId: Q20041306 }
+  - id: yurie-igoma
+    externalIds: { wikidataId: Q117354720 }
+  - id: yurika-kubo
+    externalIds: { wikidataId: Q11368954 }
+  - id: yurina-amami
+    externalIds: { wikidataId: Q45819489 }
+  - id: yusaku-yara
+    externalIds: { wikidataId: Q3113155 }
+  - id: yusuke-kobayashi
+    externalIds: { wikidataId: Q17158282 }
+  - id: yutaka-aoyama
+    externalIds: { wikidataId: Q1028227 }
+  - id: yuto-suzuki
+    externalIds: { wikidataId: Q104013483 }
+  - id: yuto-uemura
+    externalIds: { wikidataId: Q11359321 }
+  - id: yuu-shimaka
+    externalIds: { wikidataId: Q3574297 }
+  - id: yuya-hirose
+    externalIds: { wikidataId: Q22128472 }
+  - id: yuya-uchida
+    externalIds: { wikidataId: Q549931 }

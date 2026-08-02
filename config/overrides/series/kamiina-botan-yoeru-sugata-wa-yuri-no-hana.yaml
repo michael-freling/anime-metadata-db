@@ -10,5 +10,32 @@ series:
     - id: kamiina-botan-yoeru-sugata-wa-yuri-no-hana-s1
       number: 1
       externalIds: { anilistId: 187869 } # Kamiina Botan, Yoeru Sugata wa Yuri no Hana (Spring 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: akane-yusa
+      externalIds: { wikidataId: Q138637128 }  # Akane Yusa
+      voiceActors:
+        - { staffId: yurina-amami, language: ja }  # Yurina Amami
+    - id: botan-kamiina
+      externalIds: { wikidataId: Q138634275 }  # Botan Kamiina
+      voiceActors:
+        - { staffId: sayumi-suzushiro, language: ja }  # Sayumi Suzushiro
+    - id: chang-chin-lan
+      externalIds: { wikidataId: Q138637131 }  # Chang Chin-lan
+      voiceActors:
+        - { staffId: maki-kawase, language: ja }  # Maki Kawase
+    - id: ibuki-tonami
+      externalIds: { wikidataId: Q138637120 }  # Ibuki Tonami
+      voiceActors:
+        - { staffId: yoshino-aoyama, language: ja }  # Yoshino Aoyama
+    - id: kanade-gujyo
+      externalIds: { wikidataId: Q138637124 }  # Kanade Gujyo
+      voiceActors:
+        - { staffId: minako-kotobuki, language: ja }  # Minako Kotobuki
+    - id: yaeka-kitamori
+      externalIds: { wikidataId: Q138637126 }  # Yaeka Kitamori
+      voiceActors:
+        - { staffId: miyu-tomita, language: ja }  # Miyu Tomita
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [kamiina-botan-yoeru-sugata-wa-yuri-no-hana]

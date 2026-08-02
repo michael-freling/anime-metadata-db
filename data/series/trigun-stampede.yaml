@@ -77,3 +77,55 @@ series:
           airedNumber: 11
         - absoluteNumber: 24
           airedNumber: 12
+  characters:
+    - id: knives-millions
+      names:
+        translations:
+          en: Knives Millions
+      externalIds:
+        wikidataId: Q15141139
+      appearances:
+        - seriesId: trigun-stampede
+    - id: legato-bluesummers
+      names:
+        translations:
+          en: Legato Bluesummers
+      externalIds:
+        wikidataId: Q2589453
+      appearances:
+        - seriesId: trigun-stampede
+    - id: nicholas-d-wolfwood
+      names:
+        original: ニコラス・D・ウルフウッド
+        translations:
+          en: Nicholas D. Wolfwood
+          ja: ニコラス・D・ウルフウッド
+      externalIds:
+        wikidataId: Q2374583
+      appearances:
+        - seriesId: trigun-stampede
+    - id: rem-saverem
+      names:
+        original: レム・セイブレム
+        translations:
+          en: Rem Saverem
+          ja: レム・セイブレム
+      externalIds:
+        wikidataId: Q133540657
+      voiceActors:
+        - staffId: aya-hisakawa
+          language: ja
+        - staffId: maaya-sakamoto
+          language: ja
+      appearances:
+        - seriesId: trigun-stampede
+    - id: vash-the-stampede
+      names:
+        original: ヴァッシュ・ザ・スタンピード
+        translations:
+          en: Vash the Stampede
+          ja: ヴァッシュ・ザ・スタンピード
+      externalIds:
+        wikidataId: Q2434371
+      appearances:
+        - seriesId: trigun-stampede

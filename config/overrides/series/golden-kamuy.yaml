@@ -22,5 +22,12 @@ series:
     - id: golden-kamuy-s5
       number: 5
       externalIds: { anilistId: 166521 } # Golden Kamuy: Saishuushou (Winter 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: saichi-sugimoto
+      externalIds: { wikidataId: Q135854883 }  # Saichi Sugimoto
+      voiceActors:
+        - { staffId: chikahiro-kobayashi, language: ja }  # Chikahiro Kobayashi
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [golden-kamuy]

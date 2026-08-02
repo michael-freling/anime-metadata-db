@@ -365,3 +365,134 @@ series:
       episodes:
         - absoluteNumber: 171
           airedNumber: 1
+  characters:
+    - id: asta
+      names:
+        original: アスタ
+        translations:
+          en: Asta
+          ja: アスタ
+      externalIds:
+        wikidataId: Q108935450
+      voiceActors:
+        - staffId: gakuto-kajiwara
+          language: ja
+      appearances:
+        - seriesId: black-clover
+    - id: heath-grice
+      names:
+        original: ヒース・グライス
+        translations:
+          en: Heath Grice
+          ja: ヒース・グライス
+      externalIds:
+        wikidataId: Q123554784
+      voiceActors:
+        - staffId: ryotaro-okiayu
+          language: ja
+      appearances:
+        - seriesId: black-clover
+    - id: lotus-whomalt
+      names:
+        original: ロータス・フーモルト
+        translations:
+          en: Lotus Whomalt
+          ja: ロータス・フーモルト
+      externalIds:
+        wikidataId: Q123554864
+      voiceActors:
+        - staffId: kenyu-horiuchi
+          language: ja
+      appearances:
+        - seriesId: black-clover
+    - id: luck-voltia
+      names:
+        original: ラック・ボルティア
+        translations:
+          en: Luck Voltia
+          ja: ラック・ボルティア
+      externalIds:
+        wikidataId: Q123554840
+      voiceActors:
+        - staffId: ayumu-murase
+          language: ja
+      appearances:
+        - seriesId: black-clover
+    - id: magna-swing
+      names:
+        original: マグナ・スウィング
+        translations:
+          en: Magna Swing
+          ja: マグナ・スウィング
+      externalIds:
+        wikidataId: Q123554392
+      voiceActors:
+        - staffId: genki-muro
+          language: ja
+      appearances:
+        - seriesId: black-clover
+    - id: mimosa-vermillion
+      names:
+        original: ミモザ・ヴァーミリオン
+        translations:
+          en: Mimosa Vermillion
+          ja: ミモザ・ヴァーミリオン
+      externalIds:
+        wikidataId: Q123554884
+      voiceActors:
+        - staffId: asuka-nishi
+          language: ja
+      appearances:
+        - seriesId: black-clover
+    - id: noelle-silva
+      names:
+        original: ノエル・シルヴァ
+        translations:
+          en: Noelle Silva
+          ja: ノエル・シルヴァ
+      externalIds:
+        wikidataId: Q110904202
+      voiceActors:
+        - staffId: kana-yuki
+          language: ja
+      appearances:
+        - seriesId: black-clover
+    - id: revchi-salik
+      names:
+        original: レブチ・サリーク
+        translations:
+          en: Revchi Salik
+          ja: レブチ・サリーク
+      externalIds:
+        wikidataId: Q123554739
+      voiceActors:
+        - staffId: yuto-suzuki
+          language: ja
+      appearances:
+        - seriesId: black-clover
+    - id: sekke-bronzazza
+      names:
+        original: セッケ・ブロンザッザ
+        translations:
+          en: Sekke Bronzazza
+          ja: セッケ・ブロンザッザ
+      externalIds:
+        wikidataId: Q123554802
+      voiceActors:
+        - staffId: ryota-osaka
+          language: ja
+      appearances:
+        - seriesId: black-clover
+    - id: yami-sukehiro
+      names:
+        original: ヤミ・スケヒロ
+        translations:
+          en: Yami Sukehiro
+          ja: ヤミ・スケヒロ
+      externalIds:
+        wikidataId: Q110895968
+      voiceActors:
+        - staffId: junichi-suwabe
+          language: ja
+      appearances:
+        - seriesId: black-clover

@@ -21,5 +21,16 @@ series:
       number: 3
       part: 2
       externalIds: { anilistId: 179062 } # Enen no Shouboutai: San no Shou Part 2 (Winter 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: shinra-kusakabe
+      externalIds: { wikidataId: Q86011697 }  # Shinra Kusakabe
+      voiceActors:
+        - { staffId: gakuto-kajiwara, language: ja }  # Gakuto Kajiwara
+    - id: tamaki-kotatsu
+      externalIds: { wikidataId: Q122150051 }  # Tamaki Kotatsu
+      voiceActors:
+        - { staffId: aoi-yuki, language: ja }  # Aoi Yūki
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [enen-no-shouboutai]

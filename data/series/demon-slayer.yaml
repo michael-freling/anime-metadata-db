@@ -224,6 +224,11 @@ series:
       absoluteNumber: 64
   characters:
     - id: tanjiro-kamado
+      names:
+        original: 竈門炭治郎
+        translations:
+          en: Tanjirō Kamado
+          ja: 竈門炭治郎
       externalIds:
         wikidataId: Q85805158
       voiceActors:

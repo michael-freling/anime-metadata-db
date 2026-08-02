@@ -190,3 +190,30 @@ series:
           airedNumber: 12
         - absoluteNumber: 73
           airedNumber: 13
+  characters:
+    - id: shinra-kusakabe
+      names:
+        original: 森羅日下部
+        translations:
+          en: Shinra Kusakabe
+          ja: 森羅日下部
+      externalIds:
+        wikidataId: Q86011697
+      voiceActors:
+        - staffId: gakuto-kajiwara
+          language: ja
+      appearances:
+        - seriesId: enen-no-shouboutai
+    - id: tamaki-kotatsu
+      names:
+        original: 環古達
+        translations:
+          en: Tamaki Kotatsu
+          ja: 環古達
+      externalIds:
+        wikidataId: Q122150051
+      voiceActors:
+        - staffId: aoi-yuki
+          language: ja
+      appearances:
+        - seriesId: enen-no-shouboutai

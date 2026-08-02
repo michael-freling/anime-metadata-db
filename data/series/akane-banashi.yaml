@@ -39,3 +39,17 @@ series:
           airedNumber: 11
         - absoluteNumber: 12
           airedNumber: 12
+  characters:
+    - id: akane-osaki
+      names:
+        original: 桜咲朱音
+        translations:
+          en: Akane Osaki
+          ja: 桜咲朱音
+      externalIds:
+        wikidataId: Q138501857
+      voiceActors:
+        - staffId: anna-nagase
+          language: ja
+      appearances:
+        - seriesId: akane-banashi

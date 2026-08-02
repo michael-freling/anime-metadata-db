@@ -167,3 +167,616 @@ series:
           airedNumber: 23
         - absoluteNumber: 60
           airedNumber: 24
+  characters:
+    - id: angelica
+      names:
+        original: アンゲリカ
+        translations:
+          en: Angelica
+          ja: アンゲリカ
+      externalIds:
+        wikidataId: Q139889662
+      voiceActors:
+        - staffId: nao-toyama
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: arno
+      names:
+        original: アルノー
+        translations:
+          en: Arno
+          ja: アルノー
+      externalIds:
+        wikidataId: Q139889655
+      voiceActors:
+        - staffId: yoshiyuki-ito
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: benno
+      names:
+        original: ベンノ
+        translations:
+          en: Benno
+          ja: ベンノ
+      externalIds:
+        wikidataId: Q139718449
+      voiceActors:
+        - staffId: takehito-koyasu
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: bezewanst
+      names:
+        original: ベーゼヴァンス
+        translations:
+          en: Bezewanst
+          ja: ベーゼヴァンス
+      externalIds:
+        wikidataId: Q139862695
+      voiceActors:
+        - staffId: mitsuaki-hoshino
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: bierce
+      names:
+        original: ビアス
+        translations:
+          en: Bierce
+          ja: ビアス
+      externalIds:
+        wikidataId: Q139889591
+      voiceActors:
+        - staffId: takugo-iwakawa
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: christine
+      names:
+        original: クリスティーネ
+        translations:
+          en: Christine
+          ja: クリスティーネ
+      externalIds:
+        wikidataId: Q140193961
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: corinna
+      names:
+        original: コリンナ
+        translations:
+          en: Corinna
+          ja: コリンナ
+      externalIds:
+        wikidataId: Q139862756
+      voiceActors:
+        - staffId: rika-kinugawa
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: damuel
+      names:
+        original: ダームエル
+        translations:
+          en: Damuel
+          ja: ダームエル
+      externalIds:
+        wikidataId: Q139886509
+      voiceActors:
+        - staffId: yuichiro-umehara
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: deid
+      names:
+        original: ディード
+        translations:
+          en: Deid
+          ja: ディード
+      externalIds:
+        wikidataId: Q140046514
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: delia
+      names:
+        original: デリア
+        translations:
+          en: Delia
+          ja: デリア
+      externalIds:
+        wikidataId: Q139880591
+      voiceActors:
+        - staffId: chiyo-tomaru
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: eckhart
+      names:
+        original: エックハルト
+        translations:
+          en: Eckhart
+          ja: エックハルト
+      externalIds:
+        wikidataId: Q139891981
+      voiceActors:
+        - staffId: yusuke-kobayashi
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: effa
+      names:
+        original: エーファ
+        translations:
+          en: Effa
+          ja: エーファ
+      externalIds:
+        wikidataId: Q139718758
+      voiceActors:
+        - staffId: fumiko-orikasa
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: ella
+      names:
+        original: エラ
+        translations:
+          en: Ella
+          ja: エラ
+      externalIds:
+        wikidataId: Q139917208
+      voiceActors:
+        - staffId: nagisa-maruyama
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: elvira
+      names:
+        original: エルヴィーラ
+        translations:
+          en: Elvira
+          ja: エルヴィーラ
+      externalIds:
+        wikidataId: Q139889840
+      voiceActors:
+        - staffId: kikuko-inoue
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: ferdinand
+      names:
+        original: フェルディナンド
+        translations:
+          en: Ferdinand
+          ja: フェルディナンド
+      externalIds:
+        wikidataId: Q139718416
+      voiceActors:
+        - staffId: sho-hayami
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: fey
+      names:
+        original: フェイ
+        translations:
+          en: Fey
+          ja: フェイ
+      externalIds:
+        wikidataId: Q139880011
+      voiceActors:
+        - staffId: yumiri-hanamori
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: fran
+      names:
+        original: フラン
+        translations:
+          en: Fran
+          ja: フラン
+      externalIds:
+        wikidataId: Q139880449
+      voiceActors:
+        - staffId: sho-karino
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: freida
+      names:
+        original: フリーダ
+        translations:
+          en: Freida
+          ja: フリーダ
+      externalIds:
+        wikidataId: Q139857194
+      voiceActors:
+        - staffId: aya-uchida
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: giebe-bindewald
+      names:
+        original: ギーベ・ビンデバルト
+        translations:
+          en: Giebe Bindewald
+          ja: ギーベ・ビンデバルト
+      externalIds:
+        wikidataId: Q139889595
+      voiceActors:
+        - staffId: chafurin
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: gil
+      names:
+        original: ギル
+        translations:
+          en: Gil
+          ja: ギル
+      externalIds:
+        wikidataId: Q139886824
+      voiceActors:
+        - staffId: yuko-sanpei
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: gloria
+      names:
+        original: グローリエ
+        translations:
+          en: Gloria
+          ja: グローリエ
+      externalIds:
+        wikidataId: Q139889601
+      voiceActors:
+        - staffId: akane-tomonaga
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: grausam
+      names:
+        original: グラオザム
+        translations:
+          en: Grausam
+          ja: グラオザム
+      externalIds:
+        wikidataId: Q139889616
+      voiceActors:
+        - staffId: kenyu-horiuchi
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: gunther
+      names:
+        original: ギュンター
+        translations:
+          en: Gunther
+          ja: ギュンター
+      externalIds:
+        wikidataId: Q139718748
+      voiceActors:
+        - staffId: tsuyoshi-koyama
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: gustav
+      names:
+        original: グスタフ
+        translations:
+          en: Gustav
+          ja: グスタフ
+      externalIds:
+        wikidataId: Q139880192
+      voiceActors:
+        - staffId: hiroshi-naka
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: hartmut
+      names:
+        original: ハルトムート
+        translations:
+          en: Hartmut
+          ja: ハルトムート
+      externalIds:
+        wikidataId: Q139889659
+      voiceActors:
+        - staffId: yuma-uchida
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: heidi
+      names:
+        original: ハイディ
+        translations:
+          en: Heidi
+          ja: ハイディ
+      externalIds:
+        wikidataId: Q139889621
+      voiceActors:
+        - staffId: ayano-shibuya
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: hugo
+      names:
+        original: フーゴ
+        translations:
+          en: Hugo
+          ja: フーゴ
+      externalIds:
+        wikidataId: Q139917202
+      voiceActors:
+        - staffId: so-takeuchi
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: jenni
+      names:
+        original: イェンニ
+        translations:
+          en: Jenni
+          ja: イェンニ
+      externalIds:
+        wikidataId: Q139889627
+      voiceActors:
+        - staffId: yuki-nagano
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: johann
+      names:
+        original: ヨハン
+        translations:
+          en: Johann
+          ja: ヨハン
+      externalIds:
+        wikidataId: Q139888165
+      voiceActors:
+        - staffId: koji-takahashi
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: josef
+      names:
+        original: ヨゼフ
+        translations:
+          en: Josef
+          ja: ヨゼフ
+      externalIds:
+        wikidataId: Q139889635
+      voiceActors:
+        - staffId: tomohito-takatsuka
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: justus
+      names:
+        original: ユストクス
+        translations:
+          en: Justus
+          ja: ユストクス
+      externalIds:
+        wikidataId: Q139889843
+      voiceActors:
+        - staffId: toshihiko-seki
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: jutte
+      names:
+        original: ユッテ
+        translations:
+          en: Jutte
+          ja: ユッテ
+      externalIds:
+        wikidataId: Q140197253
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: karla
+      names:
+        original: カルラ
+        translations:
+          en: Karla
+          ja: カルラ
+      externalIds:
+        wikidataId: Q139862724
+      voiceActors:
+        - staffId: yuko-tachibana
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: karstedt
+      names:
+        original: カルステッド
+        translations:
+          en: Karstedt
+          ja: カルステッド
+      externalIds:
+        wikidataId: Q139888184
+      voiceActors:
+        - staffId: toshiyuki-morikawa
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: lutz
+      names:
+        original: ルッツ
+        translations:
+          en: Lutz
+          ja: ルッツ
+      externalIds:
+        wikidataId: Q139718439
+      voiceActors:
+        - staffId: mutsumi-tamura
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: mark
+      names:
+        original: マルク
+        translations:
+          en: Mark
+          ja: マルク
+      externalIds:
+        wikidataId: Q139862665
+      voiceActors:
+        - staffId: tomoaki-maeno
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: myne
+      names:
+        original: マイン
+        translations:
+          en: Myne
+          ja: マイン
+      externalIds:
+        wikidataId: Q135227871
+      voiceActors:
+        - staffId: yuka-iguchi
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: otto
+      names:
+        original: オットー
+        translations:
+          en: Otto
+          ja: オットー
+      externalIds:
+        wikidataId: Q139861514
+      voiceActors:
+        - staffId: satoshi-hino
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: ralph
+      names:
+        original: ラルフ
+        translations:
+          en: Ralph
+          ja: ラルフ
+      externalIds:
+        wikidataId: Q139862640
+      voiceActors:
+        - staffId: hitomi-nabatame
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: rico
+      names:
+        original: リコ
+        translations:
+          en: Rico
+          ja: リコ
+      externalIds:
+        wikidataId: Q139889570
+      voiceActors:
+        - staffId: kanako-miyamoto
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: rosina
+      names:
+        original: ロジーナ
+        translations:
+          en: Rosina
+          ja: ロジーナ
+      externalIds:
+        wikidataId: Q139886814
+      voiceActors:
+        - staffId: minori-suzuki
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: shikikoza
+      names:
+        original: シキコーザ
+        translations:
+          en: Shikikoza
+          ja: シキコーザ
+      externalIds:
+        wikidataId: Q139889572
+      voiceActors:
+        - staffId: haruki-ishiya
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: sieg
+      names:
+        original: ジーく
+        translations:
+          en: Sieg
+          ja: ジーく
+      externalIds:
+        wikidataId: Q139920321
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: sylvester
+      names:
+        original: ジルヴェスター
+        translations:
+          en: Sylvester
+          ja: ジルヴェスター
+      externalIds:
+        wikidataId: Q139889587
+      voiceActors:
+        - staffId: kazuhiko-inoue
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: tuuli
+      names:
+        original: トゥーリ
+        translations:
+          en: Tuuli
+          ja: トゥーリ
+      externalIds:
+        wikidataId: Q139718466
+      voiceActors:
+        - staffId: megumi-nakajima
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: wilma
+      names:
+        original: ヴィルマ
+        translations:
+          en: Wilma
+          ja: ヴィルマ
+      externalIds:
+        wikidataId: Q139889575
+      voiceActors:
+        - staffId: kiyono-yasuno
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: wolf
+      names:
+        original: ヴォルフ
+        translations:
+          en: Wolf
+          ja: ヴォルフ
+      externalIds:
+        wikidataId: Q139889647
+      voiceActors:
+        - staffId: toshitsugu-takashina
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou
+    - id: zasha
+      names:
+        original: ザシャ
+        translations:
+          en: Zasha
+          ja: ザシャ
+      externalIds:
+        wikidataId: Q139880283
+      voiceActors:
+        - staffId: mari-hino
+          language: ja
+      appearances:
+        - seriesId: honzuki-no-gekokujou

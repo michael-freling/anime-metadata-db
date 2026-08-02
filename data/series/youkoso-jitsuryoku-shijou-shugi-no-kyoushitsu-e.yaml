@@ -147,3 +147,82 @@ series:
           airedNumber: 11
         - absoluteNumber: 50
           airedNumber: 12
+  characters:
+    - id: arisu-sakayanagi
+      names:
+        original: 坂柳有栖
+        translations:
+          en: Arisu Sakayanagi
+          ja: 坂柳有栖
+      externalIds:
+        wikidataId: Q121875661
+      appearances:
+        - seriesId: youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e
+    - id: honami-ichinose
+      names:
+        original: 一之瀬帆波
+        translations:
+          en: Honami Ichinose
+          ja: 一之瀬帆波
+      externalIds:
+        wikidataId: Q111936535
+      voiceActors:
+        - staffId: nao-toyama
+          language: ja
+      appearances:
+        - seriesId: youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e
+    - id: kakeru-ryuuen
+      names:
+        original: 龍園翔
+        translations:
+          en: Kakeru Ryuuen
+          ja: 龍園翔
+      externalIds:
+        wikidataId: Q123593389
+      appearances:
+        - seriesId: youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e
+    - id: kei-karuizawa
+      names:
+        original: 軽井沢恵
+        translations:
+          en: Kei Karuizawa
+          ja: 軽井沢恵
+      externalIds:
+        wikidataId: Q124792209
+      appearances:
+        - seriesId: youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e
+    - id: kikyou-kushida
+      names:
+        original: 櫛田桔梗
+        translations:
+          en: Kikyou Kushida
+          ja: 櫛田桔梗
+      externalIds:
+        wikidataId: Q124796224
+      appearances:
+        - seriesId: youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e
+    - id: kiyotaka-ayanokoji
+      names:
+        original: 綾小路清隆
+        translations:
+          en: Kiyotaka Ayanokōji
+          ja: 綾小路清隆
+      externalIds:
+        wikidataId: Q111936674
+      voiceActors:
+        - staffId: natsuki-hanae
+          language: ja
+        - staffId: shoya-chiba
+          language: ja
+      appearances:
+        - seriesId: youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e
+    - id: suzune-horikita
+      names:
+        original: 堀北鈴音
+        translations:
+          en: Suzune Horikita
+          ja: 堀北鈴音
+      externalIds:
+        wikidataId: Q124793122
+      appearances:
+        - seriesId: youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e

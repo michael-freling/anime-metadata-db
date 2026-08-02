@@ -10,5 +10,44 @@ series:
     - id: koori-no-jouheki-s1
       number: 1
       externalIds: { anilistId: 186497 } # Koori no Jouheki (Spring 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: akine-atagawa
+      externalIds: { wikidataId: Q138796633 }  # Akine Atagawa
+      voiceActors:
+        - { staffId: natsumi-kawaida, language: ja }  # Natsumi Kawaida
+    - id: koyuki-hikawa
+      externalIds: { wikidataId: Q137753023 }  # Koyuki Hikawa
+      voiceActors:
+        - { staffId: anna-nagase, language: ja }  # Anna Nagase
+    - id: miki-azumi
+      externalIds: { wikidataId: Q137753141 }  # Miki Azumi
+      voiceActors:
+        - { staffId: fuka-izumi, language: ja }  # Fūka Izumi
+    - id: minato-amamiya
+      externalIds: { wikidataId: Q137753228 }  # Minato Amamiya
+      voiceActors:
+        - { staffId: shoya-chiba, language: ja }  # Shōya Chiba
+    - id: momoka-kuriki
+      externalIds: { wikidataId: Q138796628 }  # Momoka Kuriki
+      voiceActors:
+        - { staffId: akari-kito, language: ja }  # Akari Kitō
+    - id: tsubasa-igarashi
+      externalIds: { wikidataId: Q138796620 }  # Tsubasa Igarashi
+      voiceActors:
+        - { staffId: chiaki-kobayashi, language: ja }  # Chiaki Kobayashi
+    - id: tsukiko-shimojima
+      externalIds: { wikidataId: Q138796613 }  # Tsukiko Shimojima
+      voiceActors:
+        - { staffId: sakura-shinfuku, language: ja }  # Sakura Shinfuku
+    - id: yuki-azumi
+      externalIds: { wikidataId: Q138796630 }  # Yuki Azumi
+      voiceActors:
+        - { staffId: kakeru-hatano, language: ja }  # Kakeru Hatano
+    - id: yota-hino
+      externalIds: { wikidataId: Q137753283 }  # Yōta Hino
+      voiceActors:
+        - { staffId: satoshi-inomata, language: ja }  # Satoshi Inomata
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [koori-no-jouheki]

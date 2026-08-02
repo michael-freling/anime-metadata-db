@@ -102,3 +102,108 @@ series:
           airedNumber: 11
         - absoluteNumber: 39
           airedNumber: 12
+  characters:
+    - id: asano-taiyo
+      names:
+        original: 朝野太陽
+        translations:
+          en: Asano Taiyō
+          ja: 朝野太陽
+      externalIds:
+        wikidataId: Q140530363
+      voiceActors:
+        - staffId: reiji-kawashima
+          language: ja
+      appearances:
+        - seriesId: yozakura-san-chi-no-daisakusen
+    - id: yozakura-futaba
+      names:
+        original: 夜桜二刃
+        translations:
+          en: Yozakura Futaba
+          ja: 夜桜二刃
+      externalIds:
+        wikidataId: Q140548017
+      voiceActors:
+        - staffId: akari-kito
+          language: ja
+      appearances:
+        - seriesId: yozakura-san-chi-no-daisakusen
+    - id: yozakura-kengo
+      names:
+        original: 夜桜嫌五
+        translations:
+          en: Yozakura Kengo
+          ja: 夜桜嫌五
+      externalIds:
+        wikidataId: Q140548349
+      voiceActors:
+        - staffId: yoshitsugu-matsuoka
+          language: ja
+      appearances:
+        - seriesId: yozakura-san-chi-no-daisakusen
+    - id: yozakura-kyoichiro
+      names:
+        original: 夜桜凶一郎
+        translations:
+          en: Yozakura Kyōichirō
+          ja: 夜桜凶一郎
+      externalIds:
+        wikidataId: Q140530564
+      voiceActors:
+        - staffId: katsuyuki-konishi
+          language: ja
+      appearances:
+        - seriesId: yozakura-san-chi-no-daisakusen
+    - id: yozakura-mutsumi
+      names:
+        original: 夜桜六美
+        translations:
+          en: Yozakura Mutsumi
+          ja: 夜桜六美
+      externalIds:
+        wikidataId: Q140530495
+      voiceActors:
+        - staffId: kaede-hondo
+          language: ja
+      appearances:
+        - seriesId: yozakura-san-chi-no-daisakusen
+    - id: yozakura-nanao
+      names:
+        original: 夜桜七悪
+        translations:
+          en: Yozakura Nanao
+          ja: 夜桜七悪
+      externalIds:
+        wikidataId: Q140548574
+      voiceActors:
+        - staffId: yumi-uchiyama
+          language: ja
+      appearances:
+        - seriesId: yozakura-san-chi-no-daisakusen
+    - id: yozakura-shinzo
+      names:
+        original: 夜桜辛三
+        translations:
+          en: Yozakura Shinzō
+          ja: 夜桜辛三
+      externalIds:
+        wikidataId: Q140548055
+      voiceActors:
+        - staffId: kazuyuki-okitsu
+          language: ja
+      appearances:
+        - seriesId: yozakura-san-chi-no-daisakusen
+    - id: yozakura-shion
+      names:
+        original: 夜桜四怨
+        translations:
+          en: Yozakura Shion
+          ja: 夜桜四怨
+      externalIds:
+        wikidataId: Q140548114
+      voiceActors:
+        - staffId: aoi-yuki
+          language: ja
+      appearances:
+        - seriesId: yozakura-san-chi-no-daisakusen

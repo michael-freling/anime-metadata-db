@@ -13,5 +13,68 @@ series:
     - id: jigokuraku-s2
       number: 2
       externalIds: { anilistId: 166613 } # Jigokuraku 2nd Season (Winter 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: aza-chobei
+      externalIds: { wikidataId: Q115807094 }  # Aza Chōbei
+      voiceActors:
+        - { staffId: ryohei-kimura, language: ja }  # Ryōhei Kimura
+    - id: aza-toma
+      externalIds: { wikidataId: Q115807161 }  # Aza Tōma
+      voiceActors:
+        - { staffId: kensho-ono, language: ja }  # Kensho Ono
+    - id: gabimaru
+      externalIds: { wikidataId: Q115806771 }  # Gabimaru
+      voiceActors:
+        - { staffId: chiaki-kobayashi, language: ja }  # Chiaki Kobayashi
+    - id: nurugai
+      externalIds: { wikidataId: Q116520255 }  # Nurugai
+      voiceActors:
+        - { staffId: makoto-koichi, language: ja }  # Makoto Koichi
+    - id: tamiya-gantetsusai
+      externalIds: { wikidataId: Q115807327 }  # Tamiya Gantetsusai
+      voiceActors:
+        - { staffId: tetsu-inada, language: ja }  # Tetsu Inada
+    - id: tokugawa-nariyoshi
+      externalIds: { wikidataId: Q117663196 }  # Tokugawa Nariyoshi
+      voiceActors:
+        - { staffId: chafurin, language: ja }  # Chafurin
+    - id: yamada-asaemon-eizen
+      externalIds: { wikidataId: Q117663135 }  # Yamada Asaemon Eizen
+      voiceActors:
+        - { staffId: makoto-furukawa, language: ja }  # Makoto Furukawa
+    - id: yamada-asaemon-fuchi
+      externalIds: { wikidataId: Q115807719 }  # Yamada Asaemon Fuchi
+      voiceActors:
+        - { staffId: aoi-ichikawa, language: ja }  # Aoi Ichikawa
+    - id: yamada-asaemon-genji
+      externalIds: { wikidataId: Q117667806 }  # Yamada Asaemon Genji
+      voiceActors:
+        - { staffId: volcano-ota, language: ja }  # Volcano Ōta
+    - id: yamada-asaemon-kisho
+      externalIds: { wikidataId: Q117667609 }  # Yamada Asaemon Kishō
+      voiceActors:
+        - { staffId: shun-ichi-toki, language: ja }  # Shun'ichi Toki
+    - id: yamada-asaemon-sagiri
+      externalIds: { wikidataId: Q115806980 }  # Yamada Asaemon Sagiri
+      voiceActors:
+        - { staffId: yumiri-hanamori, language: ja }  # Yumiri Hanamori
+    - id: yamada-asaemon-senta
+      externalIds: { wikidataId: Q116520333 }  # Yamada Asaemon Senta
+      voiceActors:
+        - { staffId: daiki-yamashita, language: ja }  # Daiki Yamashita
+    - id: yamada-asaemon-shion
+      externalIds: { wikidataId: Q116520031 }  # Yamada Asaemon Shion
+      voiceActors:
+        - { staffId: chikahiro-kobayashi, language: ja }  # Chikahiro Kobayashi
+    - id: yamada-asaemon-tenza
+      externalIds: { wikidataId: Q116520148 }  # Yamada Asaemon Tenza
+      voiceActors:
+        - { staffId: yusuke-kobayashi, language: ja }  # Yūsuke Kobayashi
+    - id: yuzuriha
+      externalIds: { wikidataId: Q115807208 }  # Yuzuriha
+      voiceActors:
+        - { staffId: rie-takahashi, language: ja }  # Rie Takahashi
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [jigokuraku]

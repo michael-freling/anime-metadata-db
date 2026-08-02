@@ -10,5 +10,16 @@ series:
     - id: mata-korosarete-shimatta-no-desu-ne-tantei-sama-s1
       number: 1
       externalIds: { anilistId: 202381 } # Mata Korosarete Shimatta no desu ne, Tantei-sama (Spring 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: lilithea
+      externalIds: { wikidataId: Q138666348 }  # Lilithea
+      voiceActors:
+        - { staffId: shion-wakayama, language: ja }  # Shion Wakayama
+    - id: sakuya-outsuki
+      externalIds: { wikidataId: Q138666340 }  # Sakuya Outsuki
+      voiceActors:
+        - { staffId: rikuya-yasuda, language: ja }  # Rikuya Yasuda
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [mata-korosarete-shimatta-no-desu-ne-tantei-sama]

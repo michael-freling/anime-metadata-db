@@ -13,5 +13,40 @@ series:
     - id: yozakura-san-chi-no-daisakusen-s2
       number: 2
       externalIds: { anilistId: 182578 } # Yozakura-san Chi no Daisakusen 2nd Season (Spring 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: asano-taiyo
+      externalIds: { wikidataId: Q140530363 }  # Asano Taiyō
+      voiceActors:
+        - { staffId: reiji-kawashima, language: ja }  # Reiji Kawashima
+    - id: yozakura-futaba
+      externalIds: { wikidataId: Q140548017 }  # Yozakura Futaba
+      voiceActors:
+        - { staffId: akari-kito, language: ja }  # Akari Kitō
+    - id: yozakura-kengo
+      externalIds: { wikidataId: Q140548349 }  # Yozakura Kengo
+      voiceActors:
+        - { staffId: yoshitsugu-matsuoka, language: ja }  # Yoshitsugu Matsuoka
+    - id: yozakura-kyoichiro
+      externalIds: { wikidataId: Q140530564 }  # Yozakura Kyōichirō
+      voiceActors:
+        - { staffId: katsuyuki-konishi, language: ja }  # Katsuyuki Konishi
+    - id: yozakura-mutsumi
+      externalIds: { wikidataId: Q140530495 }  # Yozakura Mutsumi
+      voiceActors:
+        - { staffId: kaede-hondo, language: ja }  # Kaede Hondo
+    - id: yozakura-nanao
+      externalIds: { wikidataId: Q140548574 }  # Yozakura Nanao
+      voiceActors:
+        - { staffId: yumi-uchiyama, language: ja }  # Yumi Uchiyama
+    - id: yozakura-shinzo
+      externalIds: { wikidataId: Q140548055 }  # Yozakura Shinzō
+      voiceActors:
+        - { staffId: kazuyuki-okitsu, language: ja }  # Kazuyuki Okitsu
+    - id: yozakura-shion
+      externalIds: { wikidataId: Q140548114 }  # Yozakura Shion
+      voiceActors:
+        - { staffId: aoi-yuki, language: ja }  # Aoi Yūki
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [yozakura-san-chi-no-daisakusen]

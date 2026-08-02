@@ -39,3 +39,30 @@ series:
           airedNumber: 11
         - absoluteNumber: 12
           airedNumber: 12
+  characters:
+    - id: izumi-sano
+      names:
+        translations:
+          en: Izumi Sano
+      externalIds:
+        wikidataId: Q3805042
+      appearances:
+        - seriesId: hanazakari-no-kimitachi-e
+    - id: mizuki-ashiya
+      names:
+        translations:
+          en: Mizuki Ashiya
+      externalIds:
+        wikidataId: Q3859648
+      appearances:
+        - seriesId: hanazakari-no-kimitachi-e
+    - id: shuichi-nakatsu
+      names:
+        original: 中津秀一
+        translations:
+          en: Shuichi Nakatsu
+          ja: 中津秀一
+      externalIds:
+        wikidataId: Q277216
+      appearances:
+        - seriesId: hanazakari-no-kimitachi-e

@@ -103,3 +103,120 @@ series:
           airedNumber: 10
         - absoluteNumber: 35
           airedNumber: 11
+  characters:
+    - id: ai-hoshino
+      names:
+        original: 星野アイ
+        translations:
+          en: Ai Hoshino
+          ja: 星野アイ
+      externalIds:
+        wikidataId: Q110713922
+      voiceActors:
+        - staffId: rie-takahashi
+          language: ja
+      appearances:
+        - seriesId: oshi-no-ko
+    - id: akane-kurokawa
+      names:
+        original: 黒川茜
+        translations:
+          en: Akane Kurokawa
+          ja: 黒川茜
+      externalIds:
+        wikidataId: Q133807676
+      voiceActors:
+        - staffId: manaka-iwami
+          language: ja
+      appearances:
+        - seriesId: oshi-no-ko
+    - id: aquamarine-hoshino
+      names:
+        original: 星野愛久愛海
+        translations:
+          en: Aquamarine Hoshino
+          ja: 星野愛久愛海
+      externalIds:
+        wikidataId: Q110713918
+      voiceActors:
+        - staffId: takeo-otsuka
+          language: ja
+        - staffId: yumi-uchiyama
+          language: ja
+      appearances:
+        - seriesId: oshi-no-ko
+    - id: gorou-amamiya
+      names:
+        original: 雨宮吾郎
+        translations:
+          en: Gorou Amamiya
+          ja: 雨宮吾郎
+      externalIds:
+        wikidataId: Q138799019
+      voiceActors:
+        - staffId: kento-ito
+          language: ja
+      appearances:
+        - seriesId: oshi-no-ko
+    - id: kana-arima
+      names:
+        original: 有馬かな
+        translations:
+          en: Kana Arima
+          ja: 有馬かな
+      externalIds:
+        wikidataId: Q118062992
+      voiceActors:
+        - staffId: megumi-han
+          language: ja
+      appearances:
+        - seriesId: oshi-no-ko
+    - id: mem-cho
+      names:
+        original: MEMちょ
+        translations:
+          en: MEM-cho
+          ja: MEMちょ
+      externalIds:
+        wikidataId: Q124879930
+      voiceActors:
+        - staffId: rumi-okubo
+          language: ja
+      appearances:
+        - seriesId: oshi-no-ko
+    - id: ruby-hoshino
+      names:
+        original: 星野瑠美衣
+        translations:
+          en: Ruby Hoshino
+          ja: 星野瑠美衣
+      externalIds:
+        wikidataId: Q110713919
+      voiceActors:
+        - staffId: yurie-igoma
+          language: ja
+      appearances:
+        - seriesId: oshi-no-ko
+    - id: ryosuke-kaihara
+      names:
+        original: 貝原亮介
+        translations:
+          en: Ryōsuke Kaihara
+          ja: 貝原亮介
+      externalIds:
+        wikidataId: Q127369597
+      appearances:
+        - seriesId: oshi-no-ko
+    - id: sarina-tendouji
+      names:
+        original: 天童寺さりな
+        translations:
+          en: Sarina Tendouji
+          ja: 天童寺さりな
+      externalIds:
+        wikidataId: Q125400559
+      voiceActors:
+        - staffId: tomoyo-takayanagi
+          language: ja
+      appearances:
+        - seriesId: oshi-no-ko

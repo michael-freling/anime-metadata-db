@@ -20,5 +20,27 @@ series:
       titles: { translations: { en: "4th Season: 2-nensei-hen 1 Gakki" } }
       number: 4
       externalIds: { anilistId: 180745 } # Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e 4th Season: 2-nensei-hen 1 Gakki (Spring 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: arisu-sakayanagi
+      externalIds: { wikidataId: Q121875661 }  # Arisu Sakayanagi
+    - id: honami-ichinose
+      externalIds: { wikidataId: Q111936535 }  # Honami Ichinose
+      voiceActors:
+        - { staffId: nao-toyama, language: ja }  # Nao Tōyama
+    - id: kakeru-ryuuen
+      externalIds: { wikidataId: Q123593389 }  # Kakeru Ryuuen
+    - id: kei-karuizawa
+      externalIds: { wikidataId: Q124792209 }  # Kei Karuizawa
+    - id: kikyou-kushida
+      externalIds: { wikidataId: Q124796224 }  # Kikyou Kushida
+    - id: kiyotaka-ayanokoji
+      externalIds: { wikidataId: Q111936674 }  # Kiyotaka Ayanokōji
+      voiceActors:
+        - { staffId: natsuki-hanae, language: ja }  # Natsuki Hanae
+        - { staffId: shoya-chiba, language: ja }  # Shōya Chiba
+    - id: suzune-horikita
+      externalIds: { wikidataId: Q124793122 }  # Suzune Horikita
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e]

@@ -100,3 +100,560 @@ series:
           airedNumber: 9
         - absoluteNumber: 38
           airedNumber: 10
+  characters:
+    - id: aura
+      names:
+        original: アウラ
+        translations:
+          en: Aura
+          ja: アウラ
+      externalIds:
+        wikidataId: Q123029593
+      voiceActors:
+        - staffId: ayana-taketatsu
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: blei
+      names:
+        original: ブライ
+        translations:
+          en: Blei
+          ja: ブライ
+      externalIds:
+        wikidataId: Q124570345
+      voiceActors:
+        - staffId: shin-ya-takahashi
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: dach
+      names:
+        original: ダッハ
+        translations:
+          en: Dach
+          ja: ダッハ
+      externalIds:
+        wikidataId: Q137861040
+      voiceActors:
+        - staffId: kosuke-kobayashi
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: denken
+      names:
+        original: デンケン
+        translations:
+          en: Denken
+          ja: デンケン
+      externalIds:
+        wikidataId: Q123982662
+      voiceActors:
+        - staffId: jiro-saito
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: draht
+      names:
+        original: ドラート
+        translations:
+          en: Draht
+          ja: ドラート
+      externalIds:
+        wikidataId: Q123029627
+      voiceActors:
+        - staffId: koki-osuzu
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: dunste
+      names:
+        original: ドゥンスト
+        translations:
+          en: Dünste
+          ja: ドゥンスト
+      externalIds:
+        wikidataId: Q124570360
+      voiceActors:
+        - staffId: masafumi-kobatake
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: edel
+      names:
+        original: エーデル
+        translations:
+          en: Edel
+          ja: エーデル
+      externalIds:
+        wikidataId: Q124329516
+      voiceActors:
+        - staffId: tomoyo-kurosawa
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: ehre
+      names:
+        original: エーレ
+        translations:
+          en: Ehre
+          ja: エーレ
+      externalIds:
+        wikidataId: Q123982672
+      voiceActors:
+        - staffId: kanae-ito
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: eisen
+      names:
+        original: アイゼン
+        translations:
+          en: Eisen
+          ja: アイゼン
+      externalIds:
+        wikidataId: Q120089051
+      voiceActors:
+        - staffId: yoji-ueda
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: falsch
+      names:
+        original: ファルシュ
+        translations:
+          en: Falsch
+          ja: ファルシュ
+      externalIds:
+        wikidataId: Q124876079
+      voiceActors:
+        - staffId: kento-shiraishi
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: fern
+      names:
+        original: フェルン
+        translations:
+          en: Fern
+          ja: フェルン
+      externalIds:
+        wikidataId: Q121302212
+      voiceActors:
+        - staffId: kana-ichinose
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: flamme
+      names:
+        original: フランメ
+        translations:
+          en: Flamme
+          ja: フランメ
+      externalIds:
+        wikidataId: Q122781800
+      voiceActors:
+        - staffId: atsuko-tanaka
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: frieren
+      names:
+        original: フリーレン
+        translations:
+          en: Frieren
+          ja: フリーレン
+      externalIds:
+        wikidataId: Q104144455
+      voiceActors:
+        - staffId: atsumi-tanezaki
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: gabel
+      names:
+        original: ガーベル
+        translations:
+          en: Gabel
+          ja: ガーベル
+      externalIds:
+        wikidataId: Q123974488
+      voiceActors:
+        - staffId: takayuki-nakatsukasa
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: genau
+      names:
+        original: ゲナウ
+        translations:
+          en: Genau
+          ja: ゲナウ
+      externalIds:
+        wikidataId: Q123982679
+      voiceActors:
+        - staffId: tarusuke-shingaki
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: gorilla
+      names:
+        original: ゴリラ
+        translations:
+          en: Gorilla
+          ja: ゴリラ
+      externalIds:
+        wikidataId: Q123982614
+      voiceActors:
+        - staffId: hiromichi-tezuka
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: granat
+      names:
+        original: グラナト
+        translations:
+          en: Granat
+          ja: グラナト
+      externalIds:
+        wikidataId: Q123139278
+      voiceActors:
+        - staffId: shunsuke-sakuya
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: heiter
+      names:
+        original: ハイター
+        translations:
+          en: Heiter
+          ja: ハイター
+      externalIds:
+        wikidataId: Q120089049
+      voiceActors:
+        - staffId: hiroki-tochi
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: hero-of-the-south
+      names:
+        original: 南の勇者
+        translations:
+          en: Hero of the South
+          ja: 南の勇者
+      externalIds:
+        wikidataId: Q137861018
+      voiceActors:
+        - staffId: kazuhiko-inoue
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: himmel
+      names:
+        original: ヒンメル
+        translations:
+          en: Himmel
+          ja: ヒンメル
+      externalIds:
+        wikidataId: Q120089047
+      voiceActors:
+        - staffId: nobuhiko-okamoto
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: kanne
+      names:
+        original: カンネ
+        translations:
+          en: Kanne
+          ja: カンネ
+      externalIds:
+        wikidataId: Q123982584
+      voiceActors:
+        - staffId: azumi-waki
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: kraft
+      names:
+        original: クラフト
+        translations:
+          en: Kraft
+          ja: クラフト
+      externalIds:
+        wikidataId: Q122911619
+      voiceActors:
+        - staffId: takehito-koyasu
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: land
+      names:
+        original: ラント
+        translations:
+          en: Land
+          ja: ラント
+      externalIds:
+        wikidataId: Q123982666
+      voiceActors:
+        - staffId: shohei-komatsu
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: laufen
+      names:
+        original: ラオフェン
+        translations:
+          en: Laufen
+          ja: ラオフェン
+      externalIds:
+        wikidataId: Q123982671
+      voiceActors:
+        - staffId: shizuka-ishigami
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: lawine
+      names:
+        original: ラヴィーネ
+        translations:
+          en: Lawine
+          ja: ラヴィーネ
+      externalIds:
+        wikidataId: Q123982648
+      voiceActors:
+        - staffId: sayumi-suzushiro
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: lernen
+      names:
+        original: レルネン
+        translations:
+          en: Lernen
+          ja: レルネン
+      externalIds:
+        wikidataId: Q124570366
+      voiceActors:
+        - staffId: atsushi-miyauchi
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: linie
+      names:
+        original: リーニエ
+        translations:
+          en: Linie
+          ja: リーニエ
+      externalIds:
+        wikidataId: Q123029617
+      voiceActors:
+        - staffId: manaka-iwami
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: lange
+      names:
+        original: レンゲ
+        translations:
+          en: Länge
+          ja: レンゲ
+      externalIds:
+        wikidataId: Q124570329
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: lugner
+      names:
+        original: リュグナー
+        translations:
+          en: Lügner
+          ja: リュグナー
+      externalIds:
+        wikidataId: Q123029611
+      voiceActors:
+        - staffId: junichi-suwabe
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: methode
+      names:
+        original: メトーデ
+        translations:
+          en: Methode
+          ja: メトーデ
+      externalIds:
+        wikidataId: Q124570332
+      voiceActors:
+        - staffId: reina-ueda
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: orden
+      names:
+        original: オルデン
+        translations:
+          en: Orden
+          ja: オルデン
+      externalIds:
+        wikidataId: Q123974423
+      voiceActors:
+        - staffId: yuya-uchida
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: revolte
+      names:
+        original: レヴォルテ
+        translations:
+          en: Revolte
+          ja: レヴォルテ
+      externalIds:
+        wikidataId: Q138679546
+      voiceActors:
+        - staffId: shin-ichiro-miki
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: richter
+      names:
+        original: リヒター
+        translations:
+          en: Richter
+          ja: リヒター
+      externalIds:
+        wikidataId: Q123982668
+      voiceActors:
+        - staffId: eiji-hanawa
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: scharf
+      names:
+        original: シャルフ
+        translations:
+          en: Scharf
+          ja: シャルフ
+      externalIds:
+        wikidataId: Q124329514
+      voiceActors:
+        - staffId: yuji-murai
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: sein
+      names:
+        original: ザイン
+        translations:
+          en: Sein
+          ja: ザイン
+      externalIds:
+        wikidataId: Q122781825
+      voiceActors:
+        - staffId: yuichi-nakamura
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: sense
+      names:
+        original: ゼンゼ
+        translations:
+          en: Sense
+          ja: ゼンゼ
+      externalIds:
+        wikidataId: Q123982675
+      voiceActors:
+        - staffId: haruka-terui
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: serie
+      names:
+        original: ゼーリエ
+        translations:
+          en: Serie
+          ja: ゼーリエ
+      externalIds:
+        wikidataId: Q122781845
+      voiceActors:
+        - staffId: mariya-ise
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: stark
+      names:
+        original: シュタルク
+        translations:
+          en: Stark
+          ja: シュタルク
+      externalIds:
+        wikidataId: Q121302214
+      voiceActors:
+        - staffId: chiaki-kobayashi
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: stoltz
+      names:
+        original: シュトルツ
+        translations:
+          en: Stoltz
+          ja: シュトルツ
+      externalIds:
+        wikidataId: Q123574382
+      voiceActors:
+        - staffId: takuya-eguchi
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: ton
+      names:
+        original: トーン
+        translations:
+          en: Ton
+          ja: トーン
+      externalIds:
+        wikidataId: Q124570336
+      voiceActors:
+        - staffId: taito-ban
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: voll
+      names:
+        original: フォル
+        translations:
+          en: Voll
+          ja: フォル
+      externalIds:
+        wikidataId: Q123982645
+      voiceActors:
+        - staffId: mitsuaki-hoshino
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: wirbel
+      names:
+        original: ヴィアベル
+        translations:
+          en: Wirbel
+          ja: ヴィアベル
+      externalIds:
+        wikidataId: Q123982655
+      voiceActors:
+        - staffId: kisho-taniyama
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: ubel
+      names:
+        original: ユーベル
+        translations:
+          en: Übel
+          ja: ユーベル
+      externalIds:
+        wikidataId: Q123982659
+      voiceActors:
+        - staffId: ikumi-hasegawa
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren

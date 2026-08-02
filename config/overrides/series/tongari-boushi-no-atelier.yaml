@@ -10,5 +10,64 @@ series:
     - id: tongari-boushi-no-atelier-s1
       number: 1
       externalIds: { anilistId: 147105 } # Tongari Boushi no Atelier (Spring 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: agott
+      externalIds: { wikidataId: Q138386969 }  # Agott
+      voiceActors:
+        - { staffId: hibiku-yamamura, language: ja }  # Hibiku Yamamura
+    - id: alaira
+      externalIds: { wikidataId: Q139495276 }  # Alaira
+      voiceActors:
+        - { staffId: kotono-mitsuishi, language: ja }  # Kotono Mitsuishi
+    - id: coco
+      externalIds: { wikidataId: Q138386911 }  # Coco
+      voiceActors:
+        - { staffId: rena-motomura, language: ja }  # Rena Motomura
+    - id: custas
+      externalIds: { wikidataId: Q139754787 }  # Custas
+      voiceActors:
+        - { staffId: toshiki-kumagai, language: ja }  # Toshiki Kumagai
+    - id: dagda
+      externalIds: { wikidataId: Q139754786 }  # Dagda
+      voiceActors:
+        - { staffId: katsuyuki-konishi, language: ja }  # Katsuyuki Konishi
+    - id: easthies
+      externalIds: { wikidataId: Q139754847 }  # Easthies
+    - id: galga
+      externalIds: { wikidataId: Q139754914 }  # Galga
+      voiceActors:
+        - { staffId: hiroki-yasumoto, language: ja }  # Hiroki Yasumoto
+    - id: iguin
+      externalIds: { wikidataId: Q138386974 }  # Iguin
+    - id: luluci
+      externalIds: { wikidataId: Q139754865 }  # Luluci
+      voiceActors:
+        - { staffId: yui-ishikawa, language: ja }  # Yui Ishikawa
+    - id: nolnoa
+      externalIds: { wikidataId: Q139495277 }  # Nolnoa
+      voiceActors:
+        - { staffId: yoshito-yasuhara, language: ja }  # Yoshito Yasuhara
+    - id: olruggio
+      externalIds: { wikidataId: Q138386973 }  # Olruggio
+      voiceActors:
+        - { staffId: yuichi-nakamura, language: ja }  # Yūichi Nakamura
+    - id: richeh
+      externalIds: { wikidataId: Q138386972 }  # Richeh
+      voiceActors:
+        - { staffId: hika-tsukishiro, language: ja }  # Hika Tsukishiro
+    - id: tartah
+      externalIds: { wikidataId: Q139495273 }  # Tartah
+      voiceActors:
+        - { staffId: mutsumi-tamura, language: ja }  # Mutsumi Tamura
+    - id: tetia
+      externalIds: { wikidataId: Q138386970 }  # Tetia
+      voiceActors:
+        - { staffId: kurumi-haruki, language: ja }  # Kurumi Haruki
+    - id: utowin
+      externalIds: { wikidataId: Q139754891 }  # Utowin
+      voiceActors:
+        - { staffId: jun-kasama, language: ja }  # Jun Kasama
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [tongari-boushi-no-atelier]

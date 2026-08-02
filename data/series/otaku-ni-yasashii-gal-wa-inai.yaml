@@ -39,3 +39,56 @@ series:
           airedNumber: 11
         - absoluteNumber: 12
           airedNumber: 12
+  characters:
+    - id: kei-amane
+      names:
+        original: 天音慶
+        translations:
+          en: Kei Amane
+          ja: 天音慶
+      externalIds:
+        wikidataId: Q137584104
+      voiceActors:
+        - staffId: konomi-inagaki
+          language: ja
+      appearances:
+        - seriesId: otaku-ni-yasashii-gal-wa-inai
+    - id: kotoko-ijichi
+      names:
+        original: 伊地知琴子
+        translations:
+          en: Kotoko Ijichi
+          ja: 伊地知琴子
+      externalIds:
+        wikidataId: Q137584039
+      voiceActors:
+        - staffId: yu-serizawa
+          language: ja
+      appearances:
+        - seriesId: otaku-ni-yasashii-gal-wa-inai
+    - id: sayu-amamiya
+      names:
+        original: 雨宮紗優
+        translations:
+          en: Sayu Amamiya
+          ja: 雨宮紗優
+      externalIds:
+        wikidataId: Q139714492
+      voiceActors:
+        - staffId: konomi-kohara
+          language: ja
+      appearances:
+        - seriesId: otaku-ni-yasashii-gal-wa-inai
+    - id: takuya-seo
+      names:
+        original: 瀬尾卓也
+        translations:
+          en: Takuya Seo
+          ja: 瀬尾卓也
+      externalIds:
+        wikidataId: Q137583893
+      voiceActors:
+        - staffId: shou-komura
+          language: ja
+      appearances:
+        - seriesId: otaku-ni-yasashii-gal-wa-inai

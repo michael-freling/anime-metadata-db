@@ -68,3 +68,56 @@ series:
           airedNumber: 8
         - absoluteNumber: 22
           airedNumber: 9
+  characters:
+    - id: hikaru-kamisaki
+      names:
+        original: 狼嵜光
+        translations:
+          en: Hikaru Kamisaki
+          ja: 狼嵜光
+      externalIds:
+        wikidataId: Q131928222
+      voiceActors:
+        - staffId: kana-ichinose
+          language: ja
+      appearances:
+        - seriesId: medalist
+    - id: inori-yuitsuka
+      names:
+        original: 結束いのり
+        translations:
+          en: Inori Yuitsuka
+          ja: 結束いのり
+      externalIds:
+        wikidataId: Q131928143
+      voiceActors:
+        - staffId: natsumi-haruse
+          language: ja
+      appearances:
+        - seriesId: medalist
+    - id: jun-yodaka
+      names:
+        original: 夜鷹純
+        translations:
+          en: Jun Yodaka
+          ja: 夜鷹純
+      externalIds:
+        wikidataId: Q131928233
+      voiceActors:
+        - staffId: yuma-uchida
+          language: ja
+      appearances:
+        - seriesId: medalist
+    - id: tsukasa-akeuraji
+      names:
+        original: 明浦路司
+        translations:
+          en: Tsukasa Akeuraji
+          ja: 明浦路司
+      externalIds:
+        wikidataId: Q131928150
+      voiceActors:
+        - staffId: takeo-otsuka
+          language: ja
+      appearances:
+        - seriesId: medalist

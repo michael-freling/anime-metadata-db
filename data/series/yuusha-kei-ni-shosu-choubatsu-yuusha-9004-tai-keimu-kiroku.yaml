@@ -39,3 +39,160 @@ series:
           airedNumber: 11
         - absoluteNumber: 12
           airedNumber: 12
+  characters:
+    - id: dotta-luzulas
+      names:
+        original: ドッタ・ルズラス
+        translations:
+          en: Dotta Luzulas
+          ja: ドッタ・ルズラス
+      externalIds:
+        wikidataId: Q137407987
+      voiceActors:
+        - staffId: shun-horie
+          language: ja
+      appearances:
+        - seriesId: yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku
+    - id: frenci-mastibolt
+      names:
+        original: フレンシィ・マスティボルト
+        translations:
+          en: Frenci Mastibolt
+          ja: フレンシィ・マスティボルト
+      externalIds:
+        wikidataId: Q137409856
+      voiceActors:
+        - staffId: saori-onishi
+          language: ja
+      appearances:
+        - seriesId: yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku
+    - id: jayce-partiract
+      names:
+        original: ジェイス・パーチラクト
+        translations:
+          en: Jayce Partiract
+          ja: ジェイス・パーチラクト
+      externalIds:
+        wikidataId: Q137409834
+      voiceActors:
+        - staffId: shoya-chiba
+          language: ja
+      appearances:
+        - seriesId: yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku
+    - id: neely
+      names:
+        original: ニーリィ
+        translations:
+          en: Neely
+          ja: ニーリィ
+      externalIds:
+        wikidataId: Q137409845
+      voiceActors:
+        - staffId: yoko-hikasa
+          language: ja
+      appearances:
+        - seriesId: yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku
+    - id: norgalle-senridge
+      names:
+        original: ノルガユ・センリッジ
+        translations:
+          en: Norgalle Senridge
+          ja: ノルガユ・センリッジ
+      externalIds:
+        wikidataId: Q137409796
+      voiceActors:
+        - staffId: yoji-ueda
+          language: ja
+      appearances:
+        - seriesId: yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku
+    - id: patausche-kivia
+      names:
+        original: パトーシェ・キヴィア
+        translations:
+          en: Patausche Kivia
+          ja: パトーシェ・キヴィア
+      externalIds:
+        wikidataId: Q137407713
+      voiceActors:
+        - staffId: shizuka-ishigami
+          language: ja
+      appearances:
+        - seriesId: yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku
+    - id: rhyno
+      names:
+        original: ライノー
+        translations:
+          en: Rhyno
+          ja: ライノー
+      externalIds:
+        wikidataId: Q137409854
+      voiceActors:
+        - staffId: yuichi-nakamura
+          language: ja
+      appearances:
+        - seriesId: yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku
+    - id: tatsuya
+      names:
+        original: タツヤ
+        translations:
+          en: Tatsuya
+          ja: タツヤ
+      externalIds:
+        wikidataId: Q137409812
+      voiceActors:
+        - staffId: yoshitsugu-matsuoka
+          language: ja
+      appearances:
+        - seriesId: yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku
+    - id: teoritta
+      names:
+        original: テオリッタ
+        translations:
+          en: Teoritta
+          ja: テオリッタ
+      externalIds:
+        wikidataId: Q137407424
+      voiceActors:
+        - staffId: mayu-iizuka
+          language: ja
+      appearances:
+        - seriesId: yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku
+    - id: tsav
+      names:
+        original: ツァーヴ
+        translations:
+          en: Tsav
+          ja: ツァーヴ
+      externalIds:
+        wikidataId: Q137409827
+      voiceActors:
+        - staffId: jun-fukushima
+          language: ja
+      appearances:
+        - seriesId: yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku
+    - id: venetim-leopool
+      names:
+        original: ベネティム・レオプール
+        translations:
+          en: Venetim Leopool
+          ja: ベネティム・レオプール
+      externalIds:
+        wikidataId: Q137408447
+      voiceActors:
+        - staffId: shun-ichi-toki
+          language: ja
+      appearances:
+        - seriesId: yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku
+    - id: xylo-forbartz
+      names:
+        original: ザイロ・フォルバーツ
+        translations:
+          en: Xylo Forbartz
+          ja: ザイロ・フォルバーツ
+      externalIds:
+        wikidataId: Q137407232
+      voiceActors:
+        - staffId: yohei-azakami
+          language: ja
+      appearances:
+        - seriesId: yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku

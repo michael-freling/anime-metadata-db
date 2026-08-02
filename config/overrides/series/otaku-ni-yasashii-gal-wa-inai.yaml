@@ -10,5 +10,24 @@ series:
     - id: otaku-ni-yasashii-gal-wa-inai-s1
       number: 1
       externalIds: { anilistId: 199588 } # Otaku ni Yasashii Gal wa Inai!? (Spring 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: kei-amane
+      externalIds: { wikidataId: Q137584104 }  # Kei Amane
+      voiceActors:
+        - { staffId: konomi-inagaki, language: ja }  # Konomi Inagaki
+    - id: kotoko-ijichi
+      externalIds: { wikidataId: Q137584039 }  # Kotoko Ijichi
+      voiceActors:
+        - { staffId: yu-serizawa, language: ja }  # Yū Serizawa
+    - id: sayu-amamiya
+      externalIds: { wikidataId: Q139714492 }  # Sayu Amamiya
+      voiceActors:
+        - { staffId: konomi-kohara, language: ja }  # Konomi Kohara
+    - id: takuya-seo
+      externalIds: { wikidataId: Q137583893 }  # Takuya Seo
+      voiceActors:
+        - { staffId: shou-komura, language: ja }  # Shou Komura
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [otaku-ni-yasashii-gal-wa-inai]

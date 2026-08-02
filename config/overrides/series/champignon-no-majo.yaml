@@ -10,5 +10,12 @@ series:
     - id: champignon-no-majo-s1
       number: 1
       externalIds: { anilistId: 185514 } # Champignon no Majo (Winter 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: luna
+      externalIds: { wikidataId: Q137737837 }  # Luna
+      voiceActors:
+        - { staffId: haruka-shiraishi, language: ja }  # Haruka Shiraishi
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [champignon-no-majo]

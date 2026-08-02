@@ -13,5 +13,24 @@ series:
     - id: isekai-nonbiri-nouka-s2
       number: 2
       externalIds: { anilistId: 197824 } # Isekai Nonbiri Nouka 2 (Spring 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: hiraku-machio
+      externalIds: { wikidataId: Q116753333 }  # Hiraku Machio
+      voiceActors:
+        - { staffId: atsushi-abe, language: ja }  # Atsushi Abe
+    - id: ria
+      externalIds: { wikidataId: Q116755797 }  # Ria
+      voiceActors:
+        - { staffId: lynn, language: ja }  # Lynn
+    - id: ru
+      externalIds: { wikidataId: Q116755792 }  # Ru
+      voiceActors:
+        - { staffId: shino-shimoji, language: ja }  # Shino Shimoji
+    - id: tia
+      externalIds: { wikidataId: Q116755795 }  # Tia
+      voiceActors:
+        - { staffId: aya-suzaki, language: ja }  # Aya Suzaki
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [isekai-nonbiri-nouka]

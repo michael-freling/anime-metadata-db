@@ -24,5 +24,602 @@ series:
     - id: tensei-shitara-slime-datta-ken-s4
       number: 4
       externalIds: { anilistId: 182205 } # Tensei shitara Slime Datta Ken 4th Season (Spring 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: abiru
+      externalIds: { wikidataId: Q104872605 }  # Abiru
+      voiceActors:
+        - { staffId: tomoyuki-shimura, language: ja }  # Tomoyuki Shimura
+    - id: adalman
+      externalIds: { wikidataId: Q108352316 }  # Adalman
+      voiceActors:
+        - { staffId: tomokazu-sugita, language: ja }  # Tomokazu Sugita
+    - id: aegil
+      externalIds: { wikidataId: Q140426530 }  # Aegil
+      voiceActors:
+        - { staffId: takaaki-torashima, language: ja }  # Takaaki Torashima
+    - id: agera
+      externalIds: { wikidataId: Q140482567 }  # Agera
+      voiceActors:
+        - { staffId: kazuhiro-nakaya, language: ja }  # Kazuhiro Nakaya
+    - id: albis
+      externalIds: { wikidataId: Q104903409 }  # Albis
+      voiceActors:
+        - { staffId: ai-kakuma, language: ja }  # Ai Kakuma
+    - id: alice-rondo
+      externalIds: { wikidataId: Q104863430 }  # Alice Rondo
+      voiceActors:
+        - { staffId: haruka-shiraishi, language: ja }  # Haruka Shiraishi
+    - id: alrose
+      externalIds: { wikidataId: Q140603075 }  # Alrose
+      voiceActors:
+        - { staffId: takeo-otsuka, language: ja }  # Takeo Ōtsuka
+    - id: anrietta
+      externalIds: { wikidataId: Q126927428 }  # Anrietta
+      voiceActors:
+        - { staffId: madoka-asahina, language: ja }  # Madoka Asahina
+    - id: arnaud-bauman
+      externalIds: { wikidataId: Q124623767 }  # Arnaud Bauman
+      voiceActors:
+        - { staffId: eiji-takemoto, language: ja }  # Eiji Takemoto
+    - id: ayn
+      externalIds: { wikidataId: Q140426244 }  # Ayn
+      voiceActors:
+        - { staffId: yurina-amami, language: ja }  # Yurina Amami
+    - id: bacchus
+      externalIds: { wikidataId: Q124623776 }  # Bacchus
+      voiceActors:
+        - { staffId: hajime-iijima, language: ja }  # Hajime Iijima
+    - id: benimaru
+      externalIds: { wikidataId: Q104833623 }  # Benimaru
+      voiceActors:
+        - { staffId: makoto-furukawa, language: ja }  # Makoto Furukawa
+    - id: beretta
+      externalIds: { wikidataId: Q108040423 }  # Beretta
+      voiceActors:
+        - { staffId: ayako-kawasumi, language: ja }  # Ayako Kawasumi
+    - id: bernie
+      externalIds: { wikidataId: Q128324790 }  # Bernie
+      voiceActors:
+        - { staffId: shoya-ishige, language: ja }  # Shōya Ishige
+    - id: carrera
+      externalIds: { wikidataId: Q127608211 }  # Carrera
+      voiceActors:
+        - { staffId: ikumi-hasegawa, language: ja }  # Ikumi Hasegawa
+    - id: carrion
+      externalIds: { wikidataId: Q104872754 }  # Carrion
+      voiceActors:
+        - { staffId: yasuaki-takumi, language: ja }  # Yasuaki Takumi
+    - id: charys
+      externalIds: { wikidataId: Q106636345 }  # Charys
+      voiceActors:
+        - { staffId: mariko-higashiuchi, language: ja }  # Mariko Higashiuchi
+        - { staffId: taku-yashiro, language: ja }  # Taku Yashiro
+    - id: chloe-aubert
+      externalIds: { wikidataId: Q104863427 }  # Chloe Aubert
+      voiceActors:
+        - { staffId: azusa-tadokoro, language: ja }  # Azusa Tadokoro
+    - id: cien
+      externalIds: { wikidataId: Q140482550 }  # Cien
+      voiceActors:
+        - { staffId: tatsumaru-tachibana, language: ja }  # Tatsumaru Tachibana
+    - id: clayman
+      externalIds: { wikidataId: Q104862729 }  # Clayman
+      voiceActors:
+        - { staffId: takehito-koyasu, language: ja }  # Takehito Koyasu
+    - id: dagruel
+      externalIds: { wikidataId: Q108445213 }  # Dagruel
+      voiceActors:
+        - { staffId: rikiya-koyama, language: ja }  # Rikiya Koyama
+    - id: dagura
+      externalIds: { wikidataId: Q127608132 }  # Dagura
+      voiceActors:
+        - { staffId: ryuho-nagaoka, language: ja }  # Ryūho Nagaoka
+    - id: damrada
+      externalIds: { wikidataId: Q125873466 }  # Damrada
+      voiceActors:
+        - { staffId: daisuke-namikawa, language: ja }  # Daisuke Namikawa
+    - id: debura
+      externalIds: { wikidataId: Q127608141 }  # Debura
+      voiceActors:
+        - { staffId: yohei-hamada, language: ja }  # Yōhei Hamada
+    - id: diablo
+      externalIds: { wikidataId: Q104822206 }  # Diablo
+      voiceActors:
+        - { staffId: takahiro-sakurai, language: ja }  # Takahiro Sakurai
+    - id: dino
+      externalIds: { wikidataId: Q108352371 }  # Dino
+      voiceActors:
+        - { staffId: yusuke-kobayashi, language: ja }  # Yūsuke Kobayashi
+    - id: dord
+      externalIds: { wikidataId: Q104868616 }  # Dord
+      voiceActors:
+        - { staffId: ryo-sugisaki, language: ja }  # Ryō Sugisaki
+    - id: doreth
+      externalIds: { wikidataId: Q107669358 }  # Doreth
+      voiceActors:
+        - { staffId: kaori-maeda, language: ja }  # Kaori Maeda
+    - id: dorf
+      externalIds: { wikidataId: Q126926847 }  # Dorf
+      voiceActors:
+        - { staffId: hisao-egawa, language: ja }  # Hisao Egawa
+    - id: drum-blumund
+      externalIds: { wikidataId: Q129201579 }  # Drum Blumund
+      voiceActors:
+        - { staffId: takehiro-hasu, language: ja }  # Takehiro Hasu
+    - id: edgar
+      externalIds: { wikidataId: Q129201645 }  # Edgar
+      voiceActors:
+        - { staffId: mayu-minami, language: ja }  # Mayu Minami
+    - id: edmaris-falmuth
+      externalIds: { wikidataId: Q106636478 }  # Edmaris Falmuth
+      voiceActors:
+        - { staffId: hiroshi-yanaka, language: ja }  # Hiroshi Yanaka
+    - id: edward
+      externalIds: { wikidataId: Q125451592 }  # Edward
+      voiceActors:
+        - { staffId: shoto-kashii, language: ja }  # Shōto Kashii
+    - id: elmesia-el-ru-sarion
+      externalIds: { wikidataId: Q126415150 }  # Elmesia El Ru Sarion
+      voiceActors:
+        - { staffId: hisako-kanemoto, language: ja }  # Hisako Kanemoto
+    - id: elric-von-englassia
+      externalIds: { wikidataId: Q140426293 }  # Elric von Englassia
+      voiceActors:
+        - { staffId: ryohei-arai, language: ja }  # Ryōhei Arai
+    - id: erald-grimwald
+      externalIds: { wikidataId: Q107435056 }  # Erald Grimwald
+      voiceActors:
+        - { staffId: kenji-hamada, language: ja }  # Kenji Hamada
+    - id: eren
+      externalIds: { wikidataId: Q104862024 }  # Eren
+      voiceActors:
+        - { staffId: akane-kumada, language: ja }  # Akane Kumada
+    - id: esprit
+      externalIds: { wikidataId: Q140482566 }  # Esprit
+      voiceActors:
+        - { staffId: yurika-kubo, language: ja }  # Yurika Kubo
+    - id: eva
+      externalIds: { wikidataId: Q140426546 }  # Eva
+      voiceActors:
+        - { staffId: aki-toyosaki, language: ja }  # Aki Toyosaki
+    - id: folgen
+      externalIds: { wikidataId: Q106636502 }  # Folgen
+      voiceActors:
+        - { staffId: shun-ichi-maki, language: ja }  # Shun'ichi Maki
+    - id: footman
+      externalIds: { wikidataId: Q104899683 }  # Footman
+      voiceActors:
+        - { staffId: shinji-kawada, language: ja }  # Shinji Kawada
+    - id: frey
+      externalIds: { wikidataId: Q106805288 }  # Frey
+      voiceActors:
+        - { staffId: sayaka-ohara, language: ja }  # Sayaka Ohara
+    - id: fritz
+      externalIds: { wikidataId: Q124623798 }  # Fritz
+      voiceActors:
+        - { staffId: taishi-murata, language: ja }  # Taishi Murata
+    - id: fuze
+      externalIds: { wikidataId: Q104862354 }  # Fuze
+      voiceActors:
+        - { staffId: ken-narita, language: ja }  # Ken Narita
+    - id: gaban
+      externalIds: { wikidataId: Q140426344 }  # Gaban
+      voiceActors:
+        - { staffId: kensuke-shimizu, language: ja }  # Kensuke Shimizu
+    - id: gabiru
+      externalIds: { wikidataId: Q104841838 }  # Gabiru
+      voiceActors:
+        - { staffId: jun-fukushima, language: ja }  # Jun Fukushima
+    - id: gaiye
+      externalIds: { wikidataId: Q130249565 }  # Gaiye
+      voiceActors:
+        - { staffId: hiromu-mineta, language: ja }  # Hiromu Mineta
+    - id: gale-gibson
+      externalIds: { wikidataId: Q104863433 }  # Gale Gibson
+      voiceActors:
+        - { staffId: gen-sato, language: ja }  # Gen Satō
+    - id: gard-mjollmile
+      externalIds: { wikidataId: Q104900222 }  # Gard Mjöllmile
+      voiceActors:
+        - { staffId: yutaka-aoyama, language: ja }  # Yutaka Aoyama
+    - id: garde
+      externalIds: { wikidataId: Q124623794 }  # Garde
+      voiceActors:
+        - { staffId: wataru-komada, language: ja }  # Wataru Komada
+    - id: garm
+      externalIds: { wikidataId: Q104868615 }  # Garm
+      voiceActors:
+        - { staffId: koichi-soma, language: ja }  # Kōichi Sōma
+    - id: gazel-dwargo
+      externalIds: { wikidataId: Q104862587 }  # Gazel Dwargo
+      voiceActors:
+        - { staffId: takaya-hashi, language: ja }  # Takaya Hashi
+    - id: geld
+      externalIds: { wikidataId: Q104862533 }  # Geld
+      voiceActors:
+        - { staffId: taro-yamaguchi, language: ja }  # Taro Yamaguchi
+    - id: geld-i
+      externalIds: { wikidataId: Q104822017 }  # Geld I
+      voiceActors:
+        - { staffId: kenji-nomura, language: ja }  # Kenji Nomura
+    - id: gelmud
+      externalIds: { wikidataId: Q104868865 }  # Gelmud
+      voiceActors:
+        - { staffId: kengo-kawanishi, language: ja }  # Kengo Kawanishi
+    - id: gido
+      externalIds: { wikidataId: Q104862025 }  # Gido
+      voiceActors:
+        - { staffId: ryuichi-kijima, language: ja }  # Ryūichi Kijima
+    - id: girard
+      externalIds: { wikidataId: Q140426277 }  # Girard
+      voiceActors:
+        - { staffId: koji-okino, language: ja }  # Kōji Okino
+    - id: glenda-attley
+      externalIds: { wikidataId: Q124623804 }  # Glenda Attley
+      voiceActors:
+        - { staffId: mari-hino, language: ja }  # Mari Hino
+    - id: gob-emon
+      externalIds: { wikidataId: Q127608124 }  # Gob'emon
+      voiceActors:
+        - { staffId: rikuya-yasuda, language: ja }  # Rikuya Yasuda
+    - id: gobkyu
+      externalIds: { wikidataId: Q126927517 }  # Gobkyū
+      voiceActors:
+        - { staffId: yukiya-matsui, language: ja }  # Yukiya Matsui
+    - id: gobta
+      externalIds: { wikidataId: Q104822005 }  # Gobta
+      voiceActors:
+        - { staffId: asuna-tomari, language: ja }  # Asuna Tomari
+    - id: gobwa
+      externalIds: { wikidataId: Q125873400 }  # Gobwa
+      voiceActors:
+        - { staffId: anna-nagase, language: ja }  # Anna Nagase
+    - id: gobzo
+      externalIds: { wikidataId: Q106636355 }  # Gobzo
+      voiceActors:
+        - { staffId: gakuto-kajiwara, language: ja }  # Gakuto Kajiwara
+    - id: gozul
+      externalIds: { wikidataId: Q130249563 }  # Gozul
+      voiceActors:
+        - { staffId: naoya-nosaka, language: ja }  # Naoya Nosaka
+    - id: granbell-rosso
+      externalIds: { wikidataId: Q125873771 }  # Granbell Rosso
+      voiceActors:
+        - { staffId: daisuke-ono, language: ja }  # Daisuke Ono
+    - id: grigori
+      externalIds: { wikidataId: Q124623806 }  # Grigori
+      voiceActors:
+        - { staffId: masashi-yamane, language: ja }  # Masashi Yamane
+    - id: grucius
+      externalIds: { wikidataId: Q104903411 }  # Grucius
+      voiceActors:
+        - { staffId: satoshi-hino, language: ja }  # Satoshi Hino
+    - id: gunther-strauss
+      externalIds: { wikidataId: Q126089420 }  # Gunther Strauss
+      voiceActors:
+        - { staffId: kosuke-katayama, language: ja }  # Kosuke Katayama
+    - id: guy-crimson
+      externalIds: { wikidataId: Q107435061 }  # Guy Crimson
+      voiceActors:
+        - { staffId: akira-ishida, language: ja }  # Akira Ishida
+    - id: hakurou
+      externalIds: { wikidataId: Q104833624 }  # Hakurou
+      voiceActors:
+        - { staffId: hochu-otsuka, language: ja }  # Hōchū Ōtsuka
+    - id: haruna
+      externalIds: { wikidataId: Q104864931 }  # Haruna
+      voiceActors:
+        - { staffId: juri-kimura, language: ja }  # Juri Kimura
+    - id: hermes
+      externalIds: { wikidataId: Q108040440 }  # Hermes
+      voiceActors:
+        - { staffId: daiki-kobayashi, language: ja }  # Daiki Kobayashi
+    - id: hinata-sakaguchi
+      externalIds: { wikidataId: Q105676212 }  # Hinata Sakaguchi
+      voiceActors:
+        - { staffId: manami-numakura, language: ja }  # Manami Numakura
+    - id: jaine
+      externalIds: { wikidataId: Q126927487 }  # Jaine
+      voiceActors:
+        - { staffId: kyo-yaoya, language: ja }  # Kyō Yaoya
+    - id: jinrai
+      externalIds: { wikidataId: Q128324625 }  # Jinrai
+      voiceActors:
+        - { staffId: taro-kiuchi, language: ja }  # Tarō Kiuchi
+    - id: jiwu
+      externalIds: { wikidataId: Q128324430 }  # Jiwu
+      voiceActors:
+        - { staffId: konomi-inagaki, language: ja }  # Konomi Inagaki
+    - id: johann-rostia
+      externalIds: { wikidataId: Q140426327 }  # Johann Rostia
+      voiceActors:
+        - { staffId: yuki-ishikari, language: ja }  # Yūki Ishikari
+    - id: kaede
+      externalIds: { wikidataId: Q127899261 }  # Kaede
+      voiceActors:
+        - { staffId: yuko-kaida, language: ja }  # Yūko Kaida
+    - id: kagali
+      externalIds: { wikidataId: Q107484298 }  # Kagali
+      voiceActors:
+        - { staffId: yui-ishikawa, language: ja }  # Yui Ishikawa
+    - id: kaijin
+      externalIds: { wikidataId: Q104822032 }  # Kaijin
+      voiceActors:
+        - { staffId: atsushi-ono, language: ja }  # Atsushi Ono
+    - id: kaoru-yoshida
+      externalIds: { wikidataId: Q126926604 }  # Kaoru Yoshida
+      voiceActors:
+        - { staffId: tsuyoshi-koyama, language: ja }  # Tsuyoshi Koyama
+    - id: kaval
+      externalIds: { wikidataId: Q104862028 }  # Kaval
+      voiceActors:
+        - { staffId: kengo-takanashi, language: ja }  # Kengo Takanashi
+    - id: kenya-misaki
+      externalIds: { wikidataId: Q104863431 }  # Kenya Misaki
+      voiceActors:
+        - { staffId: ayaka-asai, language: ja }  # Ayaka Asai
+    - id: kirara-mizutani
+      externalIds: { wikidataId: Q105259527 }  # Kirara Mizutani
+      voiceActors:
+        - { staffId: hiyori-kono, language: ja }  # Hiyori Kono
+    - id: kumara
+      externalIds: { wikidataId: Q128322468 }  # Kumara
+      voiceActors:
+        - { staffId: sayumi-suzushiro, language: ja }  # Sayumi Suzushiro
+    - id: kurobe
+      externalIds: { wikidataId: Q104833626 }  # Kurobe
+      voiceActors:
+        - { staffId: jun-ichi-yanagita, language: ja }  # Jun'ichi Yanagita
+    - id: kyoya-tachibana
+      externalIds: { wikidataId: Q105259526 }  # Kyōya Tachibana
+      voiceActors:
+        - { staffId: sho-nogami, language: ja }  # Shō Nogami
+    - id: laplace
+      externalIds: { wikidataId: Q104872562 }  # Laplace
+      voiceActors:
+        - { staffId: kazuya-nakai, language: ja }  # Kazuya Nakai
+    - id: leon-cromwell
+      externalIds: { wikidataId: Q104868805 }  # Leon Cromwell
+      voiceActors:
+        - { staffId: jun-fukuyama, language: ja }  # Jun Fukuyama
+    - id: leonard-jester
+      externalIds: { wikidataId: Q124623756 }  # Leonard Jester
+      voiceActors:
+        - { staffId: kenji-nojima, language: ja }  # Kenji Nojima
+    - id: lester
+      externalIds: { wikidataId: Q140426172 }  # Lester
+      voiceActors:
+        - { staffId: soshiro-hori, language: ja }  # Sōshirō Hori
+    - id: litus
+      externalIds: { wikidataId: Q124623790 }  # Litus
+      voiceActors:
+        - { staffId: haruka-aikawa, language: ja }  # Haruka Aikawa
+    - id: louis-valentine
+      externalIds: { wikidataId: Q125451502 }  # Louis Valentine
+      voiceActors:
+        - { staffId: masaaki-mizunaka, language: ja }  # Masaaki Mizunaka
+    - id: luminous-valentine
+      externalIds: { wikidataId: Q107484336 }  # Luminous Valentine
+      voiceActors:
+        - { staffId: lynn, language: ja }  # Lynn
+    - id: maribel-rosso
+      externalIds: { wikidataId: Q124623731 }  # Maribel Rosso
+      voiceActors:
+        - { staffId: inori-minase, language: ja }  # Inori Minase
+    - id: masayuki-rudra-nam-ul-nasca
+      externalIds: { wikidataId: Q126415170 }  # Masayuki Rudra Nam Ul Nasca
+      voiceActors:
+        - { staffId: yoshitsugu-matsuoka, language: ja }  # Yoshitsugu Matsuoka
+    - id: mezul
+      externalIds: { wikidataId: Q130249560 }  # Mezul
+      voiceActors:
+        - { staffId: kyohei-natsume, language: ja }  # Kyōhei Natsume
+    - id: middray
+      externalIds: { wikidataId: Q108040439 }  # Middray
+      voiceActors:
+        - { staffId: atsushi-imaruoka, language: ja }  # Atsushi Imaruoka
+    - id: milim-nava
+      externalIds: { wikidataId: Q104822106 }  # Milim Nava
+      voiceActors:
+        - { staffId: rina-hidaka, language: ja }  # Rina Hidaka
+    - id: misery
+      externalIds: { wikidataId: Q107484060 }  # Misery
+      voiceActors:
+        - { staffId: yuki-hirose, language: ja }  # Yūki Hirose
+    - id: misha
+      externalIds: { wikidataId: Q140603087 }  # Misha
+      voiceActors:
+        - { staffId: hana-sato, language: ja }  # Hana Satō
+    - id: mjurran
+      externalIds: { wikidataId: Q104904541 }  # Mjurran
+      voiceActors:
+        - { staffId: atsumi-tanezaki, language: ja }  # Atsumi Tanezaki
+    - id: momiji
+      externalIds: { wikidataId: Q126415158 }  # Momiji
+      voiceActors:
+        - { staffId: moe-kahara, language: ja }  # Moe Kahara
+    - id: moss
+      externalIds: { wikidataId: Q140482548 }  # Moss
+      voiceActors:
+        - { staffId: misato-matsuoka, language: ja }  # Misato Matsuoka
+    - id: muese
+      externalIds: { wikidataId: Q140426204 }  # Muese
+      voiceActors:
+        - { staffId: yohei-azakami, language: ja }  # Yōhei Azakami
+    - id: myrd
+      externalIds: { wikidataId: Q104868618 }  # Myrd
+      voiceActors:
+        - { staffId: masashi-nogawa, language: ja }  # Masashi Nogawa
+    - id: nikolaus-spertus
+      externalIds: { wikidataId: Q126720175 }  # Nikolaus Spertus
+      voiceActors:
+        - { staffId: makoto-yasumura, language: ja }  # Makoto Yasumura
+    - id: phobio
+      externalIds: { wikidataId: Q104899649 }  # Phobio
+      voiceActors:
+        - { staffId: seiichiro-yamashita, language: ja }  # Seiichirō Yamashita
+    - id: rain
+      externalIds: { wikidataId: Q107484061 }  # Rain
+      voiceActors:
+        - { staffId: eri-yukimura, language: ja }  # Eri Yukimura
+    - id: ramiris
+      externalIds: { wikidataId: Q104862969 }  # Ramiris
+      voiceActors:
+        - { staffId: anzu-haruno, language: ja }  # Anzu Haruno
+    - id: ranga
+      externalIds: { wikidataId: Q104839230 }  # Ranga
+      voiceActors:
+        - { staffId: chikahiro-kobayashi, language: ja }  # Chikahiro Kobayashi
+    - id: raphael
+      externalIds: { wikidataId: Q104864678 }  # Raphael
+      voiceActors:
+        - { staffId: megumi-toyoguchi, language: ja }  # Megumi Toyoguchi
+    - id: razen
+      externalIds: { wikidataId: Q106636397 }  # Razen
+      voiceActors:
+        - { staffId: chiaki-kobayashi, language: ja }  # Chiaki Kobayashi
+        - { staffId: eiji-hanawa, language: ja }  # Eiji Hanawa
+    - id: reiner
+      externalIds: { wikidataId: Q140426304 }  # Reiner
+      voiceActors:
+        - { staffId: takaaki-uchino, language: ja }  # Takaaki Uchino
+    - id: reyhiem
+      externalIds: { wikidataId: Q106636490 }  # Reyhiem
+      voiceActors:
+        - { staffId: hayato-fujii, language: ja }  # Hayato Fujii
+    - id: rigur
+      externalIds: { wikidataId: Q104821996 }  # Rigur
+      voiceActors:
+        - { staffId: haruki-ishiya, language: ja }  # Haruki Ishiya
+    - id: rigurd
+      externalIds: { wikidataId: Q104819443 }  # Rigurd
+      voiceActors:
+        - { staffId: kanehira-yamamoto, language: ja }  # Kanehira Yamamoto
+    - id: rimuru-tempest
+      externalIds: { wikidataId: Q104817112 }  # Rimuru Tempest
+      voiceActors:
+        - { staffId: miho-okasaki, language: ja }  # Miho Okasaki
+    - id: roy-valentine
+      externalIds: { wikidataId: Q125451501 }  # Roy Valentine
+      voiceActors:
+        - { staffId: masaaki-mizunaka, language: ja }  # Masaaki Mizunaka
+    - id: ryota-sekiguchi
+      externalIds: { wikidataId: Q104863432 }  # Ryota Sekiguchi
+      voiceActors:
+        - { staffId: shizuka-ishigami, language: ja }  # Shizuka Ishigami
+    - id: ryura
+      externalIds: { wikidataId: Q127608140 }  # Ryura
+      voiceActors:
+        - { staffId: yuga-sato, language: ja }  # Yūga Satō
+    - id: saare
+      externalIds: { wikidataId: Q124623801 }  # Saare
+      voiceActors:
+        - { staffId: shoya-chiba, language: ja }  # Shōya Chiba
+    - id: satoru-mikami
+      externalIds: { wikidataId: Q104817245 }  # Satoru Mikami
+      voiceActors:
+        - { staffId: takuma-terashima, language: ja }  # Takuma Terashima
+    - id: shion
+      externalIds: { wikidataId: Q104833621 }  # Shion
+      voiceActors:
+        - { staffId: mao-ichimichi, language: ja }  # Mao Ichimichi
+    - id: shizu
+      externalIds: { wikidataId: Q104819435 }  # Shizu
+      voiceActors:
+        - { staffId: yumiri-hanamori, language: ja }  # Yumiri Hanamori
+    - id: shuna
+      externalIds: { wikidataId: Q104833622 }  # Shuna
+      voiceActors:
+        - { staffId: sayaka-senbongi, language: ja }  # Sayaka Senbongi
+    - id: shogo-taguchi
+      externalIds: { wikidataId: Q105259524 }  # Shōgo Taguchi
+      voiceActors:
+        - { staffId: chiaki-kobayashi, language: ja }  # Chiaki Kobayashi
+    - id: souei
+      externalIds: { wikidataId: Q104833625 }  # Souei
+      voiceActors:
+        - { staffId: takuya-eguchi, language: ja }  # Takuya Eguchi
+    - id: souka
+      externalIds: { wikidataId: Q104862464 }  # Souka
+      voiceActors:
+        - { staffId: rumi-okubo, language: ja }  # Rumi Ōkubo
+    - id: suphia
+      externalIds: { wikidataId: Q104903410 }  # Suphia
+      voiceActors:
+        - { staffId: yo-taichi, language: ja }  # Yō Taichi
+    - id: tamura
+      externalIds: { wikidataId: Q104864844 }  # Tamura
+      voiceActors:
+        - { staffId: ryota-suzuki, language: ja }  # Ryōta Suzuki
+    - id: tear
+      externalIds: { wikidataId: Q104899652 }  # Tear
+      voiceActors:
+        - { staffId: kaede-hondo, language: ja }  # Kaede Hondo
+    - id: testarossa
+      externalIds: { wikidataId: Q127608209 }  # Testarossa
+      voiceActors:
+        - { staffId: yumi-uchiyama, language: ja }  # Yumi Uchiyama
+    - id: tiss
+      externalIds: { wikidataId: Q129201416 }  # Tiss
+      voiceActors:
+        - { staffId: mikako-komatsu, language: ja }  # Mikako Komatsu
+    - id: treyni
+      externalIds: { wikidataId: Q104839371 }  # Treyni
+      voiceActors:
+        - { staffId: rie-tanaka, language: ja }  # Rie Tanaka
+    - id: trya
+      externalIds: { wikidataId: Q104899745 }  # Trya
+      voiceActors:
+        - { staffId: kana-asumi, language: ja }  # Kana Asumi
+    - id: ultima
+      externalIds: { wikidataId: Q127608212 }  # Ultima
+      voiceActors:
+        - { staffId: miyu-tomita, language: ja }  # Miyu Tomita
+    - id: vaughn
+      externalIds: { wikidataId: Q126927471 }  # Vaughn
+      voiceActors:
+        - { staffId: taro-kiuchi, language: ja }  # Tarō Kiuchi
+    - id: veldora-tempest
+      externalIds: { wikidataId: Q104817302 }  # Veldora Tempest
+      voiceActors:
+        - { staffId: tomoaki-maeno, language: ja }  # Tomoaki Maeno
+    - id: velzard
+      externalIds: { wikidataId: Q108040481 }  # Velzard
+      voiceActors:
+        - { staffId: yuka-iguchi, language: ja }  # Yuka Iguchi
+    - id: venom
+      externalIds: { wikidataId: Q140482568 }  # Venom
+      voiceActors:
+        - { staffId: chiharu-sawashiro, language: ja }  # Chiharu Sawashiro
+    - id: veryard
+      externalIds: { wikidataId: Q104864899 }  # Veryard
+      voiceActors:
+        - { staffId: itaru-yamamoto, language: ja }  # Itaru Yamamoto
+    - id: vesta
+      externalIds: { wikidataId: Q104840484 }  # Vesta
+      voiceActors:
+        - { staffId: kenjiro-tsuda, language: ja }  # Kenjiro Tsuda
+    - id: veyron
+      externalIds: { wikidataId: Q140482555 }  # Veyron
+      voiceActors:
+        - { staffId: mugihito, language: ja }  # Mugihito
+    - id: yamza
+      externalIds: { wikidataId: Q108040451 }  # Yamza
+      voiceActors:
+        - { staffId: yuya-hirose, language: ja }  # Yūya Hirose
+    - id: youm
+      externalIds: { wikidataId: Q104862912 }  # Youm
+      voiceActors:
+        - { staffId: yoshimasa-hosoya, language: ja }  # Yoshimasa Hosoya
+    - id: yuuki-kagurazaka
+      externalIds: { wikidataId: Q104862643 }  # Yuuki Kagurazaka
+      voiceActors:
+        - { staffId: natsuki-hanae, language: ja }  # Natsuki Hanae
+    - id: zonda
+      externalIds: { wikidataId: Q140482552 }  # Zonda
+      voiceActors:
+        - { staffId: yoshiki-nakajima, language: ja }  # Yoshiki Nakajima
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [tensei-shitara-slime-datta-ken]

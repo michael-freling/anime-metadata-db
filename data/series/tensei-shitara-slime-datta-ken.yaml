@@ -245,3 +245,1932 @@ series:
           airedNumber: 23
         - absoluteNumber: 96
           airedNumber: 24
+  characters:
+    - id: abiru
+      names:
+        original: アビル
+        translations:
+          en: Abiru
+          ja: アビル
+      externalIds:
+        wikidataId: Q104872605
+      voiceActors:
+        - staffId: tomoyuki-shimura
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: adalman
+      names:
+        original: アダルマン
+        translations:
+          en: Adalman
+          ja: アダルマン
+      externalIds:
+        wikidataId: Q108352316
+      voiceActors:
+        - staffId: tomokazu-sugita
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: aegil
+      names:
+        original: エーギル
+        translations:
+          en: Aegil
+          ja: エーギル
+      externalIds:
+        wikidataId: Q140426530
+      voiceActors:
+        - staffId: takaaki-torashima
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: agera
+      names:
+        original: アゲーラ
+        translations:
+          en: Agera
+          ja: アゲーラ
+      externalIds:
+        wikidataId: Q140482567
+      voiceActors:
+        - staffId: kazuhiro-nakaya
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: albis
+      names:
+        original: アルビス
+        translations:
+          en: Albis
+          ja: アルビス
+      externalIds:
+        wikidataId: Q104903409
+      voiceActors:
+        - staffId: ai-kakuma
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: alice-rondo
+      names:
+        original: アリス・ロンド
+        translations:
+          en: Alice Rondo
+          ja: アリス・ロンド
+      externalIds:
+        wikidataId: Q104863430
+      voiceActors:
+        - staffId: haruka-shiraishi
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: alrose
+      names:
+        original: アルロス
+        translations:
+          en: Alrose
+          ja: アルロス
+      externalIds:
+        wikidataId: Q140603075
+      voiceActors:
+        - staffId: takeo-otsuka
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: anrietta
+      names:
+        original: アンリエッタ
+        translations:
+          en: Anrietta
+          ja: アンリエッタ
+      externalIds:
+        wikidataId: Q126927428
+      voiceActors:
+        - staffId: madoka-asahina
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: arnaud-bauman
+      names:
+        original: アルノー・バウマン
+        translations:
+          en: Arnaud Bauman
+          ja: アルノー・バウマン
+      externalIds:
+        wikidataId: Q124623767
+      voiceActors:
+        - staffId: eiji-takemoto
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: ayn
+      names:
+        original: アイン
+        translations:
+          en: Ayn
+          ja: アイン
+      externalIds:
+        wikidataId: Q140426244
+      voiceActors:
+        - staffId: yurina-amami
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: bacchus
+      names:
+        original: バッカス
+        translations:
+          en: Bacchus
+          ja: バッカス
+      externalIds:
+        wikidataId: Q124623776
+      voiceActors:
+        - staffId: hajime-iijima
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: benimaru
+      names:
+        original: 紅丸
+        translations:
+          en: Benimaru
+          ja: 紅丸
+      externalIds:
+        wikidataId: Q104833623
+      voiceActors:
+        - staffId: makoto-furukawa
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: beretta
+      names:
+        original: ベレッタ
+        translations:
+          en: Beretta
+          ja: ベレッタ
+      externalIds:
+        wikidataId: Q108040423
+      voiceActors:
+        - staffId: ayako-kawasumi
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: bernie
+      names:
+        original: バーニィ
+        translations:
+          en: Bernie
+          ja: バーニィ
+      externalIds:
+        wikidataId: Q128324790
+      voiceActors:
+        - staffId: shoya-ishige
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: carrera
+      names:
+        original: カレラ
+        translations:
+          en: Carrera
+          ja: カレラ
+      externalIds:
+        wikidataId: Q127608211
+      voiceActors:
+        - staffId: ikumi-hasegawa
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: carrion
+      names:
+        original: カリオン
+        translations:
+          en: Carrion
+          ja: カリオン
+      externalIds:
+        wikidataId: Q104872754
+      voiceActors:
+        - staffId: yasuaki-takumi
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: charys
+      names:
+        original: カリス
+        translations:
+          en: Charys
+          ja: カリス
+      externalIds:
+        wikidataId: Q106636345
+      voiceActors:
+        - staffId: mariko-higashiuchi
+          language: ja
+        - staffId: taku-yashiro
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: chloe-aubert
+      names:
+        original: クロエ・オベール
+        translations:
+          en: Chloe Aubert
+          ja: クロエ・オベール
+      externalIds:
+        wikidataId: Q104863427
+      voiceActors:
+        - staffId: azusa-tadokoro
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: cien
+      names:
+        original: シエン
+        translations:
+          en: Cien
+          ja: シエン
+      externalIds:
+        wikidataId: Q140482550
+      voiceActors:
+        - staffId: tatsumaru-tachibana
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: clayman
+      names:
+        original: クレイマン
+        translations:
+          en: Clayman
+          ja: クレイマン
+      externalIds:
+        wikidataId: Q104862729
+      voiceActors:
+        - staffId: takehito-koyasu
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: dagruel
+      names:
+        original: ダグリュール
+        translations:
+          en: Dagruel
+          ja: ダグリュール
+      externalIds:
+        wikidataId: Q108445213
+      voiceActors:
+        - staffId: rikiya-koyama
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: dagura
+      names:
+        original: ダグラ
+        translations:
+          en: Dagura
+          ja: ダグラ
+      externalIds:
+        wikidataId: Q127608132
+      voiceActors:
+        - staffId: ryuho-nagaoka
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: damrada
+      names:
+        original: ダムラダ
+        translations:
+          en: Damrada
+          ja: ダムラダ
+      externalIds:
+        wikidataId: Q125873466
+      voiceActors:
+        - staffId: daisuke-namikawa
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: debura
+      names:
+        original: デブラ
+        translations:
+          en: Debura
+          ja: デブラ
+      externalIds:
+        wikidataId: Q127608141
+      voiceActors:
+        - staffId: yohei-hamada
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: diablo
+      names:
+        original: ディアブロ
+        translations:
+          en: Diablo
+          ja: ディアブロ
+      externalIds:
+        wikidataId: Q104822206
+      voiceActors:
+        - staffId: takahiro-sakurai
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: dino
+      names:
+        original: ディーノ
+        translations:
+          en: Dino
+          ja: ディーノ
+      externalIds:
+        wikidataId: Q108352371
+      voiceActors:
+        - staffId: yusuke-kobayashi
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: dord
+      names:
+        original: ドルド
+        translations:
+          en: Dord
+          ja: ドルド
+      externalIds:
+        wikidataId: Q104868616
+      voiceActors:
+        - staffId: ryo-sugisaki
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: doreth
+      names:
+        original: ドリス
+        translations:
+          en: Doreth
+          ja: ドリス
+      externalIds:
+        wikidataId: Q107669358
+      voiceActors:
+        - staffId: kaori-maeda
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: dorf
+      names:
+        original: ドルフ
+        translations:
+          en: Dorf
+          ja: ドルフ
+      externalIds:
+        wikidataId: Q126926847
+      voiceActors:
+        - staffId: hisao-egawa
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: drum-blumund
+      names:
+        original: ドラム・ブルムンド
+        translations:
+          en: Drum Blumund
+          ja: ドラム・ブルムンド
+      externalIds:
+        wikidataId: Q129201579
+      voiceActors:
+        - staffId: takehiro-hasu
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: edgar
+      names:
+        original: エドガー
+        translations:
+          en: Edgar
+          ja: エドガー
+      externalIds:
+        wikidataId: Q129201645
+      voiceActors:
+        - staffId: mayu-minami
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: edmaris-falmuth
+      names:
+        original: エドマリス・ファルムス
+        translations:
+          en: Edmaris Falmuth
+          ja: エドマリス・ファルムス
+      externalIds:
+        wikidataId: Q106636478
+      voiceActors:
+        - staffId: hiroshi-yanaka
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: edward
+      names:
+        original: エドワルド
+        translations:
+          en: Edward
+          ja: エドワルド
+      externalIds:
+        wikidataId: Q125451592
+      voiceActors:
+        - staffId: shoto-kashii
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: elmesia-el-ru-sarion
+      names:
+        original: エルメシア・エル・リュ・サリオン
+        translations:
+          en: Elmesia El Ru Sarion
+          ja: エルメシア・エル・リュ・サリオン
+      externalIds:
+        wikidataId: Q126415150
+      voiceActors:
+        - staffId: hisako-kanemoto
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: elric-von-englassia
+      names:
+        original: エルリック・フォン・イングラシア
+        translations:
+          en: Elric von Englassia
+          ja: エルリック・フォン・イングラシア
+      externalIds:
+        wikidataId: Q140426293
+      voiceActors:
+        - staffId: ryohei-arai
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: erald-grimwald
+      names:
+        original: エラルド・グリムワルト
+        translations:
+          en: Erald Grimwald
+          ja: エラルド・グリムワルト
+      externalIds:
+        wikidataId: Q107435056
+      voiceActors:
+        - staffId: kenji-hamada
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: eren
+      names:
+        original: エレン
+        translations:
+          en: Eren
+          ja: エレン
+      externalIds:
+        wikidataId: Q104862024
+      voiceActors:
+        - staffId: akane-kumada
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: esprit
+      names:
+        original: エスプリ
+        translations:
+          en: Esprit
+          ja: エスプリ
+      externalIds:
+        wikidataId: Q140482566
+      voiceActors:
+        - staffId: yurika-kubo
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: eva
+      names:
+        original: エヴァ
+        translations:
+          en: Eva
+          ja: エヴァ
+      externalIds:
+        wikidataId: Q140426546
+      voiceActors:
+        - staffId: aki-toyosaki
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: folgen
+      names:
+        original: フォルゲン
+        translations:
+          en: Folgen
+          ja: フォルゲン
+      externalIds:
+        wikidataId: Q106636502
+      voiceActors:
+        - staffId: shun-ichi-maki
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: footman
+      names:
+        original: フットマン
+        translations:
+          en: Footman
+          ja: フットマン
+      externalIds:
+        wikidataId: Q104899683
+      voiceActors:
+        - staffId: shinji-kawada
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: frey
+      names:
+        original: フレイ
+        translations:
+          en: Frey
+          ja: フレイ
+      externalIds:
+        wikidataId: Q106805288
+      voiceActors:
+        - staffId: sayaka-ohara
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: fritz
+      names:
+        original: フリッツ
+        translations:
+          en: Fritz
+          ja: フリッツ
+      externalIds:
+        wikidataId: Q124623798
+      voiceActors:
+        - staffId: taishi-murata
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: fuze
+      names:
+        original: フューズ
+        translations:
+          en: Fuze
+          ja: フューズ
+      externalIds:
+        wikidataId: Q104862354
+      voiceActors:
+        - staffId: ken-narita
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: gaban
+      names:
+        original: ギャバン
+        translations:
+          en: Gaban
+          ja: ギャバン
+      externalIds:
+        wikidataId: Q140426344
+      voiceActors:
+        - staffId: kensuke-shimizu
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: gabiru
+      names:
+        original: ガビル
+        translations:
+          en: Gabiru
+          ja: ガビル
+      externalIds:
+        wikidataId: Q104841838
+      voiceActors:
+        - staffId: jun-fukushima
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: gaiye
+      names:
+        original: ガイ
+        translations:
+          en: Gaiye
+          ja: ガイ
+      externalIds:
+        wikidataId: Q130249565
+      voiceActors:
+        - staffId: hiromu-mineta
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: gale-gibson
+      names:
+        original: ゲイル・ギブスン
+        translations:
+          en: Gale Gibson
+          ja: ゲイル・ギブスン
+      externalIds:
+        wikidataId: Q104863433
+      voiceActors:
+        - staffId: gen-sato
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: gard-mjollmile
+      names:
+        original: ガルド・ミョルマイル
+        translations:
+          en: Gard Mjöllmile
+          ja: ガルド・ミョルマイル
+      externalIds:
+        wikidataId: Q104900222
+      voiceActors:
+        - staffId: yutaka-aoyama
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: garde
+      names:
+        original: ギャルド
+        translations:
+          en: Garde
+          ja: ギャルド
+      externalIds:
+        wikidataId: Q124623794
+      voiceActors:
+        - staffId: wataru-komada
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: garm
+      names:
+        original: ガルム
+        translations:
+          en: Garm
+          ja: ガルム
+      externalIds:
+        wikidataId: Q104868615
+      voiceActors:
+        - staffId: koichi-soma
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: gazel-dwargo
+      names:
+        original: ガゼル・ドワルゴ
+        translations:
+          en: Gazel Dwargo
+          ja: ガゼル・ドワルゴ
+      externalIds:
+        wikidataId: Q104862587
+      voiceActors:
+        - staffId: takaya-hashi
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: geld
+      names:
+        original: ゲルド
+        translations:
+          en: Geld
+          ja: ゲルド
+      externalIds:
+        wikidataId: Q104862533
+      voiceActors:
+        - staffId: taro-yamaguchi
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: geld-i
+      names:
+        original: ゲルド
+        translations:
+          en: Geld I
+          ja: ゲルド
+      externalIds:
+        wikidataId: Q104822017
+      voiceActors:
+        - staffId: kenji-nomura
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: gelmud
+      names:
+        original: ゲルミュッド
+        translations:
+          en: Gelmud
+          ja: ゲルミュッド
+      externalIds:
+        wikidataId: Q104868865
+      voiceActors:
+        - staffId: kengo-kawanishi
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: gido
+      names:
+        original: ギド
+        translations:
+          en: Gido
+          ja: ギド
+      externalIds:
+        wikidataId: Q104862025
+      voiceActors:
+        - staffId: ryuichi-kijima
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: girard
+      names:
+        original: ジラード
+        translations:
+          en: Girard
+          ja: ジラード
+      externalIds:
+        wikidataId: Q140426277
+      voiceActors:
+        - staffId: koji-okino
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: glenda-attley
+      names:
+        original: グレンダ・アトリー
+        translations:
+          en: Glenda Attley
+          ja: グレンダ・アトリー
+      externalIds:
+        wikidataId: Q124623804
+      voiceActors:
+        - staffId: mari-hino
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: gob-emon
+      names:
+        original: ゴブエモン
+        translations:
+          en: Gob'emon
+          ja: ゴブエモン
+      externalIds:
+        wikidataId: Q127608124
+      voiceActors:
+        - staffId: rikuya-yasuda
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: gobkyu
+      names:
+        original: ゴブキュウ
+        translations:
+          en: Gobkyū
+          ja: ゴブキュウ
+      externalIds:
+        wikidataId: Q126927517
+      voiceActors:
+        - staffId: yukiya-matsui
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: gobta
+      names:
+        original: ゴブタ
+        translations:
+          en: Gobta
+          ja: ゴブタ
+      externalIds:
+        wikidataId: Q104822005
+      voiceActors:
+        - staffId: asuna-tomari
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: gobwa
+      names:
+        original: ゴブア
+        translations:
+          en: Gobwa
+          ja: ゴブア
+      externalIds:
+        wikidataId: Q125873400
+      voiceActors:
+        - staffId: anna-nagase
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: gobzo
+      names:
+        original: ゴブゾウ
+        translations:
+          en: Gobzo
+          ja: ゴブゾウ
+      externalIds:
+        wikidataId: Q106636355
+      voiceActors:
+        - staffId: gakuto-kajiwara
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: gozul
+      names:
+        original: ゴズール
+        translations:
+          en: Gozul
+          ja: ゴズール
+      externalIds:
+        wikidataId: Q130249563
+      voiceActors:
+        - staffId: naoya-nosaka
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: granbell-rosso
+      names:
+        original: グランベル・ロッゾ
+        translations:
+          en: Granbell Rosso
+          ja: グランベル・ロッゾ
+      externalIds:
+        wikidataId: Q125873771
+      voiceActors:
+        - staffId: daisuke-ono
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: grigori
+      names:
+        original: グレゴリー
+        translations:
+          en: Grigori
+          ja: グレゴリー
+      externalIds:
+        wikidataId: Q124623806
+      voiceActors:
+        - staffId: masashi-yamane
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: grucius
+      names:
+        original: グルーシス
+        translations:
+          en: Grucius
+          ja: グルーシス
+      externalIds:
+        wikidataId: Q104903411
+      voiceActors:
+        - staffId: satoshi-hino
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: gunther-strauss
+      names:
+        original: ギュンター・シュトラウス
+        translations:
+          en: Gunther Strauss
+          ja: ギュンター・シュトラウス
+      externalIds:
+        wikidataId: Q126089420
+      voiceActors:
+        - staffId: kosuke-katayama
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: guy-crimson
+      names:
+        original: ギィ・クリムゾン
+        translations:
+          en: Guy Crimson
+          ja: ギィ・クリムゾン
+      externalIds:
+        wikidataId: Q107435061
+      voiceActors:
+        - staffId: akira-ishida
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: hakurou
+      names:
+        original: 白老
+        translations:
+          en: Hakurou
+          ja: 白老
+      externalIds:
+        wikidataId: Q104833624
+      voiceActors:
+        - staffId: hochu-otsuka
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: haruna
+      names:
+        original: ハルナ
+        translations:
+          en: Haruna
+          ja: ハルナ
+      externalIds:
+        wikidataId: Q104864931
+      voiceActors:
+        - staffId: juri-kimura
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: hermes
+      names:
+        original: ヘルメス
+        translations:
+          en: Hermes
+          ja: ヘルメス
+      externalIds:
+        wikidataId: Q108040440
+      voiceActors:
+        - staffId: daiki-kobayashi
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: hinata-sakaguchi
+      names:
+        original: 坂口日向
+        translations:
+          en: Hinata Sakaguchi
+          ja: 坂口日向
+      externalIds:
+        wikidataId: Q105676212
+      voiceActors:
+        - staffId: manami-numakura
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: jaine
+      names:
+        original: ジェーン
+        translations:
+          en: Jaine
+          ja: ジェーン
+      externalIds:
+        wikidataId: Q126927487
+      voiceActors:
+        - staffId: kyo-yaoya
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: jinrai
+      names:
+        original: ジンライ
+        translations:
+          en: Jinrai
+          ja: ジンライ
+      externalIds:
+        wikidataId: Q128324625
+      voiceActors:
+        - staffId: taro-kiuchi
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: jiwu
+      names:
+        original: ジウ
+        translations:
+          en: Jiwu
+          ja: ジウ
+      externalIds:
+        wikidataId: Q128324430
+      voiceActors:
+        - staffId: konomi-inagaki
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: johann-rostia
+      names:
+        original: ヨハン・ロスティア
+        translations:
+          en: Johann Rostia
+          ja: ヨハン・ロスティア
+      externalIds:
+        wikidataId: Q140426327
+      voiceActors:
+        - staffId: yuki-ishikari
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: kaede
+      names:
+        original: 楓
+        translations:
+          en: Kaede
+          ja: 楓
+      externalIds:
+        wikidataId: Q127899261
+      voiceActors:
+        - staffId: yuko-kaida
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: kagali
+      names:
+        original: カガリ
+        translations:
+          en: Kagali
+          ja: カガリ
+      externalIds:
+        wikidataId: Q107484298
+      voiceActors:
+        - staffId: yui-ishikawa
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: kaijin
+      names:
+        original: カイジン
+        translations:
+          en: Kaijin
+          ja: カイジン
+      externalIds:
+        wikidataId: Q104822032
+      voiceActors:
+        - staffId: atsushi-ono
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: kaoru-yoshida
+      names:
+        original: 吉田薫
+        translations:
+          en: Kaoru Yoshida
+          ja: 吉田薫
+      externalIds:
+        wikidataId: Q126926604
+      voiceActors:
+        - staffId: tsuyoshi-koyama
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: kaval
+      names:
+        original: カバル
+        translations:
+          en: Kaval
+          ja: カバル
+      externalIds:
+        wikidataId: Q104862028
+      voiceActors:
+        - staffId: kengo-takanashi
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: kenya-misaki
+      names:
+        original: 三崎剣也
+        translations:
+          en: Kenya Misaki
+          ja: 三崎剣也
+      externalIds:
+        wikidataId: Q104863431
+      voiceActors:
+        - staffId: ayaka-asai
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: kirara-mizutani
+      names:
+        original: キララ・ミズタニ
+        translations:
+          en: Kirara Mizutani
+          ja: キララ・ミズタニ
+      externalIds:
+        wikidataId: Q105259527
+      voiceActors:
+        - staffId: hiyori-kono
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: kumara
+      names:
+        original: 九魔羅
+        translations:
+          en: Kumara
+          ja: 九魔羅
+      externalIds:
+        wikidataId: Q128322468
+      voiceActors:
+        - staffId: sayumi-suzushiro
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: kurobe
+      names:
+        original: 黒兵衛
+        translations:
+          en: Kurobe
+          ja: 黒兵衛
+      externalIds:
+        wikidataId: Q104833626
+      voiceActors:
+        - staffId: jun-ichi-yanagita
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: kyoya-tachibana
+      names:
+        original: キョウヤ・タチバナ
+        translations:
+          en: Kyōya Tachibana
+          ja: キョウヤ・タチバナ
+      externalIds:
+        wikidataId: Q105259526
+      voiceActors:
+        - staffId: sho-nogami
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: laplace
+      names:
+        original: ラプラス
+        translations:
+          en: Laplace
+          ja: ラプラス
+      externalIds:
+        wikidataId: Q104872562
+      voiceActors:
+        - staffId: kazuya-nakai
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: leon-cromwell
+      names:
+        original: レオン・クロムウェル
+        translations:
+          en: Leon Cromwell
+          ja: レオン・クロムウェル
+      externalIds:
+        wikidataId: Q104868805
+      voiceActors:
+        - staffId: jun-fukuyama
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: leonard-jester
+      names:
+        original: レナード・ジェスター
+        translations:
+          en: Leonard Jester
+          ja: レナード・ジェスター
+      externalIds:
+        wikidataId: Q124623756
+      voiceActors:
+        - staffId: kenji-nojima
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: lester
+      names:
+        original: レスター
+        translations:
+          en: Lester
+          ja: レスター
+      externalIds:
+        wikidataId: Q140426172
+      voiceActors:
+        - staffId: soshiro-hori
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: litus
+      names:
+        original: リティス
+        translations:
+          en: Litus
+          ja: リティス
+      externalIds:
+        wikidataId: Q124623790
+      voiceActors:
+        - staffId: haruka-aikawa
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: louis-valentine
+      names:
+        original: ルイ・ヴァレンタイン
+        translations:
+          en: Louis Valentine
+          ja: ルイ・ヴァレンタイン
+      externalIds:
+        wikidataId: Q125451502
+      voiceActors:
+        - staffId: masaaki-mizunaka
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: luminous-valentine
+      names:
+        original: ルミナス・バレンタイン
+        translations:
+          en: Luminous Valentine
+          ja: ルミナス・バレンタイン
+      externalIds:
+        wikidataId: Q107484336
+      voiceActors:
+        - staffId: lynn
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: maribel-rosso
+      names:
+        original: マリアベル・ロッゾ
+        translations:
+          en: Maribel Rosso
+          ja: マリアベル・ロッゾ
+      externalIds:
+        wikidataId: Q124623731
+      voiceActors:
+        - staffId: inori-minase
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: masayuki-rudra-nam-ul-nasca
+      names:
+        original: マサユキ・ルドラ・ナム・ウル・ナスカ
+        translations:
+          en: Masayuki Rudra Nam Ul Nasca
+          ja: マサユキ・ルドラ・ナム・ウル・ナスカ
+      externalIds:
+        wikidataId: Q126415170
+      voiceActors:
+        - staffId: yoshitsugu-matsuoka
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: mezul
+      names:
+        original: ゴズール
+        translations:
+          en: Mezul
+          ja: ゴズール
+      externalIds:
+        wikidataId: Q130249560
+      voiceActors:
+        - staffId: kyohei-natsume
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: middray
+      names:
+        original: ミッドレイ
+        translations:
+          en: Middray
+          ja: ミッドレイ
+      externalIds:
+        wikidataId: Q108040439
+      voiceActors:
+        - staffId: atsushi-imaruoka
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: milim-nava
+      names:
+        original: ミリム・ナーヴァ
+        translations:
+          en: Milim Nava
+          ja: ミリム・ナーヴァ
+      externalIds:
+        wikidataId: Q104822106
+      voiceActors:
+        - staffId: rina-hidaka
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: misery
+      names:
+        original: ミザリー
+        translations:
+          en: Misery
+          ja: ミザリー
+      externalIds:
+        wikidataId: Q107484060
+      voiceActors:
+        - staffId: yuki-hirose
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: misha
+      names:
+        original: ミーシャ
+        translations:
+          en: Misha
+          ja: ミーシャ
+      externalIds:
+        wikidataId: Q140603087
+      voiceActors:
+        - staffId: hana-sato
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: mjurran
+      names:
+        original: ミュウラン
+        translations:
+          en: Mjurran
+          ja: ミュウラン
+      externalIds:
+        wikidataId: Q104904541
+      voiceActors:
+        - staffId: atsumi-tanezaki
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: momiji
+      names:
+        original: 紅葉
+        translations:
+          en: Momiji
+          ja: 紅葉
+      externalIds:
+        wikidataId: Q126415158
+      voiceActors:
+        - staffId: moe-kahara
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: moss
+      names:
+        original: モス
+        translations:
+          en: Moss
+          ja: モス
+      externalIds:
+        wikidataId: Q140482548
+      voiceActors:
+        - staffId: misato-matsuoka
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: muese
+      names:
+        original: ミューゼ
+        translations:
+          en: Muese
+          ja: ミューゼ
+      externalIds:
+        wikidataId: Q140426204
+      voiceActors:
+        - staffId: yohei-azakami
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: myrd
+      names:
+        original: ミルド
+        translations:
+          en: Myrd
+          ja: ミルド
+      externalIds:
+        wikidataId: Q104868618
+      voiceActors:
+        - staffId: masashi-nogawa
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: nikolaus-spertus
+      names:
+        original: ニコラウス・シュペルタス
+        translations:
+          en: Nikolaus Spertus
+          ja: ニコラウス・シュペルタス
+      externalIds:
+        wikidataId: Q126720175
+      voiceActors:
+        - staffId: makoto-yasumura
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: phobio
+      names:
+        original: フォビオ
+        translations:
+          en: Phobio
+          ja: フォビオ
+      externalIds:
+        wikidataId: Q104899649
+      voiceActors:
+        - staffId: seiichiro-yamashita
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: rain
+      names:
+        original: レイン
+        translations:
+          en: Rain
+          ja: レイン
+      externalIds:
+        wikidataId: Q107484061
+      voiceActors:
+        - staffId: eri-yukimura
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: ramiris
+      names:
+        original: ラミリス
+        translations:
+          en: Ramiris
+          ja: ラミリス
+      externalIds:
+        wikidataId: Q104862969
+      voiceActors:
+        - staffId: anzu-haruno
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: ranga
+      names:
+        original: 嵐牙
+        translations:
+          en: Ranga
+          ja: 嵐牙
+      externalIds:
+        wikidataId: Q104839230
+      voiceActors:
+        - staffId: chikahiro-kobayashi
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: raphael
+      names:
+        original: 智慧之王
+        translations:
+          en: Raphael
+          ja: 智慧之王
+      externalIds:
+        wikidataId: Q104864678
+      voiceActors:
+        - staffId: megumi-toyoguchi
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: razen
+      names:
+        original: ラーゼン
+        translations:
+          en: Razen
+          ja: ラーゼン
+      externalIds:
+        wikidataId: Q106636397
+      voiceActors:
+        - staffId: chiaki-kobayashi
+          language: ja
+        - staffId: eiji-hanawa
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: reiner
+      names:
+        original: ライナー
+        translations:
+          en: Reiner
+          ja: ライナー
+      externalIds:
+        wikidataId: Q140426304
+      voiceActors:
+        - staffId: takaaki-uchino
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: reyhiem
+      names:
+        original: レイヒム
+        translations:
+          en: Reyhiem
+          ja: レイヒム
+      externalIds:
+        wikidataId: Q106636490
+      voiceActors:
+        - staffId: hayato-fujii
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: rigur
+      names:
+        original: リグル
+        translations:
+          en: Rigur
+          ja: リグル
+      externalIds:
+        wikidataId: Q104821996
+      voiceActors:
+        - staffId: haruki-ishiya
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: rigurd
+      names:
+        original: リグルド
+        translations:
+          en: Rigurd
+          ja: リグルド
+      externalIds:
+        wikidataId: Q104819443
+      voiceActors:
+        - staffId: kanehira-yamamoto
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: rimuru-tempest
+      names:
+        original: リムル＝テンペスト
+        translations:
+          en: Rimuru Tempest
+          ja: リムル＝テンペスト
+      externalIds:
+        wikidataId: Q104817112
+      voiceActors:
+        - staffId: miho-okasaki
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: roy-valentine
+      names:
+        original: ロイ・ヴァレンタイン
+        translations:
+          en: Roy Valentine
+          ja: ロイ・ヴァレンタイン
+      externalIds:
+        wikidataId: Q125451501
+      voiceActors:
+        - staffId: masaaki-mizunaka
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: ryota-sekiguchi
+      names:
+        original: 関口良太
+        translations:
+          en: Ryota Sekiguchi
+          ja: 関口良太
+      externalIds:
+        wikidataId: Q104863432
+      voiceActors:
+        - staffId: shizuka-ishigami
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: ryura
+      names:
+        original: リューラ
+        translations:
+          en: Ryura
+          ja: リューラ
+      externalIds:
+        wikidataId: Q127608140
+      voiceActors:
+        - staffId: yuga-sato
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: saare
+      names:
+        original: サーレ
+        translations:
+          en: Saare
+          ja: サーレ
+      externalIds:
+        wikidataId: Q124623801
+      voiceActors:
+        - staffId: shoya-chiba
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: satoru-mikami
+      names:
+        original: 三上悟
+        translations:
+          en: Satoru Mikami
+          ja: 三上悟
+      externalIds:
+        wikidataId: Q104817245
+      voiceActors:
+        - staffId: takuma-terashima
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: shion
+      names:
+        original: 紫苑
+        translations:
+          en: Shion
+          ja: 紫苑
+      externalIds:
+        wikidataId: Q104833621
+      voiceActors:
+        - staffId: mao-ichimichi
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: shizu
+      names:
+        original: シズ
+        translations:
+          en: Shizu
+          ja: シズ
+      externalIds:
+        wikidataId: Q104819435
+      voiceActors:
+        - staffId: yumiri-hanamori
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: shuna
+      names:
+        original: 朱菜
+        translations:
+          en: Shuna
+          ja: 朱菜
+      externalIds:
+        wikidataId: Q104833622
+      voiceActors:
+        - staffId: sayaka-senbongi
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: shogo-taguchi
+      names:
+        original: ショウゴ・タグチ
+        translations:
+          en: Shōgo Taguchi
+          ja: ショウゴ・タグチ
+      externalIds:
+        wikidataId: Q105259524
+      voiceActors:
+        - staffId: chiaki-kobayashi
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: souei
+      names:
+        original: 蒼影
+        translations:
+          en: Souei
+          ja: 蒼影
+      externalIds:
+        wikidataId: Q104833625
+      voiceActors:
+        - staffId: takuya-eguchi
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: souka
+      names:
+        original: 蒼華
+        translations:
+          en: Souka
+          ja: 蒼華
+      externalIds:
+        wikidataId: Q104862464
+      voiceActors:
+        - staffId: rumi-okubo
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: suphia
+      names:
+        original: スフィア
+        translations:
+          en: Suphia
+          ja: スフィア
+      externalIds:
+        wikidataId: Q104903410
+      voiceActors:
+        - staffId: yo-taichi
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: tamura
+      names:
+        original: 田村
+        translations:
+          en: Tamura
+          ja: 田村
+      externalIds:
+        wikidataId: Q104864844
+      voiceActors:
+        - staffId: ryota-suzuki
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: tear
+      names:
+        original: ティア
+        translations:
+          en: Tear
+          ja: ティア
+      externalIds:
+        wikidataId: Q104899652
+      voiceActors:
+        - staffId: kaede-hondo
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: testarossa
+      names:
+        original: テスタロッサ
+        translations:
+          en: Testarossa
+          ja: テスタロッサ
+      externalIds:
+        wikidataId: Q127608209
+      voiceActors:
+        - staffId: yumi-uchiyama
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: tiss
+      names:
+        original: ティス
+        translations:
+          en: Tiss
+          ja: ティス
+      externalIds:
+        wikidataId: Q129201416
+      voiceActors:
+        - staffId: mikako-komatsu
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: treyni
+      names:
+        original: トレイニー
+        translations:
+          en: Treyni
+          ja: トレイニー
+      externalIds:
+        wikidataId: Q104839371
+      voiceActors:
+        - staffId: rie-tanaka
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: trya
+      names:
+        original: トライア
+        translations:
+          en: Trya
+          ja: トライア
+      externalIds:
+        wikidataId: Q104899745
+      voiceActors:
+        - staffId: kana-asumi
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: ultima
+      names:
+        original: ウルティマ
+        translations:
+          en: Ultima
+          ja: ウルティマ
+      externalIds:
+        wikidataId: Q127608212
+      voiceActors:
+        - staffId: miyu-tomita
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: vaughn
+      names:
+        original: バーン
+        translations:
+          en: Vaughn
+          ja: バーン
+      externalIds:
+        wikidataId: Q126927471
+      voiceActors:
+        - staffId: taro-kiuchi
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: veldora-tempest
+      names:
+        original: ヴェルドラ＝テンペスト
+        translations:
+          en: Veldora Tempest
+          ja: ヴェルドラ＝テンペスト
+      externalIds:
+        wikidataId: Q104817302
+      voiceActors:
+        - staffId: tomoaki-maeno
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: velzard
+      names:
+        original: ヴェルザード
+        translations:
+          en: Velzard
+          ja: ヴェルザード
+      externalIds:
+        wikidataId: Q108040481
+      voiceActors:
+        - staffId: yuka-iguchi
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: venom
+      names:
+        original: ヴェノム
+        translations:
+          en: Venom
+          ja: ヴェノム
+      externalIds:
+        wikidataId: Q140482568
+      voiceActors:
+        - staffId: chiharu-sawashiro
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: veryard
+      names:
+        original: ベルヤード
+        translations:
+          en: Veryard
+          ja: ベルヤード
+      externalIds:
+        wikidataId: Q104864899
+      voiceActors:
+        - staffId: itaru-yamamoto
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: vesta
+      names:
+        original: ベスター
+        translations:
+          en: Vesta
+          ja: ベスター
+      externalIds:
+        wikidataId: Q104840484
+      voiceActors:
+        - staffId: kenjiro-tsuda
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: veyron
+      names:
+        original: ヴェイロン
+        translations:
+          en: Veyron
+          ja: ヴェイロン
+      externalIds:
+        wikidataId: Q140482555
+      voiceActors:
+        - staffId: mugihito
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: yamza
+      names:
+        original: ヤムザ
+        translations:
+          en: Yamza
+          ja: ヤムザ
+      externalIds:
+        wikidataId: Q108040451
+      voiceActors:
+        - staffId: yuya-hirose
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: youm
+      names:
+        original: ヨウム
+        translations:
+          en: Youm
+          ja: ヨウム
+      externalIds:
+        wikidataId: Q104862912
+      voiceActors:
+        - staffId: yoshimasa-hosoya
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: yuuki-kagurazaka
+      names:
+        original: 神楽坂優樹
+        translations:
+          en: Yuuki Kagurazaka
+          ja: 神楽坂優樹
+      externalIds:
+        wikidataId: Q104862643
+      voiceActors:
+        - staffId: natsuki-hanae
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: zonda
+      names:
+        original: ゾンダ
+        translations:
+          en: Zonda
+          ja: ゾンダ
+      externalIds:
+        wikidataId: Q140482552
+      voiceActors:
+        - staffId: yoshiki-nakajima
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken

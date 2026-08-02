@@ -223,3 +223,365 @@ series:
           airedNumber: 18
         - absoluteNumber: 85
           airedNumber: 19
+  characters:
+    - id: annerose-miload
+      names:
+        original: アンネローゼ・ミロード
+        translations:
+          en: Annerose Miload
+          ja: アンネローゼ・ミロード
+      externalIds:
+        wikidataId: Q123051314
+      voiceActors:
+        - staffId: kana-ichinose
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: arch
+      names:
+        original: アーチ
+        translations:
+          en: Arch
+          ja: アーチ
+      externalIds:
+        wikidataId: Q105086854
+      voiceActors:
+        - staffId: daisuke-namikawa
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: beatrice
+      names:
+        original: ベアトリス
+        translations:
+          en: Beatrice
+          ja: ベアトリス
+      externalIds:
+        wikidataId: Q102412190
+      voiceActors:
+        - staffId: satomi-arai
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: capella-emerada-lugunica
+      names:
+        original: カペラ・エメラダ・ルグニカ
+        translations:
+          en: Capella Emerada Lugunica
+          ja: カペラ・エメラダ・ルグニカ
+      externalIds:
+        wikidataId: Q105609330
+      voiceActors:
+        - staffId: aoi-yuki
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: clind
+      names:
+        original: クリンド
+        translations:
+          en: Clind
+          ja: クリンド
+      externalIds:
+        wikidataId: Q123051430
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: emilia
+      names:
+        original: エミリア
+        translations:
+          en: Emilia
+          ja: エミリア
+      externalIds:
+        wikidataId: Q98312780
+      voiceActors:
+        - staffId: rie-takahashi
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: fortuna
+      names:
+        original: フォルトナ
+        translations:
+          en: Fortuna
+          ja: フォルトナ
+      externalIds:
+        wikidataId: Q105086832
+      voiceActors:
+        - staffId: haruka-tomatsu
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: fred-thompson
+      names:
+        original: フレド・トンプソン
+        translations:
+          en: Fred Thompson
+          ja: フレド・トンプソン
+      externalIds:
+        wikidataId: Q123073630
+      voiceActors:
+        - staffId: rena-motomura
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: garek-thompson
+      names:
+        original: ギャレク・トンプソン
+        translations:
+          en: Garek Thompson
+          ja: ギャレク・トンプソン
+      externalIds:
+        wikidataId: Q123057265
+      voiceActors:
+        - staffId: kanehira-yamamoto
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: hector
+      names:
+        original: ヘクトール
+        translations:
+          en: Hector
+          ja: ヘクトール
+      externalIds:
+        wikidataId: Q105609264
+      voiceActors:
+        - staffId: junichi-suwabe
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: heinkel-astrea
+      names:
+        original: ハインケル・アストレア
+        translations:
+          en: Heinkel Astrea
+          ja: ハインケル・アストレア
+      externalIds:
+        wikidataId: Q123051463
+      voiceActors:
+        - staffId: kenjiro-tsuda
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: joshua-juukulius
+      names:
+        original: ヨシュア・ユークリウス
+        translations:
+          en: Joshua Juukulius
+          ja: ヨシュア・ユークリウス
+      externalIds:
+        wikidataId: Q113004920
+      voiceActors:
+        - staffId: shoya-ishige
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: kiritaka-muse
+      names:
+        original: キリタカ・ミューズ
+        translations:
+          en: Kiritaka Muse
+          ja: キリタカ・ミューズ
+      externalIds:
+        wikidataId: Q123051519
+      voiceActors:
+        - staffId: kotaro-nishiyama
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: liliana-masquerade
+      names:
+        original: リリアナ・マスカレード
+        translations:
+          en: Liliana Masquerade
+          ja: リリアナ・マスカレード
+      externalIds:
+        wikidataId: Q113004942
+      voiceActors:
+        - staffId: aya-yamane
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: lusbel-kallard
+      names:
+        original: ルスベル・カラード
+        translations:
+          en: Lusbel Kallard
+          ja: ルスベル・カラード
+      externalIds:
+        wikidataId: Q123074970
+      voiceActors:
+        - staffId: makoto-koichi
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: pandora
+      names:
+        original: パンドラ
+        translations:
+          en: Pandora
+          ja: パンドラ
+      externalIds:
+        wikidataId: Q105282076
+      voiceActors:
+        - staffId: rie-kugimiya
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: rafiel-thompson
+      names:
+        original: ラフィール・トンプソン
+        translations:
+          en: Rafiel Thompson
+          ja: ラフィール・トンプソン
+      externalIds:
+        wikidataId: Q123073631
+      voiceActors:
+        - staffId: moe-kahara
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: ram
+      names:
+        original: ラム
+        translations:
+          en: Ram
+          ja: ラム
+      externalIds:
+        wikidataId: Q80116144
+      voiceActors:
+        - staffId: rie-murakawa
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: reala-thompson
+      names:
+        original: リアラ・トンプソン
+        translations:
+          en: Reala Thompson
+          ja: リアラ・トンプソン
+      externalIds:
+        wikidataId: Q123057248
+      voiceActors:
+        - staffId: aya-endo
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: reid-astrea
+      names:
+        original: レイド・アストレア
+        translations:
+          en: Reid Astrea
+          ja: レイド・アストレア
+      externalIds:
+        wikidataId: Q113005088
+      voiceActors:
+        - staffId: tomokazu-sugita
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: rem
+      names:
+        original: レム
+        translations:
+          en: Rem
+          ja: レム
+      externalIds:
+        wikidataId: Q28859527
+      voiceActors:
+        - staffId: inori-minase
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: rui-arneb
+      names:
+        original: ルイ・アルネブ
+        translations:
+          en: Rui Arneb
+          ja: ルイ・アルネブ
+      externalIds:
+        wikidataId: Q105609325
+      voiceActors:
+        - staffId: konomi-kohara
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: schult
+      names:
+        original: シュルト
+        translations:
+          en: Schult
+          ja: シュルト
+      externalIds:
+        wikidataId: Q123051537
+      voiceActors:
+        - staffId: maki-kawase
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: shaula
+      names:
+        original: シャウラ
+        translations:
+          en: Shaula
+          ja: シャウラ
+      externalIds:
+        wikidataId: Q113004807
+      voiceActors:
+        - staffId: fairouz-ai
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: sirius-romanee-conti
+      names:
+        original: シリウス・ロマネコンティ
+        translations:
+          en: Sirius Romanée-Conti
+          ja: シリウス・ロマネコンティ
+      externalIds:
+        wikidataId: Q105609311
+      voiceActors:
+        - staffId: chika-anzai
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: subaru-natsuki
+      names:
+        original: ナツキ・スバル
+        translations:
+          en: Subaru Natsuki
+          ja: ナツキ・スバル
+      externalIds:
+        wikidataId: Q85988152
+      voiceActors:
+        - staffId: yusuke-kobayashi
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: sylphy
+      names:
+        original: シルフィ
+        translations:
+          en: Sylphy
+          ja: シルフィ
+      externalIds:
+        wikidataId: Q123074722
+      voiceActors:
+        - staffId: aoi-koga
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
+    - id: tina
+      names:
+        original: ティーナ
+        translations:
+          en: Tina
+          ja: ティーナ
+      externalIds:
+        wikidataId: Q123074916
+      voiceActors:
+        - staffId: satomi-amano
+          language: ja
+      appearances:
+        - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
