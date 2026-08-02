@@ -5,9 +5,16 @@
 // source: anime/v1/anime.proto
 
 // Package anime.v1 is the read-only Connect API over the committed anime
-// franchise dataset (the R1 model: Franchise -> Series -> Season -> Episode,
-// plus Movie and Special). It mirrors internal/model; the R2 cast (characters
-// and staff) is intentionally not exposed yet.
+// franchise dataset: the R1 model (Franchise -> Series -> Season -> Episode,
+// plus Movie and Special) and the R2 cast (Character and Staff). It mirrors
+// internal/model.
+//
+// The cast is a global, many-to-many layer that attaches onto the R1 spine
+// through a Character's appearances, so a character reached from a Series is
+// the same node reachable by id from GetCharacter — it just carries every
+// series it appears in. Only facts are served (ids, names, the appearance and
+// voice-actor graph); expression (roles, bios, images) is left to the consumer
+// to fetch live from the external ids.
 
 package animev1
 
@@ -788,8 +795,11 @@ type Series struct {
 	Seasons        []*Season       `protobuf:"bytes,3,rep,name=seasons,proto3" json:"seasons,omitempty"`
 	Movies         []*Movie        `protobuf:"bytes,4,rep,name=movies,proto3" json:"movies,omitempty"`
 	Specials       []*Special      `protobuf:"bytes,5,rep,name=specials,proto3" json:"specials,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	// characters appearing in this series, in dataset order. Each is the full
+	// global Character node, so its appearances may name other series too.
+	Characters    []*Character `protobuf:"bytes,7,rep,name=characters,proto3" json:"characters,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Series) Reset() {
@@ -864,6 +874,442 @@ func (x *Series) GetSpecials() []*Special {
 	return nil
 }
 
+func (x *Series) GetCharacters() []*Character {
+	if x != nil {
+		return x.Characters
+	}
+	return nil
+}
+
+// VoiceActor links a Character to the Staff who voices it in one language.
+type VoiceActor struct {
+	state   protoimpl.MessageState `protogen:"open.v1"`
+	StaffId string                 `protobuf:"bytes,1,opt,name=staff_id,json=staffId,proto3" json:"staff_id,omitempty"`
+	// language is a BCP-47 tag ("ja", "en").
+	Language string `protobuf:"bytes,2,opt,name=language,proto3" json:"language,omitempty"`
+	// staff_name is the staff member's name resolved for the request's
+	// Accept-Language, denormalized so a client need not call GetStaff. Empty
+	// when the dataset carries no name for them yet.
+	StaffName     string `protobuf:"bytes,3,opt,name=staff_name,json=staffName,proto3" json:"staff_name,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *VoiceActor) Reset() {
+	*x = VoiceActor{}
+	mi := &file_anime_v1_anime_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *VoiceActor) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*VoiceActor) ProtoMessage() {}
+
+func (x *VoiceActor) ProtoReflect() protoreflect.Message {
+	mi := &file_anime_v1_anime_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use VoiceActor.ProtoReflect.Descriptor instead.
+func (*VoiceActor) Descriptor() ([]byte, []int) {
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *VoiceActor) GetStaffId() string {
+	if x != nil {
+		return x.StaffId
+	}
+	return ""
+}
+
+func (x *VoiceActor) GetLanguage() string {
+	if x != nil {
+		return x.Language
+	}
+	return ""
+}
+
+func (x *VoiceActor) GetStaffName() string {
+	if x != nil {
+		return x.StaffName
+	}
+	return ""
+}
+
+// ScopeRef narrows a CharacterAppearance to one installment of a Series.
+// Exactly one field is set.
+type ScopeRef struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	SeasonId      string                 `protobuf:"bytes,1,opt,name=season_id,json=seasonId,proto3" json:"season_id,omitempty"`
+	MovieId       string                 `protobuf:"bytes,2,opt,name=movie_id,json=movieId,proto3" json:"movie_id,omitempty"`
+	SpecialId     string                 `protobuf:"bytes,3,opt,name=special_id,json=specialId,proto3" json:"special_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ScopeRef) Reset() {
+	*x = ScopeRef{}
+	mi := &file_anime_v1_anime_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ScopeRef) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ScopeRef) ProtoMessage() {}
+
+func (x *ScopeRef) ProtoReflect() protoreflect.Message {
+	mi := &file_anime_v1_anime_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ScopeRef.ProtoReflect.Descriptor instead.
+func (*ScopeRef) Descriptor() ([]byte, []int) {
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *ScopeRef) GetSeasonId() string {
+	if x != nil {
+		return x.SeasonId
+	}
+	return ""
+}
+
+func (x *ScopeRef) GetMovieId() string {
+	if x != nil {
+		return x.MovieId
+	}
+	return ""
+}
+
+func (x *ScopeRef) GetSpecialId() string {
+	if x != nil {
+		return x.SpecialId
+	}
+	return ""
+}
+
+// CharacterAppearance is a Character <-> Series edge. series_id is the rollup
+// association; scope optionally narrows it to specific installments; and
+// voice_actors, when set, overrides the character's default cast for it.
+type CharacterAppearance struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	SeriesId      string                 `protobuf:"bytes,1,opt,name=series_id,json=seriesId,proto3" json:"series_id,omitempty"`
+	Scope         []*ScopeRef            `protobuf:"bytes,2,rep,name=scope,proto3" json:"scope,omitempty"`
+	VoiceActors   []*VoiceActor          `protobuf:"bytes,3,rep,name=voice_actors,json=voiceActors,proto3" json:"voice_actors,omitempty"`
+	ExternalIds   *ExternalIds           `protobuf:"bytes,4,opt,name=external_ids,json=externalIds,proto3" json:"external_ids,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CharacterAppearance) Reset() {
+	*x = CharacterAppearance{}
+	mi := &file_anime_v1_anime_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CharacterAppearance) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CharacterAppearance) ProtoMessage() {}
+
+func (x *CharacterAppearance) ProtoReflect() protoreflect.Message {
+	mi := &file_anime_v1_anime_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CharacterAppearance.ProtoReflect.Descriptor instead.
+func (*CharacterAppearance) Descriptor() ([]byte, []int) {
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *CharacterAppearance) GetSeriesId() string {
+	if x != nil {
+		return x.SeriesId
+	}
+	return ""
+}
+
+func (x *CharacterAppearance) GetScope() []*ScopeRef {
+	if x != nil {
+		return x.Scope
+	}
+	return nil
+}
+
+func (x *CharacterAppearance) GetVoiceActors() []*VoiceActor {
+	if x != nil {
+		return x.VoiceActors
+	}
+	return nil
+}
+
+func (x *CharacterAppearance) GetExternalIds() *ExternalIds {
+	if x != nil {
+		return x.ExternalIds
+	}
+	return nil
+}
+
+// Character is a global fictional entity, owned by no Franchise or Series.
+type Character struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	Id    string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// name is resolved for the request's Accept-Language, by the same rules as
+	// a title. Empty when the dataset carries no name for the character yet.
+	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	// localized_name carries every language; set only for Accept-Language: *.
+	LocalizedName *LocalizedTitle `protobuf:"bytes,3,opt,name=localized_name,json=localizedName,proto3" json:"localized_name,omitempty"`
+	ExternalIds   *ExternalIds    `protobuf:"bytes,4,opt,name=external_ids,json=externalIds,proto3" json:"external_ids,omitempty"`
+	// voice_actors is the default cast, used for every appearance that does not
+	// override it.
+	VoiceActors   []*VoiceActor          `protobuf:"bytes,5,rep,name=voice_actors,json=voiceActors,proto3" json:"voice_actors,omitempty"`
+	Appearances   []*CharacterAppearance `protobuf:"bytes,6,rep,name=appearances,proto3" json:"appearances,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Character) Reset() {
+	*x = Character{}
+	mi := &file_anime_v1_anime_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Character) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Character) ProtoMessage() {}
+
+func (x *Character) ProtoReflect() protoreflect.Message {
+	mi := &file_anime_v1_anime_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Character.ProtoReflect.Descriptor instead.
+func (*Character) Descriptor() ([]byte, []int) {
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *Character) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *Character) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *Character) GetLocalizedName() *LocalizedTitle {
+	if x != nil {
+		return x.LocalizedName
+	}
+	return nil
+}
+
+func (x *Character) GetExternalIds() *ExternalIds {
+	if x != nil {
+		return x.ExternalIds
+	}
+	return nil
+}
+
+func (x *Character) GetVoiceActors() []*VoiceActor {
+	if x != nil {
+		return x.VoiceActors
+	}
+	return nil
+}
+
+func (x *Character) GetAppearances() []*CharacterAppearance {
+	if x != nil {
+		return x.Appearances
+	}
+	return nil
+}
+
+// Staff is a global real person — currently only voice actors.
+type Staff struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	Id    string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// name is resolved for the request's Accept-Language.
+	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	// localized_name carries every language; set only for Accept-Language: *.
+	LocalizedName *LocalizedTitle `protobuf:"bytes,3,opt,name=localized_name,json=localizedName,proto3" json:"localized_name,omitempty"`
+	ExternalIds   *ExternalIds    `protobuf:"bytes,4,opt,name=external_ids,json=externalIds,proto3" json:"external_ids,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Staff) Reset() {
+	*x = Staff{}
+	mi := &file_anime_v1_anime_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Staff) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Staff) ProtoMessage() {}
+
+func (x *Staff) ProtoReflect() protoreflect.Message {
+	mi := &file_anime_v1_anime_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Staff.ProtoReflect.Descriptor instead.
+func (*Staff) Descriptor() ([]byte, []int) {
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *Staff) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *Staff) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *Staff) GetLocalizedName() *LocalizedTitle {
+	if x != nil {
+		return x.LocalizedName
+	}
+	return nil
+}
+
+func (x *Staff) GetExternalIds() *ExternalIds {
+	if x != nil {
+		return x.ExternalIds
+	}
+	return nil
+}
+
+// StaffCredit is one role a Staff member is cast in: the character they voice,
+// the language they voice it in, and the series it applies to.
+type StaffCredit struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CharacterId   string                 `protobuf:"bytes,1,opt,name=character_id,json=characterId,proto3" json:"character_id,omitempty"`
+	CharacterName string                 `protobuf:"bytes,2,opt,name=character_name,json=characterName,proto3" json:"character_name,omitempty"`
+	Language      string                 `protobuf:"bytes,3,opt,name=language,proto3" json:"language,omitempty"`
+	SeriesIds     []string               `protobuf:"bytes,4,rep,name=series_ids,json=seriesIds,proto3" json:"series_ids,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StaffCredit) Reset() {
+	*x = StaffCredit{}
+	mi := &file_anime_v1_anime_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StaffCredit) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StaffCredit) ProtoMessage() {}
+
+func (x *StaffCredit) ProtoReflect() protoreflect.Message {
+	mi := &file_anime_v1_anime_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StaffCredit.ProtoReflect.Descriptor instead.
+func (*StaffCredit) Descriptor() ([]byte, []int) {
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *StaffCredit) GetCharacterId() string {
+	if x != nil {
+		return x.CharacterId
+	}
+	return ""
+}
+
+func (x *StaffCredit) GetCharacterName() string {
+	if x != nil {
+		return x.CharacterName
+	}
+	return ""
+}
+
+func (x *StaffCredit) GetLanguage() string {
+	if x != nil {
+		return x.Language
+	}
+	return ""
+}
+
+func (x *StaffCredit) GetSeriesIds() []string {
+	if x != nil {
+		return x.SeriesIds
+	}
+	return nil
+}
+
 // WatchOrderEntry is one ordered reference within a WatchOrder.
 type WatchOrderEntry struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
@@ -875,7 +1321,7 @@ type WatchOrderEntry struct {
 
 func (x *WatchOrderEntry) Reset() {
 	*x = WatchOrderEntry{}
-	mi := &file_anime_v1_anime_proto_msgTypes[8]
+	mi := &file_anime_v1_anime_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -887,7 +1333,7 @@ func (x *WatchOrderEntry) String() string {
 func (*WatchOrderEntry) ProtoMessage() {}
 
 func (x *WatchOrderEntry) ProtoReflect() protoreflect.Message {
-	mi := &file_anime_v1_anime_proto_msgTypes[8]
+	mi := &file_anime_v1_anime_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -900,7 +1346,7 @@ func (x *WatchOrderEntry) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WatchOrderEntry.ProtoReflect.Descriptor instead.
 func (*WatchOrderEntry) Descriptor() ([]byte, []int) {
-	return file_anime_v1_anime_proto_rawDescGZIP(), []int{8}
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *WatchOrderEntry) GetRef() string {
@@ -928,7 +1374,7 @@ type WatchOrder struct {
 
 func (x *WatchOrder) Reset() {
 	*x = WatchOrder{}
-	mi := &file_anime_v1_anime_proto_msgTypes[9]
+	mi := &file_anime_v1_anime_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -940,7 +1386,7 @@ func (x *WatchOrder) String() string {
 func (*WatchOrder) ProtoMessage() {}
 
 func (x *WatchOrder) ProtoReflect() protoreflect.Message {
-	mi := &file_anime_v1_anime_proto_msgTypes[9]
+	mi := &file_anime_v1_anime_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -953,7 +1399,7 @@ func (x *WatchOrder) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WatchOrder.ProtoReflect.Descriptor instead.
 func (*WatchOrder) Descriptor() ([]byte, []int) {
-	return file_anime_v1_anime_proto_rawDescGZIP(), []int{9}
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *WatchOrder) GetName() string {
@@ -986,7 +1432,7 @@ type Franchise struct {
 
 func (x *Franchise) Reset() {
 	*x = Franchise{}
-	mi := &file_anime_v1_anime_proto_msgTypes[10]
+	mi := &file_anime_v1_anime_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -998,7 +1444,7 @@ func (x *Franchise) String() string {
 func (*Franchise) ProtoMessage() {}
 
 func (x *Franchise) ProtoReflect() protoreflect.Message {
-	mi := &file_anime_v1_anime_proto_msgTypes[10]
+	mi := &file_anime_v1_anime_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1011,7 +1457,7 @@ func (x *Franchise) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Franchise.ProtoReflect.Descriptor instead.
 func (*Franchise) Descriptor() ([]byte, []int) {
-	return file_anime_v1_anime_proto_rawDescGZIP(), []int{10}
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *Franchise) GetId() string {
@@ -1067,7 +1513,7 @@ type SearchResult struct {
 
 func (x *SearchResult) Reset() {
 	*x = SearchResult{}
-	mi := &file_anime_v1_anime_proto_msgTypes[11]
+	mi := &file_anime_v1_anime_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1079,7 +1525,7 @@ func (x *SearchResult) String() string {
 func (*SearchResult) ProtoMessage() {}
 
 func (x *SearchResult) ProtoReflect() protoreflect.Message {
-	mi := &file_anime_v1_anime_proto_msgTypes[11]
+	mi := &file_anime_v1_anime_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1092,7 +1538,7 @@ func (x *SearchResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SearchResult.ProtoReflect.Descriptor instead.
 func (*SearchResult) Descriptor() ([]byte, []int) {
-	return file_anime_v1_anime_proto_rawDescGZIP(), []int{11}
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *SearchResult) GetKind() EntryKind {
@@ -1137,13 +1583,15 @@ type DatasetStats struct {
 	Series        int32                  `protobuf:"varint,2,opt,name=series,proto3" json:"series,omitempty"`
 	Seasons       int32                  `protobuf:"varint,3,opt,name=seasons,proto3" json:"seasons,omitempty"`
 	Episodes      int32                  `protobuf:"varint,4,opt,name=episodes,proto3" json:"episodes,omitempty"`
+	Characters    int32                  `protobuf:"varint,5,opt,name=characters,proto3" json:"characters,omitempty"`
+	Staff         int32                  `protobuf:"varint,6,opt,name=staff,proto3" json:"staff,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *DatasetStats) Reset() {
 	*x = DatasetStats{}
-	mi := &file_anime_v1_anime_proto_msgTypes[12]
+	mi := &file_anime_v1_anime_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1155,7 +1603,7 @@ func (x *DatasetStats) String() string {
 func (*DatasetStats) ProtoMessage() {}
 
 func (x *DatasetStats) ProtoReflect() protoreflect.Message {
-	mi := &file_anime_v1_anime_proto_msgTypes[12]
+	mi := &file_anime_v1_anime_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1168,7 +1616,7 @@ func (x *DatasetStats) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DatasetStats.ProtoReflect.Descriptor instead.
 func (*DatasetStats) Descriptor() ([]byte, []int) {
-	return file_anime_v1_anime_proto_rawDescGZIP(), []int{12}
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *DatasetStats) GetFranchises() int32 {
@@ -1199,6 +1647,20 @@ func (x *DatasetStats) GetEpisodes() int32 {
 	return 0
 }
 
+func (x *DatasetStats) GetCharacters() int32 {
+	if x != nil {
+		return x.Characters
+	}
+	return 0
+}
+
+func (x *DatasetStats) GetStaff() int32 {
+	if x != nil {
+		return x.Staff
+	}
+	return 0
+}
+
 type ListFranchisesRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -1207,7 +1669,7 @@ type ListFranchisesRequest struct {
 
 func (x *ListFranchisesRequest) Reset() {
 	*x = ListFranchisesRequest{}
-	mi := &file_anime_v1_anime_proto_msgTypes[13]
+	mi := &file_anime_v1_anime_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1219,7 +1681,7 @@ func (x *ListFranchisesRequest) String() string {
 func (*ListFranchisesRequest) ProtoMessage() {}
 
 func (x *ListFranchisesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_anime_v1_anime_proto_msgTypes[13]
+	mi := &file_anime_v1_anime_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1232,7 +1694,7 @@ func (x *ListFranchisesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListFranchisesRequest.ProtoReflect.Descriptor instead.
 func (*ListFranchisesRequest) Descriptor() ([]byte, []int) {
-	return file_anime_v1_anime_proto_rawDescGZIP(), []int{13}
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{19}
 }
 
 type ListFranchisesResponse struct {
@@ -1244,7 +1706,7 @@ type ListFranchisesResponse struct {
 
 func (x *ListFranchisesResponse) Reset() {
 	*x = ListFranchisesResponse{}
-	mi := &file_anime_v1_anime_proto_msgTypes[14]
+	mi := &file_anime_v1_anime_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1256,7 +1718,7 @@ func (x *ListFranchisesResponse) String() string {
 func (*ListFranchisesResponse) ProtoMessage() {}
 
 func (x *ListFranchisesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_anime_v1_anime_proto_msgTypes[14]
+	mi := &file_anime_v1_anime_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1269,7 +1731,7 @@ func (x *ListFranchisesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListFranchisesResponse.ProtoReflect.Descriptor instead.
 func (*ListFranchisesResponse) Descriptor() ([]byte, []int) {
-	return file_anime_v1_anime_proto_rawDescGZIP(), []int{14}
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *ListFranchisesResponse) GetFranchises() []*Franchise {
@@ -1288,7 +1750,7 @@ type GetFranchiseRequest struct {
 
 func (x *GetFranchiseRequest) Reset() {
 	*x = GetFranchiseRequest{}
-	mi := &file_anime_v1_anime_proto_msgTypes[15]
+	mi := &file_anime_v1_anime_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1300,7 +1762,7 @@ func (x *GetFranchiseRequest) String() string {
 func (*GetFranchiseRequest) ProtoMessage() {}
 
 func (x *GetFranchiseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_anime_v1_anime_proto_msgTypes[15]
+	mi := &file_anime_v1_anime_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1313,7 +1775,7 @@ func (x *GetFranchiseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFranchiseRequest.ProtoReflect.Descriptor instead.
 func (*GetFranchiseRequest) Descriptor() ([]byte, []int) {
-	return file_anime_v1_anime_proto_rawDescGZIP(), []int{15}
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *GetFranchiseRequest) GetId() string {
@@ -1332,7 +1794,7 @@ type GetFranchiseResponse struct {
 
 func (x *GetFranchiseResponse) Reset() {
 	*x = GetFranchiseResponse{}
-	mi := &file_anime_v1_anime_proto_msgTypes[16]
+	mi := &file_anime_v1_anime_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1344,7 +1806,7 @@ func (x *GetFranchiseResponse) String() string {
 func (*GetFranchiseResponse) ProtoMessage() {}
 
 func (x *GetFranchiseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_anime_v1_anime_proto_msgTypes[16]
+	mi := &file_anime_v1_anime_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1357,7 +1819,7 @@ func (x *GetFranchiseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFranchiseResponse.ProtoReflect.Descriptor instead.
 func (*GetFranchiseResponse) Descriptor() ([]byte, []int) {
-	return file_anime_v1_anime_proto_rawDescGZIP(), []int{16}
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *GetFranchiseResponse) GetFranchise() *Franchise {
@@ -1376,7 +1838,7 @@ type GetSeriesRequest struct {
 
 func (x *GetSeriesRequest) Reset() {
 	*x = GetSeriesRequest{}
-	mi := &file_anime_v1_anime_proto_msgTypes[17]
+	mi := &file_anime_v1_anime_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1388,7 +1850,7 @@ func (x *GetSeriesRequest) String() string {
 func (*GetSeriesRequest) ProtoMessage() {}
 
 func (x *GetSeriesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_anime_v1_anime_proto_msgTypes[17]
+	mi := &file_anime_v1_anime_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1401,7 +1863,7 @@ func (x *GetSeriesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSeriesRequest.ProtoReflect.Descriptor instead.
 func (*GetSeriesRequest) Descriptor() ([]byte, []int) {
-	return file_anime_v1_anime_proto_rawDescGZIP(), []int{17}
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *GetSeriesRequest) GetId() string {
@@ -1422,7 +1884,7 @@ type GetSeriesResponse struct {
 
 func (x *GetSeriesResponse) Reset() {
 	*x = GetSeriesResponse{}
-	mi := &file_anime_v1_anime_proto_msgTypes[18]
+	mi := &file_anime_v1_anime_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1434,7 +1896,7 @@ func (x *GetSeriesResponse) String() string {
 func (*GetSeriesResponse) ProtoMessage() {}
 
 func (x *GetSeriesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_anime_v1_anime_proto_msgTypes[18]
+	mi := &file_anime_v1_anime_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1447,7 +1909,7 @@ func (x *GetSeriesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSeriesResponse.ProtoReflect.Descriptor instead.
 func (*GetSeriesResponse) Descriptor() ([]byte, []int) {
-	return file_anime_v1_anime_proto_rawDescGZIP(), []int{18}
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *GetSeriesResponse) GetSeries() *Series {
@@ -1475,7 +1937,7 @@ type SearchRequest struct {
 
 func (x *SearchRequest) Reset() {
 	*x = SearchRequest{}
-	mi := &file_anime_v1_anime_proto_msgTypes[19]
+	mi := &file_anime_v1_anime_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1487,7 +1949,7 @@ func (x *SearchRequest) String() string {
 func (*SearchRequest) ProtoMessage() {}
 
 func (x *SearchRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_anime_v1_anime_proto_msgTypes[19]
+	mi := &file_anime_v1_anime_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1500,7 +1962,7 @@ func (x *SearchRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SearchRequest.ProtoReflect.Descriptor instead.
 func (*SearchRequest) Descriptor() ([]byte, []int) {
-	return file_anime_v1_anime_proto_rawDescGZIP(), []int{19}
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *SearchRequest) GetQuery() string {
@@ -1526,7 +1988,7 @@ type SearchResponse struct {
 
 func (x *SearchResponse) Reset() {
 	*x = SearchResponse{}
-	mi := &file_anime_v1_anime_proto_msgTypes[20]
+	mi := &file_anime_v1_anime_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1538,7 +2000,7 @@ func (x *SearchResponse) String() string {
 func (*SearchResponse) ProtoMessage() {}
 
 func (x *SearchResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_anime_v1_anime_proto_msgTypes[20]
+	mi := &file_anime_v1_anime_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1551,12 +2013,395 @@ func (x *SearchResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SearchResponse.ProtoReflect.Descriptor instead.
 func (*SearchResponse) Descriptor() ([]byte, []int) {
-	return file_anime_v1_anime_proto_rawDescGZIP(), []int{20}
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *SearchResponse) GetResults() []*SearchResult {
 	if x != nil {
 		return x.Results
+	}
+	return nil
+}
+
+type GetCharacterRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCharacterRequest) Reset() {
+	*x = GetCharacterRequest{}
+	mi := &file_anime_v1_anime_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCharacterRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCharacterRequest) ProtoMessage() {}
+
+func (x *GetCharacterRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_anime_v1_anime_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCharacterRequest.ProtoReflect.Descriptor instead.
+func (*GetCharacterRequest) Descriptor() ([]byte, []int) {
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *GetCharacterRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+type GetCharacterResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Character     *Character             `protobuf:"bytes,1,opt,name=character,proto3" json:"character,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCharacterResponse) Reset() {
+	*x = GetCharacterResponse{}
+	mi := &file_anime_v1_anime_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCharacterResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCharacterResponse) ProtoMessage() {}
+
+func (x *GetCharacterResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_anime_v1_anime_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCharacterResponse.ProtoReflect.Descriptor instead.
+func (*GetCharacterResponse) Descriptor() ([]byte, []int) {
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *GetCharacterResponse) GetCharacter() *Character {
+	if x != nil {
+		return x.Character
+	}
+	return nil
+}
+
+type ListCharactersRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// series_id restricts the result to that series' cast; empty lists every
+	// character in the dataset.
+	SeriesId string `protobuf:"bytes,1,opt,name=series_id,json=seriesId,proto3" json:"series_id,omitempty"`
+	// limit caps the number of results; <= 0 applies a server default.
+	Limit         int32 `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListCharactersRequest) Reset() {
+	*x = ListCharactersRequest{}
+	mi := &file_anime_v1_anime_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListCharactersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListCharactersRequest) ProtoMessage() {}
+
+func (x *ListCharactersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_anime_v1_anime_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListCharactersRequest.ProtoReflect.Descriptor instead.
+func (*ListCharactersRequest) Descriptor() ([]byte, []int) {
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *ListCharactersRequest) GetSeriesId() string {
+	if x != nil {
+		return x.SeriesId
+	}
+	return ""
+}
+
+func (x *ListCharactersRequest) GetLimit() int32 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
+type ListCharactersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Characters    []*Character           `protobuf:"bytes,1,rep,name=characters,proto3" json:"characters,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListCharactersResponse) Reset() {
+	*x = ListCharactersResponse{}
+	mi := &file_anime_v1_anime_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListCharactersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListCharactersResponse) ProtoMessage() {}
+
+func (x *ListCharactersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_anime_v1_anime_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListCharactersResponse.ProtoReflect.Descriptor instead.
+func (*ListCharactersResponse) Descriptor() ([]byte, []int) {
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *ListCharactersResponse) GetCharacters() []*Character {
+	if x != nil {
+		return x.Characters
+	}
+	return nil
+}
+
+type GetStaffRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStaffRequest) Reset() {
+	*x = GetStaffRequest{}
+	mi := &file_anime_v1_anime_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStaffRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStaffRequest) ProtoMessage() {}
+
+func (x *GetStaffRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_anime_v1_anime_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStaffRequest.ProtoReflect.Descriptor instead.
+func (*GetStaffRequest) Descriptor() ([]byte, []int) {
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *GetStaffRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+type GetStaffResponse struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	Staff *Staff                 `protobuf:"bytes,1,opt,name=staff,proto3" json:"staff,omitempty"`
+	// credits is every character this person is cast as, in dataset order.
+	Credits       []*StaffCredit `protobuf:"bytes,2,rep,name=credits,proto3" json:"credits,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStaffResponse) Reset() {
+	*x = GetStaffResponse{}
+	mi := &file_anime_v1_anime_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStaffResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStaffResponse) ProtoMessage() {}
+
+func (x *GetStaffResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_anime_v1_anime_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStaffResponse.ProtoReflect.Descriptor instead.
+func (*GetStaffResponse) Descriptor() ([]byte, []int) {
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *GetStaffResponse) GetStaff() *Staff {
+	if x != nil {
+		return x.Staff
+	}
+	return nil
+}
+
+func (x *GetStaffResponse) GetCredits() []*StaffCredit {
+	if x != nil {
+		return x.Credits
+	}
+	return nil
+}
+
+type ListStaffRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// language restricts the result to staff credited in that language ("ja");
+	// empty lists everyone.
+	Language string `protobuf:"bytes,1,opt,name=language,proto3" json:"language,omitempty"`
+	// limit caps the number of results; <= 0 applies a server default.
+	Limit         int32 `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListStaffRequest) Reset() {
+	*x = ListStaffRequest{}
+	mi := &file_anime_v1_anime_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListStaffRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListStaffRequest) ProtoMessage() {}
+
+func (x *ListStaffRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_anime_v1_anime_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListStaffRequest.ProtoReflect.Descriptor instead.
+func (*ListStaffRequest) Descriptor() ([]byte, []int) {
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *ListStaffRequest) GetLanguage() string {
+	if x != nil {
+		return x.Language
+	}
+	return ""
+}
+
+func (x *ListStaffRequest) GetLimit() int32 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
+type ListStaffResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Staff         []*Staff               `protobuf:"bytes,1,rep,name=staff,proto3" json:"staff,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListStaffResponse) Reset() {
+	*x = ListStaffResponse{}
+	mi := &file_anime_v1_anime_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListStaffResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListStaffResponse) ProtoMessage() {}
+
+func (x *ListStaffResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_anime_v1_anime_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListStaffResponse.ProtoReflect.Descriptor instead.
+func (*ListStaffResponse) Descriptor() ([]byte, []int) {
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *ListStaffResponse) GetStaff() []*Staff {
+	if x != nil {
+		return x.Staff
 	}
 	return nil
 }
@@ -1569,7 +2414,7 @@ type GetHealthRequest struct {
 
 func (x *GetHealthRequest) Reset() {
 	*x = GetHealthRequest{}
-	mi := &file_anime_v1_anime_proto_msgTypes[21]
+	mi := &file_anime_v1_anime_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1581,7 +2426,7 @@ func (x *GetHealthRequest) String() string {
 func (*GetHealthRequest) ProtoMessage() {}
 
 func (x *GetHealthRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_anime_v1_anime_proto_msgTypes[21]
+	mi := &file_anime_v1_anime_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1594,7 +2439,7 @@ func (x *GetHealthRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetHealthRequest.ProtoReflect.Descriptor instead.
 func (*GetHealthRequest) Descriptor() ([]byte, []int) {
-	return file_anime_v1_anime_proto_rawDescGZIP(), []int{21}
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{35}
 }
 
 type GetHealthResponse struct {
@@ -1608,7 +2453,7 @@ type GetHealthResponse struct {
 
 func (x *GetHealthResponse) Reset() {
 	*x = GetHealthResponse{}
-	mi := &file_anime_v1_anime_proto_msgTypes[22]
+	mi := &file_anime_v1_anime_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1620,7 +2465,7 @@ func (x *GetHealthResponse) String() string {
 func (*GetHealthResponse) ProtoMessage() {}
 
 func (x *GetHealthResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_anime_v1_anime_proto_msgTypes[22]
+	mi := &file_anime_v1_anime_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1633,7 +2478,7 @@ func (x *GetHealthResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetHealthResponse.ProtoReflect.Descriptor instead.
 func (*GetHealthResponse) Descriptor() ([]byte, []int) {
-	return file_anime_v1_anime_proto_rawDescGZIP(), []int{22}
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *GetHealthResponse) GetStatus() string {
@@ -1718,14 +2563,51 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\fexternal_ids\x18\x06 \x01(\v2\x15.anime.v1.ExternalIdsR\vexternalIds\x12-\n" +
 	"\bepisodes\x18\a \x03(\v2\x11.anime.v1.EpisodeR\bepisodes\x12,\n" +
 	"\x0fabsolute_number\x18\b \x01(\x05H\x00R\x0eabsoluteNumber\x88\x01\x01B\x12\n" +
-	"\x10_absolute_number\"\xf5\x01\n" +
+	"\x10_absolute_number\"\xaa\x02\n" +
 	"\x06Series\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
 	"\x05title\x18\x06 \x01(\tR\x05title\x12A\n" +
 	"\x0flocalized_title\x18\x02 \x01(\v2\x18.anime.v1.LocalizedTitleR\x0elocalizedTitle\x12*\n" +
 	"\aseasons\x18\x03 \x03(\v2\x10.anime.v1.SeasonR\aseasons\x12'\n" +
 	"\x06movies\x18\x04 \x03(\v2\x0f.anime.v1.MovieR\x06movies\x12-\n" +
-	"\bspecials\x18\x05 \x03(\v2\x11.anime.v1.SpecialR\bspecials\"7\n" +
+	"\bspecials\x18\x05 \x03(\v2\x11.anime.v1.SpecialR\bspecials\x123\n" +
+	"\n" +
+	"characters\x18\a \x03(\v2\x13.anime.v1.CharacterR\n" +
+	"characters\"b\n" +
+	"\n" +
+	"VoiceActor\x12\x19\n" +
+	"\bstaff_id\x18\x01 \x01(\tR\astaffId\x12\x1a\n" +
+	"\blanguage\x18\x02 \x01(\tR\blanguage\x12\x1d\n" +
+	"\n" +
+	"staff_name\x18\x03 \x01(\tR\tstaffName\"a\n" +
+	"\bScopeRef\x12\x1b\n" +
+	"\tseason_id\x18\x01 \x01(\tR\bseasonId\x12\x19\n" +
+	"\bmovie_id\x18\x02 \x01(\tR\amovieId\x12\x1d\n" +
+	"\n" +
+	"special_id\x18\x03 \x01(\tR\tspecialId\"\xcf\x01\n" +
+	"\x13CharacterAppearance\x12\x1b\n" +
+	"\tseries_id\x18\x01 \x01(\tR\bseriesId\x12(\n" +
+	"\x05scope\x18\x02 \x03(\v2\x12.anime.v1.ScopeRefR\x05scope\x127\n" +
+	"\fvoice_actors\x18\x03 \x03(\v2\x14.anime.v1.VoiceActorR\vvoiceActors\x128\n" +
+	"\fexternal_ids\x18\x04 \x01(\v2\x15.anime.v1.ExternalIdsR\vexternalIds\"\xa4\x02\n" +
+	"\tCharacter\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12?\n" +
+	"\x0elocalized_name\x18\x03 \x01(\v2\x18.anime.v1.LocalizedTitleR\rlocalizedName\x128\n" +
+	"\fexternal_ids\x18\x04 \x01(\v2\x15.anime.v1.ExternalIdsR\vexternalIds\x127\n" +
+	"\fvoice_actors\x18\x05 \x03(\v2\x14.anime.v1.VoiceActorR\vvoiceActors\x12?\n" +
+	"\vappearances\x18\x06 \x03(\v2\x1d.anime.v1.CharacterAppearanceR\vappearances\"\xa6\x01\n" +
+	"\x05Staff\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12?\n" +
+	"\x0elocalized_name\x18\x03 \x01(\v2\x18.anime.v1.LocalizedTitleR\rlocalizedName\x128\n" +
+	"\fexternal_ids\x18\x04 \x01(\v2\x15.anime.v1.ExternalIdsR\vexternalIds\"\x92\x01\n" +
+	"\vStaffCredit\x12!\n" +
+	"\fcharacter_id\x18\x01 \x01(\tR\vcharacterId\x12%\n" +
+	"\x0echaracter_name\x18\x02 \x01(\tR\rcharacterName\x12\x1a\n" +
+	"\blanguage\x18\x03 \x01(\tR\blanguage\x12\x1d\n" +
+	"\n" +
+	"series_ids\x18\x04 \x03(\tR\tseriesIds\"7\n" +
 	"\x0fWatchOrderEntry\x12\x10\n" +
 	"\x03ref\x18\x01 \x01(\tR\x03ref\x12\x12\n" +
 	"\x04note\x18\x02 \x01(\tR\x04note\"U\n" +
@@ -1744,14 +2626,18 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\x02id\x18\x02 \x01(\tR\x02id\x12\x14\n" +
 	"\x05title\x18\x05 \x01(\tR\x05title\x12A\n" +
 	"\x0flocalized_title\x18\x03 \x01(\v2\x18.anime.v1.LocalizedTitleR\x0elocalizedTitle\x12!\n" +
-	"\ffranchise_id\x18\x04 \x01(\tR\vfranchiseId\"|\n" +
+	"\ffranchise_id\x18\x04 \x01(\tR\vfranchiseId\"\xb2\x01\n" +
 	"\fDatasetStats\x12\x1e\n" +
 	"\n" +
 	"franchises\x18\x01 \x01(\x05R\n" +
 	"franchises\x12\x16\n" +
 	"\x06series\x18\x02 \x01(\x05R\x06series\x12\x18\n" +
 	"\aseasons\x18\x03 \x01(\x05R\aseasons\x12\x1a\n" +
-	"\bepisodes\x18\x04 \x01(\x05R\bepisodes\"\x17\n" +
+	"\bepisodes\x18\x04 \x01(\x05R\bepisodes\x12\x1e\n" +
+	"\n" +
+	"characters\x18\x05 \x01(\x05R\n" +
+	"characters\x12\x14\n" +
+	"\x05staff\x18\x06 \x01(\x05R\x05staff\"\x17\n" +
 	"\x15ListFranchisesRequest\"M\n" +
 	"\x16ListFranchisesResponse\x123\n" +
 	"\n" +
@@ -1770,7 +2656,28 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\x05query\x18\x01 \x01(\tR\x05query\x12\x14\n" +
 	"\x05limit\x18\x02 \x01(\x05R\x05limit\"B\n" +
 	"\x0eSearchResponse\x120\n" +
-	"\aresults\x18\x01 \x03(\v2\x16.anime.v1.SearchResultR\aresults\"\x12\n" +
+	"\aresults\x18\x01 \x03(\v2\x16.anime.v1.SearchResultR\aresults\"%\n" +
+	"\x13GetCharacterRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"I\n" +
+	"\x14GetCharacterResponse\x121\n" +
+	"\tcharacter\x18\x01 \x01(\v2\x13.anime.v1.CharacterR\tcharacter\"J\n" +
+	"\x15ListCharactersRequest\x12\x1b\n" +
+	"\tseries_id\x18\x01 \x01(\tR\bseriesId\x12\x14\n" +
+	"\x05limit\x18\x02 \x01(\x05R\x05limit\"M\n" +
+	"\x16ListCharactersResponse\x123\n" +
+	"\n" +
+	"characters\x18\x01 \x03(\v2\x13.anime.v1.CharacterR\n" +
+	"characters\"!\n" +
+	"\x0fGetStaffRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"j\n" +
+	"\x10GetStaffResponse\x12%\n" +
+	"\x05staff\x18\x01 \x01(\v2\x0f.anime.v1.StaffR\x05staff\x12/\n" +
+	"\acredits\x18\x02 \x03(\v2\x15.anime.v1.StaffCreditR\acredits\"D\n" +
+	"\x10ListStaffRequest\x12\x1a\n" +
+	"\blanguage\x18\x01 \x01(\tR\blanguage\x12\x14\n" +
+	"\x05limit\x18\x02 \x01(\x05R\x05limit\":\n" +
+	"\x11ListStaffResponse\x12%\n" +
+	"\x05staff\x18\x01 \x03(\v2\x0f.anime.v1.StaffR\x05staff\"\x12\n" +
 	"\x10GetHealthRequest\"s\n" +
 	"\x11GetHealthResponse\x12\x16\n" +
 	"\x06status\x18\x01 \x01(\tR\x06status\x12\x18\n" +
@@ -1790,12 +2697,16 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\tEntryKind\x12\x1a\n" +
 	"\x16ENTRY_KIND_UNSPECIFIED\x10\x00\x12\x18\n" +
 	"\x14ENTRY_KIND_FRANCHISE\x10\x01\x12\x15\n" +
-	"\x11ENTRY_KIND_SERIES\x10\x022\x85\x03\n" +
+	"\x11ENTRY_KIND_SERIES\x10\x022\xba\x05\n" +
 	"\fAnimeService\x12U\n" +
 	"\x0eListFranchises\x12\x1f.anime.v1.ListFranchisesRequest\x1a .anime.v1.ListFranchisesResponse\"\x00\x12O\n" +
 	"\fGetFranchise\x12\x1d.anime.v1.GetFranchiseRequest\x1a\x1e.anime.v1.GetFranchiseResponse\"\x00\x12F\n" +
 	"\tGetSeries\x12\x1a.anime.v1.GetSeriesRequest\x1a\x1b.anime.v1.GetSeriesResponse\"\x00\x12=\n" +
-	"\x06Search\x12\x17.anime.v1.SearchRequest\x1a\x18.anime.v1.SearchResponse\"\x00\x12F\n" +
+	"\x06Search\x12\x17.anime.v1.SearchRequest\x1a\x18.anime.v1.SearchResponse\"\x00\x12O\n" +
+	"\fGetCharacter\x12\x1d.anime.v1.GetCharacterRequest\x1a\x1e.anime.v1.GetCharacterResponse\"\x00\x12U\n" +
+	"\x0eListCharacters\x12\x1f.anime.v1.ListCharactersRequest\x1a .anime.v1.ListCharactersResponse\"\x00\x12C\n" +
+	"\bGetStaff\x12\x19.anime.v1.GetStaffRequest\x1a\x1a.anime.v1.GetStaffResponse\"\x00\x12F\n" +
+	"\tListStaff\x12\x1a.anime.v1.ListStaffRequest\x1a\x1b.anime.v1.ListStaffResponse\"\x00\x12F\n" +
 	"\tGetHealth\x12\x1a.anime.v1.GetHealthRequest\x1a\x1b.anime.v1.GetHealthResponse\"\x00BLZJgithub.com/michael-freling/anime-metadata-db/internal/gen/anime/v1;animev1b\x06proto3"
 
 var (
@@ -1811,7 +2722,7 @@ func file_anime_v1_anime_proto_rawDescGZIP() []byte {
 }
 
 var file_anime_v1_anime_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
-var file_anime_v1_anime_proto_msgTypes = make([]protoimpl.MessageInfo, 24)
+var file_anime_v1_anime_proto_msgTypes = make([]protoimpl.MessageInfo, 38)
 var file_anime_v1_anime_proto_goTypes = []any{
 	(ReleaseSeason)(0),             // 0: anime.v1.ReleaseSeason
 	(SpecialFormat)(0),             // 1: anime.v1.SpecialFormat
@@ -1824,25 +2735,39 @@ var file_anime_v1_anime_proto_goTypes = []any{
 	(*Movie)(nil),                  // 8: anime.v1.Movie
 	(*Special)(nil),                // 9: anime.v1.Special
 	(*Series)(nil),                 // 10: anime.v1.Series
-	(*WatchOrderEntry)(nil),        // 11: anime.v1.WatchOrderEntry
-	(*WatchOrder)(nil),             // 12: anime.v1.WatchOrder
-	(*Franchise)(nil),              // 13: anime.v1.Franchise
-	(*SearchResult)(nil),           // 14: anime.v1.SearchResult
-	(*DatasetStats)(nil),           // 15: anime.v1.DatasetStats
-	(*ListFranchisesRequest)(nil),  // 16: anime.v1.ListFranchisesRequest
-	(*ListFranchisesResponse)(nil), // 17: anime.v1.ListFranchisesResponse
-	(*GetFranchiseRequest)(nil),    // 18: anime.v1.GetFranchiseRequest
-	(*GetFranchiseResponse)(nil),   // 19: anime.v1.GetFranchiseResponse
-	(*GetSeriesRequest)(nil),       // 20: anime.v1.GetSeriesRequest
-	(*GetSeriesResponse)(nil),      // 21: anime.v1.GetSeriesResponse
-	(*SearchRequest)(nil),          // 22: anime.v1.SearchRequest
-	(*SearchResponse)(nil),         // 23: anime.v1.SearchResponse
-	(*GetHealthRequest)(nil),       // 24: anime.v1.GetHealthRequest
-	(*GetHealthResponse)(nil),      // 25: anime.v1.GetHealthResponse
-	nil,                            // 26: anime.v1.LocalizedTitle.TranslationsEntry
+	(*VoiceActor)(nil),             // 11: anime.v1.VoiceActor
+	(*ScopeRef)(nil),               // 12: anime.v1.ScopeRef
+	(*CharacterAppearance)(nil),    // 13: anime.v1.CharacterAppearance
+	(*Character)(nil),              // 14: anime.v1.Character
+	(*Staff)(nil),                  // 15: anime.v1.Staff
+	(*StaffCredit)(nil),            // 16: anime.v1.StaffCredit
+	(*WatchOrderEntry)(nil),        // 17: anime.v1.WatchOrderEntry
+	(*WatchOrder)(nil),             // 18: anime.v1.WatchOrder
+	(*Franchise)(nil),              // 19: anime.v1.Franchise
+	(*SearchResult)(nil),           // 20: anime.v1.SearchResult
+	(*DatasetStats)(nil),           // 21: anime.v1.DatasetStats
+	(*ListFranchisesRequest)(nil),  // 22: anime.v1.ListFranchisesRequest
+	(*ListFranchisesResponse)(nil), // 23: anime.v1.ListFranchisesResponse
+	(*GetFranchiseRequest)(nil),    // 24: anime.v1.GetFranchiseRequest
+	(*GetFranchiseResponse)(nil),   // 25: anime.v1.GetFranchiseResponse
+	(*GetSeriesRequest)(nil),       // 26: anime.v1.GetSeriesRequest
+	(*GetSeriesResponse)(nil),      // 27: anime.v1.GetSeriesResponse
+	(*SearchRequest)(nil),          // 28: anime.v1.SearchRequest
+	(*SearchResponse)(nil),         // 29: anime.v1.SearchResponse
+	(*GetCharacterRequest)(nil),    // 30: anime.v1.GetCharacterRequest
+	(*GetCharacterResponse)(nil),   // 31: anime.v1.GetCharacterResponse
+	(*ListCharactersRequest)(nil),  // 32: anime.v1.ListCharactersRequest
+	(*ListCharactersResponse)(nil), // 33: anime.v1.ListCharactersResponse
+	(*GetStaffRequest)(nil),        // 34: anime.v1.GetStaffRequest
+	(*GetStaffResponse)(nil),       // 35: anime.v1.GetStaffResponse
+	(*ListStaffRequest)(nil),       // 36: anime.v1.ListStaffRequest
+	(*ListStaffResponse)(nil),      // 37: anime.v1.ListStaffResponse
+	(*GetHealthRequest)(nil),       // 38: anime.v1.GetHealthRequest
+	(*GetHealthResponse)(nil),      // 39: anime.v1.GetHealthResponse
+	nil,                            // 40: anime.v1.LocalizedTitle.TranslationsEntry
 }
 var file_anime_v1_anime_proto_depIdxs = []int32{
-	26, // 0: anime.v1.LocalizedTitle.translations:type_name -> anime.v1.LocalizedTitle.TranslationsEntry
+	40, // 0: anime.v1.LocalizedTitle.translations:type_name -> anime.v1.LocalizedTitle.TranslationsEntry
 	3,  // 1: anime.v1.Season.localized_title:type_name -> anime.v1.LocalizedTitle
 	0,  // 2: anime.v1.Season.release_season:type_name -> anime.v1.ReleaseSeason
 	4,  // 3: anime.v1.Season.external_ids:type_name -> anime.v1.ExternalIds
@@ -1858,32 +2783,55 @@ var file_anime_v1_anime_proto_depIdxs = []int32{
 	6,  // 13: anime.v1.Series.seasons:type_name -> anime.v1.Season
 	8,  // 14: anime.v1.Series.movies:type_name -> anime.v1.Movie
 	9,  // 15: anime.v1.Series.specials:type_name -> anime.v1.Special
-	11, // 16: anime.v1.WatchOrder.entries:type_name -> anime.v1.WatchOrderEntry
-	3,  // 17: anime.v1.Franchise.localized_title:type_name -> anime.v1.LocalizedTitle
-	10, // 18: anime.v1.Franchise.series:type_name -> anime.v1.Series
-	12, // 19: anime.v1.Franchise.watch_orders:type_name -> anime.v1.WatchOrder
-	2,  // 20: anime.v1.SearchResult.kind:type_name -> anime.v1.EntryKind
-	3,  // 21: anime.v1.SearchResult.localized_title:type_name -> anime.v1.LocalizedTitle
-	13, // 22: anime.v1.ListFranchisesResponse.franchises:type_name -> anime.v1.Franchise
-	13, // 23: anime.v1.GetFranchiseResponse.franchise:type_name -> anime.v1.Franchise
-	10, // 24: anime.v1.GetSeriesResponse.series:type_name -> anime.v1.Series
-	14, // 25: anime.v1.SearchResponse.results:type_name -> anime.v1.SearchResult
-	15, // 26: anime.v1.GetHealthResponse.stats:type_name -> anime.v1.DatasetStats
-	16, // 27: anime.v1.AnimeService.ListFranchises:input_type -> anime.v1.ListFranchisesRequest
-	18, // 28: anime.v1.AnimeService.GetFranchise:input_type -> anime.v1.GetFranchiseRequest
-	20, // 29: anime.v1.AnimeService.GetSeries:input_type -> anime.v1.GetSeriesRequest
-	22, // 30: anime.v1.AnimeService.Search:input_type -> anime.v1.SearchRequest
-	24, // 31: anime.v1.AnimeService.GetHealth:input_type -> anime.v1.GetHealthRequest
-	17, // 32: anime.v1.AnimeService.ListFranchises:output_type -> anime.v1.ListFranchisesResponse
-	19, // 33: anime.v1.AnimeService.GetFranchise:output_type -> anime.v1.GetFranchiseResponse
-	21, // 34: anime.v1.AnimeService.GetSeries:output_type -> anime.v1.GetSeriesResponse
-	23, // 35: anime.v1.AnimeService.Search:output_type -> anime.v1.SearchResponse
-	25, // 36: anime.v1.AnimeService.GetHealth:output_type -> anime.v1.GetHealthResponse
-	32, // [32:37] is the sub-list for method output_type
-	27, // [27:32] is the sub-list for method input_type
-	27, // [27:27] is the sub-list for extension type_name
-	27, // [27:27] is the sub-list for extension extendee
-	0,  // [0:27] is the sub-list for field type_name
+	14, // 16: anime.v1.Series.characters:type_name -> anime.v1.Character
+	12, // 17: anime.v1.CharacterAppearance.scope:type_name -> anime.v1.ScopeRef
+	11, // 18: anime.v1.CharacterAppearance.voice_actors:type_name -> anime.v1.VoiceActor
+	4,  // 19: anime.v1.CharacterAppearance.external_ids:type_name -> anime.v1.ExternalIds
+	3,  // 20: anime.v1.Character.localized_name:type_name -> anime.v1.LocalizedTitle
+	4,  // 21: anime.v1.Character.external_ids:type_name -> anime.v1.ExternalIds
+	11, // 22: anime.v1.Character.voice_actors:type_name -> anime.v1.VoiceActor
+	13, // 23: anime.v1.Character.appearances:type_name -> anime.v1.CharacterAppearance
+	3,  // 24: anime.v1.Staff.localized_name:type_name -> anime.v1.LocalizedTitle
+	4,  // 25: anime.v1.Staff.external_ids:type_name -> anime.v1.ExternalIds
+	17, // 26: anime.v1.WatchOrder.entries:type_name -> anime.v1.WatchOrderEntry
+	3,  // 27: anime.v1.Franchise.localized_title:type_name -> anime.v1.LocalizedTitle
+	10, // 28: anime.v1.Franchise.series:type_name -> anime.v1.Series
+	18, // 29: anime.v1.Franchise.watch_orders:type_name -> anime.v1.WatchOrder
+	2,  // 30: anime.v1.SearchResult.kind:type_name -> anime.v1.EntryKind
+	3,  // 31: anime.v1.SearchResult.localized_title:type_name -> anime.v1.LocalizedTitle
+	19, // 32: anime.v1.ListFranchisesResponse.franchises:type_name -> anime.v1.Franchise
+	19, // 33: anime.v1.GetFranchiseResponse.franchise:type_name -> anime.v1.Franchise
+	10, // 34: anime.v1.GetSeriesResponse.series:type_name -> anime.v1.Series
+	20, // 35: anime.v1.SearchResponse.results:type_name -> anime.v1.SearchResult
+	14, // 36: anime.v1.GetCharacterResponse.character:type_name -> anime.v1.Character
+	14, // 37: anime.v1.ListCharactersResponse.characters:type_name -> anime.v1.Character
+	15, // 38: anime.v1.GetStaffResponse.staff:type_name -> anime.v1.Staff
+	16, // 39: anime.v1.GetStaffResponse.credits:type_name -> anime.v1.StaffCredit
+	15, // 40: anime.v1.ListStaffResponse.staff:type_name -> anime.v1.Staff
+	21, // 41: anime.v1.GetHealthResponse.stats:type_name -> anime.v1.DatasetStats
+	22, // 42: anime.v1.AnimeService.ListFranchises:input_type -> anime.v1.ListFranchisesRequest
+	24, // 43: anime.v1.AnimeService.GetFranchise:input_type -> anime.v1.GetFranchiseRequest
+	26, // 44: anime.v1.AnimeService.GetSeries:input_type -> anime.v1.GetSeriesRequest
+	28, // 45: anime.v1.AnimeService.Search:input_type -> anime.v1.SearchRequest
+	30, // 46: anime.v1.AnimeService.GetCharacter:input_type -> anime.v1.GetCharacterRequest
+	32, // 47: anime.v1.AnimeService.ListCharacters:input_type -> anime.v1.ListCharactersRequest
+	34, // 48: anime.v1.AnimeService.GetStaff:input_type -> anime.v1.GetStaffRequest
+	36, // 49: anime.v1.AnimeService.ListStaff:input_type -> anime.v1.ListStaffRequest
+	38, // 50: anime.v1.AnimeService.GetHealth:input_type -> anime.v1.GetHealthRequest
+	23, // 51: anime.v1.AnimeService.ListFranchises:output_type -> anime.v1.ListFranchisesResponse
+	25, // 52: anime.v1.AnimeService.GetFranchise:output_type -> anime.v1.GetFranchiseResponse
+	27, // 53: anime.v1.AnimeService.GetSeries:output_type -> anime.v1.GetSeriesResponse
+	29, // 54: anime.v1.AnimeService.Search:output_type -> anime.v1.SearchResponse
+	31, // 55: anime.v1.AnimeService.GetCharacter:output_type -> anime.v1.GetCharacterResponse
+	33, // 56: anime.v1.AnimeService.ListCharacters:output_type -> anime.v1.ListCharactersResponse
+	35, // 57: anime.v1.AnimeService.GetStaff:output_type -> anime.v1.GetStaffResponse
+	37, // 58: anime.v1.AnimeService.ListStaff:output_type -> anime.v1.ListStaffResponse
+	39, // 59: anime.v1.AnimeService.GetHealth:output_type -> anime.v1.GetHealthResponse
+	51, // [51:60] is the sub-list for method output_type
+	42, // [42:51] is the sub-list for method input_type
+	42, // [42:42] is the sub-list for extension type_name
+	42, // [42:42] is the sub-list for extension extendee
+	0,  // [0:42] is the sub-list for field type_name
 }
 
 func init() { file_anime_v1_anime_proto_init() }
@@ -1901,7 +2849,7 @@ func file_anime_v1_anime_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_anime_v1_anime_proto_rawDesc), len(file_anime_v1_anime_proto_rawDesc)),
 			NumEnums:      3,
-			NumMessages:   24,
+			NumMessages:   38,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

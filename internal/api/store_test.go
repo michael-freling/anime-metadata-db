@@ -78,6 +78,31 @@ const franchiseYAML = `franchise:
         - ref: aaa-s1
           note: start here
         - ref: aaa-s2
+  characters:
+    - id: alpha-hero
+      names:
+        original: アルファ
+        translations:
+          en: Alpha Hero
+      externalIds:
+        wikidataId: Q100
+      voiceActors:
+        - staffId: va-one
+          language: ja
+      appearances:
+        # Scoped to one season of the owning series.
+        - seriesId: aaa-main
+          scope:
+            - seasonId: aaa-s1
+            - movieId: aaa-movie
+            - specialId: aaa-ova
+        # Cross-record appearance that overrides the default cast.
+        - seriesId: zzz
+          externalIds:
+            anilistId: 99
+          voiceActors:
+            - staffId: va-two
+              language: en
 `
 
 // standaloneYAML is a top-level series (no franchise) using the FALL enum.
@@ -91,6 +116,27 @@ const standaloneYAML = `series:
     - id: zzz-s1
       number: 1
       releaseSeason: FALL
+  characters:
+    # No appearances: the default cast still yields a credit, with no series.
+    - id: zed-friend
+      names:
+        translations:
+          en: Zed Friend
+      voiceActors:
+        - staffId: va-one
+          language: en
+`
+
+// staffYAML is the global staff file: two voice actors, one of them unnamed.
+const staffYAML = `staff:
+  - id: va-one
+    names:
+      original: 声優一
+      translations:
+        en: Voice One
+    externalIds:
+      wikidataId: Q200
+  - id: va-two
 `
 
 // minimalYAML is a series with no titles or installments, covering the empty
@@ -107,6 +153,8 @@ func newTestFS() fstest.MapFS {
 		"data/series/zzz.yaml":  {Data: []byte(standaloneYAML)},
 		"data/series/min.yaml":  {Data: []byte(minimalYAML)},
 		"data/series/README.md": {Data: []byte("not yaml")},
+		"data/staff/va.yaml":    {Data: []byte(staffYAML)},
+		"data/staff/notes.txt":  {Data: []byte("not yaml")},
 	}
 }
 
@@ -123,7 +171,7 @@ func mustStore(t *testing.T) *Store {
 func TestNewStoreStats(t *testing.T) {
 	s := mustStore(t)
 	got := s.Stats()
-	want := Stats{Franchises: 1, Series: 3, Seasons: 5, Episodes: 3}
+	want := Stats{Franchises: 1, Series: 3, Seasons: 5, Episodes: 3, Characters: 2, Staff: 2}
 	if got != want {
 		t.Errorf("Stats() = %+v, want %+v", got, want)
 	}
@@ -214,6 +262,19 @@ func TestNewStoreErrors(t *testing.T) {
 		{"duplicate nested series", fstest.MapFS{
 			"data/series/a.yaml": {Data: []byte("franchise:\n  id: f\n  series:\n    - id: s\n    - id: s\n")},
 		}},
+		{"duplicate character across files", fstest.MapFS{
+			"data/series/a.yaml": {Data: []byte("series:\n  id: a\n  characters:\n    - id: dup\n")},
+			"data/series/b.yaml": {Data: []byte("series:\n  id: b\n  characters:\n    - id: dup\n")},
+		}},
+		{"malformed staff yaml", fstest.MapFS{
+			"data/series/a.yaml": {Data: []byte("series:\n  id: a\n")},
+			"data/staff/s.yaml":  {Data: []byte("staff: [unterminated")},
+		}},
+		{"duplicate staff id", fstest.MapFS{
+			"data/series/a.yaml": {Data: []byte("series:\n  id: a\n")},
+			"data/staff/x.yaml":  {Data: []byte("staff:\n  - id: dup\n")},
+			"data/staff/y.yaml":  {Data: []byte("staff:\n  - id: dup\n")},
+		}},
 	}
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
@@ -221,5 +282,153 @@ func TestNewStoreErrors(t *testing.T) {
 				t.Fatal("expected error, got nil")
 			}
 		})
+	}
+}
+
+// A dataset with no data/staff subtree loads fine — staff are optional.
+func TestNewStoreWithoutStaffDir(t *testing.T) {
+	s, err := NewStore(fstest.MapFS{"data/series/a.yaml": {Data: []byte("series:\n  id: a\n")}})
+	if err != nil {
+		t.Fatalf("NewStore: %v", err)
+	}
+	if got := s.Stats().Staff; got != 0 {
+		t.Errorf("Staff = %d, want 0", got)
+	}
+	if got := s.StaffList("", 0); got != nil {
+		t.Errorf("StaffList() = %v, want nil", got)
+	}
+}
+
+func TestStoreCharacters(t *testing.T) {
+	s := mustStore(t)
+
+	c, ok := s.Character("alpha-hero")
+	if !ok || c.Names.Translations["en"] != "Alpha Hero" {
+		t.Fatalf("Character(alpha-hero) = %+v, %v", c, ok)
+	}
+	if _, ok := s.Character("nobody"); ok {
+		t.Error("Character(nobody) should not be found")
+	}
+
+	tests := []struct {
+		name     string
+		seriesID string
+		limit    int
+		wantIDs  []string
+	}{
+		{"whole cast", "", 0, []string{"alpha-hero", "zed-friend"}},
+		{"owning series", "aaa-main", 0, []string{"alpha-hero"}},
+		// The cross-record appearance files the character under zzz too.
+		{"appearance in another record", "zzz", 0, []string{"alpha-hero"}},
+		{"series with no cast", "minimal", 0, nil},
+		{"unknown series", "nope", 0, nil},
+		{"limit caps results", "", 1, []string{"alpha-hero"}},
+	}
+	for _, tc := range tests {
+		t.Run(tc.name, func(t *testing.T) {
+			got := s.Characters(tc.seriesID, tc.limit)
+			if len(got) != len(tc.wantIDs) {
+				t.Fatalf("Characters(%q, %d) = %d, want %d", tc.seriesID, tc.limit, len(got), len(tc.wantIDs))
+			}
+			for i, c := range got {
+				if c.ID != tc.wantIDs[i] {
+					t.Errorf("character %d = %q, want %q", i, c.ID, tc.wantIDs[i])
+				}
+			}
+		})
+	}
+}
+
+func TestStoreStaff(t *testing.T) {
+	s := mustStore(t)
+
+	st, ok := s.Staff("va-one")
+	if !ok || st.ExternalIDs.WikidataID != "Q200" {
+		t.Fatalf("Staff(va-one) = %+v, %v", st, ok)
+	}
+	if _, ok := s.Staff("va-none"); ok {
+		t.Error("Staff(va-none) should not be found")
+	}
+
+	tests := []struct {
+		name     string
+		language string
+		limit    int
+		wantIDs  []string
+	}{
+		{"everyone", "", 0, []string{"va-one", "va-two"}},
+		// va-one is cast in ja (alpha-hero) and en (zed-friend).
+		{"japanese credits", "ja", 0, []string{"va-one"}},
+		{"english credits", "en", 0, []string{"va-one", "va-two"}},
+		{"language with no credits", "fr", 0, nil},
+		{"limit caps results", "", 1, []string{"va-one"}},
+	}
+	for _, tc := range tests {
+		t.Run(tc.name, func(t *testing.T) {
+			got := s.StaffList(tc.language, tc.limit)
+			if len(got) != len(tc.wantIDs) {
+				t.Fatalf("StaffList(%q, %d) = %d, want %d", tc.language, tc.limit, len(got), len(tc.wantIDs))
+			}
+			for i, st := range got {
+				if st.ID != tc.wantIDs[i] {
+					t.Errorf("staff %d = %q, want %q", i, st.ID, tc.wantIDs[i])
+				}
+			}
+		})
+	}
+}
+
+func TestStoreStaffCredits(t *testing.T) {
+	s := mustStore(t)
+
+	// va-one voices alpha-hero in ja (the default cast, which applies only to
+	// the appearance that does not override it) and zed-friend in en (a
+	// character with no appearances, so no series ids).
+	credits := s.StaffCredits("va-one")
+	if len(credits) != 2 {
+		t.Fatalf("StaffCredits(va-one) = %d credits, want 2: %+v", len(credits), credits)
+	}
+	if credits[0].Character.ID != "alpha-hero" || credits[0].Language != "ja" {
+		t.Errorf("credit 0 = %s/%s", credits[0].Character.ID, credits[0].Language)
+	}
+	if len(credits[0].SeriesIDs) != 1 || credits[0].SeriesIDs[0] != "aaa-main" {
+		t.Errorf("credit 0 series = %v, want [aaa-main]", credits[0].SeriesIDs)
+	}
+	if credits[1].Character.ID != "zed-friend" || credits[1].Language != "en" || credits[1].SeriesIDs != nil {
+		t.Errorf("credit 1 = %+v", credits[1])
+	}
+
+	// va-two is only cast through the appearance-level override.
+	credits = s.StaffCredits("va-two")
+	if len(credits) != 1 || credits[0].Language != "en" || credits[0].SeriesIDs[0] != "zzz" {
+		t.Fatalf("StaffCredits(va-two) = %+v", credits)
+	}
+
+	if got := s.StaffCredits("nobody"); got != nil {
+		t.Errorf("StaffCredits(nobody) = %v, want nil", got)
+	}
+}
+
+// A duplicated (staff, language, series) triple is recorded once.
+func TestStoreStaffCreditsDeduplicates(t *testing.T) {
+	const dupYAML = `series:
+  id: d
+  characters:
+    - id: dup-cast
+      appearances:
+        - seriesId: d
+          voiceActors:
+            - staffId: va
+              language: ja
+            - staffId: va
+              language: ja
+`
+	s, err := NewStore(fstest.MapFS{"data/series/d.yaml": {Data: []byte(dupYAML)}})
+	if err != nil {
+		t.Fatalf("NewStore: %v", err)
+	}
+	credits := s.StaffCredits("va")
+	if len(credits) != 1 || len(credits[0].SeriesIDs) != 1 {
+		t.Fatalf("StaffCredits(va) = %+v, want one credit for one series", credits)
 	}
 }

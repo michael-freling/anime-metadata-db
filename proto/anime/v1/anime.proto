@@ -1,9 +1,16 @@
 syntax = "proto3";
 
 // Package anime.v1 is the read-only Connect API over the committed anime
-// franchise dataset (the R1 model: Franchise -> Series -> Season -> Episode,
-// plus Movie and Special). It mirrors internal/model; the R2 cast (characters
-// and staff) is intentionally not exposed yet.
+// franchise dataset: the R1 model (Franchise -> Series -> Season -> Episode,
+// plus Movie and Special) and the R2 cast (Character and Staff). It mirrors
+// internal/model.
+//
+// The cast is a global, many-to-many layer that attaches onto the R1 spine
+// through a Character's appearances, so a character reached from a Series is
+// the same node reachable by id from GetCharacter — it just carries every
+// series it appears in. Only facts are served (ids, names, the appearance and
+// voice-actor graph); expression (roles, bios, images) is left to the consumer
+// to fetch live from the external ids.
 package anime.v1;
 
 option go_package = "github.com/michael-freling/anime-metadata-db/internal/gen/anime/v1;animev1";
@@ -123,6 +130,72 @@ message Series {
   repeated Season seasons = 3;
   repeated Movie movies = 4;
   repeated Special specials = 5;
+  // characters appearing in this series, in dataset order. Each is the full
+  // global Character node, so its appearances may name other series too.
+  repeated Character characters = 7;
+}
+
+// VoiceActor links a Character to the Staff who voices it in one language.
+message VoiceActor {
+  string staff_id = 1;
+  // language is a BCP-47 tag ("ja", "en").
+  string language = 2;
+  // staff_name is the staff member's name resolved for the request's
+  // Accept-Language, denormalized so a client need not call GetStaff. Empty
+  // when the dataset carries no name for them yet.
+  string staff_name = 3;
+}
+
+// ScopeRef narrows a CharacterAppearance to one installment of a Series.
+// Exactly one field is set.
+message ScopeRef {
+  string season_id = 1;
+  string movie_id = 2;
+  string special_id = 3;
+}
+
+// CharacterAppearance is a Character <-> Series edge. series_id is the rollup
+// association; scope optionally narrows it to specific installments; and
+// voice_actors, when set, overrides the character's default cast for it.
+message CharacterAppearance {
+  string series_id = 1;
+  repeated ScopeRef scope = 2;
+  repeated VoiceActor voice_actors = 3;
+  ExternalIds external_ids = 4;
+}
+
+// Character is a global fictional entity, owned by no Franchise or Series.
+message Character {
+  string id = 1;
+  // name is resolved for the request's Accept-Language, by the same rules as
+  // a title. Empty when the dataset carries no name for the character yet.
+  string name = 2;
+  // localized_name carries every language; set only for Accept-Language: *.
+  LocalizedTitle localized_name = 3;
+  ExternalIds external_ids = 4;
+  // voice_actors is the default cast, used for every appearance that does not
+  // override it.
+  repeated VoiceActor voice_actors = 5;
+  repeated CharacterAppearance appearances = 6;
+}
+
+// Staff is a global real person — currently only voice actors.
+message Staff {
+  string id = 1;
+  // name is resolved for the request's Accept-Language.
+  string name = 2;
+  // localized_name carries every language; set only for Accept-Language: *.
+  LocalizedTitle localized_name = 3;
+  ExternalIds external_ids = 4;
+}
+
+// StaffCredit is one role a Staff member is cast in: the character they voice,
+// the language they voice it in, and the series it applies to.
+message StaffCredit {
+  string character_id = 1;
+  string character_name = 2;
+  string language = 3;
+  repeated string series_ids = 4;
 }
 
 // WatchOrderEntry is one ordered reference within a WatchOrder.
@@ -167,6 +240,8 @@ message DatasetStats {
   int32 series = 2;
   int32 seasons = 3;
   int32 episodes = 4;
+  int32 characters = 5;
+  int32 staff = 6;
 }
 
 message ListFranchisesRequest {}
@@ -203,6 +278,48 @@ message SearchResponse {
   repeated SearchResult results = 1;
 }
 
+message GetCharacterRequest {
+  string id = 1;
+}
+
+message GetCharacterResponse {
+  Character character = 1;
+}
+
+message ListCharactersRequest {
+  // series_id restricts the result to that series' cast; empty lists every
+  // character in the dataset.
+  string series_id = 1;
+  // limit caps the number of results; <= 0 applies a server default.
+  int32 limit = 2;
+}
+
+message ListCharactersResponse {
+  repeated Character characters = 1;
+}
+
+message GetStaffRequest {
+  string id = 1;
+}
+
+message GetStaffResponse {
+  Staff staff = 1;
+  // credits is every character this person is cast as, in dataset order.
+  repeated StaffCredit credits = 2;
+}
+
+message ListStaffRequest {
+  // language restricts the result to staff credited in that language ("ja");
+  // empty lists everyone.
+  string language = 1;
+  // limit caps the number of results; <= 0 applies a server default.
+  int32 limit = 2;
+}
+
+message ListStaffResponse {
+  repeated Staff staff = 1;
+}
+
 message GetHealthRequest {}
 
 message GetHealthResponse {
@@ -229,6 +346,16 @@ service AnimeService {
   rpc GetSeries(GetSeriesRequest) returns (GetSeriesResponse) {}
   // Search matches franchises and series by title (case-insensitive substring).
   rpc Search(SearchRequest) returns (SearchResponse) {}
+  // GetCharacter returns one character by id, with every appearance and the
+  // voice actors cast for it.
+  rpc GetCharacter(GetCharacterRequest) returns (GetCharacterResponse) {}
+  // ListCharacters returns the whole cast, or just one series' cast.
+  rpc ListCharacters(ListCharactersRequest) returns (ListCharactersResponse) {}
+  // GetStaff returns one staff member by id, with the characters they voice.
+  rpc GetStaff(GetStaffRequest) returns (GetStaffResponse) {}
+  // ListStaff returns every staff member, optionally filtered by the language
+  // they are credited in.
+  rpc ListStaff(ListStaffRequest) returns (ListStaffResponse) {}
   // GetHealth reports liveness, build version and dataset stats.
   rpc GetHealth(GetHealthRequest) returns (GetHealthResponse) {}
 }
