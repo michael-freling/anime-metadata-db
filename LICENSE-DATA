@@ -268,6 +268,9 @@ Persons subject to permanent termination of rights are not eligible to be a reci
 ================================================================================
 Database Contents License (DbCL) v1.0 — applies to the individual records
 Canonical text: https://opendatacommons.org/licenses/dbcl/1-0/
+(Reproduced from the publisher's text. Their plain-text export carries a stray
+"<" after the section 2.0 heading; the heading is given here as it reads in the
+published licence.)
 ================================================================================
 
 Database Contents License (DbCL)
@@ -278,7 +281,7 @@ The Licensor and You agree as follows:
 
 The definitions of the Open Database License (ODbL) 1.0 are incorporated by reference into the Database Contents License.
 
-2.0 Rights granted and Conditions of Use<
+2.0 Rights granted and Conditions of Use
 
 2.1 Rights granted. The Licensor grants to You a worldwide,
 royalty-free, non-exclusive, perpetual, irrevocable copyright license to

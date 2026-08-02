@@ -51,8 +51,8 @@ cross-IDs) from the open sources and writes the resolved record to
 
 ## Sources
 
-Facts come from openly-licensed, redistributable sources (AniList is **not**
-used — its ToS forbids redistribution):
+Facts come from open data sources, each on its own terms. AniList is **not**
+used: its ToS forbids storing or redistributing its content.
 
 - [`anime-offline-database`](https://github.com/manami-project/anime-offline-database) (ODbL + DbCL) — titles, season / year, episode counts, cross-IDs.
 - [`Anime-Lists/anime-lists`](https://github.com/Anime-Lists/anime-lists) (no stated licence; bare ID pairs) — AniDB↔TVDB mapping and movie-set grouping.
