@@ -157,3 +157,472 @@ series:
           airedNumber: 11
         - absoluteNumber: 59
           airedNumber: 12
+  characters:
+    - id: akari-nitta
+      names:
+        original: 新田明
+        translations:
+          en: Akari Nitta
+          ja: 新田明
+      externalIds:
+        wikidataId: Q106438118
+      voiceActors:
+        - staffId: sora-tokui
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: aoi-todo
+      names:
+        original: 東堂葵
+        translations:
+          en: Aoi Tōdō
+          ja: 東堂葵
+      externalIds:
+        wikidataId: Q105154143
+      voiceActors:
+        - staffId: subaru-kimura
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: choso
+      names:
+        original: 脹相
+        translations:
+          en: Choso
+          ja: 脹相
+      externalIds:
+        wikidataId: Q106438154
+      voiceActors:
+        - staffId: daisuke-namikawa
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: eso
+      names:
+        original: 壊相
+        translations:
+          en: Eso
+          ja: 壊相
+      externalIds:
+        wikidataId: Q106438153
+      voiceActors:
+        - staffId: nobuyuki-hiyama
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: hanami
+      names:
+        original: 花御
+        translations:
+          en: Hanami
+          ja: 花御
+      externalIds:
+        wikidataId: Q105203544
+      voiceActors:
+        - staffId: atsuko-tanaka
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: haruta-shigemo
+      names:
+        original: 重面春太
+        translations:
+          en: Haruta Shigemo
+          ja: 重面春太
+      externalIds:
+        wikidataId: Q105725285
+      voiceActors:
+        - staffId: wataru-hatano
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: junpei-yoshino
+      names:
+        original: 吉野順平
+        translations:
+          en: Junpei Yoshino
+          ja: 吉野順平
+      externalIds:
+        wikidataId: Q105203708
+      voiceActors:
+        - staffId: yoshitaka-yamaya
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: juzo-kumiya
+      names:
+        original: 組屋鞣造
+        translations:
+          en: Juzo Kumiya
+          ja: 組屋鞣造
+      externalIds:
+        wikidataId: Q105725284
+      voiceActors:
+        - staffId: tetsu-inada
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: jogo
+      names:
+        original: 漏瑚
+        translations:
+          en: Jōgo
+          ja: 漏瑚
+      externalIds:
+        wikidataId: Q105203620
+      voiceActors:
+        - staffId: shigeru-chiba
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: kasumi-miwa
+      names:
+        original: 三輪霞
+        translations:
+          en: Kasumi Miwa
+          ja: 三輪霞
+      externalIds:
+        wikidataId: Q105197664
+      voiceActors:
+        - staffId: chinatsu-akasaki
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: kechizu
+      names:
+        original: 血塗
+        translations:
+          en: Kechizu
+          ja: 血塗
+      externalIds:
+        wikidataId: Q106438152
+      voiceActors:
+        - staffId: kappei-yamaguchi
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: kento-nanami
+      names:
+        original: 七海建人
+        translations:
+          en: Kento Nanami
+          ja: 七海建人
+      externalIds:
+        wikidataId: Q105153632
+      voiceActors:
+        - staffId: kenjiro-tsuda
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: kiyotaka-ijichi
+      names:
+        original: 伊地知潔高
+        translations:
+          en: Kiyotaka Ijichi
+          ja: 伊地知潔高
+      externalIds:
+        wikidataId: Q105153807
+      voiceActors:
+        - staffId: mitsuo-iwata
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: kokichi-muta
+      names:
+        original: 与幸吉
+        translations:
+          en: Kōkichi Muta
+          ja: 与幸吉
+      externalIds:
+        wikidataId: Q105197666
+      voiceActors:
+        - staffId: yoshitsugu-matsuoka
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: mahito
+      names:
+        original: 真人
+        translations:
+          en: Mahito
+          ja: 真人
+      externalIds:
+        wikidataId: Q105153544
+      voiceActors:
+        - staffId: nobunaga-shimazaki
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: mai-zen-in
+      names:
+        original: 禪院真依
+        translations:
+          en: Mai Zen'in
+          ja: 禪院真依
+      externalIds:
+        wikidataId: Q105155506
+      voiceActors:
+        - staffId: marina-inoue
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: maki-zen-in
+      names:
+        original: 禪院真希
+        translations:
+          en: Maki Zen'in
+          ja: 禪院真希
+      externalIds:
+        wikidataId: Q105152624
+      voiceActors:
+        - staffId: mikako-komatsu
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: masamichi-yaga
+      names:
+        original: 夜蛾正道
+        translations:
+          en: Masamichi Yaga
+          ja: 夜蛾正道
+      externalIds:
+        wikidataId: Q105153893
+      voiceActors:
+        - staffId: takaya-kuroda
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: megumi-fushiguro
+      names:
+        original: 伏黒恵
+        translations:
+          en: Megumi Fushiguro
+          ja: 伏黒恵
+      externalIds:
+        wikidataId: Q105037399
+      voiceActors:
+        - staffId: yuma-uchida
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: mei-mei
+      names:
+        original: 冥冥
+        translations:
+          en: Mei Mei
+          ja: 冥冥
+      externalIds:
+        wikidataId: Q105203408
+      voiceActors:
+        - staffId: kotono-mitsuishi
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: momo-nishimiya
+      names:
+        original: 西宮桃
+        translations:
+          en: Momo Nishimiya
+          ja: 西宮桃
+      externalIds:
+        wikidataId: Q105197667
+      voiceActors:
+        - staffId: rie-kugimiya
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: naobito-zen-in
+      names:
+        original: 禪院直毘人
+        translations:
+          en: Naobito Zen'in
+          ja: 禪院直毘人
+      externalIds:
+        wikidataId: Q105203466
+      voiceActors:
+        - staffId: joji-nakata
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: nobara-kugisaki
+      names:
+        original: 釘崎野薔薇
+        translations:
+          en: Nobara Kugisaki
+          ja: 釘崎野薔薇
+      externalIds:
+        wikidataId: Q105037400
+      voiceActors:
+        - staffId: asami-seto
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: noritoshi-kamo
+      names:
+        original: 加茂憲紀
+        translations:
+          en: Noritoshi Kamo
+          ja: 加茂憲紀
+      externalIds:
+        wikidataId: Q105197668
+      voiceActors:
+        - staffId: satoshi-hino
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: panda
+      names:
+        original: パンダ
+        translations:
+          en: Panda
+          ja: パンダ
+      externalIds:
+        wikidataId: Q105152626
+      voiceActors:
+        - staffId: tomokazu-seki
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: riko-amanai
+      names:
+        original: 天内理子
+        translations:
+          en: Riko Amanai
+          ja: 天内理子
+      externalIds:
+        wikidataId: Q131338728
+      voiceActors:
+        - staffId: anna-nagase
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: ryomen-sukuna
+      names:
+        original: 両面宿儺
+        translations:
+          en: Ryomen Sukuna
+          ja: 両面宿儺
+      externalIds:
+        wikidataId: Q105037685
+      voiceActors:
+        - staffId: junichi-suwabe
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: satoru-gojo
+      names:
+        original: 五条悟
+        translations:
+          en: Satoru Gojo
+          ja: 五条悟
+      externalIds:
+        wikidataId: Q105037411
+      voiceActors:
+        - staffId: yuichi-nakamura
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: shoko-ieiri
+      names:
+        original: 家入硝子
+        translations:
+          en: Shōko Ieiri
+          ja: 家入硝子
+      externalIds:
+        wikidataId: Q105152950
+      voiceActors:
+        - staffId: aya-endo
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: suguru-geto
+      names:
+        original: 夏油傑
+        translations:
+          en: Suguru Getō
+          ja: 夏油傑
+      externalIds:
+        wikidataId: Q105153137
+      voiceActors:
+        - staffId: takahiro-sakurai
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: toge-inumaki
+      names:
+        original: 狗巻棘
+        translations:
+          en: Toge Inumaki
+          ja: 狗巻棘
+      externalIds:
+        wikidataId: Q105152625
+      voiceActors:
+        - staffId: koki-uchiyama
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: toji-fushiguro
+      names:
+        original: 伏黒甚爾
+        translations:
+          en: Toji Fushiguro
+          ja: 伏黒甚爾
+      externalIds:
+        wikidataId: Q131338431
+      voiceActors:
+        - staffId: takehito-koyasu
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: utahime-iori
+      names:
+        original: 庵歌姫
+        translations:
+          en: Utahime Iori
+          ja: 庵歌姫
+      externalIds:
+        wikidataId: Q105203192
+      voiceActors:
+        - staffId: yoko-hikasa
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: yoshinobu-gakuganji
+      names:
+        original: 楽巌寺嘉伸
+        translations:
+          en: Yoshinobu Gakuganji
+          ja: 楽巌寺嘉伸
+      externalIds:
+        wikidataId: Q105203111
+      voiceActors:
+        - staffId: mugihito
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: yuji-itadori
+      names:
+        original: 虎杖悠仁
+        translations:
+          en: Yuji Itadori
+          ja: 虎杖悠仁
+      externalIds:
+        wikidataId: Q105037387
+      voiceActors:
+        - staffId: junya-enoki
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen
+    - id: yuta-okkotsu
+      names:
+        original: 乙骨憂太
+        translations:
+          en: Yūta Okkotsu
+          ja: 乙骨憂太
+      externalIds:
+        wikidataId: Q109916309
+      voiceActors:
+        - staffId: megumi-ogata
+          language: ja
+      appearances:
+        - seriesId: jujutsu-kaisen

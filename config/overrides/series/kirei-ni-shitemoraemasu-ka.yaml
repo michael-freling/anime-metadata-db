@@ -10,5 +10,36 @@ series:
     - id: kirei-ni-shitemoraemasu-ka-s1
       number: 1
       externalIds: { anilistId: 194028 } # Kirei ni Shitemoraemasu ka. (Winter 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: aji
+      externalIds: { wikidataId: Q137262251 }  # Aji
+      voiceActors:
+        - { staffId: wasabi-mizuta, language: ja }  # Wasabi Mizuta
+    - id: asami-yagara
+      externalIds: { wikidataId: Q137262062 }  # Asami Yagara
+      voiceActors:
+        - { staffId: ami-koshimizu, language: ja }  # Ami Koshimizu
+    - id: kuriru-wakasagi
+      externalIds: { wikidataId: Q137261958 }  # Kuriru Wakasagi
+      voiceActors:
+        - { staffId: yoshino-aoyama, language: ja }  # Yoshino Aoyama
+    - id: kyusho-ishimochi
+      externalIds: { wikidataId: Q137261217 }  # Kyūshō Ishimochi
+      voiceActors:
+        - { staffId: shuichiro-umeda, language: ja }  # Shūichirō Umeda
+    - id: moruda-wakasagi
+      externalIds: { wikidataId: Q137261974 }  # Moruda Wakasagi
+      voiceActors:
+        - { staffId: kento-shiraishi, language: ja }  # Kento Shiraishi
+    - id: nairo-katakuchi
+      externalIds: { wikidataId: Q137261653 }  # Nairo Katakuchi
+      voiceActors:
+        - { staffId: konomi-inagaki, language: ja }  # Konomi Inagaki
+    - id: wakana-kinme
+      externalIds: { wikidataId: Q137258495 }  # Wakana Kinme
+      voiceActors:
+        - { staffId: sayumi-suzushiro, language: ja }  # Sayumi Suzushiro
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [kirei-ni-shitemoraemasu-ka]

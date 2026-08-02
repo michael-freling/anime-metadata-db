@@ -39,3 +39,95 @@ series:
           airedNumber: 11
         - absoluteNumber: 12
           airedNumber: 12
+  characters:
+    - id: hikari-hoshimiya
+      names:
+        original: 星宮陽花里
+        translations:
+          en: Hikari Hoshimiya
+          ja: 星宮陽花里
+      externalIds:
+        wikidataId: Q138585770
+      voiceActors:
+        - staffId: kanon-takao
+          language: ja
+      appearances:
+        - seriesId: haibara-kun-no-tsuyokute-seishun-new-game
+    - id: miori-motomiya
+      names:
+        original: 本宮美織
+        translations:
+          en: Miori Motomiya
+          ja: 本宮美織
+      externalIds:
+        wikidataId: Q138585954
+      voiceActors:
+        - staffId: kanna-nakamura
+          language: ja
+      appearances:
+        - seriesId: haibara-kun-no-tsuyokute-seishun-new-game
+    - id: natsuki-haibara
+      names:
+        original: 灰原夏希
+        translations:
+          en: Natsuki Haibara
+          ja: 灰原夏希
+      externalIds:
+        wikidataId: Q138578039
+      voiceActors:
+        - staffId: yuto-uemura
+          language: ja
+      appearances:
+        - seriesId: haibara-kun-no-tsuyokute-seishun-new-game
+    - id: reita-shiratori
+      names:
+        original: 白鳥怜太
+        translations:
+          en: Reita Shiratori
+          ja: 白鳥怜太
+      externalIds:
+        wikidataId: Q138586194
+      voiceActors:
+        - staffId: tomohiro-ono
+          language: ja
+      appearances:
+        - seriesId: haibara-kun-no-tsuyokute-seishun-new-game
+    - id: tatsuya-nagiura
+      names:
+        original: 凪浦竜也
+        translations:
+          en: Tatsuya Nagiura
+          ja: 凪浦竜也
+      externalIds:
+        wikidataId: Q138586150
+      voiceActors:
+        - staffId: ryota-suzuki
+          language: ja
+      appearances:
+        - seriesId: haibara-kun-no-tsuyokute-seishun-new-game
+    - id: uta-sakura
+      names:
+        original: 佐倉詩
+        translations:
+          en: Uta Sakura
+          ja: 佐倉詩
+      externalIds:
+        wikidataId: Q138586020
+      voiceActors:
+        - staffId: aya-yamane
+          language: ja
+      appearances:
+        - seriesId: haibara-kun-no-tsuyokute-seishun-new-game
+    - id: yuino-nanase
+      names:
+        original: 七瀬唯乃
+        translations:
+          en: Yuino Nanase
+          ja: 七瀬唯乃
+      externalIds:
+        wikidataId: Q138586080
+      voiceActors:
+        - staffId: sayumi-suzushiro
+          language: ja
+      appearances:
+        - seriesId: haibara-kun-no-tsuyokute-seishun-new-game

@@ -10,5 +10,245 @@ series:
     - id: high-school-kimengumi-2026-s1
       number: 1
       externalIds: { anilistId: 200556 } # High School! Kimengumi (2026) (Winter 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: chie-uru
+      externalIds: { wikidataId: Q11449598 }  # Chie Uru
+      voiceActors:
+        - { staffId: ikumi-hasegawa, language: ja }  # Ikumi Hasegawa
+        - { staffId: naoko-matsui, language: ja }  # Naoko Matsui
+    - id: chikara-suji
+      externalIds: { wikidataId: Q136832132 }  # Chikara Suji
+      voiceActors:
+        - { staffId: ayumu-asakura, language: ja }  # Ayumu Asakura
+        - { staffId: ryo-horikawa, language: ja }  # Ryō Horikawa
+    - id: dai-monohoshi
+      externalIds: { wikidataId: Q11570650 }  # Dai Monohoshi
+      voiceActors:
+        - { staffId: kaneto-shiozawa, language: ja }  # Kaneto Shiozawa
+        - { staffId: kikunosuke-toya, language: ja }  # Kikunosuke Toya
+        - { staffId: kosuke-okano, language: ja }  # Kōsuke Okano
+    - id: desuko-honba
+      externalIds: { wikidataId: Q137041959 }  # Desuko Honba
+      voiceActors:
+        - { staffId: mami, language: ja }  # Mami
+        - { staffId: marie-oi, language: ja }  # Marie Ōi
+    - id: don-harumage
+      externalIds: { wikidataId: Q137439024 }  # Don Harumage
+      voiceActors:
+        - { staffId: kosuke-toriumi, language: ja }  # Kōsuke Toriumi
+        - { staffId: toru-furuya, language: ja }  # Tōru Furuya
+    - id: doremi-hasorashi
+      externalIds: { wikidataId: Q139410519 }  # Doremi Hasorashi
+      voiceActors:
+        - { staffId: atsumi-tanezaki, language: ja }  # Atsumi Tanezaki
+    - id: gorou-mutsu
+      externalIds: { wikidataId: Q139494803 }  # Gorou Mutsu
+      voiceActors:
+        - { staffId: koichi-kitamura, language: ja }  # Kōichi Kitamura
+        - { staffId: yasunori-matsumoto, language: ja }  # Yasunori Matsumoto
+        - { staffId: yuu-shimaka, language: ja }  # Yuu Shimaka
+    - id: go-reietsu
+      externalIds: { wikidataId: Q11395377 }  # Gō Reietsu
+      voiceActors:
+        - { staffId: shunsuke-takeuchi, language: ja }  # Shunsuke Takeuchi
+        - { staffId: tessho-genda, language: ja }  # Tesshō Genda
+    - id: ichirou-shinjitsu
+      externalIds: { wikidataId: Q137552762 }  # Ichirou Shinjitsu
+      voiceActors:
+        - { staffId: bin-shimada, language: ja }  # Bin Shimada
+        - { staffId: fumiya-imai, language: ja }  # Fumiya Imai
+    - id: ikue-sandanbara
+      externalIds: { wikidataId: Q136949013 }  # Ikue Sandanbara
+      voiceActors:
+        - { staffId: noriko-uemura, language: ja }  # Noriko Uemura
+        - { staffId: sachiko-okada, language: ja }  # Sachiko Okada
+    - id: ippei-kawa
+      externalIds: { wikidataId: Q138672272 }  # Ippei Kawa
+      voiceActors:
+        - { staffId: yuko-mita, language: ja }  # Yūko Mita
+    - id: itazou-kawa
+      externalIds: { wikidataId: Q138766382 }  # Itazou Kawa
+      voiceActors:
+        - { staffId: kazuki-ogawa, language: ja }  # Kazuki Ogawa
+        - { staffId: koji-totani, language: ja }  # Kōji Totani
+    - id: jako-amano
+      externalIds: { wikidataId: Q136928742 }  # Jako Amano
+      voiceActors:
+        - { staffId: mao-ichimichi, language: ja }  # Mao Ichimichi
+        - { staffId: yo-inoue, language: ja }  # Yō Inoue
+    - id: jin-daima
+      externalIds: { wikidataId: Q11439866 }  # Jin Daima
+      voiceActors:
+        - { staffId: chiaki-kobayashi, language: ja }  # Chiaki Kobayashi
+        - { staffId: naoki-tatsuta, language: ja }  # Naoki Tatsuta
+    - id: kai-undou
+      externalIds: { wikidataId: Q136821524 }  # Kai Undou
+      voiceActors:
+        - { staffId: kenyu-horiuchi, language: ja }  # Kenyu Horiuchi
+        - { staffId: yusuke-kobayashi, language: ja }  # Yūsuke Kobayashi
+    - id: kayo-ooba
+      externalIds: { wikidataId: Q137042753 }  # Kayo Ooba
+      voiceActors:
+        - { staffId: mari-yokoo, language: ja }  # Mari Yokoo
+    - id: kazaru-sugata
+      externalIds: { wikidataId: Q137171405 }  # Kazaru Sugata
+    - id: ken-akiresu
+      externalIds: { wikidataId: Q136828164 }  # Ken Akiresu
+      voiceActors:
+        - { staffId: hiroshi-izawa, language: ja }  # Hiroshi Izawa
+    - id: kensaku-meri
+      externalIds: { wikidataId: Q136778334 }  # Kensaku Meri
+      voiceActors:
+        - { staffId: ryo-horikawa, language: ja }  # Ryō Horikawa
+        - { staffId: yuhi-asagiri, language: ja }  # Yuhi Asagiri
+    - id: kimeru-setto
+      externalIds: { wikidataId: Q137141569 }  # Kimeru Setto
+      voiceActors:
+        - { staffId: takuro-kitagawa, language: ja }  # Takurō Kitagawa
+    - id: kiri-ichidou
+      externalIds: { wikidataId: Q137652174 }  # Kiri Ichidou
+      voiceActors:
+        - { staffId: kanna-nakamura, language: ja }  # Kanna Nakamura
+        - { staffId: mayumi-sho, language: ja }  # Mayumi Shō
+    - id: kiyoi-shusse
+      externalIds: { wikidataId: Q138674935 }  # Kiyoi Shusse
+      voiceActors:
+        - { staffId: haruna-asami, language: ja }  # Haruna Asami
+        - { staffId: tomiko-suzuki, language: ja }  # Tomiko Suzuki
+    - id: kiyoshi-shusse
+      externalIds: { wikidataId: Q11395709 }  # Kiyoshi Shusse
+      voiceActors:
+        - { staffId: issei-futamata, language: ja }  # Issei Futamata
+        - { staffId: yoshitsugu-matsuoka, language: ja }  # Yoshitsugu Matsuoka
+    - id: koeru-tabuchi
+      externalIds: { wikidataId: Q136780284 }  # Koeru Tabuchi
+      voiceActors:
+        - { staffId: kazuki-ogawa, language: ja }  # Kazuki Ogawa
+        - { staffId: kozo-shioya, language: ja }  # Kōzō Shioya
+    - id: kou-irooto
+      externalIds: { wikidataId: Q137423309 }  # Kou Irooto
+      voiceActors:
+        - { staffId: hiroshi-izawa, language: ja }  # Hiroshi Izawa
+        - { staffId: sho-hayami, language: ja }  # Shō Hayami
+    - id: lassie-ichidou
+      externalIds: { wikidataId: Q137739530 }  # Lassie Ichidou
+      voiceActors:
+        - { staffId: naoki-tatsuta, language: ja }  # Naoki Tatsuta
+        - { staffId: yuki-okada, language: ja }  # Yūki Okada
+    - id: maki-hidari
+      externalIds: { wikidataId: Q136945880 }  # Maki Hidari
+      voiceActors:
+        - { staffId: hiroko-emori, language: ja }  # Hiroko Emori
+        - { staffId: kaoru-sakura, language: ja }  # Kaoru Sakura
+    - id: mari-oda
+      externalIds: { wikidataId: Q137643878 }  # Mari Oda
+      voiceActors:
+        - { staffId: aimi, language: ja }  # Aimi
+        - { staffId: kazumi-amemiya, language: ja }  # Kazumi Amemiya
+    - id: masuyo-ikari
+      externalIds: { wikidataId: Q137372568 }  # Masuyo Ikari
+      voiceActors:
+        - { staffId: masako-katsuki, language: ja }  # Masako Katsuki
+        - { staffId: yoko-hikasa, language: ja }  # Yōko Hikasa
+    - id: mei-undou
+      externalIds: { wikidataId: Q138827820 }  # Mei Undou
+      voiceActors:
+        - { staffId: eiko-yamada, language: ja }  # Eiko Yamada
+    - id: menichi-nikaidou
+      externalIds: { wikidataId: Q137580757 }  # Menichi Nikaidou
+      voiceActors:
+        - { staffId: hiroshi-takemura, language: ja }  # Hiroshi Takemura
+        - { staffId: junya-enoki, language: ja }  # Junya Enoki
+    - id: naori-ichidou
+      externalIds: { wikidataId: Q138758406 }  # Naori Ichidou
+      voiceActors:
+        - { staffId: kaho-koda, language: ja }  # Kaho Kōda
+    - id: omiya-nakasudou
+      externalIds: { wikidataId: Q136765419 }  # Omiya Nakasudou
+      voiceActors:
+        - { staffId: koji-totani, language: ja }  # Kōji Totani
+    - id: pochi
+      externalIds: { wikidataId: Q139491751 }  # Pochi
+      voiceActors:
+        - { staffId: sayumi-suzushiro, language: ja }  # Sayumi Suzushiro
+    - id: puutarou-reietsu
+      externalIds: { wikidataId: Q139720973 }  # Puutarou Reietsu
+      voiceActors:
+        - { staffId: shunsuke-takeuchi, language: ja }  # Shunsuke Takeuchi
+    - id: ran-wakato
+      externalIds: { wikidataId: Q137394998 }  # Ran Wakato
+      voiceActors:
+        - { staffId: yui-horie, language: ja }  # Yui Horie
+        - { staffId: yumiko-shibata, language: ja }  # Yumiko Shibata
+    - id: ranto-jougai
+      externalIds: { wikidataId: Q136767479 }  # Ranto Jougai
+      voiceActors:
+        - { staffId: masafumi-kobatake, language: ja }  # Masafumi Kobatake
+        - { staffId: masaharu-sato, language: ja }  # Masaharu Satō
+    - id: rei-ichido
+      externalIds: { wikidataId: Q11352501 }  # Rei Ichidō
+      voiceActors:
+        - { staffId: shigeru-chiba, language: ja }  # Shigeru Chiba
+        - { staffId: tomokazu-seki, language: ja }  # Tomokazu Seki
+    - id: sakio-kochou
+      externalIds: { wikidataId: Q139446178 }  # Sakio Kochou
+      voiceActors:
+        - { staffId: kenichi-ogata, language: ja }  # Kenichi Ogata
+    - id: sakugo-jidai
+      externalIds: { wikidataId: Q137391704 }  # Sakugo Jidai
+      voiceActors:
+        - { staffId: hideyuki-tanaka, language: ja }  # Hideyuki Tanaka
+        - { staffId: tomokazu-sugita, language: ja }  # Tomokazu Sugita
+    - id: shou-kireide
+      externalIds: { wikidataId: Q137123950 }  # Shou Kireide
+      voiceActors:
+        - { staffId: daisuke-sakuma, language: ja }  # Daisuke Sakuma
+        - { staffId: keiichi-nanba, language: ja }  # Keiichi Nanba
+    - id: shumi-monozuki
+      externalIds: { wikidataId: Q137643426 }  # Shumi Monozuki
+      voiceActors:
+        - { staffId: matsumi-oshiro, language: ja }  # Matsumi Ōshiro
+        - { staffId: yui-ishikawa, language: ja }  # Yui Ishikawa
+    - id: susumu-intahai
+      externalIds: { wikidataId: Q136831565 }  # Susumu Intahai
+      voiceActors:
+        - { staffId: hochu-otsuka, language: ja }  # Hōchū Ōtsuka
+    - id: takashi-hokori
+      externalIds: { wikidataId: Q137171547 }  # Takashi Hokori
+      voiceActors:
+        - { staffId: shigeru-nakahara, language: ja }  # Shigeru Nakahara
+    - id: takuma-sessa
+      externalIds: { wikidataId: Q137383332 }  # Takuma Sessa
+      voiceActors:
+        - { staffId: katsuyuki-konishi, language: ja }  # Katsuyuki Konishi
+        - { staffId: yoshito-yasuhara, language: ja }  # Yoshito Yasuhara
+    - id: takuseki-ichidou
+      externalIds: { wikidataId: Q137735068 }  # Takuseki Ichidou
+      voiceActors:
+        - { staffId: yoji-ueda, language: ja }  # Yōji Ueda
+        - { staffId: yusaku-yara, language: ja }  # Yūsaku Yara
+    - id: torio-tanokin
+      externalIds: { wikidataId: Q137144916 }  # Torio Tanokin
+      voiceActors:
+        - { staffId: jun-ichi-kanemaru, language: ja }  # Jun'ichi Kanemaru
+    - id: wakazou-temekono
+      externalIds: { wikidataId: Q139488034 }  # Wakazou Temekono
+      voiceActors:
+        - { staffId: katsuyuki-konishi, language: ja }  # Katsuyuki Konishi
+        - { staffId: kazuo-oka, language: ja }  # Kazuo Oka
+    - id: you-nihiruda
+      externalIds: { wikidataId: Q136745621 }  # You Nihiruda
+      voiceActors:
+        - { staffId: hochu-otsuka, language: ja }  # Hōchū Ōtsuka
+        - { staffId: nobuhiko-okamoto, language: ja }  # Nobuhiko Okamoto
+    - id: yui-kawa
+      externalIds: { wikidataId: Q11553843 }  # Yui Kawa
+      voiceActors:
+        - { staffId: haruka-shiraishi, language: ja }  # Haruka Shiraishi
+        - { staffId: miki-takahashi, language: ja }  # Miki Takahashi
+    - id: yutaka-konjou
+      externalIds: { wikidataId: Q136831987 }  # Yutaka Konjou
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [high-school-kimengumi-2026]

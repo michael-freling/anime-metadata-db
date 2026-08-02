@@ -63,3 +63,56 @@ series:
           airedNumber: 23
         - absoluteNumber: 24
           airedNumber: 24
+  characters:
+    - id: aki-jogamine
+      names:
+        original: 城ヶ峰亜希
+        translations:
+          en: Aki Jōgamine
+          ja: 城ヶ峰亜希
+      externalIds:
+        wikidataId: Q137545557
+      voiceActors:
+        - staffId: akari-kito
+          language: ja
+      appearances:
+        - seriesId: yuusha-no-kuzu
+    - id: sara-kashiwagi-pendragon
+      names:
+        original: セーラ・カシワギ・ペンドラゴン
+        translations:
+          en: Sara Kashiwagi Pendragon
+          ja: セーラ・カシワギ・ペンドラゴン
+      externalIds:
+        wikidataId: Q137545600
+      voiceActors:
+        - staffId: yumiri-hanamori
+          language: ja
+      appearances:
+        - seriesId: yuusha-no-kuzu
+    - id: yashiro
+      names:
+        original: ヤシロ
+        translations:
+          en: Yashiro
+          ja: ヤシロ
+      externalIds:
+        wikidataId: Q137545518
+      voiceActors:
+        - staffId: ryota-suzuki
+          language: ja
+      appearances:
+        - seriesId: yuusha-no-kuzu
+    - id: yukine-indo
+      names:
+        original: 印堂雪音
+        translations:
+          en: Yukine Indō
+          ja: 印堂雪音
+      externalIds:
+        wikidataId: Q137545583
+      voiceActors:
+        - staffId: momo-harumi
+          language: ja
+      appearances:
+        - seriesId: yuusha-no-kuzu

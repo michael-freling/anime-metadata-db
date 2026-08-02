@@ -76,3 +76,32 @@ series:
           airedNumber: 12
         - absoluteNumber: 26
           airedNumber: 13
+  characters:
+    - id: all-might
+      names:
+        original: オールマイト
+        translations:
+          en: All Might
+          ja: オールマイト
+      externalIds:
+        wikidataId: Q63109256
+      voiceActors:
+        - staffId: kenta-miyake
+          language: ja
+      appearances:
+        - seriesId: vigilante-boku-no-hero-academia-illegals
+    - id: izuku-midoriya
+      names:
+        original: 緑谷出久
+        translations:
+          en: Izuku Midoriya
+          ja: 緑谷出久
+      externalIds:
+        wikidataId: Q65037327
+      voiceActors:
+        - staffId: akeno-watanabe
+          language: ja
+        - staffId: daiki-yamashita
+          language: ja
+      appearances:
+        - seriesId: vigilante-boku-no-hero-academia-illegals

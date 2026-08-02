@@ -39,3 +39,121 @@ series:
           airedNumber: 11
         - absoluteNumber: 12
           airedNumber: 12
+  characters:
+    - id: aoi-sato
+      names:
+        original: 佐藤葵
+        translations:
+          en: Aoi Satō
+          ja: 佐藤葵
+      externalIds:
+        wikidataId: Q137405817
+      voiceActors:
+        - staffId: konatsu-hirabayashi
+          language: ja
+      appearances:
+        - seriesId: seihantai-na-kimi-to-boku
+    - id: kentaro-yamada
+      names:
+        original: 山田健太郎
+        translations:
+          en: Kentarō Yamada
+          ja: 山田健太郎
+      externalIds:
+        wikidataId: Q137402451
+      voiceActors:
+        - staffId: anji-iwata
+          language: ja
+      appearances:
+        - seriesId: seihantai-na-kimi-to-boku
+    - id: manami-watanabe
+      names:
+        original: 渡辺真奈美
+        translations:
+          en: Manami Watanabe
+          ja: 渡辺真奈美
+      externalIds:
+        wikidataId: Q137406409
+      voiceActors:
+        - staffId: yuna-taniguchi
+          language: ja
+      appearances:
+        - seriesId: seihantai-na-kimi-to-boku
+    - id: miyu-suzuki
+      names:
+        original: 鈴木みゆ
+        translations:
+          en: Miyu Suzuki
+          ja: 鈴木みゆ
+      externalIds:
+        wikidataId: Q137397078
+      voiceActors:
+        - staffId: sayumi-suzushiro
+          language: ja
+      appearances:
+        - seriesId: seihantai-na-kimi-to-boku
+    - id: natsumi-nishi
+      names:
+        original: 西奈津美
+        translations:
+          en: Natsumi Nishi
+          ja: 西奈津美
+      externalIds:
+        wikidataId: Q137403559
+      voiceActors:
+        - staffId: kokoro-omori
+          language: ja
+      appearances:
+        - seriesId: seihantai-na-kimi-to-boku
+    - id: rikako-honda
+      names:
+        original: 本田梨花子
+        translations:
+          en: Rikako Honda
+          ja: 本田梨花子
+      externalIds:
+        wikidataId: Q137407172
+      voiceActors:
+        - staffId: tomori-kusunoki
+          language: ja
+      appearances:
+        - seriesId: seihantai-na-kimi-to-boku
+    - id: shino-azuma
+      names:
+        original: 東紫乃
+        translations:
+          en: Shino Azuma
+          ja: 東紫乃
+      externalIds:
+        wikidataId: Q137405017
+      voiceActors:
+        - staffId: miyuri-shimabukuro
+          language: ja
+      appearances:
+        - seriesId: seihantai-na-kimi-to-boku
+    - id: shuji-taira
+      names:
+        original: 平秀司
+        translations:
+          en: Shūji Taira
+          ja: 平秀司
+      externalIds:
+        wikidataId: Q137404448
+      voiceActors:
+        - staffId: wataru-kato
+          language: ja
+      appearances:
+        - seriesId: seihantai-na-kimi-to-boku
+    - id: yusuke-tani
+      names:
+        original: 谷悠介
+        translations:
+          en: Yūsuke Tani
+          ja: 谷悠介
+      externalIds:
+        wikidataId: Q137396975
+      voiceActors:
+        - staffId: shogo-sakata
+          language: ja
+      appearances:
+        - seriesId: seihantai-na-kimi-to-boku

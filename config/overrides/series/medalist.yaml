@@ -13,5 +13,24 @@ series:
     - id: medalist-s2
       number: 2
       externalIds: { anilistId: 189275 } # Medalist 2nd Season (Winter 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: hikaru-kamisaki
+      externalIds: { wikidataId: Q131928222 }  # Hikaru Kamisaki
+      voiceActors:
+        - { staffId: kana-ichinose, language: ja }  # Kana Ichinose
+    - id: inori-yuitsuka
+      externalIds: { wikidataId: Q131928143 }  # Inori Yuitsuka
+      voiceActors:
+        - { staffId: natsumi-haruse, language: ja }  # Natsumi Haruse
+    - id: jun-yodaka
+      externalIds: { wikidataId: Q131928233 }  # Jun Yodaka
+      voiceActors:
+        - { staffId: yuma-uchida, language: ja }  # Yuma Uchida
+    - id: tsukasa-akeuraji
+      externalIds: { wikidataId: Q131928150 }  # Tsukasa Akeuraji
+      voiceActors:
+        - { staffId: takeo-otsuka, language: ja }  # Takeo Ōtsuka
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [medalist]

@@ -10,5 +10,64 @@ series:
     - id: kuroneko-to-majo-no-kyoushitsu-s1
       number: 1
       externalIds: { anilistId: 196974 } # Kuroneko to Majo no Kyoushitsu (Spring 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: aria-aquarius
+      externalIds: { wikidataId: Q139917817 }  # Aria Aquarius
+      voiceActors:
+        - { staffId: fuka-izumi, language: ja }  # Fūka Izumi
+    - id: astraea-libra
+      externalIds: { wikidataId: Q139917995 }  # Astraea Libra
+      voiceActors:
+        - { staffId: tomohiro-ono, language: ja }  # Tomohiro Ōno
+    - id: capella-capricorn
+      externalIds: { wikidataId: Q139918055 }  # Capella Capricorn
+      voiceActors:
+        - { staffId: miyuki-sakurai, language: ja }  # Miyuki Sakurai
+    - id: castor-gemini
+      externalIds: { wikidataId: Q139917898 }  # Castor Gemini
+      voiceActors:
+        - { staffId: yuto-uemura, language: ja }  # Yūto Uemura
+    - id: chiron-sagittarius-aldea
+      externalIds: { wikidataId: Q139918002 }  # Chiron Sagittarius Aldea
+      voiceActors:
+        - { staffId: kazuki-ura, language: ja }  # Kazuki Ura
+    - id: claude-sirius
+      externalIds: { wikidataId: Q139917805 }  # Claude Sirius
+      voiceActors:
+        - { staffId: nobunaga-shimazaki, language: ja }  # Nobunaga Shimazaki
+    - id: ewe-aries
+      externalIds: { wikidataId: Q139917865 }  # Ewe Aries
+      voiceActors:
+        - { staffId: azusa-tachibana, language: ja }  # Azusa Tachibana
+    - id: hana-sasorijo
+      externalIds: { wikidataId: Q139917831 }  # Hana Sasorijō
+      voiceActors:
+        - { staffId: miho-wataya, language: ja }  # Miho Wataya
+    - id: io-taurus
+      externalIds: { wikidataId: Q139917824 }  # Io Taurus
+      voiceActors:
+        - { staffId: haruka-shiraishi, language: ja }  # Haruka Shiraishi
+    - id: leo-regulus
+      externalIds: { wikidataId: Q139917983 }  # Leo Regulus
+      voiceActors:
+        - { staffId: fairouz-ai, language: ja }  # Fairouz Ai
+    - id: merrow-pisces
+      externalIds: { wikidataId: Q139917842 }  # Merrow Pisces
+      voiceActors:
+        - { staffId: minori-suzuki, language: ja }  # Minori Suzuki
+    - id: pollux-gemini
+      externalIds: { wikidataId: Q139917899 }  # Pollux Gemini
+      voiceActors:
+        - { staffId: rena-hasegawa, language: ja }  # Rena Hasegawa
+    - id: spica-virgo
+      externalIds: { wikidataId: Q139917792 }  # Spica Virgo
+      voiceActors:
+        - { staffId: kaede-hondo, language: ja }  # Kaede Hondo
+    - id: tarf-cancer
+      externalIds: { wikidataId: Q139917973 }  # Tarf Cancer
+      voiceActors:
+        - { staffId: shoya-ishige, language: ja }  # Shōya Ishige
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [kuroneko-to-majo-no-kyoushitsu]

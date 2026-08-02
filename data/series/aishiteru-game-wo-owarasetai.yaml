@@ -39,3 +39,206 @@ series:
           airedNumber: 11
         - absoluteNumber: 12
           airedNumber: 12
+  characters:
+    - id: akane-suoh
+      names:
+        original: 蘇芳アカネ
+        translations:
+          en: Akane Suoh
+          ja: 蘇芳アカネ
+      externalIds:
+        wikidataId: Q137831340
+      voiceActors:
+        - staffId: hisako-tojo
+          language: ja
+      appearances:
+        - seriesId: aishiteru-game-wo-owarasetai
+    - id: haruto-yamabuki
+      names:
+        original: 山吹陽斗
+        translations:
+          en: Haruto Yamabuki
+          ja: 山吹陽斗
+      externalIds:
+        wikidataId: Q137831319
+      appearances:
+        - seriesId: aishiteru-game-wo-owarasetai
+    - id: hayato-ishiba
+      names:
+        original: 飯柴隼人
+        translations:
+          en: Hayato Ishiba
+          ja: 飯柴隼人
+      externalIds:
+        wikidataId: Q137831668
+      voiceActors:
+        - staffId: gen-sato
+          language: ja
+      appearances:
+        - seriesId: aishiteru-game-wo-owarasetai
+    - id: hinako-hanaba
+      names:
+        original: 花葉雛子
+        translations:
+          en: Hinako Hanaba
+          ja: 花葉雛子
+      externalIds:
+        wikidataId: Q137827186
+      voiceActors:
+        - staffId: yui-ogura
+          language: ja
+      appearances:
+        - seriesId: aishiteru-game-wo-owarasetai
+    - id: kakeru-chigusa
+      names:
+        original: 千草駆流
+        translations:
+          en: Kakeru Chigusa
+          ja: 千草駆流
+      externalIds:
+        wikidataId: Q137830924
+      voiceActors:
+        - staffId: jun-fukuyama
+          language: ja
+      appearances:
+        - seriesId: aishiteru-game-wo-owarasetai
+    - id: kazane-shirayuri
+      names:
+        original: 白百合風音
+        translations:
+          en: Kazane Shirayuri
+          ja: 白百合風音
+      externalIds:
+        wikidataId: Q137830708
+      voiceActors:
+        - staffId: ayaka-nanase
+          language: ja
+      appearances:
+        - seriesId: aishiteru-game-wo-owarasetai
+    - id: marika-yanagi
+      names:
+        original: 柳茉莉花
+        translations:
+          en: Marika Yanagi
+          ja: 柳茉莉花
+      externalIds:
+        wikidataId: Q137831375
+      voiceActors:
+        - staffId: azusa-tadokoro
+          language: ja
+      appearances:
+        - seriesId: aishiteru-game-wo-owarasetai
+    - id: masaru-shinonome
+      names:
+        original: 東雲匡琉
+        translations:
+          en: Masaru Shinonome
+          ja: 東雲匡琉
+      externalIds:
+        wikidataId: Q137826910
+      voiceActors:
+        - staffId: takehito-koyasu
+          language: ja
+      appearances:
+        - seriesId: aishiteru-game-wo-owarasetai
+    - id: mei-oguri
+      names:
+        original: 小栗芽衣
+        translations:
+          en: Mei Oguri
+          ja: 小栗芽衣
+      externalIds:
+        wikidataId: Q137831605
+      appearances:
+        - seriesId: aishiteru-game-wo-owarasetai
+    - id: mika-mihashi
+      names:
+        original: 三橋ミカ
+        translations:
+          en: Mika Mihashi
+          ja: 三橋ミカ
+      externalIds:
+        wikidataId: Q137831809
+      appearances:
+        - seriesId: aishiteru-game-wo-owarasetai
+    - id: miku-sakura
+      names:
+        original: 桜みく
+        translations:
+          en: Miku Sakura
+          ja: 桜みく
+      externalIds:
+        wikidataId: Q136684904
+      voiceActors:
+        - staffId: miku-ito
+          language: ja
+      appearances:
+        - seriesId: aishiteru-game-wo-owarasetai
+    - id: natsuki-moegi
+      names:
+        original: 萌木菜月
+        translations:
+          en: Natsuki Moegi
+          ja: 萌木菜月
+      externalIds:
+        wikidataId: Q137827260
+      appearances:
+        - seriesId: aishiteru-game-wo-owarasetai
+    - id: riku-chikamasa
+      names:
+        original: 近政陸空
+        translations:
+          en: Riku Chikamasa
+          ja: 近政陸空
+      externalIds:
+        wikidataId: Q137831482
+      appearances:
+        - seriesId: aishiteru-game-wo-owarasetai
+    - id: rio-unohana
+      names:
+        original: 卯ノ花梨生
+        translations:
+          en: Rio Unohana
+          ja: 卯ノ花梨生
+      externalIds:
+        wikidataId: Q137831539
+      appearances:
+        - seriesId: aishiteru-game-wo-owarasetai
+    - id: ryotaro-fuji
+      names:
+        original: 藤遼太郎
+        translations:
+          en: Ryōtarō Fuji
+          ja: 藤遼太郎
+      externalIds:
+        wikidataId: Q137831439
+      appearances:
+        - seriesId: aishiteru-game-wo-owarasetai
+    - id: wakana-asagi
+      names:
+        original: 浅葱若菜
+        translations:
+          en: Wakana Asagi
+          ja: 浅葱若菜
+      externalIds:
+        wikidataId: Q137826809
+      voiceActors:
+        - staffId: rebecca-danae
+          language: ja
+        - staffId: wakana-maruoka
+          language: ja
+      appearances:
+        - seriesId: aishiteru-game-wo-owarasetai
+    - id: yukiya-asagi
+      names:
+        original: 浅葱優希也
+        translations:
+          en: Yukiya Asagi
+          ja: 浅葱優希也
+      externalIds:
+        wikidataId: Q135269852
+      voiceActors:
+        - staffId: kaito-ishikawa
+          language: ja
+      appearances:
+        - seriesId: aishiteru-game-wo-owarasetai

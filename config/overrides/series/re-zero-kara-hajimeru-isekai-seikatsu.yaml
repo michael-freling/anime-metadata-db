@@ -24,5 +24,118 @@ series:
     - id: re-zero-kara-hajimeru-isekai-seikatsu-s4
       number: 4
       externalIds: { anilistId: 189046 } # Re:Zero kara Hajimeru Isekai Seikatsu 4th Season (Spring 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: annerose-miload
+      externalIds: { wikidataId: Q123051314 }  # Annerose Miload
+      voiceActors:
+        - { staffId: kana-ichinose, language: ja }  # Kana Ichinose
+    - id: arch
+      externalIds: { wikidataId: Q105086854 }  # Arch
+      voiceActors:
+        - { staffId: daisuke-namikawa, language: ja }  # Daisuke Namikawa
+    - id: beatrice
+      externalIds: { wikidataId: Q102412190 }  # Beatrice
+      voiceActors:
+        - { staffId: satomi-arai, language: ja }  # Satomi Arai
+    - id: capella-emerada-lugunica
+      externalIds: { wikidataId: Q105609330 }  # Capella Emerada Lugunica
+      voiceActors:
+        - { staffId: aoi-yuki, language: ja }  # Aoi Yūki
+    - id: clind
+      externalIds: { wikidataId: Q123051430 }  # Clind
+    - id: emilia
+      externalIds: { wikidataId: Q98312780 }  # Emilia
+      voiceActors:
+        - { staffId: rie-takahashi, language: ja }  # Rie Takahashi
+    - id: fortuna
+      externalIds: { wikidataId: Q105086832 }  # Fortuna
+      voiceActors:
+        - { staffId: haruka-tomatsu, language: ja }  # Haruka Tomatsu
+    - id: fred-thompson
+      externalIds: { wikidataId: Q123073630 }  # Fred Thompson
+      voiceActors:
+        - { staffId: rena-motomura, language: ja }  # Rena Motomura
+    - id: garek-thompson
+      externalIds: { wikidataId: Q123057265 }  # Garek Thompson
+      voiceActors:
+        - { staffId: kanehira-yamamoto, language: ja }  # Kanehira Yamamoto
+    - id: hector
+      externalIds: { wikidataId: Q105609264 }  # Hector
+      voiceActors:
+        - { staffId: junichi-suwabe, language: ja }  # Junichi Suwabe
+    - id: heinkel-astrea
+      externalIds: { wikidataId: Q123051463 }  # Heinkel Astrea
+      voiceActors:
+        - { staffId: kenjiro-tsuda, language: ja }  # Kenjiro Tsuda
+    - id: joshua-juukulius
+      externalIds: { wikidataId: Q113004920 }  # Joshua Juukulius
+      voiceActors:
+        - { staffId: shoya-ishige, language: ja }  # Shōya Ishige
+    - id: kiritaka-muse
+      externalIds: { wikidataId: Q123051519 }  # Kiritaka Muse
+      voiceActors:
+        - { staffId: kotaro-nishiyama, language: ja }  # Kōtarō Nishiyama
+    - id: liliana-masquerade
+      externalIds: { wikidataId: Q113004942 }  # Liliana Masquerade
+      voiceActors:
+        - { staffId: aya-yamane, language: ja }  # Aya Yamane
+    - id: lusbel-kallard
+      externalIds: { wikidataId: Q123074970 }  # Lusbel Kallard
+      voiceActors:
+        - { staffId: makoto-koichi, language: ja }  # Makoto Koichi
+    - id: pandora
+      externalIds: { wikidataId: Q105282076 }  # Pandora
+      voiceActors:
+        - { staffId: rie-kugimiya, language: ja }  # Rie Kugimiya
+    - id: rafiel-thompson
+      externalIds: { wikidataId: Q123073631 }  # Rafiel Thompson
+      voiceActors:
+        - { staffId: moe-kahara, language: ja }  # Moe Kahara
+    - id: ram
+      externalIds: { wikidataId: Q80116144 }  # Ram
+      voiceActors:
+        - { staffId: rie-murakawa, language: ja }  # Rie Murakawa
+    - id: reala-thompson
+      externalIds: { wikidataId: Q123057248 }  # Reala Thompson
+      voiceActors:
+        - { staffId: aya-endo, language: ja }  # Aya Endō
+    - id: reid-astrea
+      externalIds: { wikidataId: Q113005088 }  # Reid Astrea
+      voiceActors:
+        - { staffId: tomokazu-sugita, language: ja }  # Tomokazu Sugita
+    - id: rem
+      externalIds: { wikidataId: Q28859527 }  # Rem
+      voiceActors:
+        - { staffId: inori-minase, language: ja }  # Inori Minase
+    - id: rui-arneb
+      externalIds: { wikidataId: Q105609325 }  # Rui Arneb
+      voiceActors:
+        - { staffId: konomi-kohara, language: ja }  # Konomi Kohara
+    - id: schult
+      externalIds: { wikidataId: Q123051537 }  # Schult
+      voiceActors:
+        - { staffId: maki-kawase, language: ja }  # Maki Kawase
+    - id: shaula
+      externalIds: { wikidataId: Q113004807 }  # Shaula
+      voiceActors:
+        - { staffId: fairouz-ai, language: ja }  # Fairouz Ai
+    - id: sirius-romanee-conti
+      externalIds: { wikidataId: Q105609311 }  # Sirius Romanée-Conti
+      voiceActors:
+        - { staffId: chika-anzai, language: ja }  # Chika Anzai
+    - id: subaru-natsuki
+      externalIds: { wikidataId: Q85988152 }  # Subaru Natsuki
+      voiceActors:
+        - { staffId: yusuke-kobayashi, language: ja }  # Yūsuke Kobayashi
+    - id: sylphy
+      externalIds: { wikidataId: Q123074722 }  # Sylphy
+      voiceActors:
+        - { staffId: aoi-koga, language: ja }  # Aoi Koga
+    - id: tina
+      externalIds: { wikidataId: Q123074916 }  # Tina
+      voiceActors:
+        - { staffId: satomi-amano, language: ja }  # Satomi Amano
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [re-zero-kara-hajimeru-isekai-seikatsu]

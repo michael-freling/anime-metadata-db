@@ -72,3 +72,108 @@ series:
           airedNumber: 11
         - absoluteNumber: 24
           airedNumber: 12
+  characters:
+    - id: himari-azuma
+      names:
+        original: 東日万凛
+        translations:
+          en: Himari Azuma
+          ja: 東日万凛
+      externalIds:
+        wikidataId: Q113365576
+      voiceActors:
+        - staffId: yume-miyamoto
+          language: ja
+      appearances:
+        - seriesId: mato-seihei-no-slave
+    - id: kyoka-uzen
+      names:
+        original: 羽前京香
+        translations:
+          en: Kyōka Uzen
+          ja: 羽前京香
+      externalIds:
+        wikidataId: Q113364596
+      voiceActors:
+        - staffId: akari-kito
+          language: ja
+      appearances:
+        - seriesId: mato-seihei-no-slave
+    - id: nei-okawamura
+      names:
+        original: 大河村寧
+        translations:
+          en: Nei Ōkawamura
+          ja: 大河村寧
+      externalIds:
+        wikidataId: Q113365631
+      voiceActors:
+        - staffId: hina-tachibana
+          language: ja
+      appearances:
+        - seriesId: mato-seihei-no-slave
+    - id: sahara-wakasa
+      names:
+        original: 若狭サハラ
+        translations:
+          en: Sahara Wakasa
+          ja: 若狭サハラ
+      externalIds:
+        wikidataId: Q113365658
+      voiceActors:
+        - staffId: reina-ueda
+          language: ja
+      appearances:
+        - seriesId: mato-seihei-no-slave
+    - id: shushu-suruga
+      names:
+        original: 駿河朱々
+        translations:
+          en: Shushu Suruga
+          ja: 駿河朱々
+      externalIds:
+        wikidataId: Q113365601
+      voiceActors:
+        - staffId: mari-hino
+          language: ja
+      appearances:
+        - seriesId: mato-seihei-no-slave
+    - id: tenka-izumo
+      names:
+        original: 出雲天花
+        translations:
+          en: Tenka Izumo
+          ja: 出雲天花
+      externalIds:
+        wikidataId: Q113365644
+      voiceActors:
+        - staffId: maaya-uchida
+          language: ja
+      appearances:
+        - seriesId: mato-seihei-no-slave
+    - id: yachiho-azuma
+      names:
+        original: 東八千穂
+        translations:
+          en: Yachiho Azuma
+          ja: 東八千穂
+      externalIds:
+        wikidataId: Q113365653
+      voiceActors:
+        - staffId: nene-hieda
+          language: ja
+      appearances:
+        - seriesId: mato-seihei-no-slave
+    - id: yuki-wakura
+      names:
+        original: 和倉優希
+        translations:
+          en: Yūki Wakura
+          ja: 和倉優希
+      externalIds:
+        wikidataId: Q113365442
+      voiceActors:
+        - staffId: yuya-hirose
+          language: ja
+      appearances:
+        - seriesId: mato-seihei-no-slave

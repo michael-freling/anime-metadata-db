@@ -220,3 +220,290 @@ series:
           airedNumber: 23
         - absoluteNumber: 89
           airedNumber: 24
+  characters:
+    - id: alice-asmodeus
+      names:
+        original: アスモデウス・アリス
+        translations:
+          en: Alice Asmodeus
+          ja: アスモデウス・アリス
+      externalIds:
+        wikidataId: Q115283845
+      voiceActors:
+        - staffId: ryohei-kimura
+          language: ja
+      appearances:
+        - seriesId: mairimashita-iruma-kun
+    - id: allocer-schneider
+      names:
+        original: アロケル・シュナイダー
+        translations:
+          en: Allocer Schneider
+          ja: アロケル・シュナイダー
+      externalIds:
+        wikidataId: Q115317382
+      voiceActors:
+        - staffId: shun-ichi-toki
+          language: ja
+      appearances:
+        - seriesId: mairimashita-iruma-kun
+    - id: amaryllis-asmodeus
+      names:
+        original: アスモデウス・アムリリス
+        translations:
+          en: Amaryllis Asmodeus
+          ja: アスモデウス・アムリリス
+      externalIds:
+        wikidataId: Q115360838
+      voiceActors:
+        - staffId: yumi-kakazu
+          language: ja
+      appearances:
+        - seriesId: mairimashita-iruma-kun
+    - id: amelie-azazel
+      names:
+        original: アザゼル・アメリ
+        translations:
+          en: Amelie Azazel
+          ja: アザゼル・アメリ
+      externalIds:
+        wikidataId: Q115286348
+      voiceActors:
+        - staffId: saori-hayami
+          language: ja
+      appearances:
+        - seriesId: mairimashita-iruma-kun
+    - id: clara-valac
+      names:
+        original: ウァラク・クララ
+        translations:
+          en: Clara Valac
+          ja: ウァラク・クララ
+      externalIds:
+        wikidataId: Q115283891
+      voiceActors:
+        - staffId: ayaka-asai
+          language: ja
+      appearances:
+        - seriesId: mairimashita-iruma-kun
+    - id: elizabetta-ix
+      names:
+        original: イクス・エリザベッタ
+        translations:
+          en: Elizabetta Ix
+          ja: イクス・エリザベッタ
+      externalIds:
+        wikidataId: Q115306947
+      voiceActors:
+        - staffId: kaede-hondo
+          language: ja
+      appearances:
+        - seriesId: mairimashita-iruma-kun
+    - id: gaap-goemon
+      names:
+        original: ガープ・ゴエモン
+        translations:
+          en: Gaap Goemon
+          ja: ガープ・ゴエモン
+      externalIds:
+        wikidataId: Q115308887
+      voiceActors:
+        - staffId: genki-okawa
+          language: ja
+      appearances:
+        - seriesId: mairimashita-iruma-kun
+    - id: henri-azazel
+      names:
+        original: アザゼル・アンリ
+        translations:
+          en: Henri Azazel
+          ja: アザゼル・アンリ
+      externalIds:
+        wikidataId: Q115394926
+      voiceActors:
+        - staffId: koji-yusa
+          language: ja
+      appearances:
+        - seriesId: mairimashita-iruma-kun
+    - id: iruma-suzuki
+      names:
+        original: 鈴木入間
+        translations:
+          en: Iruma Suzuki
+          ja: 鈴木入間
+      externalIds:
+        wikidataId: Q115283749
+      voiceActors:
+        - staffId: ayumu-murase
+          language: ja
+      appearances:
+        - seriesId: mairimashita-iruma-kun
+    - id: jazz-m-andro
+      names:
+        original: アンドロ・M・ジャズ
+        translations:
+          en: Jazz M. Andro
+          ja: アンドロ・M・ジャズ
+      externalIds:
+        wikidataId: Q115306840
+      voiceActors:
+        - staffId: tetsuya-kakihara
+          language: ja
+      appearances:
+        - seriesId: mairimashita-iruma-kun
+    - id: kalego-naberius
+      names:
+        original: ナベリウス・カルエゴ
+        translations:
+          en: Kalego Naberius
+          ja: ナベリウス・カルエゴ
+      externalIds:
+        wikidataId: Q115297501
+      voiceActors:
+        - staffId: daisuke-ono
+          language: ja
+      appearances:
+        - seriesId: mairimashita-iruma-kun
+    - id: kamui-caim
+      names:
+        original: カイム・カムイ
+        translations:
+          en: Kamui Caim
+          ja: カイム・カムイ
+      externalIds:
+        wikidataId: Q115308238
+      voiceActors:
+        - staffId: gakuto-kajiwara
+          language: ja
+      appearances:
+        - seriesId: mairimashita-iruma-kun
+    - id: kerori-crocell
+      names:
+        original: クロケル・ケロリ
+        translations:
+          en: Kerori Crocell
+          ja: クロケル・ケロリ
+      externalIds:
+        wikidataId: Q115306799
+      voiceActors:
+        - staffId: nao-toyama
+          language: ja
+      appearances:
+        - seriesId: mairimashita-iruma-kun
+    - id: kimaris-quichelight
+      names:
+        original: キマリス・キッシュライト
+        translations:
+          en: Kimaris Quichelight
+          ja: キマリス・キッシュライト
+      externalIds:
+        wikidataId: Q115360695
+      voiceActors:
+        - staffId: taku-yashiro
+          language: ja
+      appearances:
+        - seriesId: mairimashita-iruma-kun
+    - id: kirio-amy
+      names:
+        original: アミィ・キリヲ
+        translations:
+          en: Kirio Amy
+          ja: アミィ・キリヲ
+      externalIds:
+        wikidataId: Q115360786
+      voiceActors:
+        - staffId: ryota-osaka
+          language: ja
+      appearances:
+        - seriesId: mairimashita-iruma-kun
+    - id: lied-shax
+      names:
+        original: シャックス・リード
+        translations:
+          en: Lied Shax
+          ja: シャックス・リード
+      externalIds:
+        wikidataId: Q115306888
+      voiceActors:
+        - staffId: yoshitaka-yamaya
+          language: ja
+      appearances:
+        - seriesId: mairimashita-iruma-kun
+    - id: opera
+      names:
+        original: オペラ
+        translations:
+          en: Opera
+          ja: オペラ
+      externalIds:
+        wikidataId: Q115300889
+      voiceActors:
+        - staffId: mitsuki-saiga
+          language: ja
+      appearances:
+        - seriesId: mairimashita-iruma-kun
+    - id: picero-agares
+      names:
+        original: アガレス・ピケロ
+        translations:
+          en: Picero Agares
+          ja: アガレス・ピケロ
+      externalIds:
+        wikidataId: Q115394693
+      voiceActors:
+        - staffId: takuto-yoshinaga
+          language: ja
+      appearances:
+        - seriesId: mairimashita-iruma-kun
+    - id: robin-bars
+      names:
+        original: バルス・ロビン
+        translations:
+          en: Robin Bars
+          ja: バルス・ロビン
+      externalIds:
+        wikidataId: Q115308279
+      voiceActors:
+        - staffId: takuto-yoshinaga
+          language: ja
+      appearances:
+        - seriesId: mairimashita-iruma-kun
+    - id: sabro-sabnock
+      names:
+        original: サブノック・サブロ
+        translations:
+          en: Sabro Sabnock
+          ja: サブノック・サブロ
+      externalIds:
+        wikidataId: Q115301213
+      voiceActors:
+        - staffId: takuya-sato
+          language: ja
+      appearances:
+        - seriesId: mairimashita-iruma-kun
+    - id: sullivan
+      names:
+        original: サリバン
+        translations:
+          en: Sullivan
+          ja: サリバン
+      externalIds:
+        wikidataId: Q115300876
+      voiceActors:
+        - staffId: takaya-kuroda
+          language: ja
+      appearances:
+        - seriesId: mairimashita-iruma-kun
+    - id: zagan-johnny-western
+      names:
+        original: ザガン・ジョニー・ウエスタン
+        translations:
+          en: Zagan Johnny Western
+          ja: ザガン・ジョニー・ウエスタン
+      externalIds:
+        wikidataId: Q115317391
+      voiceActors:
+        - staffId: takuya-eguchi
+          language: ja
+      appearances:
+        - seriesId: mairimashita-iruma-kun

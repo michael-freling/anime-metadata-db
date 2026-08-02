@@ -39,3 +39,186 @@ series:
           airedNumber: 11
         - absoluteNumber: 12
           airedNumber: 12
+  characters:
+    - id: aria-aquarius
+      names:
+        original: アリア・アクエリアス
+        translations:
+          en: Aria Aquarius
+          ja: アリア・アクエリアス
+      externalIds:
+        wikidataId: Q139917817
+      voiceActors:
+        - staffId: fuka-izumi
+          language: ja
+      appearances:
+        - seriesId: kuroneko-to-majo-no-kyoushitsu
+    - id: astraea-libra
+      names:
+        original: アストレア・ライブラ
+        translations:
+          en: Astraea Libra
+          ja: アストレア・ライブラ
+      externalIds:
+        wikidataId: Q139917995
+      voiceActors:
+        - staffId: tomohiro-ono
+          language: ja
+      appearances:
+        - seriesId: kuroneko-to-majo-no-kyoushitsu
+    - id: capella-capricorn
+      names:
+        original: カペラ・カプリコーン
+        translations:
+          en: Capella Capricorn
+          ja: カペラ・カプリコーン
+      externalIds:
+        wikidataId: Q139918055
+      voiceActors:
+        - staffId: miyuki-sakurai
+          language: ja
+      appearances:
+        - seriesId: kuroneko-to-majo-no-kyoushitsu
+    - id: castor-gemini
+      names:
+        original: カストル・ジェミニ
+        translations:
+          en: Castor Gemini
+          ja: カストル・ジェミニ
+      externalIds:
+        wikidataId: Q139917898
+      voiceActors:
+        - staffId: yuto-uemura
+          language: ja
+      appearances:
+        - seriesId: kuroneko-to-majo-no-kyoushitsu
+    - id: chiron-sagittarius-aldea
+      names:
+        original: キロン・サジタリアス・アラディア
+        translations:
+          en: Chiron Sagittarius Aldea
+          ja: キロン・サジタリアス・アラディア
+      externalIds:
+        wikidataId: Q139918002
+      voiceActors:
+        - staffId: kazuki-ura
+          language: ja
+      appearances:
+        - seriesId: kuroneko-to-majo-no-kyoushitsu
+    - id: claude-sirius
+      names:
+        original: クロード・シリウス
+        translations:
+          en: Claude Sirius
+          ja: クロード・シリウス
+      externalIds:
+        wikidataId: Q139917805
+      voiceActors:
+        - staffId: nobunaga-shimazaki
+          language: ja
+      appearances:
+        - seriesId: kuroneko-to-majo-no-kyoushitsu
+    - id: ewe-aries
+      names:
+        original: ユゥ・アリーズ
+        translations:
+          en: Ewe Aries
+          ja: ユゥ・アリーズ
+      externalIds:
+        wikidataId: Q139917865
+      voiceActors:
+        - staffId: azusa-tachibana
+          language: ja
+      appearances:
+        - seriesId: kuroneko-to-majo-no-kyoushitsu
+    - id: hana-sasorijo
+      names:
+        original: ハナ・サソリジョウ
+        translations:
+          en: Hana Sasorijō
+          ja: ハナ・サソリジョウ
+      externalIds:
+        wikidataId: Q139917831
+      voiceActors:
+        - staffId: miho-wataya
+          language: ja
+      appearances:
+        - seriesId: kuroneko-to-majo-no-kyoushitsu
+    - id: io-taurus
+      names:
+        original: イオ・トーラス
+        translations:
+          en: Io Taurus
+          ja: イオ・トーラス
+      externalIds:
+        wikidataId: Q139917824
+      voiceActors:
+        - staffId: haruka-shiraishi
+          language: ja
+      appearances:
+        - seriesId: kuroneko-to-majo-no-kyoushitsu
+    - id: leo-regulus
+      names:
+        original: レオ・レグルス
+        translations:
+          en: Leo Regulus
+          ja: レオ・レグルス
+      externalIds:
+        wikidataId: Q139917983
+      voiceActors:
+        - staffId: fairouz-ai
+          language: ja
+      appearances:
+        - seriesId: kuroneko-to-majo-no-kyoushitsu
+    - id: merrow-pisces
+      names:
+        original: メロウ・パイシーズ
+        translations:
+          en: Merrow Pisces
+          ja: メロウ・パイシーズ
+      externalIds:
+        wikidataId: Q139917842
+      voiceActors:
+        - staffId: minori-suzuki
+          language: ja
+      appearances:
+        - seriesId: kuroneko-to-majo-no-kyoushitsu
+    - id: pollux-gemini
+      names:
+        original: ポルックス・ジェミニ
+        translations:
+          en: Pollux Gemini
+          ja: ポルックス・ジェミニ
+      externalIds:
+        wikidataId: Q139917899
+      voiceActors:
+        - staffId: rena-hasegawa
+          language: ja
+      appearances:
+        - seriesId: kuroneko-to-majo-no-kyoushitsu
+    - id: spica-virgo
+      names:
+        original: スピカ・ヴァルゴ
+        translations:
+          en: Spica Virgo
+          ja: スピカ・ヴァルゴ
+      externalIds:
+        wikidataId: Q139917792
+      voiceActors:
+        - staffId: kaede-hondo
+          language: ja
+      appearances:
+        - seriesId: kuroneko-to-majo-no-kyoushitsu
+    - id: tarf-cancer
+      names:
+        original: タルフ・キャンサー
+        translations:
+          en: Tarf Cancer
+          ja: タルフ・キャンサー
+      externalIds:
+        wikidataId: Q139917973
+      voiceActors:
+        - staffId: shoya-ishige
+          language: ja
+      appearances:
+        - seriesId: kuroneko-to-majo-no-kyoushitsu

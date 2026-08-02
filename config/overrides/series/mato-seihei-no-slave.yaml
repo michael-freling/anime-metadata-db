@@ -13,5 +13,40 @@ series:
     - id: mato-seihei-no-slave-s2
       number: 2
       externalIds: { anilistId: 176276 } # Mato Seihei no Slave 2 (Winter 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: himari-azuma
+      externalIds: { wikidataId: Q113365576 }  # Himari Azuma
+      voiceActors:
+        - { staffId: yume-miyamoto, language: ja }  # Yume Miyamoto
+    - id: kyoka-uzen
+      externalIds: { wikidataId: Q113364596 }  # Kyōka Uzen
+      voiceActors:
+        - { staffId: akari-kito, language: ja }  # Akari Kitō
+    - id: nei-okawamura
+      externalIds: { wikidataId: Q113365631 }  # Nei Ōkawamura
+      voiceActors:
+        - { staffId: hina-tachibana, language: ja }  # Hina Tachibana
+    - id: sahara-wakasa
+      externalIds: { wikidataId: Q113365658 }  # Sahara Wakasa
+      voiceActors:
+        - { staffId: reina-ueda, language: ja }  # Reina Ueda
+    - id: shushu-suruga
+      externalIds: { wikidataId: Q113365601 }  # Shushu Suruga
+      voiceActors:
+        - { staffId: mari-hino, language: ja }  # Mari Hino
+    - id: tenka-izumo
+      externalIds: { wikidataId: Q113365644 }  # Tenka Izumo
+      voiceActors:
+        - { staffId: maaya-uchida, language: ja }  # Maaya Uchida
+    - id: yachiho-azuma
+      externalIds: { wikidataId: Q113365653 }  # Yachiho Azuma
+      voiceActors:
+        - { staffId: nene-hieda, language: ja }  # Nene Hieda
+    - id: yuki-wakura
+      externalIds: { wikidataId: Q113365442 }  # Yūki Wakura
+      voiceActors:
+        - { staffId: yuya-hirose, language: ja }  # Yūya Hirose
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [mato-seihei-no-slave]

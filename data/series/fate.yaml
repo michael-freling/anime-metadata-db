@@ -202,6 +202,11 @@ franchise:
         - ref: fate-stay-night
   characters:
     - id: artoria-pendragon
+      names:
+        original: セイバー
+        translations:
+          en: Saber
+          ja: セイバー
       externalIds:
         wikidataId: Q4918886
       voiceActors:

@@ -10,5 +10,12 @@ series:
     - id: akane-banashi-s1
       number: 1
       externalIds: { anilistId: 196935 } # Akane-banashi (Spring 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: akane-osaki
+      externalIds: { wikidataId: Q138501857 }  # Akane Osaki
+      voiceActors:
+        - { staffId: anna-nagase, language: ja }  # Anna Nagase
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [akane-banashi]

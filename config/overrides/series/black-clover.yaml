@@ -13,5 +13,48 @@ series:
     - id: black-clover-s2
       number: 2
       externalIds: { anilistId: 195604 } # Black Clover 2nd Season (Winter 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: asta
+      externalIds: { wikidataId: Q108935450 }  # Asta
+      voiceActors:
+        - { staffId: gakuto-kajiwara, language: ja }  # Gakuto Kajiwara
+    - id: heath-grice
+      externalIds: { wikidataId: Q123554784 }  # Heath Grice
+      voiceActors:
+        - { staffId: ryotaro-okiayu, language: ja }  # Ryōtarō Okiayu
+    - id: lotus-whomalt
+      externalIds: { wikidataId: Q123554864 }  # Lotus Whomalt
+      voiceActors:
+        - { staffId: kenyu-horiuchi, language: ja }  # Kenyu Horiuchi
+    - id: luck-voltia
+      externalIds: { wikidataId: Q123554840 }  # Luck Voltia
+      voiceActors:
+        - { staffId: ayumu-murase, language: ja }  # Ayumu Murase
+    - id: magna-swing
+      externalIds: { wikidataId: Q123554392 }  # Magna Swing
+      voiceActors:
+        - { staffId: genki-muro, language: ja }  # Genki Muro
+    - id: mimosa-vermillion
+      externalIds: { wikidataId: Q123554884 }  # Mimosa Vermillion
+      voiceActors:
+        - { staffId: asuka-nishi, language: ja }  # Asuka Nishi
+    - id: noelle-silva
+      externalIds: { wikidataId: Q110904202 }  # Noelle Silva
+      voiceActors:
+        - { staffId: kana-yuki, language: ja }  # Kana Yūki
+    - id: revchi-salik
+      externalIds: { wikidataId: Q123554739 }  # Revchi Salik
+      voiceActors:
+        - { staffId: yuto-suzuki, language: ja }  # Yuto Suzuki
+    - id: sekke-bronzazza
+      externalIds: { wikidataId: Q123554802 }  # Sekke Bronzazza
+      voiceActors:
+        - { staffId: ryota-osaka, language: ja }  # Ryōta Ōsaka
+    - id: yami-sukehiro
+      externalIds: { wikidataId: Q110895968 }  # Yami Sukehiro
+      voiceActors:
+        - { staffId: junichi-suwabe, language: ja }  # Junichi Suwabe
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [black-clover]

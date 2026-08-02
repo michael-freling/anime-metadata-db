@@ -39,3 +39,17 @@ series:
           airedNumber: 11
         - absoluteNumber: 12
           airedNumber: 12
+  characters:
+    - id: luna
+      names:
+        original: ルーナ
+        translations:
+          en: Luna
+          ja: ルーナ
+      externalIds:
+        wikidataId: Q137737837
+      voiceActors:
+        - staffId: haruka-shiraishi
+          language: ja
+      appearances:
+        - seriesId: champignon-no-majo

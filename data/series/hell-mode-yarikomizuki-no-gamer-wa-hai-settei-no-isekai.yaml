@@ -39,3 +39,157 @@ series:
           airedNumber: 11
         - absoluteNumber: 12
           airedNumber: 12
+  characters:
+    - id: allen
+      names:
+        original: アレン
+        translations:
+          en: Allen
+          ja: アレン
+      externalIds:
+        wikidataId: Q140198073
+      voiceActors:
+        - staffId: mutsumi-tamura
+          language: ja
+      appearances:
+        - seriesId: hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai
+    - id: butler-von-granvelle
+      names:
+        original: パトラー＝フォン＝グランヴェル
+        translations:
+          en: Butler von Granvelle
+          ja: パトラー＝フォン＝グランヴェル
+      externalIds:
+        wikidataId: Q140198692
+      voiceActors:
+        - staffId: tomokazu-sugita
+          language: ja
+      appearances:
+        - seriesId: hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai
+    - id: carnelle
+      names:
+        original: カルネル
+        translations:
+          en: Carnelle
+          ja: カルネル
+      externalIds:
+        wikidataId: Q140198794
+      voiceActors:
+        - staffId: takahiro-miyamoto
+          language: ja
+      appearances:
+        - seriesId: hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai
+    - id: cecil
+      names:
+        original: セシル
+        translations:
+          en: Cecil
+          ja: セシル
+      externalIds:
+        wikidataId: Q140198094
+      voiceActors:
+        - staffId: sayaka-senbongi
+          language: ja
+      appearances:
+        - seriesId: hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai
+    - id: dogora
+      names:
+        original: ドゴラ
+        translations:
+          en: Dogora
+          ja: ドゴラ
+      externalIds:
+        wikidataId: Q140198105
+      voiceActors:
+        - staffId: tasuku-hatanaka
+          language: ja
+      appearances:
+        - seriesId: hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai
+    - id: krena
+      names:
+        original: クレナ
+        translations:
+          en: Krena
+          ja: クレナ
+      externalIds:
+        wikidataId: Q140198089
+      voiceActors:
+        - staffId: mayu-iizuka
+          language: ja
+      appearances:
+        - seriesId: hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai
+    - id: mash
+      names:
+        original: マッシュ
+        translations:
+          en: Mash
+          ja: マッシュ
+      externalIds:
+        wikidataId: Q140198667
+      voiceActors:
+        - staffId: makoto-koichi
+          language: ja
+      appearances:
+        - seriesId: hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai
+    - id: mihai-granvelle
+      names:
+        original: ミハイ＝グランヴェル
+        translations:
+          en: Mihai Granvelle
+          ja: ミハイ＝グランヴェル
+      externalIds:
+        wikidataId: Q140198705
+      appearances:
+        - seriesId: hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai
+    - id: rodin
+      names:
+        original: ロダン
+        translations:
+          en: Rodin
+          ja: ロダン
+      externalIds:
+        wikidataId: Q140198110
+      voiceActors:
+        - staffId: hideo-ishikawa
+          language: ja
+      appearances:
+        - seriesId: hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai
+    - id: theresia
+      names:
+        original: テレシア
+        translations:
+          en: Theresia
+          ja: テレシア
+      externalIds:
+        wikidataId: Q140198113
+      voiceActors:
+        - staffId: sayaka-ohara
+          language: ja
+      appearances:
+        - seriesId: hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai
+    - id: thomas-granvelle
+      names:
+        original: トマス＝グランヴェル
+        translations:
+          en: Thomas Granvelle
+          ja: トマス＝グランヴェル
+      externalIds:
+        wikidataId: Q140198722
+      voiceActors:
+        - staffId: marie-miyake
+          language: ja
+      appearances:
+        - seriesId: hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai
+    - id: zenof
+      names:
+        original: ゼノフ
+        translations:
+          en: Zenof
+          ja: ゼノフ
+      externalIds:
+        wikidataId: Q140198787
+      voiceActors:
+        - staffId: akio-otsuka
+          language: ja
+      appearances:
+        - seriesId: hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai

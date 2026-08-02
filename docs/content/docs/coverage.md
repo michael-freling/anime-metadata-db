@@ -51,6 +51,33 @@ carry only a year, so they share one column.
 | Works (seasons + movies + specials) | 225 |
 | Episodes | 3229 |
 
+## Cast
+
+The R2 layer — characters and the staff who voice them — is far thinner than the
+structure, because it is bounded by what Wikidata (the only CC0 name source the
+build may redistribute) actually records.
+
+| | Count |
+|---|---:|
+| Series with at least one character | 47 of 152 |
+| Characters | 647 |
+| …of those, with a voice actor | 607 |
+| Staff (voice actors) | 416 |
+| Voice-actor links | 651, all `ja` |
+
+Coverage is uneven in a way that tracks a title's popularity on Wikidata rather
+than anything about the show: Slime carries 148 characters and Frieren 43, while
+most series carry none at all. A series with no cast is normal, not a gap in the
+build.
+
+Only **Japanese** voice actors are recorded. Wikidata's `voice actor` (P725)
+statements cover dub casts too, but a language is only trustworthy when the
+statement says so — so a link is taken as Japanese when the statement is either
+qualified `language of work or name` = Japanese, or carries no language
+qualifier and the actor is a Japanese citizen. Anything qualified to another
+language is left out rather than guessed at. Other languages can be added the
+same way, into their own `staff/` file.
+
 ## How to read the shape of it
 
 **Winter and Spring 2026 are complete for TV.** Every TV anime the pinned

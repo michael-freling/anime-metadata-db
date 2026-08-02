@@ -39,3 +39,30 @@ series:
           airedNumber: 11
         - absoluteNumber: 12
           airedNumber: 12
+  characters:
+    - id: lilithea
+      names:
+        original: リリテア
+        translations:
+          en: Lilithea
+          ja: リリテア
+      externalIds:
+        wikidataId: Q138666348
+      voiceActors:
+        - staffId: shion-wakayama
+          language: ja
+      appearances:
+        - seriesId: mata-korosarete-shimatta-no-desu-ne-tantei-sama
+    - id: sakuya-outsuki
+      names:
+        original: 追月朔也
+        translations:
+          en: Sakuya Outsuki
+          ja: 追月朔也
+      externalIds:
+        wikidataId: Q138666340
+      voiceActors:
+        - staffId: rikuya-yasuda
+          language: ja
+      appearances:
+        - seriesId: mata-korosarete-shimatta-no-desu-ne-tantei-sama

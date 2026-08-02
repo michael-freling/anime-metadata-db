@@ -16,5 +16,43 @@ series:
     - id: oshi-no-ko-s3
       number: 3
       externalIds: { anilistId: 182587 } # [Oshi no Ko] 3rd Season (Winter 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: ai-hoshino
+      externalIds: { wikidataId: Q110713922 }  # Ai Hoshino
+      voiceActors:
+        - { staffId: rie-takahashi, language: ja }  # Rie Takahashi
+    - id: akane-kurokawa
+      externalIds: { wikidataId: Q133807676 }  # Akane Kurokawa
+      voiceActors:
+        - { staffId: manaka-iwami, language: ja }  # Manaka Iwami
+    - id: aquamarine-hoshino
+      externalIds: { wikidataId: Q110713918 }  # Aquamarine Hoshino
+      voiceActors:
+        - { staffId: takeo-otsuka, language: ja }  # Takeo Ōtsuka
+        - { staffId: yumi-uchiyama, language: ja }  # Yumi Uchiyama
+    - id: gorou-amamiya
+      externalIds: { wikidataId: Q138799019 }  # Gorou Amamiya
+      voiceActors:
+        - { staffId: kento-ito, language: ja }  # Kento Itō
+    - id: kana-arima
+      externalIds: { wikidataId: Q118062992 }  # Kana Arima
+      voiceActors:
+        - { staffId: megumi-han, language: ja }  # Megumi Han
+    - id: mem-cho
+      externalIds: { wikidataId: Q124879930 }  # MEM-cho
+      voiceActors:
+        - { staffId: rumi-okubo, language: ja }  # Rumi Ōkubo
+    - id: ruby-hoshino
+      externalIds: { wikidataId: Q110713919 }  # Ruby Hoshino
+      voiceActors:
+        - { staffId: yurie-igoma, language: ja }  # Yurie Igoma
+    - id: ryosuke-kaihara
+      externalIds: { wikidataId: Q127369597 }  # Ryōsuke Kaihara
+    - id: sarina-tendouji
+      externalIds: { wikidataId: Q125400559 }  # Sarina Tendouji
+      voiceActors:
+        - { staffId: tomoyo-takayanagi, language: ja }  # Tomoyo Takayanagi
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [oshi-no-ko]

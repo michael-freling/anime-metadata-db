@@ -10,5 +10,63 @@ series:
     - id: aishiteru-game-wo-owarasetai-s1
       number: 1
       externalIds: { anilistId: 194393 } # Aishiteru Game wo Owarasetai (Spring 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: akane-suoh
+      externalIds: { wikidataId: Q137831340 }  # Akane Suoh
+      voiceActors:
+        - { staffId: hisako-tojo, language: ja }  # Hisako Tōjō
+    - id: haruto-yamabuki
+      externalIds: { wikidataId: Q137831319 }  # Haruto Yamabuki
+    - id: hayato-ishiba
+      externalIds: { wikidataId: Q137831668 }  # Hayato Ishiba
+      voiceActors:
+        - { staffId: gen-sato, language: ja }  # Gen Satō
+    - id: hinako-hanaba
+      externalIds: { wikidataId: Q137827186 }  # Hinako Hanaba
+      voiceActors:
+        - { staffId: yui-ogura, language: ja }  # Yui Ogura
+    - id: kakeru-chigusa
+      externalIds: { wikidataId: Q137830924 }  # Kakeru Chigusa
+      voiceActors:
+        - { staffId: jun-fukuyama, language: ja }  # Jun Fukuyama
+    - id: kazane-shirayuri
+      externalIds: { wikidataId: Q137830708 }  # Kazane Shirayuri
+      voiceActors:
+        - { staffId: ayaka-nanase, language: ja }  # Ayaka Nanase
+    - id: marika-yanagi
+      externalIds: { wikidataId: Q137831375 }  # Marika Yanagi
+      voiceActors:
+        - { staffId: azusa-tadokoro, language: ja }  # Azusa Tadokoro
+    - id: masaru-shinonome
+      externalIds: { wikidataId: Q137826910 }  # Masaru Shinonome
+      voiceActors:
+        - { staffId: takehito-koyasu, language: ja }  # Takehito Koyasu
+    - id: mei-oguri
+      externalIds: { wikidataId: Q137831605 }  # Mei Oguri
+    - id: mika-mihashi
+      externalIds: { wikidataId: Q137831809 }  # Mika Mihashi
+    - id: miku-sakura
+      externalIds: { wikidataId: Q136684904 }  # Miku Sakura
+      voiceActors:
+        - { staffId: miku-ito, language: ja }  # Miku Itō
+    - id: natsuki-moegi
+      externalIds: { wikidataId: Q137827260 }  # Natsuki Moegi
+    - id: riku-chikamasa
+      externalIds: { wikidataId: Q137831482 }  # Riku Chikamasa
+    - id: rio-unohana
+      externalIds: { wikidataId: Q137831539 }  # Rio Unohana
+    - id: ryotaro-fuji
+      externalIds: { wikidataId: Q137831439 }  # Ryōtarō Fuji
+    - id: wakana-asagi
+      externalIds: { wikidataId: Q137826809 }  # Wakana Asagi
+      voiceActors:
+        - { staffId: rebecca-danae, language: ja }  # Rebecca Danae
+        - { staffId: wakana-maruoka, language: ja }  # Wakana Maruoka
+    - id: yukiya-asagi
+      externalIds: { wikidataId: Q135269852 }  # Yukiya Asagi
+      voiceActors:
+        - { staffId: kaito-ishikawa, language: ja }  # Kaito Ishikawa
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [aishiteru-game-wo-owarasetai]

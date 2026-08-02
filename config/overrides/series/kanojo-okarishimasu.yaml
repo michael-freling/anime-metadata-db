@@ -22,5 +22,24 @@ series:
     - id: kanojo-okarishimasu-s5
       number: 5
       externalIds: { anilistId: 199029 } # Kanojo, Okarishimasu 5th Season (Spring 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: chizuru-ichinose
+      externalIds: { wikidataId: Q112940099 }  # Chizuru Ichinose
+      voiceActors:
+        - { staffId: sora-amamiya, language: ja }  # Sora Amamiya
+    - id: kinoshita-kazuya
+      externalIds: { wikidataId: Q112940087 }  # Kinoshita Kazuya
+    - id: mami-nanami
+      externalIds: { wikidataId: Q112958828 }  # Mami Nanami
+      voiceActors:
+        - { staffId: aoi-yuki, language: ja }  # Aoi Yūki
+    - id: sarashina-ruka
+      externalIds: { wikidataId: Q112997112 }  # Sarashina Ruka
+    - id: sumi-sakurasawa
+      externalIds: { wikidataId: Q114853101 }  # Sumi Sakurasawa
+      voiceActors:
+        - { staffId: rie-takahashi, language: ja }  # Rie Takahashi
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [kanojo-okarishimasu]

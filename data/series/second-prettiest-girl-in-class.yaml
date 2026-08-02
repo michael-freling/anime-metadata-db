@@ -39,3 +39,56 @@ series:
           airedNumber: 11
         - absoluteNumber: 12
           airedNumber: 12
+  characters:
+    - id: maki-maehara
+      names:
+        original: 前原真樹
+        translations:
+          en: Maki Maehara
+          ja: 前原真樹
+      externalIds:
+        wikidataId: Q138603706
+      voiceActors:
+        - staffId: haruki-ishiya
+          language: ja
+      appearances:
+        - seriesId: second-prettiest-girl-in-class
+    - id: nina-nitta
+      names:
+        original: 新田新奈
+        translations:
+          en: Nina Nitta
+          ja: 新田新奈
+      externalIds:
+        wikidataId: Q138603730
+      voiceActors:
+        - staffId: ikumi-hasegawa
+          language: ja
+      appearances:
+        - seriesId: second-prettiest-girl-in-class
+    - id: umi-asanagi
+      names:
+        original: 朝凪海
+        translations:
+          en: Umi Asanagi
+          ja: 朝凪海
+      externalIds:
+        wikidataId: Q138603718
+      voiceActors:
+        - staffId: manaka-iwami
+          language: ja
+      appearances:
+        - seriesId: second-prettiest-girl-in-class
+    - id: yu-amami
+      names:
+        original: 天海夕
+        translations:
+          en: Yū Amami
+          ja: 天海夕
+      externalIds:
+        wikidataId: Q138603724
+      voiceActors:
+        - staffId: sayumi-suzushiro
+          language: ja
+      appearances:
+        - seriesId: second-prettiest-girl-in-class

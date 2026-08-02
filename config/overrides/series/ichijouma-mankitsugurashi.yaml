@@ -10,5 +10,18 @@ series:
     - id: ichijouma-mankitsugurashi-s1
       number: 1
       externalIds: { anilistId: 195734 } # Ichijouma Mankitsugurashi! (Spring 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: marika-suzuki
+      externalIds: { wikidataId: Q136387650 }  # Marika Suzuki
+    - id: meiko-morita
+      externalIds: { wikidataId: Q136387568 }  # Meiko Morita
+    - id: michika-narumi
+      externalIds: { wikidataId: Q136387652 }  # Michika Narumi
+    - id: neo-nakano
+      externalIds: { wikidataId: Q136387651 }  # Neo Nakano
+    - id: rie-amamiya
+      externalIds: { wikidataId: Q136387648 }  # Rie Amamiya
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [ichijouma-mankitsugurashi]

@@ -10,5 +10,32 @@ series:
     - id: yowayowa-sensei-s1
       number: 1
       externalIds: { anilistId: 185211 } # Yowayowa Sensei (Spring 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: akemi-abikura
+      externalIds: { wikidataId: Q140247725 }  # Akemi Abikura
+      voiceActors:
+        - { staffId: mai-nakahara, language: ja }  # Mai Nakahara
+    - id: akihito-abikura
+      externalIds: { wikidataId: Q140247701 }  # Akihito Abikura
+      voiceActors:
+        - { staffId: kakeru-hatano, language: ja }  # Kakeru Hatano
+    - id: hiyori-hiwamura
+      externalIds: { wikidataId: Q140247723 }  # Hiyori Hiwamura
+      voiceActors:
+        - { staffId: marika-kono, language: ja }  # Marika Kōno
+    - id: kaya-kuguri
+      externalIds: { wikidataId: Q140247727 }  # Kaya Kuguri
+      voiceActors:
+        - { staffId: yuko-natsuyoshi, language: ja }  # Yūko Natsuyoshi
+    - id: mizuki-mukubayashi
+      externalIds: { wikidataId: Q140247724 }  # Mizuki Mukubayashi
+      voiceActors:
+        - { staffId: yurie-igoma, language: ja }  # Yurie Igoma
+    - id: yuki-yukishita
+      externalIds: { wikidataId: Q140247726 }  # Yūki Yukishita
+      voiceActors:
+        - { staffId: yu-sasahara, language: ja }  # Yū Sasahara
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [yowayowa-sensei]

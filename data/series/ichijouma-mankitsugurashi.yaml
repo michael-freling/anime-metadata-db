@@ -39,3 +39,54 @@ series:
           airedNumber: 11
         - absoluteNumber: 12
           airedNumber: 12
+  characters:
+    - id: marika-suzuki
+      names:
+        original: 鈴木万里花
+        translations:
+          en: Marika Suzuki
+          ja: 鈴木万里花
+      externalIds:
+        wikidataId: Q136387650
+      appearances:
+        - seriesId: ichijouma-mankitsugurashi
+    - id: meiko-morita
+      names:
+        original: 森田芽衣子
+        translations:
+          en: Meiko Morita
+          ja: 森田芽衣子
+      externalIds:
+        wikidataId: Q136387568
+      appearances:
+        - seriesId: ichijouma-mankitsugurashi
+    - id: michika-narumi
+      names:
+        original: 成海みちか
+        translations:
+          en: Michika Narumi
+          ja: 成海みちか
+      externalIds:
+        wikidataId: Q136387652
+      appearances:
+        - seriesId: ichijouma-mankitsugurashi
+    - id: neo-nakano
+      names:
+        original: 中埜音緒
+        translations:
+          en: Neo Nakano
+          ja: 中埜音緒
+      externalIds:
+        wikidataId: Q136387651
+      appearances:
+        - seriesId: ichijouma-mankitsugurashi
+    - id: rie-amamiya
+      names:
+        original: 天宮梨絵
+        translations:
+          en: Rie Amamiya
+          ja: 天宮梨絵
+      externalIds:
+        wikidataId: Q136387648
+      appearances:
+        - seriesId: ichijouma-mankitsugurashi

@@ -18,5 +18,152 @@ series:
       number: 3
       part: 1
       externalIds: { anilistId: 172463 } # Jujutsu Kaisen: Shimetsu Kaiyuu - Zenpen (Winter 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: akari-nitta
+      externalIds: { wikidataId: Q106438118 }  # Akari Nitta
+      voiceActors:
+        - { staffId: sora-tokui, language: ja }  # Sora Tokui
+    - id: aoi-todo
+      externalIds: { wikidataId: Q105154143 }  # Aoi Tōdō
+      voiceActors:
+        - { staffId: subaru-kimura, language: ja }  # Subaru Kimura
+    - id: choso
+      externalIds: { wikidataId: Q106438154 }  # Choso
+      voiceActors:
+        - { staffId: daisuke-namikawa, language: ja }  # Daisuke Namikawa
+    - id: eso
+      externalIds: { wikidataId: Q106438153 }  # Eso
+      voiceActors:
+        - { staffId: nobuyuki-hiyama, language: ja }  # Nobuyuki Hiyama
+    - id: hanami
+      externalIds: { wikidataId: Q105203544 }  # Hanami
+      voiceActors:
+        - { staffId: atsuko-tanaka, language: ja }  # Atsuko Tanaka
+    - id: haruta-shigemo
+      externalIds: { wikidataId: Q105725285 }  # Haruta Shigemo
+      voiceActors:
+        - { staffId: wataru-hatano, language: ja }  # Wataru Hatano
+    - id: junpei-yoshino
+      externalIds: { wikidataId: Q105203708 }  # Junpei Yoshino
+      voiceActors:
+        - { staffId: yoshitaka-yamaya, language: ja }  # Yoshitaka Yamaya
+    - id: juzo-kumiya
+      externalIds: { wikidataId: Q105725284 }  # Juzo Kumiya
+      voiceActors:
+        - { staffId: tetsu-inada, language: ja }  # Tetsu Inada
+    - id: jogo
+      externalIds: { wikidataId: Q105203620 }  # Jōgo
+      voiceActors:
+        - { staffId: shigeru-chiba, language: ja }  # Shigeru Chiba
+    - id: kasumi-miwa
+      externalIds: { wikidataId: Q105197664 }  # Kasumi Miwa
+      voiceActors:
+        - { staffId: chinatsu-akasaki, language: ja }  # Chinatsu Akasaki
+    - id: kechizu
+      externalIds: { wikidataId: Q106438152 }  # Kechizu
+      voiceActors:
+        - { staffId: kappei-yamaguchi, language: ja }  # Kappei Yamaguchi
+    - id: kento-nanami
+      externalIds: { wikidataId: Q105153632 }  # Kento Nanami
+      voiceActors:
+        - { staffId: kenjiro-tsuda, language: ja }  # Kenjiro Tsuda
+    - id: kiyotaka-ijichi
+      externalIds: { wikidataId: Q105153807 }  # Kiyotaka Ijichi
+      voiceActors:
+        - { staffId: mitsuo-iwata, language: ja }  # Mitsuo Iwata
+    - id: kokichi-muta
+      externalIds: { wikidataId: Q105197666 }  # Kōkichi Muta
+      voiceActors:
+        - { staffId: yoshitsugu-matsuoka, language: ja }  # Yoshitsugu Matsuoka
+    - id: mahito
+      externalIds: { wikidataId: Q105153544 }  # Mahito
+      voiceActors:
+        - { staffId: nobunaga-shimazaki, language: ja }  # Nobunaga Shimazaki
+    - id: mai-zen-in
+      externalIds: { wikidataId: Q105155506 }  # Mai Zen'in
+      voiceActors:
+        - { staffId: marina-inoue, language: ja }  # Marina Inoue
+    - id: maki-zen-in
+      externalIds: { wikidataId: Q105152624 }  # Maki Zen'in
+      voiceActors:
+        - { staffId: mikako-komatsu, language: ja }  # Mikako Komatsu
+    - id: masamichi-yaga
+      externalIds: { wikidataId: Q105153893 }  # Masamichi Yaga
+      voiceActors:
+        - { staffId: takaya-kuroda, language: ja }  # Takaya Kuroda
+    - id: megumi-fushiguro
+      externalIds: { wikidataId: Q105037399 }  # Megumi Fushiguro
+      voiceActors:
+        - { staffId: yuma-uchida, language: ja }  # Yuma Uchida
+    - id: mei-mei
+      externalIds: { wikidataId: Q105203408 }  # Mei Mei
+      voiceActors:
+        - { staffId: kotono-mitsuishi, language: ja }  # Kotono Mitsuishi
+    - id: momo-nishimiya
+      externalIds: { wikidataId: Q105197667 }  # Momo Nishimiya
+      voiceActors:
+        - { staffId: rie-kugimiya, language: ja }  # Rie Kugimiya
+    - id: naobito-zen-in
+      externalIds: { wikidataId: Q105203466 }  # Naobito Zen'in
+      voiceActors:
+        - { staffId: joji-nakata, language: ja }  # Jōji Nakata
+    - id: nobara-kugisaki
+      externalIds: { wikidataId: Q105037400 }  # Nobara Kugisaki
+      voiceActors:
+        - { staffId: asami-seto, language: ja }  # Asami Seto
+    - id: noritoshi-kamo
+      externalIds: { wikidataId: Q105197668 }  # Noritoshi Kamo
+      voiceActors:
+        - { staffId: satoshi-hino, language: ja }  # Satoshi Hino
+    - id: panda
+      externalIds: { wikidataId: Q105152626 }  # Panda
+      voiceActors:
+        - { staffId: tomokazu-seki, language: ja }  # Tomokazu Seki
+    - id: riko-amanai
+      externalIds: { wikidataId: Q131338728 }  # Riko Amanai
+      voiceActors:
+        - { staffId: anna-nagase, language: ja }  # Anna Nagase
+    - id: ryomen-sukuna
+      externalIds: { wikidataId: Q105037685 }  # Ryomen Sukuna
+      voiceActors:
+        - { staffId: junichi-suwabe, language: ja }  # Junichi Suwabe
+    - id: satoru-gojo
+      externalIds: { wikidataId: Q105037411 }  # Satoru Gojo
+      voiceActors:
+        - { staffId: yuichi-nakamura, language: ja }  # Yūichi Nakamura
+    - id: shoko-ieiri
+      externalIds: { wikidataId: Q105152950 }  # Shōko Ieiri
+      voiceActors:
+        - { staffId: aya-endo, language: ja }  # Aya Endō
+    - id: suguru-geto
+      externalIds: { wikidataId: Q105153137 }  # Suguru Getō
+      voiceActors:
+        - { staffId: takahiro-sakurai, language: ja }  # Takahiro Sakurai
+    - id: toge-inumaki
+      externalIds: { wikidataId: Q105152625 }  # Toge Inumaki
+      voiceActors:
+        - { staffId: koki-uchiyama, language: ja }  # Kōki Uchiyama
+    - id: toji-fushiguro
+      externalIds: { wikidataId: Q131338431 }  # Toji Fushiguro
+      voiceActors:
+        - { staffId: takehito-koyasu, language: ja }  # Takehito Koyasu
+    - id: utahime-iori
+      externalIds: { wikidataId: Q105203192 }  # Utahime Iori
+      voiceActors:
+        - { staffId: yoko-hikasa, language: ja }  # Yōko Hikasa
+    - id: yoshinobu-gakuganji
+      externalIds: { wikidataId: Q105203111 }  # Yoshinobu Gakuganji
+      voiceActors:
+        - { staffId: mugihito, language: ja }  # Mugihito
+    - id: yuji-itadori
+      externalIds: { wikidataId: Q105037387 }  # Yuji Itadori
+      voiceActors:
+        - { staffId: junya-enoki, language: ja }  # Junya Enoki
+    - id: yuta-okkotsu
+      externalIds: { wikidataId: Q109916309 }  # Yūta Okkotsu
+      voiceActors:
+        - { staffId: megumi-ogata, language: ja }  # Megumi Ogata
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [jujutsu-kaisen]

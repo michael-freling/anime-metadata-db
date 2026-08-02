@@ -39,3 +39,30 @@ series:
           airedNumber: 11
         - absoluteNumber: 12
           airedNumber: 12
+  characters:
+    - id: bertia-ibil-noches
+      names:
+        original: バーティア・イビル・ノーチェス
+        translations:
+          en: Bertia Ibil Noches
+          ja: バーティア・イビル・ノーチェス
+      externalIds:
+        wikidataId: Q140073577
+      voiceActors:
+        - staffId: miyu-tomita
+          language: ja
+      appearances:
+        - seriesId: jishou-akuyaku-reijou-na-konyakusha-no-kansatsu-kiroku
+    - id: cecil-glo-alphasta
+      names:
+        original: セシル・グロー・アルファスタ
+        translations:
+          en: Cecil Glo Alphasta
+          ja: セシル・グロー・アルファスタ
+      externalIds:
+        wikidataId: Q140073576
+      voiceActors:
+        - staffId: yusuke-kobayashi
+          language: ja
+      appearances:
+        - seriesId: jishou-akuyaku-reijou-na-konyakusha-no-kansatsu-kiroku

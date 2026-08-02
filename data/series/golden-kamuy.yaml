@@ -175,3 +175,17 @@ series:
           airedNumber: 12
         - absoluteNumber: 62
           airedNumber: 13
+  characters:
+    - id: saichi-sugimoto
+      names:
+        original: 杉元佐一
+        translations:
+          en: Saichi Sugimoto
+          ja: 杉元佐一
+      externalIds:
+        wikidataId: Q135854883
+      voiceActors:
+        - staffId: chikahiro-kobayashi
+          language: ja
+      appearances:
+        - seriesId: golden-kamuy

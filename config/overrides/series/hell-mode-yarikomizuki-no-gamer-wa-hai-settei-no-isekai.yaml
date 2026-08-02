@@ -11,5 +11,54 @@ series:
       number: 1
       externalIds: { anilistId: 185262 } # Hell Mode: Yarikomizuki no Gamer wa Hai Settei no Isekai de Musou suru (Winter 2026)
 # Scope stops at Spring 2026: a later announced season is left out until it airs.
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: allen
+      externalIds: { wikidataId: Q140198073 }  # Allen
+      voiceActors:
+        - { staffId: mutsumi-tamura, language: ja }  # Mutsumi Tamura
+    - id: butler-von-granvelle
+      externalIds: { wikidataId: Q140198692 }  # Butler von Granvelle
+      voiceActors:
+        - { staffId: tomokazu-sugita, language: ja }  # Tomokazu Sugita
+    - id: carnelle
+      externalIds: { wikidataId: Q140198794 }  # Carnelle
+      voiceActors:
+        - { staffId: takahiro-miyamoto, language: ja }  # Takahiro Miyamoto
+    - id: cecil
+      externalIds: { wikidataId: Q140198094 }  # Cecil
+      voiceActors:
+        - { staffId: sayaka-senbongi, language: ja }  # Sayaka Senbongi
+    - id: dogora
+      externalIds: { wikidataId: Q140198105 }  # Dogora
+      voiceActors:
+        - { staffId: tasuku-hatanaka, language: ja }  # Tasuku Hatanaka
+    - id: krena
+      externalIds: { wikidataId: Q140198089 }  # Krena
+      voiceActors:
+        - { staffId: mayu-iizuka, language: ja }  # Mayu Iizuka
+    - id: mash
+      externalIds: { wikidataId: Q140198667 }  # Mash
+      voiceActors:
+        - { staffId: makoto-koichi, language: ja }  # Makoto Koichi
+    - id: mihai-granvelle
+      externalIds: { wikidataId: Q140198705 }  # Mihai Granvelle
+    - id: rodin
+      externalIds: { wikidataId: Q140198110 }  # Rodin
+      voiceActors:
+        - { staffId: hideo-ishikawa, language: ja }  # Hideo Ishikawa
+    - id: theresia
+      externalIds: { wikidataId: Q140198113 }  # Theresia
+      voiceActors:
+        - { staffId: sayaka-ohara, language: ja }  # Sayaka Ohara
+    - id: thomas-granvelle
+      externalIds: { wikidataId: Q140198722 }  # Thomas Granvelle
+      voiceActors:
+        - { staffId: marie-miyake, language: ja }  # Marie Miyake
+    - id: zenof
+      externalIds: { wikidataId: Q140198787 }  # Zenof
+      voiceActors:
+        - { staffId: akio-otsuka, language: ja }  # Akio Ōtsuka
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai]

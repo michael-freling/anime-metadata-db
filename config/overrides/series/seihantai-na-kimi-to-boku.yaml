@@ -11,5 +11,44 @@ series:
       number: 1
       externalIds: { anilistId: 184951 } # Seihantai na Kimi to Boku (Winter 2026)
 # Scope stops at Spring 2026: a later announced season is left out until it airs.
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: aoi-sato
+      externalIds: { wikidataId: Q137405817 }  # Aoi Satō
+      voiceActors:
+        - { staffId: konatsu-hirabayashi, language: ja }  # Konatsu Hirabayashi
+    - id: kentaro-yamada
+      externalIds: { wikidataId: Q137402451 }  # Kentarō Yamada
+      voiceActors:
+        - { staffId: anji-iwata, language: ja }  # Anji Iwata
+    - id: manami-watanabe
+      externalIds: { wikidataId: Q137406409 }  # Manami Watanabe
+      voiceActors:
+        - { staffId: yuna-taniguchi, language: ja }  # Yuna Taniguchi
+    - id: miyu-suzuki
+      externalIds: { wikidataId: Q137397078 }  # Miyu Suzuki
+      voiceActors:
+        - { staffId: sayumi-suzushiro, language: ja }  # Sayumi Suzushiro
+    - id: natsumi-nishi
+      externalIds: { wikidataId: Q137403559 }  # Natsumi Nishi
+      voiceActors:
+        - { staffId: kokoro-omori, language: ja }  # Kokoro Ōmori
+    - id: rikako-honda
+      externalIds: { wikidataId: Q137407172 }  # Rikako Honda
+      voiceActors:
+        - { staffId: tomori-kusunoki, language: ja }  # Tomori Kusunoki
+    - id: shino-azuma
+      externalIds: { wikidataId: Q137405017 }  # Shino Azuma
+      voiceActors:
+        - { staffId: miyuri-shimabukuro, language: ja }  # Miyuri Shimabukuro
+    - id: shuji-taira
+      externalIds: { wikidataId: Q137404448 }  # Shūji Taira
+      voiceActors:
+        - { staffId: wataru-kato, language: ja }  # Wataru Katō
+    - id: yusuke-tani
+      externalIds: { wikidataId: Q137396975 }  # Yūsuke Tani
+      voiceActors:
+        - { staffId: shogo-sakata, language: ja }  # Shōgo Sakata
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [seihantai-na-kimi-to-boku]

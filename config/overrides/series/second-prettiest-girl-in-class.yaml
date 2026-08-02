@@ -18,5 +18,24 @@ series:
     - id: second-prettiest-girl-in-class-s1
       number: 1
       externalIds: { anilistId: 169580 } # Class de 2-banme ni Kawaii Onnanoko to Tomodachi ni Natta (2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: maki-maehara
+      externalIds: { wikidataId: Q138603706 }  # Maki Maehara
+      voiceActors:
+        - { staffId: haruki-ishiya, language: ja }  # Haruki Ishiya
+    - id: nina-nitta
+      externalIds: { wikidataId: Q138603730 }  # Nina Nitta
+      voiceActors:
+        - { staffId: ikumi-hasegawa, language: ja }  # Ikumi Hasegawa
+    - id: umi-asanagi
+      externalIds: { wikidataId: Q138603718 }  # Umi Asanagi
+      voiceActors:
+        - { staffId: manaka-iwami, language: ja }  # Manaka Iwami
+    - id: yu-amami
+      externalIds: { wikidataId: Q138603724 }  # Yū Amami
+      voiceActors:
+        - { staffId: sayumi-suzushiro, language: ja }  # Sayumi Suzushiro
 # One linear storyline, so its episodes carry a continuous absoluteNumber.
 numbered: [second-prettiest-girl-in-class]

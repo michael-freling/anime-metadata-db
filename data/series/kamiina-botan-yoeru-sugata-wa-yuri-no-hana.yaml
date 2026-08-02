@@ -39,3 +39,82 @@ series:
           airedNumber: 11
         - absoluteNumber: 12
           airedNumber: 12
+  characters:
+    - id: akane-yusa
+      names:
+        original: 遊佐あかね
+        translations:
+          en: Akane Yusa
+          ja: 遊佐あかね
+      externalIds:
+        wikidataId: Q138637128
+      voiceActors:
+        - staffId: yurina-amami
+          language: ja
+      appearances:
+        - seriesId: kamiina-botan-yoeru-sugata-wa-yuri-no-hana
+    - id: botan-kamiina
+      names:
+        original: 上伊那ぼたん
+        translations:
+          en: Botan Kamiina
+          ja: 上伊那ぼたん
+      externalIds:
+        wikidataId: Q138634275
+      voiceActors:
+        - staffId: sayumi-suzushiro
+          language: ja
+      appearances:
+        - seriesId: kamiina-botan-yoeru-sugata-wa-yuri-no-hana
+    - id: chang-chin-lan
+      names:
+        original: 張景嵐
+        translations:
+          en: Chang Chin-lan
+          ja: 張景嵐
+      externalIds:
+        wikidataId: Q138637131
+      voiceActors:
+        - staffId: maki-kawase
+          language: ja
+      appearances:
+        - seriesId: kamiina-botan-yoeru-sugata-wa-yuri-no-hana
+    - id: ibuki-tonami
+      names:
+        original: 砺波いぶき
+        translations:
+          en: Ibuki Tonami
+          ja: 砺波いぶき
+      externalIds:
+        wikidataId: Q138637120
+      voiceActors:
+        - staffId: yoshino-aoyama
+          language: ja
+      appearances:
+        - seriesId: kamiina-botan-yoeru-sugata-wa-yuri-no-hana
+    - id: kanade-gujyo
+      names:
+        original: 郡上かなで
+        translations:
+          en: Kanade Gujyo
+          ja: 郡上かなで
+      externalIds:
+        wikidataId: Q138637124
+      voiceActors:
+        - staffId: minako-kotobuki
+          language: ja
+      appearances:
+        - seriesId: kamiina-botan-yoeru-sugata-wa-yuri-no-hana
+    - id: yaeka-kitamori
+      names:
+        original: 北杜やえか
+        translations:
+          en: Yaeka Kitamori
+          ja: 北杜やえか
+      externalIds:
+        wikidataId: Q138637126
+      voiceActors:
+        - staffId: miyu-tomita
+          language: ja
+      appearances:
+        - seriesId: kamiina-botan-yoeru-sugata-wa-yuri-no-hana

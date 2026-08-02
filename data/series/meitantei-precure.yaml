@@ -117,3 +117,56 @@ series:
           airedNumber: 50
         - absoluteNumber: 51
           airedNumber: 51
+  characters:
+    - id: anna-akechi
+      names:
+        original: 明智あんな
+        translations:
+          en: Anna Akechi
+          ja: 明智あんな
+      externalIds:
+        wikidataId: Q137791513
+      voiceActors:
+        - staffId: hikari-senga
+          language: ja
+      appearances:
+        - seriesId: meitantei-precure
+    - id: kurea-howa
+      names:
+        original: 帆羽くれあ
+        translations:
+          en: Kurea Howa
+          ja: 帆羽くれあ
+      externalIds:
+        wikidataId: Q137791517
+      voiceActors:
+        - staffId: ikumi-hasegawa
+          language: ja
+      appearances:
+        - seriesId: meitantei-precure
+    - id: luluka-moria
+      names:
+        original: 森亜るるか
+        translations:
+          en: Luluka Moria
+          ja: 森亜るるか
+      externalIds:
+        wikidataId: Q137791518
+      voiceActors:
+        - staffId: nao-toyama
+          language: ja
+      appearances:
+        - seriesId: meitantei-precure
+    - id: mikuru-kobayashi
+      names:
+        original: 小林みくる
+        translations:
+          en: Mikuru Kobayashi
+          ja: 小林みくる
+      externalIds:
+        wikidataId: Q137791514
+      voiceActors:
+        - staffId: kaede-hondo
+          language: ja
+      appearances:
+        - seriesId: meitantei-precure

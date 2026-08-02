@@ -14,5 +14,178 @@ series:
       number: 2
       externalIds: { anilistId: 182255 } # Sousou no Frieren 2nd Season (Winter 2026)
 # Scope stops at Spring 2026: a later announced season is left out until it airs.
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: aura
+      externalIds: { wikidataId: Q123029593 }  # Aura
+      voiceActors:
+        - { staffId: ayana-taketatsu, language: ja }  # Ayana Taketatsu
+    - id: blei
+      externalIds: { wikidataId: Q124570345 }  # Blei
+      voiceActors:
+        - { staffId: shin-ya-takahashi, language: ja }  # Shin'ya Takahashi
+    - id: dach
+      externalIds: { wikidataId: Q137861040 }  # Dach
+      voiceActors:
+        - { staffId: kosuke-kobayashi, language: ja }  # Kōsuke Kobayashi
+    - id: denken
+      externalIds: { wikidataId: Q123982662 }  # Denken
+      voiceActors:
+        - { staffId: jiro-saito, language: ja }  # Jirō Saitō
+    - id: draht
+      externalIds: { wikidataId: Q123029627 }  # Draht
+      voiceActors:
+        - { staffId: koki-osuzu, language: ja }  # Kōki Ōsuzu
+    - id: dunste
+      externalIds: { wikidataId: Q124570360 }  # Dünste
+      voiceActors:
+        - { staffId: masafumi-kobatake, language: ja }  # Masafumi Kobatake
+    - id: edel
+      externalIds: { wikidataId: Q124329516 }  # Edel
+      voiceActors:
+        - { staffId: tomoyo-kurosawa, language: ja }  # Tomoyo Kurosawa
+    - id: ehre
+      externalIds: { wikidataId: Q123982672 }  # Ehre
+      voiceActors:
+        - { staffId: kanae-ito, language: ja }  # Kanae Itō
+    - id: eisen
+      externalIds: { wikidataId: Q120089051 }  # Eisen
+      voiceActors:
+        - { staffId: yoji-ueda, language: ja }  # Yōji Ueda
+    - id: falsch
+      externalIds: { wikidataId: Q124876079 }  # Falsch
+      voiceActors:
+        - { staffId: kento-shiraishi, language: ja }  # Kento Shiraishi
+    - id: fern
+      externalIds: { wikidataId: Q121302212 }  # Fern
+      voiceActors:
+        - { staffId: kana-ichinose, language: ja }  # Kana Ichinose
+    - id: flamme
+      externalIds: { wikidataId: Q122781800 }  # Flamme
+      voiceActors:
+        - { staffId: atsuko-tanaka, language: ja }  # Atsuko Tanaka
+    - id: frieren
+      externalIds: { wikidataId: Q104144455 }  # Frieren
+      voiceActors:
+        - { staffId: atsumi-tanezaki, language: ja }  # Atsumi Tanezaki
+    - id: gabel
+      externalIds: { wikidataId: Q123974488 }  # Gabel
+      voiceActors:
+        - { staffId: takayuki-nakatsukasa, language: ja }  # Takayuki Nakatsukasa
+    - id: genau
+      externalIds: { wikidataId: Q123982679 }  # Genau
+      voiceActors:
+        - { staffId: tarusuke-shingaki, language: ja }  # Tarusuke Shingaki
+    - id: gorilla
+      externalIds: { wikidataId: Q123982614 }  # Gorilla
+      voiceActors:
+        - { staffId: hiromichi-tezuka, language: ja }  # Hiromichi Tezuka
+    - id: granat
+      externalIds: { wikidataId: Q123139278 }  # Granat
+      voiceActors:
+        - { staffId: shunsuke-sakuya, language: ja }  # Shunsuke Sakuya
+    - id: heiter
+      externalIds: { wikidataId: Q120089049 }  # Heiter
+      voiceActors:
+        - { staffId: hiroki-tochi, language: ja }  # Hiroki Tōchi
+    - id: hero-of-the-south
+      externalIds: { wikidataId: Q137861018 }  # Hero of the South
+      voiceActors:
+        - { staffId: kazuhiko-inoue, language: ja }  # Kazuhiko Inoue
+    - id: himmel
+      externalIds: { wikidataId: Q120089047 }  # Himmel
+      voiceActors:
+        - { staffId: nobuhiko-okamoto, language: ja }  # Nobuhiko Okamoto
+    - id: kanne
+      externalIds: { wikidataId: Q123982584 }  # Kanne
+      voiceActors:
+        - { staffId: azumi-waki, language: ja }  # Azumi Waki
+    - id: kraft
+      externalIds: { wikidataId: Q122911619 }  # Kraft
+      voiceActors:
+        - { staffId: takehito-koyasu, language: ja }  # Takehito Koyasu
+    - id: land
+      externalIds: { wikidataId: Q123982666 }  # Land
+      voiceActors:
+        - { staffId: shohei-komatsu, language: ja }  # Shōhei Komatsu
+    - id: laufen
+      externalIds: { wikidataId: Q123982671 }  # Laufen
+      voiceActors:
+        - { staffId: shizuka-ishigami, language: ja }  # Shizuka Ishigami
+    - id: lawine
+      externalIds: { wikidataId: Q123982648 }  # Lawine
+      voiceActors:
+        - { staffId: sayumi-suzushiro, language: ja }  # Sayumi Suzushiro
+    - id: lernen
+      externalIds: { wikidataId: Q124570366 }  # Lernen
+      voiceActors:
+        - { staffId: atsushi-miyauchi, language: ja }  # Atsushi Miyauchi
+    - id: linie
+      externalIds: { wikidataId: Q123029617 }  # Linie
+      voiceActors:
+        - { staffId: manaka-iwami, language: ja }  # Manaka Iwami
+    - id: lange
+      externalIds: { wikidataId: Q124570329 }  # Länge
+    - id: lugner
+      externalIds: { wikidataId: Q123029611 }  # Lügner
+      voiceActors:
+        - { staffId: junichi-suwabe, language: ja }  # Junichi Suwabe
+    - id: methode
+      externalIds: { wikidataId: Q124570332 }  # Methode
+      voiceActors:
+        - { staffId: reina-ueda, language: ja }  # Reina Ueda
+    - id: orden
+      externalIds: { wikidataId: Q123974423 }  # Orden
+      voiceActors:
+        - { staffId: yuya-uchida, language: ja }  # Yūya Uchida
+    - id: revolte
+      externalIds: { wikidataId: Q138679546 }  # Revolte
+      voiceActors:
+        - { staffId: shin-ichiro-miki, language: ja }  # Shin-ichiro Miki
+    - id: richter
+      externalIds: { wikidataId: Q123982668 }  # Richter
+      voiceActors:
+        - { staffId: eiji-hanawa, language: ja }  # Eiji Hanawa
+    - id: scharf
+      externalIds: { wikidataId: Q124329514 }  # Scharf
+      voiceActors:
+        - { staffId: yuji-murai, language: ja }  # Yūji Murai
+    - id: sein
+      externalIds: { wikidataId: Q122781825 }  # Sein
+      voiceActors:
+        - { staffId: yuichi-nakamura, language: ja }  # Yūichi Nakamura
+    - id: sense
+      externalIds: { wikidataId: Q123982675 }  # Sense
+      voiceActors:
+        - { staffId: haruka-terui, language: ja }  # Haruka Terui
+    - id: serie
+      externalIds: { wikidataId: Q122781845 }  # Serie
+      voiceActors:
+        - { staffId: mariya-ise, language: ja }  # Mariya Ise
+    - id: stark
+      externalIds: { wikidataId: Q121302214 }  # Stark
+      voiceActors:
+        - { staffId: chiaki-kobayashi, language: ja }  # Chiaki Kobayashi
+    - id: stoltz
+      externalIds: { wikidataId: Q123574382 }  # Stoltz
+      voiceActors:
+        - { staffId: takuya-eguchi, language: ja }  # Takuya Eguchi
+    - id: ton
+      externalIds: { wikidataId: Q124570336 }  # Ton
+      voiceActors:
+        - { staffId: taito-ban, language: ja }  # Taito Ban
+    - id: voll
+      externalIds: { wikidataId: Q123982645 }  # Voll
+      voiceActors:
+        - { staffId: mitsuaki-hoshino, language: ja }  # Mitsuaki Hoshino
+    - id: wirbel
+      externalIds: { wikidataId: Q123982655 }  # Wirbel
+      voiceActors:
+        - { staffId: kisho-taniyama, language: ja }  # Kishō Taniyama
+    - id: ubel
+      externalIds: { wikidataId: Q123982659 }  # Übel
+      voiceActors:
+        - { staffId: ikumi-hasegawa, language: ja }  # Ikumi Hasegawa
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [sousou-no-frieren]

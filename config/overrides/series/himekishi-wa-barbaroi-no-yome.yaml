@@ -10,5 +10,16 @@ series:
     - id: himekishi-wa-barbaroi-no-yome-s1
       number: 1
       externalIds: { anilistId: 182483 } # Himekishi wa Barbaroi no Yome (Spring 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: serafina-de-lavillant
+      externalIds: { wikidataId: Q138603758 }  # Serafina de Lavillant
+      voiceActors:
+        - { staffId: sayumi-suzushiro, language: ja }  # Sayumi Suzushiro
+    - id: veor
+      externalIds: { wikidataId: Q138603773 }  # Veor
+      voiceActors:
+        - { staffId: satoshi-inomata, language: ja }  # Satoshi Inomata
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [himekishi-wa-barbaroi-no-yome]

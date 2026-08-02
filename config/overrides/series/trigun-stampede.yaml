@@ -15,5 +15,21 @@ series:
       titles: { translations: { en: Trigun Stargaze } }
       number: 2
       externalIds: { anilistId: 163144 } # Trigun Stargaze (Winter 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: knives-millions
+      externalIds: { wikidataId: Q15141139 }  # Knives Millions
+    - id: legato-bluesummers
+      externalIds: { wikidataId: Q2589453 }  # Legato Bluesummers
+    - id: nicholas-d-wolfwood
+      externalIds: { wikidataId: Q2374583 }  # Nicholas D. Wolfwood
+    - id: rem-saverem
+      externalIds: { wikidataId: Q133540657 }  # Rem Saverem
+      voiceActors:
+        - { staffId: aya-hisakawa, language: ja }  # Aya Hisakawa
+        - { staffId: maaya-sakamoto, language: ja }  # Maaya Sakamoto
+    - id: vash-the-stampede
+      externalIds: { wikidataId: Q2434371 }  # Vash the Stampede
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [trigun-stampede]

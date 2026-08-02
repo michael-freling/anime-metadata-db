@@ -20,5 +20,168 @@ series:
       number: 2
       externalIds: { anilistId: 182300 } # Season 2 (2026)
 # One linear storyline, so its episodes carry a continuous absoluteNumber across
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: aaron-masterias-oldking
+      externalIds: { wikidataId: Q129262486 }  # Aaron Masterias Oldking
+      voiceActors:
+        - { staffId: hochu-otsuka, language: ja }  # Hōchū Ōtsuka
+    - id: brandtal-les-ailes
+      externalIds: { wikidataId: Q139998038 }  # Brandtal les Ailes
+      voiceActors:
+        - { staffId: shinnosuke-tachibana, language: ja }  # Shinnosuke Tachibana
+    - id: caldron-anouve
+      externalIds: { wikidataId: Q129262485 }  # Caldron Anouve
+      voiceActors:
+        - { staffId: reiko-suzuki, language: ja }  # Reiko Suzuki
+    - id: cariott-incindia-wiseman
+      externalIds: { wikidataId: Q129262487 }  # Cariott Incindia Wiseman
+      voiceActors:
+        - { staffId: jun-fukuyama, language: ja }  # Jun Fukuyama
+    - id: cerridwen
+      externalIds: { wikidataId: Q139997959 }  # Cerridwen
+      voiceActors:
+        - { staffId: sayaka-ohara, language: ja }  # Sayaka Ohara
+    - id: clairie-serah
+      externalIds: { wikidataId: Q139997944 }  # Clairie Serah
+      voiceActors:
+        - { staffId: mai-nakahara, language: ja }  # Mai Nakahara
+    - id: colette-loire
+      externalIds: { wikidataId: Q129262459 }  # Colette Loire
+      voiceActors:
+        - { staffId: satomi-amano, language: ja }  # Satomi Amano
+    - id: donan
+      externalIds: { wikidataId: Q129263367 }  # Donan
+      voiceActors:
+        - { staffId: ryo-sugisaki, language: ja }  # Ryō Sugisaki
+    - id: edward-serfence
+      externalIds: { wikidataId: Q129262484 }  # Edward Serfence
+      voiceActors:
+        - { staffId: koji-yusa, language: ja }  # Kōji Yusa
+    - id: elfaria-albis-serfort
+      externalIds: { wikidataId: Q129262456 }  # Elfaria Albis Serfort
+      voiceActors:
+        - { staffId: akira-sekine, language: ja }  # Akira Sekine
+    - id: eliza-nosferat
+      externalIds: { wikidataId: Q130260274 }  # Eliza Nosferat
+      voiceActors:
+        - { staffId: ami-koshimizu, language: ja }  # Ami Koshimizu
+    - id: ellenor-ljos-alf
+      externalIds: { wikidataId: Q129262490 }  # Ellenor Ljos Alf
+      voiceActors:
+        - { staffId: sora-amamiya, language: ja }  # Sora Amamiya
+    - id: emma-klever
+      externalIds: { wikidataId: Q129748618 }  # Emma Klever
+      voiceActors:
+        - { staffId: sayumi-suzushiro, language: ja }  # Sayumi Suzushiro
+    - id: filvis-challia
+      externalIds: { wikidataId: Q129263230 }  # Filvis Challia
+      voiceActors:
+        - { staffId: hisako-kanemoto, language: ja }  # Hisako Kanemoto
+    - id: finn
+      externalIds: { wikidataId: Q130382849 }  # Finn
+      voiceActors:
+        - { staffId: mutsumi-tamura, language: ja }  # Mutsumi Tamura
+    - id: flip-marteau
+      externalIds: { wikidataId: Q130214642 }  # Flip Marteau
+      voiceActors:
+        - { staffId: tomohiro-ono, language: ja }  # Tomohiro Ōno
+    - id: gina
+      externalIds: { wikidataId: Q129263460 }  # Gina
+      voiceActors:
+        - { staffId: kyo-yaoya, language: ja }  # Kyō Yaoya
+    - id: gordon-vally
+      externalIds: { wikidataId: Q129262473 }  # Gordon Vally
+      voiceActors:
+        - { staffId: kazuki-ura, language: ja }  # Kazuki Ura
+    - id: guilford-zurgas
+      externalIds: { wikidataId: Q140197938 }  # Guilford Zurgas
+    - id: iris-x-stellamaris
+      externalIds: { wikidataId: Q129262469 }  # Iris X. Stellamaris
+      voiceActors:
+        - { staffId: rumi-okubo, language: ja }  # Rumi Ōkubo
+    - id: jorua-moraine
+      externalIds: { wikidataId: Q129262480 }  # Jorua Moraine
+      voiceActors:
+        - { staffId: atsushi-tamaru, language: ja }  # Atsushi Tamaru
+    - id: julius-reinberg
+      externalIds: { wikidataId: Q129262463 }  # Julius Reinberg
+      voiceActors:
+        - { staffId: tetsuya-kakihara, language: ja }  # Tetsuya Kakihara
+    - id: kiki
+      externalIds: { wikidataId: Q129262584 }  # Kiki
+      voiceActors:
+        - { staffId: aoi-inase, language: ja }  # Aoi Inase
+    - id: kreutz-harlon
+      externalIds: { wikidataId: Q139997966 }  # Kreutz Harlon
+      voiceActors:
+        - { staffId: seiro-ogino, language: ja }  # Seirō Ogino
+    - id: lefiya-viridis
+      externalIds: { wikidataId: Q129263281 }  # Lefiya Viridis
+      voiceActors:
+        - { staffId: juri-kimura, language: ja }  # Juri Kimura
+    - id: lihanna-owenzaus
+      externalIds: { wikidataId: Q129262467 }  # Lihanna Owenzaus
+      voiceActors:
+        - { staffId: lynn, language: ja }  # Lynn
+    - id: logwell
+      externalIds: { wikidataId: Q129262491 }  # Logwell
+      voiceActors:
+        - { staffId: akio-otsuka, language: ja }  # Akio Ōtsuka
+    - id: lyril-mars
+      externalIds: { wikidataId: Q129262475 }  # Lyril Mars
+      voiceActors:
+        - { staffId: tomohiro-ono, language: ja }  # Tomohiro Ōno
+    - id: marze
+      externalIds: { wikidataId: Q130260246 }  # Marze
+      voiceActors:
+        - { staffId: nobuhiko-okamoto, language: ja }  # Nobuhiko Okamoto
+    - id: mike-maius
+      externalIds: { wikidataId: Q129262990 }  # Mike Maius
+      voiceActors:
+        - { staffId: atsushi-kosaka, language: ja }  # Atsushi Kōsaka
+    - id: palm-snoke
+      externalIds: { wikidataId: Q129263516 }  # Palm Snoke
+      voiceActors:
+        - { staffId: hiromichi-tezuka, language: ja }  # Hiromichi Tezuka
+    - id: renaisse-arette
+      externalIds: { wikidataId: Q129262478 }  # Renaisse Arette
+      voiceActors:
+        - { staffId: shin-ya-takahashi, language: ja }  # Shin'ya Takahashi
+    - id: rodge-holland
+      externalIds: { wikidataId: Q129748501 }  # Rodge Holland
+      voiceActors:
+        - { staffId: atsushi-tamaru, language: ja }  # Atsushi Tamaru
+    - id: rose-prehnite
+      externalIds: { wikidataId: Q129263152 }  # Rose Prehnite
+      voiceActors:
+        - { staffId: maki-kawase, language: ja }  # Maki Kawase
+    - id: rosti-nauman
+      externalIds: { wikidataId: Q129262471 }  # Rosti Nauman
+    - id: sarissa-alfeld
+      externalIds: { wikidataId: Q129748703 }  # Sarissa Alfeld
+      voiceActors:
+        - { staffId: ayaka-shimizu, language: ja }  # Ayaka Shimizu
+    - id: sion-ulster
+      externalIds: { wikidataId: Q129262460 }  # Sion Ulster
+      voiceActors:
+        - { staffId: masaaki-mizunaka, language: ja }  # Masaaki Mizunaka
+    - id: wignall-lindor
+      externalIds: { wikidataId: Q129262464 }  # Wignall Lindor
+      voiceActors:
+        - { staffId: kengo-kawanishi, language: ja }  # Kengo Kawanishi
+    - id: will-serfort
+      externalIds: { wikidataId: Q129262452 }  # Will Serfort
+      voiceActors:
+        - { staffId: kohei-amasaki, language: ja }  # Kōhei Amasaki
+    - id: workner-norgram
+      externalIds: { wikidataId: Q129262482 }  # Workner Norgram
+      voiceActors:
+        - { staffId: tomokazu-seki, language: ja }  # Tomokazu Seki
+    - id: zeo-thorzeus-reinbolt
+      externalIds: { wikidataId: Q129262492 }  # Zeo Thorzeus Reinbolt
+      voiceActors:
+        - { staffId: makoto-furukawa, language: ja }  # Makoto Furukawa
 # the seasons.
 numbered: [wistoria]

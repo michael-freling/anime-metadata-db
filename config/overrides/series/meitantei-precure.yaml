@@ -10,5 +10,24 @@ series:
     - id: meitantei-precure-s1
       number: 1
       externalIds: { anilistId: 202957 } # Meitantei Precure! (Winter 2026)
+  # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
+  # the builder fills every name from the QID at build time.
+  characters:
+    - id: anna-akechi
+      externalIds: { wikidataId: Q137791513 }  # Anna Akechi
+      voiceActors:
+        - { staffId: hikari-senga, language: ja }  # Hikari Senga
+    - id: kurea-howa
+      externalIds: { wikidataId: Q137791517 }  # Kurea Howa
+      voiceActors:
+        - { staffId: ikumi-hasegawa, language: ja }  # Ikumi Hasegawa
+    - id: luluka-moria
+      externalIds: { wikidataId: Q137791518 }  # Luluka Moria
+      voiceActors:
+        - { staffId: nao-toyama, language: ja }  # Nao Tōyama
+    - id: mikuru-kobayashi
+      externalIds: { wikidataId: Q137791514 }  # Mikuru Kobayashi
+      voiceActors:
+        - { staffId: kaede-hondo, language: ja }  # Kaede Hondo
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [meitantei-precure]
