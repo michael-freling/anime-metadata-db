@@ -1,0 +1,50 @@
+anime-metadata-db
+Copyright (c) 2026 Michael
+
+This product includes material from the sources below. Their notices must be
+kept intact when this dataset — or anything derived from it — is redistributed.
+
+--------------------------------------------------------------------------------
+anime-offline-database — manami-project
+https://github.com/manami-project/anime-offline-database
+Licensed under the Open Database License (ODbL) v1.0 and the Database Contents
+License (DbCL) v1.0.
+
+Contributes the facts behind every season, movie and special in data/: titles,
+release year and season, episode counts, and the cross-provider ids (AniList,
+AniDB, MyAnimeList, Kitsu) used to join records.
+
+Because data/ is a derivative database of this source, it is offered under the
+same ODbL + DbCL terms. See LICENSE-DATA.
+
+--------------------------------------------------------------------------------
+Anime-Lists — anime-list-master.xml, anime-movieset-list.xml
+https://github.com/Anime-Lists/anime-lists
+
+Contributes the AniDB-to-TVDB id mapping (the tvdbId on each node) and the
+movie-set grouping hints reported during a build.
+
+The project publishes no explicit licence. What is taken from it is bare
+identifier pairs — numbers linking one public database to another — which we
+treat as facts rather than protected expression. Anyone redistributing this
+dataset should reach their own view on that.
+
+--------------------------------------------------------------------------------
+Wikidata — https://www.wikidata.org
+Dedicated to the public domain under CC0 1.0.
+
+Contributes the R2 cast: character and staff names resolved by QID, and the
+appearance and voice-actor graph they were discovered from.
+
+CC0 imposes no conditions. Wikidata is credited here because saying where facts
+came from is worth doing, not because it is required.
+
+--------------------------------------------------------------------------------
+NOT USED: AniList
+
+AniList's Terms of Service prohibit using its API as a backup or data storage
+service, and prohibit mass collection, so no AniList content is fetched, stored
+or served. The `anilistId` fields in this dataset are identifiers parsed out of
+the cross-reference URLs published by anime-offline-database; they are join keys
+into that ODbL source, not AniList data. Consumers may use them to fetch
+descriptive content live from AniList at runtime under AniList's own terms.
