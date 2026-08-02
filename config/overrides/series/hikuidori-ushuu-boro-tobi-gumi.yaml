@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: hikuidori-ushuu-boro-tobi-gumi
+  titles:
+    original: 火喰鳥 羽州ぼろ鳶組
+    translations: { en: "Hikuidori: Ushuu Boro Tobi-gumi" }
+  seasons:
+    - id: hikuidori-ushuu-boro-tobi-gumi-s1
+      number: 1
+      externalIds: { anilistId: 187062 } # Hikuidori: Ushuu Boro Tobi-gumi (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hikuidori-ushuu-boro-tobi-gumi]

@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: haibara-kun-no-tsuyokute-seishun-new-game
+  titles:
+    original: 灰原くんの強くて青春ニューゲーム
+    translations: { en: Haibara-kun no Tsuyokute Seishun New Game }
+  seasons:
+    - id: haibara-kun-no-tsuyokute-seishun-new-game-s1
+      number: 1
+      externalIds: { anilistId: 195333 } # Haibara-kun no Tsuyokute Seishun New Game (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [haibara-kun-no-tsuyokute-seishun-new-game]

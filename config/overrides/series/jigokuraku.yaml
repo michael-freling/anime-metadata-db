@@ -1,0 +1,17 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: jigokuraku
+  titles:
+    original: 地狱乐
+    translations: { en: Jigokuraku }
+  seasons:
+    - id: jigokuraku-s1
+      number: 1
+      externalIds: { anilistId: 128893 } # Jigokuraku (Spring 2023)
+    - id: jigokuraku-s2
+      number: 2
+      externalIds: { anilistId: 166613 } # Jigokuraku 2nd Season (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jigokuraku]

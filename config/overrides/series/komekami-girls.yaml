@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: komekami-girls
+  titles:
+    original: こめかみっ！ Girls
+    translations: { en: "Komekami! Girls" }
+  seasons:
+    - id: komekami-girls-s1
+      number: 1
+      externalIds: { anilistId: 209940 } # Komekami! Girls (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [komekami-girls]

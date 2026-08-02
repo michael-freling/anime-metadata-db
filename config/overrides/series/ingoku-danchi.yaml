@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: ingoku-danchi
+  titles:
+    original: インゴクダンチ
+    translations: { en: Ingoku Danchi }
+  seasons:
+    - id: ingoku-danchi-s1
+      number: 1
+      externalIds: { anilistId: 206166 } # Ingoku Danchi (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ingoku-danchi]

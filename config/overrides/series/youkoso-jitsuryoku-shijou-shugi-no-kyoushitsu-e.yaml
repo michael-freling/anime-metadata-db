@@ -1,0 +1,24 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e
+  titles:
+    original: ようこそ実力至上主義の教室へ
+    translations: { en: Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e }
+  seasons:
+    - id: youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-s1
+      number: 1
+      externalIds: { anilistId: 98659 } # Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e (Summer 2017)
+    - id: youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-s2
+      number: 2
+      externalIds: { anilistId: 145545 } # Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e 2nd Season (Summer 2022)
+    - id: youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-s3
+      number: 3
+      externalIds: { anilistId: 146066 } # Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e 3rd Season (Winter 2024)
+    - id: youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-s4
+      titles: { translations: { en: "4th Season: 2-nensei-hen 1 Gakki" } }
+      number: 4
+      externalIds: { anilistId: 180745 } # Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e 4th Season: 2-nensei-hen 1 Gakki (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e]

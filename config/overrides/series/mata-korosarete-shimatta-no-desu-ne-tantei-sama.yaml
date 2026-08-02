@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: mata-korosarete-shimatta-no-desu-ne-tantei-sama
+  titles:
+    original: また殺されてしまったのですね, 探偵様
+    translations: { en: "Mata Korosarete Shimatta no desu ne, Tantei-sama" }
+  seasons:
+    - id: mata-korosarete-shimatta-no-desu-ne-tantei-sama-s1
+      number: 1
+      externalIds: { anilistId: 202381 } # Mata Korosarete Shimatta no desu ne, Tantei-sama (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mata-korosarete-shimatta-no-desu-ne-tantei-sama]

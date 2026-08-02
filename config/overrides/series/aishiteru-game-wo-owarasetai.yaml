@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: aishiteru-game-wo-owarasetai
+  titles:
+    original: 愛してるゲームを終わらせたい
+    translations: { en: Aishiteru Game wo Owarasetai }
+  seasons:
+    - id: aishiteru-game-wo-owarasetai-s1
+      number: 1
+      externalIds: { anilistId: 194393 } # Aishiteru Game wo Owarasetai (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aishiteru-game-wo-owarasetai]

@@ -1,0 +1,13 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: dark-machine-the-animation
+  titles:
+    translations: { en: "Dark Machine: The Animation" }
+  seasons:
+    - id: dark-machine-the-animation-s1
+      number: 1
+      externalIds: { anilistId: 179876 } # Dark Machine: The Animation (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dark-machine-the-animation]

@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: himekishi-wa-barbaroi-no-yome
+  titles:
+    original: 姫騎士は蛮族の嫁
+    translations: { en: Himekishi wa Barbaroi no Yome }
+  seasons:
+    - id: himekishi-wa-barbaroi-no-yome-s1
+      number: 1
+      externalIds: { anilistId: 182483 } # Himekishi wa Barbaroi no Yome (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [himekishi-wa-barbaroi-no-yome]

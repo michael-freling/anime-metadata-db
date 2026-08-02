@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: toumei-otoko-to-ningen-onna-sonouchi-fuufu-ni-naru-futari
+  titles:
+    original: 透明男と人間女~そのうち夫婦になるふたり~
+    translations: { en: "Toumei Otoko to Ningen Onna: Sonouchi Fuufu ni Naru Futari" }
+  seasons:
+    - id: toumei-otoko-to-ningen-onna-sonouchi-fuufu-ni-naru-futari-s1
+      number: 1
+      externalIds: { anilistId: 185039 } # Toumei Otoko to Ningen Onna: Sonouchi Fuufu ni Naru Futari (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [toumei-otoko-to-ningen-onna-sonouchi-fuufu-ni-naru-futari]

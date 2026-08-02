@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: jingai-kyoushitsu-no-ningengirai-kyoushi
+  titles:
+    original: 人外教室の人間嫌い教師
+    translations: { en: Jingai Kyoushitsu no Ningengirai Kyoushi }
+  seasons:
+    - id: jingai-kyoushitsu-no-ningengirai-kyoushi-s1
+      number: 1
+      externalIds: { anilistId: 198374 } # Jingai Kyoushitsu no Ningengirai Kyoushi (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jingai-kyoushitsu-no-ningengirai-kyoushi]

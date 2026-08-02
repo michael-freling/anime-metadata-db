@@ -1,0 +1,18 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: ao-no-miburo
+  titles:
+    original: 青のミブロ
+    translations: { en: Ao no Miburo }
+  seasons:
+    - id: ao-no-miburo-s1
+      number: 1
+      externalIds: { anilistId: 169258 } # Ao no Miburo (Fall 2024)
+    - id: ao-no-miburo-s2
+      titles: { translations: { en: Serizawa Ansatsu-hen } }
+      number: 2
+      externalIds: { anilistId: 189258 } # Ao no Miburo: Serizawa Ansatsu-hen (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ao-no-miburo]

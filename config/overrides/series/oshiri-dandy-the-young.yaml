@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: oshiri-dandy-the-young
+  titles:
+    original: おしりダンディ ザ・ヤング
+    translations: { en: Oshiri Dandy the Young }
+  seasons:
+    - id: oshiri-dandy-the-young-s1
+      number: 1
+      externalIds: { anilistId: 201910 } # Oshiri Dandy the Young (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [oshiri-dandy-the-young]

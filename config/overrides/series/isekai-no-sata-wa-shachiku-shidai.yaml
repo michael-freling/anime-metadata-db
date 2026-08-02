@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: isekai-no-sata-wa-shachiku-shidai
+  titles:
+    original: 異世界の沙汰は社畜次第
+    translations: { en: Isekai no Sata wa Shachiku Shidai }
+  seasons:
+    - id: isekai-no-sata-wa-shachiku-shidai-s1
+      number: 1
+      externalIds: { anilistId: 183661 } # Isekai no Sata wa Shachiku Shidai (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [isekai-no-sata-wa-shachiku-shidai]

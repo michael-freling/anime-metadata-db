@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: odekake-kozame
+  titles:
+    original: おでかけ子ザメ シーズン2
+    translations: { en: Odekake Kozame }
+  seasons:
+    - id: odekake-kozame-s2
+      number: 2
+      externalIds: { anilistId: 204269 } # Odekake Kozame Season 2 (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [odekake-kozame]

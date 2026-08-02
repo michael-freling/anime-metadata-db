@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: akane-banashi
+  titles:
+    original: あかね噺
+    translations: { en: Akane-banashi }
+  seasons:
+    - id: akane-banashi-s1
+      number: 1
+      externalIds: { anilistId: 196935 } # Akane-banashi (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [akane-banashi]

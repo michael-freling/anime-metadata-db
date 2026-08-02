@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: kuroneko-to-majo-no-kyoushitsu
+  titles:
+    original: 黒猫と魔女の教室
+    translations: { en: Kuroneko to Majo no Kyoushitsu }
+  seasons:
+    - id: kuroneko-to-majo-no-kyoushitsu-s1
+      number: 1
+      externalIds: { anilistId: 196974 } # Kuroneko to Majo no Kyoushitsu (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kuroneko-to-majo-no-kyoushitsu]

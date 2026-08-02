@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: tadaima-ojamasaremasu
+  titles:
+    original: "ただいま, おじゃまされます!"
+    translations: { en: "Tadaima, Ojamasaremasu!" }
+  seasons:
+    - id: tadaima-ojamasaremasu-s1
+      number: 1
+      externalIds: { anilistId: 202985 } # Tadaima, Ojamasaremasu! (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tadaima-ojamasaremasu]

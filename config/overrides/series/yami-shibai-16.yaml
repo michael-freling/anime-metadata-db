@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: yami-shibai-16
+  titles:
+    original: 暗芝居 第十六季
+    translations: { en: Yami Shibai 16 }
+  seasons:
+    - id: yami-shibai-16-s1
+      number: 1
+      externalIds: { anilistId: 203939 } # Yami Shibai 16 (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yami-shibai-16]

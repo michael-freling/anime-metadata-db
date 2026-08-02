@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: ichijouma-mankitsugurashi
+  titles:
+    original: "一畳間まんきつ暮らし!"
+    translations: { en: "Ichijouma Mankitsugurashi!" }
+  seasons:
+    - id: ichijouma-mankitsugurashi-s1
+      number: 1
+      externalIds: { anilistId: 195734 } # Ichijouma Mankitsugurashi! (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ichijouma-mankitsugurashi]

@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: niwatori-fighter
+  titles:
+    original: ニワトリ・ファイター
+    translations: { en: Niwatori Fighter }
+  seasons:
+    - id: niwatori-fighter-s1
+      number: 1
+      externalIds: { anilistId: 179813 } # Niwatori Fighter (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [niwatori-fighter]

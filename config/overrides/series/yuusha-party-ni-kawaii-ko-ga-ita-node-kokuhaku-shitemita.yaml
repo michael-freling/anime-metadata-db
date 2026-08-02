@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: yuusha-party-ni-kawaii-ko-ga-ita-node-kokuhaku-shitemita
+  titles:
+    original: 勇者パーティーにかわいい子がいたので, 告白してみた.
+    translations: { en: "Yuusha Party ni Kawaii Ko ga Ita node, Kokuhaku shitemita." }
+  seasons:
+    - id: yuusha-party-ni-kawaii-ko-ga-ita-node-kokuhaku-shitemita-s1
+      number: 1
+      externalIds: { anilistId: 195515 } # Yuusha Party ni Kawaii Ko ga Ita node, Kokuhaku shitemita. (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yuusha-party-ni-kawaii-ko-ga-ita-node-kokuhaku-shitemita]

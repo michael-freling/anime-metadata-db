@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: maid-san-wa-taberu-dake
+  titles:
+    original: メイドさんは食べるだけ
+    translations: { en: Maid-san wa Taberu dake }
+  seasons:
+    - id: maid-san-wa-taberu-dake-s1
+      number: 1
+      externalIds: { anilistId: 197868 } # Maid-san wa Taberu dake (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [maid-san-wa-taberu-dake]

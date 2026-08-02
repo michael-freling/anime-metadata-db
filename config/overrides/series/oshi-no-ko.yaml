@@ -1,0 +1,20 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: oshi-no-ko
+  titles:
+    original: 【推しの子】Mother and Children
+    translations: { en: "[Oshi no Ko]" }
+  seasons:
+    - id: oshi-no-ko-s1
+      number: 1
+      externalIds: { anilistId: 150672 } # [Oshi no Ko] (Spring 2023)
+    - id: oshi-no-ko-s2
+      number: 2
+      externalIds: { anilistId: 166531 } # [Oshi no Ko] 2nd Season (Summer 2024)
+    - id: oshi-no-ko-s3
+      number: 3
+      externalIds: { anilistId: 182587 } # [Oshi no Ko] 3rd Season (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [oshi-no-ko]

@@ -1,0 +1,17 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: douse-koishite-shimaunda
+  titles:
+    original: どうせ, 恋してしまうんだ.
+    translations: { en: "Douse, Koishite Shimaunda." }
+  seasons:
+    - id: douse-koishite-shimaunda-s1
+      number: 1
+      externalIds: { anilistId: 175409 } # Douse, Koishite Shimaunda. (Winter 2025)
+    - id: douse-koishite-shimaunda-s2
+      number: 2
+      externalIds: { anilistId: 189137 } # Douse, Koishite Shimaunda. 2nd Season (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [douse-koishite-shimaunda]

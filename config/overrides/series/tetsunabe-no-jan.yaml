@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: tetsunabe-no-jan
+  titles:
+    original: "鉄鍋のジャン!"
+    translations: { en: "Tetsunabe no Jan!" }
+  seasons:
+    - id: tetsunabe-no-jan-s1
+      number: 1
+      externalIds: { anilistId: 204060 } # Tetsunabe no Jan! (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tetsunabe-no-jan]

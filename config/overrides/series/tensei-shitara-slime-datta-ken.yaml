@@ -1,0 +1,28 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: tensei-shitara-slime-datta-ken
+  titles:
+    original: 転生したらスライムだった件
+    translations: { en: Tensei shitara Slime Datta Ken }
+  seasons:
+    - id: tensei-shitara-slime-datta-ken-s1
+      number: 1
+      externalIds: { anilistId: 101280 } # Tensei shitara Slime Datta Ken (Fall 2018)
+    - id: tensei-shitara-slime-datta-ken-s2p1
+      number: 2
+      part: 1
+      externalIds: { anilistId: 108511 } # Tensei shitara Slime Datta Ken 2nd Season (Winter 2021)
+    - id: tensei-shitara-slime-datta-ken-s2p2
+      number: 2
+      part: 2
+      externalIds: { anilistId: 116742 } # Tensei shitara Slime Datta Ken 2nd Season Part 2 (Summer 2021)
+    - id: tensei-shitara-slime-datta-ken-s3
+      number: 3
+      externalIds: { anilistId: 156822 } # Tensei shitara Slime Datta Ken 3rd Season (Spring 2024)
+    - id: tensei-shitara-slime-datta-ken-s4
+      number: 4
+      externalIds: { anilistId: 182205 } # Tensei shitara Slime Datta Ken 4th Season (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tensei-shitara-slime-datta-ken]

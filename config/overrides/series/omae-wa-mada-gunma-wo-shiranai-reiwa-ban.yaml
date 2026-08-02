@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: omae-wa-mada-gunma-wo-shiranai-reiwa-ban
+  titles:
+    original: お前はまだグンマを知らない~令和版~
+    translations: { en: "Omae wa Mada Gunma wo Shiranai: Reiwa-ban" }
+  seasons:
+    - id: omae-wa-mada-gunma-wo-shiranai-reiwa-ban-s1
+      number: 1
+      externalIds: { anilistId: 202419 } # Omae wa Mada Gunma wo Shiranai: Reiwa-ban (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [omae-wa-mada-gunma-wo-shiranai-reiwa-ban]

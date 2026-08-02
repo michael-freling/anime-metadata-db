@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: shunkashuutou-daikousha-haru-no-mai
+  titles:
+    original: 春夏秋冬代行者 春の舞
+    translations: { en: "Shunkashuutou Daikousha: Haru no Mai" }
+  seasons:
+    - id: shunkashuutou-daikousha-haru-no-mai-s1
+      number: 1
+      externalIds: { anilistId: 190143 } # Shunkashuutou Daikousha: Haru no Mai (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shunkashuutou-daikousha-haru-no-mai]

@@ -1,0 +1,20 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: mf-ghost
+  titles:
+    original: エムエフゴースト
+    translations: { en: MF Ghost }
+  seasons:
+    - id: mf-ghost-s1
+      number: 1
+      externalIds: { anilistId: 143327 } # MF Ghost (Fall 2023)
+    - id: mf-ghost-s2
+      number: 2
+      externalIds: { anilistId: 171642 } # MF Ghost 2nd Season (Fall 2024)
+    - id: mf-ghost-s3
+      number: 3
+      externalIds: { anilistId: 185753 } # MF Ghost 3rd Season (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mf-ghost]

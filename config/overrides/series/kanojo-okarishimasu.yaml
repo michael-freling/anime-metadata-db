@@ -1,0 +1,26 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: kanojo-okarishimasu
+  titles:
+    original: 彼女, お借りします
+    translations: { en: "Kanojo, Okarishimasu" }
+  seasons:
+    - id: kanojo-okarishimasu-s1
+      number: 1
+      externalIds: { anilistId: 113813 } # Kanojo, Okarishimasu (Summer 2020)
+    - id: kanojo-okarishimasu-s2
+      number: 2
+      externalIds: { anilistId: 124410 } # Kanojo, Okarishimasu 2nd Season (Summer 2022)
+    - id: kanojo-okarishimasu-s3
+      number: 3
+      externalIds: { anilistId: 154745 } # Kanojo, Okarishimasu 3rd Season (Summer 2023)
+    - id: kanojo-okarishimasu-s4
+      number: 4
+      externalIds: { anilistId: 179344 } # Kanojo, Okarishimasu 4th Season (Summer 2025)
+    - id: kanojo-okarishimasu-s5
+      number: 5
+      externalIds: { anilistId: 199029 } # Kanojo, Okarishimasu 5th Season (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kanojo-okarishimasu]

@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: kami-no-shizuku
+  titles:
+    original: 神の雫
+    translations: { en: Kami no Shizuku }
+  seasons:
+    - id: kami-no-shizuku-s1
+      number: 1
+      externalIds: { anilistId: 202508 } # Kami no Shizuku (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kami-no-shizuku]

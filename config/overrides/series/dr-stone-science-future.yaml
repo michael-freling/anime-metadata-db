@@ -1,0 +1,22 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: dr-stone-science-future
+  titles:
+    original: ドクターストーン SCIENCE FUTURE
+    translations: { en: "Dr. Stone: Science Future" }
+  seasons:
+    - id: dr-stone-science-future-s1
+      number: 1
+      externalIds: { anilistId: 172019 } # Dr. Stone: Science Future (Winter 2025)
+    - id: dr-stone-science-future-s2p2
+      number: 2
+      part: 2
+      externalIds: { anilistId: 189117 } # Dr. Stone: Science Future Part 2 (Summer 2025)
+    - id: dr-stone-science-future-s3p3
+      number: 3
+      part: 3
+      externalIds: { anilistId: 199221 } # Dr. Stone: Science Future Part 3 (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dr-stone-science-future]

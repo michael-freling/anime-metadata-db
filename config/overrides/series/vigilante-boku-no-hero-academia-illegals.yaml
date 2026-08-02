@@ -1,0 +1,17 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: vigilante-boku-no-hero-academia-illegals
+  titles:
+    original: ヴィジランテ -僕のヒーローアカデミア ILLEGALS-
+    translations: { en: "Vigilante: Boku no Hero Academia Illegals" }
+  seasons:
+    - id: vigilante-boku-no-hero-academia-illegals-s1
+      number: 1
+      externalIds: { anilistId: 185736 } # Vigilante: Boku no Hero Academia Illegals (Spring 2025)
+    - id: vigilante-boku-no-hero-academia-illegals-s2
+      number: 2
+      externalIds: { anilistId: 195322 } # Vigilante: Boku no Hero Academia Illegals 2nd Season (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [vigilante-boku-no-hero-academia-illegals]

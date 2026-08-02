@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: high-school-kimengumi-2026
+  titles:
+    original: "ハイスクール! 奇面組 (2026)"
+    translations: { en: "High School! Kimengumi (2026)" }
+  seasons:
+    - id: high-school-kimengumi-2026-s1
+      number: 1
+      externalIds: { anilistId: 200556 } # High School! Kimengumi (2026) (Winter 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [high-school-kimengumi-2026]

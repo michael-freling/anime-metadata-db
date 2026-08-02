@@ -1,0 +1,17 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: otonari-no-tenshi-sama-ni-itsunomanika-dame-ningen-ni
+  titles:
+    original: お隣の天使様にいつの間にか駄目人間にされていた件
+    translations: { en: Otonari no Tenshi-sama ni Itsunomanika Dame Ningen ni Sareteita Ken }
+  seasons:
+    - id: otonari-no-tenshi-sama-ni-itsunomanika-dame-ningen-ni-s1
+      number: 1
+      externalIds: { anilistId: 143338 } # Otonari no Tenshi-sama ni Itsunomanika Dame Ningen ni Sareteita Ken (Winter 2023)
+    - id: otonari-no-tenshi-sama-ni-itsunomanika-dame-ningen-ni-s2
+      number: 2
+      externalIds: { anilistId: 170019 } # Otonari no Tenshi-sama ni Itsunomanika Dame Ningen ni Sareteita Ken 2 (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [otonari-no-tenshi-sama-ni-itsunomanika-dame-ningen-ni]

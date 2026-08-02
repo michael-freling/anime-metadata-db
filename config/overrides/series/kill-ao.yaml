@@ -1,0 +1,14 @@
+# Authored override — Winter/Spring 2026 catalogue import. Holds only the
+# structure the open sources cannot express; `builder build` fills the facts
+# into data/. Never hand-edit data/.
+series:
+  id: kill-ao
+  titles:
+    original: キルアオ
+    translations: { en: Kill Ao }
+  seasons:
+    - id: kill-ao-s1
+      number: 1
+      externalIds: { anilistId: 198113 } # Kill Ao (Spring 2026)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kill-ao]
