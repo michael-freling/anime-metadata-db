@@ -21,13 +21,13 @@ The code and the data are licensed **separately**:
 Attribution for the upstream sources lives in
 [`NOTICE`](https://github.com/michael-freling/anime-metadata-db/blob/main/NOTICE).
 
-## Where each field comes from
+## The sources
 
 | Source | Licence | What it contributes |
 |---|---|---|
 | [anime-offline-database](https://github.com/manami-project/anime-offline-database) | **ODbL + DbCL** | titles, release year and season, episode counts, cross-provider ids |
 | [Anime-Lists](https://github.com/Anime-Lists/anime-lists) | *none stated* | the AniDB→TVDB id mapping (`tvdbId`), movie-set grouping hints |
-| [Wikidata](https://www.wikidata.org) | **CC0** | character and staff names, and the appearance / voice-actor graph |
+| [Wikidata](https://www.wikidata.org) | **CC0** | character and staff names — and nothing else; the cast structure around them is authored |
 | This project | ODbL (as published here) | franchise and series grouping, ids, season and part numbers, `absoluteNumber`, watch orders |
 
 The last row is the part with no upstream at all. Deciding that Fate/Zero and
@@ -35,6 +35,83 @@ Fate/stay night are two series of one franchise, that Golden Kamuy's five
 seasons carry a continuous episode numbering, or that Trigun Stargaze is season
 two of Stampede — none of that is in any source. It is the project's editorial
 work, and it is why the dataset exists.
+
+## Where each field comes from
+
+Provenance in this dataset is **per field**, not per file — every record in
+`data/` mixes all four rows above. This table is the authoritative mapping,
+keyed by the field path as it appears in a `data/series/*.yaml` or
+`data/staff/*.yaml` record.
+
+Throughout, an **authored value always wins**: the builder only fills a field
+the override left empty, merging per field rather than per object. So any field
+below marked as upstream-filled may instead be the project's own value where an
+override supplied one.
+
+| Field | Filled from | Licence |
+|---|---|---|
+| `franchise.id`, `series.id`, `seasons[].id`, `movies[].id`, `specials[].id`, `*.characters[].id`, `staff[].id` | this project — authored slugs | ODbL |
+| `franchise.titles`, `series.titles` | this project — a franchise or series grouping has no upstream entry, so its title must be authored | ODbL |
+| `seasons[].titles`, `movies[].titles`, `specials[].titles` | anime-offline-database — `original` and `ja` from the native-script title (or the first native-script synonym), `en` from the Latin main title | ODbL + DbCL |
+| `seasons[].number`, `seasons[].part` | this project — editorial | ODbL |
+| `seasons[].releaseYear`, `seasons[].releaseSeason`, `movies[].releaseYear`, `specials[].releaseYear` | anime-offline-database — its `animeSeason` block | ODbL + DbCL |
+| `*.episodes[].airedNumber` | anime-offline-database — the episode *count*, expanded to 1…n; the same on a season and on a special | ODbL + DbCL |
+| `seasons[].episodes[].absoluteNumber`, `movies[].absoluteNumber` | this project — `assignAbsoluteNumbers` interleaves season episodes and original movies by release order; an alternate cut takes no number of its own | ODbL |
+| `*.externalIds.anilistId` | this project — the authored join key on whichever node carries it, cross-checked against anime-offline-database's `sources` array (see below) | ODbL |
+| `seasons[].externalIds.anidbId`, `movies[].externalIds.anidbId`, `specials[].externalIds.anidbId` | anime-offline-database — parsed from its `sources` array. Only these three node kinds are resolved against it | ODbL + DbCL |
+| `seasons[].externalIds.tvdbId`, `movies[].externalIds.tvdbId`, `specials[].externalIds.tvdbId` | Anime-Lists — the AniDB→TVDB map, keyed by the `anidbId` above | *none stated* |
+| `*.externalIds.wikidataId` | this project — the authored QID join key; in practice only cast nodes carry one | ODbL |
+| `*.characters[].names`, `staff[].names` | Wikidata — the `ja` label becomes `original` and `ja`, the `en` label becomes `en` | **CC0** |
+| `*.characters[].voiceActors[]`, `*.characters[].appearances[]` | this project — the cast structure is authored by hand in `config/overrides/`, with Wikidata used as a research aid rather than extracted from | ODbL |
+| `movies[].alternateCutOf` | this project — Anime-Lists movie sets only *report* a grouping hint during a build; nothing from them is written to `data/` | ODbL |
+| `franchise.watchOrders`, `numbered` | this project — editorial | ODbL |
+
+### What the schema allows but the builder never fills
+
+None of the following appears in the current `data/`. If one ever does, it was
+authored, and the row above that names its source does not apply to it.
+
+- `*.externalIds.tmdbId`, `*.releaseDate` and `*.episodes[].title` — nothing in
+  the build writes these anywhere.
+- `*.characters[].externalIds.anidbId`, `*.characters[].externalIds.tvdbId`,
+  `staff[].externalIds.anidbId`, `staff[].externalIds.tvdbId` — a cast node is
+  resolved by QID against Wikidata, never against anime-offline-database or
+  Anime-Lists, so the two rows above cover season, movie and special only.
+- `specials[].absoluteNumber` and `specials[].episodes[].absoluteNumber` — the
+  numbering pass builds its run from seasons and movies, so nothing under a
+  special is ever numbered.
+- `specials[].format` *would* default from anime-offline-database's media type,
+  but the catalogue holds no specials, so it is unused too.
+
+The schema is deliberately permissive here — one `externalIds` shape is shared
+by every kind of node — so "the schema allows it" is not evidence that anything
+fills it.
+
+## Why `data/` is not split by source
+
+A natural question is whether `data/` should be organised as
+`data/anime-offline-database/`, `data/wikidata/` and so on, so that each
+directory carries one licence. It should not, for two reasons.
+
+**The seam is between fields, not between files.** As the table above shows, a
+single `data/series/*.yaml` record interleaves all four provenances — titles
+from anime-offline-database, one `tvdbId` from Anime-Lists, character names from
+Wikidata, and the ids, numbering and grouping from this project. Splitting by
+source would shatter every series across three or four files that consumers must
+re-join, and would still be *coarser* than this table, which answers the
+question at the level it is actually asked.
+
+**It would not change the licensing answer, and would misstate it.** `data/` as
+a whole is a derivative database of an ODbL source (see below), so ODbL reaches
+all of it. A directory named `data/wikidata/` would read as "this part is CC0,
+take it freely" — but the arrangement it carries, keyed to ids that exist only
+because of the project's editorial structure, is not. One honest licence over
+the joined result is a stronger statement than four directory names.
+
+The place where one directory per source *is* the right model is `.sources/` —
+the raw upstream snapshots pulled by `builder init`, one file per source,
+untouched and unjoined. `data/` is the joined output, and joining is the point
+of it.
 
 ## Why the data is under ODbL
 

@@ -33,8 +33,14 @@ dataset should reach their own view on that.
 Wikidata — https://www.wikidata.org
 Dedicated to the public domain under CC0 1.0.
 
-Contributes the R2 cast: character and staff names resolved by QID, and the
-appearance and voice-actor graph they were discovered from.
+Contributes the character and staff names in data/, resolved from the entity
+named by each node's wikidataId: the Japanese label becomes the original name,
+the English label the en translation.
+
+That is all it contributes. The cast structure — which character appears in
+which series, and who voices them — is not extracted from Wikidata. It is
+authored by hand in config/overrides/, with Wikidata used as a research aid.
+Wikidata is credited for the names it supplies, not for that structure.
 
 CC0 imposes no conditions. Wikidata is credited here because saying where facts
 came from is worth doing, not because it is required.
