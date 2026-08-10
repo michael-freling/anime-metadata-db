@@ -68,7 +68,7 @@ Rules that have caught real errors:
   states no licence, say so plainly and say what the project takes from it,
   as the Anime-Lists section does.
 
-## 3. Reconcile the three places provenance is written
+## 3. Reconcile the four places provenance is written
 
 They must agree. In order of how much a mistake costs:
 
@@ -115,12 +115,21 @@ against `internal/build`" means you read it — not that the script passed.
 
 ## Notes
 
+- Fields are matched **qualified by their container** (`seasons[].part`, not
+  `part`), so a name documented under one container cannot vouch for an
+  undocumented field of the same name under another. Write the container in the
+  table's first column or the field reads as missing. `*.field` is a deliberate
+  wildcard for a field that means the same thing everywhere, like
+  `*.releaseDate`.
+- A property pointing at a record whose own fields are documented individually
+  (`series.seasons`, `season.externalIds`) is structure, not data, and needs no
+  row. The script lists what it skipped on that basis.
 - The script's `OPAQUE_DEFS` list encodes a claim: every field inside those
   `$defs` shares one provenance, so the table covers each with a single row. If
   you add a field to one of them that comes from somewhere else, remove the def
   from that list and enumerate its fields — no check will catch it for you.
 - The `$defs` names in `SCALAR_DEFS` and `OPAQUE_DEFS` are matched literally. If
   a schema `$def` is renamed, update the script or its checks silently narrow.
-- The script reads the table by locating the `## Where each field comes from`
-  heading. If that heading is renamed, the script exits 2 rather than passing
-  vacuously.
+- Exit 2 means the script could not run its comparison — a renamed
+  `## Where each field comes from` heading, malformed JSON, or a `config.yaml`
+  with no source URLs. It never exits 0 without having compared something.

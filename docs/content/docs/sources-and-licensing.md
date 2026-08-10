@@ -56,7 +56,7 @@ override supplied one.
 | `seasons[].number`, `seasons[].part` | this project — editorial | ODbL |
 | `seasons[].releaseYear`, `seasons[].releaseSeason`, `movies[].releaseYear`, `specials[].releaseYear` | anime-offline-database — its `animeSeason` block | ODbL + DbCL |
 | `episodes[].airedNumber` | anime-offline-database — the episode *count*, expanded to 1…n | ODbL + DbCL |
-| `episodes[].absoluteNumber` | this project — computed across the numbered run | ODbL |
+| `episodes[].absoluteNumber`, `movies[].absoluteNumber` | this project — `assignAbsoluteNumbers` interleaves season episodes and original movies by release order; an alternate cut takes no number of its own | ODbL |
 | `externalIds.anilistId` | this project — the authored join key, cross-checked against anime-offline-database's `sources` array (see below) | ODbL |
 | `externalIds.anidbId` | anime-offline-database — parsed from its `sources` array | ODbL + DbCL |
 | `externalIds.tvdbId` | Anime-Lists — the AniDB→TVDB map | *none stated* |
@@ -66,11 +66,13 @@ override supplied one.
 | `movies[].alternateCutOf` | this project — Anime-Lists movie sets only *report* a grouping hint during a build; nothing from them is written to `data/` | ODbL |
 | `franchise.watchOrders`, `numbered` | this project — editorial | ODbL |
 
-Three fields the schema permits are never filled by the builder:
-`externalIds.tmdbId`, `*.releaseDate` and `episodes[].title`. None appears in
-the current `data/`; if one ever does, it was authored. A fourth,
-`specials[].format`, *would* default from anime-offline-database's media type —
-but the catalogue currently holds no specials, so it is unused too.
+Four fields the schema permits are never filled by the builder:
+`externalIds.tmdbId`, `*.releaseDate`, `episodes[].title` and
+`specials[].absoluteNumber` — the numbering pass walks seasons and movies only,
+so a special never receives one. None appears in the current `data/`; if one
+ever does, it was authored. A fifth, `specials[].format`, *would* default from
+anime-offline-database's media type, but the catalogue holds no specials, so it
+is unused too.
 
 ## Why `data/` is not split by source
 
