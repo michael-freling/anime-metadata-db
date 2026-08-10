@@ -110,6 +110,13 @@ Re-run the script, and build the docs so the page still renders:
 node .claude/skills/update-data-provenance/scripts/check-provenance.mjs && make build
 ```
 
+If you changed the script itself, run its own tests too — they exist because
+two false negatives shipped past manual verification:
+
+```bash
+node --test .claude/skills/update-data-provenance/scripts/check-provenance.test.mjs
+```
+
 Report which rows you changed and which you verified as still correct. "Verified
 against `internal/build`" means you read it — not that the script passed.
 
@@ -118,9 +125,13 @@ against `internal/build`" means you read it — not that the script passed.
 - Fields are matched **qualified by their container** (`seasons[].part`, not
   `part`), so a name documented under one container cannot vouch for an
   undocumented field of the same name under another. Write the container in the
-  table's first column or the field reads as missing. `*.field` is a deliberate
-  wildcard for a field that means the same thing everywhere, like
-  `*.releaseDate`.
+  table's first column or the field reads as missing.
+- A `$def` reached from several parents is qualified by each of them, because
+  what fills it can differ by parent — `seasons[].externalIds.anidbId` comes
+  from anime-offline-database while `characters[].externalIds.anidbId` is never
+  filled at all. Writing `*.field` asserts the opposite: that it is filled the
+  same way under every container. Use the wildcard only when that is true; the
+  script cannot check it for you.
 - A property pointing at a record whose own fields are documented individually
   (`series.seasons`, `season.externalIds`) is structure, not data, and needs no
   row. The script lists what it skipped on that basis.

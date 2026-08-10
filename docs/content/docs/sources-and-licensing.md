@@ -50,29 +50,42 @@ override supplied one.
 
 | Field | Filled from | Licence |
 |---|---|---|
-| `franchise.id`, `series.id`, `seasons[].id`, `movies[].id`, `specials[].id`, `characters[].id`, `staff[].id` | this project — authored slugs | ODbL |
+| `franchise.id`, `series.id`, `seasons[].id`, `movies[].id`, `specials[].id`, `*.characters[].id`, `staff[].id` | this project — authored slugs | ODbL |
 | `franchise.titles`, `series.titles` | this project — a franchise or series grouping has no upstream entry, so its title must be authored | ODbL |
 | `seasons[].titles`, `movies[].titles`, `specials[].titles` | anime-offline-database — `original` and `ja` from the native-script title (or the first native-script synonym), `en` from the Latin main title | ODbL + DbCL |
 | `seasons[].number`, `seasons[].part` | this project — editorial | ODbL |
 | `seasons[].releaseYear`, `seasons[].releaseSeason`, `movies[].releaseYear`, `specials[].releaseYear` | anime-offline-database — its `animeSeason` block | ODbL + DbCL |
-| `episodes[].airedNumber` | anime-offline-database — the episode *count*, expanded to 1…n | ODbL + DbCL |
-| `episodes[].absoluteNumber`, `movies[].absoluteNumber` | this project — `assignAbsoluteNumbers` interleaves season episodes and original movies by release order; an alternate cut takes no number of its own | ODbL |
-| `externalIds.anilistId` | this project — the authored join key, cross-checked against anime-offline-database's `sources` array (see below) | ODbL |
-| `externalIds.anidbId` | anime-offline-database — parsed from its `sources` array | ODbL + DbCL |
-| `externalIds.tvdbId` | Anime-Lists — the AniDB→TVDB map | *none stated* |
-| `externalIds.wikidataId` | this project — the authored QID join key | ODbL |
-| `characters[].names`, `staff[].names` | Wikidata — the `ja` label becomes `original` and `ja`, the `en` label becomes `en` | **CC0** |
-| `characters[].voiceActors[]`, `characters[].appearances[]` | this project — the cast structure is authored by hand in `config/overrides/`, with Wikidata used as a research aid rather than extracted from | ODbL |
+| `*.episodes[].airedNumber` | anime-offline-database — the episode *count*, expanded to 1…n; the same on a season and on a special | ODbL + DbCL |
+| `seasons[].episodes[].absoluteNumber`, `movies[].absoluteNumber` | this project — `assignAbsoluteNumbers` interleaves season episodes and original movies by release order; an alternate cut takes no number of its own | ODbL |
+| `*.externalIds.anilistId` | this project — the authored join key on whichever node carries it, cross-checked against anime-offline-database's `sources` array (see below) | ODbL |
+| `seasons[].externalIds.anidbId`, `movies[].externalIds.anidbId`, `specials[].externalIds.anidbId` | anime-offline-database — parsed from its `sources` array. Only these three node kinds are resolved against it | ODbL + DbCL |
+| `seasons[].externalIds.tvdbId`, `movies[].externalIds.tvdbId`, `specials[].externalIds.tvdbId` | Anime-Lists — the AniDB→TVDB map, keyed by the `anidbId` above | *none stated* |
+| `*.externalIds.wikidataId` | this project — the authored QID join key; in practice only cast nodes carry one | ODbL |
+| `*.characters[].names`, `staff[].names` | Wikidata — the `ja` label becomes `original` and `ja`, the `en` label becomes `en` | **CC0** |
+| `*.characters[].voiceActors[]`, `*.characters[].appearances[]` | this project — the cast structure is authored by hand in `config/overrides/`, with Wikidata used as a research aid rather than extracted from | ODbL |
 | `movies[].alternateCutOf` | this project — Anime-Lists movie sets only *report* a grouping hint during a build; nothing from them is written to `data/` | ODbL |
 | `franchise.watchOrders`, `numbered` | this project — editorial | ODbL |
 
-Four fields the schema permits are never filled by the builder:
-`externalIds.tmdbId`, `*.releaseDate`, `episodes[].title` and
-`specials[].absoluteNumber` — the numbering pass walks seasons and movies only,
-so a special never receives one. None appears in the current `data/`; if one
-ever does, it was authored. A fifth, `specials[].format`, *would* default from
-anime-offline-database's media type, but the catalogue holds no specials, so it
-is unused too.
+### What the schema allows but the builder never fills
+
+None of the following appears in the current `data/`. If one ever does, it was
+authored, and the row above that names its source does not apply to it.
+
+- `*.externalIds.tmdbId`, `*.releaseDate` and `*.episodes[].title` — nothing in
+  the build writes these anywhere.
+- `*.characters[].externalIds.anidbId`, `*.characters[].externalIds.tvdbId`,
+  `staff[].externalIds.anidbId`, `staff[].externalIds.tvdbId` — a cast node is
+  resolved by QID against Wikidata, never against anime-offline-database or
+  Anime-Lists, so the two rows above cover season, movie and special only.
+- `specials[].absoluteNumber` and `specials[].episodes[].absoluteNumber` — the
+  numbering pass builds its run from seasons and movies, so nothing under a
+  special is ever numbered.
+- `specials[].format` *would* default from anime-offline-database's media type,
+  but the catalogue holds no specials, so it is unused too.
+
+The schema is deliberately permissive here — one `externalIds` shape is shared
+by every kind of node — so "the schema allows it" is not evidence that anything
+fills it.
 
 ## Why `data/` is not split by source
 

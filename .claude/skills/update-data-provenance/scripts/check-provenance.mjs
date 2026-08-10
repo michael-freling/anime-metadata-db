@@ -110,16 +110,45 @@ function schemaFields() {
     const schema = readJSON(join(SCHEMA_DIR, file))
     const defs = schema.$defs ?? {}
 
-    // How each $def is referenced, e.g. season -> "seasons" (the doc writes
-    // that as `seasons[].x`). A def can be referenced under more than one name.
-    const labels = new Map()
-    for (const node of [schema, ...Object.values(defs)]) {
+    // Who references each $def, so a field can be qualified by the container it
+    // actually appears under. A $def reached from several parents under the
+    // same property name (externalIds from season/movie/character/staff,
+    // episode from season and special) would otherwise collapse into one label
+    // and hide that its provenance differs by parent.
+    const parents = new Map()
+    for (const [container, node] of [['(root)', schema], ...Object.entries(defs)]) {
       for (const [prop, sub] of Object.entries(node?.properties ?? {})) {
         const t = refTarget(sub)
         if (!t) continue
-        if (!labels.has(t.def)) labels.set(t.def, new Set())
-        labels.get(t.def).add(prop)
+        if (!parents.has(t.def)) parents.set(t.def, [])
+        parents.get(t.def).push({ parent: container, prop })
       }
+    }
+
+    // The property name a $def is referenced by — one segment, so a qualified
+    // label never grows past `parent.prop`.
+    const shortLabel = (def) => parents.get(def)?.[0]?.prop ?? def
+
+    // Defs that appear under many kinds of node where what fills them differs
+    // by node — always name the parent, even in a schema file where there
+    // happens to be only one, so the paths mean the same thing across files.
+    const ALWAYS_QUALIFY = new Set(['externalIds'])
+
+    const labelsFor = (def) => {
+      // An opaque parent is documented as a single row, so it contributes no
+      // path of its own to the things inside it.
+      const refs = (parents.get(def) ?? []).filter(
+        (p) => p.parent === '(root)' || !OPAQUE_DEFS.has(p.parent),
+      )
+      if (!ALWAYS_QUALIFY.has(def)) {
+        // A top-level record: the root is not a distinguishing context.
+        const fromRoot = refs.find((p) => p.parent === '(root)')
+        if (fromRoot) return [fromRoot.prop]
+        if (new Set(refs.map((p) => p.parent)).size <= 1) {
+          return [...new Set(refs.map((p) => p.prop))]
+        }
+      }
+      return [...new Set(refs.map((p) => `${shortLabel(p.parent)}.${p.prop}`))]
     }
 
     const walk = (node, containerLabels, defName) => {
@@ -154,7 +183,7 @@ function schemaFields() {
         opaque.push({ file, def, count: Object.keys(node.properties).length })
         continue
       }
-      const known = [...(labels.get(def) ?? [])]
+      const known = labelsFor(def)
       if (!known.length) {
         // Unreferenced def: no container name to qualify by. Say so rather than
         // silently matching on the bare name.
@@ -171,20 +200,22 @@ function schemaFields() {
 // `*.releaseDate` is a deliberate wildcard: the field means the same thing under
 // every container, so the doc documents it once.
 function parsePaths(spans) {
-  const pairs = new Set()
-  const wildcard = new Set()
+  const exact = new Set()
+  const suffix = new Set()
   for (const span of spans) {
     const path = span.replace(/\[\]/g, '').trim()
     if (!/^[a-zA-Z*][a-zA-Z0-9.*]*$/.test(path)) continue
-    const dot = path.lastIndexOf('.')
-    const prop = dot === -1 ? path : path.slice(dot + 1)
-    const container = dot === -1 ? '' : path.slice(0, dot)
-    if (!/^[a-zA-Z][a-zA-Z0-9]*$/.test(prop)) continue
-    if (container === '*') wildcard.add(prop)
-    else pairs.add(`${container}.${prop}`)
+    if (path.startsWith('*.')) suffix.add(path.slice(2))
+    else if (!path.includes('*')) exact.add(path)
   }
-  return { pairs, wildcard }
+  return { exact, suffix }
 }
+
+// A field is documented if its qualified path is written out, or if a `*.`
+// wildcard asserts the field means the same thing under every container it
+// appears in.
+const matches = (path, doc) =>
+  doc.exact.has(path) || [...doc.suffix].some((s) => path === s || path.endsWith(`.${s}`))
 
 const backticked = (text) => [...text.matchAll(/`([^`]+)`/g)].map((m) => m[1])
 
@@ -222,24 +253,29 @@ const documented = documentedPaths(section)
 const tabulated = tabulatedPaths(section)
 const { fields, opaque, skipped } = schemaFields()
 
-const expected = new Set()
-for (const f of fields) for (const l of f.labels) expected.add(`${l}.${f.prop}`)
+// Every container a field appears under is its own path: a row covering
+// `seasons[].externalIds.anidbId` says nothing about `characters[].externalIds`.
+const pathsOf = (f) => f.labels.map((l) => (l ? `${l}.${f.prop}` : f.prop))
 
-const isDocumented = (f) =>
-  documented.wildcard.has(f.prop) || f.labels.some((l) => documented.pairs.has(`${l}.${f.prop}`))
+const expected = new Set(fields.flatMap(pathsOf))
 
-const missing = fields.filter((f) => !isDocumented(f))
+const missing = fields.flatMap((f) => pathsOf(f).filter((p) => !matches(p, documented)).map((p) => ({ ...f, path: p })))
 if (missing.length) {
   fail(`\nFIELDS MISSING FROM THE PROVENANCE TABLE (${missing.length})`)
   for (const f of missing) {
-    const paths = f.labels.map((l) => (l ? `${l}[].${f.prop}` : f.prop)).join(' / ')
-    fail(`  ${paths.padEnd(34)} — ${f.file} ${f.def === '(root)' ? 'top level' : `$defs/${f.def}`}`)
+    // Plain dotted form: the matcher ignores `[]`, so the doc may add the array
+    // markers back where they read better.
+    fail(`  ${f.path.padEnd(40)} — ${f.file} ${f.def === '(root)' ? 'top level' : `$defs/${f.def}`}`)
   }
   fail(`\n  Each needs a row in "${SECTION}" saying what fills it and under`)
   fail('  which licence. Read internal/build to find out; do not guess.')
+  fail('  Use `*.field` only if it is filled the same way under every container.')
 }
 
-const stale = [...tabulated.pairs].filter((p) => !expected.has(p))
+const stale = [
+  ...[...tabulated.exact].filter((p) => !expected.has(p)),
+  ...[...tabulated.suffix].filter((s) => ![...expected].some((p) => p === s || p.endsWith(`.${s}`))),
+]
 if (stale.length) {
   fail(`\nDOCUMENTED BUT NOT IN ANY SCHEMA (${stale.length})`)
   for (const p of stale) fail(`  ${p}`)
