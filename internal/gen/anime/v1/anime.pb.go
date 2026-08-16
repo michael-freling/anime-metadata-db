@@ -1066,11 +1066,16 @@ func (x *ScopeRef) GetSpecialId() string {
 // association; scope optionally narrows it to specific installments; and
 // voice_actors, when set, overrides the character's default cast for it.
 type CharacterAppearance struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	SeriesId      string                 `protobuf:"bytes,1,opt,name=series_id,json=seriesId,proto3" json:"series_id,omitempty"`
-	Scope         []*ScopeRef            `protobuf:"bytes,2,rep,name=scope,proto3" json:"scope,omitempty"`
-	VoiceActors   []*VoiceActor          `protobuf:"bytes,3,rep,name=voice_actors,json=voiceActors,proto3" json:"voice_actors,omitempty"`
-	ExternalIds   *ExternalIds           `protobuf:"bytes,4,opt,name=external_ids,json=externalIds,proto3" json:"external_ids,omitempty"`
+	state    protoimpl.MessageState `protogen:"open.v1"`
+	SeriesId string                 `protobuf:"bytes,1,opt,name=series_id,json=seriesId,proto3" json:"series_id,omitempty"`
+	// series_title is that series' title resolved for the request's
+	// Accept-Language, denormalized for the same reason VoiceActor carries
+	// staff_name: a client rendering a character's appearances should not have to
+	// call GetSeries once per appearance to label them.
+	SeriesTitle   string        `protobuf:"bytes,5,opt,name=series_title,json=seriesTitle,proto3" json:"series_title,omitempty"`
+	Scope         []*ScopeRef   `protobuf:"bytes,2,rep,name=scope,proto3" json:"scope,omitempty"`
+	VoiceActors   []*VoiceActor `protobuf:"bytes,3,rep,name=voice_actors,json=voiceActors,proto3" json:"voice_actors,omitempty"`
+	ExternalIds   *ExternalIds  `protobuf:"bytes,4,opt,name=external_ids,json=externalIds,proto3" json:"external_ids,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1108,6 +1113,13 @@ func (*CharacterAppearance) Descriptor() ([]byte, []int) {
 func (x *CharacterAppearance) GetSeriesId() string {
 	if x != nil {
 		return x.SeriesId
+	}
+	return ""
+}
+
+func (x *CharacterAppearance) GetSeriesTitle() string {
+	if x != nil {
+		return x.SeriesTitle
 	}
 	return ""
 }
@@ -2490,6 +2502,10 @@ type ListCharactersRequest struct {
 	// series_id restricts the result to that series' cast; empty lists every
 	// character in the dataset.
 	SeriesId string `protobuf:"bytes,1,opt,name=series_id,json=seriesId,proto3" json:"series_id,omitempty"`
+	// query matches a character's name in any language, case-insensitively, as a
+	// substring. Empty matches every character. Combined with series_id it
+	// searches within that series' cast.
+	Query string `protobuf:"bytes,4,opt,name=query,proto3" json:"query,omitempty"`
 	// limit caps the number of results; <= 0 applies a server default.
 	Limit int32 `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
 	// page_token continues a previous call; empty starts from the beginning.
@@ -2532,6 +2548,13 @@ func (*ListCharactersRequest) Descriptor() ([]byte, []int) {
 func (x *ListCharactersRequest) GetSeriesId() string {
 	if x != nil {
 		return x.SeriesId
+	}
+	return ""
+}
+
+func (x *ListCharactersRequest) GetQuery() string {
+	if x != nil {
+		return x.Query
 	}
 	return ""
 }
@@ -2714,6 +2737,9 @@ type ListStaffRequest struct {
 	// language restricts the result to staff credited in that language ("ja");
 	// empty lists everyone.
 	Language string `protobuf:"bytes,1,opt,name=language,proto3" json:"language,omitempty"`
+	// query matches a staff member's name in any language, case-insensitively,
+	// as a substring. Empty matches everyone.
+	Query string `protobuf:"bytes,4,opt,name=query,proto3" json:"query,omitempty"`
 	// limit caps the number of results; <= 0 applies a server default.
 	Limit int32 `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
 	// page_token continues a previous call; empty starts from the beginning.
@@ -2756,6 +2782,13 @@ func (*ListStaffRequest) Descriptor() ([]byte, []int) {
 func (x *ListStaffRequest) GetLanguage() string {
 	if x != nil {
 		return x.Language
+	}
+	return ""
+}
+
+func (x *ListStaffRequest) GetQuery() string {
+	if x != nil {
+		return x.Query
 	}
 	return ""
 }
@@ -3079,7 +3112,12 @@ type ListWorksRequest struct {
 	// kind restricts to seasons, movies or specials.
 	Kind WorkKind `protobuf:"varint,5,opt,name=kind,proto3,enum=anime.v1.WorkKind" json:"kind,omitempty"`
 	// series_id restricts to the works under one series.
-	SeriesId      string `protobuf:"bytes,6,opt,name=series_id,json=seriesId,proto3" json:"series_id,omitempty"`
+	SeriesId string `protobuf:"bytes,6,opt,name=series_id,json=seriesId,proto3" json:"series_id,omitempty"`
+	// query matches the work's own title or its series' title, in any language,
+	// case-insensitively, as a substring. Empty matches everything. Without this
+	// a unified browse page could not offer one search box across every result
+	// type, since releases would be the only kind that could not be searched.
+	Query         string `protobuf:"bytes,7,opt,name=query,proto3" json:"query,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3152,6 +3190,13 @@ func (x *ListWorksRequest) GetKind() WorkKind {
 func (x *ListWorksRequest) GetSeriesId() string {
 	if x != nil {
 		return x.SeriesId
+	}
+	return ""
+}
+
+func (x *ListWorksRequest) GetQuery() string {
+	if x != nil {
+		return x.Query
 	}
 	return ""
 }
@@ -3300,9 +3345,10 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\tseason_id\x18\x01 \x01(\tR\bseasonId\x12\x19\n" +
 	"\bmovie_id\x18\x02 \x01(\tR\amovieId\x12\x1d\n" +
 	"\n" +
-	"special_id\x18\x03 \x01(\tR\tspecialId\"\xcf\x01\n" +
+	"special_id\x18\x03 \x01(\tR\tspecialId\"\xf2\x01\n" +
 	"\x13CharacterAppearance\x12\x1b\n" +
-	"\tseries_id\x18\x01 \x01(\tR\bseriesId\x12(\n" +
+	"\tseries_id\x18\x01 \x01(\tR\bseriesId\x12!\n" +
+	"\fseries_title\x18\x05 \x01(\tR\vseriesTitle\x12(\n" +
 	"\x05scope\x18\x02 \x03(\v2\x12.anime.v1.ScopeRefR\x05scope\x127\n" +
 	"\fvoice_actors\x18\x03 \x03(\v2\x14.anime.v1.VoiceActorR\vvoiceActors\x128\n" +
 	"\fexternal_ids\x18\x04 \x01(\v2\x15.anime.v1.ExternalIdsR\vexternalIds\"\xa4\x02\n" +
@@ -3408,9 +3454,10 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\x13GetCharacterRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"I\n" +
 	"\x14GetCharacterResponse\x121\n" +
-	"\tcharacter\x18\x01 \x01(\v2\x13.anime.v1.CharacterR\tcharacter\"i\n" +
+	"\tcharacter\x18\x01 \x01(\v2\x13.anime.v1.CharacterR\tcharacter\"\x7f\n" +
 	"\x15ListCharactersRequest\x12\x1b\n" +
 	"\tseries_id\x18\x01 \x01(\tR\bseriesId\x12\x14\n" +
+	"\x05query\x18\x04 \x01(\tR\x05query\x12\x14\n" +
 	"\x05limit\x18\x02 \x01(\x05R\x05limit\x12\x1d\n" +
 	"\n" +
 	"page_token\x18\x03 \x01(\tR\tpageToken\"\x94\x01\n" +
@@ -3425,9 +3472,10 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"j\n" +
 	"\x10GetStaffResponse\x12%\n" +
 	"\x05staff\x18\x01 \x01(\v2\x0f.anime.v1.StaffR\x05staff\x12/\n" +
-	"\acredits\x18\x02 \x03(\v2\x15.anime.v1.StaffCreditR\acredits\"c\n" +
+	"\acredits\x18\x02 \x03(\v2\x15.anime.v1.StaffCreditR\acredits\"y\n" +
 	"\x10ListStaffRequest\x12\x1a\n" +
 	"\blanguage\x18\x01 \x01(\tR\blanguage\x12\x14\n" +
+	"\x05query\x18\x04 \x01(\tR\x05query\x12\x14\n" +
 	"\x05limit\x18\x02 \x01(\x05R\x05limit\x12\x1d\n" +
 	"\n" +
 	"page_token\x18\x03 \x01(\tR\tpageToken\"\x81\x01\n" +
@@ -3450,7 +3498,7 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\aentries\x18\x01 \x03(\v2\x16.anime.v1.CatalogEntryR\aentries\x12&\n" +
 	"\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n" +
 	"\n" +
-	"total_size\x18\x03 \x01(\x05R\ttotalSize\"\xef\x01\n" +
+	"total_size\x18\x03 \x01(\x05R\ttotalSize\"\x85\x02\n" +
 	"\x10ListWorksRequest\x12\x1d\n" +
 	"\n" +
 	"page_token\x18\x01 \x01(\tR\tpageToken\x12\x14\n" +
@@ -3458,7 +3506,8 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\frelease_year\x18\x03 \x01(\x05R\vreleaseYear\x12>\n" +
 	"\x0erelease_season\x18\x04 \x01(\x0e2\x17.anime.v1.ReleaseSeasonR\rreleaseSeason\x12&\n" +
 	"\x04kind\x18\x05 \x01(\x0e2\x12.anime.v1.WorkKindR\x04kind\x12\x1b\n" +
-	"\tseries_id\x18\x06 \x01(\tR\bseriesId\"\x87\x01\n" +
+	"\tseries_id\x18\x06 \x01(\tR\bseriesId\x12\x14\n" +
+	"\x05query\x18\a \x01(\tR\x05query\"\x87\x01\n" +
 	"\x11ListWorksResponse\x12+\n" +
 	"\x05works\x18\x01 \x03(\v2\x15.anime.v1.WorkSummaryR\x05works\x12&\n" +
 	"\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n" +

@@ -122,6 +122,7 @@ func (s *Service) ListWorks(_ context.Context, req *connect.Request[animev1.List
 		ReleaseSeason: fromReleaseSeason(req.Msg.GetReleaseSeason()),
 		Kind:          fromWorkKind(req.Msg.GetKind()),
 		SeriesID:      seriesID,
+		Query:         req.Msg.GetQuery(),
 	}
 	page, err := s.store.Works(filter, req.Msg.GetPageToken(), int(req.Msg.GetLimit()))
 	if err != nil {
@@ -163,7 +164,7 @@ func (s *Service) ListCharacters(_ context.Context, req *connect.Request[animev1
 		}
 	}
 	loc := newLocalizer(req.Header().Get("Accept-Language"))
-	page, err := s.store.CharactersPage(seriesID, req.Msg.GetPageToken(), int(req.Msg.GetLimit()))
+	page, err := s.store.CharactersPage(seriesID, req.Msg.GetQuery(), req.Msg.GetPageToken(), int(req.Msg.GetLimit()))
 	if err != nil {
 		return nil, connect.NewError(connect.CodeInvalidArgument, err)
 	}
@@ -195,7 +196,7 @@ func (s *Service) GetStaff(_ context.Context, req *connect.Request[animev1.GetSt
 // in one language.
 func (s *Service) ListStaff(_ context.Context, req *connect.Request[animev1.ListStaffRequest]) (*connect.Response[animev1.ListStaffResponse], error) {
 	loc := newLocalizer(req.Header().Get("Accept-Language"))
-	page, err := s.store.StaffPage(req.Msg.GetLanguage(), req.Msg.GetPageToken(), int(req.Msg.GetLimit()))
+	page, err := s.store.StaffPage(req.Msg.GetLanguage(), req.Msg.GetQuery(), req.Msg.GetPageToken(), int(req.Msg.GetLimit()))
 	if err != nil {
 		return nil, connect.NewError(connect.CodeInvalidArgument, err)
 	}

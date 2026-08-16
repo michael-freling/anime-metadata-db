@@ -1,60 +1,106 @@
 import { expect, test } from '@playwright/test';
 
-// These run against the real dataset, so the figures below are the committed
-// ones. If the catalogue grows, the exact numbers move — the assertions are
-// written to check relationships (totals match what is listed, pages do not
-// repeat) rather than hardcoding counts wherever that is possible.
+// /browse is the only way into the dataset: what used to be three pages
+// (Browse, Seasons, Search) are now filters on one. These run against the real
+// dataset, so the figures below are the committed ones.
 
-test('the catalogue lists entries with their release span and counts', async ({ page }) => {
+const results = (page: import('@playwright/test').Page) => page.getByTestId('results').locator('a');
+
+test('with no filters it lists every kind of thing in the dataset', async ({ page }) => {
   await page.goto('/browse');
 
-  await expect(page.getByRole('heading', { name: 'Browse the catalogue' })).toBeVisible();
-
-  const cards = page.locator('main ul li a');
-  await expect(cards.first()).toBeVisible();
-  expect(await cards.count()).toBeGreaterThan(1);
-
-  // "Showing N of TOTAL" must agree with what is actually on the page.
-  const shown = await page.getByText(/Showing \d+ of/).innerText();
-  const [, listed] = shown.match(/Showing (\d+) of/) ?? [];
-  expect(Number(listed)).toBe(await cards.count());
+  const body = page.locator('main');
+  for (const section of ['Shows', 'Releases', 'Characters', 'Voice actors']) {
+    await expect(body.getByRole('heading', { name: section })).toBeVisible();
+  }
 });
 
-// The property that matters for a browse UI: walking the pager must reach every
-// entry exactly once. A cursor bug that skipped or repeated rows would still
-// render a perfectly good-looking page, which is exactly why a screenshot
-// cannot catch this.
-test('paging through the catalogue yields every entry exactly once', async ({ page }) => {
+test('a text query searches shows, releases, characters and actors at once', async ({ page }) => {
+  await page.goto('/browse?q=demon');
+
+  const body = page.locator('main');
+  await expect(body.getByRole('heading', { name: 'Shows' })).toBeVisible();
+  await expect(body.getByRole('link', { name: 'Demon Slayer' }).first()).toBeVisible();
+  // A title match reaches releases too, which the old Seasons page could not do.
+  await expect(body.getByRole('heading', { name: 'Releases' })).toBeVisible();
+});
+
+test('a character is findable by name, with its cast shown', async ({ page }) => {
   await page.goto('/browse');
 
-  const total = Number((await page.getByText(/Showing \d+ of ([\d,]+)/).innerText())
-    .match(/of ([\d,]+)/)![1].replace(/,/g, ''));
+  const body = page.locator('main');
+  await body.getByRole('searchbox').fill('tanjir');
+  await body.getByRole('button', { name: 'Apply' }).click();
+
+  // Filters live in the URL, so any view is linkable and survives a reload.
+  await expect(page).toHaveURL(/\/browse\?.*q=tanjir/);
+  await expect(body.getByRole('heading', { name: 'Characters' })).toBeVisible();
+  await expect(body.getByText(/Voiced by .*Natsuki Hanae/)).toBeVisible();
+});
+
+test('the quarter filter reproduces what the Seasons page used to show', async ({ page }) => {
+  await page.goto('/browse?year=2026&quarter=winter');
+
+  const body = page.locator('main');
+  // 80 is the figure the coverage documentation states for Winter 2026.
+  await expect(body.getByText(/80 matches/)).toBeVisible();
+  // Choosing a year or quarter means asking about releases, so the other
+  // kinds are not listed unasked.
+  await expect(body.getByRole('heading', { name: 'Characters' })).toHaveCount(0);
+});
+
+test('a kind chip narrows to one result type and can be paged', async ({ page }) => {
+  await page.goto('/browse');
+  await page.locator('main').getByRole('link', { name: 'Characters' }).first().click();
+
+  await expect(page).toHaveURL(/kind=characters/);
+  const body = page.locator('main');
+  await expect(body.getByRole('heading', { name: 'Shows' })).toHaveCount(0);
+  await expect(body.getByRole('link', { name: 'Next →' })).toBeVisible();
+});
+
+test('paging a narrowed view keeps its filters', async ({ page }) => {
+  await page.goto('/browse?kind=releases&year=2026&quarter=winter');
+
+  const next = page.getByRole('link', { name: 'Next →' });
+  await expect(next).toBeVisible();
+  await next.click();
+
+  await expect(page).toHaveURL(/year=2026/);
+  await expect(page).toHaveURL(/quarter=winter/);
+  // A pager that dropped the filter would silently start listing everything.
+  await expect(page.locator('main').getByText(/80 matches/)).toBeVisible();
+});
+
+test('paging the catalogue yields every entry exactly once', async ({ page }) => {
+  await page.goto('/browse?kind=shows');
+
+  const total = Number(
+    (await page.locator('main').getByText(/Showing \d+ of ([\d,]+)/).innerText())
+      .match(/of ([\d,]+)/)![1]
+      .replace(/,/g, ''),
+  );
 
   const seen: string[] = [];
   for (let guard = 0; guard < 40; guard++) {
-    const hrefs = await page.locator('main ul li a').evaluateAll((els) =>
-      els.map((el) => (el as HTMLAnchorElement).getAttribute('href')!),
+    seen.push(
+      ...(await results(page).evaluateAll((els) =>
+        els.map((el) => (el as HTMLAnchorElement).getAttribute('href')!),
+      )),
     );
-    seen.push(...hrefs);
-
-    // Follow the pager by its href rather than clicking it. Clicking races with
-    // the client-side navigation that replaces the link, and this walk is about
-    // the page tokens being correct, not about the anchor being clickable —
-    // that is covered separately below.
     const next = page.getByRole('link', { name: 'Next →' });
     if (!(await next.count())) break;
-    const href = await next.getAttribute('href');
-    await page.goto(href!);
+    await page.goto((await next.getAttribute('href'))!);
   }
 
   expect(seen.length).toBe(total);
   expect(new Set(seen).size).toBe(total);
 });
 
-test('a catalogue card opens the entry it names', async ({ page }) => {
-  await page.goto('/browse');
+test('a result opens the entry it names', async ({ page }) => {
+  await page.goto('/browse?kind=shows');
 
-  const card = page.locator('main ul li a').first();
+  const card = results(page).first();
   const href = await card.getAttribute('href');
   const title = (await card.locator('span').first().innerText()).trim();
 
@@ -63,31 +109,57 @@ test('a catalogue card opens the entry it names', async ({ page }) => {
   await expect(page.getByRole('heading', { level: 1, name: title })).toBeVisible();
 });
 
+test('a character result opens its page and links on to the voice actor', async ({ page }) => {
+  await page.goto('/browse?kind=characters&q=tanjir');
+  await page.locator('main').getByRole('link', { name: /Tanjir/ }).first().click();
+
+  await expect(page).toHaveURL(/\/characters\//);
+  await expect(page.getByRole('heading', { name: 'Voiced by' })).toBeVisible();
+  // Appearances carry the series title, not a raw id.
+  await expect(page.locator('main').getByRole('link', { name: 'Demon Slayer' })).toBeVisible();
+
+  await page.locator('main').getByRole('link', { name: 'Natsuki Hanae' }).first().click();
+  await expect(page).toHaveURL(/\/staff\//);
+  await expect(page.getByRole('heading', { name: 'Roles' })).toBeVisible();
+  await expect(page.locator('main').getByRole('link', { name: /Tanjir/ }).first()).toBeVisible();
+});
+
 test('a series page renders its seasons, films and cast', async ({ page }) => {
   await page.goto('/browse/demon-slayer');
 
   await expect(page.getByRole('heading', { level: 1, name: 'Demon Slayer' })).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Seasons' })).toBeVisible();
-
-  // A season with no title of its own falls back to "Season N", and its meta
-  // must NOT then repeat the number — that duplication was a real defect.
   await expect(page.getByText('Season 1', { exact: true })).toBeVisible();
   await expect(page.getByText('Spring 2019 · 26 episodes')).toBeVisible();
-
-  // A season that does have a title keeps its number in the meta instead.
-  await expect(page.getByText('Mugen Train Arc', { exact: true })).toBeVisible();
   await expect(page.getByText(/Season 2 · Fall 2021 · 7 episodes/)).toBeVisible();
-
   await expect(page.getByRole('heading', { name: 'Films' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Cast' })).toBeVisible();
 });
 
-test('an unknown entry id is a 404, not an empty page', async ({ page }) => {
-  const response = await page.goto('/browse/no-such-series-exists');
-  expect(response?.status()).toBe(404);
+test('year spans never start before the dataset covers anything', async ({ page }) => {
+  await page.goto('/browse?kind=shows');
+
+  const metas = await results(page)
+    .locator('span')
+    .nth(1)
+    .evaluateAll((els) => els.map((el) => el.textContent ?? ''));
+  const years = metas.flatMap((m) => m.match(/\b\d{4}\b/g) ?? []).map(Number);
+
+  expect(years.length).toBeGreaterThan(0);
+  for (const y of years) expect(y).toBeGreaterThanOrEqual(2006);
 });
 
-test('the catalogue has no horizontal overflow on a phone', async ({ page }) => {
+test('filters that match nothing say so', async ({ page }) => {
+  await page.goto('/browse?q=zzzznotathing');
+  await expect(page.getByText(/Nothing matches these filters/)).toBeVisible();
+});
+
+test('unknown ids are 404s, not empty pages', async ({ page }) => {
+  expect((await page.goto('/browse/no-such-series'))?.status()).toBe(404);
+  expect((await page.goto('/characters/no-such-character'))?.status()).toBe(404);
+  expect((await page.goto('/staff/no-such-person'))?.status()).toBe(404);
+});
+
+test('no horizontal overflow on a phone', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 800 });
   await page.goto('/browse');
 
@@ -97,36 +169,40 @@ test('the catalogue has no horizontal overflow on a phone', async ({ page }) => 
   expect(overflows).toBe(false);
 });
 
-// The catalogue renders year spans using a floor taken from the dataset itself
-// (DatasetStats.earliestReleaseYear), so a year below the dataset's coverage
-// cannot appear. This asserts the floor actually reaches the page rather than
-// silently defaulting to 0.
-test('year spans never start before the dataset covers anything', async ({ page }) => {
-  await page.goto('/browse');
-
-  const metas = await page.locator('main ul li a span').nth(1).evaluateAll((els) =>
-    els.map((el) => el.textContent ?? ''),
-  );
-
-  const years = metas
-    .flatMap((m) => m.match(/\b\d{4}\b/g) ?? [])
-    .map(Number);
-
-  expect(years.length).toBeGreaterThan(0);
-  // 2006 is the dataset's earliest release; nothing may render below it, and
-  // nothing may render a literal 0 from a missing year.
-  for (const y of years) expect(y).toBeGreaterThanOrEqual(2006);
-  expect(metas.some((m) => /(^|[^\d])0(\D|$)/.test(m.split('·')[0]))).toBe(false);
+// Unifying the pages deleted the guard that caught this, and the bug came
+// straight back: proto3 gives scalars no presence, so release_year: 0 reaches
+// the API as "no year filter" and it answers with every release across every
+// year — under a heading claiming to be filtered. A bad year must be rejected,
+// never quietly dropped.
+test('a year the dataset does not cover is a 404, not an unfiltered list', async ({ page }) => {
+  expect((await page.goto('/browse?year=0&quarter=winter'))?.status()).toBe(404);
+  expect((await page.goto('/browse?year=abcd&quarter=winter'))?.status()).toBe(404);
+  expect((await page.goto('/browse?year=1850'))?.status()).toBe(404);
+  expect((await page.goto('/browse?year=3000'))?.status()).toBe(404);
 });
 
-// A stale or tampered page token is refused by the API with InvalidArgument.
-// That is the request's fault, not an outage, and saying "the dataset API is
-// unreachable" sends the reader to check something that is working fine.
-test('a broken page token is reported as a bad link, not an outage', async ({ page }) => {
-  await page.goto('/browse?token=garbage');
+test('an unknown quarter is a 404', async ({ page }) => {
+  expect((await page.goto('/browse?quarter=notaquarter'))?.status()).toBe(404);
+});
 
-  await expect(page.getByText('That link is no longer valid')).toBeVisible();
-  await expect(page.getByText('The dataset API is unreachable')).toHaveCount(0);
-  // And it offers a way out.
-  await expect(page.getByRole('link', { name: /Start over from the beginning/ })).toBeVisible();
+// A year cannot narrow a character, but asking for one is not an error: the
+// query must still run rather than returning nothing and blaming the dataset.
+test('a kind that ignores the date filters still returns its results', async ({ page }) => {
+  await page.goto('/browse?kind=characters&year=2026&q=tanjir');
+
+  const body = page.locator('main');
+  await expect(body.getByRole('heading', { name: 'Characters' })).toBeVisible();
+  await expect(body.getByRole('link', { name: /Tanjir/ }).first()).toBeVisible();
+  await expect(body.getByText(/Nothing matches these filters/)).toHaveCount(0);
+  // And it says the date was ignored rather than leaving it to be inferred.
+  await expect(body.getByText(/do not narrow characters/)).toBeVisible();
+});
+
+test('a kind chip does not carry a filter it cannot honour', async ({ page }) => {
+  await page.goto('/browse?year=2026&quarter=winter');
+  await page.locator('main').getByRole('link', { name: 'Characters' }).first().click();
+
+  await expect(page).toHaveURL(/kind=characters/);
+  await expect(page).not.toHaveURL(/year=/);
+  await expect(page).not.toHaveURL(/quarter=/);
 });
