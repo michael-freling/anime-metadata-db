@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { plural, yearsLabel } from '@/lib/format';
 import type { ReactNode } from 'react';
 
 // Shared presentation for the browse routes. Kept apart from the pages so the
@@ -112,17 +113,5 @@ export function ApiError({ detail }: { detail: string }) {
   );
 }
 
-// yearsLabel renders a span of release years, collapsing a single-year span and
-// saying nothing at all when the dataset carries no year.
-export function yearsLabel(first: number, latest: number): string {
-  if (!first && !latest) return '—';
-  if (!latest || first === latest) return String(first || latest);
-  return `${first}–${latest}`;
-}
-
-// plural renders a count with its noun. Every count on these pages comes
-// straight from the dataset and one-episode entries are common, so "1 episodes"
-// would show up all over the catalogue without this.
-export function plural(count: number, noun: string, plural = `${noun}s`): string {
-  return `${count.toLocaleString()} ${count === 1 ? noun : plural}`;
-}
+// Re-exported so the browse pages import their display helpers from one place.
+export { plural, yearsLabel };

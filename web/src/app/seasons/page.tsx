@@ -16,10 +16,16 @@ const QUARTERS = [
   { slug: 'fall', label: 'Fall' },
 ] as const;
 
-// Without this the year list is prerendered once and frozen at build time. The
-// API is a separate deployment, so its data can change without this app being
-// rebuilt, and a frozen index would quietly stop listing new years.
-export const revalidate = 3600;
+// Rendered per request rather than prerendered. Two reasons, and the second is
+// the important one:
+//
+//  1. The API is a separate deployment whose data changes without this app
+//     being rebuilt, so a page baked at build time would stop listing new years.
+//  2. More seriously, this page catches an unreachable API and renders an error
+//     state. Prerendering (or ISR) would bake that error into the cache if the
+//     API happened to be down during the build, serving "unreachable" long
+//     after it recovered. A caught error must never become a cached page.
+export const dynamic = 'force-dynamic';
 
 // The index is built from the works themselves rather than a hardcoded year
 // range, so it grows with the dataset instead of going stale. One unpaginated

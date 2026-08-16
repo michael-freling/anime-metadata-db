@@ -3,15 +3,28 @@ name: Web
 # Builds, lints and type-checks the documentation site under web/. Vercel
 # deploys that app, but a Vercel build failure is only visible after a push, so
 # this gates it on every PR the same way go.yml gates the Go code.
+# The e2e job drives the UI against the real Go API, so a change to the schema
+# or the server can break these tests without web/ being touched at all. The
+# filter covers both sides for that reason.
+# Listed twice rather than shared with a YAML anchor: GitHub Actions does not
+# support anchors in workflow files.
 on:
   pull_request:
     paths:
       - "web/**"
+      - "proto/**"
+      - "internal/api/**"
+      - "cmd/api/**"
+      - "data/**"
       - ".github/workflows/web.yml"
   push:
     branches: [main]
     paths:
       - "web/**"
+      - "proto/**"
+      - "internal/api/**"
+      - "cmd/api/**"
+      - "data/**"
       - ".github/workflows/web.yml"
   workflow_dispatch:
 
@@ -45,6 +58,9 @@ jobs:
 
       - name: Type-check
         run: npm run types:check
+
+      - name: Unit tests
+        run: npm test
 
       - name: Build
         run: npm run build
@@ -106,3 +122,51 @@ jobs:
           fi
 
           exit $fail
+
+  e2e:
+    name: End-to-end (real API, real dataset)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # The browse pages render from the dataset API, so an end-to-end run needs
+      # the real Go server holding the real committed data. Playwright boots it
+      # (see web/playwright.config.ts) along with two instances of the app: one
+      # pointed at the API, one pointed at a closed port so the API-down path is
+      # exercised against an actual failure rather than a mock.
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: web
+
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+        working-directory: web
+
+      - name: Build
+        run: npm run build
+        working-directory: web
+
+      - name: Run end-to-end tests
+        run: npm run e2e
+        working-directory: web
+
+      - name: Upload the report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: web/playwright-report/
+          retention-days: 7
