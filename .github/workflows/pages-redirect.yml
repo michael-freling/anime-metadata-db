@@ -1,0 +1,78 @@
+name: Pages redirect
+
+# The documentation moved from GitHub Pages to the Next.js app under web/,
+# deployed on Vercel. Without this, Pages would keep serving the last Hugo build
+# forever — stale docs on the old URL are worse than no docs. So the Pages site
+# is reduced to a redirector that forwards every old path to its new home.
+#
+# Once the old URL has no meaningful traffic left, delete this workflow and turn
+# GitHub Pages off in the repository settings.
+# Deliberately manual. Running this replaces the live documentation with a
+# redirect, so it must not fire on merge — it is only correct once the Vercel
+# project is actually serving. Run it from the Actions tab when that is true.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  TARGET: https://anime-metadata-db.vercel.app
+
+jobs:
+  deploy:
+    name: Publish redirect to GitHub Pages
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      # index.html covers the site root. 404.html covers every other old path:
+      # Pages serves it for anything unmatched, and it forwards the path through
+      # so a deep link like /docs/sources-and-licensing/ still lands correctly.
+      - name: Build the redirect site
+        run: |
+          set -euo pipefail
+          mkdir -p site
+
+          cat > site/index.html <<HTML
+          <!doctype html>
+          <meta charset="utf-8">
+          <title>Moved — anime-metadata-db</title>
+          <link rel="canonical" href="${TARGET}">
+          <meta http-equiv="refresh" content="0; url=${TARGET}">
+          <p>The documentation moved to <a href="${TARGET}">${TARGET}</a>.</p>
+          HTML
+
+          cat > site/404.html <<HTML
+          <!doctype html>
+          <meta charset="utf-8">
+          <title>Moved — anime-metadata-db</title>
+          <p>The documentation moved to <a href="${TARGET}">${TARGET}</a>.</p>
+          <script>
+            // Strip the project-page prefix, drop the trailing slash Hugo used
+            // (Fumadocs URLs have none), and forward the rest.
+            var path = location.pathname.replace(/^\/anime-metadata-db/, '').replace(/\/\$/, '');
+            location.replace('${TARGET}' + path + location.hash);
+          </script>
+          HTML
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

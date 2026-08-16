@@ -1,0 +1,56 @@
+# If you prefer the allow list template instead of the deny list, see community template:
+# https://github.com/github/gitignore/blob/main/community/Golang/Go.AllowList.gitignore
+#
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Code coverage profiles and other test artifacts
+*.out
+coverage.*
+*.coverprofile
+profile.cov
+
+# Dependency directories (remove the comment below to include it)
+# vendor/
+
+# Go workspace file
+go.work
+go.work.sum
+
+# env file
+.env
+
+# builder: downloaded open-data source cache (pulled by `builder init`) and the
+# optional low-confidence build report. The pinned data/ output IS committed.
+.sources/
+build-report.yaml
+
+# Editor/IDE
+# .idea/
+# .vscode/
+
+# Hugo build output
+docs/public/
+docs/resources/
+.hugo_build.lock
+
+# Pinned Hugo binary downloaded by the Makefile
+docs/.hugo/
+
+# Screenshot tooling + output for the verify-docs-layout skill
+docs/.screenshots/
+coverage.out
+.vercel
+.env*
+
+# Local Vercel CLI, installed as a dev tool (not part of the Go build/deploy)
+node_modules/
+package.json
+package-lock.json

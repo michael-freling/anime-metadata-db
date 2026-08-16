@@ -1,0 +1,64 @@
+name: Claude Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: ["main"]
+
+# Only one review per PR at a time; cancel superseded runs.
+concurrency:
+  group: claude-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  review:
+    # Skip drafts and bot-authored PRs.
+    if: >-
+      github.event.pull_request.draft == false &&
+      github.actor != 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: read
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Review PR with Claude Code
+        uses: anthropics/claude-code-action@v1
+        with:
+          # Set this secret in the repo (Settings → Secrets and variables →
+          # Actions). Generate the token locally with `claude setup-token`, then
+          # `gh secret set CLAUDE_CODE_OAUTH_TOKEN`.
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            Review pull request #${{ github.event.pull_request.number }} in
+            ${{ github.repository }}.
+
+            Focus on:
+            - Correctness and error handling in the builder pipeline.
+            - Determinism and idempotence of the build: data/ output must depend
+              only on overrides/ plus the pinned sources, and the YAML writer
+              must produce clean, stable diffs.
+            - Referential integrity: unknown AniList ids, dangling
+              alternateCutOf / WatchOrder refs, and duplicate ids must fail the
+              build (the validate step).
+            - Test coverage — CI enforces > 95% total; flag new exported
+              functions or build/validation branches that lack tests.
+            - Adherence to the design under docs/content/proposals/ (the two
+              committed layers, and that AniList is never a redistributed source).
+
+            Leave concise, actionable feedback as inline review comments and a
+            short summary comment. Only flag substantive issues — do not nitpick
+            style that golangci-lint already enforces.
+          claude_args: |
+            --allowedTools "Bash(gh pr view:*),Bash(gh pr diff:*),Bash(gh pr comment:*),Bash(gh api:*),Bash(go build:*),Bash(go vet:*),Bash(go test:*)"

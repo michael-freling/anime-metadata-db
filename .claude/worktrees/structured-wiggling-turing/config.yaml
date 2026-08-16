@@ -1,0 +1,24 @@
+sources:
+    animeList:
+        url: https://raw.githubusercontent.com/Anime-Lists/anime-lists/master/anime-list-master.xml
+        version: master
+        sha256: 872181392c33f66d41c4cd88515d60ff82d5a9a9689cf766ba73d70b569517ce
+        filename: anime-list.xml
+    movieSetList:
+        url: https://raw.githubusercontent.com/Anime-Lists/anime-lists/master/anime-movieset-list.xml
+        version: master
+        sha256: ab330d34d9e4bbf49a1f5c3d69894c53d2619f4735309ab9946c126f76df1cf8
+        filename: anime-movieset-list.xml
+    offlineDatabase:
+        url: https://github.com/manami-project/anime-offline-database/releases/latest/download/anime-offline-database-minified.json
+        version: latest
+        sha256: 275e960e0137fa4598561d0aac20a5bcb81df1c52da853a686d4e308d168b5d7
+        filename: anime-offline-database.json
+    wikidata:
+        url: https://www.wikidata.org/w/api.php
+        version: latest
+        filename: wikidata-entities.json
+settings:
+    sourcesDir: .sources
+    overridesDir: config/overrides
+    dataDir: data

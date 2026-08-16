@@ -38,16 +38,7 @@ build-report.yaml
 # .idea/
 # .vscode/
 
-# Hugo build output
-docs/public/
-docs/resources/
-.hugo_build.lock
-
-# Pinned Hugo binary downloaded by the Makefile
-docs/.hugo/
-
 # Screenshot tooling + output for the verify-docs-layout skill
-docs/.screenshots/
 web/.screenshots/
 coverage.out
 .vercel

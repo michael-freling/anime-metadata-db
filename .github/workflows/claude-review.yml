@@ -54,7 +54,7 @@ jobs:
               build (the validate step).
             - Test coverage — CI enforces > 95% total; flag new exported
               functions or build/validation branches that lack tests.
-            - Adherence to the design under docs/content/proposals/ (the two
+            - Adherence to the design under web/content/docs/development/proposals/ (the two
               committed layers, and that AniList is never a redistributed source).
 
             Leave concise, actionable feedback as inline review comments and a
