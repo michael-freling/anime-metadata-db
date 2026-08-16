@@ -9,13 +9,44 @@ export const gitConfig = {
   branch: 'main',
 };
 
-// Canonical origin of the deployed site. Used for `metadataBase` (so Open Graph
-// image URLs are absolute and fetchable by crawlers), the sitemap and
-// robots.txt. Overridable so a preview deployment can describe itself.
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://anime-metadata-db.vercel.app';
+// --- Deployment configuration ----------------------------------------------
+//
+// None of this is secret, so it lives here in the repository rather than in the
+// Vercel dashboard. A value typed into a hosting UI is invisible to code
+// review, absent from git history and impossible to grep for, and it drifts
+// between projects without anyone noticing. This app has no credentials at all,
+// so there is nothing to define in Vercel.
+//
+// Where a value genuinely differs by environment, it is derived from what the
+// platform already provides (NODE_ENV, VERCEL_ENV, VERCEL_URL) rather than from
+// something a human has to remember to set.
 
-// The hosted read-only Connect API. The web app took the hostname the API used
-// to answer on, so the API now has its own. Only server components call it (see
-// lib/api.ts), so this is never exposed to the browser and needs no NEXT_PUBLIC
-// prefix — point it at http://localhost:8080 to develop against `make api`.
-export const apiBaseUrl = process.env.API_BASE_URL ?? 'https://anime-metadata-db-api.vercel.app';
+// The read-only Connect API's public origin. The API is a separate Vercel
+// project built from the Go code at the repository root.
+const API_ORIGIN = 'https://anime-metadata-db.vercel.app';
+
+// This site's own canonical origin, used for metadataBase (so Open Graph image
+// URLs are absolute and fetchable by crawlers), the sitemap and robots.txt.
+const SITE_ORIGIN = 'https://anime-metadata-web.vercel.app';
+
+// The dataset API, called only from server components (see lib/api.ts), so it
+// is never exposed to the browser and needs no NEXT_PUBLIC prefix.
+//
+// `next dev` points at a local `make api` automatically, so developing against
+// a local server needs no configuration either.
+//
+// API_BASE_URL exists for the end-to-end suite, which boots one app instance
+// against a local API and a second against a closed port to exercise the
+// API-down path. It is a test hook, NOT a deployment setting — nothing should
+// ever set it in Vercel.
+export const apiBaseUrl =
+  process.env.API_BASE_URL ??
+  (process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : API_ORIGIN);
+
+// A preview deployment describes itself with the URL Vercel assigns it, which
+// the platform injects automatically. Production and local both use the
+// canonical origin, so a preview's metadata never claims to be the live site.
+export const siteUrl =
+  process.env.VERCEL_ENV === 'preview' && process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : SITE_ORIGIN;

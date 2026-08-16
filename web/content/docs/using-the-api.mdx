@@ -11,7 +11,7 @@ library or codegen required.
 ## Your first call
 
 ```sh
-curl -X POST https://anime-metadata-db-api.vercel.app/anime.v1.AnimeService/GetHealth \
+curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/GetHealth \
   -H 'Content-Type: application/json' -d '{}'
 ```
 
@@ -25,11 +25,11 @@ That's the whole contract: `POST` a JSON body to
 ## Endpoint
 
 ```
-POST https://anime-metadata-db-api.vercel.app/anime.v1.AnimeService/{Method}
+POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/{Method}
 Content-Type: application/json
 ```
 
-`https://anime-metadata-db-api.vercel.app` is the hosted public instance. To run your
+`https://anime-metadata-db.vercel.app` is the hosted public instance. To run your
 own, start the server locally (`go run ./cmd/api`, see
 [Building the dataset](/docs/building-the-dataset)) and use
 `http://localhost:8080` instead — the paths are identical.
@@ -59,7 +59,7 @@ an empty list, so a typo is not mistaken for a series with no cast.
 Search — case-insensitive substring over titles:
 
 ```sh
-curl -X POST https://anime-metadata-db-api.vercel.app/anime.v1.AnimeService/Search \
+curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/Search \
   -H 'Content-Type: application/json' -d '{"query": "demon", "limit": 5}'
 ```
 
@@ -70,7 +70,7 @@ curl -X POST https://anime-metadata-db-api.vercel.app/anime.v1.AnimeService/Sear
 Fetch one series with its full structure — the `id` comes from a search result:
 
 ```sh
-curl -X POST https://anime-metadata-db-api.vercel.app/anime.v1.AnimeService/GetSeries \
+curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/GetSeries \
   -H 'Content-Type: application/json' -d '{"id": "demon-slayer"}'
 ```
 
@@ -114,7 +114,7 @@ reachable three ways — nested in a series' `characters`, by id from
 series it appears in:
 
 ```sh
-curl -X POST https://anime-metadata-db-api.vercel.app/anime.v1.AnimeService/GetCharacter \
+curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/GetCharacter \
   -H 'Content-Type: application/json' -d '{"id": "artoria-pendragon"}'
 ```
 
@@ -150,7 +150,7 @@ resolved `staffName`, so rendering a cast list needs no second call.
 language and the series each casting covers:
 
 ```sh
-curl -X POST https://anime-metadata-db-api.vercel.app/anime.v1.AnimeService/GetStaff \
+curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/GetStaff \
   -H 'Content-Type: application/json' -d '{"id": "ayako-kawasumi"}'
 ```
 
@@ -192,7 +192,7 @@ tries, in order:
 
 ```sh
 # Japanese titles where available, else the native original → "鬼滅の刃":
-curl -X POST https://anime-metadata-db-api.vercel.app/anime.v1.AnimeService/GetSeries \
+curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/GetSeries \
   -H 'Content-Type: application/json' -H 'Accept-Language: ja' \
   -d '{"id": "demon-slayer"}'
 ```
