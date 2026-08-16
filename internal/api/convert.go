@@ -431,3 +431,103 @@ func toSearchResult(loc localizer, e CatalogEntry) *animev1.SearchResult {
 		FranchiseId:    e.FranchiseID,
 	}
 }
+
+// toCatalogEntry renders a browse row: the entry plus its precomputed
+// aggregates, and deliberately none of the nested structure.
+func toCatalogEntry(loc localizer, e CatalogEntry) *animev1.CatalogEntry {
+	title, full := loc.title(e.Titles)
+	return &animev1.CatalogEntry{
+		Kind:              toEntryKind(e.Kind),
+		Id:                e.ID,
+		Title:             title,
+		LocalizedTitle:    full,
+		FranchiseId:       e.FranchiseID,
+		FirstReleaseYear:  int32(e.FirstReleaseYear),
+		LatestReleaseYear: int32(e.LatestReleaseYear),
+		Works:             int32(e.Works),
+		Episodes:          int32(e.Episodes),
+	}
+}
+
+// toWorkSummary renders one release, carrying its series' resolved title so a
+// row can name its show without a second call.
+func toWorkSummary(loc localizer, w Work) *animev1.WorkSummary {
+	title, full := loc.title(w.Titles)
+	seriesTitle, _ := loc.title(w.SeriesTitles)
+	return &animev1.WorkSummary{
+		Kind:           toWorkKind(w.Kind),
+		Id:             w.ID,
+		Title:          title,
+		LocalizedTitle: full,
+		SeriesId:       w.SeriesID,
+		SeriesTitle:    seriesTitle,
+		Number:         int32(w.Number),
+		ReleaseDate:    toDate(w.ReleaseDate),
+		ReleaseYear:    int32(w.ReleaseYear),
+		ReleaseSeason:  toReleaseSeason(w.ReleaseSeason),
+		Format:         toSpecialFormat(w.Format),
+		EpisodeCount:   int32(w.EpisodeCount),
+		ExternalIds:    toExternalIDs(w.ExternalIDs),
+	}
+}
+
+// toWorkKind maps the internal work kind onto the wire enum.
+func toWorkKind(k WorkKind) animev1.WorkKind {
+	switch k {
+	case WorkSeason:
+		return animev1.WorkKind_WORK_KIND_SEASON
+	case WorkMovie:
+		return animev1.WorkKind_WORK_KIND_MOVIE
+	case WorkSpecial:
+		return animev1.WorkKind_WORK_KIND_SPECIAL
+	}
+	return animev1.WorkKind_WORK_KIND_UNSPECIFIED
+}
+
+// fromWorkKind maps the wire enum back onto the internal work kind. It returns
+// nil for UNSPECIFIED, which is the filter's "match every kind".
+func fromWorkKind(k animev1.WorkKind) *WorkKind {
+	var w WorkKind
+	switch k {
+	case animev1.WorkKind_WORK_KIND_SEASON:
+		w = WorkSeason
+	case animev1.WorkKind_WORK_KIND_MOVIE:
+		w = WorkMovie
+	case animev1.WorkKind_WORK_KIND_SPECIAL:
+		w = WorkSpecial
+	default:
+		return nil
+	}
+	return &w
+}
+
+// fromEntryKind maps the wire enum back onto the internal entry kind. It
+// returns nil for UNSPECIFIED, which is the filter's "match both kinds".
+func fromEntryKind(k animev1.EntryKind) *EntryKind {
+	var e EntryKind
+	switch k {
+	case animev1.EntryKind_ENTRY_KIND_FRANCHISE:
+		e = EntryFranchise
+	case animev1.EntryKind_ENTRY_KIND_SERIES:
+		e = EntrySeries
+	default:
+		return nil
+	}
+	return &e
+}
+
+// fromReleaseSeason maps the wire enum back onto the internal release season.
+// UNSPECIFIED becomes the empty season, which matches everything.
+func fromReleaseSeason(s animev1.ReleaseSeason) model.ReleaseSeason {
+	switch s {
+	case animev1.ReleaseSeason_RELEASE_SEASON_WINTER:
+		return model.SeasonWinter
+	case animev1.ReleaseSeason_RELEASE_SEASON_SPRING:
+		return model.SeasonSpring
+	case animev1.ReleaseSeason_RELEASE_SEASON_SUMMER:
+		return model.SeasonSummer
+	case animev1.ReleaseSeason_RELEASE_SEASON_FALL:
+		return model.SeasonFall
+	}
+	return ""
+}

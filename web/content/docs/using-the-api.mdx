@@ -1,0 +1,210 @@
+---
+title: Using the API
+description: Query the hosted read-only Connect service with a plain HTTP POST and JSON.
+---
+
+
+The dataset is served read-only by a [Connect RPC](https://connectrpc.com)
+service. You can call it with an ordinary HTTP `POST` and a JSON body — no client
+library or codegen required.
+
+## Your first call
+
+```sh
+curl -X POST https://anime-metadata-db-api.vercel.app/anime.v1.AnimeService/GetHealth \
+  -H 'Content-Type: application/json' -d '{}'
+```
+
+```json
+{"status":"ok","version":"<commit>","stats":{"franchises":1,"series":3,"seasons":9,"episodes":124}}
+```
+
+That's the whole contract: `POST` a JSON body to
+`/{package}.{Service}/{Method}`, get JSON back.
+
+## Endpoint
+
+```
+POST https://anime-metadata-db-api.vercel.app/anime.v1.AnimeService/{Method}
+Content-Type: application/json
+```
+
+`https://anime-metadata-db-api.vercel.app` is the hosted public instance. To run your
+own, start the server locally (`go run ./cmd/api`, see
+[Building the dataset](/docs/building-the-dataset)) and use
+`http://localhost:8080` instead — the paths are identical.
+
+## Methods
+
+| Method | Body | Returns |
+|---|---|---|
+| `GetHealth` | `{}` | liveness, build version, dataset stats |
+| `ListFranchises` | `{}` | every multi-series franchise, fully nested |
+| `GetFranchise` | `{"id": "..."}` | one franchise with its nested series |
+| `GetSeries` | `{"id": "..."}` | one series (standalone or under a franchise) |
+| `Search` | `{"query": "...", "limit": 10}` | matching franchises and series |
+| `GetCharacter` | `{"id": "..."}` | one character with every appearance and its cast |
+| `ListCharacters` | `{"seriesId": "...", "limit": 10}` | the whole cast, or one series' cast |
+| `GetStaff` | `{"id": "..."}` | one staff member with the characters they voice |
+| `ListStaff` | `{"language": "ja", "limit": 10}` | staff, optionally by credited language |
+
+`ListFranchises` returns only multi-series **franchises**; a standalone series is
+reachable through `Search` and `GetSeries`. For `Search`, `limit` is optional
+(defaults to 50) and a blank `query` matches nothing. For the two list methods
+`limit` defaults to 100; an unknown `seriesId` is a `not_found` error rather than
+an empty list, so a typo is not mistaken for a series with no cast.
+
+## Examples
+
+Search — case-insensitive substring over titles:
+
+```sh
+curl -X POST https://anime-metadata-db-api.vercel.app/anime.v1.AnimeService/Search \
+  -H 'Content-Type: application/json' -d '{"query": "demon", "limit": 5}'
+```
+
+```json
+{"results":[{"kind":"ENTRY_KIND_SERIES","id":"demon-slayer","title":"Demon Slayer"}]}
+```
+
+Fetch one series with its full structure — the `id` comes from a search result:
+
+```sh
+curl -X POST https://anime-metadata-db-api.vercel.app/anime.v1.AnimeService/GetSeries \
+  -H 'Content-Type: application/json' -d '{"id": "demon-slayer"}'
+```
+
+```json
+{
+  "series": {
+    "id": "demon-slayer",
+    "title": "Demon Slayer",
+    "seasons": [
+      {
+        "id": "demon-slayer-s1",
+        "number": 1,
+        "releaseYear": 2019,
+        "releaseSeason": "RELEASE_SEASON_SPRING",
+        "externalIds": {"anilistId": 101922, "anidbId": 14107, "tvdbId": 348545},
+        "episodes": [
+          {"absoluteNumber": 1, "airedNumber": 1},
+          {"absoluteNumber": 2, "airedNumber": 2}
+        ]
+      }
+    ],
+    "movies": [
+      {"id": "demon-slayer-mugen-train-film", "title": "Mugen Train", "releaseYear": 2020}
+    ]
+  }
+}
+```
+
+A `Franchise` nests `series`, which nests `seasons`, `movies` and `specials`,
+each carrying `episodes`. Dates are `YYYY-MM-DD` strings; `externalIds`
+cross-maps each node to AniList, AniDB, TMDB, TVDB and Wikidata. Field names in
+the JSON are camelCase (`releaseYear`, `externalIds`, `absoluteNumber`). See
+[Using the dataset](/docs/using-the-dataset) for the full model.
+
+## Characters and staff
+
+Characters and staff are **global** nodes, not children of a series. A character
+attaches onto the structure through its `appearances`, so the same node is
+reachable three ways — nested in a series' `characters`, by id from
+`GetCharacter`, and as a credit from `GetStaff` — and it always carries every
+series it appears in:
+
+```sh
+curl -X POST https://anime-metadata-db-api.vercel.app/anime.v1.AnimeService/GetCharacter \
+  -H 'Content-Type: application/json' -d '{"id": "artoria-pendragon"}'
+```
+
+```json
+{
+  "character": {
+    "id": "artoria-pendragon",
+    "externalIds": {"wikidataId": "Q4918886"},
+    "voiceActors": [
+      {"staffId": "ayako-kawasumi", "language": "ja"}
+    ],
+    "appearances": [
+      {"seriesId": "fate-stay-night"},
+      {"seriesId": "fate-zero"}
+    ]
+  }
+}
+```
+
+That response has no `name` or `staffName`, and it is not a bug: names are
+filled from Wikidata **at build time**, and the committed dataset was built
+without the Wikidata fetch. Run `builder init` before `builder build` and the
+same call returns `"name": "Artoria Pendragon"` on the character and
+`"staffName": "Ayako Kawasumi"` on each voice-actor link. Every other field is
+independent of it, so the graph is fully usable by id either way.
+
+`voiceActors` on the character is the **default cast**; an appearance may carry
+its own `voiceActors` to override it for that series, and a `scope` to narrow it
+to specific seasons, movies or specials. Each link repeats the staff member's
+resolved `staffName`, so rendering a cast list needs no second call.
+
+`GetStaff` is the inverse — the characters a person is cast as, with the
+language and the series each casting covers:
+
+```sh
+curl -X POST https://anime-metadata-db-api.vercel.app/anime.v1.AnimeService/GetStaff \
+  -H 'Content-Type: application/json' -d '{"id": "ayako-kawasumi"}'
+```
+
+```json
+{
+  "staff": {"id": "ayako-kawasumi", "externalIds": {"wikidataId": "Q49566"}},
+  "credits": [
+    {
+      "characterId": "artoria-pendragon",
+      "language": "ja",
+      "seriesIds": ["fate-stay-night", "fate-zero"]
+    }
+  ]
+}
+```
+
+One credit is emitted per character and language, listing every series the
+casting covers — so a voice actor who plays the same character across a whole
+franchise appears once, not once per series.
+
+Names follow the same `Accept-Language` rules as titles, via `name` and (with
+`Accept-Language: *`) `localizedName`.
+
+Only **facts** are served: ids, names, and the appearance and voice-actor graph.
+Roles, biographies and images are deliberately absent; fetch those live from the
+external ids.
+
+## Localized titles
+
+Every title-bearing node returns a single `title` string, resolved from the
+request's `Accept-Language` header (default `en`). For each title, resolution
+tries, in order:
+
+1. the requested language,
+2. for a non-English request, the native `original`,
+3. English,
+4. the native `original`,
+5. any available translation.
+
+```sh
+# Japanese titles where available, else the native original → "鬼滅の刃":
+curl -X POST https://anime-metadata-db-api.vercel.app/anime.v1.AnimeService/GetSeries \
+  -H 'Content-Type: application/json' -H 'Accept-Language: ja' \
+  -d '{"id": "demon-slayer"}'
+```
+
+Send `Accept-Language: *` to additionally receive the full `localizedTitle` (the
+native `original` plus every translation) on every node.
+
+> **Scope.** The API serves the structural catalog — franchises, series,
+> seasons, movies, specials and episodes. Characters and staff are present in the
+> committed dataset but not yet exposed over the API.
+
+---
+
+**Next:** [Using the dataset](/docs/using-the-dataset) — the
+same data as committed YAML, and the full model.

@@ -1,0 +1,79 @@
+---
+title: Building the dataset
+description: Compile the dataset and author your own entries with the deterministic builder CLI.
+---
+
+
+The dataset is compiled by the `builder` CLI from two committed layers, so a
+rebuild can never clobber authored work:
+
+| Layer | Who writes it | Holds |
+|---|---|---|
+| `config/overrides/` | **you** (hand-edited) | Structure the open sources can't express: Series / Franchise boundaries, ordering, `alternateCutOf`, `watchOrders`, which series are linearly `numbered`. |
+| `data/` | `builder build` (generated) | The resolved records: overrides **+** facts from open data **+** computed `absoluteNumber`. Never hand-edit. |
+
+(`absoluteNumber` is the running episode count across a whole series, computed by
+the builder for linearly-numbered series.)
+
+Because `builder build` treats `overrides/` as read-only input, builds are
+**deterministic and idempotent**: the same overrides plus the same pinned
+sources always produce the same `data/`.
+
+## Prerequisites
+
+[Go](https://go.dev/dl/) (see the module's `go.mod` for the version). Build the
+CLI from the repository root:
+
+```sh
+go build ./cmd/builder
+```
+
+## Commands
+
+```sh
+./builder init                 # download the pinned sources into .sources/
+./builder build                # (re)build data/ for all overrides
+./builder build demon-slayer   # build/rebuild just one franchise or series
+./builder refresh              # update sources to latest, bump pins, rebuild all
+```
+
+The build fails on any unknown id, dangling reference or schema violation, so a
+successful build is always a valid dataset. Where it makes a low-confidence guess
+(chiefly title-language tagging) it prints a report — pin those cases with an
+override.
+
+## Adding an entry
+
+Create `config/overrides/series/<id>.yaml` describing the structure, then run
+`./builder build <id>`. The builder fills in facts (titles, episode counts,
+cross-IDs) from the open sources and writes the resolved record to
+`data/series/<id>.yaml`.
+
+## Sources
+
+Facts come from open data sources, each on its own terms. AniList is **not**
+used: its ToS forbids storing or redistributing its content.
+
+- [`anime-offline-database`](https://github.com/manami-project/anime-offline-database) (ODbL + DbCL) — titles, season / year, episode counts, cross-IDs.
+- [`Anime-Lists/anime-lists`](https://github.com/Anime-Lists/anime-lists) (no stated licence; bare ID pairs) — AniDB↔TVDB mapping and movie-set grouping.
+- [Wikidata](https://www.wikidata.org) (CC0) — character & staff names, resolved by QID.
+
+What each source contributes, and what the terms mean for anyone redistributing
+the result, is set out in
+[Sources and licensing](/docs/sources-and-licensing).
+
+Sources are **not committed**. `builder init` downloads them into a gitignored
+`.sources/` cache at the versions pinned in `config.yaml`, and `builder refresh`
+updates those pins. (The build verifies pinned checksums, so a rebuild uses
+exactly the sources it was authored against.)
+
+## Serving it
+
+The same dataset is compiled into the API binary with `go:embed`, so the server
+is stateless and self-contained:
+
+```sh
+go run ./cmd/api                 # listens on :8080
+```
+
+See [Using the API](/docs/using-the-api) for the request format.

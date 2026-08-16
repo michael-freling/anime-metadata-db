@@ -73,7 +73,7 @@ clean-all: clean ## Also remove the downloaded Hugo binary
 # --- API: protobuf codegen + local server ----------------------------------
 
 .PHONY: generate
-generate: ## Regenerate the committed Connect/protobuf Go code under gen/ (needs buf)
+generate: ## Regenerate the committed Go and TypeScript clients (needs buf; run npm install in web/ first)
 	buf generate
 
 .PHONY: api

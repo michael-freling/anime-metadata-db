@@ -52,6 +52,11 @@ const (
 	AnimeServiceGetFranchiseProcedure = "/anime.v1.AnimeService/GetFranchise"
 	// AnimeServiceGetSeriesProcedure is the fully-qualified name of the AnimeService's GetSeries RPC.
 	AnimeServiceGetSeriesProcedure = "/anime.v1.AnimeService/GetSeries"
+	// AnimeServiceListCatalogProcedure is the fully-qualified name of the AnimeService's ListCatalog
+	// RPC.
+	AnimeServiceListCatalogProcedure = "/anime.v1.AnimeService/ListCatalog"
+	// AnimeServiceListWorksProcedure is the fully-qualified name of the AnimeService's ListWorks RPC.
+	AnimeServiceListWorksProcedure = "/anime.v1.AnimeService/ListWorks"
 	// AnimeServiceSearchProcedure is the fully-qualified name of the AnimeService's Search RPC.
 	AnimeServiceSearchProcedure = "/anime.v1.AnimeService/Search"
 	// AnimeServiceGetCharacterProcedure is the fully-qualified name of the AnimeService's GetCharacter
@@ -77,6 +82,15 @@ type AnimeServiceClient interface {
 	GetFranchise(context.Context, *connect.Request[v1.GetFranchiseRequest]) (*connect.Response[v1.GetFranchiseResponse], error)
 	// GetSeries returns one series (under a franchise or standalone) by id.
 	GetSeries(context.Context, *connect.Request[v1.GetSeriesRequest]) (*connect.Response[v1.GetSeriesResponse], error)
+	// ListCatalog pages through every top-level entry — franchises and
+	// standalone series — as flat summaries. This is the browse entry point:
+	// unlike ListFranchises it is paginated and does not nest the structure, so
+	// it stays usable as the catalog grows.
+	ListCatalog(context.Context, *connect.Request[v1.ListCatalogRequest]) (*connect.Response[v1.ListCatalogResponse], error)
+	// ListWorks pages through individual releases (seasons, movies, specials),
+	// filtered by year, quarter, kind or series. This is what a seasonal chart
+	// lists.
+	ListWorks(context.Context, *connect.Request[v1.ListWorksRequest]) (*connect.Response[v1.ListWorksResponse], error)
 	// Search matches franchises and series by title (case-insensitive substring).
 	Search(context.Context, *connect.Request[v1.SearchRequest]) (*connect.Response[v1.SearchResponse], error)
 	// GetCharacter returns one character by id, with every appearance and the
@@ -120,6 +134,18 @@ func NewAnimeServiceClient(httpClient connect.HTTPClient, baseURL string, opts .
 			httpClient,
 			baseURL+AnimeServiceGetSeriesProcedure,
 			connect.WithSchema(animeServiceMethods.ByName("GetSeries")),
+			connect.WithClientOptions(opts...),
+		),
+		listCatalog: connect.NewClient[v1.ListCatalogRequest, v1.ListCatalogResponse](
+			httpClient,
+			baseURL+AnimeServiceListCatalogProcedure,
+			connect.WithSchema(animeServiceMethods.ByName("ListCatalog")),
+			connect.WithClientOptions(opts...),
+		),
+		listWorks: connect.NewClient[v1.ListWorksRequest, v1.ListWorksResponse](
+			httpClient,
+			baseURL+AnimeServiceListWorksProcedure,
+			connect.WithSchema(animeServiceMethods.ByName("ListWorks")),
 			connect.WithClientOptions(opts...),
 		),
 		search: connect.NewClient[v1.SearchRequest, v1.SearchResponse](
@@ -166,6 +192,8 @@ type animeServiceClient struct {
 	listFranchises *connect.Client[v1.ListFranchisesRequest, v1.ListFranchisesResponse]
 	getFranchise   *connect.Client[v1.GetFranchiseRequest, v1.GetFranchiseResponse]
 	getSeries      *connect.Client[v1.GetSeriesRequest, v1.GetSeriesResponse]
+	listCatalog    *connect.Client[v1.ListCatalogRequest, v1.ListCatalogResponse]
+	listWorks      *connect.Client[v1.ListWorksRequest, v1.ListWorksResponse]
 	search         *connect.Client[v1.SearchRequest, v1.SearchResponse]
 	getCharacter   *connect.Client[v1.GetCharacterRequest, v1.GetCharacterResponse]
 	listCharacters *connect.Client[v1.ListCharactersRequest, v1.ListCharactersResponse]
@@ -187,6 +215,16 @@ func (c *animeServiceClient) GetFranchise(ctx context.Context, req *connect.Requ
 // GetSeries calls anime.v1.AnimeService.GetSeries.
 func (c *animeServiceClient) GetSeries(ctx context.Context, req *connect.Request[v1.GetSeriesRequest]) (*connect.Response[v1.GetSeriesResponse], error) {
 	return c.getSeries.CallUnary(ctx, req)
+}
+
+// ListCatalog calls anime.v1.AnimeService.ListCatalog.
+func (c *animeServiceClient) ListCatalog(ctx context.Context, req *connect.Request[v1.ListCatalogRequest]) (*connect.Response[v1.ListCatalogResponse], error) {
+	return c.listCatalog.CallUnary(ctx, req)
+}
+
+// ListWorks calls anime.v1.AnimeService.ListWorks.
+func (c *animeServiceClient) ListWorks(ctx context.Context, req *connect.Request[v1.ListWorksRequest]) (*connect.Response[v1.ListWorksResponse], error) {
+	return c.listWorks.CallUnary(ctx, req)
 }
 
 // Search calls anime.v1.AnimeService.Search.
@@ -228,6 +266,15 @@ type AnimeServiceHandler interface {
 	GetFranchise(context.Context, *connect.Request[v1.GetFranchiseRequest]) (*connect.Response[v1.GetFranchiseResponse], error)
 	// GetSeries returns one series (under a franchise or standalone) by id.
 	GetSeries(context.Context, *connect.Request[v1.GetSeriesRequest]) (*connect.Response[v1.GetSeriesResponse], error)
+	// ListCatalog pages through every top-level entry — franchises and
+	// standalone series — as flat summaries. This is the browse entry point:
+	// unlike ListFranchises it is paginated and does not nest the structure, so
+	// it stays usable as the catalog grows.
+	ListCatalog(context.Context, *connect.Request[v1.ListCatalogRequest]) (*connect.Response[v1.ListCatalogResponse], error)
+	// ListWorks pages through individual releases (seasons, movies, specials),
+	// filtered by year, quarter, kind or series. This is what a seasonal chart
+	// lists.
+	ListWorks(context.Context, *connect.Request[v1.ListWorksRequest]) (*connect.Response[v1.ListWorksResponse], error)
 	// Search matches franchises and series by title (case-insensitive substring).
 	Search(context.Context, *connect.Request[v1.SearchRequest]) (*connect.Response[v1.SearchResponse], error)
 	// GetCharacter returns one character by id, with every appearance and the
@@ -267,6 +314,18 @@ func NewAnimeServiceHandler(svc AnimeServiceHandler, opts ...connect.HandlerOpti
 		AnimeServiceGetSeriesProcedure,
 		svc.GetSeries,
 		connect.WithSchema(animeServiceMethods.ByName("GetSeries")),
+		connect.WithHandlerOptions(opts...),
+	)
+	animeServiceListCatalogHandler := connect.NewUnaryHandler(
+		AnimeServiceListCatalogProcedure,
+		svc.ListCatalog,
+		connect.WithSchema(animeServiceMethods.ByName("ListCatalog")),
+		connect.WithHandlerOptions(opts...),
+	)
+	animeServiceListWorksHandler := connect.NewUnaryHandler(
+		AnimeServiceListWorksProcedure,
+		svc.ListWorks,
+		connect.WithSchema(animeServiceMethods.ByName("ListWorks")),
 		connect.WithHandlerOptions(opts...),
 	)
 	animeServiceSearchHandler := connect.NewUnaryHandler(
@@ -313,6 +372,10 @@ func NewAnimeServiceHandler(svc AnimeServiceHandler, opts ...connect.HandlerOpti
 			animeServiceGetFranchiseHandler.ServeHTTP(w, r)
 		case AnimeServiceGetSeriesProcedure:
 			animeServiceGetSeriesHandler.ServeHTTP(w, r)
+		case AnimeServiceListCatalogProcedure:
+			animeServiceListCatalogHandler.ServeHTTP(w, r)
+		case AnimeServiceListWorksProcedure:
+			animeServiceListWorksHandler.ServeHTTP(w, r)
 		case AnimeServiceSearchProcedure:
 			animeServiceSearchHandler.ServeHTTP(w, r)
 		case AnimeServiceGetCharacterProcedure:
@@ -344,6 +407,14 @@ func (UnimplementedAnimeServiceHandler) GetFranchise(context.Context, *connect.R
 
 func (UnimplementedAnimeServiceHandler) GetSeries(context.Context, *connect.Request[v1.GetSeriesRequest]) (*connect.Response[v1.GetSeriesResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.GetSeries is not implemented"))
+}
+
+func (UnimplementedAnimeServiceHandler) ListCatalog(context.Context, *connect.Request[v1.ListCatalogRequest]) (*connect.Response[v1.ListCatalogResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.ListCatalog is not implemented"))
+}
+
+func (UnimplementedAnimeServiceHandler) ListWorks(context.Context, *connect.Request[v1.ListWorksRequest]) (*connect.Response[v1.ListWorksResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.ListWorks is not implemented"))
 }
 
 func (UnimplementedAnimeServiceHandler) Search(context.Context, *connect.Request[v1.SearchRequest]) (*connect.Response[v1.SearchResponse], error) {

@@ -1,0 +1,108 @@
+name: Web
+
+# Builds, lints and type-checks the documentation site under web/. Vercel
+# deploys that app, but a Vercel build failure is only visible after a push, so
+# this gates it on every PR the same way go.yml gates the Go code.
+on:
+  pull_request:
+    paths:
+      - "web/**"
+      - ".github/workflows/web.yml"
+  push:
+    branches: [main]
+    paths:
+      - "web/**"
+      - ".github/workflows/web.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    working-directory: web
+
+jobs:
+  build:
+    name: Build web app
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type-check
+        run: npm run types:check
+
+      - name: Build
+        run: npm run build
+
+      # The development/ tree is internal and must never be reachable on the
+      # deployed site. web/src/lib/source.ts filters it out, but that is one
+      # line away from silently regressing and the failure mode is publishing
+      # unreleased design documents — so assert the property itself, against a
+      # real production server, rather than trusting the code to be correct.
+      #
+      # The internal MDX IS compiled into the bundle (see the comment in
+      # source.ts explaining why that cannot be avoided), so grepping the build
+      # output would fail by design. Reachability is what matters, so that is
+      # what is checked.
+      - name: Assert internal docs are unreachable in production
+        run: |
+          set -euo pipefail
+
+          if grep -q '"/docs/development' .next/prerender-manifest.json; then
+            echo "::error::internal development/ routes were prerendered"
+            exit 1
+          fi
+
+          npx next start -p 3000 &
+          for _ in $(seq 1 60); do
+            curl -sf -o /dev/null http://localhost:3000/ && break
+            sleep 1
+          done
+
+          fail=0
+          check() {
+            code=$(curl -s -o /dev/null -w '%{http_code}' "http://localhost:3000$1")
+            if [ "$code" != "$2" ]; then
+              echo "::error::$1 returned $code, expected $2"
+              fail=1
+            fi
+          }
+          # Internal: must 404 on every representation the site serves.
+          check /docs/development 404
+          check /docs/development/contributing-to-docs 404
+          check /docs/development/proposals/2026-06-19-init/build-cli-design 404
+          check /docs/development/proposals/2026-06-19-init/build-cli-design.md 404
+          check /llms.mdx/docs/development/contributing-to-docs/content.md 404
+          check /og/docs/development/contributing-to-docs/image.png 404
+          # Public: must still work, so the gate cannot pass by 404ing everything.
+          check /docs/using-the-api 200
+          check /docs/using-the-api.md 200
+
+          for probe in llms.txt llms-full.txt sitemap.xml; do
+            if curl -s "http://localhost:3000/$probe" | grep -qi 'development\|Build CLI Design'; then
+              echo "::error::/$probe leaks internal content"
+              fail=1
+            fi
+          done
+
+          if curl -s 'http://localhost:3000/api/search?query=proposals' | grep -qi 'development'; then
+            echo "::error::search index leaks internal content"
+            fail=1
+          fi
+
+          exit $fail

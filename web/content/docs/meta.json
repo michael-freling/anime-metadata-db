@@ -1,0 +1,11 @@
+{
+  "pages": [
+    "index",
+    "using-the-api",
+    "using-the-dataset",
+    "building-the-dataset",
+    "coverage",
+    "sources-and-licensing",
+    "development"
+  ]
+}

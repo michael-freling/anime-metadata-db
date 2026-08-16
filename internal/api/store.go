@@ -31,6 +31,14 @@ type CatalogEntry struct {
 	ID          string
 	Titles      model.Title
 	FranchiseID string
+
+	// Aggregates over everything beneath the entry, computed once at load by
+	// indexWorks so listing the catalog never walks the hierarchy. The year
+	// span is 0/0 when nothing beneath it carries a release year.
+	FirstReleaseYear  int
+	LatestReleaseYear int
+	Works             int
+	Episodes          int
 }
 
 // EntryKind classifies a catalog entry.
@@ -77,6 +85,11 @@ type Store struct {
 	staff              []*model.Staff
 	staffByID          map[string]*model.Staff
 	creditsByStaff     map[string][]StaffCredit
+
+	// works is every release flattened out of the hierarchy, in catalog order,
+	// so browsing by year or quarter scans one slice instead of walking every
+	// record. Built by indexWorks at load.
+	works []Work
 }
 
 // The dataset subtrees the store reads.
@@ -118,6 +131,7 @@ func NewStore(fsys fs.FS) (*Store, error) {
 		return nil, err
 	}
 	s.indexCredits()
+	s.indexWorks()
 	return s, nil
 }
 
