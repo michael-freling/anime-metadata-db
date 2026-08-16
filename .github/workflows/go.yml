@@ -28,6 +28,20 @@ jobs:
         with:
           go-version-file: go.mod
 
+      # The web app's TypeScript client is generated from the same schema, so
+      # its protoc-gen-es plugin has to be present for `buf generate` to run at
+      # all — it lives in web/node_modules, not GOPATH.
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install the TypeScript codegen plugin
+        run: npm ci
+        working-directory: web
+
       - name: Install buf and protoc plugins
         run: |
           go install "github.com/bufbuild/buf/cmd/buf@${BUF_VERSION}"
@@ -35,11 +49,14 @@ jobs:
           go install connectrpc.com/connect/cmd/protoc-gen-connect-go
           echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
 
+      # Checks BOTH generated trees, so a proto change that updates the Go
+      # server but leaves the TypeScript client stale fails here rather than
+      # showing up as a type error in the web build.
       - name: Regenerate and verify no diff
         run: |
           buf generate
-          if ! git diff --exit-code -- internal/gen; then
-            echo "::error::internal/gen is out of date; run 'make generate' and commit the result."
+          if ! git diff --exit-code -- internal/gen web/src/lib/gen; then
+            echo "::error::generated code is out of date; run 'make generate' and commit the result."
             exit 1
           fi
 

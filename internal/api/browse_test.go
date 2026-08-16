@@ -50,8 +50,8 @@ func TestCatalogAggregates(t *testing.T) {
 		t.Errorf("zzz aggregate = %+v", z)
 	}
 	// A series with nothing under it contributes no works.
-	if min := entryByID(t, page, "minimal"); min.Works != 0 || min.Episodes != 0 {
-		t.Errorf("minimal aggregate = %+v", min)
+	if empty := entryByID(t, page, "minimal"); empty.Works != 0 || empty.Episodes != 0 {
+		t.Errorf("minimal aggregate = %+v", empty)
 	}
 }
 
@@ -487,9 +487,18 @@ func TestExistingListsPaginate(t *testing.T) {
 	}
 
 	for name, call := range map[string]func() error{
-		"search":     func() error { _, e := svc.Search(ctx, connect.NewRequest(&animev1.SearchRequest{Query: "a", PageToken: "!!!"})); return e },
-		"characters": func() error { _, e := svc.ListCharacters(ctx, connect.NewRequest(&animev1.ListCharactersRequest{PageToken: "!!!"})); return e },
-		"staff":      func() error { _, e := svc.ListStaff(ctx, connect.NewRequest(&animev1.ListStaffRequest{PageToken: "!!!"})); return e },
+		"search": func() error {
+			_, e := svc.Search(ctx, connect.NewRequest(&animev1.SearchRequest{Query: "a", PageToken: "!!!"}))
+			return e
+		},
+		"characters": func() error {
+			_, e := svc.ListCharacters(ctx, connect.NewRequest(&animev1.ListCharactersRequest{PageToken: "!!!"}))
+			return e
+		},
+		"staff": func() error {
+			_, e := svc.ListStaff(ctx, connect.NewRequest(&animev1.ListStaffRequest{PageToken: "!!!"}))
+			return e
+		},
 	} {
 		if code := connect.CodeOf(call()); code != connect.CodeInvalidArgument {
 			t.Errorf("%s bad token: code = %v, want invalid_argument", name, code)
