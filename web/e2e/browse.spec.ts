@@ -118,3 +118,15 @@ test('year spans never start before the dataset covers anything', async ({ page 
   for (const y of years) expect(y).toBeGreaterThanOrEqual(2006);
   expect(metas.some((m) => /(^|[^\d])0(\D|$)/.test(m.split('·')[0]))).toBe(false);
 });
+
+// A stale or tampered page token is refused by the API with InvalidArgument.
+// That is the request's fault, not an outage, and saying "the dataset API is
+// unreachable" sends the reader to check something that is working fine.
+test('a broken page token is reported as a bad link, not an outage', async ({ page }) => {
+  await page.goto('/browse?token=garbage');
+
+  await expect(page.getByText('That link is no longer valid')).toBeVisible();
+  await expect(page.getByText('The dataset API is unreachable')).toHaveCount(0);
+  // And it offers a way out.
+  await expect(page.getByRole('link', { name: /Start over from the beginning/ })).toBeVisible();
+});

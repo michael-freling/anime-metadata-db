@@ -1491,7 +1491,11 @@ export type ListWorksRequest = Message<"anime.v1.ListWorksRequest"> & {
    * Filters, AND-ed together. An unset filter matches everything, so an empty
    * request walks every work in the dataset.
    *
-   * release_year is the calendar year the work premiered.
+   * release_year is the calendar year the work premiered. proto3 gives scalars
+   * no field presence, so 0 necessarily means "no year filter" rather than
+   * "works with no year" — a caller wanting a specific year must send a real
+   * one, and a UI must reject 0 before it reaches here rather than labelling
+   * the unfiltered result as year 0.
    *
    * @generated from field: int32 release_year = 3;
    */

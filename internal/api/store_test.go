@@ -233,9 +233,13 @@ func TestStoreSearch(t *testing.T) {
 	}
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
-			got := s.Search(tc.query, tc.limit)
+			page, err := s.SearchPage(tc.query, "", tc.limit)
+			if err != nil {
+				t.Fatalf("SearchPage(%q, %d): %v", tc.query, tc.limit, err)
+			}
+			got := page.Items
 			if len(got) != len(tc.wantIDs) {
-				t.Fatalf("Search(%q, %d) = %d results, want %d", tc.query, tc.limit, len(got), len(tc.wantIDs))
+				t.Fatalf("SearchPage(%q, %d) = %d results, want %d", tc.query, tc.limit, len(got), len(tc.wantIDs))
 			}
 			for i, e := range got {
 				if e.ID != tc.wantIDs[i] {
@@ -297,8 +301,12 @@ func TestNewStoreWithoutStaffDir(t *testing.T) {
 	if got := s.Stats().Staff; got != 0 {
 		t.Errorf("Staff = %d, want 0", got)
 	}
-	if got := s.StaffList("", 0); got != nil {
-		t.Errorf("StaffList() = %v, want nil", got)
+	page, err := s.StaffPage("", "", 0)
+	if err != nil {
+		t.Fatalf("StaffPage: %v", err)
+	}
+	if len(page.Items) != 0 {
+		t.Errorf("StaffPage() = %v, want empty", page.Items)
 	}
 }
 
@@ -368,9 +376,13 @@ func TestStoreStaff(t *testing.T) {
 	}
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
-			got := s.StaffList(tc.language, tc.limit)
+			page, err := s.StaffPage(tc.language, "", tc.limit)
+			if err != nil {
+				t.Fatalf("StaffPage(%q, %d): %v", tc.language, tc.limit, err)
+			}
+			got := page.Items
 			if len(got) != len(tc.wantIDs) {
-				t.Fatalf("StaffList(%q, %d) = %d, want %d", tc.language, tc.limit, len(got), len(tc.wantIDs))
+				t.Fatalf("StaffPage(%q, %d) = %d, want %d", tc.language, tc.limit, len(got), len(tc.wantIDs))
 			}
 			for i, st := range got {
 				if st.ID != tc.wantIDs[i] {

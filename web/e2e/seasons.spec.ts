@@ -52,3 +52,17 @@ test('a non-numeric year is a 404', async ({ page }) => {
   const response = await page.goto('/seasons/abcd/winter');
   expect(response?.status()).toBe(404);
 });
+
+// Year 0 is the dangerous one. proto3 gives scalars no presence, so
+// release_year: 0 reaches the API as "no year filter" — without a guard this
+// rendered every winter release across every year under a "Winter 0" heading.
+test('year 0 is a 404, not the whole dataset under a "Winter 0" heading', async ({ page }) => {
+  const response = await page.goto('/seasons/0/winter');
+  expect(response?.status()).toBe(404);
+  await expect(page.locator('body')).not.toContainText('Winter 0');
+});
+
+test('a year outside what the dataset covers is a 404', async ({ page }) => {
+  expect((await page.goto('/seasons/1850/winter'))?.status()).toBe(404);
+  expect((await page.goto('/seasons/3000/winter'))?.status()).toBe(404);
+});

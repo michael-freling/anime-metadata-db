@@ -26,11 +26,20 @@ export const api: Client<typeof AnimeService> = createClient(
 // A failure here must not take a page down: the floor is a display refinement,
 // and 0 simply disables the check, so the page still renders whatever years the
 // API gave it.
-export const earliestReleaseYear = cache(async (): Promise<number> => {
+export const datasetYearSpan = cache(async (): Promise<{ earliest: number; latest: number }> => {
   try {
     const { stats } = await api.getHealth({});
-    return stats?.earliestReleaseYear ?? 0;
+    return {
+      earliest: stats?.earliestReleaseYear ?? 0,
+      latest: stats?.latestReleaseYear ?? 0,
+    };
   } catch {
-    return 0;
+    // 0/0 disables both the label floor and the route's range check, so an
+    // outage degrades to "no refinement" rather than 404ing valid URLs.
+    return { earliest: 0, latest: 0 };
   }
 });
+
+// The earliest year the dataset covers, as the floor for year labels.
+export const earliestReleaseYear = async (): Promise<number> =>
+  (await datasetYearSpan()).earliest;

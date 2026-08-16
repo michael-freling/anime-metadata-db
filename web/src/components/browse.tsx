@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Code, ConnectError } from '@connectrpc/connect';
 import { plural, yearsLabel } from '@/lib/format';
 import type { ReactNode } from 'react';
 
@@ -98,19 +99,39 @@ export function Pager({
   );
 }
 
-// ApiError is what a browse page renders when the dataset API cannot be
-// reached. The docs half of the site is static and unaffected, so this failure
-// is deliberately scoped to the page rather than thrown into the root layout.
-export function ApiError({ detail }: { detail: string }) {
+// ApiError is what a browse page renders when a dataset query fails. The docs
+// half of the site is static and unaffected, so the failure is deliberately
+// scoped to the page rather than thrown into the root layout.
+//
+// A rejected request is NOT an outage and must not be reported as one: a stale
+// or tampered page token comes back as InvalidArgument, and telling the reader
+// the service is down when it is up and simply refused the link sends them to
+// check the wrong thing.
+export function ApiError({ detail, badRequest = false }: { detail: string; badRequest?: boolean }) {
   return (
     <div className="rounded-xl border border-fd-border bg-fd-card p-6">
-      <h2 className="font-semibold">The dataset API is unreachable</h2>
+      <h2 className="font-semibold">
+        {badRequest ? 'That link is no longer valid' : 'The dataset API is unreachable'}
+      </h2>
       <p className="mt-2 text-sm text-fd-muted-foreground">
-        Browsing needs the read-only Connect service. The documentation is unaffected.
+        {badRequest ? (
+          <>
+            The page it points at could not be read. <Link href="/browse" className="underline">Start
+            over from the beginning of the catalogue</Link>.
+          </>
+        ) : (
+          'Browsing needs the read-only Connect service. The documentation is unaffected.'
+        )}
       </p>
       <p className="mt-3 font-mono text-xs text-fd-muted-foreground">{detail}</p>
     </div>
   );
+}
+
+// isBadRequest reports whether a failure was the request's fault rather than
+// the service being down.
+export function isBadRequest(err: unknown): boolean {
+  return err instanceof ConnectError && err.code === Code.InvalidArgument;
 }
 
 // Re-exported so the browse pages import their display helpers from one place.

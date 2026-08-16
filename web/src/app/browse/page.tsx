@@ -2,7 +2,16 @@ import type { Metadata } from 'next';
 import { ConnectError } from '@connectrpc/connect';
 import { api, earliestReleaseYear } from '@/lib/api';
 import { EntryKind } from '@/lib/gen/anime/v1/anime_pb';
-import { ApiError, Card, Grid, PageHeader, Pager, plural, yearsLabel } from '@/components/browse';
+import {
+  ApiError,
+  Card,
+  Grid,
+  isBadRequest,
+  PageHeader,
+  Pager,
+  plural,
+  yearsLabel,
+} from '@/components/browse';
 
 export const metadata: Metadata = {
   title: 'Browse the catalogue',
@@ -29,7 +38,10 @@ export default async function BrowsePage({
     return (
       <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-12">
         <PageHeader title="Browse the catalogue" />
-        <ApiError detail={err instanceof ConnectError ? err.message : String(err)} />
+        <ApiError
+          detail={err instanceof ConnectError ? err.message : String(err)}
+          badRequest={isBadRequest(err)}
+        />
       </main>
     );
   }

@@ -109,6 +109,15 @@ jobs:
           check /docs/using-the-api 200
           check /docs/using-the-api.md 200
 
+          # The top-level meta.json still lists "development" in its pages
+          # array while every file under that path is filtered out, so assert
+          # the rendered sidebar carries no orphaned node — the route checks
+          # above would not notice a dead nav entry.
+          if curl -s http://localhost:3000/docs/using-the-api | grep -q 'Development'; then
+            echo "::error::the production sidebar contains a Development entry"
+            fail=1
+          fi
+
           for probe in llms.txt llms-full.txt sitemap.xml; do
             if curl -s "http://localhost:3000/$probe" | grep -qi 'development\|Build CLI Design'; then
               echo "::error::/$probe leaks internal content"

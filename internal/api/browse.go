@@ -256,9 +256,9 @@ func decodeCursor(token string) (int, error) {
 	return offset, nil
 }
 
-// SearchPage is Search with a cursor. It exists alongside Search because
-// Search's limit truncates the result set with no way to ask for the rest,
-// which a browse UI needs.
+// SearchPage returns catalog entries whose original or translated title
+// contains query (case-insensitive), one page at a time. A blank query matches
+// nothing. Results keep the deterministic catalog order.
 func (s *Store) SearchPage(query, token string, limit int) (Page[CatalogEntry], error) {
 	q := strings.TrimSpace(strings.ToLower(query))
 	if q == "" {
@@ -276,17 +276,15 @@ func (s *Store) SearchPage(query, token string, limit int) (Page[CatalogEntry], 
 	return paginate(matching, token, limit)
 }
 
-// CharactersPage is Characters with a cursor. seriesID is assumed to have been
-// validated by the caller; an unknown id yields an empty page.
+// CharactersPage is Characters with a cursor, over the same shared filter.
+// seriesID is assumed to have been validated by the caller; an unknown id
+// yields an empty page.
 func (s *Store) CharactersPage(seriesID, token string, limit int) (Page[*model.Character], error) {
-	all := s.characters
-	if seriesID != "" {
-		all = s.charactersBySeries[seriesID]
-	}
-	return paginate(all, token, limit)
+	return paginate(s.charactersFor(seriesID), token, limit)
 }
 
-// StaffPage is StaffList with a cursor.
+// StaffPage returns staff, or only those credited in language when it is
+// non-empty, one page at a time in deterministic dataset order.
 func (s *Store) StaffPage(language, token string, limit int) (Page[*model.Staff], error) {
 	all := s.staff
 	if language != "" {

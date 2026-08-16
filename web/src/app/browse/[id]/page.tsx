@@ -1,17 +1,23 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { cache } from 'react';
 import { Code, ConnectError } from '@connectrpc/connect';
 import { api } from '@/lib/api';
 import type { Franchise, Series } from '@/lib/gen/anime/v1/anime_pb';
 import { ReleaseSeason, SpecialFormat } from '@/lib/gen/anime/v1/anime_pb';
-import { ApiError, PageHeader, plural } from '@/components/browse';
+import { ApiError, isBadRequest, PageHeader, plural } from '@/components/browse';
 
 // An id names either a franchise or a series, and the API has a separate call
 // for each. Try series first — they outnumber franchises heavily — and fall
 // back. A genuine not-found is the only error swallowed here; anything else
 // propagates so an outage is not reported as a missing series.
-async function load(id: string): Promise<{ series?: Series; franchise?: Franchise } | null> {
+// Wrapped in cache() because generateMetadata and the page body both need it,
+// and each call can issue two RPCs (getSeries, then getFranchise on NotFound).
+// Connect's unary calls are POSTs, which Next's automatic request memoization
+// does not dedupe, so without this a franchise page costs four round trips
+// instead of two.
+const load = cache(async (id: string): Promise<{ series?: Series; franchise?: Franchise } | null> => {
   try {
     const { series } = await api.getSeries({ id });
     if (series) return { series };
@@ -25,7 +31,7 @@ async function load(id: string): Promise<{ series?: Series; franchise?: Franchis
     if (!(err instanceof ConnectError) || err.code !== Code.NotFound) throw err;
   }
   return null;
-}
+});
 
 export async function generateMetadata({
   params,
@@ -151,7 +157,10 @@ export default async function EntryPage({ params }: { params: Promise<{ id: stri
     return (
       <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-12">
         <PageHeader title={id} />
-        <ApiError detail={err instanceof ConnectError ? err.message : String(err)} />
+        <ApiError
+          detail={err instanceof ConnectError ? err.message : String(err)}
+          badRequest={isBadRequest(err)}
+        />
       </main>
     );
   }

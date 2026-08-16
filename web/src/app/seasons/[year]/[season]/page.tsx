@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ConnectError } from '@connectrpc/connect';
-import { api } from '@/lib/api';
+import { api, datasetYearSpan } from '@/lib/api';
 import { ReleaseSeason } from '@/lib/gen/anime/v1/anime_pb';
-import { ApiError, Card, Grid, PageHeader, Pager, plural } from '@/components/browse';
+import { ApiError, Card, Grid, isBadRequest, PageHeader, Pager, plural } from '@/components/browse';
 
 const QUARTERS: Record<string, { label: string; value: ReleaseSeason }> = {
   winter: { label: 'Winter', value: ReleaseSeason.WINTER },
@@ -38,8 +38,17 @@ export default async function SeasonPage({
   const quarter = QUARTERS[season];
   const releaseYear = Number(year);
   // Reject a bad quarter or a non-numeric year outright rather than querying
-  // for something that can never match and rendering a confusing empty chart.
+  // for something that can never match.
+  //
+  // The year must also fall inside what the dataset covers. Year 0 in
+  // particular has to be rejected here: proto3 gives scalars no presence, so
+  // release_year: 0 reaches the API as "no year filter" and it would answer
+  // with every winter release across every year, rendered under a "Winter 0"
+  // heading. The bounds come from the dataset, so they widen as it grows.
   if (!quarter || !Number.isInteger(releaseYear)) notFound();
+  const { earliest, latest } = await datasetYearSpan();
+  if (earliest && (releaseYear < earliest || releaseYear > latest)) notFound();
+  if (!earliest && releaseYear <= 0) notFound();
 
   let page;
   try {
@@ -53,7 +62,10 @@ export default async function SeasonPage({
     return (
       <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-12">
         <PageHeader title={`${quarter.label} ${year}`} />
-        <ApiError detail={err instanceof ConnectError ? err.message : String(err)} />
+        <ApiError
+          detail={err instanceof ConnectError ? err.message : String(err)}
+          badRequest={isBadRequest(err)}
+        />
       </main>
     );
   }
