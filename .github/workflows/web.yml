@@ -16,6 +16,8 @@ on:
       - "internal/api/**"
       - "cmd/api/**"
       - "data/**"
+      - ".vercelignore"
+      - ".github/scripts/**"
       - ".github/workflows/web.yml"
   push:
     branches: [main]
@@ -25,6 +27,8 @@ on:
       - "internal/api/**"
       - "cmd/api/**"
       - "data/**"
+      - ".vercelignore"
+      - ".github/scripts/**"
       - ".github/workflows/web.yml"
   workflow_dispatch:
 
@@ -179,3 +183,28 @@ jobs:
           name: playwright-report
           path: web/playwright-report/
           retention-days: 7
+
+  upload:
+    name: Deployment upload keeps what it needs
+    runs-on: ubuntu-latest
+    # This job inspects the repository, not the app, so it overrides the
+    # workflow-level default of web/ — under that default the script path
+    # resolves inside the app and the step fails with "No such file".
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # `next build` in the job above runs over a full checkout, so it cannot
+      # see a .vercelignore that deletes files from the real deployment upload.
+      # That gap shipped two broken deployments; this closes it.
+      # The guard protects the upload; this protects the guard. Without it an
+      # edit could turn the check into one that passes everything, leaving
+      # .vercelignore unguarded with CI still green.
+      - name: Test the check itself
+        run: bash .github/scripts/verify-deploy-upload.test.sh
+
+      - name: Verify .vercelignore
+        run: bash .github/scripts/verify-deploy-upload.sh
