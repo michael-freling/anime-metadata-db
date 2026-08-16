@@ -16,6 +16,7 @@ on:
       - "internal/api/**"
       - "cmd/api/**"
       - "data/**"
+      - ".vercelignore"
       - ".github/workflows/web.yml"
   push:
     branches: [main]
@@ -25,6 +26,7 @@ on:
       - "internal/api/**"
       - "cmd/api/**"
       - "data/**"
+      - ".vercelignore"
       - ".github/workflows/web.yml"
   workflow_dispatch:
 
@@ -179,3 +181,16 @@ jobs:
           name: playwright-report
           path: web/playwright-report/
           retention-days: 7
+
+  upload:
+    name: Deployment upload keeps what it needs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # `next build` in the job above runs over a full checkout, so it cannot
+      # see a .vercelignore that deletes files from the real deployment upload.
+      # That gap shipped two broken deployments; this closes it.
+      - name: Verify .vercelignore
+        run: bash .github/scripts/verify-deploy-upload.sh

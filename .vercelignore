@@ -1,18 +1,21 @@
-# This file is applied to the upload of EVERY Vercel project built from this
-# repository, and it is applied immediately after the clone — before any Root
-# Directory setting is resolved. Both the Go API project and the web app project
-# deploy from here, so anything listed here is gone for both of them.
+# Applied to the upload of EVERY Vercel project built from this repository,
+# immediately after the clone and before any Root Directory setting is resolved.
+# Both the Go API project and the web app project deploy from here, so anything
+# excluded is excluded for both.
 #
-# That is why web/ is NOT listed. Excluding it deleted the Next.js app during the
-# web project's own build, which then failed with "No Next.js version detected":
-# the app it was meant to build had already been removed from the upload.
-# Carrying the app in the API project's upload costs a little transfer and
-# nothing else — the Go builder ignores it.
+# EVERY PATTERN MUST BE ANCHORED WITH A LEADING SLASH. These are gitignore
+# patterns: an unanchored `docs/` matches a directory named docs at ANY depth,
+# so it also deleted web/content/docs/ — the entire documentation — from the
+# upload, and the deployed site served 404s for every /docs page while the rest
+# of the app worked. Anchor, or it will happen again to config/ or proto/.
+#
+# For the same reason web/ is not listed at all: excluding it removed the app
+# the web project exists to build. Carrying it in the API project's upload costs
+# a little transfer and nothing else.
 #
 # The dataset under data/ is embedded into the Go function and MUST ship.
-# Everything below is irrelevant to both builds, so skip uploading it.
-docs/
-proto/
-.sources/
-config/
-coverage.out
+/docs/
+/proto/
+/.sources/
+/config/
+/coverage.out
