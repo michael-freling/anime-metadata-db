@@ -675,3 +675,60 @@ func TestListStaffRPCQuery(t *testing.T) {
 		t.Fatalf("total = %d, want 1", resp.Msg.GetTotalSize())
 	}
 }
+
+// The works query got none of the treatment the character and staff queries
+// did, though it has a rule neither of them has: it matches the work's own
+// title OR its series' title, because an untitled season has no title to match.
+func TestWorksFilterQuery(t *testing.T) {
+	s := mustStore(t)
+	season := WorkSeason
+	for _, tc := range []struct {
+		name   string
+		filter WorkFilter
+		want   int
+	}{
+		// "Alpha Main" is the series title; its seasons carry no titles of
+		// their own, so matching the series is the only way to find them.
+		{"matches by series title", WorkFilter{Query: "alpha main"}, 9},
+		{"case-insensitive", WorkFilter{Query: "ALPHA MAIN"}, 9},
+		{"trims whitespace", WorkFilter{Query: "  alpha main  "}, 9},
+		// "Alpha Movie" is a work's own title.
+		{"matches by the work's own title", WorkFilter{Query: "alpha movie"}, 1},
+		{"original script", WorkFilter{Query: "ゼッド"}, 1},
+		{"no match", WorkFilter{Query: "nothinghere"}, 0},
+		{"empty query matches everything", WorkFilter{Query: ""}, 10},
+		// Combining must intersect, not let either side win.
+		{"with a kind", WorkFilter{Query: "alpha main", Kind: &season}, 4},
+		{"with a year", WorkFilter{Query: "alpha main", ReleaseYear: 2006}, 1},
+		{"with a year that excludes it", WorkFilter{Query: "alpha movie", ReleaseYear: 2006}, 0},
+		{"with a quarter", WorkFilter{Query: "alpha main", ReleaseSeason: model.SeasonWinter}, 1},
+		{"with a series", WorkFilter{Query: "alpha", SeriesID: "zzz"}, 0},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			page, err := s.Works(tc.filter, "", 0)
+			if err != nil {
+				t.Fatalf("Works: %v", err)
+			}
+			if page.Total != tc.want {
+				ids := make([]string, len(page.Items))
+				for i, w := range page.Items {
+					ids[i] = w.ID
+				}
+				t.Fatalf("total = %d, want %d (%v)", page.Total, tc.want, ids)
+			}
+		})
+	}
+}
+
+func TestListWorksRPCQuery(t *testing.T) {
+	svc := newTestService(t)
+	resp, err := svc.ListWorks(context.Background(), connect.NewRequest(&animev1.ListWorksRequest{
+		Query: "alpha movie",
+	}))
+	if err != nil {
+		t.Fatalf("ListWorks: %v", err)
+	}
+	if resp.Msg.GetTotalSize() != 1 || resp.Msg.GetWorks()[0].GetId() != "aaa-movie" {
+		t.Fatalf("total = %d, works = %+v", resp.Msg.GetTotalSize(), resp.Msg.GetWorks())
+	}
+}

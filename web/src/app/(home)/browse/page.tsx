@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import { ConnectError } from '@connectrpc/connect';
 import { api, datasetYearSpan } from '@/lib/api';
 import { EntryKind, ReleaseSeason } from '@/lib/gen/anime/v1/anime_pb';
@@ -69,15 +70,35 @@ export default async function BrowsePage({ searchParams }: { searchParams: Promi
     span.earliest && span.latest
       ? Array.from({ length: span.latest - span.earliest + 1 }, (_, i) => span.latest - i)
       : [];
-  // A year outside what the dataset covers can only return nothing, so it is
-  // dropped rather than queried — this is also what keeps `year=0` from
-  // reaching the API as "no filter" and quietly returning everything.
-  const year = years.includes(Number(sp.year)) ? Number(sp.year) : 0;
+  // A year or quarter that is not real must be rejected, never ignored.
+  // Silently dropping it is the dangerous case: proto3 gives scalars no
+  // presence, so release_year: 0 reaches the API as "no year filter" and it
+  // answers with every release across every year — rendered under a heading
+  // claiming to be filtered. /seasons/0/winter did exactly that.
+  //
+  // Enforced only when the dataset's span is known; if the API is unreachable
+  // the span is 0/0 and a real year must not start 404ing.
+  const rawYear = sp.year ?? '';
+  if (rawYear !== '') {
+    const valid = years.length > 0 ? years.includes(Number(rawYear)) : Number(rawYear) > 0;
+    if (!valid) notFound();
+  }
+  if ((sp.quarter ?? '') !== '' && !QUARTERS.some((s) => s.value === sp.quarter)) notFound();
+
+  const year = rawYear === '' ? 0 : Number(rawYear);
 
   // Year and quarter only describe releases, so choosing either means the
   // reader is asking about releases whether or not they said so.
   const datedFilter = year > 0 || quarter !== undefined;
   const effective: Kind = datedFilter && kind === 'all' ? 'releases' : kind;
+
+  // ...but an explicit kind wins. Asking for characters in 2026 is not an
+  // invalid request, it is a request a year cannot narrow — so the query still
+  // runs and the page says the date was ignored, rather than returning nothing
+  // and blaming the data.
+  const dateApplies = effective === 'releases' || effective === 'all';
+  const datesIgnored = datedFilter && !dateApplies;
+
   const showShows = effective === 'all' || effective === 'shows';
   const showReleases = effective === 'all' || effective === 'releases';
   const showCharacters = effective === 'all' || effective === 'characters';
@@ -92,7 +113,7 @@ export default async function BrowsePage({ searchParams }: { searchParams: Promi
   let error: unknown = null;
   try {
     [shows, releases, characters, staff] = await Promise.all([
-      showShows && !datedFilter
+      showShows
         ? q
           ? api.search({ query: q, limit, pageToken: single ? token : '' })
           : api.listCatalog({ limit, pageToken: single ? token : '' })
@@ -106,8 +127,8 @@ export default async function BrowsePage({ searchParams }: { searchParams: Promi
             pageToken: single ? token : '',
           })
         : null,
-      showCharacters && !datedFilter ? api.listCharacters({ query: q, limit, pageToken: single ? token : '' }) : null,
-      showStaff && !datedFilter ? api.listStaff({ query: q, limit, pageToken: single ? token : '' }) : null,
+      showCharacters ? api.listCharacters({ query: q, limit, pageToken: single ? token : '' }) : null,
+      showStaff ? api.listStaff({ query: q, limit, pageToken: single ? token : '' }) : null,
     ]);
   } catch (err) {
     error = err;
@@ -207,7 +228,16 @@ export default async function BrowsePage({ searchParams }: { searchParams: Promi
         {KINDS.map((k) => (
           <Link
             key={k.value}
-            href={buildHref({ q, kind: k.value === 'all' ? '' : k.value, year: sp.year, quarter: sp.quarter })}
+            href={buildHref({
+              q,
+              kind: k.value === 'all' ? '' : k.value,
+              // Year and quarter mean nothing to characters or actors, so they
+              // are not carried onto those chips — otherwise clicking one
+              // silently applies a filter it cannot honour.
+              ...(k.value === 'all' || k.value === 'releases'
+                ? { year: sp.year, quarter: sp.quarter }
+                : {}),
+            })}
             className={chip(effective === k.value)}
           >
             {k.label}
@@ -219,6 +249,14 @@ export default async function BrowsePage({ searchParams }: { searchParams: Promi
           </Link>
         ) : null}
       </nav>
+
+      {datesIgnored ? (
+        <p className="mt-4 text-sm text-fd-muted-foreground">
+          Year and quarter describe releases, so they do not narrow{' '}
+          {effective === 'shows' ? 'shows' : effective === 'characters' ? 'characters' : 'voice actors'} —
+          they are ignored here.
+        </p>
+      ) : null}
 
       {error ? (
         <div className="mt-8">

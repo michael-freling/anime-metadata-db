@@ -168,3 +168,41 @@ test('no horizontal overflow on a phone', async ({ page }) => {
   );
   expect(overflows).toBe(false);
 });
+
+// Unifying the pages deleted the guard that caught this, and the bug came
+// straight back: proto3 gives scalars no presence, so release_year: 0 reaches
+// the API as "no year filter" and it answers with every release across every
+// year — under a heading claiming to be filtered. A bad year must be rejected,
+// never quietly dropped.
+test('a year the dataset does not cover is a 404, not an unfiltered list', async ({ page }) => {
+  expect((await page.goto('/browse?year=0&quarter=winter'))?.status()).toBe(404);
+  expect((await page.goto('/browse?year=abcd&quarter=winter'))?.status()).toBe(404);
+  expect((await page.goto('/browse?year=1850'))?.status()).toBe(404);
+  expect((await page.goto('/browse?year=3000'))?.status()).toBe(404);
+});
+
+test('an unknown quarter is a 404', async ({ page }) => {
+  expect((await page.goto('/browse?quarter=notaquarter'))?.status()).toBe(404);
+});
+
+// A year cannot narrow a character, but asking for one is not an error: the
+// query must still run rather than returning nothing and blaming the dataset.
+test('a kind that ignores the date filters still returns its results', async ({ page }) => {
+  await page.goto('/browse?kind=characters&year=2026&q=tanjir');
+
+  const body = page.locator('main');
+  await expect(body.getByRole('heading', { name: 'Characters' })).toBeVisible();
+  await expect(body.getByRole('link', { name: /Tanjir/ }).first()).toBeVisible();
+  await expect(body.getByText(/Nothing matches these filters/)).toHaveCount(0);
+  // And it says the date was ignored rather than leaving it to be inferred.
+  await expect(body.getByText(/do not narrow characters/)).toBeVisible();
+});
+
+test('a kind chip does not carry a filter it cannot honour', async ({ page }) => {
+  await page.goto('/browse?year=2026&quarter=winter');
+  await page.locator('main').getByRole('link', { name: 'Characters' }).first().click();
+
+  await expect(page).toHaveURL(/kind=characters/);
+  await expect(page).not.toHaveURL(/year=/);
+  await expect(page).not.toHaveURL(/quarter=/);
+});

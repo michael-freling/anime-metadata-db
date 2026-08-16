@@ -28,3 +28,15 @@ test('a seasonal chart URL keeps its year and quarter', async ({ page }) => {
   // And still shows the same set it used to.
   await expect(page.locator('main').getByText(/80 matches/)).toBeVisible();
 });
+
+// The old seasonal page rejected these outright. The redirect forwards them to
+// /browse, so /browse is what has to reject them — verified here so the
+// behaviour is pinned at the URL a reader would actually follow.
+test('a seasonal URL with a bad year still 404s after redirecting', async ({ page }) => {
+  expect((await page.goto('/seasons/0/winter'))?.status()).toBe(404);
+  expect((await page.goto('/seasons/abcd/winter'))?.status()).toBe(404);
+});
+
+test('a seasonal URL with an unknown quarter still 404s', async ({ page }) => {
+  expect((await page.goto('/seasons/2026/notaquarter'))?.status()).toBe(404);
+});
