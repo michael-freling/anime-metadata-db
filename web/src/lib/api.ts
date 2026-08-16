@@ -1,3 +1,4 @@
+import { cache } from 'react';
 import { createClient, type Client } from '@connectrpc/connect';
 import { createConnectTransport } from '@connectrpc/connect-web';
 import { AnimeService } from './gen/anime/v1/anime_pb';
@@ -17,3 +18,19 @@ export const api: Client<typeof AnimeService> = createClient(
   AnimeService,
   createConnectTransport({ baseUrl: apiBaseUrl }),
 );
+
+// The earliest release year the dataset covers, used as the floor below which a
+// year cannot be real data (see lib/format.ts). Wrapped in cache() so a page
+// that needs it alongside its own query still makes one call per request.
+//
+// A failure here must not take a page down: the floor is a display refinement,
+// and 0 simply disables the check, so the page still renders whatever years the
+// API gave it.
+export const earliestReleaseYear = cache(async (): Promise<number> => {
+  try {
+    const { stats } = await api.getHealth({});
+    return stats?.earliestReleaseYear ?? 0;
+  } catch {
+    return 0;
+  }
+});

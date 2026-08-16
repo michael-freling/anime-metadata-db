@@ -1903,15 +1903,22 @@ func (x *WorkSummary) GetExternalIds() *ExternalIds {
 }
 
 type DatasetStats struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Franchises    int32                  `protobuf:"varint,1,opt,name=franchises,proto3" json:"franchises,omitempty"`
-	Series        int32                  `protobuf:"varint,2,opt,name=series,proto3" json:"series,omitempty"`
-	Seasons       int32                  `protobuf:"varint,3,opt,name=seasons,proto3" json:"seasons,omitempty"`
-	Episodes      int32                  `protobuf:"varint,4,opt,name=episodes,proto3" json:"episodes,omitempty"`
-	Characters    int32                  `protobuf:"varint,5,opt,name=characters,proto3" json:"characters,omitempty"`
-	Staff         int32                  `protobuf:"varint,6,opt,name=staff,proto3" json:"staff,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state      protoimpl.MessageState `protogen:"open.v1"`
+	Franchises int32                  `protobuf:"varint,1,opt,name=franchises,proto3" json:"franchises,omitempty"`
+	Series     int32                  `protobuf:"varint,2,opt,name=series,proto3" json:"series,omitempty"`
+	Seasons    int32                  `protobuf:"varint,3,opt,name=seasons,proto3" json:"seasons,omitempty"`
+	Episodes   int32                  `protobuf:"varint,4,opt,name=episodes,proto3" json:"episodes,omitempty"`
+	Characters int32                  `protobuf:"varint,5,opt,name=characters,proto3" json:"characters,omitempty"`
+	Staff      int32                  `protobuf:"varint,6,opt,name=staff,proto3" json:"staff,omitempty"`
+	// The span of release years the dataset actually covers, across every work
+	// that carries a year. Both are 0 for an empty dataset. A consumer can use
+	// earliest_release_year as the floor below which a year cannot be real data —
+	// it is derived from the dataset, so it does not go stale as older works are
+	// added.
+	EarliestReleaseYear int32 `protobuf:"varint,7,opt,name=earliest_release_year,json=earliestReleaseYear,proto3" json:"earliest_release_year,omitempty"`
+	LatestReleaseYear   int32 `protobuf:"varint,8,opt,name=latest_release_year,json=latestReleaseYear,proto3" json:"latest_release_year,omitempty"`
+	unknownFields       protoimpl.UnknownFields
+	sizeCache           protoimpl.SizeCache
 }
 
 func (x *DatasetStats) Reset() {
@@ -1982,6 +1989,20 @@ func (x *DatasetStats) GetCharacters() int32 {
 func (x *DatasetStats) GetStaff() int32 {
 	if x != nil {
 		return x.Staff
+	}
+	return 0
+}
+
+func (x *DatasetStats) GetEarliestReleaseYear() int32 {
+	if x != nil {
+		return x.EarliestReleaseYear
+	}
+	return 0
+}
+
+func (x *DatasetStats) GetLatestReleaseYear() int32 {
+	if x != nil {
+		return x.LatestReleaseYear
 	}
 	return 0
 }
@@ -3342,7 +3363,7 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	" \x01(\x0e2\x17.anime.v1.ReleaseSeasonR\rreleaseSeason\x12/\n" +
 	"\x06format\x18\v \x01(\x0e2\x17.anime.v1.SpecialFormatR\x06format\x12#\n" +
 	"\repisode_count\x18\f \x01(\x05R\fepisodeCount\x128\n" +
-	"\fexternal_ids\x18\r \x01(\v2\x15.anime.v1.ExternalIdsR\vexternalIds\"\xb2\x01\n" +
+	"\fexternal_ids\x18\r \x01(\v2\x15.anime.v1.ExternalIdsR\vexternalIds\"\x96\x02\n" +
 	"\fDatasetStats\x12\x1e\n" +
 	"\n" +
 	"franchises\x18\x01 \x01(\x05R\n" +
@@ -3353,7 +3374,9 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\n" +
 	"characters\x18\x05 \x01(\x05R\n" +
 	"characters\x12\x14\n" +
-	"\x05staff\x18\x06 \x01(\x05R\x05staff\"\x17\n" +
+	"\x05staff\x18\x06 \x01(\x05R\x05staff\x122\n" +
+	"\x15earliest_release_year\x18\a \x01(\x05R\x13earliestReleaseYear\x12.\n" +
+	"\x13latest_release_year\x18\b \x01(\x05R\x11latestReleaseYear\"\x17\n" +
 	"\x15ListFranchisesRequest\"M\n" +
 	"\x16ListFranchisesResponse\x123\n" +
 	"\n" +

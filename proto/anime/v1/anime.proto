@@ -302,6 +302,13 @@ message DatasetStats {
   int32 episodes = 4;
   int32 characters = 5;
   int32 staff = 6;
+  // The span of release years the dataset actually covers, across every work
+  // that carries a year. Both are 0 for an empty dataset. A consumer can use
+  // earliest_release_year as the floor below which a year cannot be real data —
+  // it is derived from the dataset, so it does not go stale as older works are
+  // added.
+  int32 earliest_release_year = 7;
+  int32 latest_release_year = 8;
 }
 
 message ListFranchisesRequest {}

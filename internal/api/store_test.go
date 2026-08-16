@@ -171,7 +171,10 @@ func mustStore(t *testing.T) *Store {
 func TestNewStoreStats(t *testing.T) {
 	s := mustStore(t)
 	got := s.Stats()
-	want := Stats{Franchises: 1, Series: 3, Seasons: 5, Episodes: 3, Characters: 2, Staff: 2}
+	want := Stats{
+		Franchises: 1, Series: 3, Seasons: 5, Episodes: 3, Characters: 2, Staff: 2,
+		EarliestReleaseYear: 2006, LatestReleaseYear: 2010,
+	}
 	if got != want {
 		t.Errorf("Stats() = %+v, want %+v", got, want)
 	}

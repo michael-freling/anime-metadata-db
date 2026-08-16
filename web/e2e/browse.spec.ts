@@ -96,3 +96,25 @@ test('the catalogue has no horizontal overflow on a phone', async ({ page }) => 
   );
   expect(overflows).toBe(false);
 });
+
+// The catalogue renders year spans using a floor taken from the dataset itself
+// (DatasetStats.earliestReleaseYear), so a year below the dataset's coverage
+// cannot appear. This asserts the floor actually reaches the page rather than
+// silently defaulting to 0.
+test('year spans never start before the dataset covers anything', async ({ page }) => {
+  await page.goto('/browse');
+
+  const metas = await page.locator('main ul li a span').nth(1).evaluateAll((els) =>
+    els.map((el) => el.textContent ?? ''),
+  );
+
+  const years = metas
+    .flatMap((m) => m.match(/\b\d{4}\b/g) ?? [])
+    .map(Number);
+
+  expect(years.length).toBeGreaterThan(0);
+  // 2006 is the dataset's earliest release; nothing may render below it, and
+  // nothing may render a literal 0 from a missing year.
+  for (const y of years) expect(y).toBeGreaterThanOrEqual(2006);
+  expect(metas.some((m) => /(^|[^\d])0(\D|$)/.test(m.split('·')[0]))).toBe(false);
+});

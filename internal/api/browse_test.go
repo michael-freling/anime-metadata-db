@@ -55,6 +55,21 @@ func TestCatalogAggregates(t *testing.T) {
 	}
 }
 
+// The dataset's own year span, which the UI uses as the floor below which a
+// year cannot be real data. The fixture spans the 2006 season to the 2010
+// movie; the untitled zzz season carries no year and must not drag the floor
+// down to 0.
+func TestStatsReleaseYearSpan(t *testing.T) {
+	s := mustStore(t)
+	got := s.Stats()
+	if got.EarliestReleaseYear != 2006 {
+		t.Errorf("earliest = %d, want 2006", got.EarliestReleaseYear)
+	}
+	if got.LatestReleaseYear != 2010 {
+		t.Errorf("latest = %d, want 2010", got.LatestReleaseYear)
+	}
+}
+
 func TestCatalogKindFilter(t *testing.T) {
 	s := mustStore(t)
 	for _, tc := range []struct {

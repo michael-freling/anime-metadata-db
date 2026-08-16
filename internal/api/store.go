@@ -58,6 +58,12 @@ type Stats struct {
 	Episodes   int
 	Characters int
 	Staff      int
+
+	// The span of release years the dataset actually covers. Both are 0 when
+	// nothing in it carries a year. EarliestReleaseYear is the floor below which
+	// a year cannot be real data for this dataset.
+	EarliestReleaseYear int
+	LatestReleaseYear   int
 }
 
 // StaffCredit is one role a staff member is cast in: the character they voice,

@@ -87,6 +87,19 @@ func (s *Store) indexWorks() {
 		s.works = append(s.works, worksBySeries[e.ID]...)
 	}
 
+	// The dataset's own year span, over every work that carries one.
+	for _, w := range s.works {
+		if w.ReleaseYear == 0 {
+			continue
+		}
+		if s.stats.EarliestReleaseYear == 0 || w.ReleaseYear < s.stats.EarliestReleaseYear {
+			s.stats.EarliestReleaseYear = w.ReleaseYear
+		}
+		if w.ReleaseYear > s.stats.LatestReleaseYear {
+			s.stats.LatestReleaseYear = w.ReleaseYear
+		}
+	}
+
 	for i := range s.entries {
 		e := &s.entries[i]
 		ids := []string{e.ID}

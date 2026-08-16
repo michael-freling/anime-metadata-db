@@ -219,6 +219,9 @@ func (s *Service) GetHealth(_ context.Context, _ *connect.Request[animev1.GetHea
 			Episodes:   int32(st.Episodes),
 			Characters: int32(st.Characters),
 			Staff:      int32(st.Staff),
+
+			EarliestReleaseYear: int32(st.EarliestReleaseYear),
+			LatestReleaseYear:   int32(st.LatestReleaseYear),
 		},
 	}), nil
 }

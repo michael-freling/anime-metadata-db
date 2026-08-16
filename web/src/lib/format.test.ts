@@ -20,6 +20,35 @@ describe('yearsLabel', () => {
     expect(yearsLabel(2020, 0)).toBe('2020');
     expect(yearsLabel(0, 2020)).toBe('2020');
   });
+
+  // The floor is the earliest year the dataset actually covers. A year below it
+  // cannot be real data for this dataset, so it must not be rendered.
+  describe('with a dataset floor', () => {
+    const FLOOR = 2006;
+
+    it('renders years at or above the floor', () => {
+      expect(yearsLabel(2006, 2026, FLOOR)).toBe('2006–2026');
+      expect(yearsLabel(2006, 2006, FLOOR)).toBe('2006');
+    });
+
+    it('drops a start below the floor rather than showing it', () => {
+      expect(yearsLabel(1900, 2026, FLOOR)).toBe('2026');
+      expect(yearsLabel(0, 2026, FLOOR)).toBe('2026');
+    });
+
+    it('drops an end below the floor', () => {
+      expect(yearsLabel(2020, 1200, FLOOR)).toBe('2020');
+    });
+
+    it('renders a dash when neither year clears the floor', () => {
+      expect(yearsLabel(12, 1900, FLOOR)).toBe('—');
+    });
+
+    // Omitting the floor must not start hiding real years.
+    it('defaults to no floor', () => {
+      expect(yearsLabel(1917, 1918)).toBe('1917–1918');
+    });
+  });
 });
 
 describe('plural', () => {
