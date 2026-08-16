@@ -3112,7 +3112,12 @@ type ListWorksRequest struct {
 	// kind restricts to seasons, movies or specials.
 	Kind WorkKind `protobuf:"varint,5,opt,name=kind,proto3,enum=anime.v1.WorkKind" json:"kind,omitempty"`
 	// series_id restricts to the works under one series.
-	SeriesId      string `protobuf:"bytes,6,opt,name=series_id,json=seriesId,proto3" json:"series_id,omitempty"`
+	SeriesId string `protobuf:"bytes,6,opt,name=series_id,json=seriesId,proto3" json:"series_id,omitempty"`
+	// query matches the work's own title or its series' title, in any language,
+	// case-insensitively, as a substring. Empty matches everything. Without this
+	// a unified browse page could not offer one search box across every result
+	// type, since releases would be the only kind that could not be searched.
+	Query         string `protobuf:"bytes,7,opt,name=query,proto3" json:"query,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3185,6 +3190,13 @@ func (x *ListWorksRequest) GetKind() WorkKind {
 func (x *ListWorksRequest) GetSeriesId() string {
 	if x != nil {
 		return x.SeriesId
+	}
+	return ""
+}
+
+func (x *ListWorksRequest) GetQuery() string {
+	if x != nil {
+		return x.Query
 	}
 	return ""
 }
@@ -3486,7 +3498,7 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\aentries\x18\x01 \x03(\v2\x16.anime.v1.CatalogEntryR\aentries\x12&\n" +
 	"\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n" +
 	"\n" +
-	"total_size\x18\x03 \x01(\x05R\ttotalSize\"\xef\x01\n" +
+	"total_size\x18\x03 \x01(\x05R\ttotalSize\"\x85\x02\n" +
 	"\x10ListWorksRequest\x12\x1d\n" +
 	"\n" +
 	"page_token\x18\x01 \x01(\tR\tpageToken\x12\x14\n" +
@@ -3494,7 +3506,8 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\frelease_year\x18\x03 \x01(\x05R\vreleaseYear\x12>\n" +
 	"\x0erelease_season\x18\x04 \x01(\x0e2\x17.anime.v1.ReleaseSeasonR\rreleaseSeason\x12&\n" +
 	"\x04kind\x18\x05 \x01(\x0e2\x12.anime.v1.WorkKindR\x04kind\x12\x1b\n" +
-	"\tseries_id\x18\x06 \x01(\tR\bseriesId\"\x87\x01\n" +
+	"\tseries_id\x18\x06 \x01(\tR\bseriesId\x12\x14\n" +
+	"\x05query\x18\a \x01(\tR\x05query\"\x87\x01\n" +
 	"\x11ListWorksResponse\x12+\n" +
 	"\x05works\x18\x01 \x03(\v2\x15.anime.v1.WorkSummaryR\x05works\x12&\n" +
 	"\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n" +

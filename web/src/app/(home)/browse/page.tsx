@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ConnectError } from '@connectrpc/connect';
-import { api, earliestReleaseYear } from '@/lib/api';
-import { EntryKind } from '@/lib/gen/anime/v1/anime_pb';
+import { api, datasetYearSpan } from '@/lib/api';
+import { EntryKind, ReleaseSeason } from '@/lib/gen/anime/v1/anime_pb';
 import {
   ApiError,
   Card,
@@ -15,80 +15,359 @@ import {
 } from '@/components/browse';
 
 export const metadata: Metadata = {
-  title: 'Browse the catalogue',
-  description: 'Every franchise and series in the dataset, with its release span and episode count.',
+  title: 'Browse',
+  description:
+    'Browse and search the dataset: shows, individual releases by year and quarter, characters and voice actors.',
 };
 
-export default async function BrowsePage({
-  searchParams,
-}: {
-  searchParams: Promise<{ token?: string }>;
-}) {
-  const { token = '' } = await searchParams;
+const LIMIT = 24;
 
-  let page;
-  let floor = 0;
+// One page for every way into the dataset. Separate Browse, Seasons and Search
+// pages meant three routes over the same records, none of which could answer a
+// question that crossed them — "Winter 2026, something with this actor" needed
+// two pages and a manual cross-reference.
+//
+// Everything is a filter over one result set, and every filter lives in the
+// URL, so any view is linkable and the back button behaves.
+const KINDS = [
+  { value: 'all', label: 'Everything' },
+  { value: 'shows', label: 'Shows' },
+  { value: 'releases', label: 'Releases' },
+  { value: 'characters', label: 'Characters' },
+  { value: 'staff', label: 'Voice actors' },
+] as const;
+
+type Kind = (typeof KINDS)[number]['value'];
+
+const QUARTERS = [
+  { value: 'winter', label: 'Winter', enum: ReleaseSeason.WINTER },
+  { value: 'spring', label: 'Spring', enum: ReleaseSeason.SPRING },
+  { value: 'summer', label: 'Summer', enum: ReleaseSeason.SUMMER },
+  { value: 'fall', label: 'Fall', enum: ReleaseSeason.FALL },
+] as const;
+
+type Params = { q?: string; kind?: string; year?: string; quarter?: string; token?: string };
+
+function buildHref(params: Params) {
+  const search = new URLSearchParams();
+  for (const [k, v] of Object.entries(params)) {
+    if (v) search.set(k, v);
+  }
+  const qs = search.toString();
+  return qs ? `/browse?${qs}` : '/browse';
+}
+
+export default async function BrowsePage({ searchParams }: { searchParams: Promise<Params> }) {
+  const sp = await searchParams;
+  const q = (sp.q ?? '').trim();
+  const kind: Kind = (KINDS.find((k) => k.value === sp.kind)?.value ?? 'all') as Kind;
+  const quarter = QUARTERS.find((s) => s.value === sp.quarter);
+  const token = sp.token ?? '';
+
+  const span = await datasetYearSpan().catch(() => ({ earliest: 0, latest: 0 }));
+  const years =
+    span.earliest && span.latest
+      ? Array.from({ length: span.latest - span.earliest + 1 }, (_, i) => span.latest - i)
+      : [];
+  // A year outside what the dataset covers can only return nothing, so it is
+  // dropped rather than queried — this is also what keeps `year=0` from
+  // reaching the API as "no filter" and quietly returning everything.
+  const year = years.includes(Number(sp.year)) ? Number(sp.year) : 0;
+
+  // Year and quarter only describe releases, so choosing either means the
+  // reader is asking about releases whether or not they said so.
+  const datedFilter = year > 0 || quarter !== undefined;
+  const effective: Kind = datedFilter && kind === 'all' ? 'releases' : kind;
+  const showShows = effective === 'all' || effective === 'shows';
+  const showReleases = effective === 'all' || effective === 'releases';
+  const showCharacters = effective === 'all' || effective === 'characters';
+  const showStaff = effective === 'all' || effective === 'staff';
+
+  // Only the single-kind views paginate: a mixed view has several result sets
+  // and one cursor cannot describe them all.
+  const single = effective !== 'all';
+  const limit = single ? LIMIT : 12;
+
+  let shows, releases, characters, staff;
+  let error: unknown = null;
   try {
-    // The floor comes from the dataset itself, so it never goes stale as older
-    // works are added.
-    [page, floor] = await Promise.all([
-      api.listCatalog({ pageToken: token, limit: 24 }),
-      earliestReleaseYear(),
+    [shows, releases, characters, staff] = await Promise.all([
+      showShows && !datedFilter
+        ? q
+          ? api.search({ query: q, limit, pageToken: single ? token : '' })
+          : api.listCatalog({ limit, pageToken: single ? token : '' })
+        : null,
+      showReleases
+        ? api.listWorks({
+            query: q,
+            releaseYear: year,
+            releaseSeason: quarter?.enum ?? ReleaseSeason.UNSPECIFIED,
+            limit,
+            pageToken: single ? token : '',
+          })
+        : null,
+      showCharacters && !datedFilter ? api.listCharacters({ query: q, limit, pageToken: single ? token : '' }) : null,
+      showStaff && !datedFilter ? api.listStaff({ query: q, limit, pageToken: single ? token : '' }) : null,
     ]);
   } catch (err) {
-    return (
-      <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-12">
-        <PageHeader title="Browse the catalogue" />
-        <ApiError
-          detail={err instanceof ConnectError ? err.message : String(err)}
-          badRequest={isBadRequest(err)}
-        />
-      </main>
-    );
+    error = err;
   }
+
+  // Search and the catalogue return different messages for the same idea, so
+  // they are normalised here rather than branched over at render time.
+  type ShowItem = {
+    id: string;
+    title: string;
+    kind: EntryKind;
+    works?: number;
+    episodes?: number;
+    firstReleaseYear?: number;
+    latestReleaseYear?: number;
+  };
+  const showItems: ShowItem[] = !shows
+    ? []
+    : 'results' in shows
+      ? shows.results.map((r) => ({ id: r.id, title: r.title, kind: r.kind }))
+      : shows.entries.map((e) => ({
+          id: e.id,
+          title: e.title,
+          kind: e.kind,
+          works: e.works,
+          episodes: e.episodes,
+          firstReleaseYear: e.firstReleaseYear,
+          latestReleaseYear: e.latestReleaseYear,
+        }));
+
+  const totals =
+    (shows?.totalSize ?? 0) +
+    (releases?.totalSize ?? 0) +
+    (characters?.totalSize ?? 0) +
+    (staff?.totalSize ?? 0);
+
+  const chip = (active: boolean) =>
+    `rounded-full border px-3 py-1.5 text-sm transition-colors ${
+      active
+        ? 'border-fd-primary bg-fd-primary text-fd-primary-foreground'
+        : 'border-fd-border hover:bg-fd-accent'
+    }`;
 
   return (
     <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-12">
       <PageHeader
-        title="Browse the catalogue"
-        subtitle={
-          <>
-            Every franchise and standalone series in the dataset. A franchise groups several
-            storylines; a series is one continuity. Looking for a character or voice actor?{' '}
-            <Link href="/search" className="underline">
-              Search
-            </Link>
-            .
-          </>
-        }
+        title="Browse"
+        subtitle="Everything in the dataset — shows, individual releases, characters and the voice actors who play them. Narrow with the filters; every view is a link you can share."
       />
 
-      <Grid>
-        {page.entries.map((entry) => (
-          <Card
-            key={entry.id}
-            href={`/browse/${entry.id}`}
-            title={entry.title || entry.id}
-            badge={entry.kind === EntryKind.FRANCHISE ? 'Franchise' : undefined}
-            meta={
-              [
-                yearsLabel(entry.firstReleaseYear, entry.latestReleaseYear, floor),
-                plural(entry.works, 'work'),
-                entry.episodes > 0 ? plural(entry.episodes, 'episode') : null,
-              ]
-                .filter(Boolean)
-                .join(' · ')
-            }
-          />
+      <form action="/browse" method="get" className="flex flex-wrap gap-2">
+        <input
+          type="search"
+          name="q"
+          defaultValue={q}
+          placeholder="Tanjirō, Demon Slayer, Natsuki Hanae…"
+          aria-label="Search the dataset"
+          className="min-w-[16rem] flex-1 rounded-lg border border-fd-border bg-fd-card px-4 py-2.5 text-sm outline-none focus-visible:ring-2 focus-visible:ring-fd-primary"
+        />
+        <select
+          name="year"
+          defaultValue={year || ''}
+          aria-label="Release year"
+          className="rounded-lg border border-fd-border bg-fd-card px-3 py-2.5 text-sm"
+        >
+          <option value="">Any year</option>
+          {years.map((y) => (
+            <option key={y} value={y}>
+              {y}
+            </option>
+          ))}
+        </select>
+        <select
+          name="quarter"
+          defaultValue={quarter?.value ?? ''}
+          aria-label="Release quarter"
+          className="rounded-lg border border-fd-border bg-fd-card px-3 py-2.5 text-sm"
+        >
+          <option value="">Any quarter</option>
+          {QUARTERS.map((s) => (
+            <option key={s.value} value={s.value}>
+              {s.label}
+            </option>
+          ))}
+        </select>
+        {/* Carried through the form so changing the query keeps the chosen kind. */}
+        <input type="hidden" name="kind" value={kind} />
+        <button
+          type="submit"
+          className="rounded-lg bg-fd-primary px-5 py-2.5 text-sm font-medium text-fd-primary-foreground transition-opacity hover:opacity-90"
+        >
+          Apply
+        </button>
+      </form>
+
+      <nav aria-label="Result type" className="mt-4 flex flex-wrap gap-2">
+        {KINDS.map((k) => (
+          <Link
+            key={k.value}
+            href={buildHref({ q, kind: k.value === 'all' ? '' : k.value, year: sp.year, quarter: sp.quarter })}
+            className={chip(effective === k.value)}
+          >
+            {k.label}
+          </Link>
         ))}
-      </Grid>
+        {q || year || quarter ? (
+          <Link href="/browse" className="rounded-full px-3 py-1.5 text-sm text-fd-muted-foreground underline">
+            Clear
+          </Link>
+        ) : null}
+      </nav>
 
-      <Pager
-        basePath="/browse"
-        nextToken={page.nextPageToken}
-        shown={page.entries.length}
-        total={page.totalSize}
-      />
+      {error ? (
+        <div className="mt-8">
+          <ApiError
+            detail={error instanceof ConnectError ? error.message : String(error)}
+            badRequest={isBadRequest(error)}
+          />
+        </div>
+      ) : null}
+
+      {!error && totals === 0 ? (
+        <p className="mt-8 rounded-xl border border-fd-border bg-fd-card p-6 text-fd-muted-foreground">
+          Nothing matches these filters. Character and voice-actor names come from Wikidata, so
+          anything the dataset has no name for cannot be found by name yet.
+        </p>
+      ) : null}
+
+      {shows && shows.totalSize > 0 ? (
+        <Section title="Shows" total={shows.totalSize} single={single}>
+          <Grid>
+            {showItems.map((e) => (
+              <Card
+                key={e.id}
+                href={`/browse/${e.id}`}
+                title={e.title || e.id}
+                badge={e.kind === EntryKind.FRANCHISE ? 'Franchise' : undefined}
+                meta={
+                  e.works === undefined
+                    ? undefined
+                    : [
+                        yearsLabel(e.firstReleaseYear ?? 0, e.latestReleaseYear ?? 0, span.earliest),
+                        plural(e.works, 'work'),
+                        (e.episodes ?? 0) > 0 ? plural(e.episodes ?? 0, 'episode') : null,
+                      ]
+                        .filter(Boolean)
+                        .join(' · ')
+                }
+              />
+            ))}
+          </Grid>
+        </Section>
+      ) : null}
+
+      {releases && releases.totalSize > 0 ? (
+        <Section title="Releases" total={releases.totalSize} single={single}>
+          <Grid>
+            {releases.works.map((w) => (
+              <Card
+                key={w.id}
+                href={`/browse/${w.seriesId}`}
+                title={w.seriesTitle || w.title || w.id}
+                meta={[
+                  w.number > 0 ? `Season ${w.number}` : w.title,
+                  w.releaseYear > 0 ? w.releaseYear : null,
+                  w.episodeCount > 0 ? plural(w.episodeCount, 'episode') : null,
+                ]
+                  .filter(Boolean)
+                  .join(' · ')}
+              />
+            ))}
+          </Grid>
+        </Section>
+      ) : null}
+
+      {characters && characters.totalSize > 0 ? (
+        <Section title="Characters" total={characters.totalSize} single={single}>
+          <Grid>
+            {characters.characters.map((c) => (
+              <Card
+                key={c.id}
+                href={`/characters/${c.id}`}
+                title={c.name || c.id}
+                meta={
+                  c.voiceActors.length
+                    ? `Voiced by ${c.voiceActors.map((v) => v.staffName || v.staffId).join(', ')}`
+                    : plural(c.appearances.length, 'appearance')
+                }
+              />
+            ))}
+          </Grid>
+        </Section>
+      ) : null}
+
+      {staff && staff.totalSize > 0 ? (
+        <Section title="Voice actors" total={staff.totalSize} single={single}>
+          <Grid>
+            {staff.staff.map((s) => (
+              <Card key={s.id} href={`/staff/${s.id}`} title={s.name || s.id} />
+            ))}
+          </Grid>
+        </Section>
+      ) : null}
+
+      {single ? (
+        <Pager
+          basePath="/browse"
+          nextToken={
+            shows?.nextPageToken ||
+            releases?.nextPageToken ||
+            characters?.nextPageToken ||
+            staff?.nextPageToken ||
+            ''
+          }
+          shown={
+            showItems.length +
+            (releases?.works.length ?? 0) +
+            (characters?.characters.length ?? 0) +
+            (staff?.staff.length ?? 0)
+          }
+          total={totals}
+          query={{
+            ...(q ? { q } : {}),
+            ...(kind !== 'all' ? { kind } : {}),
+            ...(sp.year ? { year: sp.year } : {}),
+            ...(sp.quarter ? { quarter: sp.quarter } : {}),
+          }}
+        />
+      ) : null}
     </main>
+  );
+}
+
+function Section({
+  title,
+  total,
+  single,
+  children,
+}: {
+  title: string;
+  total: number;
+  single: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <section className="mt-10">
+      <div className="mb-3 flex items-baseline justify-between gap-4 border-b border-fd-border pb-2">
+        <h2 className="text-lg font-semibold">{title}</h2>
+        <span className="text-sm text-fd-muted-foreground">
+          {plural(total, 'match', 'matches')}
+        </span>
+      </div>
+      {children}
+      {/* A mixed view shows the first few of each; the type chips are how you
+          get the rest, since one cursor cannot page four result sets. */}
+      {!single && total > 12 ? (
+        <p className="mt-3 text-sm text-fd-muted-foreground">
+          Showing the first 12 — pick <strong>{title}</strong> above to page through them all.
+        </p>
+      ) : null}
+    </section>
   );
 }

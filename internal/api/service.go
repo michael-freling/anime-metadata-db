@@ -122,6 +122,7 @@ func (s *Service) ListWorks(_ context.Context, req *connect.Request[animev1.List
 		ReleaseSeason: fromReleaseSeason(req.Msg.GetReleaseSeason()),
 		Kind:          fromWorkKind(req.Msg.GetKind()),
 		SeriesID:      seriesID,
+		Query:         req.Msg.GetQuery(),
 	}
 	page, err := s.store.Works(filter, req.Msg.GetPageToken(), int(req.Msg.GetLimit()))
 	if err != nil {

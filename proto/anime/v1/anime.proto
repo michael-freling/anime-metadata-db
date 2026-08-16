@@ -467,6 +467,11 @@ message ListWorksRequest {
   WorkKind kind = 5;
   // series_id restricts to the works under one series.
   string series_id = 6;
+  // query matches the work's own title or its series' title, in any language,
+  // case-insensitively, as a substring. Empty matches everything. Without this
+  // a unified browse page could not offer one search box across every result
+  // type, since releases would be the only kind that could not be searched.
+  string query = 7;
 }
 
 message ListWorksResponse {

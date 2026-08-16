@@ -47,6 +47,10 @@ type WorkFilter struct {
 	ReleaseSeason model.ReleaseSeason
 	Kind          *WorkKind
 	SeriesID      string
+	// Query matches the work's own title or its series' title. A work often has
+	// no title of its own — an untitled season is just "Season 2" — so matching
+	// the series too is what makes searching releases useful.
+	Query string
 }
 
 // matches reports whether w satisfies every set field of f.
@@ -60,6 +64,9 @@ func (f WorkFilter) matches(w Work) bool {
 		return false
 	case f.SeriesID != "" && w.SeriesID != f.SeriesID:
 		return false
+	}
+	if q := normalizeQuery(f.Query); q != "" {
+		return titleMatches(w.Titles, q) || titleMatches(w.SeriesTitles, q)
 	}
 	return true
 }

@@ -8,9 +8,8 @@ export function baseOptions(): BaseLayoutProps {
       title: appName,
     },
     links: [
-      { text: 'Search', url: '/search' },
+      // One entry, because there is one place to look things up.
       { text: 'Browse', url: '/browse' },
-      { text: 'Seasons', url: '/seasons' },
       { text: 'Docs', url: '/docs' },
     ],
     githubUrl: `https://github.com/${gitConfig.user}/${gitConfig.repo}`,
