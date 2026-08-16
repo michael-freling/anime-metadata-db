@@ -1,0 +1,52 @@
+---
+title: Contributing to the docs
+---
+
+This site is a [Next.js](https://nextjs.org) app using
+[Fumadocs](https://fumadocs.dev), living under `web/` in the repository. This
+page is internal (part of the local-only **Development** section) and is not
+published to the live site.
+
+## Running locally
+
+From `web/`:
+
+```bash
+npm install
+npm run dev
+```
+
+This starts the dev server at [http://localhost:3000](http://localhost:3000).
+The dev server renders the Development section (this page, the proposals);
+production builds leave it out.
+
+## Adding a public page
+
+Create an MDX file under `web/content/docs/`:
+
+```mdx
+---
+title: My Page
+description: One line, shown in search results and on cards.
+---
+
+Your content here.
+```
+
+Ordering is not a per-page field: list the page's file name in the `pages` array
+of the `meta.json` beside it. A page missing from `pages` still renders, but its
+position in the sidebar is not pinned.
+
+## Adding an internal page
+
+Put it anywhere under `web/content/docs/development/`. `web/src/lib/source.ts`
+drops that whole subtree from any non-development build, so it renders under
+`npm run dev` and never reaches the deployed site. No per-page front matter is
+needed — the rule is the path, so a new page under `development/` is internal
+automatically.
+
+## Publishing
+
+Vercel builds and deploys `web/` on every push to `main`; you don't publish by
+hand. `npm run build` locally runs the same production build, which is the way
+to check that the Development section really is excluded.

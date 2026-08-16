@@ -31,6 +31,14 @@ type CatalogEntry struct {
 	ID          string
 	Titles      model.Title
 	FranchiseID string
+
+	// Aggregates over everything beneath the entry, computed once at load by
+	// indexWorks so listing the catalog never walks the hierarchy. The year
+	// span is 0/0 when nothing beneath it carries a release year.
+	FirstReleaseYear  int
+	LatestReleaseYear int
+	Works             int
+	Episodes          int
 }
 
 // EntryKind classifies a catalog entry.
@@ -50,6 +58,12 @@ type Stats struct {
 	Episodes   int
 	Characters int
 	Staff      int
+
+	// The span of release years the dataset actually covers. Both are 0 when
+	// nothing in it carries a year. EarliestReleaseYear is the floor below which
+	// a year cannot be real data for this dataset.
+	EarliestReleaseYear int
+	LatestReleaseYear   int
 }
 
 // StaffCredit is one role a staff member is cast in: the character they voice,
@@ -77,6 +91,11 @@ type Store struct {
 	staff              []*model.Staff
 	staffByID          map[string]*model.Staff
 	creditsByStaff     map[string][]StaffCredit
+
+	// works is every release flattened out of the hierarchy, in catalog order,
+	// so browsing by year or quarter scans one slice instead of walking every
+	// record. Built by indexWorks at load.
+	works []Work
 }
 
 // The dataset subtrees the store reads.
@@ -118,6 +137,7 @@ func NewStore(fsys fs.FS) (*Store, error) {
 		return nil, err
 	}
 	s.indexCredits()
+	s.indexWorks()
 	return s, nil
 }
 
@@ -335,37 +355,27 @@ func (s *Store) Character(id string) (*model.Character, bool) {
 // Characters returns the cast of seriesID, or the whole cast when seriesID is
 // empty, in deterministic dataset order. limit caps the count; a non-positive
 // limit applies defaultListLimit.
+//
+// It shares charactersFor with CharactersPage so a series' embedded cast and
+// the cast returned by ListCharacters cannot drift apart.
 func (s *Store) Characters(seriesID string, limit int) []*model.Character {
-	all := s.characters
-	if seriesID != "" {
-		all = s.charactersBySeries[seriesID]
+	return capSlice(s.charactersFor(seriesID), limit)
+}
+
+// charactersFor is the one definition of "the cast of a series": the whole cast
+// when seriesID is empty, otherwise that series' cast (empty for an unknown id;
+// the service layer is what turns a typo into NotFound).
+func (s *Store) charactersFor(seriesID string) []*model.Character {
+	if seriesID == "" {
+		return s.characters
 	}
-	return capSlice(all, limit)
+	return s.charactersBySeries[seriesID]
 }
 
 // Staff returns the staff member with the given id, or false if none exists.
 func (s *Store) Staff(id string) (*model.Staff, bool) {
 	st, ok := s.staffByID[id]
 	return st, ok
-}
-
-// StaffList returns every staff member, or only those credited in language when
-// it is non-empty, in deterministic dataset order. limit caps the count; a
-// non-positive limit applies defaultListLimit.
-func (s *Store) StaffList(language string, limit int) []*model.Staff {
-	if language == "" {
-		return capSlice(s.staff, limit)
-	}
-	var out []*model.Staff
-	for _, st := range s.staff {
-		for _, credit := range s.creditsByStaff[st.ID] {
-			if credit.Language == language {
-				out = append(out, st)
-				break
-			}
-		}
-	}
-	return capSlice(out, limit)
 }
 
 // StaffCredits returns every character the staff member is cast as, in
@@ -387,31 +397,7 @@ func capSlice[T any](in []T, limit int) []T {
 // defaultListLimit caps list results when the caller passes no limit.
 const defaultListLimit = 100
 
-// Search returns catalog entries whose original or translated title contains
-// query (case-insensitive). A blank query matches nothing. limit caps the
-// result count; a non-positive limit applies defaultSearchLimit. Results keep
-// the deterministic catalog order.
-func (s *Store) Search(query string, limit int) []CatalogEntry {
-	q := strings.TrimSpace(strings.ToLower(query))
-	if q == "" {
-		return nil
-	}
-	if limit <= 0 {
-		limit = defaultSearchLimit
-	}
-	var out []CatalogEntry
-	for _, e := range s.entries {
-		if titleMatches(e.Titles, q) {
-			out = append(out, e)
-			if len(out) == limit {
-				break
-			}
-		}
-	}
-	return out
-}
-
-// defaultSearchLimit caps Search results when the caller passes no limit.
+// defaultSearchLimit caps search results when the caller passes no limit.
 const defaultSearchLimit = 50
 
 // titleMatches reports whether any form of t contains the lowercased needle.

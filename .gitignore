@@ -48,11 +48,15 @@ docs/.hugo/
 
 # Screenshot tooling + output for the verify-docs-layout skill
 docs/.screenshots/
+web/.screenshots/
 coverage.out
 .vercel
 .env*
 
-# Local Vercel CLI, installed as a dev tool (not part of the Go build/deploy)
-node_modules/
-package.json
-package-lock.json
+# Local Vercel CLI, installed as a dev tool (not part of the Go build/deploy).
+# Anchored to the repository root: the web app under web/ is a real Next.js
+# project whose manifest and lockfile MUST be committed, and unanchored patterns
+# would swallow them.
+/node_modules/
+/package.json
+/package-lock.json

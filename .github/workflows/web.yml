@@ -1,0 +1,181 @@
+name: Web
+
+# Builds, lints and type-checks the documentation site under web/. Vercel
+# deploys that app, but a Vercel build failure is only visible after a push, so
+# this gates it on every PR the same way go.yml gates the Go code.
+# The e2e job drives the UI against the real Go API, so a change to the schema
+# or the server can break these tests without web/ being touched at all. The
+# filter covers both sides for that reason.
+# Listed twice rather than shared with a YAML anchor: GitHub Actions does not
+# support anchors in workflow files.
+on:
+  pull_request:
+    paths:
+      - "web/**"
+      - "proto/**"
+      - "internal/api/**"
+      - "cmd/api/**"
+      - "data/**"
+      - ".github/workflows/web.yml"
+  push:
+    branches: [main]
+    paths:
+      - "web/**"
+      - "proto/**"
+      - "internal/api/**"
+      - "cmd/api/**"
+      - "data/**"
+      - ".github/workflows/web.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    working-directory: web
+
+jobs:
+  build:
+    name: Build web app
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type-check
+        run: npm run types:check
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      # The development/ tree is internal and must never be reachable on the
+      # deployed site. web/src/lib/source.ts filters it out, but that is one
+      # line away from silently regressing and the failure mode is publishing
+      # unreleased design documents — so assert the property itself, against a
+      # real production server, rather than trusting the code to be correct.
+      #
+      # The internal MDX IS compiled into the bundle (see the comment in
+      # source.ts explaining why that cannot be avoided), so grepping the build
+      # output would fail by design. Reachability is what matters, so that is
+      # what is checked.
+      - name: Assert internal docs are unreachable in production
+        run: |
+          set -euo pipefail
+
+          if grep -q '"/docs/development' .next/prerender-manifest.json; then
+            echo "::error::internal development/ routes were prerendered"
+            exit 1
+          fi
+
+          npx next start -p 3000 &
+          for _ in $(seq 1 60); do
+            curl -sf -o /dev/null http://localhost:3000/ && break
+            sleep 1
+          done
+
+          fail=0
+          check() {
+            code=$(curl -s -o /dev/null -w '%{http_code}' "http://localhost:3000$1")
+            if [ "$code" != "$2" ]; then
+              echo "::error::$1 returned $code, expected $2"
+              fail=1
+            fi
+          }
+          # Internal: must 404 on every representation the site serves.
+          check /docs/development 404
+          check /docs/development/contributing-to-docs 404
+          check /docs/development/proposals/2026-06-19-init/build-cli-design 404
+          check /docs/development/proposals/2026-06-19-init/build-cli-design.md 404
+          check /llms.mdx/docs/development/contributing-to-docs/content.md 404
+          check /og/docs/development/contributing-to-docs/image.png 404
+          # Public: must still work, so the gate cannot pass by 404ing everything.
+          check /docs/using-the-api 200
+          check /docs/using-the-api.md 200
+
+          # The top-level meta.json still lists "development" in its pages
+          # array while every file under that path is filtered out, so assert
+          # the rendered sidebar carries no orphaned node — the route checks
+          # above would not notice a dead nav entry.
+          if curl -s http://localhost:3000/docs/using-the-api | grep -q 'Development'; then
+            echo "::error::the production sidebar contains a Development entry"
+            fail=1
+          fi
+
+          for probe in llms.txt llms-full.txt sitemap.xml; do
+            if curl -s "http://localhost:3000/$probe" | grep -qi 'development\|Build CLI Design'; then
+              echo "::error::/$probe leaks internal content"
+              fail=1
+            fi
+          done
+
+          if curl -s 'http://localhost:3000/api/search?query=proposals' | grep -qi 'development'; then
+            echo "::error::search index leaks internal content"
+            fail=1
+          fi
+
+          exit $fail
+
+  e2e:
+    name: End-to-end (real API, real dataset)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # The browse pages render from the dataset API, so an end-to-end run needs
+      # the real Go server holding the real committed data. Playwright boots it
+      # (see web/playwright.config.ts) along with two instances of the app: one
+      # pointed at the API, one pointed at a closed port so the API-down path is
+      # exercised against an actual failure rather than a mock.
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: web
+
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+        working-directory: web
+
+      - name: Build
+        run: npm run build
+        working-directory: web
+
+      - name: Run end-to-end tests
+        run: npm run e2e
+        working-directory: web
+
+      - name: Upload the report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: web/playwright-report/
+          retention-days: 7

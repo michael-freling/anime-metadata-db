@@ -54,6 +54,15 @@ enum SpecialFormat {
   SPECIAL_FORMAT_SPECIAL = 3;
 }
 
+// WorkKind distinguishes the three node types that map to a real release. A
+// Franchise or Series is our grouping, not a release, so neither is a work.
+enum WorkKind {
+  WORK_KIND_UNSPECIFIED = 0;
+  WORK_KIND_SEASON = 1;
+  WORK_KIND_MOVIE = 2;
+  WORK_KIND_SPECIAL = 3;
+}
+
 // EntryKind distinguishes a top-level catalog entry's type in search results.
 enum EntryKind {
   ENTRY_KIND_UNSPECIFIED = 0;
@@ -235,6 +244,57 @@ message SearchResult {
 }
 
 // DatasetStats summarizes the loaded dataset.
+// CatalogEntry is one browsable top-level entry — a franchise or a standalone
+// series — carrying just enough to render a catalog row. Unlike GetFranchise
+// and GetSeries it does NOT nest seasons, movies, specials or episodes, so a
+// page of entries stays small no matter how large the catalog grows.
+message CatalogEntry {
+  EntryKind kind = 1;
+  string id = 2;
+  // title is resolved for the request's Accept-Language.
+  string title = 3;
+  // localized_title carries every language; set only for Accept-Language: *.
+  LocalizedTitle localized_title = 4;
+  // franchise_id is set when kind is SERIES and the series belongs to a
+  // franchise; empty for a standalone series or a franchise entry.
+  string franchise_id = 5;
+  // The span of release years across everything under this entry. Both are 0
+  // when nothing under it carries a year.
+  int32 first_release_year = 6;
+  int32 latest_release_year = 7;
+  // Counts of what sits under this entry: works is seasons + movies + specials.
+  int32 works = 8;
+  int32 episodes = 9;
+}
+
+// WorkSummary is one release — a season, movie or special — flattened out of
+// the hierarchy with enough of its parent to render it standalone. This is the
+// unit a seasonal chart lists, which the nested Franchise/Series records cannot
+// serve without the client walking the whole tree.
+message WorkSummary {
+  WorkKind kind = 1;
+  string id = 2;
+  // title is resolved for the request's Accept-Language.
+  string title = 3;
+  // localized_title carries every language; set only for Accept-Language: *.
+  LocalizedTitle localized_title = 4;
+  // The series this work belongs to, and that series' resolved title, so a row
+  // can name its show without a second call.
+  string series_id = 5;
+  string series_title = 6;
+  // number is the season number; set only when kind is SEASON.
+  int32 number = 7;
+  string release_date = 8;
+  int32 release_year = 9;
+  // release_season is set only when kind is SEASON; movies and specials carry
+  // a year only.
+  ReleaseSeason release_season = 10;
+  // format is set only when kind is SPECIAL.
+  SpecialFormat format = 11;
+  int32 episode_count = 12;
+  ExternalIds external_ids = 13;
+}
+
 message DatasetStats {
   int32 franchises = 1;
   int32 series = 2;
@@ -242,6 +302,13 @@ message DatasetStats {
   int32 episodes = 4;
   int32 characters = 5;
   int32 staff = 6;
+  // The span of release years the dataset actually covers, across every work
+  // that carries a year. Both are 0 for an empty dataset. A consumer can use
+  // earliest_release_year as the floor below which a year cannot be real data —
+  // it is derived from the dataset, so it does not go stale as older works are
+  // added.
+  int32 earliest_release_year = 7;
+  int32 latest_release_year = 8;
 }
 
 message ListFranchisesRequest {}
@@ -272,10 +339,17 @@ message SearchRequest {
   string query = 1;
   // limit caps the number of results; <= 0 applies a server default.
   int32 limit = 2;
+  // page_token continues a previous call; empty starts from the beginning.
+  // Pass the next_page_token from the previous response.
+  string page_token = 3;
 }
 
 message SearchResponse {
   repeated SearchResult results = 1;
+  // next_page_token is empty when this is the last page.
+  string next_page_token = 2;
+  // total_size counts every match across all pages.
+  int32 total_size = 3;
 }
 
 message GetCharacterRequest {
@@ -292,10 +366,17 @@ message ListCharactersRequest {
   string series_id = 1;
   // limit caps the number of results; <= 0 applies a server default.
   int32 limit = 2;
+  // page_token continues a previous call; empty starts from the beginning.
+  // Pass the next_page_token from the previous response.
+  string page_token = 3;
 }
 
 message ListCharactersResponse {
   repeated Character characters = 1;
+  // next_page_token is empty when this is the last page.
+  string next_page_token = 2;
+  // total_size counts every match across all pages.
+  int32 total_size = 3;
 }
 
 message GetStaffRequest {
@@ -314,10 +395,17 @@ message ListStaffRequest {
   string language = 1;
   // limit caps the number of results; <= 0 applies a server default.
   int32 limit = 2;
+  // page_token continues a previous call; empty starts from the beginning.
+  // Pass the next_page_token from the previous response.
+  string page_token = 3;
 }
 
 message ListStaffResponse {
   repeated Staff staff = 1;
+  // next_page_token is empty when this is the last page.
+  string next_page_token = 2;
+  // total_size counts every match across all pages.
+  int32 total_size = 3;
 }
 
 message GetHealthRequest {}
@@ -326,6 +414,55 @@ message GetHealthResponse {
   string status = 1;
   string version = 2;
   DatasetStats stats = 3;
+}
+
+message ListCatalogRequest {
+  // page_token continues a previous call; empty starts from the beginning.
+  string page_token = 1;
+  // limit caps the page size; <= 0 applies a server default.
+  int32 limit = 2;
+  // kind restricts the result to franchises or to standalone series;
+  // unspecified returns both.
+  EntryKind kind = 3;
+}
+
+message ListCatalogResponse {
+  repeated CatalogEntry entries = 1;
+  // next_page_token is empty when this is the last page.
+  string next_page_token = 2;
+  // total_size counts every entry matching the filters, across all pages.
+  int32 total_size = 3;
+}
+
+message ListWorksRequest {
+  // page_token continues a previous call; empty starts from the beginning.
+  string page_token = 1;
+  // limit caps the page size; <= 0 applies a server default.
+  int32 limit = 2;
+  // Filters, AND-ed together. An unset filter matches everything, so an empty
+  // request walks every work in the dataset.
+  //
+  // release_year is the calendar year the work premiered. proto3 gives scalars
+  // no field presence, so 0 necessarily means "no year filter" rather than
+  // "works with no year" — a caller wanting a specific year must send a real
+  // one, and a UI must reject 0 before it reaches here rather than labelling
+  // the unfiltered result as year 0.
+  int32 release_year = 3;
+  // release_season only ever matches seasons: movies and specials carry a year
+  // without a quarter, so setting this excludes them.
+  ReleaseSeason release_season = 4;
+  // kind restricts to seasons, movies or specials.
+  WorkKind kind = 5;
+  // series_id restricts to the works under one series.
+  string series_id = 6;
+}
+
+message ListWorksResponse {
+  repeated WorkSummary works = 1;
+  // next_page_token is empty when this is the last page.
+  string next_page_token = 2;
+  // total_size counts every work matching the filters, across all pages.
+  int32 total_size = 3;
 }
 
 // AnimeService is the read-only API over the committed dataset.
@@ -344,6 +481,15 @@ service AnimeService {
   rpc GetFranchise(GetFranchiseRequest) returns (GetFranchiseResponse) {}
   // GetSeries returns one series (under a franchise or standalone) by id.
   rpc GetSeries(GetSeriesRequest) returns (GetSeriesResponse) {}
+  // ListCatalog pages through every top-level entry — franchises and
+  // standalone series — as flat summaries. This is the browse entry point:
+  // unlike ListFranchises it is paginated and does not nest the structure, so
+  // it stays usable as the catalog grows.
+  rpc ListCatalog(ListCatalogRequest) returns (ListCatalogResponse) {}
+  // ListWorks pages through individual releases (seasons, movies, specials),
+  // filtered by year, quarter, kind or series. This is what a seasonal chart
+  // lists.
+  rpc ListWorks(ListWorksRequest) returns (ListWorksResponse) {}
   // Search matches franchises and series by title (case-insensitive substring).
   rpc Search(SearchRequest) returns (SearchResponse) {}
   // GetCharacter returns one character by id, with every appearance and the

@@ -71,12 +71,71 @@ func (s *Service) GetSeries(_ context.Context, req *connect.Request[animev1.GetS
 // Search matches franchises and series by title.
 func (s *Service) Search(_ context.Context, req *connect.Request[animev1.SearchRequest]) (*connect.Response[animev1.SearchResponse], error) {
 	loc := newLocalizer(req.Header().Get("Accept-Language"))
-	matches := s.store.Search(req.Msg.GetQuery(), int(req.Msg.GetLimit()))
-	out := make([]*animev1.SearchResult, len(matches))
-	for i, m := range matches {
+	page, err := s.store.SearchPage(req.Msg.GetQuery(), req.Msg.GetPageToken(), int(req.Msg.GetLimit()))
+	if err != nil {
+		return nil, connect.NewError(connect.CodeInvalidArgument, err)
+	}
+	out := make([]*animev1.SearchResult, len(page.Items))
+	for i, m := range page.Items {
 		out[i] = toSearchResult(loc, m)
 	}
-	return connect.NewResponse(&animev1.SearchResponse{Results: out}), nil
+	return connect.NewResponse(&animev1.SearchResponse{
+		Results:       out,
+		NextPageToken: page.NextToken,
+		TotalSize:     int32(page.Total),
+	}), nil
+}
+
+// ListCatalog pages through the top-level entries as flat summaries. Unlike
+// ListFranchises it nests nothing, so a page stays the same size however large
+// the catalog grows.
+func (s *Service) ListCatalog(_ context.Context, req *connect.Request[animev1.ListCatalogRequest]) (*connect.Response[animev1.ListCatalogResponse], error) {
+	loc := newLocalizer(req.Header().Get("Accept-Language"))
+	page, err := s.store.Catalog(fromEntryKind(req.Msg.GetKind()), req.Msg.GetPageToken(), int(req.Msg.GetLimit()))
+	if err != nil {
+		return nil, connect.NewError(connect.CodeInvalidArgument, err)
+	}
+	out := make([]*animev1.CatalogEntry, len(page.Items))
+	for i, e := range page.Items {
+		out[i] = toCatalogEntry(loc, e)
+	}
+	return connect.NewResponse(&animev1.ListCatalogResponse{
+		Entries:       out,
+		NextPageToken: page.NextToken,
+		TotalSize:     int32(page.Total),
+	}), nil
+}
+
+// ListWorks pages through individual releases, filtered by year, quarter, kind
+// or series. An unknown series_id is CodeNotFound rather than an empty page, so
+// a typo is not mistaken for a series with no releases.
+func (s *Service) ListWorks(_ context.Context, req *connect.Request[animev1.ListWorksRequest]) (*connect.Response[animev1.ListWorksResponse], error) {
+	seriesID := req.Msg.GetSeriesId()
+	if seriesID != "" {
+		if _, _, ok := s.store.Series(seriesID); !ok {
+			return nil, connect.NewError(connect.CodeNotFound, fmt.Errorf("series %q not found", seriesID))
+		}
+	}
+	loc := newLocalizer(req.Header().Get("Accept-Language"))
+	filter := WorkFilter{
+		ReleaseYear:   int(req.Msg.GetReleaseYear()),
+		ReleaseSeason: fromReleaseSeason(req.Msg.GetReleaseSeason()),
+		Kind:          fromWorkKind(req.Msg.GetKind()),
+		SeriesID:      seriesID,
+	}
+	page, err := s.store.Works(filter, req.Msg.GetPageToken(), int(req.Msg.GetLimit()))
+	if err != nil {
+		return nil, connect.NewError(connect.CodeInvalidArgument, err)
+	}
+	out := make([]*animev1.WorkSummary, len(page.Items))
+	for i, w := range page.Items {
+		out[i] = toWorkSummary(loc, w)
+	}
+	return connect.NewResponse(&animev1.ListWorksResponse{
+		Works:         out,
+		NextPageToken: page.NextToken,
+		TotalSize:     int32(page.Total),
+	}), nil
 }
 
 // GetCharacter returns one character by id, or CodeNotFound.
@@ -104,9 +163,14 @@ func (s *Service) ListCharacters(_ context.Context, req *connect.Request[animev1
 		}
 	}
 	loc := newLocalizer(req.Header().Get("Accept-Language"))
-	characters := s.store.Characters(seriesID, int(req.Msg.GetLimit()))
+	page, err := s.store.CharactersPage(seriesID, req.Msg.GetPageToken(), int(req.Msg.GetLimit()))
+	if err != nil {
+		return nil, connect.NewError(connect.CodeInvalidArgument, err)
+	}
 	return connect.NewResponse(&animev1.ListCharactersResponse{
-		Characters: toCharacters(loc, s.store, characters),
+		Characters:    toCharacters(loc, s.store, page.Items),
+		NextPageToken: page.NextToken,
+		TotalSize:     int32(page.Total),
 	}), nil
 }
 
@@ -131,8 +195,15 @@ func (s *Service) GetStaff(_ context.Context, req *connect.Request[animev1.GetSt
 // in one language.
 func (s *Service) ListStaff(_ context.Context, req *connect.Request[animev1.ListStaffRequest]) (*connect.Response[animev1.ListStaffResponse], error) {
 	loc := newLocalizer(req.Header().Get("Accept-Language"))
-	staff := s.store.StaffList(req.Msg.GetLanguage(), int(req.Msg.GetLimit()))
-	return connect.NewResponse(&animev1.ListStaffResponse{Staff: toStaffList(loc, staff)}), nil
+	page, err := s.store.StaffPage(req.Msg.GetLanguage(), req.Msg.GetPageToken(), int(req.Msg.GetLimit()))
+	if err != nil {
+		return nil, connect.NewError(connect.CodeInvalidArgument, err)
+	}
+	return connect.NewResponse(&animev1.ListStaffResponse{
+		Staff:         toStaffList(loc, page.Items),
+		NextPageToken: page.NextToken,
+		TotalSize:     int32(page.Total),
+	}), nil
 }
 
 // GetHealth reports liveness, build version and dataset stats.
@@ -148,6 +219,9 @@ func (s *Service) GetHealth(_ context.Context, _ *connect.Request[animev1.GetHea
 			Episodes:   int32(st.Episodes),
 			Characters: int32(st.Characters),
 			Staff:      int32(st.Staff),
+
+			EarliestReleaseYear: int32(st.EarliestReleaseYear),
+			LatestReleaseYear:   int32(st.LatestReleaseYear),
 		},
 	}), nil
 }
