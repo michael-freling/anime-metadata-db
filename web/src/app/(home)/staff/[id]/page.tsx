@@ -3,11 +3,13 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { cache } from 'react';
 import { Code, ConnectError } from '@connectrpc/connect';
-import { api } from '@/lib/api';
+import { localizedApi } from '@/lib/api';
 import { ApiError, isBadRequest, PageHeader, plural } from '@/components/browse';
+import { humanizeId } from '@/lib/format';
 
 const load = cache(async (id: string) => {
   try {
+    const api = await localizedApi();
     const res = await api.getStaff({ id });
     return res.staff ? res : null;
   } catch (err) {
@@ -33,7 +35,7 @@ export async function generateMetadata({
   } catch {
     // Metadata must never take the page down.
   }
-  return { title: id };
+  return { title: humanizeId(id) };
 }
 
 export default async function StaffPage({ params }: { params: Promise<{ id: string }> }) {
@@ -45,7 +47,7 @@ export default async function StaffPage({ params }: { params: Promise<{ id: stri
   } catch (err) {
     return (
       <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-12">
-        <PageHeader title={id} />
+        <PageHeader title={humanizeId(id)} />
         <ApiError
           detail={err instanceof ConnectError ? err.message : String(err)}
           badRequest={isBadRequest(err)}
@@ -64,13 +66,8 @@ export default async function StaffPage({ params }: { params: Promise<{ id: stri
       </Link>
       <div className="mt-4">
         <PageHeader
-          title={staff.name || staff.id}
-          subtitle={
-            <>
-              <code className="font-mono text-sm">{staff.id}</code> ·{' '}
-              {plural(credits.length, 'role')}
-            </>
-          }
+          title={staff.name || humanizeId(staff.id)}
+          subtitle={plural(credits.length, 'role')}
         />
       </div>
 

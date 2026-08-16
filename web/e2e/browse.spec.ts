@@ -206,3 +206,50 @@ test('a kind chip does not carry a filter it cannot honour', async ({ page }) =>
   await expect(page).not.toHaveURL(/year=/);
   await expect(page).not.toHaveURL(/quarter=/);
 });
+
+// Titles come back resolved by the API from Accept-Language, so switching is a
+// server round trip. The dataset carries an English translation and a native
+// original, which is what the two options mean — offering more would be a lie.
+test('the language switch changes the titles the API returns', async ({ page }) => {
+  await page.goto('/browse?q=demon');
+  const body = page.locator('main');
+  await expect(body.getByRole('link', { name: 'Demon Slayer' }).first()).toBeVisible();
+
+  await body.getByRole('button', { name: '日本語' }).click();
+
+  await expect(body.getByRole('link', { name: '鬼滅の刃' }).first()).toBeVisible();
+  await expect(body.getByRole('link', { name: 'Demon Slayer' })).toHaveCount(0);
+});
+
+test('the chosen language persists across pages', async ({ page }) => {
+  await page.goto('/browse');
+  const japanese = page.locator('main').getByRole('button', { name: '日本語' });
+  await japanese.click();
+
+  // Wait for the switch to actually take effect rather than sleeping: the
+  // action's response is what stores the cookie, and navigating before it
+  // lands would race it. The active state is the signal.
+  await expect(japanese).toHaveAttribute('aria-current', 'true');
+
+  // A preference, not a view: it survives navigation without riding in the URL.
+  await page.goto('/browse/demon-slayer');
+  await expect(page.getByRole('heading', { level: 1, name: '鬼滅の刃' })).toBeVisible();
+  await expect(page).not.toHaveURL(/lang=/);
+});
+
+// Ids are slugs the reader never typed and cannot act on. They were printed in
+// every detail-page subtitle; what belongs there is what the thing is and how
+// much of it there is.
+test('detail pages describe the entry instead of printing its id', async ({ page }) => {
+  await page.goto('/browse/demon-slayer');
+  await expect(page.getByText(/Series · 5 seasons · 2 films/)).toBeVisible();
+  await expect(page.getByText('demon-slayer', { exact: true })).toHaveCount(0);
+
+  await page.goto('/characters/tanjiro-kamado');
+  await expect(page.getByText(/appearance/)).toBeVisible();
+  await expect(page.getByText('tanjiro-kamado', { exact: true })).toHaveCount(0);
+
+  await page.goto('/staff/natsuki-hanae');
+  await expect(page.getByText(/role/)).toBeVisible();
+  await expect(page.getByText('natsuki-hanae', { exact: true })).toHaveCount(0);
+});

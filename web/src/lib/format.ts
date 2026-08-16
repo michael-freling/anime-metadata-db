@@ -33,3 +33,18 @@ export function yearsLabel(first: number, latest: number, floor = 0): string {
 export function plural(count: number, noun: string, pluralForm = `${noun}s`): string {
   return `${count.toLocaleString()} ${count === 1 ? noun : pluralForm}`;
 }
+
+// humanizeId turns a slug into something readable, for the few places where an
+// id is all there is: an entry the API could not load, or a record the dataset
+// carries no name for. Ids are slugs the reader never typed and cannot act on,
+// so "demon-slayer" is shown as "Demon Slayer" rather than raw.
+//
+// It is a fallback, never a substitute for a real title — a slug loses the
+// original script and any punctuation, so a resolved title always wins.
+export function humanizeId(id: string): string {
+  return id
+    .split('-')
+    .filter(Boolean)
+    .map((word) => (/^\d+$/.test(word) ? word : word.charAt(0).toUpperCase() + word.slice(1)))
+    .join(' ');
+}

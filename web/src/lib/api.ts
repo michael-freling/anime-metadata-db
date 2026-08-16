@@ -1,4 +1,5 @@
 import { cache } from 'react';
+import { cookies } from 'next/headers';
 import { createClient, type Client } from '@connectrpc/connect';
 import { createConnectTransport } from '@connectrpc/connect-web';
 import { AnimeService } from './gen/anime/v1/anime_pb';
@@ -18,6 +19,46 @@ export const api: Client<typeof AnimeService> = createClient(
   AnimeService,
   createConnectTransport({ baseUrl: apiBaseUrl }),
 );
+
+// The languages the dataset can actually answer in. Titles carry an `en`
+// translation and a native original (Japanese); asking for anything else would
+// resolve back to one of these, so offering more would be a lie.
+export const LANGUAGES = [
+  { code: 'en', label: 'English' },
+  { code: 'ja', label: '日本語' },
+] as const;
+
+export type LanguageCode = (typeof LANGUAGES)[number]['code'];
+
+export const LANGUAGE_COOKIE = 'lang';
+
+// Language is a viewer preference, not a view — like the theme toggle — so it
+// lives in a cookie rather than the URL. Putting it in the URL would mean
+// threading it through every link on every page, and would make two links to
+// the same series look like different pages.
+export const currentLanguage = cache(async (): Promise<LanguageCode> => {
+  const store = await cookies();
+  const value = store.get(LANGUAGE_COOKIE)?.value;
+  return LANGUAGES.some((l) => l.code === value) ? (value as LanguageCode) : 'en';
+});
+
+// The API resolves every title and name from Accept-Language, so the client has
+// to be built per request rather than once at module load.
+export async function localizedApi(): Promise<Client<typeof AnimeService>> {
+  const lang = await currentLanguage();
+  return createClient(
+    AnimeService,
+    createConnectTransport({
+      baseUrl: apiBaseUrl,
+      interceptors: [
+        (next) => async (req) => {
+          req.header.set('Accept-Language', lang);
+          return next(req);
+        },
+      ],
+    }),
+  );
+}
 
 // The earliest release year the dataset covers, used as the floor below which a
 // year cannot be real data (see lib/format.ts). Wrapped in cache() so a page

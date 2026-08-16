@@ -3,10 +3,11 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { cache } from 'react';
 import { Code, ConnectError } from '@connectrpc/connect';
-import { api } from '@/lib/api';
+import { localizedApi } from '@/lib/api';
 import type { Franchise, Series } from '@/lib/gen/anime/v1/anime_pb';
 import { ReleaseSeason, SpecialFormat } from '@/lib/gen/anime/v1/anime_pb';
 import { ApiError, isBadRequest, PageHeader, plural } from '@/components/browse';
+import { humanizeId } from '@/lib/format';
 
 // An id names either a franchise or a series, and the API has a separate call
 // for each. Try series first — they outnumber franchises heavily — and fall
@@ -19,12 +20,14 @@ import { ApiError, isBadRequest, PageHeader, plural } from '@/components/browse'
 // instead of two.
 const load = cache(async (id: string): Promise<{ series?: Series; franchise?: Franchise } | null> => {
   try {
+    const api = await localizedApi();
     const { series } = await api.getSeries({ id });
     if (series) return { series };
   } catch (err) {
     if (!(err instanceof ConnectError) || err.code !== Code.NotFound) throw err;
   }
   try {
+    const api = await localizedApi();
     const { franchise } = await api.getFranchise({ id });
     if (franchise) return { franchise };
   } catch (err) {
@@ -48,7 +51,7 @@ export async function generateMetadata({
   } catch {
     // Metadata must never break the page; fall through to the id.
   }
-  return { title: id };
+  return { title: humanizeId(id) };
 }
 
 const SEASON_LABEL: Record<number, string> = {
@@ -156,7 +159,7 @@ export default async function EntryPage({ params }: { params: Promise<{ id: stri
   } catch (err) {
     return (
       <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-12">
-        <PageHeader title={id} />
+        <PageHeader title={humanizeId(id)} />
         <ApiError
           detail={err instanceof ConnectError ? err.message : String(err)}
           badRequest={isBadRequest(err)}
@@ -167,7 +170,7 @@ export default async function EntryPage({ params }: { params: Promise<{ id: stri
   if (!found) notFound();
 
   const { series, franchise } = found;
-  const title = series?.title ?? franchise?.title ?? id;
+  const title = series?.title || franchise?.title || humanizeId(id);
 
   return (
     <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-12">
@@ -177,11 +180,20 @@ export default async function EntryPage({ params }: { params: Promise<{ id: stri
       <div className="mt-4">
         <PageHeader
           title={title}
+          // The id is a slug the reader never typed and cannot act on; what
+          // they want to know is what kind of thing this is and how much of it
+          // there is.
           subtitle={
-            <>
-              <code className="font-mono text-sm">{id}</code>
-              {franchise ? ' · franchise' : ' · series'}
-            </>
+            franchise
+              ? `Franchise · ${plural(franchise.series.length, 'series', 'series')}`
+              : [
+                  'Series',
+                  series?.seasons.length ? plural(series.seasons.length, 'season') : null,
+                  series?.movies.length ? plural(series.movies.length, 'film') : null,
+                  series?.specials.length ? plural(series.specials.length, 'special') : null,
+                ]
+                  .filter(Boolean)
+                  .join(' · ')
           }
         />
       </div>
