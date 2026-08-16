@@ -25,7 +25,7 @@ test('a quarter filter excludes films and specials', async ({ page }) => {
   await page.goto('/seasons/2026/winter');
 
   // Every card in a quarter view is a season, so each carries a season number.
-  const metas = await page.locator('main ul li a span').nth(1).innerText();
+  const metas = await page.getByTestId('results').locator('a span').nth(1).innerText();
   expect(metas).toMatch(/Season \d+/);
 });
 

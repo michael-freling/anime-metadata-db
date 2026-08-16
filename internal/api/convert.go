@@ -277,6 +277,7 @@ func toVoiceActors(loc localizer, store *Store, in []model.VoiceActor) []*animev
 func toAppearance(loc localizer, store *Store, a model.CharacterAppearance) *animev1.CharacterAppearance {
 	out := &animev1.CharacterAppearance{
 		SeriesId:    a.SeriesID,
+		SeriesTitle: seriesTitle(loc, store, a.SeriesID),
 		VoiceActors: toVoiceActors(loc, store, a.VoiceActors),
 		ExternalIds: toExternalIDs(a.ExternalIDs),
 	}
@@ -530,4 +531,16 @@ func fromReleaseSeason(s animev1.ReleaseSeason) model.ReleaseSeason {
 		return model.SeasonFall
 	}
 	return ""
+}
+
+// seriesTitle resolves a series id to its title for the request's language.
+// Empty when the id names nothing, which the build's referential integrity
+// check should already have prevented.
+func seriesTitle(loc localizer, store *Store, seriesID string) string {
+	series, _, ok := store.Series(seriesID)
+	if !ok {
+		return ""
+	}
+	title, _ := loc.title(series.Titles)
+	return title
 }

@@ -256,11 +256,18 @@ func decodeCursor(token string) (int, error) {
 	return offset, nil
 }
 
+// normalizeQuery lowercases and trims a search term. Every name and title
+// search goes through it, so they cannot drift apart in whitespace or case
+// handling.
+func normalizeQuery(query string) string {
+	return strings.TrimSpace(strings.ToLower(query))
+}
+
 // SearchPage returns catalog entries whose original or translated title
 // contains query (case-insensitive), one page at a time. A blank query matches
 // nothing. Results keep the deterministic catalog order.
 func (s *Store) SearchPage(query, token string, limit int) (Page[CatalogEntry], error) {
-	q := strings.TrimSpace(strings.ToLower(query))
+	q := normalizeQuery(query)
 	if q == "" {
 		return Page[CatalogEntry]{}, nil
 	}
@@ -278,14 +285,26 @@ func (s *Store) SearchPage(query, token string, limit int) (Page[CatalogEntry], 
 
 // CharactersPage is Characters with a cursor, over the same shared filter.
 // seriesID is assumed to have been validated by the caller; an unknown id
-// yields an empty page.
-func (s *Store) CharactersPage(seriesID, token string, limit int) (Page[*model.Character], error) {
-	return paginate(s.charactersFor(seriesID), token, limit)
+// yields an empty page. query narrows by name, using the same case-insensitive
+// substring match the catalog search applies to titles, so searching behaves
+// the same wherever a name is involved.
+func (s *Store) CharactersPage(seriesID, query, token string, limit int) (Page[*model.Character], error) {
+	all := s.charactersFor(seriesID)
+	if q := normalizeQuery(query); q != "" {
+		matching := make([]*model.Character, 0, len(all))
+		for _, c := range all {
+			if titleMatches(c.Names, q) {
+				matching = append(matching, c)
+			}
+		}
+		all = matching
+	}
+	return paginate(all, token, limit)
 }
 
 // StaffPage returns staff, or only those credited in language when it is
 // non-empty, one page at a time in deterministic dataset order.
-func (s *Store) StaffPage(language, token string, limit int) (Page[*model.Staff], error) {
+func (s *Store) StaffPage(language, query, token string, limit int) (Page[*model.Staff], error) {
 	all := s.staff
 	if language != "" {
 		all = make([]*model.Staff, 0, len(s.staff))
@@ -297,6 +316,15 @@ func (s *Store) StaffPage(language, token string, limit int) (Page[*model.Staff]
 				}
 			}
 		}
+	}
+	if q := normalizeQuery(query); q != "" {
+		matching := make([]*model.Staff, 0, len(all))
+		for _, st := range all {
+			if titleMatches(st.Names, q) {
+				matching = append(matching, st)
+			}
+		}
+		all = matching
 	}
 	return paginate(all, token, limit)
 }

@@ -324,7 +324,7 @@ func TestSearchPage(t *testing.T) {
 func TestCharactersAndStaffPages(t *testing.T) {
 	s := mustStore(t)
 
-	all, err := s.CharactersPage("", "", 0)
+	all, err := s.CharactersPage("", "", "", 0)
 	if err != nil {
 		t.Fatalf("CharactersPage: %v", err)
 	}
@@ -334,7 +334,7 @@ func TestCharactersAndStaffPages(t *testing.T) {
 
 	// An unknown series yields an empty page; the service layer is what turns a
 	// typo into NotFound.
-	unknown, err := s.CharactersPage("nope", "", 0)
+	unknown, err := s.CharactersPage("nope", "", "", 0)
 	if err != nil {
 		t.Fatalf("CharactersPage: %v", err)
 	}
@@ -342,7 +342,7 @@ func TestCharactersAndStaffPages(t *testing.T) {
 		t.Errorf("unknown series total = %d, want 0", unknown.Total)
 	}
 
-	staff, err := s.StaffPage("", "", 0)
+	staff, err := s.StaffPage("", "", "", 0)
 	if err != nil {
 		t.Fatalf("StaffPage: %v", err)
 	}
@@ -353,7 +353,7 @@ func TestCharactersAndStaffPages(t *testing.T) {
 	// va-one is credited in both ja and en, va-two only in en — so the language
 	// filter is only really exercised by ja, which must exclude va-two.
 	for lang, want := range map[string]int{"en": 2, "ja": 1, "de": 0} {
-		page, err := s.StaffPage(lang, "", 0)
+		page, err := s.StaffPage(lang, "", "", 0)
 		if err != nil {
 			t.Fatalf("StaffPage(%q): %v", lang, err)
 		}
@@ -363,8 +363,8 @@ func TestCharactersAndStaffPages(t *testing.T) {
 	}
 
 	for _, bad := range []func() error{
-		func() error { _, err := s.CharactersPage("", "!!!", 0); return err },
-		func() error { _, err := s.StaffPage("", "!!!", 0); return err },
+		func() error { _, err := s.CharactersPage("", "", "!!!", 0); return err },
+		func() error { _, err := s.StaffPage("", "", "!!!", 0); return err },
 	} {
 		if err := bad(); err == nil {
 			t.Error("want an error for a malformed token")
@@ -576,4 +576,102 @@ func ptr[T any](v T) *T { return &v }
 // cursors in tests.
 func encodeRaw(s string) string {
 	return base64.RawURLEncoding.EncodeToString([]byte(s))
+}
+
+// Searching by name is what a search page is for, so it gets the same
+// treatment as title search: any language, case-insensitive, substring.
+func TestCharactersPageQuery(t *testing.T) {
+	s := mustStore(t)
+	for _, tc := range []struct {
+		name, seriesID, query string
+		wantIDs               []string
+	}{
+		{"by english name", "", "alpha hero", []string{"alpha-hero"}},
+		{"case-insensitive", "", "ALPHA", []string{"alpha-hero"}},
+		{"substring", "", "hero", []string{"alpha-hero"}},
+		{"trims whitespace", "", "  hero  ", []string{"alpha-hero"}},
+		{"no match", "", "nobodyhere", nil},
+		{"empty query matches everyone", "", "", []string{"alpha-hero", "zed-friend"}},
+		// alpha-hero appears in both series, so a series filter plus a query
+		// must intersect rather than fall back to either one alone.
+		{"combined with a series", "zzz", "alpha", []string{"alpha-hero"}},
+		{"a name absent from that series matches nothing", "zzz", "zed", nil},
+		// zed-friend is nested under zzz but declares no appearances, so it is
+		// in the global cast and in no series' cast — a query must not resurrect
+		// it under a series.
+		{"globally findable but not in a series", "", "zed", []string{"zed-friend"}},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			page, err := s.CharactersPage(tc.seriesID, tc.query, "", 0)
+			if err != nil {
+				t.Fatalf("CharactersPage: %v", err)
+			}
+			if len(page.Items) != len(tc.wantIDs) {
+				ids := make([]string, len(page.Items))
+				for i, c := range page.Items {
+					ids[i] = c.ID
+				}
+				t.Fatalf("got %v, want %v", ids, tc.wantIDs)
+			}
+			for i, c := range page.Items {
+				if c.ID != tc.wantIDs[i] {
+					t.Errorf("result %d = %q, want %q", i, c.ID, tc.wantIDs[i])
+				}
+			}
+		})
+	}
+}
+
+func TestStaffPageQuery(t *testing.T) {
+	s := mustStore(t)
+	for _, tc := range []struct {
+		name, language, query string
+		want                  int
+	}{
+		{"by name", "", "voice one", 1},
+		{"case-insensitive", "", "VOICE", 1},
+		{"original script", "", "声優一", 1},
+		{"no match", "", "nobodyhere", 0},
+		{"empty query keeps everyone", "", "", 2},
+		// A staff member with no name at all must not match a non-empty query.
+		{"unnamed staff are not matched", "", "va-two", 0},
+		{"combined with a language", "ja", "voice", 1},
+		{"language and query that do not overlap", "ja", "nobody", 0},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			page, err := s.StaffPage(tc.language, tc.query, "", 0)
+			if err != nil {
+				t.Fatalf("StaffPage: %v", err)
+			}
+			if len(page.Items) != tc.want {
+				t.Fatalf("got %d results, want %d", len(page.Items), tc.want)
+			}
+		})
+	}
+}
+
+func TestListCharactersRPCQuery(t *testing.T) {
+	svc := newTestService(t)
+	resp, err := svc.ListCharacters(context.Background(), connect.NewRequest(&animev1.ListCharactersRequest{
+		Query: "hero",
+	}))
+	if err != nil {
+		t.Fatalf("ListCharacters: %v", err)
+	}
+	if resp.Msg.GetTotalSize() != 1 || resp.Msg.GetCharacters()[0].GetId() != "alpha-hero" {
+		t.Fatalf("total = %d, characters = %+v", resp.Msg.GetTotalSize(), resp.Msg.GetCharacters())
+	}
+}
+
+func TestListStaffRPCQuery(t *testing.T) {
+	svc := newTestService(t)
+	resp, err := svc.ListStaff(context.Background(), connect.NewRequest(&animev1.ListStaffRequest{
+		Query: "voice",
+	}))
+	if err != nil {
+		t.Fatalf("ListStaff: %v", err)
+	}
+	if resp.Msg.GetTotalSize() != 1 {
+		t.Fatalf("total = %d, want 1", resp.Msg.GetTotalSize())
+	}
 }

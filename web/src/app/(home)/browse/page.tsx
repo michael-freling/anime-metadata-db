@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { ConnectError } from '@connectrpc/connect';
 import { api, earliestReleaseYear } from '@/lib/api';
 import { EntryKind } from '@/lib/gen/anime/v1/anime_pb';
@@ -50,7 +51,16 @@ export default async function BrowsePage({
     <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-12">
       <PageHeader
         title="Browse the catalogue"
-        subtitle="Every franchise and standalone series in the dataset. A franchise groups several storylines; a series is one continuity."
+        subtitle={
+          <>
+            Every franchise and standalone series in the dataset. A franchise groups several
+            storylines; a series is one continuity. Looking for a character or voice actor?{' '}
+            <Link href="/search" className="underline">
+              Search
+            </Link>
+            .
+          </>
+        }
       />
 
       <Grid>

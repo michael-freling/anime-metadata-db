@@ -301,7 +301,7 @@ func TestNewStoreWithoutStaffDir(t *testing.T) {
 	if got := s.Stats().Staff; got != 0 {
 		t.Errorf("Staff = %d, want 0", got)
 	}
-	page, err := s.StaffPage("", "", 0)
+	page, err := s.StaffPage("", "", "", 0)
 	if err != nil {
 		t.Fatalf("StaffPage: %v", err)
 	}
@@ -376,7 +376,7 @@ func TestStoreStaff(t *testing.T) {
 	}
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
-			page, err := s.StaffPage(tc.language, "", tc.limit)
+			page, err := s.StaffPage(tc.language, "", "", tc.limit)
 			if err != nil {
 				t.Fatalf("StaffPage(%q, %d): %v", tc.language, tc.limit, err)
 			}

@@ -16,7 +16,14 @@ export function PageHeader({ title, subtitle }: { title: string; subtitle?: Reac
 }
 
 export function Grid({ children }: { children: ReactNode }) {
-  return <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{children}</ul>;
+  // The test id is load-bearing, not decoration: the site layout renders its
+  // own navigation as a list inside <main>, so a structural selector like
+  // "main ul li a" also matches the nav and silently inflates result counts.
+  return (
+    <ul data-testid="results" className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {children}
+    </ul>
+  );
 }
 
 export function Card({

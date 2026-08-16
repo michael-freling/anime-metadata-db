@@ -10,7 +10,7 @@ test('the catalogue lists entries with their release span and counts', async ({ 
 
   await expect(page.getByRole('heading', { name: 'Browse the catalogue' })).toBeVisible();
 
-  const cards = page.locator('main ul li a');
+  const cards = page.getByTestId('results').locator('a');
   await expect(cards.first()).toBeVisible();
   expect(await cards.count()).toBeGreaterThan(1);
 
@@ -32,7 +32,7 @@ test('paging through the catalogue yields every entry exactly once', async ({ pa
 
   const seen: string[] = [];
   for (let guard = 0; guard < 40; guard++) {
-    const hrefs = await page.locator('main ul li a').evaluateAll((els) =>
+    const hrefs = await page.getByTestId('results').locator('a').evaluateAll((els) =>
       els.map((el) => (el as HTMLAnchorElement).getAttribute('href')!),
     );
     seen.push(...hrefs);
@@ -54,7 +54,7 @@ test('paging through the catalogue yields every entry exactly once', async ({ pa
 test('a catalogue card opens the entry it names', async ({ page }) => {
   await page.goto('/browse');
 
-  const card = page.locator('main ul li a').first();
+  const card = page.getByTestId('results').locator('a').first();
   const href = await card.getAttribute('href');
   const title = (await card.locator('span').first().innerText()).trim();
 
@@ -104,7 +104,7 @@ test('the catalogue has no horizontal overflow on a phone', async ({ page }) => 
 test('year spans never start before the dataset covers anything', async ({ page }) => {
   await page.goto('/browse');
 
-  const metas = await page.locator('main ul li a span').nth(1).evaluateAll((els) =>
+  const metas = await page.getByTestId('results').locator('a span').nth(1).evaluateAll((els) =>
     els.map((el) => el.textContent ?? ''),
   );
 

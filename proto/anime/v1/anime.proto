@@ -168,6 +168,11 @@ message ScopeRef {
 // voice_actors, when set, overrides the character's default cast for it.
 message CharacterAppearance {
   string series_id = 1;
+  // series_title is that series' title resolved for the request's
+  // Accept-Language, denormalized for the same reason VoiceActor carries
+  // staff_name: a client rendering a character's appearances should not have to
+  // call GetSeries once per appearance to label them.
+  string series_title = 5;
   repeated ScopeRef scope = 2;
   repeated VoiceActor voice_actors = 3;
   ExternalIds external_ids = 4;
@@ -364,6 +369,10 @@ message ListCharactersRequest {
   // series_id restricts the result to that series' cast; empty lists every
   // character in the dataset.
   string series_id = 1;
+  // query matches a character's name in any language, case-insensitively, as a
+  // substring. Empty matches every character. Combined with series_id it
+  // searches within that series' cast.
+  string query = 4;
   // limit caps the number of results; <= 0 applies a server default.
   int32 limit = 2;
   // page_token continues a previous call; empty starts from the beginning.
@@ -393,6 +402,9 @@ message ListStaffRequest {
   // language restricts the result to staff credited in that language ("ja");
   // empty lists everyone.
   string language = 1;
+  // query matches a staff member's name in any language, case-insensitively,
+  // as a substring. Empty matches everyone.
+  string query = 4;
   // limit caps the number of results; <= 0 applies a server default.
   int32 limit = 2;
   // page_token continues a previous call; empty starts from the beginning.

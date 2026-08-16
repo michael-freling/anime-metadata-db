@@ -8,6 +8,7 @@ export function baseOptions(): BaseLayoutProps {
       title: appName,
     },
     links: [
+      { text: 'Search', url: '/search' },
       { text: 'Browse', url: '/browse' },
       { text: 'Seasons', url: '/seasons' },
       { text: 'Docs', url: '/docs' },
