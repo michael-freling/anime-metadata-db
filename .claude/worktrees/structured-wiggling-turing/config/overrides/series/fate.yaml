@@ -1,0 +1,53 @@
+# Authored override (Fate) — a multi-storyline brand, so a Franchise wrapping
+# several Series. Fate/Zero is one linear story (numbered); Fate/stay night
+# adapts parallel routes, so it has no absoluteNumber and sorts by release date.
+#
+# Franchise and Series overrides live together under overrides/series/. Node ids
+# are prefixed with their owning series id.
+franchise:
+  id: fate
+  titles: { original: フェイト, translations: { en: Fate } }
+  series:
+    - id: fate-stay-night
+      titles: { translations: { en: Fate/stay night } }
+      seasons:
+        - id: fate-stay-night-s1
+          number: 1
+          externalIds: { anilistId: 356 } # Fate/stay night (2006)
+        - id: fate-stay-night-s2
+          titles: { translations: { en: Unlimited Blade Works } }
+          number: 2
+          externalIds: { anilistId: 19603 } # Unlimited Blade Works (2014)
+      movies:
+        - id: fate-stay-night-hf-1
+          titles: { translations: { en: Heaven's Feel I } }
+          externalIds: { anilistId: 20791 } # Heaven's Feel I (2017)
+    - id: fate-zero
+      titles: { translations: { en: Fate/Zero } }
+      seasons:
+        - id: fate-zero-s1
+          number: 1
+          part: 1
+          externalIds: { anilistId: 10087 } # Fate/Zero (2011)
+        - id: fate-zero-s2
+          number: 1
+          part: 2
+          externalIds: { anilistId: 11741 } # Fate/Zero 2nd Season (2012)
+  # Release order is the default (derived from release dates); only the curated
+  # in-universe order is stored.
+  watchOrders:
+    - name: Chronological
+      entries:
+        - { ref: fate-zero }
+        - { ref: fate-stay-night }
+  # Cast (R2) nested under the franchise; names filled from Wikidata (CC0).
+  characters:
+    - id: artoria-pendragon
+      externalIds: { wikidataId: Q4918886 } # Saber
+      # Default cast across all appearances (one Character node, many series).
+      voiceActors:
+        - { staffId: ayako-kawasumi, language: ja }
+      appearances:
+        - { seriesId: fate-stay-night }
+        - { seriesId: fate-zero }
+numbered: [fate-zero]

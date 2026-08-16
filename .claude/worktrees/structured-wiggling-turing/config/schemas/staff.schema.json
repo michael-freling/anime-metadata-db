@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/michael-freling/anime-metadata-db/config/schemas/staff.schema.json",
+  "title": "Staff record",
+  "description": "Schema for authored config/overrides/staff/ and generated data/staff/ files.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["staff"],
+  "properties": {
+    "staff": { "type": "array", "items": { "$ref": "#/$defs/staff" } }
+  },
+  "$defs": {
+    "id": { "type": "string", "minLength": 1 },
+    "names": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "original": { "type": "string" },
+        "translations": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    },
+    "externalIds": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "anilistId": { "type": "integer" },
+        "anidbId": { "type": "integer" },
+        "tmdbId": { "type": "integer" },
+        "tvdbId": { "type": "integer" },
+        "wikidataId": { "type": "string", "pattern": "^Q[0-9]+$" }
+      }
+    },
+    "staff": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "names": { "$ref": "#/$defs/names" },
+        "externalIds": { "$ref": "#/$defs/externalIds" }
+      }
+    }
+  }
+}

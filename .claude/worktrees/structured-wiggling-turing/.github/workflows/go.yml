@@ -1,0 +1,106 @@
+name: Go
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+env:
+  GOLANGCI_LINT_VERSION: v2.6.0
+  # Minimum total test coverage (percent) required to pass CI.
+  COVERAGE_THRESHOLD: "95"
+  # Pinned protobuf toolchain for the generated-code drift check.
+  BUF_VERSION: v1.71.0
+
+jobs:
+  proto:
+    name: Protobuf codegen up to date
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Install buf and protoc plugins
+        run: |
+          go install "github.com/bufbuild/buf/cmd/buf@${BUF_VERSION}"
+          go install google.golang.org/protobuf/cmd/protoc-gen-go
+          go install connectrpc.com/connect/cmd/protoc-gen-connect-go
+          echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
+
+      - name: Regenerate and verify no diff
+        run: |
+          buf generate
+          if ! git diff --exit-code -- internal/gen; then
+            echo "::error::internal/gen is out of date; run 'make generate' and commit the result."
+            exit 1
+          fi
+
+  lint:
+    name: golangci-lint v2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Install golangci-lint
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
+            | sh -s -- -b "${{ runner.temp }}/golangci" "${GOLANGCI_LINT_VERSION}"
+
+      - name: Lint
+        run: "${{ runner.temp }}/golangci/golangci-lint run ./..."
+
+  test:
+    name: Test & coverage (>95%)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Verify formatting
+        run: |
+          unformatted="$(gofmt -l .)"
+          if [ -n "$unformatted" ]; then
+            echo "::error::These files are not gofmt-formatted:"
+            echo "$unformatted"
+            exit 1
+          fi
+
+      - name: Run tests with coverage
+        run: |
+          go test -race -covermode=atomic -coverpkg=./... -coverprofile=coverage.out ./...
+
+      - name: Enforce coverage threshold
+        run: |
+          # Generated protobuf/Connect code under internal/gen/ is excluded: it
+          # is not hand-written and carries no tests, so it should not count
+          # toward the threshold. The "mode:" header line is preserved.
+          grep -v '/internal/gen/' coverage.out > coverage.filtered
+          total="$(go tool cover -func=coverage.filtered | awk '/^total:/ {print $3}' | tr -d '%')"
+          echo "Total coverage (excluding internal/gen/): ${total}%"
+          awk -v total="$total" -v min="${COVERAGE_THRESHOLD}" 'BEGIN {
+            if (total+0 > min+0) {
+              printf "Coverage %.1f%% exceeds the %s%% threshold.\n", total, min
+              exit 0
+            }
+            printf "::error::Coverage %.1f%% does not exceed the required %s%%.\n", total, min
+            exit 1
+          }'

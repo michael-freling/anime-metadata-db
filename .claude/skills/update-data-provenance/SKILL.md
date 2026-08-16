@@ -5,7 +5,7 @@ description: Re-derive the per-field provenance and licensing docs from the buil
 
 # Update data provenance
 
-`docs/content/docs/sources-and-licensing.md` states, per field, which upstream
+`web/content/docs/sources-and-licensing.mdx` states, per field, which upstream
 source fills it and under which licence. `NOTICE` credits each source and is the
 file that legally travels with any redistribution. Both were written by reading
 `internal/build` — so both go stale the moment the builder changes, and neither
@@ -76,10 +76,10 @@ They must agree. In order of how much a mistake costs:
 |---|---|
 | `NOTICE` | Ships with every redistribution. Must credit each source and claim no more than it supplied. |
 | `LICENSE-DATA` | States the outbound licence and why. Only change if the *licence stack* changed, not for wording. |
-| `docs/content/docs/sources-and-licensing.md` | The detailed, field-level explanation. |
+| `web/content/docs/sources-and-licensing.mdx` | The detailed, field-level explanation. |
 | `README.md` licensing section | Summary table only; keep consistent with `LICENSE-DATA`. |
 
-Note that `README.md` and `docs/content/docs/using-the-api.md` also mention the
+Note that `README.md` and `web/content/docs/using-the-api.mdx` also mention the
 appearance and voice-actor graph when describing *what the dataset stores* under
 the facts-not-expression rule. That is a different claim from provenance and is
 correct as written — do not "fix" it to match `NOTICE`.

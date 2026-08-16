@@ -4,8 +4,10 @@ An open dataset of anime **franchise / series / season / episode** metadata, plu
 the `builder` CLI that compiles it.
 
 The data model and the builder design are documented under
-[`docs/content/proposals/`](docs/content/proposals/) (rendered with Hugo). This
-repository implements the **R1** model and the build tool from those proposals.
+[`web/content/docs/development/proposals/`](web/content/docs/development/proposals/).
+Those are internal design notes — read them here in the repository; the
+published site deliberately leaves them out. This repository implements the
+**R1** model and the build tool from those proposals.
 
 ## The two layers
 
@@ -25,7 +27,7 @@ produce the same `data/`.
 
 Facts come from open data sources, each on its own terms — listed below and set
 out in full in
-[Sources and licensing](https://michael-freling.github.io/anime-metadata-db/docs/sources-and-licensing/).
+[Sources and licensing](https://anime-metadata-db.vercel.app/docs/sources-and-licensing).
 AniList is **not** used: its ToS forbids storing or redistributing its content.
 
 - [`anime-offline-database`](https://github.com/manami-project/anime-offline-database) (ODbL + DbCL) — titles, season/year, episode counts, cross-IDs.
@@ -35,7 +37,7 @@ AniList is **not** used: its ToS forbids storing or redistributing its content.
 The `anilistId` on each node is an identifier parsed out of the cross-reference
 URLs the offline database publishes — a join key into that ODbL source, not
 AniList data. See [`NOTICE`](NOTICE) and the
-[Sources and licensing](https://michael-freling.github.io/anime-metadata-db/docs/sources-and-licensing/)
+[Sources and licensing](https://anime-metadata-db.vercel.app/docs/sources-and-licensing)
 guide.
 
 ## Characters & staff (R2)
@@ -188,5 +190,5 @@ publishing it under ODbL too, and because [`dataset.go`](dataset.go) embeds
 `data/`, those terms travel with any binary built from this repository.
 Attribution for every upstream source is in [`NOTICE`](NOTICE); the full picture
 is in the
-[Sources and licensing](https://michael-freling.github.io/anime-metadata-db/docs/sources-and-licensing/)
+[Sources and licensing](https://anime-metadata-db.vercel.app/docs/sources-and-licensing)
 guide.

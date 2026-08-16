@@ -1,0 +1,313 @@
+package api
+
+import (
+	"sort"
+	"strings"
+
+	animev1 "github.com/michael-freling/anime-metadata-db/internal/gen/anime/v1"
+	"github.com/michael-freling/anime-metadata-db/internal/model"
+)
+
+// dateLayout is the canonical wire form for dates (matches model.Date).
+const dateLayout = "2006-01-02"
+
+// defaultLang is the fallback language when a request sends no Accept-Language.
+const defaultLang = "en"
+
+// localizer resolves model titles for one request's Accept-Language.
+type localizer struct {
+	lang string // primary language tag, lowercased (e.g. "en", "ja")
+	full bool   // Accept-Language: * — also emit the full multilingual title
+}
+
+// newLocalizer parses an Accept-Language header value. "*" asks for every
+// language; an empty header defaults to English; otherwise the first language
+// tag wins (the q-weight and anything after it are ignored).
+func newLocalizer(acceptLanguage string) localizer {
+	first := strings.TrimSpace(acceptLanguage)
+	if i := strings.IndexByte(first, ','); i >= 0 {
+		first = first[:i]
+	}
+	if i := strings.IndexByte(first, ';'); i >= 0 {
+		first = first[:i]
+	}
+	tag := strings.ToLower(strings.TrimSpace(first))
+	switch tag {
+	case "":
+		return localizer{lang: defaultLang}
+	case "*":
+		return localizer{lang: defaultLang, full: true}
+	default:
+		return localizer{lang: tag}
+	}
+}
+
+// title resolves t to a single display string and, in full mode, the complete
+// multilingual title (nil otherwise).
+func (l localizer) title(t model.Title) (string, *animev1.LocalizedTitle) {
+	name := resolveTitle(t, l.lang)
+	if l.full {
+		return name, toLocalizedTitle(t)
+	}
+	return name, nil
+}
+
+// resolveTitle picks the best single title for lang. Order: the requested
+// language (exact, then its primary subtag), then — for a non-English request —
+// the native original, then English, then the native original, then any
+// translation (deterministically). It returns "" only for an empty title.
+func resolveTitle(t model.Title, lang string) string {
+	if v := t.Translations[lang]; v != "" {
+		return v
+	}
+	if p := primaryTag(lang); p != lang {
+		if v := t.Translations[p]; v != "" {
+			return v
+		}
+	}
+	if lang != defaultLang && t.Original != "" {
+		return t.Original
+	}
+	if v := t.Translations[defaultLang]; v != "" {
+		return v
+	}
+	if t.Original != "" {
+		return t.Original
+	}
+	return firstTranslation(t)
+}
+
+// primaryTag returns the primary subtag of a BCP-47 tag ("en-us" -> "en").
+func primaryTag(tag string) string {
+	if i := strings.IndexByte(tag, '-'); i >= 0 {
+		return tag[:i]
+	}
+	return tag
+}
+
+// firstTranslation returns a translation in deterministic key order, or "".
+func firstTranslation(t model.Title) string {
+	keys := make([]string, 0, len(t.Translations))
+	for k := range t.Translations {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+	for _, k := range keys {
+		if t.Translations[k] != "" {
+			return t.Translations[k]
+		}
+	}
+	return ""
+}
+
+// toLocalizedTitle converts a model.Title, returning nil for a zero title.
+func toLocalizedTitle(t model.Title) *animev1.LocalizedTitle {
+	if t.IsZero() {
+		return nil
+	}
+	return &animev1.LocalizedTitle{Original: t.Original, Translations: t.Translations}
+}
+
+// toExternalIDs converts cross-database ids, returning nil when none are set.
+func toExternalIDs(e model.ExternalIDs) *animev1.ExternalIds {
+	if e.IsZero() {
+		return nil
+	}
+	return &animev1.ExternalIds{
+		AnilistId:  int32(e.AnilistID),
+		AnidbId:    int32(e.AnidbID),
+		TmdbId:     int32(e.TmdbID),
+		TvdbId:     int32(e.TvdbID),
+		WikidataId: e.WikidataID,
+	}
+}
+
+// toReleaseSeason maps a model release quarter to its proto enum.
+func toReleaseSeason(s model.ReleaseSeason) animev1.ReleaseSeason {
+	switch s {
+	case model.SeasonWinter:
+		return animev1.ReleaseSeason_RELEASE_SEASON_WINTER
+	case model.SeasonSpring:
+		return animev1.ReleaseSeason_RELEASE_SEASON_SPRING
+	case model.SeasonSummer:
+		return animev1.ReleaseSeason_RELEASE_SEASON_SUMMER
+	case model.SeasonFall:
+		return animev1.ReleaseSeason_RELEASE_SEASON_FALL
+	default:
+		return animev1.ReleaseSeason_RELEASE_SEASON_UNSPECIFIED
+	}
+}
+
+// toSpecialFormat maps a model special format to its proto enum.
+func toSpecialFormat(f model.SpecialFormat) animev1.SpecialFormat {
+	switch f {
+	case model.FormatOVA:
+		return animev1.SpecialFormat_SPECIAL_FORMAT_OVA
+	case model.FormatONA:
+		return animev1.SpecialFormat_SPECIAL_FORMAT_ONA
+	case model.FormatSpecial:
+		return animev1.SpecialFormat_SPECIAL_FORMAT_SPECIAL
+	default:
+		return animev1.SpecialFormat_SPECIAL_FORMAT_UNSPECIFIED
+	}
+}
+
+// toEntryKind maps a store catalog kind to its proto enum.
+func toEntryKind(k EntryKind) animev1.EntryKind {
+	if k == EntryFranchise {
+		return animev1.EntryKind_ENTRY_KIND_FRANCHISE
+	}
+	return animev1.EntryKind_ENTRY_KIND_SERIES
+}
+
+// toInt32Ptr converts an optional int, preserving nil.
+func toInt32Ptr(v *int) *int32 {
+	if v == nil {
+		return nil
+	}
+	n := int32(*v)
+	return &n
+}
+
+// toDate formats an optional model.Date as YYYY-MM-DD, returning "" for nil.
+func toDate(d *model.Date) string {
+	if d == nil {
+		return ""
+	}
+	return d.Format(dateLayout)
+}
+
+// toEpisode converts one episode.
+func toEpisode(e model.Episode) *animev1.Episode {
+	return &animev1.Episode{
+		AbsoluteNumber: toInt32Ptr(e.AbsoluteNumber),
+		AiredNumber:    int32(e.AiredNumber),
+		ReleaseDate:    toDate(e.ReleaseDate),
+		Title:          e.Title,
+	}
+}
+
+// toEpisodes converts a slice of episodes, returning nil for an empty input.
+func toEpisodes(in []model.Episode) []*animev1.Episode {
+	if len(in) == 0 {
+		return nil
+	}
+	out := make([]*animev1.Episode, len(in))
+	for i := range in {
+		out[i] = toEpisode(in[i])
+	}
+	return out
+}
+
+// toSeason converts one season, resolving its title via loc.
+func toSeason(loc localizer, s model.Season) *animev1.Season {
+	title, full := loc.title(s.Titles)
+	return &animev1.Season{
+		Id:             s.ID,
+		Title:          title,
+		LocalizedTitle: full,
+		Number:         int32(s.Number),
+		Part:           toInt32Ptr(s.Part),
+		ReleaseDate:    toDate(s.ReleaseDate),
+		ReleaseYear:    int32(s.ReleaseYear),
+		ReleaseSeason:  toReleaseSeason(s.ReleaseSeason),
+		ExternalIds:    toExternalIDs(s.ExternalIDs),
+		Episodes:       toEpisodes(s.Episodes),
+	}
+}
+
+// toMovie converts one movie, resolving its title via loc.
+func toMovie(loc localizer, m model.Movie) *animev1.Movie {
+	title, full := loc.title(m.Titles)
+	var alt *animev1.AlternateCutOf
+	if m.AlternateCutOf != nil {
+		alt = &animev1.AlternateCutOf{SeasonId: m.AlternateCutOf.SeasonID, Episodes: m.AlternateCutOf.Episodes}
+	}
+	return &animev1.Movie{
+		Id:             m.ID,
+		Title:          title,
+		LocalizedTitle: full,
+		ReleaseDate:    toDate(m.ReleaseDate),
+		ReleaseYear:    int32(m.ReleaseYear),
+		ExternalIds:    toExternalIDs(m.ExternalIDs),
+		AbsoluteNumber: toInt32Ptr(m.AbsoluteNumber),
+		AlternateCutOf: alt,
+	}
+}
+
+// toSpecial converts one special, resolving its title via loc.
+func toSpecial(loc localizer, sp model.Special) *animev1.Special {
+	title, full := loc.title(sp.Titles)
+	return &animev1.Special{
+		Id:             sp.ID,
+		Title:          title,
+		LocalizedTitle: full,
+		Format:         toSpecialFormat(sp.Format),
+		ReleaseDate:    toDate(sp.ReleaseDate),
+		ReleaseYear:    int32(sp.ReleaseYear),
+		ExternalIds:    toExternalIDs(sp.ExternalIDs),
+		Episodes:       toEpisodes(sp.Episodes),
+		AbsoluteNumber: toInt32Ptr(sp.AbsoluteNumber),
+	}
+}
+
+// toSeries converts one series and its installments (cast is not exposed yet).
+func toSeries(loc localizer, s *model.Series) *animev1.Series {
+	title, full := loc.title(s.Titles)
+	out := &animev1.Series{Id: s.ID, Title: title, LocalizedTitle: full}
+	if len(s.Seasons) > 0 {
+		out.Seasons = make([]*animev1.Season, len(s.Seasons))
+		for i := range s.Seasons {
+			out.Seasons[i] = toSeason(loc, s.Seasons[i])
+		}
+	}
+	if len(s.Movies) > 0 {
+		out.Movies = make([]*animev1.Movie, len(s.Movies))
+		for i := range s.Movies {
+			out.Movies[i] = toMovie(loc, s.Movies[i])
+		}
+	}
+	if len(s.Specials) > 0 {
+		out.Specials = make([]*animev1.Special, len(s.Specials))
+		for i := range s.Specials {
+			out.Specials[i] = toSpecial(loc, s.Specials[i])
+		}
+	}
+	return out
+}
+
+// toFranchise converts one franchise and its nested series and watch orders.
+func toFranchise(loc localizer, f *model.Franchise) *animev1.Franchise {
+	title, full := loc.title(f.Titles)
+	out := &animev1.Franchise{Id: f.ID, Title: title, LocalizedTitle: full}
+	if len(f.Series) > 0 {
+		out.Series = make([]*animev1.Series, len(f.Series))
+		for i := range f.Series {
+			out.Series[i] = toSeries(loc, &f.Series[i])
+		}
+	}
+	if len(f.WatchOrders) > 0 {
+		out.WatchOrders = make([]*animev1.WatchOrder, len(f.WatchOrders))
+		for i, wo := range f.WatchOrders {
+			entries := make([]*animev1.WatchOrderEntry, len(wo.Entries))
+			for j, e := range wo.Entries {
+				entries[j] = &animev1.WatchOrderEntry{Ref: e.Ref, Note: e.Note}
+			}
+			out.WatchOrders[i] = &animev1.WatchOrder{Name: wo.Name, Entries: entries}
+		}
+	}
+	return out
+}
+
+// toSearchResult converts a catalog entry to a search result, resolving its
+// title via loc.
+func toSearchResult(loc localizer, e CatalogEntry) *animev1.SearchResult {
+	title, full := loc.title(e.Titles)
+	return &animev1.SearchResult{
+		Kind:           toEntryKind(e.Kind),
+		Id:             e.ID,
+		Title:          title,
+		LocalizedTitle: full,
+		FranchiseId:    e.FranchiseID,
+	}
+}

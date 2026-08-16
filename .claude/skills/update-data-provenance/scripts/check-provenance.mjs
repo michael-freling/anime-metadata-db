@@ -17,7 +17,7 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 
 const ROOT = process.cwd()
-const DOC = 'docs/content/docs/sources-and-licensing.md'
+const DOC = 'web/content/docs/sources-and-licensing.mdx'
 const NOTICE = 'NOTICE'
 const SCHEMA_DIR = 'config/schemas'
 const SOURCES_DIR = 'internal/sources'

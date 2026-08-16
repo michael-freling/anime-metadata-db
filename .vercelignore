@@ -4,7 +4,7 @@
 # excluded is excluded for both.
 #
 # EVERY PATTERN MUST BE ANCHORED WITH A LEADING SLASH. These are gitignore
-# patterns: an unanchored `docs/` matches a directory named docs at ANY depth,
+# patterns: an unanchored `docs/` matched a directory named docs at ANY depth,
 # so it also deleted web/content/docs/ — the entire documentation — from the
 # upload, and the deployed site served 404s for every /docs page while the rest
 # of the app worked. Anchor, or it will happen again to config/ or proto/.
@@ -13,8 +13,10 @@
 # the web project exists to build. Carrying it in the API project's upload costs
 # a little transfer and nothing else.
 #
+# The Hugo tree that /docs/ used to exclude is gone; the documentation now lives
+# in web/content/docs/ and must ship.
+#
 # The dataset under data/ is embedded into the Go function and MUST ship.
-/docs/
 /proto/
 /.sources/
 /config/

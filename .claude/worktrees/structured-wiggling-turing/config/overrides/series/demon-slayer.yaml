@@ -1,0 +1,54 @@
+# Authored override (Demon Slayer) — see docs/proposals "Build CLI Design".
+# Holds only the structure + decisions the open sources cannot express. The
+# builder fills facts (titles, dates, episode counts) and computes
+# absoluteNumber, writing the resolved record to data/. Never hand-edit data/.
+#
+# Node ids are prefixed with the series id so they stay unambiguous across the
+# dataset (e.g. demon-slayer-s1 rather than ds-s1).
+series:
+  id: demon-slayer
+  # A Series/Franchise is our own grouping with no entry in the open sources, so
+  # its title must be authored (a Season/Movie auto-fills from its source).
+  titles: { original: 鬼滅の刃, translations: { en: Demon Slayer } }
+  seasons:
+    - id: demon-slayer-s1
+      number: 1
+      externalIds: { anilistId: 101922 } # Kimetsu no Yaiba (2019)
+    - id: demon-slayer-s2
+      titles: { translations: { en: Mugen Train Arc } }
+      number: 2
+      externalIds: { anilistId: 129874 } # Mugen Ressha-hen (TV, 2021)
+    - id: demon-slayer-s3
+      titles: { translations: { en: Entertainment District Arc } }
+      number: 3
+      externalIds: { anilistId: 142329 } # Yuukaku-hen (2021-2022)
+    - id: demon-slayer-s4
+      titles: { translations: { en: Swordsmith Village Arc } }
+      number: 4
+      externalIds: { anilistId: 145139 } # Katanakaji no Sato-hen (2023)
+    - id: demon-slayer-s5
+      titles: { translations: { en: Hashira Training Arc } }
+      number: 5
+      externalIds: { anilistId: 166240 } # Hashira Geiko-hen (2024)
+  movies:
+    # Alternate cut of the Mugen Train Arc season — takes no absoluteNumber.
+    - id: demon-slayer-mugen-train-film
+      titles: { translations: { en: Mugen Train } }
+      externalIds: { anilistId: 112151 } # film (2020)
+      alternateCutOf: { seasonId: demon-slayer-s2 }
+    # Original film — takes its own slot in the numbered run.
+    - id: demon-slayer-infinity-castle-1
+      titles: { translations: { en: Infinity Castle } }
+      externalIds: { anilistId: 178788 } # Mugenjou-hen Movie 1 (2025)
+  # Cast (R2) nested under the series; names filled from Wikidata (CC0).
+  characters:
+    # No appearances needed: a character nested under a standalone series
+    # defaults to appearing in that whole series. Add an appearances entry only
+    # to scope to specific seasons or to reference another series.
+    - id: tanjiro-kamado
+      externalIds: { wikidataId: Q85805158 }
+      voiceActors:
+        - { staffId: natsuki-hanae, language: ja }
+# Demon Slayer is one linear storyline, so its episodes carry a continuous
+# absoluteNumber across the seasons (and the original film).
+numbered: [demon-slayer]

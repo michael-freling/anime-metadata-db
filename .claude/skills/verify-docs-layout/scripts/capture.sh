@@ -4,43 +4,51 @@
 #
 #   bash .claude/skills/verify-docs-layout/scripts/capture.sh [extra /paths ...]
 #
-# Env: DRAFTS=1 include the draft-only Development section; PORT=8199 serve port.
+# Env: INTERNAL=1 capture the dev-only Development section; PORT=8199 serve port.
 set -euo pipefail
 
 HERE="$(cd "$(dirname "$0")" && pwd)"
 REPO="$(git -C "$HERE" rev-parse --show-toplevel)"
-WORK="$REPO/docs/.screenshots"
+APP="$REPO/web"
+WORK="$APP/.screenshots"
 OUT="$WORK/out"
 PORT="${PORT:-8199}"
-DRAFTS="${DRAFTS:-0}"
+INTERNAL="${INTERNAL:-0}"
 mkdir -p "$OUT"; rm -f "$OUT"/*.png 2>/dev/null || true
 
-HUGO="$(ls "$REPO"/docs/.hugo/hugo-* 2>/dev/null | head -1 || true)"
-[ -n "$HUGO" ] || { echo "error: pinned Hugo not found — run 'make hugo' first" >&2; exit 1; }
+[ -d "$APP/node_modules" ] || { echo ">> installing web dependencies…"; ( cd "$APP" && npm install >/dev/null ); }
 
 echo ">> ensuring headless browser (first run downloads Chromium)…"
 ENVF="$(bash "$HERE/setup-browser.sh" "$WORK")"
 # shellcheck disable=SC1090
 source "$ENVF"
 
-echo ">> building docs (production, baseURL=/)…"
-rm -rf "$REPO/docs/public"
-FLAGS="--minify"; [ "$DRAFTS" = 1 ] && FLAGS="$FLAGS --buildDrafts"
-( cd "$REPO/docs" && HUGO_BASEURL="/" "$HUGO" $FLAGS >/dev/null )
-
-echo ">> serving docs/public on :$PORT…"
-python3 -m http.server "$PORT" --directory "$REPO/docs/public" >/dev/null 2>&1 &
+# The Development section is excluded from every non-dev build (see
+# web/src/lib/source.ts), so capturing it means running the dev server rather
+# than the production one. Everything else is shot against a real production
+# build, which is what users actually get.
+if [ "$INTERNAL" = 1 ]; then
+  echo ">> starting dev server on :$PORT (includes internal docs)…"
+  ( cd "$APP" && exec npx next dev -p "$PORT" ) >/dev/null 2>&1 &
+else
+  echo ">> building web (production)…"
+  ( cd "$APP" && npm run build >/dev/null )
+  echo ">> serving production build on :$PORT…"
+  ( cd "$APP" && exec npx next start -p "$PORT" ) >/dev/null 2>&1 &
+fi
 SRV=$!
 cleanup() { kill "$SRV" 2>/dev/null || true; }
 trap cleanup EXIT
-for _ in $(seq 1 40); do curl -sf -o /dev/null "http://localhost:$PORT/" && break; sleep 0.5; done
+for _ in $(seq 1 90); do curl -sf -o /dev/null "http://localhost:$PORT/" && break; sleep 1; done
 
-# Pages to shoot: caller-supplied paths, else a sensible default set.
+# Pages to shoot: caller-supplied paths, else a sensible default set. Fumadocs
+# URLs have no trailing slash — a trailing slash redirects and the shot lands on
+# the wrong page.
 if [ "$#" -gt 0 ]; then
   PATHS=("$@")
 else
-  PATHS=(/ /docs/ /docs/using-the-api/ /docs/using-the-dataset/ /docs/building-the-dataset/)
-  [ "$DRAFTS" = 1 ] && PATHS+=(/development/)
+  PATHS=(/ /docs /docs/using-the-api /docs/using-the-dataset /docs/building-the-dataset)
+  [ "$INTERNAL" = 1 ] && PATHS+=(/docs/development)
 fi
 
 echo ">> capturing ${#PATHS[@]} page(s)…"
