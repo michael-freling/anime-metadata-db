@@ -17,6 +17,9 @@
 set -euo pipefail
 
 REPO="$(git rev-parse --show-toplevel)"
+# The pattern file to check. Overridable so the guard's own test can feed it
+# deliberately broken variants; defaults to the real one.
+PATTERNS="${VERCELIGNORE:-$REPO/.vercelignore}"
 WORK="$(mktemp -d)"
 trap 'rm -rf "$WORK"' EXIT
 
@@ -31,7 +34,7 @@ done < <(git -C "$REPO" ls-files -z)
 # Copy the patterns in AFTER materialising: the repository tracks its own
 # .gitignore, so doing this first meant the loop truncated it to nothing and the
 # check silently passed everything.
-cp "$REPO/.vercelignore" "$WORK/.gitignore"
+cp "$PATTERNS" "$WORK/.gitignore"
 
 excluded() { git -C "$WORK" check-ignore -q "$1"; }
 
@@ -41,7 +44,7 @@ fail=0
 #   web/**            the app the web project builds
 #   data/**           embedded into the Go function with go:embed
 #   web/content/**    the MDX the docs site renders
-for required in 'web/package.json' 'web/content/docs' 'web/src' 'data/series'; do
+for required in 'web/package.json' 'web/content/docs' 'web/src' 'data'; do
   matched=0
   while IFS= read -r -d '' f; do
     matched=$((matched + 1))

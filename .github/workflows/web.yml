@@ -198,5 +198,11 @@ jobs:
       # `next build` in the job above runs over a full checkout, so it cannot
       # see a .vercelignore that deletes files from the real deployment upload.
       # That gap shipped two broken deployments; this closes it.
+      # The guard protects the upload; this protects the guard. Without it an
+      # edit could turn the check into one that passes everything, leaving
+      # .vercelignore unguarded with CI still green.
+      - name: Test the check itself
+        run: bash .github/scripts/verify-deploy-upload.test.sh
+
       - name: Verify .vercelignore
         run: bash .github/scripts/verify-deploy-upload.sh

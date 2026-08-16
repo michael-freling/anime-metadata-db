@@ -39,14 +39,32 @@ const SITE_ORIGIN = 'https://anime-metadata-web.vercel.app';
 // against a local API and a second against a closed port to exercise the
 // API-down path. It is a test hook, NOT a deployment setting — nothing should
 // ever set it in Vercel.
-export const apiBaseUrl =
-  process.env.API_BASE_URL ??
-  (process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : API_ORIGIN);
+// Only the variables these functions actually read, so a test can pass a
+// partial environment without having to satisfy all of NodeJS.ProcessEnv.
+type DeployEnv = Partial<Record<'API_BASE_URL' | 'NODE_ENV' | 'VERCEL_ENV' | 'VERCEL_URL', string>>;
+
+export function resolveApiBaseUrl(env: DeployEnv = process.env): string {
+  if (env.API_BASE_URL) return env.API_BASE_URL;
+  return env.NODE_ENV === 'development' ? 'http://localhost:8080' : API_ORIGIN;
+}
+
+export const apiBaseUrl = resolveApiBaseUrl();
 
 // A preview deployment describes itself with the URL Vercel assigns it, which
 // the platform injects automatically. Production and local both use the
 // canonical origin, so a preview's metadata never claims to be the live site.
-export const siteUrl =
-  process.env.VERCEL_ENV === 'preview' && process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : SITE_ORIGIN;
+// Taken as a function rather than a constant so callers that run per request
+// (robots.txt, the sitemap) read the environment then, instead of whatever was
+// present when the module was first loaded during the build. Vercel guarantees
+// VERCEL_URL at runtime; at build time it depends on the project exposing
+// system environment variables, so a build-time read can silently fall back to
+// the production origin and make a preview claim to be the live site.
+export function resolveSiteUrl(env: DeployEnv = process.env): string {
+  if (env.VERCEL_ENV === 'preview' && env.VERCEL_URL) return `https://${env.VERCEL_URL}`;
+  return SITE_ORIGIN;
+}
+
+// The build-time value. metadataBase in the root layout has to be a constant,
+// since statically generated pages bake their Open Graph URLs in, so that one
+// cannot avoid the caveat above.
+export const siteUrl = resolveSiteUrl();
