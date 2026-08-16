@@ -31,6 +31,17 @@ describe('resolveApiBaseUrl', () => {
   it('falls back to the hosted API when nothing is set', () => {
     expect(resolveApiBaseUrl({})).toBe('https://anime-metadata-db.vercel.app');
   });
+
+  // An empty value is not a usable base URL; treating it as one would point
+  // every request at the app's own origin.
+  it('treats an empty override as unset', () => {
+    expect(resolveApiBaseUrl({ API_BASE_URL: '', NODE_ENV: 'production' })).toBe(
+      'https://anime-metadata-db.vercel.app',
+    );
+    expect(resolveApiBaseUrl({ API_BASE_URL: '', NODE_ENV: 'development' })).toBe(
+      'http://localhost:8080',
+    );
+  });
 });
 
 describe('resolveSiteUrl', () => {

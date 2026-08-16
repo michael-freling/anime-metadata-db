@@ -67,6 +67,19 @@ run "excluding data/staff/ is rejected" reject '/docs/' '/proto/' '/data/staff/'
 # intended exclusions are part of the contract.
 run "an empty file is rejected" reject ''
 
+# The Go API deploys from this repository too, and its files are a separate
+# failure: the site would keep working while the API function stopped building.
+run "excluding internal/ is rejected" reject '/docs/' '/proto/' '/internal/'
+run "excluding cmd/ is rejected" reject '/docs/' '/proto/' '/cmd/'
+run "excluding go.mod is rejected" reject '/docs/' '/proto/' '/go.mod'
+
+# config/ unanchored repeats the docs/ collision, since internal/config/ exists.
+run "unanchored config/ is rejected" reject '/docs/' '/proto/' 'config/'
+
+# Dropping a pattern entirely must not pass: the exclusions are part of the
+# contract, not an optimisation.
+run "dropping /config/ is rejected" reject '/docs/' '/proto/'
+
 # A wildcard that sweeps up the whole repository.
 run "excluding everything is rejected" reject '*'
 

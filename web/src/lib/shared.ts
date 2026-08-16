@@ -44,6 +44,11 @@ const SITE_ORIGIN = 'https://anime-metadata-web.vercel.app';
 type DeployEnv = Partial<Record<'API_BASE_URL' | 'NODE_ENV' | 'VERCEL_ENV' | 'VERCEL_URL', string>>;
 
 export function resolveApiBaseUrl(env: DeployEnv = process.env): string {
+  // Deliberately a truthy check, not `??`: an empty API_BASE_URL — from a shell
+  // exporting an unset variable, or an env-file substitution that resolved to
+  // nothing — is not a usable base URL, and treating it as one would point
+  // every request at the app's own origin. Falling back to the default is the
+  // only sensible reading, so it is pinned by a test.
   if (env.API_BASE_URL) return env.API_BASE_URL;
   return env.NODE_ENV === 'development' ? 'http://localhost:8080' : API_ORIGIN;
 }

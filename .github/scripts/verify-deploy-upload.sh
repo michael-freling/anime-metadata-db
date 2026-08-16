@@ -40,11 +40,21 @@ excluded() { git -C "$WORK" check-ignore -q "$1"; }
 
 fail=0
 
-# Every tracked file under these paths must reach the deployment.
-#   web/**            the app the web project builds
-#   data/**           embedded into the Go function with go:embed
-#   web/content/**    the MDX the docs site renders
-for required in 'web/package.json' 'web/content/docs' 'web/src' 'data'; do
+# Every tracked file under these paths must reach the deployment. Both Vercel
+# projects build from this repository, so both are covered:
+#
+#   web/**       the app the web project builds, including the MDX it renders
+#   cmd/, internal/, go.mod, go.sum, dataset.go
+#                what Vercel's Go builder compiles into the API function. The
+#                whole of internal/ rather than internal/api/ alone: an
+#                unanchored `config/` pattern would sweep up internal/config/
+#                the same way `docs/` swept up web/content/docs/, and naming
+#                only the package the API imports would miss it.
+#   data/**      embedded into that function with go:embed
+for required in \
+  'web/package.json' 'web/content/docs' 'web/src' \
+  'cmd' 'internal' 'go.mod' 'go.sum' 'dataset.go' \
+  'data'; do
   matched=0
   while IFS= read -r -d '' f; do
     matched=$((matched + 1))
@@ -63,7 +73,10 @@ done
 # And the exclusions that are meant to happen still do, so the file cannot be
 # "fixed" by emptying it. Paths that no longer exist are skipped rather than
 # failing, since the Hugo tree is on its way out.
-for intended in 'proto' 'docs'; do
+# Checked against every directory pattern the file carries, not a sample: an
+# unanchored `config/` would collide with internal/config/ exactly as the
+# unanchored `docs/` collided with web/content/docs/.
+for intended in 'proto' 'docs' 'config'; do
   first="$(git -C "$REPO" ls-files -- "$intended" | head -1 || true)"
   [ -n "$first" ] || continue
   if ! excluded "$first"; then
