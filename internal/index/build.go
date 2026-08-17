@@ -138,10 +138,8 @@ func (d *Dataset) WriteTo(w io.Writer) (int64, error) {
 	if err != nil {
 		return 0, err
 	}
-	works, err := d.flatten(idx)
-	if err != nil {
-		return 0, err
-	}
+	works := d.flatten(idx)
+	credits := d.collectCredits(idx)
 	stats := d.stats(works)
 
 	fmt.Fprintf(c, "%s\t%d\n", magic, Version)
@@ -151,8 +149,8 @@ func (d *Dataset) WriteTo(w io.Writer) (int64, error) {
 	d.writeEntries(c, idx, works)
 	writeWorks(c, works)
 	d.writeCharacters(c, idx)
-	d.writeStaff(c)
-	d.writeCredits(c, idx)
+	d.writeStaff(c, credits)
+	writeCredits(c, credits)
 
 	if err := out.Flush(); err != nil {
 		return c.n, err
@@ -245,7 +243,7 @@ type buildWork struct {
 
 // flatten turns every series' seasons, movies and specials into works, in the
 // order they appear in the records.
-func (d *Dataset) flatten(idx *rows) ([]buildWork, error) {
+func (d *Dataset) flatten(idx *rows) []buildWork {
 	var out []buildWork
 	for _, f := range d.files {
 		f.rec.EachSeries(func(s *model.Series) {
@@ -273,7 +271,7 @@ func (d *Dataset) flatten(idx *rows) ([]buildWork, error) {
 			}
 		})
 	}
-	return out, nil
+	return out
 }
 
 // stats summarizes the dataset for the header section.
@@ -442,8 +440,24 @@ func (d *Dataset) writeCharacters(w io.Writer, idx *rows) {
 
 // writeStaff records each staff member's names and the languages they are
 // credited in, which is all ListStaff needs to filter and render a row.
-func (d *Dataset) writeStaff(w io.Writer) {
-	langs := d.creditLanguages()
+func (d *Dataset) writeStaff(w io.Writer, credits []buildCredit) {
+	// Derived from the credit rows rather than by walking the cast a second
+	// time: building a character's staff/language map is not free, and at
+	// catalogue scale doing it twice doubles a pass over every character.
+	langs := map[string][]string{}
+	seen := map[string]map[string]bool{}
+	for _, c := range credits {
+		byLang, ok := seen[c.staffID]
+		if !ok {
+			byLang = map[string]bool{}
+			seen[c.staffID] = byLang
+		}
+		if byLang[c.language] {
+			continue
+		}
+		byLang[c.language] = true
+		langs[c.staffID] = append(langs[c.staffID], c.language)
+	}
 	fmt.Fprintf(w, "!%s\tid\tfile\tnames\tlangs\tanilist\tanidb\ttmdb\ttvdb\twikidata\n", sectionStaff)
 	for _, st := range d.staff {
 		list := langs[st.staff.ID]
@@ -460,33 +474,29 @@ func (d *Dataset) writeStaff(w io.Writer) {
 	}
 }
 
-// creditLanguages collects the distinct languages each staff member is
-// credited in.
-func (d *Dataset) creditLanguages() map[string][]string {
-	out := map[string][]string{}
-	seen := map[string]map[string]bool{}
-	d.eachCredit(func(staffID, language, _ string) {
-		langs, ok := seen[staffID]
-		if !ok {
-			langs = map[string]bool{}
-			seen[staffID] = langs
-		}
-		if langs[language] {
-			return
-		}
-		langs[language] = true
-		out[staffID] = append(out[staffID], language)
-	})
-	return out
+// buildCredit is one (staff, character, language) casting before it is written.
+type buildCredit struct {
+	staffID      string
+	staffRow     int
+	characterRow int
+	language     string
+	seriesRows   []int
 }
 
-// writeCredits emits the staff -> character reverse index: one row per staff
-// member, character and language, with the series the casting covers.
-func (d *Dataset) writeCredits(w io.Writer, idx *rows) {
-	fmt.Fprintf(w, "!%s\tstaff\tcharacter\tlanguage\tseries\n", sectionCredits)
-
-	// Grouped the way the store reads them — by character, then language — so
-	// the rows for one staff member arrive together and in dataset order.
+// collectCredits walks the cast once and returns every casting, sorted so that
+// one staff member's rows are contiguous.
+//
+// The order matters to the reader, not just to the diff: it records a single
+// half-open range per staff member. Emitted in character order — the obvious
+// grouping, and what this did first — a prolific voice actor's few credits are
+// scattered the length of the section, so that range spans nearly the whole
+// table and every staff page scans it. On the committed dataset that was 38,743
+// rows scanned to serve 651 credits, before the catalogue grows at all.
+//
+// Sorting by staff, then character, then language keeps the file deterministic
+// and leaves each staff member's credits in dataset order within their block.
+func (d *Dataset) collectCredits(idx *rows) []buildCredit {
+	var out []buildCredit
 	for _, f := range d.files {
 		cast := f.rec.Cast()
 		for i := range cast {
@@ -507,17 +517,44 @@ func (d *Dataset) writeCredits(w io.Writer, idx *rows) {
 				}
 				sort.Strings(keys)
 				for _, lang := range keys {
-					var series []string
+					var series []int
 					for _, id := range langs[lang] {
 						if row, ok := idx.series[id]; ok {
-							series = append(series, formatInt(row+1))
+							series = append(series, row+1)
 						}
 					}
-					fmt.Fprintf(w, "%d\t%d\t%s\t%s\n",
-						staffRow+1, idx.character[c.ID]+1, escape(lang), strings.Join(series, "|"))
+					out = append(out, buildCredit{
+						staffID: staffID, staffRow: staffRow + 1,
+						characterRow: idx.character[c.ID] + 1,
+						language:     lang, seriesRows: series,
+					})
 				}
 			}
 		}
+	}
+	sort.SliceStable(out, func(i, j int) bool {
+		if out[i].staffRow != out[j].staffRow {
+			return out[i].staffRow < out[j].staffRow
+		}
+		if out[i].characterRow != out[j].characterRow {
+			return out[i].characterRow < out[j].characterRow
+		}
+		return out[i].language < out[j].language
+	})
+	return out
+}
+
+// writeCredits emits the staff -> character reverse index: one row per staff
+// member, character and language, with the series the casting covers.
+func writeCredits(w io.Writer, credits []buildCredit) {
+	fmt.Fprintf(w, "!%s\tstaff\tcharacter\tlanguage\tseries\n", sectionCredits)
+	for _, c := range credits {
+		series := make([]string, len(c.seriesRows))
+		for i, row := range c.seriesRows {
+			series[i] = formatInt(row)
+		}
+		fmt.Fprintf(w, "%d\t%d\t%s\t%s\n",
+			c.staffRow, c.characterRow, escape(c.language), strings.Join(series, "|"))
 	}
 }
 
@@ -563,28 +600,6 @@ func creditsFor(c *model.Character) (map[string]map[string][]string, []string) {
 		}
 	}
 	return byStaff, order
-}
-
-// eachCredit calls fn for every (staff, language, series) casting in the
-// dataset.
-func (d *Dataset) eachCredit(fn func(staffID, language, seriesID string)) {
-	for _, f := range d.files {
-		cast := f.rec.Cast()
-		for i := range cast {
-			byStaff, order := creditsFor(&cast[i])
-			for _, staffID := range order {
-				for lang, series := range byStaff[staffID] {
-					if len(series) == 0 {
-						fn(staffID, lang, "")
-						continue
-					}
-					for _, id := range series {
-						fn(staffID, lang, id)
-					}
-				}
-			}
-		}
-	}
 }
 
 // Build parses the dataset in fsys and returns an index over it, without

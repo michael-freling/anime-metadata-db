@@ -210,6 +210,20 @@ func TestOpenRejectsMalformedFiles(t *testing.T) {
 			"!anime-metadata-db-index\t1\n!credits\tstaff\tcharacter\tlanguage\tseries\n3\t1\tja\t\n",
 			"staff row 3 out of range",
 		},
+		{
+			// The sibling of the case above: an unguarded character row would
+			// index out of range and panic when the credit is materialised.
+			"credit naming a character that does not exist",
+			"!anime-metadata-db-index\t1\n!staff\ta\tb\tc\td\te\tf\tg\th\ti\n" +
+				"va\ts.yaml\t\t\t\t\t\t\t\n" +
+				"!credits\tstaff\tcharacter\tlanguage\tseries\n1\t9\tja\t\n",
+			"character row 9 out of range",
+		},
+		{
+			"series naming a negative franchise row",
+			"!anime-metadata-db-index\t1\n!series\tid\tfile\tfranchise\ttitles\ns\ts.yaml\t-1\t\n",
+			"out of range",
+		},
 	}
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
@@ -857,5 +871,151 @@ func TestQueriesRejectBadPageTokens(t *testing.T) {
 	}
 	if _, err := ix.StaffPage("", "", bad, 0); err == nil {
 		t.Error("StaffPage accepted a malformed token")
+	}
+}
+
+// A staff member credited across several characters is the case the credits
+// range has to get right, and the small fixture above does not produce one:
+// every credit there collapses into a single row per staff member, so the
+// range never has to widen and a broken range would still pass.
+func TestCreditsForAStaffMemberSpanningManyCharacters(t *testing.T) {
+	fsys := fstest.MapFS{
+		"data/series/a.yaml": {Data: []byte(`series:
+  id: a
+  characters:
+    - id: one
+      voiceActors:
+        - staffId: busy
+          language: ja
+    - id: two
+      voiceActors:
+        - staffId: other
+          language: ja
+    - id: three
+      voiceActors:
+        - staffId: busy
+          language: ja
+    - id: four
+      voiceActors:
+        - staffId: busy
+          language: en
+`)},
+		"data/staff/s.yaml": {Data: []byte("staff:\n  - id: busy\n  - id: other\n")},
+	}
+	ix, err := Build(fsys)
+	if err != nil {
+		t.Fatalf("Build: %v", err)
+	}
+
+	credits := ix.Credits("busy")
+	if len(credits) != 3 {
+		t.Fatalf("Credits(busy) = %d rows, want 3: %+v", len(credits), credits)
+	}
+	// In dataset order within the staff member's own block.
+	want := []string{"one/ja", "three/ja", "four/en"}
+	for i, w := range want {
+		if got := credits[i].CharacterID + "/" + credits[i].Language; got != w {
+			t.Errorf("credit %d = %q, want %q", i, got, w)
+		}
+	}
+	// The interleaved staff member's credit must not leak into that range.
+	for _, c := range credits {
+		if c.CharacterID == "two" {
+			t.Error("Credits(busy) returned another staff member's credit")
+		}
+	}
+	if other := ix.Credits("other"); len(other) != 1 || other[0].CharacterID != "two" {
+		t.Errorf("Credits(other) = %+v", other)
+	}
+}
+
+// One staff member's credits must occupy a contiguous block, because the reader
+// records a single range per staff member. Emitted in character order they are
+// scattered, and that range widens to span nearly the whole section — 38,743
+// rows scanned to serve 651 credits on the committed dataset, before the
+// catalogue grows at all.
+func TestCreditsAreGroupedByStaff(t *testing.T) {
+	ix := mustIndex(t)
+	seen := map[int32]bool{}
+	var previous int32
+	for i, c := range ix.credits {
+		if i > 0 && c.staff != previous {
+			if seen[c.staff] {
+				t.Fatalf("credits for staff row %d are not contiguous", c.staff)
+			}
+			seen[previous] = true
+		}
+		previous = c.staff
+	}
+}
+
+// Values carrying the format's own separators have to survive the whole trip —
+// escaped by the writer, read back by column, and still matchable by search.
+// This is the integrity property cmd/index's self-check exists to protect.
+func TestPathologicalTitlesSurviveAWriteReadRoundTrip(t *testing.T) {
+	ix, err := Build(fstest.MapFS{
+		"data/series/a.yaml": {Data: []byte("series:\n  id: a\n  titles:\n    original: \"tab\\there|pipe=eq\\\\slash\"\n    translations:\n      en: \"line\\nbreak\"\n")},
+	})
+	if err != nil {
+		t.Fatalf("Build: %v", err)
+	}
+	page, err := ix.Catalog(nil, "", 0)
+	if err != nil {
+		t.Fatalf("Catalog: %v", err)
+	}
+	if len(page.Items) != 1 {
+		t.Fatalf("got %d entries, want 1", len(page.Items))
+	}
+	got := page.Items[0].Titles
+	if got.Original != "tab\there|pipe=eq\\slash" {
+		t.Errorf("original = %q", got.Original)
+	}
+	if got.Translations["en"] != "line\nbreak" {
+		t.Errorf("en = %q", got.Translations["en"])
+	}
+	// And the separators must not be matchable as if they were content.
+	found, err := ix.Search("pipe=eq", "", 0)
+	if err != nil {
+		t.Fatalf("Search: %v", err)
+	}
+	if len(found.Items) != 1 {
+		t.Errorf("searching for the escaped text found %d entries", len(found.Items))
+	}
+}
+
+// A character appearing in a series the dataset does not define. Skipped rather
+// than failing the build, matching how a credit to an unknown staff member is
+// treated — the dataset lint is what reports the dangling reference. Pinned so
+// the behaviour is a decision rather than an accident.
+func TestAppearanceInAnUnknownSeriesIsSkipped(t *testing.T) {
+	ix, err := Build(fstest.MapFS{"data/series/a.yaml": {Data: []byte(`series:
+  id: a
+  characters:
+    - id: wanderer
+      appearances:
+        - seriesId: a
+        - seriesId: does-not-exist
+`)}})
+	if err != nil {
+		t.Fatalf("Build: %v", err)
+	}
+	page, err := ix.Characters("a", "", "", 0)
+	if err != nil {
+		t.Fatalf("Characters: %v", err)
+	}
+	if len(page.Items) != 1 {
+		t.Errorf("the character is not filed under the series it does appear in")
+	}
+	if page, _ := ix.Characters("does-not-exist", "", "", 0); page.Total != 0 {
+		t.Errorf("the dangling series id resolved to something")
+	}
+}
+
+// Search's default page size is a published contract: the API docs state it,
+// and a client that omits limit depends on it. It regressed from 50 to 20
+// unnoticed during the port to this package, which is why it is pinned.
+func TestSearchDefaultLimitIsFifty(t *testing.T) {
+	if DefaultSearchLimit != 50 {
+		t.Errorf("DefaultSearchLimit = %d, want 50 — and update the API docs if this is deliberate", DefaultSearchLimit)
 	}
 }

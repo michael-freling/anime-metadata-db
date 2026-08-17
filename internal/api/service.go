@@ -2,8 +2,8 @@ package api
 
 import (
 	"context"
+	"errors"
 	"fmt"
-	"strings"
 
 	"connectrpc.com/connect"
 
@@ -57,7 +57,7 @@ func (s *Service) ListFranchises(_ context.Context, req *connect.Request[animev1
 // caller's fault; anything else means a record file could not be read or
 // parsed, which is ours.
 func storeError(err error) *connect.Error {
-	if strings.Contains(err.Error(), "page token") {
+	if errors.Is(err, index.ErrInvalidPageToken) {
 		return connect.NewError(connect.CodeInvalidArgument, err)
 	}
 	return connect.NewError(connect.CodeInternal, err)

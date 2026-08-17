@@ -133,6 +133,20 @@ func (s *Store) record(file string) (*model.Record, error) {
 	return rec, nil
 }
 
+// A note on drift, since the two halves behave differently on purpose.
+//
+// Listings answer from the index alone and never open a record, so they cannot
+// notice that data/index.tsv has fallen out of step with data/series — they
+// would serve stale titles and counts happily. The detail reads do notice,
+// because they open the file the index names and check the record is the one it
+// promised, and they return an error rather than a not-found.
+//
+// That asymmetry is the point: making listings verify would mean reading every
+// record they list, which is the cost this whole package exists to avoid. Drift
+// is prevented rather than detected — `make index-check` regenerates the index
+// in CI and fails on any difference — and the detail path's check is the
+// backstop for the case where prevention was bypassed.
+
 // Stats returns the dataset summary recorded in the index.
 func (s *Store) Stats() Stats { return s.ix.Stats() }
 

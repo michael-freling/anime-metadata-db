@@ -2,7 +2,7 @@ package index
 
 import (
 	"encoding/base64"
-	"fmt"
+	"errors"
 	"strconv"
 	"strings"
 
@@ -13,7 +13,10 @@ import (
 const DefaultListLimit = 100
 
 // DefaultSearchLimit caps search results when the caller passes no limit.
-const DefaultSearchLimit = 20
+// Documented in web/content/docs/using-the-api.mdx and pinned by a test: a
+// client that omits limit gets this many, so changing it changes a published
+// contract rather than an implementation detail.
+const DefaultSearchLimit = 50
 
 // page walks n rows, keeps the ones match accepts, and materialises only those
 // falling inside the requested window.
@@ -47,6 +50,13 @@ func page[T any](n int, match func(i int) bool, build func(i int) T, token strin
 	return out, nil
 }
 
+// ErrInvalidPageToken is returned for a token this package did not issue.
+//
+// A sentinel rather than a message the caller greps: the service maps this to
+// InvalidArgument, and deciding that by substring would silently reclassify any
+// future error whose text happened to mention a page token.
+var ErrInvalidPageToken = errors.New("invalid page token")
+
 const cursorPrefix = "o:"
 
 // encodeCursor renders an offset as an opaque page token.
@@ -70,15 +80,15 @@ func decodeCursor(token string) (int, error) {
 	}
 	raw, err := base64.RawURLEncoding.DecodeString(token)
 	if err != nil {
-		return 0, fmt.Errorf("invalid page token")
+		return 0, ErrInvalidPageToken
 	}
 	s, ok := strings.CutPrefix(string(raw), cursorPrefix)
 	if !ok {
-		return 0, fmt.Errorf("invalid page token")
+		return 0, ErrInvalidPageToken
 	}
 	offset, err := strconv.Atoi(s)
 	if err != nil || offset < 0 {
-		return 0, fmt.Errorf("invalid page token")
+		return 0, ErrInvalidPageToken
 	}
 	return offset, nil
 }

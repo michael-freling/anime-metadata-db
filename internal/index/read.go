@@ -265,7 +265,7 @@ func (ix *Index) readSeries(row string, start uint32) error {
 	if err != nil {
 		return fmt.Errorf("franchise: %w", err)
 	}
-	if franchise > len(ix.franchises) {
+	if franchise < 0 || franchise > len(ix.franchises) {
 		return fmt.Errorf("franchise row %d out of range", franchise)
 	}
 	ix.seriesByID[unescape(c[0].text(ix.blob))] = int32(len(ix.series))
@@ -318,22 +318,25 @@ func (ix *Index) readWork(row string, start uint32) error {
 	if err != nil {
 		return err
 	}
-	nums := map[int]int{}
-	for _, i := range []int{2, 3, 5, 8, 10, 11, 12, 13} {
-		if nums[i], err = parseInt(c[i].text(ix.blob)); err != nil {
+	// A slice, not a map: this runs once per work on every boot, and the whole
+	// point of the format is that opening it allocates almost nothing.
+	cols := [...]int{2, 3, 5, 8, 10, 11, 12, 13}
+	var nums [len(cols)]int
+	for i, col := range cols {
+		if nums[i], err = parseInt(c[col].text(ix.blob)); err != nil {
 			return err
 		}
 	}
-	if nums[2] < 1 || nums[2] > len(ix.series) {
-		return fmt.Errorf("series row %d out of range", nums[2])
+	if nums[0] < 1 || nums[0] > len(ix.series) {
+		return fmt.Errorf("series row %d out of range", nums[0])
 	}
 	ix.workByID[unescape(c[1].text(ix.blob))] = int32(len(ix.works))
 	ix.works = append(ix.works, workRow{
-		kind: kind, id: c[1], series: int32(nums[2]), number: int32(nums[3]),
-		date: c[4], year: int32(nums[5]), quarter: c[6], format: c[7],
-		episodes: int32(nums[8]), titles: c[9],
-		anilist: int32(nums[10]), anidb: int32(nums[11]),
-		tmdb: int32(nums[12]), tvdb: int32(nums[13]), wikidata: c[14],
+		kind: kind, id: c[1], series: int32(nums[0]), number: int32(nums[1]),
+		date: c[4], year: int32(nums[2]), quarter: c[6], format: c[7],
+		episodes: int32(nums[3]), titles: c[9],
+		anilist: int32(nums[4]), anidb: int32(nums[5]),
+		tmdb: int32(nums[6]), tvdb: int32(nums[7]), wikidata: c[14],
 	})
 	return nil
 }
