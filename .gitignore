@@ -51,3 +51,8 @@ coverage.out
 /node_modules/
 /package.json
 /package-lock.json
+
+# Agent worktrees are scratch checkouts of this same repo. One was committed
+# by accident (PR #13), adding a frozen 75-file duplicate of the tree that
+# every grep and every deployment upload then had to carry.
+.claude/worktrees/
