@@ -398,6 +398,48 @@ func TestGetStaff(t *testing.T) {
 	}
 }
 
+// A credit carries the title of each series it covers, positionally aligned
+// with series_ids, so a roles list can name the shows without a call per id.
+//
+// Worth its own test because the frontend falls back to humanizing the id when
+// a title is missing — so a desynced or empty title would render as something
+// plausible rather than as an error, and ship unnoticed.
+func TestGetStaffCreditsCarrySeriesTitles(t *testing.T) {
+	svc := newTestService(t)
+
+	resp, err := svc.GetStaff(context.Background(), connect.NewRequest(&animev1.GetStaffRequest{Id: "va-one"}))
+	if err != nil {
+		t.Fatalf("GetStaff: %v", err)
+	}
+	for _, c := range resp.Msg.GetCredits() {
+		if len(c.GetSeriesTitles()) != len(c.GetSeriesIds()) {
+			t.Errorf("credit %q: %d titles for %d ids — the two must stay aligned",
+				c.GetCharacterId(), len(c.GetSeriesTitles()), len(c.GetSeriesIds()))
+		}
+	}
+	credit := resp.Msg.GetCredits()[0]
+	if len(credit.GetSeriesIds()) != 1 || credit.GetSeriesIds()[0] != "aaa-main" {
+		t.Fatalf("credit series ids = %v, want [aaa-main]", credit.GetSeriesIds())
+	}
+	if credit.GetSeriesTitles()[0] != "Alpha Main" {
+		t.Errorf("series title = %q, want %q", credit.GetSeriesTitles()[0], "Alpha Main")
+	}
+
+	// Resolved for the request's language, like every other title. zzz is the
+	// one fixture series with a native original, so asking in Japanese must
+	// return it — a credit built with the wrong localizer would still return
+	// the English title here and pass every assertion above.
+	resp, err = svc.GetStaff(context.Background(), reqWithLang(&animev1.GetStaffRequest{Id: "va-two"}, "ja"))
+	if err != nil {
+		t.Fatalf("GetStaff(va-two): %v", err)
+	}
+	credit = resp.Msg.GetCredits()[0]
+	if credit.GetSeriesIds()[0] != "zzz" || credit.GetSeriesTitles()[0] != "ゼッド" {
+		t.Errorf("ja credit = ids %v, titles %v; want [zzz] / [ゼッド]",
+			credit.GetSeriesIds(), credit.GetSeriesTitles())
+	}
+}
+
 func TestGetStaffErrors(t *testing.T) {
 	svc := newTestService(t)
 	if _, err := svc.GetStaff(context.Background(), connect.NewRequest(&animev1.GetStaffRequest{})); connect.CodeOf(err) != connect.CodeInvalidArgument {

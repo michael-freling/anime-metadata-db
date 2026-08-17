@@ -3,13 +3,15 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { cache } from 'react';
 import { Code, ConnectError } from '@connectrpc/connect';
-import { api } from '@/lib/api';
+import { localizedApi } from '@/lib/api';
 import { ApiError, isBadRequest, PageHeader, plural } from '@/components/browse';
+import { humanizeId, languageLabel } from '@/lib/format';
 
 // Shared by generateMetadata and the page body, which would otherwise each
 // issue their own RPC for the same character.
 const load = cache(async (id: string) => {
   try {
+    const api = await localizedApi();
     const { character } = await api.getCharacter({ id });
     return character ?? null;
   } catch (err) {
@@ -37,7 +39,7 @@ export async function generateMetadata({
   } catch {
     // Metadata must never take the page down.
   }
-  return { title: id };
+  return { title: humanizeId(id) };
 }
 
 export default async function CharacterPage({ params }: { params: Promise<{ id: string }> }) {
@@ -49,7 +51,7 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
   } catch (err) {
     return (
       <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-12">
-        <PageHeader title={id} />
+        <PageHeader title={humanizeId(id)} />
         <ApiError
           detail={err instanceof ConnectError ? err.message : String(err)}
           badRequest={isBadRequest(err)}
@@ -61,18 +63,20 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
 
   return (
     <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-12">
-      <Link href="/search" className="text-sm text-fd-muted-foreground hover:underline">
-        ← Search
+      <Link href="/browse" className="text-sm text-fd-muted-foreground hover:underline">
+        ← Browse
       </Link>
       <div className="mt-4">
         <PageHeader
-          title={character.name || character.id}
-          subtitle={
-            <>
-              <code className="font-mono text-sm">{character.id}</code> ·{' '}
-              {plural(character.appearances.length, 'appearance')}
-            </>
-          }
+          title={character.name || humanizeId(character.id)}
+          subtitle={[
+            plural(character.appearances.length, 'appearance'),
+            character.voiceActors.length
+              ? plural(character.voiceActors.length, 'voice actor')
+              : null,
+          ]
+            .filter(Boolean)
+            .join(' · ')}
         />
       </div>
 
@@ -86,9 +90,9 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
                 className="flex items-baseline justify-between gap-4 border-b border-fd-border py-3 last:border-0"
               >
                 <Link href={`/staff/${v.staffId}`} className="font-medium hover:underline">
-                  {v.staffName || v.staffId}
+                  {v.staffName || humanizeId(v.staffId)}
                 </Link>
-                <span className="text-sm text-fd-muted-foreground">{v.language}</span>
+                <span className="text-sm text-fd-muted-foreground">{languageLabel(v.language)}</span>
               </li>
             ))}
           </ul>
@@ -105,12 +109,12 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
                 className="flex flex-wrap items-baseline justify-between gap-4 border-b border-fd-border py-3 last:border-0"
               >
                 <Link href={`/browse/${a.seriesId}`} className="font-medium hover:underline">
-                  {a.seriesTitle || a.seriesId}
+                  {a.seriesTitle || humanizeId(a.seriesId)}
                 </Link>
                 {/* An appearance may override the default cast for that series. */}
                 {a.voiceActors.length > 0 ? (
                   <span className="text-sm text-fd-muted-foreground">
-                    {a.voiceActors.map((v) => v.staffName || v.staffId).join(', ')}
+                    {a.voiceActors.map((v) => v.staffName || humanizeId(v.staffId)).join(', ')}
                   </span>
                 ) : null}
               </li>

@@ -350,7 +350,7 @@ func toStaffList(loc localizer, in []*model.Staff) []*animev1.Staff {
 
 // toStaffCredits converts a staff member's roles, resolving each character's
 // name via loc.
-func toStaffCredits(loc localizer, in []StaffCredit) []*animev1.StaffCredit {
+func toStaffCredits(loc localizer, store *Store, in []StaffCredit) []*animev1.StaffCredit {
 	if len(in) == 0 {
 		return nil
 	}
@@ -361,6 +361,7 @@ func toStaffCredits(loc localizer, in []StaffCredit) []*animev1.StaffCredit {
 			CharacterName: resolveTitle(credit.CharacterNames, loc.lang),
 			Language:      credit.Language,
 			SeriesIds:     credit.SeriesIDs,
+			SeriesTitles:  seriesTitles(loc, store, credit.SeriesIDs),
 		}
 	}
 	return out
@@ -551,4 +552,18 @@ func seriesTitle(loc localizer, store *Store, seriesID string) string {
 	}
 	title, _ := loc.title(titles)
 	return title
+}
+
+// seriesTitles resolves each id to its title, positionally. An id that names
+// nothing yields an empty string rather than being dropped, so the two slices
+// stay aligned and a caller can always pair them up.
+func seriesTitles(loc localizer, store *Store, ids []string) []string {
+	if len(ids) == 0 {
+		return nil
+	}
+	out := make([]string, len(ids))
+	for i, id := range ids {
+		out[i] = seriesTitle(loc, store, id)
+	}
+	return out
 }

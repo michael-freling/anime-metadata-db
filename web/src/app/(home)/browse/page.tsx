@@ -2,7 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ConnectError } from '@connectrpc/connect';
-import { api, datasetYearSpan } from '@/lib/api';
+import { datasetYearSpan, localizedApi } from '@/lib/api';
+import { LanguageSwitch } from '@/components/language';
+import { humanizeId } from '@/lib/format';
 import { EntryKind, ReleaseSeason } from '@/lib/gen/anime/v1/anime_pb';
 import {
   ApiError,
@@ -108,6 +110,8 @@ export default async function BrowsePage({ searchParams }: { searchParams: Promi
   // and one cursor cannot describe them all.
   const single = effective !== 'all';
   const limit = single ? LIMIT : 12;
+
+  const api = await localizedApi();
 
   let shows, releases, characters, staff;
   let error: unknown = null;
@@ -224,7 +228,8 @@ export default async function BrowsePage({ searchParams }: { searchParams: Promi
         </button>
       </form>
 
-      <nav aria-label="Result type" className="mt-4 flex flex-wrap gap-2">
+      <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
+        <nav aria-label="Result type" className="flex flex-wrap gap-2">
         {KINDS.map((k) => (
           <Link
             key={k.value}
@@ -243,12 +248,14 @@ export default async function BrowsePage({ searchParams }: { searchParams: Promi
             {k.label}
           </Link>
         ))}
-        {q || year || quarter ? (
-          <Link href="/browse" className="rounded-full px-3 py-1.5 text-sm text-fd-muted-foreground underline">
-            Clear
-          </Link>
-        ) : null}
-      </nav>
+          {q || year || quarter ? (
+            <Link href="/browse" className="rounded-full px-3 py-1.5 text-sm text-fd-muted-foreground underline">
+              Clear
+            </Link>
+          ) : null}
+        </nav>
+        <LanguageSwitch />
+      </div>
 
       {datesIgnored ? (
         <p className="mt-4 text-sm text-fd-muted-foreground">
@@ -281,7 +288,7 @@ export default async function BrowsePage({ searchParams }: { searchParams: Promi
               <Card
                 key={e.id}
                 href={`/browse/${e.id}`}
-                title={e.title || e.id}
+                title={e.title || humanizeId(e.id)}
                 badge={e.kind === EntryKind.FRANCHISE ? 'Franchise' : undefined}
                 meta={
                   e.works === undefined
@@ -307,7 +314,7 @@ export default async function BrowsePage({ searchParams }: { searchParams: Promi
               <Card
                 key={w.id}
                 href={`/browse/${w.seriesId}`}
-                title={w.seriesTitle || w.title || w.id}
+                title={w.seriesTitle || w.title || humanizeId(w.id)}
                 meta={[
                   w.number > 0 ? `Season ${w.number}` : w.title,
                   w.releaseYear > 0 ? w.releaseYear : null,
@@ -328,10 +335,10 @@ export default async function BrowsePage({ searchParams }: { searchParams: Promi
               <Card
                 key={c.id}
                 href={`/characters/${c.id}`}
-                title={c.name || c.id}
+                title={c.name || humanizeId(c.id)}
                 meta={
                   c.voiceActors.length
-                    ? `Voiced by ${c.voiceActors.map((v) => v.staffName || v.staffId).join(', ')}`
+                    ? `Voiced by ${c.voiceActors.map((v) => v.staffName || humanizeId(v.staffId)).join(', ')}`
                     : plural(c.appearances.length, 'appearance')
                 }
               />
@@ -344,7 +351,7 @@ export default async function BrowsePage({ searchParams }: { searchParams: Promi
         <Section title="Voice actors" total={staff.totalSize} single={single}>
           <Grid>
             {staff.staff.map((s) => (
-              <Card key={s.id} href={`/staff/${s.id}`} title={s.name || s.id} />
+              <Card key={s.id} href={`/staff/${s.id}`} title={s.name || humanizeId(s.id)} />
             ))}
           </Grid>
         </Section>

@@ -210,6 +210,12 @@ message StaffCredit {
   string character_name = 2;
   string language = 3;
   repeated string series_ids = 4;
+  // series_titles are those series' titles resolved for the request's
+  // Accept-Language, positionally matching series_ids. Denormalized for the
+  // same reason VoiceActor carries staff_name: a client listing someone's
+  // roles should not have to call GetSeries once per credit, and without it
+  // the only thing it can show a reader is a slug.
+  repeated string series_titles = 5;
 }
 
 // WatchOrderEntry is one ordered reference within a WatchOrder.
