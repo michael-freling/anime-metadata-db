@@ -3,11 +3,13 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { cache } from 'react';
 import { Code, ConnectError } from '@connectrpc/connect';
-import { api } from '@/lib/api';
+import { localizedApi } from '@/lib/api';
 import { ApiError, isBadRequest, PageHeader, plural } from '@/components/browse';
+import { humanizeId, languageLabel } from '@/lib/format';
 
 const load = cache(async (id: string) => {
   try {
+    const api = await localizedApi();
     const res = await api.getStaff({ id });
     return res.staff ? res : null;
   } catch (err) {
@@ -33,7 +35,7 @@ export async function generateMetadata({
   } catch {
     // Metadata must never take the page down.
   }
-  return { title: id };
+  return { title: humanizeId(id) };
 }
 
 export default async function StaffPage({ params }: { params: Promise<{ id: string }> }) {
@@ -45,7 +47,7 @@ export default async function StaffPage({ params }: { params: Promise<{ id: stri
   } catch (err) {
     return (
       <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-12">
-        <PageHeader title={id} />
+        <PageHeader title={humanizeId(id)} />
         <ApiError
           detail={err instanceof ConnectError ? err.message : String(err)}
           badRequest={isBadRequest(err)}
@@ -59,18 +61,13 @@ export default async function StaffPage({ params }: { params: Promise<{ id: stri
 
   return (
     <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-12">
-      <Link href="/search" className="text-sm text-fd-muted-foreground hover:underline">
-        ← Search
+      <Link href="/browse" className="text-sm text-fd-muted-foreground hover:underline">
+        ← Browse
       </Link>
       <div className="mt-4">
         <PageHeader
-          title={staff.name || staff.id}
-          subtitle={
-            <>
-              <code className="font-mono text-sm">{staff.id}</code> ·{' '}
-              {plural(credits.length, 'role')}
-            </>
-          }
+          title={staff.name || humanizeId(staff.id)}
+          subtitle={plural(credits.length, 'role')}
         />
       </div>
 
@@ -84,10 +81,15 @@ export default async function StaffPage({ params }: { params: Promise<{ id: stri
                 className="flex flex-wrap items-baseline justify-between gap-4 border-b border-fd-border py-3 last:border-0"
               >
                 <Link href={`/characters/${c.characterId}`} className="font-medium hover:underline">
-                  {c.characterName || c.characterId}
+                  {c.characterName || humanizeId(c.characterId)}
                 </Link>
                 <span className="text-sm text-fd-muted-foreground">
-                  {[c.language, ...c.seriesIds].join(' · ')}
+                  {[
+                    languageLabel(c.language),
+                    // Titles come denormalized on the credit; the id is only a
+                    // fallback for a series the dataset cannot name.
+                    ...c.seriesIds.map((id, i) => c.seriesTitles[i] || humanizeId(id)),
+                  ].join(' · ')}
                 </span>
               </li>
             ))}

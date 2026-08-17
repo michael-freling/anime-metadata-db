@@ -188,7 +188,7 @@ func (s *Service) GetStaff(_ context.Context, req *connect.Request[animev1.GetSt
 	loc := newLocalizer(req.Header().Get("Accept-Language"))
 	return connect.NewResponse(&animev1.GetStaffResponse{
 		Staff:   toStaff(loc, st),
-		Credits: toStaffCredits(loc, s.store.StaffCredits(id)),
+		Credits: toStaffCredits(loc, s.store, s.store.StaffCredits(id)),
 	}), nil
 }
 

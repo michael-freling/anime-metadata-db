@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { plural, yearsLabel } from './format';
+import { humanizeId, languageLabel, plural, yearsLabel } from './format';
 
 describe('yearsLabel', () => {
   it('collapses a single-year span', () => {
@@ -70,5 +70,35 @@ describe('plural', () => {
 
   it('accepts an irregular plural', () => {
     expect(plural(2, 'series', 'series')).toBe('2 series');
+  });
+});
+
+describe('humanizeId', () => {
+  it('turns a slug into words', () => {
+    expect(humanizeId('demon-slayer')).toBe('Demon Slayer');
+    expect(humanizeId('tanjiro-kamado')).toBe('Tanjiro Kamado');
+  });
+
+  it('leaves numeric segments alone', () => {
+    expect(humanizeId('mob-psycho-100')).toBe('Mob Psycho 100');
+  });
+
+  it('survives odd slugs without producing empty words', () => {
+    expect(humanizeId('a--b')).toBe('A B');
+    expect(humanizeId('')).toBe('');
+    expect(humanizeId('single')).toBe('Single');
+  });
+});
+
+describe('languageLabel', () => {
+  it('names the languages the dataset credits', () => {
+    expect(languageLabel('ja')).toBe('Japanese');
+    expect(languageLabel('en')).toBe('English');
+  });
+
+  // Better an unfamiliar code than an invented name.
+  it('falls back to the code it does not know', () => {
+    expect(languageLabel('de')).toBe('de');
+    expect(languageLabel('')).toBe('');
   });
 });

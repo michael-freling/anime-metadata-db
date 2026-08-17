@@ -206,3 +206,137 @@ test('a kind chip does not carry a filter it cannot honour', async ({ page }) =>
   await expect(page).not.toHaveURL(/year=/);
   await expect(page).not.toHaveURL(/quarter=/);
 });
+
+// Titles come back resolved by the API from Accept-Language, so switching is a
+// server round trip. The dataset carries an English translation and a native
+// original, which is what the two options mean — offering more would be a lie.
+test('the language switch changes the titles the API returns', async ({ page }) => {
+  await page.goto('/browse?q=demon');
+  const body = page.locator('main');
+  await expect(body.getByRole('link', { name: 'Demon Slayer' }).first()).toBeVisible();
+
+  await body.getByRole('button', { name: '日本語' }).click();
+
+  await expect(body.getByRole('link', { name: '鬼滅の刃' }).first()).toBeVisible();
+  await expect(body.getByRole('link', { name: 'Demon Slayer' })).toHaveCount(0);
+});
+
+test('the chosen language persists across pages', async ({ page }) => {
+  await page.goto('/browse');
+  const japanese = page.locator('main').getByRole('button', { name: '日本語' });
+  await japanese.click();
+
+  // Wait for the switch to actually take effect rather than sleeping: the
+  // action's response is what stores the cookie, and navigating before it
+  // lands would race it. The active state is the signal.
+  await expect(japanese).toHaveAttribute('aria-current', 'true');
+
+  // A preference, not a view: it survives navigation without riding in the URL.
+  await page.goto('/browse/demon-slayer');
+  await expect(page.getByRole('heading', { level: 1, name: '鬼滅の刃' })).toBeVisible();
+  await expect(page).not.toHaveURL(/lang=/);
+});
+
+// Ids are slugs the reader never typed and cannot act on. They were printed in
+// every detail-page subtitle; what belongs there is what the thing is and how
+// much of it there is.
+// A blanket check rather than one assertion per known field: the subtitles were
+// fixed once and slugs still reached readers through the roles list, untitled
+// films and specials, and cast fallbacks. This catches whichever one is missed
+// next, without hardcoding a list of ids — a page's own links name every id it
+// knows about, and none of them should be visible as text.
+test('no page shows a reader an id it links to', async ({ page }) => {
+  for (const path of [
+    '/browse',
+    '/browse?q=demon',
+    '/browse/demon-slayer',
+    '/characters/tanjiro-kamado',
+    '/staff/ayako-kawasumi',
+  ]) {
+    await page.goto(path);
+    const body = page.locator('main').last();
+
+    const ids = new Set(
+      (
+        await body.locator('a[href]').evaluateAll((els) =>
+          els.map((el) => (el as HTMLAnchorElement).getAttribute('href') ?? ''),
+        )
+      )
+        .filter((href) => /^\/(browse|characters|staff)\/[^?#]+$/.test(href))
+        .map((href) => href.split('/').pop()!),
+    );
+    expect(ids.size, `${path} links to nothing`).toBeGreaterThan(0);
+
+    const text = await body.innerText();
+    for (const id of ids) {
+      expect(text, `${path} displays the id "${id}"`).not.toContain(id);
+    }
+  }
+});
+
+test('detail pages describe the entry instead of printing its id', async ({ page }) => {
+  await page.goto('/browse/demon-slayer');
+  await expect(page.getByText(/Series · 5 seasons · 2 films/)).toBeVisible();
+  await expect(page.getByText('demon-slayer', { exact: true })).toHaveCount(0);
+
+  await page.goto('/characters/tanjiro-kamado');
+  await expect(page.getByText(/appearance/)).toBeVisible();
+  await expect(page.getByText('tanjiro-kamado', { exact: true })).toHaveCount(0);
+
+  await page.goto('/staff/natsuki-hanae');
+  await expect(page.getByText(/role/)).toBeVisible();
+  await expect(page.getByText('natsuki-hanae', { exact: true })).toHaveCount(0);
+
+  // The roles list named its series by id and its language by code.
+  const body = page.locator('main').last();
+  await expect(body).toContainText('Demon Slayer');
+  await expect(body).toContainText('Japanese');
+  await expect(body).not.toContainText('demon-slayer');
+});
+
+// The series page used to render the cast embedded in GetSeries, which the API
+// caps. tensei-shitara-slime-datta-ken has 148 characters and the page showed
+// 100 — no pager, no count, nothing to indicate 48 were missing. A cap you
+// cannot see is worse than a page you have to click through, so this asserts
+// the count is honest and the rest is reachable.
+test('a large cast is paged rather than silently cut off', async ({ page }) => {
+  await page.goto('/browse/tensei-shitara-slime-datta-ken');
+  const body = page.locator('main').last();
+
+  const pager = body.getByText(/Showing \d+ of [\d,]+/);
+  await expect(pager).toBeVisible();
+  const [, shown, total] = (await pager.textContent())!.match(/Showing (\d+) of ([\d,]+)/)!;
+  const totalNum = Number(total.replace(/,/g, ''));
+  expect(totalNum).toBeGreaterThan(Number(shown));
+
+  const hrefs = () =>
+    body
+      .locator('a[href^="/characters/"]')
+      .evaluateAll((els) => els.map((e) => (e as HTMLAnchorElement).getAttribute('href')!));
+
+  const first = await hrefs();
+  expect(first.length).toBe(Number(shown));
+
+  await body.getByRole('link', { name: /Next/ }).click();
+  // The navigation is client-side, so without this the next read races it and
+  // sees page one again — which would pass a weaker assertion than intended.
+  await page.waitForURL(/token=/);
+  const second = await hrefs();
+  // A cursor that repeated rows would still "page", so require disjointness.
+  expect(second.filter((h) => first.includes(h))).toEqual([]);
+});
+
+// A franchise renders several casts at once, so one cursor cannot describe the
+// view; each is previewed and links onward instead. Whatever it shows, the
+// count it reports has to match what it rendered.
+test('a franchise previews each cast without misreporting it', async ({ page }) => {
+  await page.goto('/browse/fate');
+  const body = page.locator('main').last();
+  await expect(body.getByRole('heading', { name: 'Cast' }).first()).toBeVisible();
+
+  for (const hint of await body.getByText(/Showing \d+ of \d+ —/).all()) {
+    const [, shown, total] = (await hint.textContent())!.match(/Showing (\d+) of (\d+)/)!;
+    expect(Number(total)).toBeGreaterThan(Number(shown));
+    await expect(hint.getByRole('link')).toBeVisible();
+  }
+});
