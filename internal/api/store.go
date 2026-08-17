@@ -310,3 +310,100 @@ func (s *Store) Characters(seriesID string, limit int) ([]*model.Character, erro
 // SeriesTitle returns the titles of a series id, for naming a series a response
 // references but does not embed.
 func (s *Store) SeriesTitle(id string) (model.Title, bool) { return s.ix.SeriesTitle(id) }
+
+// EpisodesPage returns one page of the episodes of a season or special.
+//
+// Reading the record parses the whole series, including every episode of every
+// installment — that is inherent to one-record-per-series storage. What this
+// bounds is the response: a caller asking for a 1000-episode season gets the
+// page it asked for, not a megabyte of JSON.
+func (s *Store) EpisodesPage(seasonID, specialID, token string, limit int) (Page[model.Episode], error) {
+	id := seasonID
+	if id == "" {
+		id = specialID
+	}
+	seriesID, file, _, ok := s.ix.Work(id)
+	if !ok {
+		return Page[model.Episode]{}, nil
+	}
+	rec, err := s.record(file)
+	if err != nil {
+		return Page[model.Episode]{}, err
+	}
+
+	var episodes []model.Episode
+	var found bool
+	rec.EachSeries(func(series *model.Series) {
+		if found || series.ID != seriesID {
+			return
+		}
+		for i := range series.Seasons {
+			if series.Seasons[i].ID == id && seasonID != "" {
+				episodes, found = series.Seasons[i].Episodes, true
+				return
+			}
+		}
+		for i := range series.Specials {
+			if series.Specials[i].ID == id && specialID != "" {
+				episodes, found = series.Specials[i].Episodes, true
+				return
+			}
+		}
+	})
+	if !found {
+		// The id resolved to a work of the other kind — a movie, or a season
+		// asked for as a special. Neither has the episodes requested.
+		return Page[model.Episode]{}, nil
+	}
+	return index.Paginate(episodes, token, limit)
+}
+
+// SeriesPage returns one page of the series belonging to a franchise.
+func (s *Store) SeriesPage(franchiseID, token string, limit int) (Page[*model.Series], error) {
+	refs, err := s.ix.SeriesOf(franchiseID, token, limit)
+	if err != nil {
+		return Page[*model.Series]{}, err
+	}
+	out := Page[*model.Series]{NextToken: refs.NextToken, Total: refs.Total}
+	for _, ref := range refs.Items {
+		series, _, ok, err := s.Series(ref.ID)
+		if err != nil {
+			return Page[*model.Series]{}, err
+		}
+		if ok {
+			out.Items = append(out.Items, series)
+		}
+	}
+	return out, nil
+}
+
+// AppearancesPage returns one page of the series a character appears in.
+func (s *Store) AppearancesPage(characterID, token string, limit int) (Page[model.CharacterAppearance], error) {
+	c, ok, err := s.Character(characterID)
+	if err != nil || !ok {
+		return Page[model.CharacterAppearance]{}, err
+	}
+	return index.Paginate(c.Appearances, token, limit)
+}
+
+// CreditsPage returns one page of the roles a staff member is cast in.
+func (s *Store) CreditsPage(staffID, token string, limit int) (Page[StaffCredit], error) {
+	return s.ix.CreditsPage(staffID, token, limit)
+}
+
+// CharacterExists reports whether a character id is known, without reading its
+// record.
+func (s *Store) CharacterExists(id string) bool {
+	_, ok := s.ix.Character(id)
+	return ok
+}
+
+// WorkExists reports whether an installment id is known.
+func (s *Store) WorkExists(id string) bool {
+	_, _, _, ok := s.ix.Work(id)
+	return ok
+}
+
+// FranchiseExists reports whether a franchise id is known, without reading its
+// record.
+func (s *Store) FranchiseExists(id string) (string, bool) { return s.ix.Franchise(id) }

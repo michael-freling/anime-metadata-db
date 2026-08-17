@@ -9,6 +9,7 @@ import (
 
 	animev1 "github.com/michael-freling/anime-metadata-db/internal/gen/anime/v1"
 	"github.com/michael-freling/anime-metadata-db/internal/gen/anime/v1/animev1connect"
+	"github.com/michael-freling/anime-metadata-db/internal/index"
 )
 
 // Service implements the anime.v1.AnimeService Connect handler over a Store.
@@ -229,9 +230,14 @@ func (s *Service) GetStaff(_ context.Context, req *connect.Request[animev1.GetSt
 		return nil, connect.NewError(connect.CodeNotFound, fmt.Errorf("staff %q not found", id))
 	}
 	loc := newLocalizer(req.Header().Get("Accept-Language"))
+	credits, err := s.store.CreditsPage(id, "", index.EmbeddedLimit)
+	if err != nil {
+		return nil, storeError(err)
+	}
 	return connect.NewResponse(&animev1.GetStaffResponse{
-		Staff:   toStaff(loc, st),
-		Credits: toStaffCredits(loc, s.store, s.store.StaffCredits(id)),
+		Staff:        toStaff(loc, st),
+		Credits:      toStaffCredits(loc, s.store, credits.Items),
+		CreditsTotal: int32(credits.Total),
 	}), nil
 }
 
@@ -267,5 +273,104 @@ func (s *Service) GetHealth(_ context.Context, _ *connect.Request[animev1.GetHea
 			EarliestReleaseYear: int32(st.EarliestReleaseYear),
 			LatestReleaseYear:   int32(st.LatestReleaseYear),
 		},
+	}), nil
+}
+
+// ListEpisodes pages the episodes of one season or special. Exactly one parent
+// id is required: naming both, or neither, is ambiguous rather than a default.
+func (s *Service) ListEpisodes(_ context.Context, req *connect.Request[animev1.ListEpisodesRequest]) (*connect.Response[animev1.ListEpisodesResponse], error) {
+	seasonID, specialID := req.Msg.GetSeasonId(), req.Msg.GetSpecialId()
+	switch {
+	case seasonID == "" && specialID == "":
+		return nil, connect.NewError(connect.CodeInvalidArgument, fmt.Errorf("season_id or special_id is required"))
+	case seasonID != "" && specialID != "":
+		return nil, connect.NewError(connect.CodeInvalidArgument, fmt.Errorf("name season_id or special_id, not both"))
+	}
+	id := seasonID + specialID
+	if !s.store.WorkExists(id) {
+		return nil, connect.NewError(connect.CodeNotFound, fmt.Errorf("%q not found", id))
+	}
+	page, err := s.store.EpisodesPage(seasonID, specialID, req.Msg.GetPageToken(), int(req.Msg.GetLimit()))
+	if err != nil {
+		return nil, storeError(err)
+	}
+	return connect.NewResponse(&animev1.ListEpisodesResponse{
+		Episodes:      toEpisodes(page.Items),
+		NextPageToken: page.NextToken,
+		TotalSize:     int32(page.Total),
+	}), nil
+}
+
+// ListSeries pages one franchise's series. The flat catalog of everything is
+// ListCatalog; this answers "what is under this brand".
+func (s *Service) ListSeries(_ context.Context, req *connect.Request[animev1.ListSeriesRequest]) (*connect.Response[animev1.ListSeriesResponse], error) {
+	id := req.Msg.GetFranchiseId()
+	if id == "" {
+		return nil, connect.NewError(connect.CodeInvalidArgument, fmt.Errorf("franchise_id is required"))
+	}
+	if _, ok := s.store.FranchiseExists(id); !ok {
+		return nil, connect.NewError(connect.CodeNotFound, fmt.Errorf("franchise %q not found", id))
+	}
+	loc := newLocalizer(req.Header().Get("Accept-Language"))
+	page, err := s.store.SeriesPage(id, req.Msg.GetPageToken(), int(req.Msg.GetLimit()))
+	if err != nil {
+		return nil, storeError(err)
+	}
+	out := make([]*animev1.Series, len(page.Items))
+	for i, series := range page.Items {
+		if out[i], err = toSeries(loc, s.store, series); err != nil {
+			return nil, storeError(err)
+		}
+	}
+	return connect.NewResponse(&animev1.ListSeriesResponse{
+		Series:        out,
+		NextPageToken: page.NextToken,
+		TotalSize:     int32(page.Total),
+	}), nil
+}
+
+// ListAppearances pages the series one character appears in.
+func (s *Service) ListAppearances(_ context.Context, req *connect.Request[animev1.ListAppearancesRequest]) (*connect.Response[animev1.ListAppearancesResponse], error) {
+	id := req.Msg.GetCharacterId()
+	if id == "" {
+		return nil, connect.NewError(connect.CodeInvalidArgument, fmt.Errorf("character_id is required"))
+	}
+	if !s.store.CharacterExists(id) {
+		return nil, connect.NewError(connect.CodeNotFound, fmt.Errorf("character %q not found", id))
+	}
+	loc := newLocalizer(req.Header().Get("Accept-Language"))
+	page, err := s.store.AppearancesPage(id, req.Msg.GetPageToken(), int(req.Msg.GetLimit()))
+	if err != nil {
+		return nil, storeError(err)
+	}
+	out := make([]*animev1.CharacterAppearance, len(page.Items))
+	for i := range page.Items {
+		out[i] = toAppearance(loc, s.store, page.Items[i])
+	}
+	return connect.NewResponse(&animev1.ListAppearancesResponse{
+		Appearances:   out,
+		NextPageToken: page.NextToken,
+		TotalSize:     int32(page.Total),
+	}), nil
+}
+
+// ListCredits pages the roles one staff member is cast in.
+func (s *Service) ListCredits(_ context.Context, req *connect.Request[animev1.ListCreditsRequest]) (*connect.Response[animev1.ListCreditsResponse], error) {
+	id := req.Msg.GetStaffId()
+	if id == "" {
+		return nil, connect.NewError(connect.CodeInvalidArgument, fmt.Errorf("staff_id is required"))
+	}
+	if _, ok := s.store.Staff(id); !ok {
+		return nil, connect.NewError(connect.CodeNotFound, fmt.Errorf("staff %q not found", id))
+	}
+	loc := newLocalizer(req.Header().Get("Accept-Language"))
+	page, err := s.store.CreditsPage(id, req.Msg.GetPageToken(), int(req.Msg.GetLimit()))
+	if err != nil {
+		return nil, storeError(err)
+	}
+	return connect.NewResponse(&animev1.ListCreditsResponse{
+		Credits:       toStaffCredits(loc, s.store, page.Items),
+		NextPageToken: page.NextToken,
+		TotalSize:     int32(page.Total),
 	}), nil
 }

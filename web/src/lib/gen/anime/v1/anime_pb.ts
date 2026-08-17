@@ -22,7 +22,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file anime/v1/anime.proto.
  */
 export const file_anime_v1_anime: GenFile = /*@__PURE__*/
-  fileDesc("ChRhbmltZS92MS9hbmltZS5wcm90bxIIYW5pbWUudjEimQEKDkxvY2FsaXplZFRpdGxlEhAKCG9yaWdpbmFsGAEgASgJEkAKDHRyYW5zbGF0aW9ucxgCIAMoCzIqLmFuaW1lLnYxLkxvY2FsaXplZFRpdGxlLlRyYW5zbGF0aW9uc0VudHJ5GjMKEVRyYW5zbGF0aW9uc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEiagoLRXh0ZXJuYWxJZHMSEgoKYW5pbGlzdF9pZBgBIAEoBRIQCghhbmlkYl9pZBgCIAEoBRIPCgd0bWRiX2lkGAMgASgFEg8KB3R2ZGJfaWQYBCABKAUSEwoLd2lraWRhdGFfaWQYBSABKAkidgoHRXBpc29kZRIcCg9hYnNvbHV0ZV9udW1iZXIYASABKAVIAIgBARIUCgxhaXJlZF9udW1iZXIYAiABKAUSFAoMcmVsZWFzZV9kYXRlGAMgASgJEg0KBXRpdGxlGAQgASgJQhIKEF9hYnNvbHV0ZV9udW1iZXIisQIKBlNlYXNvbhIKCgJpZBgBIAEoCRINCgV0aXRsZRgKIAEoCRIxCg9sb2NhbGl6ZWRfdGl0bGUYAiABKAsyGC5hbmltZS52MS5Mb2NhbGl6ZWRUaXRsZRIOCgZudW1iZXIYAyABKAUSEQoEcGFydBgEIAEoBUgAiAEBEhQKDHJlbGVhc2VfZGF0ZRgFIAEoCRIUCgxyZWxlYXNlX3llYXIYBiABKAUSLwoOcmVsZWFzZV9zZWFzb24YByABKA4yFy5hbmltZS52MS5SZWxlYXNlU2Vhc29uEisKDGV4dGVybmFsX2lkcxgIIAEoCzIVLmFuaW1lLnYxLkV4dGVybmFsSWRzEiMKCGVwaXNvZGVzGAkgAygLMhEuYW5pbWUudjEuRXBpc29kZUIHCgVfcGFydCI1Cg5BbHRlcm5hdGVDdXRPZhIRCglzZWFzb25faWQYASABKAkSEAoIZXBpc29kZXMYAiABKAkilAIKBU1vdmllEgoKAmlkGAEgASgJEg0KBXRpdGxlGAggASgJEjEKD2xvY2FsaXplZF90aXRsZRgCIAEoCzIYLmFuaW1lLnYxLkxvY2FsaXplZFRpdGxlEhQKDHJlbGVhc2VfZGF0ZRgDIAEoCRIUCgxyZWxlYXNlX3llYXIYBCABKAUSKwoMZXh0ZXJuYWxfaWRzGAUgASgLMhUuYW5pbWUudjEuRXh0ZXJuYWxJZHMSHAoPYWJzb2x1dGVfbnVtYmVyGAYgASgFSACIAQESMgoQYWx0ZXJuYXRlX2N1dF9vZhgHIAEoCzIYLmFuaW1lLnYxLkFsdGVybmF0ZUN1dE9mQhIKEF9hYnNvbHV0ZV9udW1iZXIisAIKB1NwZWNpYWwSCgoCaWQYASABKAkSDQoFdGl0bGUYCSABKAkSMQoPbG9jYWxpemVkX3RpdGxlGAIgASgLMhguYW5pbWUudjEuTG9jYWxpemVkVGl0bGUSJwoGZm9ybWF0GAMgASgOMhcuYW5pbWUudjEuU3BlY2lhbEZvcm1hdBIUCgxyZWxlYXNlX2RhdGUYBCABKAkSFAoMcmVsZWFzZV95ZWFyGAUgASgFEisKDGV4dGVybmFsX2lkcxgGIAEoCzIVLmFuaW1lLnYxLkV4dGVybmFsSWRzEiMKCGVwaXNvZGVzGAcgAygLMhEuYW5pbWUudjEuRXBpc29kZRIcCg9hYnNvbHV0ZV9udW1iZXIYCCABKAVIAIgBAUISChBfYWJzb2x1dGVfbnVtYmVyIugBCgZTZXJpZXMSCgoCaWQYASABKAkSDQoFdGl0bGUYBiABKAkSMQoPbG9jYWxpemVkX3RpdGxlGAIgASgLMhguYW5pbWUudjEuTG9jYWxpemVkVGl0bGUSIQoHc2Vhc29ucxgDIAMoCzIQLmFuaW1lLnYxLlNlYXNvbhIfCgZtb3ZpZXMYBCADKAsyDy5hbmltZS52MS5Nb3ZpZRIjCghzcGVjaWFscxgFIAMoCzIRLmFuaW1lLnYxLlNwZWNpYWwSJwoKY2hhcmFjdGVycxgHIAMoCzITLmFuaW1lLnYxLkNoYXJhY3RlciJECgpWb2ljZUFjdG9yEhAKCHN0YWZmX2lkGAEgASgJEhAKCGxhbmd1YWdlGAIgASgJEhIKCnN0YWZmX25hbWUYAyABKAkiQwoIU2NvcGVSZWYSEQoJc2Vhc29uX2lkGAEgASgJEhAKCG1vdmllX2lkGAIgASgJEhIKCnNwZWNpYWxfaWQYAyABKAkiugEKE0NoYXJhY3RlckFwcGVhcmFuY2USEQoJc2VyaWVzX2lkGAEgASgJEhQKDHNlcmllc190aXRsZRgFIAEoCRIhCgVzY29wZRgCIAMoCzISLmFuaW1lLnYxLlNjb3BlUmVmEioKDHZvaWNlX2FjdG9ycxgDIAMoCzIULmFuaW1lLnYxLlZvaWNlQWN0b3ISKwoMZXh0ZXJuYWxfaWRzGAQgASgLMhUuYW5pbWUudjEuRXh0ZXJuYWxJZHMi5AEKCUNoYXJhY3RlchIKCgJpZBgBIAEoCRIMCgRuYW1lGAIgASgJEjAKDmxvY2FsaXplZF9uYW1lGAMgASgLMhguYW5pbWUudjEuTG9jYWxpemVkVGl0bGUSKwoMZXh0ZXJuYWxfaWRzGAQgASgLMhUuYW5pbWUudjEuRXh0ZXJuYWxJZHMSKgoMdm9pY2VfYWN0b3JzGAUgAygLMhQuYW5pbWUudjEuVm9pY2VBY3RvchIyCgthcHBlYXJhbmNlcxgGIAMoCzIdLmFuaW1lLnYxLkNoYXJhY3RlckFwcGVhcmFuY2UigAEKBVN0YWZmEgoKAmlkGAEgASgJEgwKBG5hbWUYAiABKAkSMAoObG9jYWxpemVkX25hbWUYAyABKAsyGC5hbmltZS52MS5Mb2NhbGl6ZWRUaXRsZRIrCgxleHRlcm5hbF9pZHMYBCABKAsyFS5hbmltZS52MS5FeHRlcm5hbElkcyJ4CgtTdGFmZkNyZWRpdBIUCgxjaGFyYWN0ZXJfaWQYASABKAkSFgoOY2hhcmFjdGVyX25hbWUYAiABKAkSEAoIbGFuZ3VhZ2UYAyABKAkSEgoKc2VyaWVzX2lkcxgEIAMoCRIVCg1zZXJpZXNfdGl0bGVzGAUgAygJIiwKD1dhdGNoT3JkZXJFbnRyeRILCgNyZWYYASABKAkSDAoEbm90ZRgCIAEoCSJGCgpXYXRjaE9yZGVyEgwKBG5hbWUYASABKAkSKgoHZW50cmllcxgCIAMoCzIZLmFuaW1lLnYxLldhdGNoT3JkZXJFbnRyeSKnAQoJRnJhbmNoaXNlEgoKAmlkGAEgASgJEg0KBXRpdGxlGAUgASgJEjEKD2xvY2FsaXplZF90aXRsZRgCIAEoCzIYLmFuaW1lLnYxLkxvY2FsaXplZFRpdGxlEiAKBnNlcmllcxgDIAMoCzIQLmFuaW1lLnYxLlNlcmllcxIqCgx3YXRjaF9vcmRlcnMYBCADKAsyFC5hbmltZS52MS5XYXRjaE9yZGVyIpUBCgxTZWFyY2hSZXN1bHQSIQoEa2luZBgBIAEoDjITLmFuaW1lLnYxLkVudHJ5S2luZBIKCgJpZBgCIAEoCRINCgV0aXRsZRgFIAEoCRIxCg9sb2NhbGl6ZWRfdGl0bGUYAyABKAsyGC5hbmltZS52MS5Mb2NhbGl6ZWRUaXRsZRIUCgxmcmFuY2hpc2VfaWQYBCABKAki7wEKDENhdGFsb2dFbnRyeRIhCgRraW5kGAEgASgOMhMuYW5pbWUudjEuRW50cnlLaW5kEgoKAmlkGAIgASgJEg0KBXRpdGxlGAMgASgJEjEKD2xvY2FsaXplZF90aXRsZRgEIAEoCzIYLmFuaW1lLnYxLkxvY2FsaXplZFRpdGxlEhQKDGZyYW5jaGlzZV9pZBgFIAEoCRIaChJmaXJzdF9yZWxlYXNlX3llYXIYBiABKAUSGwoTbGF0ZXN0X3JlbGVhc2VfeWVhchgHIAEoBRINCgV3b3JrcxgIIAEoBRIQCghlcGlzb2RlcxgJIAEoBSKAAwoLV29ya1N1bW1hcnkSIAoEa2luZBgBIAEoDjISLmFuaW1lLnYxLldvcmtLaW5kEgoKAmlkGAIgASgJEg0KBXRpdGxlGAMgASgJEjEKD2xvY2FsaXplZF90aXRsZRgEIAEoCzIYLmFuaW1lLnYxLkxvY2FsaXplZFRpdGxlEhEKCXNlcmllc19pZBgFIAEoCRIUCgxzZXJpZXNfdGl0bGUYBiABKAkSDgoGbnVtYmVyGAcgASgFEhQKDHJlbGVhc2VfZGF0ZRgIIAEoCRIUCgxyZWxlYXNlX3llYXIYCSABKAUSLwoOcmVsZWFzZV9zZWFzb24YCiABKA4yFy5hbmltZS52MS5SZWxlYXNlU2Vhc29uEicKBmZvcm1hdBgLIAEoDjIXLmFuaW1lLnYxLlNwZWNpYWxGb3JtYXQSFQoNZXBpc29kZV9jb3VudBgMIAEoBRIrCgxleHRlcm5hbF9pZHMYDSABKAsyFS5hbmltZS52MS5FeHRlcm5hbElkcyK0AQoMRGF0YXNldFN0YXRzEhIKCmZyYW5jaGlzZXMYASABKAUSDgoGc2VyaWVzGAIgASgFEg8KB3NlYXNvbnMYAyABKAUSEAoIZXBpc29kZXMYBCABKAUSEgoKY2hhcmFjdGVycxgFIAEoBRINCgVzdGFmZhgGIAEoBRIdChVlYXJsaWVzdF9yZWxlYXNlX3llYXIYByABKAUSGwoTbGF0ZXN0X3JlbGVhc2VfeWVhchgIIAEoBSI6ChVMaXN0RnJhbmNoaXNlc1JlcXVlc3QSEgoKcGFnZV90b2tlbhgBIAEoCRINCgVsaW1pdBgCIAEoBSJuChZMaXN0RnJhbmNoaXNlc1Jlc3BvbnNlEicKCmZyYW5jaGlzZXMYASADKAsyEy5hbmltZS52MS5GcmFuY2hpc2USFwoPbmV4dF9wYWdlX3Rva2VuGAIgASgJEhIKCnRvdGFsX3NpemUYAyABKAUiIQoTR2V0RnJhbmNoaXNlUmVxdWVzdBIKCgJpZBgBIAEoCSI+ChRHZXRGcmFuY2hpc2VSZXNwb25zZRImCglmcmFuY2hpc2UYASABKAsyEy5hbmltZS52MS5GcmFuY2hpc2UiHgoQR2V0U2VyaWVzUmVxdWVzdBIKCgJpZBgBIAEoCSJLChFHZXRTZXJpZXNSZXNwb25zZRIgCgZzZXJpZXMYASABKAsyEC5hbmltZS52MS5TZXJpZXMSFAoMZnJhbmNoaXNlX2lkGAIgASgJIkEKDVNlYXJjaFJlcXVlc3QSDQoFcXVlcnkYASABKAkSDQoFbGltaXQYAiABKAUSEgoKcGFnZV90b2tlbhgDIAEoCSJmCg5TZWFyY2hSZXNwb25zZRInCgdyZXN1bHRzGAEgAygLMhYuYW5pbWUudjEuU2VhcmNoUmVzdWx0EhcKD25leHRfcGFnZV90b2tlbhgCIAEoCRISCgp0b3RhbF9zaXplGAMgASgFIiEKE0dldENoYXJhY3RlclJlcXVlc3QSCgoCaWQYASABKAkiPgoUR2V0Q2hhcmFjdGVyUmVzcG9uc2USJgoJY2hhcmFjdGVyGAEgASgLMhMuYW5pbWUudjEuQ2hhcmFjdGVyIlwKFUxpc3RDaGFyYWN0ZXJzUmVxdWVzdBIRCglzZXJpZXNfaWQYASABKAkSDQoFcXVlcnkYBCABKAkSDQoFbGltaXQYAiABKAUSEgoKcGFnZV90b2tlbhgDIAEoCSJuChZMaXN0Q2hhcmFjdGVyc1Jlc3BvbnNlEicKCmNoYXJhY3RlcnMYASADKAsyEy5hbmltZS52MS5DaGFyYWN0ZXISFwoPbmV4dF9wYWdlX3Rva2VuGAIgASgJEhIKCnRvdGFsX3NpemUYAyABKAUiHQoPR2V0U3RhZmZSZXF1ZXN0EgoKAmlkGAEgASgJIloKEEdldFN0YWZmUmVzcG9uc2USHgoFc3RhZmYYASABKAsyDy5hbmltZS52MS5TdGFmZhImCgdjcmVkaXRzGAIgAygLMhUuYW5pbWUudjEuU3RhZmZDcmVkaXQiVgoQTGlzdFN0YWZmUmVxdWVzdBIQCghsYW5ndWFnZRgBIAEoCRINCgVxdWVyeRgEIAEoCRINCgVsaW1pdBgCIAEoBRISCgpwYWdlX3Rva2VuGAMgASgJImAKEUxpc3RTdGFmZlJlc3BvbnNlEh4KBXN0YWZmGAEgAygLMg8uYW5pbWUudjEuU3RhZmYSFwoPbmV4dF9wYWdlX3Rva2VuGAIgASgJEhIKCnRvdGFsX3NpemUYAyABKAUiEgoQR2V0SGVhbHRoUmVxdWVzdCJbChFHZXRIZWFsdGhSZXNwb25zZRIOCgZzdGF0dXMYASABKAkSDwoHdmVyc2lvbhgCIAEoCRIlCgVzdGF0cxgDIAEoCzIWLmFuaW1lLnYxLkRhdGFzZXRTdGF0cyJaChJMaXN0Q2F0YWxvZ1JlcXVlc3QSEgoKcGFnZV90b2tlbhgBIAEoCRINCgVsaW1pdBgCIAEoBRIhCgRraW5kGAMgASgOMhMuYW5pbWUudjEuRW50cnlLaW5kImsKE0xpc3RDYXRhbG9nUmVzcG9uc2USJwoHZW50cmllcxgBIAMoCzIWLmFuaW1lLnYxLkNhdGFsb2dFbnRyeRIXCg9uZXh0X3BhZ2VfdG9rZW4YAiABKAkSEgoKdG90YWxfc2l6ZRgDIAEoBSLAAQoQTGlzdFdvcmtzUmVxdWVzdBISCgpwYWdlX3Rva2VuGAEgASgJEg0KBWxpbWl0GAIgASgFEhQKDHJlbGVhc2VfeWVhchgDIAEoBRIvCg5yZWxlYXNlX3NlYXNvbhgEIAEoDjIXLmFuaW1lLnYxLlJlbGVhc2VTZWFzb24SIAoEa2luZBgFIAEoDjISLmFuaW1lLnYxLldvcmtLaW5kEhEKCXNlcmllc19pZBgGIAEoCRINCgVxdWVyeRgHIAEoCSJmChFMaXN0V29ya3NSZXNwb25zZRIkCgV3b3JrcxgBIAMoCzIVLmFuaW1lLnYxLldvcmtTdW1tYXJ5EhcKD25leHRfcGFnZV90b2tlbhgCIAEoCRISCgp0b3RhbF9zaXplGAMgASgFKpkBCg1SZWxlYXNlU2Vhc29uEh4KGlJFTEVBU0VfU0VBU09OX1VOU1BFQ0lGSUVEEAASGQoVUkVMRUFTRV9TRUFTT05fV0lOVEVSEAESGQoVUkVMRUFTRV9TRUFTT05fU1BSSU5HEAISGQoVUkVMRUFTRV9TRUFTT05fU1VNTUVSEAMSFwoTUkVMRUFTRV9TRUFTT05fRkFMTBAEKnsKDVNwZWNpYWxGb3JtYXQSHgoaU1BFQ0lBTF9GT1JNQVRfVU5TUEVDSUZJRUQQABIWChJTUEVDSUFMX0ZPUk1BVF9PVkEQARIWChJTUEVDSUFMX0ZPUk1BVF9PTkEQAhIaChZTUEVDSUFMX0ZPUk1BVF9TUEVDSUFMEAMqZwoIV29ya0tpbmQSGQoVV09SS19LSU5EX1VOU1BFQ0lGSUVEEAASFAoQV09SS19LSU5EX1NFQVNPThABEhMKD1dPUktfS0lORF9NT1ZJRRACEhUKEVdPUktfS0lORF9TUEVDSUFMEAMqWAoJRW50cnlLaW5kEhoKFkVOVFJZX0tJTkRfVU5TUEVDSUZJRUQQABIYChRFTlRSWV9LSU5EX0ZSQU5DSElTRRABEhUKEUVOVFJZX0tJTkRfU0VSSUVTEAIy0AYKDEFuaW1lU2VydmljZRJVCg5MaXN0RnJhbmNoaXNlcxIfLmFuaW1lLnYxLkxpc3RGcmFuY2hpc2VzUmVxdWVzdBogLmFuaW1lLnYxLkxpc3RGcmFuY2hpc2VzUmVzcG9uc2UiABJPCgxHZXRGcmFuY2hpc2USHS5hbmltZS52MS5HZXRGcmFuY2hpc2VSZXF1ZXN0Gh4uYW5pbWUudjEuR2V0RnJhbmNoaXNlUmVzcG9uc2UiABJGCglHZXRTZXJpZXMSGi5hbmltZS52MS5HZXRTZXJpZXNSZXF1ZXN0GhsuYW5pbWUudjEuR2V0U2VyaWVzUmVzcG9uc2UiABJMCgtMaXN0Q2F0YWxvZxIcLmFuaW1lLnYxLkxpc3RDYXRhbG9nUmVxdWVzdBodLmFuaW1lLnYxLkxpc3RDYXRhbG9nUmVzcG9uc2UiABJGCglMaXN0V29ya3MSGi5hbmltZS52MS5MaXN0V29ya3NSZXF1ZXN0GhsuYW5pbWUudjEuTGlzdFdvcmtzUmVzcG9uc2UiABI9CgZTZWFyY2gSFy5hbmltZS52MS5TZWFyY2hSZXF1ZXN0GhguYW5pbWUudjEuU2VhcmNoUmVzcG9uc2UiABJPCgxHZXRDaGFyYWN0ZXISHS5hbmltZS52MS5HZXRDaGFyYWN0ZXJSZXF1ZXN0Gh4uYW5pbWUudjEuR2V0Q2hhcmFjdGVyUmVzcG9uc2UiABJVCg5MaXN0Q2hhcmFjdGVycxIfLmFuaW1lLnYxLkxpc3RDaGFyYWN0ZXJzUmVxdWVzdBogLmFuaW1lLnYxLkxpc3RDaGFyYWN0ZXJzUmVzcG9uc2UiABJDCghHZXRTdGFmZhIZLmFuaW1lLnYxLkdldFN0YWZmUmVxdWVzdBoaLmFuaW1lLnYxLkdldFN0YWZmUmVzcG9uc2UiABJGCglMaXN0U3RhZmYSGi5hbmltZS52MS5MaXN0U3RhZmZSZXF1ZXN0GhsuYW5pbWUudjEuTGlzdFN0YWZmUmVzcG9uc2UiABJGCglHZXRIZWFsdGgSGi5hbmltZS52MS5HZXRIZWFsdGhSZXF1ZXN0GhsuYW5pbWUudjEuR2V0SGVhbHRoUmVzcG9uc2UiAEJMWkpnaXRodWIuY29tL21pY2hhZWwtZnJlbGluZy9hbmltZS1tZXRhZGF0YS1kYi9pbnRlcm5hbC9nZW4vYW5pbWUvdjE7YW5pbWV2MWIGcHJvdG8z");
+  fileDesc("ChRhbmltZS92MS9hbmltZS5wcm90bxIIYW5pbWUudjEimQEKDkxvY2FsaXplZFRpdGxlEhAKCG9yaWdpbmFsGAEgASgJEkAKDHRyYW5zbGF0aW9ucxgCIAMoCzIqLmFuaW1lLnYxLkxvY2FsaXplZFRpdGxlLlRyYW5zbGF0aW9uc0VudHJ5GjMKEVRyYW5zbGF0aW9uc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEiagoLRXh0ZXJuYWxJZHMSEgoKYW5pbGlzdF9pZBgBIAEoBRIQCghhbmlkYl9pZBgCIAEoBRIPCgd0bWRiX2lkGAMgASgFEg8KB3R2ZGJfaWQYBCABKAUSEwoLd2lraWRhdGFfaWQYBSABKAkidgoHRXBpc29kZRIcCg9hYnNvbHV0ZV9udW1iZXIYASABKAVIAIgBARIUCgxhaXJlZF9udW1iZXIYAiABKAUSFAoMcmVsZWFzZV9kYXRlGAMgASgJEg0KBXRpdGxlGAQgASgJQhIKEF9hYnNvbHV0ZV9udW1iZXIiyQIKBlNlYXNvbhIKCgJpZBgBIAEoCRINCgV0aXRsZRgKIAEoCRIxCg9sb2NhbGl6ZWRfdGl0bGUYAiABKAsyGC5hbmltZS52MS5Mb2NhbGl6ZWRUaXRsZRIOCgZudW1iZXIYAyABKAUSEQoEcGFydBgEIAEoBUgAiAEBEhQKDHJlbGVhc2VfZGF0ZRgFIAEoCRIUCgxyZWxlYXNlX3llYXIYBiABKAUSLwoOcmVsZWFzZV9zZWFzb24YByABKA4yFy5hbmltZS52MS5SZWxlYXNlU2Vhc29uEisKDGV4dGVybmFsX2lkcxgIIAEoCzIVLmFuaW1lLnYxLkV4dGVybmFsSWRzEiMKCGVwaXNvZGVzGAkgAygLMhEuYW5pbWUudjEuRXBpc29kZRIWCg5lcGlzb2Rlc190b3RhbBgLIAEoBUIHCgVfcGFydCI1Cg5BbHRlcm5hdGVDdXRPZhIRCglzZWFzb25faWQYASABKAkSEAoIZXBpc29kZXMYAiABKAkilAIKBU1vdmllEgoKAmlkGAEgASgJEg0KBXRpdGxlGAggASgJEjEKD2xvY2FsaXplZF90aXRsZRgCIAEoCzIYLmFuaW1lLnYxLkxvY2FsaXplZFRpdGxlEhQKDHJlbGVhc2VfZGF0ZRgDIAEoCRIUCgxyZWxlYXNlX3llYXIYBCABKAUSKwoMZXh0ZXJuYWxfaWRzGAUgASgLMhUuYW5pbWUudjEuRXh0ZXJuYWxJZHMSHAoPYWJzb2x1dGVfbnVtYmVyGAYgASgFSACIAQESMgoQYWx0ZXJuYXRlX2N1dF9vZhgHIAEoCzIYLmFuaW1lLnYxLkFsdGVybmF0ZUN1dE9mQhIKEF9hYnNvbHV0ZV9udW1iZXIiyAIKB1NwZWNpYWwSCgoCaWQYASABKAkSDQoFdGl0bGUYCSABKAkSMQoPbG9jYWxpemVkX3RpdGxlGAIgASgLMhguYW5pbWUudjEuTG9jYWxpemVkVGl0bGUSJwoGZm9ybWF0GAMgASgOMhcuYW5pbWUudjEuU3BlY2lhbEZvcm1hdBIUCgxyZWxlYXNlX2RhdGUYBCABKAkSFAoMcmVsZWFzZV95ZWFyGAUgASgFEisKDGV4dGVybmFsX2lkcxgGIAEoCzIVLmFuaW1lLnYxLkV4dGVybmFsSWRzEiMKCGVwaXNvZGVzGAcgAygLMhEuYW5pbWUudjEuRXBpc29kZRIWCg5lcGlzb2Rlc190b3RhbBgKIAEoBRIcCg9hYnNvbHV0ZV9udW1iZXIYCCABKAVIAIgBAUISChBfYWJzb2x1dGVfbnVtYmVyIscCCgZTZXJpZXMSCgoCaWQYASABKAkSDQoFdGl0bGUYBiABKAkSMQoPbG9jYWxpemVkX3RpdGxlGAIgASgLMhguYW5pbWUudjEuTG9jYWxpemVkVGl0bGUSIQoHc2Vhc29ucxgDIAMoCzIQLmFuaW1lLnYxLlNlYXNvbhIVCg1zZWFzb25zX3RvdGFsGAggASgFEh8KBm1vdmllcxgEIAMoCzIPLmFuaW1lLnYxLk1vdmllEhQKDG1vdmllc190b3RhbBgJIAEoBRIjCghzcGVjaWFscxgFIAMoCzIRLmFuaW1lLnYxLlNwZWNpYWwSFgoOc3BlY2lhbHNfdG90YWwYCiABKAUSJwoKY2hhcmFjdGVycxgHIAMoCzITLmFuaW1lLnYxLkNoYXJhY3RlchIYChBjaGFyYWN0ZXJzX3RvdGFsGAsgASgFIkQKClZvaWNlQWN0b3ISEAoIc3RhZmZfaWQYASABKAkSEAoIbGFuZ3VhZ2UYAiABKAkSEgoKc3RhZmZfbmFtZRgDIAEoCSJDCghTY29wZVJlZhIRCglzZWFzb25faWQYASABKAkSEAoIbW92aWVfaWQYAiABKAkSEgoKc3BlY2lhbF9pZBgDIAEoCSK6AQoTQ2hhcmFjdGVyQXBwZWFyYW5jZRIRCglzZXJpZXNfaWQYASABKAkSFAoMc2VyaWVzX3RpdGxlGAUgASgJEiEKBXNjb3BlGAIgAygLMhIuYW5pbWUudjEuU2NvcGVSZWYSKgoMdm9pY2VfYWN0b3JzGAMgAygLMhQuYW5pbWUudjEuVm9pY2VBY3RvchIrCgxleHRlcm5hbF9pZHMYBCABKAsyFS5hbmltZS52MS5FeHRlcm5hbElkcyL/AQoJQ2hhcmFjdGVyEgoKAmlkGAEgASgJEgwKBG5hbWUYAiABKAkSMAoObG9jYWxpemVkX25hbWUYAyABKAsyGC5hbmltZS52MS5Mb2NhbGl6ZWRUaXRsZRIrCgxleHRlcm5hbF9pZHMYBCABKAsyFS5hbmltZS52MS5FeHRlcm5hbElkcxIqCgx2b2ljZV9hY3RvcnMYBSADKAsyFC5hbmltZS52MS5Wb2ljZUFjdG9yEjIKC2FwcGVhcmFuY2VzGAYgAygLMh0uYW5pbWUudjEuQ2hhcmFjdGVyQXBwZWFyYW5jZRIZChFhcHBlYXJhbmNlc190b3RhbBgHIAEoBSKAAQoFU3RhZmYSCgoCaWQYASABKAkSDAoEbmFtZRgCIAEoCRIwCg5sb2NhbGl6ZWRfbmFtZRgDIAEoCzIYLmFuaW1lLnYxLkxvY2FsaXplZFRpdGxlEisKDGV4dGVybmFsX2lkcxgEIAEoCzIVLmFuaW1lLnYxLkV4dGVybmFsSWRzIngKC1N0YWZmQ3JlZGl0EhQKDGNoYXJhY3Rlcl9pZBgBIAEoCRIWCg5jaGFyYWN0ZXJfbmFtZRgCIAEoCRIQCghsYW5ndWFnZRgDIAEoCRISCgpzZXJpZXNfaWRzGAQgAygJEhUKDXNlcmllc190aXRsZXMYBSADKAkiLAoPV2F0Y2hPcmRlckVudHJ5EgsKA3JlZhgBIAEoCRIMCgRub3RlGAIgASgJIkYKCldhdGNoT3JkZXISDAoEbmFtZRgBIAEoCRIqCgdlbnRyaWVzGAIgAygLMhkuYW5pbWUudjEuV2F0Y2hPcmRlckVudHJ5ItkBCglGcmFuY2hpc2USCgoCaWQYASABKAkSDQoFdGl0bGUYBSABKAkSMQoPbG9jYWxpemVkX3RpdGxlGAIgASgLMhguYW5pbWUudjEuTG9jYWxpemVkVGl0bGUSIAoGc2VyaWVzGAMgAygLMhAuYW5pbWUudjEuU2VyaWVzEhQKDHNlcmllc190b3RhbBgGIAEoBRIqCgx3YXRjaF9vcmRlcnMYBCADKAsyFC5hbmltZS52MS5XYXRjaE9yZGVyEhoKEndhdGNoX29yZGVyc190b3RhbBgHIAEoBSKVAQoMU2VhcmNoUmVzdWx0EiEKBGtpbmQYASABKA4yEy5hbmltZS52MS5FbnRyeUtpbmQSCgoCaWQYAiABKAkSDQoFdGl0bGUYBSABKAkSMQoPbG9jYWxpemVkX3RpdGxlGAMgASgLMhguYW5pbWUudjEuTG9jYWxpemVkVGl0bGUSFAoMZnJhbmNoaXNlX2lkGAQgASgJIu8BCgxDYXRhbG9nRW50cnkSIQoEa2luZBgBIAEoDjITLmFuaW1lLnYxLkVudHJ5S2luZBIKCgJpZBgCIAEoCRINCgV0aXRsZRgDIAEoCRIxCg9sb2NhbGl6ZWRfdGl0bGUYBCABKAsyGC5hbmltZS52MS5Mb2NhbGl6ZWRUaXRsZRIUCgxmcmFuY2hpc2VfaWQYBSABKAkSGgoSZmlyc3RfcmVsZWFzZV95ZWFyGAYgASgFEhsKE2xhdGVzdF9yZWxlYXNlX3llYXIYByABKAUSDQoFd29ya3MYCCABKAUSEAoIZXBpc29kZXMYCSABKAUigAMKC1dvcmtTdW1tYXJ5EiAKBGtpbmQYASABKA4yEi5hbmltZS52MS5Xb3JrS2luZBIKCgJpZBgCIAEoCRINCgV0aXRsZRgDIAEoCRIxCg9sb2NhbGl6ZWRfdGl0bGUYBCABKAsyGC5hbmltZS52MS5Mb2NhbGl6ZWRUaXRsZRIRCglzZXJpZXNfaWQYBSABKAkSFAoMc2VyaWVzX3RpdGxlGAYgASgJEg4KBm51bWJlchgHIAEoBRIUCgxyZWxlYXNlX2RhdGUYCCABKAkSFAoMcmVsZWFzZV95ZWFyGAkgASgFEi8KDnJlbGVhc2Vfc2Vhc29uGAogASgOMhcuYW5pbWUudjEuUmVsZWFzZVNlYXNvbhInCgZmb3JtYXQYCyABKA4yFy5hbmltZS52MS5TcGVjaWFsRm9ybWF0EhUKDWVwaXNvZGVfY291bnQYDCABKAUSKwoMZXh0ZXJuYWxfaWRzGA0gASgLMhUuYW5pbWUudjEuRXh0ZXJuYWxJZHMitAEKDERhdGFzZXRTdGF0cxISCgpmcmFuY2hpc2VzGAEgASgFEg4KBnNlcmllcxgCIAEoBRIPCgdzZWFzb25zGAMgASgFEhAKCGVwaXNvZGVzGAQgASgFEhIKCmNoYXJhY3RlcnMYBSABKAUSDQoFc3RhZmYYBiABKAUSHQoVZWFybGllc3RfcmVsZWFzZV95ZWFyGAcgASgFEhsKE2xhdGVzdF9yZWxlYXNlX3llYXIYCCABKAUiOgoVTGlzdEZyYW5jaGlzZXNSZXF1ZXN0EhIKCnBhZ2VfdG9rZW4YASABKAkSDQoFbGltaXQYAiABKAUibgoWTGlzdEZyYW5jaGlzZXNSZXNwb25zZRInCgpmcmFuY2hpc2VzGAEgAygLMhMuYW5pbWUudjEuRnJhbmNoaXNlEhcKD25leHRfcGFnZV90b2tlbhgCIAEoCRISCgp0b3RhbF9zaXplGAMgASgFIiEKE0dldEZyYW5jaGlzZVJlcXVlc3QSCgoCaWQYASABKAkiPgoUR2V0RnJhbmNoaXNlUmVzcG9uc2USJgoJZnJhbmNoaXNlGAEgASgLMhMuYW5pbWUudjEuRnJhbmNoaXNlIh4KEEdldFNlcmllc1JlcXVlc3QSCgoCaWQYASABKAkiSwoRR2V0U2VyaWVzUmVzcG9uc2USIAoGc2VyaWVzGAEgASgLMhAuYW5pbWUudjEuU2VyaWVzEhQKDGZyYW5jaGlzZV9pZBgCIAEoCSJBCg1TZWFyY2hSZXF1ZXN0Eg0KBXF1ZXJ5GAEgASgJEg0KBWxpbWl0GAIgASgFEhIKCnBhZ2VfdG9rZW4YAyABKAkiZgoOU2VhcmNoUmVzcG9uc2USJwoHcmVzdWx0cxgBIAMoCzIWLmFuaW1lLnYxLlNlYXJjaFJlc3VsdBIXCg9uZXh0X3BhZ2VfdG9rZW4YAiABKAkSEgoKdG90YWxfc2l6ZRgDIAEoBSIhChNHZXRDaGFyYWN0ZXJSZXF1ZXN0EgoKAmlkGAEgASgJIj4KFEdldENoYXJhY3RlclJlc3BvbnNlEiYKCWNoYXJhY3RlchgBIAEoCzITLmFuaW1lLnYxLkNoYXJhY3RlciJcChVMaXN0Q2hhcmFjdGVyc1JlcXVlc3QSEQoJc2VyaWVzX2lkGAEgASgJEg0KBXF1ZXJ5GAQgASgJEg0KBWxpbWl0GAIgASgFEhIKCnBhZ2VfdG9rZW4YAyABKAkibgoWTGlzdENoYXJhY3RlcnNSZXNwb25zZRInCgpjaGFyYWN0ZXJzGAEgAygLMhMuYW5pbWUudjEuQ2hhcmFjdGVyEhcKD25leHRfcGFnZV90b2tlbhgCIAEoCRISCgp0b3RhbF9zaXplGAMgASgFIh0KD0dldFN0YWZmUmVxdWVzdBIKCgJpZBgBIAEoCSJxChBHZXRTdGFmZlJlc3BvbnNlEh4KBXN0YWZmGAEgASgLMg8uYW5pbWUudjEuU3RhZmYSJgoHY3JlZGl0cxgCIAMoCzIVLmFuaW1lLnYxLlN0YWZmQ3JlZGl0EhUKDWNyZWRpdHNfdG90YWwYAyABKAUiVgoQTGlzdFN0YWZmUmVxdWVzdBIQCghsYW5ndWFnZRgBIAEoCRINCgVxdWVyeRgEIAEoCRINCgVsaW1pdBgCIAEoBRISCgpwYWdlX3Rva2VuGAMgASgJImAKEUxpc3RTdGFmZlJlc3BvbnNlEh4KBXN0YWZmGAEgAygLMg8uYW5pbWUudjEuU3RhZmYSFwoPbmV4dF9wYWdlX3Rva2VuGAIgASgJEhIKCnRvdGFsX3NpemUYAyABKAUiEgoQR2V0SGVhbHRoUmVxdWVzdCJbChFHZXRIZWFsdGhSZXNwb25zZRIOCgZzdGF0dXMYASABKAkSDwoHdmVyc2lvbhgCIAEoCRIlCgVzdGF0cxgDIAEoCzIWLmFuaW1lLnYxLkRhdGFzZXRTdGF0cyJaChJMaXN0Q2F0YWxvZ1JlcXVlc3QSEgoKcGFnZV90b2tlbhgBIAEoCRINCgVsaW1pdBgCIAEoBRIhCgRraW5kGAMgASgOMhMuYW5pbWUudjEuRW50cnlLaW5kImsKE0xpc3RDYXRhbG9nUmVzcG9uc2USJwoHZW50cmllcxgBIAMoCzIWLmFuaW1lLnYxLkNhdGFsb2dFbnRyeRIXCg9uZXh0X3BhZ2VfdG9rZW4YAiABKAkSEgoKdG90YWxfc2l6ZRgDIAEoBSLAAQoQTGlzdFdvcmtzUmVxdWVzdBISCgpwYWdlX3Rva2VuGAEgASgJEg0KBWxpbWl0GAIgASgFEhQKDHJlbGVhc2VfeWVhchgDIAEoBRIvCg5yZWxlYXNlX3NlYXNvbhgEIAEoDjIXLmFuaW1lLnYxLlJlbGVhc2VTZWFzb24SIAoEa2luZBgFIAEoDjISLmFuaW1lLnYxLldvcmtLaW5kEhEKCXNlcmllc19pZBgGIAEoCRINCgVxdWVyeRgHIAEoCSJmChFMaXN0V29ya3NSZXNwb25zZRIkCgV3b3JrcxgBIAMoCzIVLmFuaW1lLnYxLldvcmtTdW1tYXJ5EhcKD25leHRfcGFnZV90b2tlbhgCIAEoCRISCgp0b3RhbF9zaXplGAMgASgFIl8KE0xpc3RFcGlzb2Rlc1JlcXVlc3QSEQoJc2Vhc29uX2lkGAEgASgJEhIKCnNwZWNpYWxfaWQYAiABKAkSEgoKcGFnZV90b2tlbhgDIAEoCRINCgVsaW1pdBgEIAEoBSJoChRMaXN0RXBpc29kZXNSZXNwb25zZRIjCghlcGlzb2RlcxgBIAMoCzIRLmFuaW1lLnYxLkVwaXNvZGUSFwoPbmV4dF9wYWdlX3Rva2VuGAIgASgJEhIKCnRvdGFsX3NpemUYAyABKAUiTAoRTGlzdFNlcmllc1JlcXVlc3QSFAoMZnJhbmNoaXNlX2lkGAEgASgJEhIKCnBhZ2VfdG9rZW4YAiABKAkSDQoFbGltaXQYAyABKAUiYwoSTGlzdFNlcmllc1Jlc3BvbnNlEiAKBnNlcmllcxgBIAMoCzIQLmFuaW1lLnYxLlNlcmllcxIXCg9uZXh0X3BhZ2VfdG9rZW4YAiABKAkSEgoKdG90YWxfc2l6ZRgDIAEoBSJRChZMaXN0QXBwZWFyYW5jZXNSZXF1ZXN0EhQKDGNoYXJhY3Rlcl9pZBgBIAEoCRISCgpwYWdlX3Rva2VuGAIgASgJEg0KBWxpbWl0GAMgASgFInoKF0xpc3RBcHBlYXJhbmNlc1Jlc3BvbnNlEjIKC2FwcGVhcmFuY2VzGAEgAygLMh0uYW5pbWUudjEuQ2hhcmFjdGVyQXBwZWFyYW5jZRIXCg9uZXh0X3BhZ2VfdG9rZW4YAiABKAkSEgoKdG90YWxfc2l6ZRgDIAEoBSJJChJMaXN0Q3JlZGl0c1JlcXVlc3QSEAoIc3RhZmZfaWQYASABKAkSEgoKcGFnZV90b2tlbhgCIAEoCRINCgVsaW1pdBgDIAEoBSJqChNMaXN0Q3JlZGl0c1Jlc3BvbnNlEiYKB2NyZWRpdHMYASADKAsyFS5hbmltZS52MS5TdGFmZkNyZWRpdBIXCg9uZXh0X3BhZ2VfdG9rZW4YAiABKAkSEgoKdG90YWxfc2l6ZRgDIAEoBSqZAQoNUmVsZWFzZVNlYXNvbhIeChpSRUxFQVNFX1NFQVNPTl9VTlNQRUNJRklFRBAAEhkKFVJFTEVBU0VfU0VBU09OX1dJTlRFUhABEhkKFVJFTEVBU0VfU0VBU09OX1NQUklORxACEhkKFVJFTEVBU0VfU0VBU09OX1NVTU1FUhADEhcKE1JFTEVBU0VfU0VBU09OX0ZBTEwQBCp7Cg1TcGVjaWFsRm9ybWF0Eh4KGlNQRUNJQUxfRk9STUFUX1VOU1BFQ0lGSUVEEAASFgoSU1BFQ0lBTF9GT1JNQVRfT1ZBEAESFgoSU1BFQ0lBTF9GT1JNQVRfT05BEAISGgoWU1BFQ0lBTF9GT1JNQVRfU1BFQ0lBTBADKmcKCFdvcmtLaW5kEhkKFVdPUktfS0lORF9VTlNQRUNJRklFRBAAEhQKEFdPUktfS0lORF9TRUFTT04QARITCg9XT1JLX0tJTkRfTU9WSUUQAhIVChFXT1JLX0tJTkRfU1BFQ0lBTBADKlgKCUVudHJ5S2luZBIaChZFTlRSWV9LSU5EX1VOU1BFQ0lGSUVEEAASGAoURU5UUllfS0lORF9GUkFOQ0hJU0UQARIVChFFTlRSWV9LSU5EX1NFUklFUxACMpQJCgxBbmltZVNlcnZpY2USVQoOTGlzdEZyYW5jaGlzZXMSHy5hbmltZS52MS5MaXN0RnJhbmNoaXNlc1JlcXVlc3QaIC5hbmltZS52MS5MaXN0RnJhbmNoaXNlc1Jlc3BvbnNlIgASTwoMR2V0RnJhbmNoaXNlEh0uYW5pbWUudjEuR2V0RnJhbmNoaXNlUmVxdWVzdBoeLmFuaW1lLnYxLkdldEZyYW5jaGlzZVJlc3BvbnNlIgASRgoJR2V0U2VyaWVzEhouYW5pbWUudjEuR2V0U2VyaWVzUmVxdWVzdBobLmFuaW1lLnYxLkdldFNlcmllc1Jlc3BvbnNlIgASTAoLTGlzdENhdGFsb2cSHC5hbmltZS52MS5MaXN0Q2F0YWxvZ1JlcXVlc3QaHS5hbmltZS52MS5MaXN0Q2F0YWxvZ1Jlc3BvbnNlIgASRgoJTGlzdFdvcmtzEhouYW5pbWUudjEuTGlzdFdvcmtzUmVxdWVzdBobLmFuaW1lLnYxLkxpc3RXb3Jrc1Jlc3BvbnNlIgASPQoGU2VhcmNoEhcuYW5pbWUudjEuU2VhcmNoUmVxdWVzdBoYLmFuaW1lLnYxLlNlYXJjaFJlc3BvbnNlIgASTwoMR2V0Q2hhcmFjdGVyEh0uYW5pbWUudjEuR2V0Q2hhcmFjdGVyUmVxdWVzdBoeLmFuaW1lLnYxLkdldENoYXJhY3RlclJlc3BvbnNlIgASVQoOTGlzdENoYXJhY3RlcnMSHy5hbmltZS52MS5MaXN0Q2hhcmFjdGVyc1JlcXVlc3QaIC5hbmltZS52MS5MaXN0Q2hhcmFjdGVyc1Jlc3BvbnNlIgASQwoIR2V0U3RhZmYSGS5hbmltZS52MS5HZXRTdGFmZlJlcXVlc3QaGi5hbmltZS52MS5HZXRTdGFmZlJlc3BvbnNlIgASRgoJTGlzdFN0YWZmEhouYW5pbWUudjEuTGlzdFN0YWZmUmVxdWVzdBobLmFuaW1lLnYxLkxpc3RTdGFmZlJlc3BvbnNlIgASTwoMTGlzdEVwaXNvZGVzEh0uYW5pbWUudjEuTGlzdEVwaXNvZGVzUmVxdWVzdBoeLmFuaW1lLnYxLkxpc3RFcGlzb2Rlc1Jlc3BvbnNlIgASSQoKTGlzdFNlcmllcxIbLmFuaW1lLnYxLkxpc3RTZXJpZXNSZXF1ZXN0GhwuYW5pbWUudjEuTGlzdFNlcmllc1Jlc3BvbnNlIgASWAoPTGlzdEFwcGVhcmFuY2VzEiAuYW5pbWUudjEuTGlzdEFwcGVhcmFuY2VzUmVxdWVzdBohLmFuaW1lLnYxLkxpc3RBcHBlYXJhbmNlc1Jlc3BvbnNlIgASTAoLTGlzdENyZWRpdHMSHC5hbmltZS52MS5MaXN0Q3JlZGl0c1JlcXVlc3QaHS5hbmltZS52MS5MaXN0Q3JlZGl0c1Jlc3BvbnNlIgASRgoJR2V0SGVhbHRoEhouYW5pbWUudjEuR2V0SGVhbHRoUmVxdWVzdBobLmFuaW1lLnYxLkdldEhlYWx0aFJlc3BvbnNlIgBCTFpKZ2l0aHViLmNvbS9taWNoYWVsLWZyZWxpbmcvYW5pbWUtbWV0YWRhdGEtZGIvaW50ZXJuYWwvZ2VuL2FuaW1lL3YxO2FuaW1ldjFiBnByb3RvMw");
 
 /**
  * LocalizedTitle holds a title across languages: the original native-script
@@ -184,9 +184,17 @@ export type Season = Message<"anime.v1.Season"> & {
   externalIds?: ExternalIds | undefined;
 
   /**
+   * episodes is the first page only, capped; episodes_total is the real count.
+   * Use ListEpisodes to page the rest.
+   *
    * @generated from field: repeated anime.v1.Episode episodes = 9;
    */
   episodes: Episode[];
+
+  /**
+   * @generated from field: int32 episodes_total = 11;
+   */
+  episodesTotal: number;
 };
 
 /**
@@ -324,9 +332,17 @@ export type Special = Message<"anime.v1.Special"> & {
   externalIds?: ExternalIds | undefined;
 
   /**
+   * episodes is the first page only, capped; episodes_total is the real count.
+   * Use ListEpisodes to page the rest.
+   *
    * @generated from field: repeated anime.v1.Episode episodes = 7;
    */
   episodes: Episode[];
+
+  /**
+   * @generated from field: int32 episodes_total = 10;
+   */
+  episodesTotal: number;
 
   /**
    * @generated from field: optional int32 absolute_number = 8;
@@ -367,9 +383,20 @@ export type Series = Message<"anime.v1.Series"> & {
   localizedTitle?: LocalizedTitle | undefined;
 
   /**
+   * Every collection below is the first page only, capped at a fixed limit.
+   * The matching *_total is the real count, and a List RPC pages the rest:
+   * ListWorks(series_id) for releases, ListCharacters(series_id) for the cast.
+   * Embedding them unbounded would make one GetSeries call serialize an entire
+   * long-running show, which is exactly what this API is built not to do.
+   *
    * @generated from field: repeated anime.v1.Season seasons = 3;
    */
   seasons: Season[];
+
+  /**
+   * @generated from field: int32 seasons_total = 8;
+   */
+  seasonsTotal: number;
 
   /**
    * @generated from field: repeated anime.v1.Movie movies = 4;
@@ -377,9 +404,19 @@ export type Series = Message<"anime.v1.Series"> & {
   movies: Movie[];
 
   /**
+   * @generated from field: int32 movies_total = 9;
+   */
+  moviesTotal: number;
+
+  /**
    * @generated from field: repeated anime.v1.Special specials = 5;
    */
   specials: Special[];
+
+  /**
+   * @generated from field: int32 specials_total = 10;
+   */
+  specialsTotal: number;
 
   /**
    * characters appearing in this series, in dataset order. Each is the full
@@ -388,6 +425,11 @@ export type Series = Message<"anime.v1.Series"> & {
    * @generated from field: repeated anime.v1.Character characters = 7;
    */
   characters: Character[];
+
+  /**
+   * @generated from field: int32 characters_total = 11;
+   */
+  charactersTotal: number;
 };
 
 /**
@@ -548,9 +590,17 @@ export type Character = Message<"anime.v1.Character"> & {
   voiceActors: VoiceActor[];
 
   /**
+   * appearances is the first page only, capped; appearances_total is the real
+   * count. Use ListAppearances to page the rest.
+   *
    * @generated from field: repeated anime.v1.CharacterAppearance appearances = 6;
    */
   appearances: CharacterAppearance[];
+
+  /**
+   * @generated from field: int32 appearances_total = 7;
+   */
+  appearancesTotal: number;
 };
 
 /**
@@ -718,14 +768,29 @@ export type Franchise = Message<"anime.v1.Franchise"> & {
   localizedTitle?: LocalizedTitle | undefined;
 
   /**
+   * series is the first page only, capped, and each Series in it carries its
+   * own capped collections. A franchise nests the deepest structure in the
+   * dataset, so an unbounded GetFranchise would serialize every episode of
+   * every season of every series under the brand. Use ListSeries to page.
+   *
    * @generated from field: repeated anime.v1.Series series = 3;
    */
   series: Series[];
 
   /**
+   * @generated from field: int32 series_total = 6;
+   */
+  seriesTotal: number;
+
+  /**
    * @generated from field: repeated anime.v1.WatchOrder watch_orders = 4;
    */
   watchOrders: WatchOrder[];
+
+  /**
+   * @generated from field: int32 watch_orders_total = 7;
+   */
+  watchOrdersTotal: number;
 };
 
 /**
@@ -1344,11 +1409,18 @@ export type GetStaffResponse = Message<"anime.v1.GetStaffResponse"> & {
   staff?: Staff | undefined;
 
   /**
-   * credits is every character this person is cast as, in dataset order.
+   * credits is the first page only, capped, in dataset order; credits_total is
+   * the real count. A prolific voice actor accumulates roles for as long as
+   * they work, so this cannot be unbounded. Use ListCredits to page the rest.
    *
    * @generated from field: repeated anime.v1.StaffCredit credits = 2;
    */
   credits: StaffCredit[];
+
+  /**
+   * @generated from field: int32 credits_total = 3;
+   */
+  creditsTotal: number;
 };
 
 /**
@@ -1641,6 +1713,239 @@ export const ListWorksResponseSchema: GenMessage<ListWorksResponse> = /*@__PURE_
   messageDesc(file_anime_v1_anime, 42);
 
 /**
+ * ListEpisodesRequest names exactly one parent: a season or a special.
+ *
+ * @generated from message anime.v1.ListEpisodesRequest
+ */
+export type ListEpisodesRequest = Message<"anime.v1.ListEpisodesRequest"> & {
+  /**
+   * @generated from field: string season_id = 1;
+   */
+  seasonId: string;
+
+  /**
+   * @generated from field: string special_id = 2;
+   */
+  specialId: string;
+
+  /**
+   * @generated from field: string page_token = 3;
+   */
+  pageToken: string;
+
+  /**
+   * @generated from field: int32 limit = 4;
+   */
+  limit: number;
+};
+
+/**
+ * Describes the message anime.v1.ListEpisodesRequest.
+ * Use `create(ListEpisodesRequestSchema)` to create a new message.
+ */
+export const ListEpisodesRequestSchema: GenMessage<ListEpisodesRequest> = /*@__PURE__*/
+  messageDesc(file_anime_v1_anime, 43);
+
+/**
+ * @generated from message anime.v1.ListEpisodesResponse
+ */
+export type ListEpisodesResponse = Message<"anime.v1.ListEpisodesResponse"> & {
+  /**
+   * @generated from field: repeated anime.v1.Episode episodes = 1;
+   */
+  episodes: Episode[];
+
+  /**
+   * next_page_token is empty on the last page.
+   *
+   * @generated from field: string next_page_token = 2;
+   */
+  nextPageToken: string;
+
+  /**
+   * total_size counts every episode of the parent, not just this page.
+   *
+   * @generated from field: int32 total_size = 3;
+   */
+  totalSize: number;
+};
+
+/**
+ * Describes the message anime.v1.ListEpisodesResponse.
+ * Use `create(ListEpisodesResponseSchema)` to create a new message.
+ */
+export const ListEpisodesResponseSchema: GenMessage<ListEpisodesResponse> = /*@__PURE__*/
+  messageDesc(file_anime_v1_anime, 44);
+
+/**
+ * @generated from message anime.v1.ListSeriesRequest
+ */
+export type ListSeriesRequest = Message<"anime.v1.ListSeriesRequest"> & {
+  /**
+   * franchise_id is required: this pages one franchise's series. The flat
+   * catalog of every series is ListCatalog.
+   *
+   * @generated from field: string franchise_id = 1;
+   */
+  franchiseId: string;
+
+  /**
+   * @generated from field: string page_token = 2;
+   */
+  pageToken: string;
+
+  /**
+   * @generated from field: int32 limit = 3;
+   */
+  limit: number;
+};
+
+/**
+ * Describes the message anime.v1.ListSeriesRequest.
+ * Use `create(ListSeriesRequestSchema)` to create a new message.
+ */
+export const ListSeriesRequestSchema: GenMessage<ListSeriesRequest> = /*@__PURE__*/
+  messageDesc(file_anime_v1_anime, 45);
+
+/**
+ * @generated from message anime.v1.ListSeriesResponse
+ */
+export type ListSeriesResponse = Message<"anime.v1.ListSeriesResponse"> & {
+  /**
+   * Each Series carries its own capped collections, exactly as GetSeries
+   * returns it.
+   *
+   * @generated from field: repeated anime.v1.Series series = 1;
+   */
+  series: Series[];
+
+  /**
+   * @generated from field: string next_page_token = 2;
+   */
+  nextPageToken: string;
+
+  /**
+   * @generated from field: int32 total_size = 3;
+   */
+  totalSize: number;
+};
+
+/**
+ * Describes the message anime.v1.ListSeriesResponse.
+ * Use `create(ListSeriesResponseSchema)` to create a new message.
+ */
+export const ListSeriesResponseSchema: GenMessage<ListSeriesResponse> = /*@__PURE__*/
+  messageDesc(file_anime_v1_anime, 46);
+
+/**
+ * @generated from message anime.v1.ListAppearancesRequest
+ */
+export type ListAppearancesRequest = Message<"anime.v1.ListAppearancesRequest"> & {
+  /**
+   * @generated from field: string character_id = 1;
+   */
+  characterId: string;
+
+  /**
+   * @generated from field: string page_token = 2;
+   */
+  pageToken: string;
+
+  /**
+   * @generated from field: int32 limit = 3;
+   */
+  limit: number;
+};
+
+/**
+ * Describes the message anime.v1.ListAppearancesRequest.
+ * Use `create(ListAppearancesRequestSchema)` to create a new message.
+ */
+export const ListAppearancesRequestSchema: GenMessage<ListAppearancesRequest> = /*@__PURE__*/
+  messageDesc(file_anime_v1_anime, 47);
+
+/**
+ * @generated from message anime.v1.ListAppearancesResponse
+ */
+export type ListAppearancesResponse = Message<"anime.v1.ListAppearancesResponse"> & {
+  /**
+   * @generated from field: repeated anime.v1.CharacterAppearance appearances = 1;
+   */
+  appearances: CharacterAppearance[];
+
+  /**
+   * @generated from field: string next_page_token = 2;
+   */
+  nextPageToken: string;
+
+  /**
+   * @generated from field: int32 total_size = 3;
+   */
+  totalSize: number;
+};
+
+/**
+ * Describes the message anime.v1.ListAppearancesResponse.
+ * Use `create(ListAppearancesResponseSchema)` to create a new message.
+ */
+export const ListAppearancesResponseSchema: GenMessage<ListAppearancesResponse> = /*@__PURE__*/
+  messageDesc(file_anime_v1_anime, 48);
+
+/**
+ * @generated from message anime.v1.ListCreditsRequest
+ */
+export type ListCreditsRequest = Message<"anime.v1.ListCreditsRequest"> & {
+  /**
+   * @generated from field: string staff_id = 1;
+   */
+  staffId: string;
+
+  /**
+   * @generated from field: string page_token = 2;
+   */
+  pageToken: string;
+
+  /**
+   * @generated from field: int32 limit = 3;
+   */
+  limit: number;
+};
+
+/**
+ * Describes the message anime.v1.ListCreditsRequest.
+ * Use `create(ListCreditsRequestSchema)` to create a new message.
+ */
+export const ListCreditsRequestSchema: GenMessage<ListCreditsRequest> = /*@__PURE__*/
+  messageDesc(file_anime_v1_anime, 49);
+
+/**
+ * @generated from message anime.v1.ListCreditsResponse
+ */
+export type ListCreditsResponse = Message<"anime.v1.ListCreditsResponse"> & {
+  /**
+   * @generated from field: repeated anime.v1.StaffCredit credits = 1;
+   */
+  credits: StaffCredit[];
+
+  /**
+   * @generated from field: string next_page_token = 2;
+   */
+  nextPageToken: string;
+
+  /**
+   * @generated from field: int32 total_size = 3;
+   */
+  totalSize: number;
+};
+
+/**
+ * Describes the message anime.v1.ListCreditsResponse.
+ * Use `create(ListCreditsResponseSchema)` to create a new message.
+ */
+export const ListCreditsResponseSchema: GenMessage<ListCreditsResponse> = /*@__PURE__*/
+  messageDesc(file_anime_v1_anime, 50);
+
+/**
  * ReleaseSeason is the calendar quarter an installment premiered in.
  *
  * @generated from enum anime.v1.ReleaseSeason
@@ -1893,6 +2198,47 @@ export const AnimeService: GenService<{
     methodKind: "unary";
     input: typeof ListStaffRequestSchema;
     output: typeof ListStaffResponseSchema;
+  },
+  /**
+   * ListEpisodes pages the episodes of one season or special. A long-running
+   * show accumulates episodes indefinitely, so they are never embedded whole.
+   *
+   * @generated from rpc anime.v1.AnimeService.ListEpisodes
+   */
+  listEpisodes: {
+    methodKind: "unary";
+    input: typeof ListEpisodesRequestSchema;
+    output: typeof ListEpisodesResponseSchema;
+  },
+  /**
+   * ListSeries pages the series belonging to one franchise.
+   *
+   * @generated from rpc anime.v1.AnimeService.ListSeries
+   */
+  listSeries: {
+    methodKind: "unary";
+    input: typeof ListSeriesRequestSchema;
+    output: typeof ListSeriesResponseSchema;
+  },
+  /**
+   * ListAppearances pages the series one character appears in.
+   *
+   * @generated from rpc anime.v1.AnimeService.ListAppearances
+   */
+  listAppearances: {
+    methodKind: "unary";
+    input: typeof ListAppearancesRequestSchema;
+    output: typeof ListAppearancesResponseSchema;
+  },
+  /**
+   * ListCredits pages the roles one staff member is cast in.
+   *
+   * @generated from rpc anime.v1.AnimeService.ListCredits
+   */
+  listCredits: {
+    methodKind: "unary";
+    input: typeof ListCreditsRequestSchema;
+    output: typeof ListCreditsResponseSchema;
   },
   /**
    * GetHealth reports liveness, build version and dataset stats.

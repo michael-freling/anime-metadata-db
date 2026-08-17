@@ -60,6 +60,31 @@ jobs:
             exit 1
           fi
 
+  pagination:
+    name: Every response is bounded
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # The dataset is built to hold the full upstream catalogue, so a response
+      # that returns a whole collection is an outage waiting for the data to
+      # catch up. The failure is invisible at today's row counts — a list that
+      # is complete at 150 and ruinous at 150,000 reads identically in review —
+      # so it is asserted rather than reviewed.
+      # This checks the schema; TestNoResponseEmbedsAnUnboundedCollection in
+      # internal/api checks the responses the server actually builds.
+      - name: Test the check itself
+        run: node .claude/skills/enforce-pagination/scripts/check-pagination.test.mjs
+
+      - name: Verify no response is unbounded
+        run: node .claude/skills/enforce-pagination/scripts/check-pagination.mjs
+
   index:
     name: Listing index matches the dataset
     runs-on: ubuntu-latest

@@ -324,3 +324,48 @@ func (ix *Index) SeriesTitle(id string) (model.Title, bool) {
 func Paginate[T any](in []T, token string, limit int) (Page[T], error) {
 	return page(len(in), func(int) bool { return true }, func(i int) T { return in[i] }, token, limit)
 }
+
+// EmbeddedLimit bounds every collection a Get* response embeds.
+//
+// A Get response is a convenience — one call that shows you the shape of a
+// node — not a bulk export. Left unbounded, GetFranchise would serialize every
+// episode of every season of every series under a brand, which is the exact
+// cost this package exists to avoid. The matching *_total field carries the
+// real count, and a List RPC pages the rest.
+const EmbeddedLimit = 25
+
+// Work resolves an installment id — a season, movie or special — to the series
+// it belongs to and the record file holding it.
+func (ix *Index) Work(id string) (seriesID, file string, kind WorkKind, ok bool) {
+	row, ok := ix.workByID[id]
+	if !ok {
+		return "", "", 0, false
+	}
+	w := ix.works[row]
+	s := ix.series[w.series-1]
+	return ix.text(s.id), ix.text(s.file), w.kind, true
+}
+
+// SeriesOf returns one page of the series belonging to franchiseID, in catalog
+// order. An unknown franchise yields an empty page.
+func (ix *Index) SeriesOf(franchiseID, token string, limit int) (Page[Ref], error) {
+	row, ok := ix.franchiseByID[franchiseID]
+	if !ok {
+		return Page[Ref]{}, nil
+	}
+	want := row + 1
+	match := func(i int) bool { return ix.series[i].franchise == want }
+	build := func(i int) Ref {
+		r := ix.series[i]
+		return Ref{ID: ix.text(r.id), File: ix.text(r.file)}
+	}
+	return page(len(ix.series), match, build, token, limit)
+}
+
+// CreditsPage returns one page of the roles staffID is cast in.
+//
+// Credits are materialised from the index alone — a credit names a character by
+// id and name, both of which the index carries — so paging them reads no file.
+func (ix *Index) CreditsPage(staffID, token string, limit int) (Page[StaffCredit], error) {
+	return Paginate(ix.Credits(staffID), token, limit)
+}

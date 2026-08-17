@@ -32,6 +32,10 @@ type Index struct {
 	seriesByID    map[string]int32
 	characterByID map[string]int32
 	staffByID     map[string]int32
+	// workByID resolves a season, movie or special id to its works row, so a
+	// request naming one installment can find the record file holding it
+	// without scanning.
+	workByID map[string]int32
 
 	// creditsByStaff[row] is the half-open range of credits belonging to staff
 	// row. Credits are written grouped by staff, so a range replaces a map of
@@ -84,6 +88,7 @@ func Open(blob string) (*Index, error) {
 		seriesByID:     map[string]int32{},
 		characterByID:  map[string]int32{},
 		staffByID:      map[string]int32{},
+		workByID:       map[string]int32{},
 		creditsByStaff: map[int32][2]int32{},
 	}
 	if err := ix.scan(); err != nil {
@@ -322,6 +327,7 @@ func (ix *Index) readWork(row string, start uint32) error {
 	if nums[2] < 1 || nums[2] > len(ix.series) {
 		return fmt.Errorf("series row %d out of range", nums[2])
 	}
+	ix.workByID[unescape(c[1].text(ix.blob))] = int32(len(ix.works))
 	ix.works = append(ix.works, workRow{
 		kind: kind, id: c[1], series: int32(nums[2]), number: int32(nums[3]),
 		date: c[4], year: int32(nums[5]), quarter: c[6], format: c[7],
