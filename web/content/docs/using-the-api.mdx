@@ -39,23 +39,65 @@ own, start the server locally (`go run ./cmd/api`, see
 | Method | Body | Returns |
 |---|---|---|
 | `GetHealth` | `{}` | liveness, build version, dataset stats |
-| `ListFranchises` | `{"limit": 10}` | multi-series franchises, fully nested, one page at a time |
-| `GetFranchise` | `{"id": "..."}` | one franchise with its nested series |
-| `GetSeries` | `{"id": "..."}` | one series (standalone or under a franchise) |
+| `ListCatalog` | `{"limit": 20}` | every top-level entry as a flat summary |
 | `Search` | `{"query": "...", "limit": 10}` | matching franchises and series |
-| `GetCharacter` | `{"id": "..."}` | one character with every appearance and its cast |
-| `ListCharacters` | `{"seriesId": "...", "limit": 10}` | the whole cast, or one series' cast |
-| `GetStaff` | `{"id": "..."}` | one staff member with the characters they voice |
+| `ListWorks` | `{"releaseYear": 2026, "limit": 20}` | individual releases, by year, quarter, kind or series |
+| `ListFranchises` | `{"limit": 10}` | multi-series franchises, nested |
+| `GetFranchise` | `{"id": "..."}` | one franchise |
+| `ListSeries` | `{"franchiseId": "...", "limit": 10}` | one franchise's series |
+| `GetSeries` | `{"id": "..."}` | one series (standalone or under a franchise) |
+| `ListEpisodes` | `{"seasonId": "...", "limit": 20}` | the episodes of one season or special |
+| `GetCharacter` | `{"id": "..."}` | one character with its cast |
+| `ListCharacters` | `{"seriesId": "...", "limit": 10}` | the cast of one series, or of everything |
+| `ListAppearances` | `{"characterId": "...", "limit": 10}` | the series one character appears in |
+| `GetStaff` | `{"id": "..."}` | one staff member |
 | `ListStaff` | `{"language": "ja", "limit": 10}` | staff, optionally by credited language |
+| `ListCredits` | `{"staffId": "...", "limit": 10}` | the roles one staff member is cast in |
 
 `ListFranchises` returns only multi-series **franchises**; a standalone series is
-reachable through `Search` and `GetSeries`. Because a franchise carries its whole
-tree — every series, season and episode — it is paginated like the other lists,
-and `ListCatalog` is the cheaper way to ask what the dataset contains. For
-`Search`, `limit` is optional (defaults to 50) and a blank `query` matches
-nothing. For the list methods `limit` defaults to 100; an unknown `seriesId` is a
+reachable through `Search` and `GetSeries`. `ListCatalog` is the cheaper way to
+ask what the dataset contains, because it does not nest the structure. For
+`Search`, a blank `query` matches nothing. An unknown `seriesId` is a
 `not_found` error rather than an empty list, so a typo is not mistaken for a
 series with no cast.
+
+## Nothing comes back unbounded
+
+This dataset is built to hold the full upstream catalogue, so **no response ever
+returns a whole collection**. Every one takes one of two shapes.
+
+**Lists page.** Send `limit` and, to continue, the `pageToken` you were given:
+
+```json
+{"pageToken": "bzoyNA", "limit": 20}
+```
+
+and you get back `nextPageToken` — empty on the last page — plus `totalSize`,
+the count of every match rather than of the page. `limit` defaults to 100 (50
+for `Search`). Treat `pageToken` as opaque: it is deliberately not a documented
+format, so that the cursor scheme can change without breaking you. A token you
+did not receive from us is an `invalid_argument` error rather than a silent
+first page.
+
+**A `Get*` response embeds at most the first 25 of each collection**, as a
+convenience, and tells you the real count beside it:
+
+```jsonc
+{
+  "series": {
+    "id": "tensei-shitara-slime-datta-ken",
+    "characters": [ /* 25 of them */ ],
+    "charactersTotal": 148,          // ← what actually exists
+    "seasons": [ /* … */ ],
+    "seasonsTotal": 5
+  }
+}
+```
+
+Read the `*Total`, never the array length, whenever you show a count — the array
+is a page. To get the rest, page the matching list method: `ListCharacters` for
+a cast, `ListWorks` or `ListEpisodes` for releases and episodes,
+`ListAppearances`, `ListCredits`, `ListSeries`.
 
 ## Examples
 
@@ -70,7 +112,8 @@ curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/Search \
 {"results":[{"kind":"ENTRY_KIND_SERIES","id":"demon-slayer","title":"Demon Slayer"}]}
 ```
 
-Fetch one series with its full structure — the `id` comes from a search result:
+Fetch one series — the `id` comes from a search result. Each collection below
+is the first page of itself, with its true size alongside:
 
 ```sh
 curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/GetSeries \
@@ -113,8 +156,9 @@ the JSON are camelCase (`releaseYear`, `externalIds`, `absoluteNumber`). See
 Characters and staff are **global** nodes, not children of a series. A character
 attaches onto the structure through its `appearances`, so the same node is
 reachable three ways — nested in a series' `characters`, by id from
-`GetCharacter`, and as a credit from `GetStaff` — and it always carries every
-series it appears in:
+`GetCharacter`, and as a credit from `GetStaff` — and it names the series it
+appears in, with `appearancesTotal` giving the full count and `ListAppearances`
+paging beyond the first:
 
 ```sh
 curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/GetCharacter \
