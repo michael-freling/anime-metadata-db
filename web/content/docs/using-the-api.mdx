@@ -39,7 +39,7 @@ own, start the server locally (`go run ./cmd/api`, see
 | Method | Body | Returns |
 |---|---|---|
 | `GetHealth` | `{}` | liveness, build version, dataset stats |
-| `ListFranchises` | `{}` | every multi-series franchise, fully nested |
+| `ListFranchises` | `{"limit": 10}` | multi-series franchises, fully nested, one page at a time |
 | `GetFranchise` | `{"id": "..."}` | one franchise with its nested series |
 | `GetSeries` | `{"id": "..."}` | one series (standalone or under a franchise) |
 | `Search` | `{"query": "...", "limit": 10}` | matching franchises and series |
@@ -49,10 +49,13 @@ own, start the server locally (`go run ./cmd/api`, see
 | `ListStaff` | `{"language": "ja", "limit": 10}` | staff, optionally by credited language |
 
 `ListFranchises` returns only multi-series **franchises**; a standalone series is
-reachable through `Search` and `GetSeries`. For `Search`, `limit` is optional
-(defaults to 50) and a blank `query` matches nothing. For the two list methods
-`limit` defaults to 100; an unknown `seriesId` is a `not_found` error rather than
-an empty list, so a typo is not mistaken for a series with no cast.
+reachable through `Search` and `GetSeries`. Because a franchise carries its whole
+tree — every series, season and episode — it is paginated like the other lists,
+and `ListCatalog` is the cheaper way to ask what the dataset contains. For
+`Search`, `limit` is optional (defaults to 50) and a blank `query` matches
+nothing. For the list methods `limit` defaults to 100; an unknown `seriesId` is a
+`not_found` error rather than an empty list, so a typo is not mistaken for a
+series with no cast.
 
 ## Examples
 

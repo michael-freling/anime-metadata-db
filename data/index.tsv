@@ -1,0 +1,2254 @@
+!anime-metadata-db-index	1
+!stats	franchises=1	series=152	seasons=222	episodes=3229	characters=647	staff=416	earliest=2006	latest=2026
+!franchises	id	file	titles
+fate	fate.yaml	フェイト|en=Fate
+!series	id	file	franchise	titles
+29-sai-dokushin-chuuken-boukensha-no-nichijou	29-sai-dokushin-chuuken-boukensha-no-nichijou.yaml		29歳独身中堅冒険者の日常|en=29-sai Dokushin Chuuken Boukensha no Nichijou
+aishiteru-game-wo-owarasetai	aishiteru-game-wo-owarasetai.yaml		愛してるゲームを終わらせたい|en=Aishiteru Game wo Owarasetai
+akane-banashi	akane-banashi.yaml		あかね噺|en=Akane-banashi
+akuyaku-reijou-wa-ringoku-no-outaishi-ni-dekiai-sareru	akuyaku-reijou-wa-ringoku-no-outaishi-ni-dekiai-sareru.yaml		悪役令嬢は隣国の王太子に溺愛される|en=Akuyaku Reijou wa Ringoku no Outaishi ni Dekiai sareru
+ao-no-miburo	ao-no-miburo.yaml		青のミブロ|en=Ao no Miburo
+arne-no-jikenbo	arne-no-jikenbo.yaml		アルネの事件簿|en=Arne no Jikenbo
+awajima-hyakkei	awajima-hyakkei.yaml		淡島百景|en=Awajima Hyakkei
+black-clover	black-clover.yaml		ブラッククローバー (2017)|en=Black Clover
+bungou-stray-dogs-wan	bungou-stray-dogs-wan.yaml		文豪ストレイドッグス わん!|en=Bungou Stray Dogs Wan!
+candy-caries	candy-caries.yaml		キャンディーカリエス|en=Candy Caries
+cardfight-vanguard-divinez-genma-seisen-hen	cardfight-vanguard-divinez-genma-seisen-hen.yaml		カードファイト!! ヴァンガード DivineZ 幻真星戦編|en=Cardfight!! Vanguard: Divinez Genma Seisen-hen
+champignon-no-majo	champignon-no-majo.yaml		シャンピニオンの魔女|en=Champignon no Majo
+dark-machine-the-animation	dark-machine-the-animation.yaml		|en=Dark Machine: The Animation
+dark-moon-tsuki-no-saidan	dark-moon-tsuki-no-saidan.yaml		DARK MOON　-黒の月: 月の祭壇- Original By DARK MOON : THE BLOOD ALTAR WITH ENHYPEN|en=Dark Moon: Tsuki no Saidan
+darwin-jihen	darwin-jihen.yaml		ダーウィン事変|en=Darwin Jihen
+dead-account	dead-account.yaml		デッドアカウント|en=Dead Account
+demon-slayer	demon-slayer.yaml		鬼滅の刃|en=Demon Slayer
+diamond-no-ace	diamond-no-ace.yaml		ダイヤのA[エース]|en=Diamond no Ace
+douse-koishite-shimaunda	douse-koishite-shimaunda.yaml		どうせ, 恋してしまうんだ.|en=Douse, Koishite Shimaunda.
+dr-stone-science-future	dr-stone-science-future.yaml		ドクターストーン SCIENCE FUTURE|en=Dr. Stone: Science Future
+eleceed	eleceed.yaml		エレキシード / 일렉시드|en=Eleceed
+enen-no-shouboutai	enen-no-shouboutai.yaml		炎炎ノ消防隊|en=Enen no Shouboutai
+eris-no-seihai	eris-no-seihai.yaml		エリスの聖杯|en=Eris no Seihai
+fate-stay-night	fate.yaml	1	|en=Fate/stay night
+fate-zero	fate.yaml	1	|en=Fate/Zero
+fate-strange-fake	fate.yaml	1	|en=Fate/strange Fake
+fx-senshi-kurumi-chan	fx-senshi-kurumi-chan.yaml		FX戦士くるみちゃん|en=FX Senshi Kurumi-chan
+ganbare-nakamura-kun	ganbare-nakamura-kun.yaml		ガンバレ! 中村くん!!|en=Ganbare! Nakamura-kun!!
+gelpiyo	gelpiyo.yaml		ゲルぴよ|en=Gelpiyo
+ghost-concert-missing-songs	ghost-concert-missing-songs.yaml		ゴーストコンサート : missing Songs|en=Ghost Concert: Missing Songs
+golden-kamuy	golden-kamuy.yaml		ゴールデンカムイ|en=Golden Kamuy
+goumon-baito-kun-no-nichijou	goumon-baito-kun-no-nichijou.yaml		拷問バイトくんの日常|en=Goumon Baito-kun no Nichijou
+haibara-kun-no-tsuyokute-seishun-new-game	haibara-kun-no-tsuyokute-seishun-new-game.yaml		灰原くんの強くて青春ニューゲーム|en=Haibara-kun no Tsuyokute Seishun New Game
+hanazakari-no-kimitachi-e	hanazakari-no-kimitachi-e.yaml		花さかりの君たちへ|en=Hanazakari no Kimitachi e
+hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai	hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai.yaml		ヘルモード ~やり込み好きのゲーマーは廃設定の異世界で無双する~ はじまりの召喚士|en=Hell Mode: Yarikomizuki no Gamer wa Hai Settei no Isekai de Musou suru
+hidarikiki-no-eren	hidarikiki-no-eren.yaml		左ききのエレン|en=Hidarikiki no Eren
+higeki-no-genkyou-to-naru-saikyou-gedou-last-boss-joou-wa	higeki-no-genkyou-to-naru-saikyou-gedou-last-boss-joou-wa.yaml		悲劇の元凶となる最強外道ラスボス女王は民の為に尽くします.|en=Higeki no Genkyou to Naru Saikyou Gedou Last Boss Joou wa Tami no Tame ni Tsukushimasu.
+high-school-kimengumi-2026	high-school-kimengumi-2026.yaml		ハイスクール! 奇面組 (2026)|en=High School! Kimengumi (2026)
+hikuidori-ushuu-boro-tobi-gumi	hikuidori-ushuu-boro-tobi-gumi.yaml		火喰鳥 羽州ぼろ鳶組|en=Hikuidori: Ushuu Boro Tobi-gumi
+himekishi-wa-barbaroi-no-yome	himekishi-wa-barbaroi-no-yome.yaml		姫騎士は蛮族の嫁|en=Himekishi wa Barbaroi no Yome
+himesama-goumon-no-jikan-desu	himesama-goumon-no-jikan-desu.yaml		姫様"拷問"の時間です|en=Himesama "Goumon" no Jikan desu
+hokuto-no-ken-fist-of-the-north-star	hokuto-no-ken-fist-of-the-north-star.yaml		北斗の拳 -FIST OF THE NORTH STAR-|en=Hokuto no Ken: Fist of the North Star
+hokuto-no-ken-kenougun-zako-tachi-no-banka	hokuto-no-ken-kenougun-zako-tachi-no-banka.yaml		Animatica「北斗の拳 拳王軍ザコたちの挽歌」|en=Hokuto no Ken: Kenougun Zako-tachi no Banka
+honzuki-no-gekokujou	honzuki-no-gekokujou.yaml		本好きの下剋上 ～司書になるためには手段を選んでいられません～|en=Honzuki no Gekokujou: Shisho ni Naru Tame ni wa Shudan wo Erandeiraremasen
+hoppe-chan-sun-oukoku-to-kuro-hoppe-dan-no-himitsu	hoppe-chan-sun-oukoku-to-kuro-hoppe-dan-no-himitsu.yaml		ほっぺちゃん ~サン王国と黒ほっぺ団の秘密~|en=Hoppe-chan: Sun Oukoku to Kuro Hoppe-dan no Himitsu
+hyakki-yakou-shou	hyakki-yakou-shou.yaml		百鬼夜行抄|en=Hyakki Yakou Shou
+ibitte-konai-gibo-to-gishi	ibitte-konai-gibo-to-gishi.yaml		いびってこない義母と義姉|en=Ibitte Konai Gibo to Gishi
+ichijouma-mankitsugurashi	ichijouma-mankitsugurashi.yaml		一畳間まんきつ暮らし!|en=Ichijouma Mankitsugurashi!
+ikoku-nikki	ikoku-nikki.yaml		異國日記|en=Ikoku Nikki
+ingoku-danchi	ingoku-danchi.yaml		インゴクダンチ|en=Ingoku Danchi
+isekai-no-sata-wa-shachiku-shidai	isekai-no-sata-wa-shachiku-shidai.yaml		異世界の沙汰は社畜次第|en=Isekai no Sata wa Shachiku Shidai
+isekai-nonbiri-nouka	isekai-nonbiri-nouka.yaml		異世界のんびり農家|en=Isekai Nonbiri Nouka
+jidou-hanbaiki-ni-umarekawatta-ore-wa-meikyuu-wo-samayou	jidou-hanbaiki-ni-umarekawatta-ore-wa-meikyuu-wo-samayou.yaml		自動販売機に生まれ変わった俺は迷宮を彷徨う|en=Jidou Hanbaiki ni Umarekawatta Ore wa Meikyuu wo Samayou
+jigoku-sensei-nube-2025	jigoku-sensei-nube-2025.yaml		地獄先生ぬ～べ～ (2025) 第2クール|en=Jigoku Sensei Nube (2025)
+jigokuraku	jigokuraku.yaml		地狱乐|en=Jigokuraku
+jingai-kyoushitsu-no-ningengirai-kyoushi	jingai-kyoushitsu-no-ningengirai-kyoushi.yaml		人外教室の人間嫌い教師|en=Jingai Kyoushitsu no Ningengirai Kyoushi
+jirai-nan-desu-ka-chihara-san	jirai-nan-desu-ka-chihara-san.yaml		地雷なんですか? 地原さん|en=Jirai nan desu ka? Chihara-san
+jishou-akuyaku-reijou-na-konyakusha-no-kansatsu-kiroku	jishou-akuyaku-reijou-na-konyakusha-no-kansatsu-kiroku.yaml		自称悪役令嬢な婚約者の観察記録.|en=Jishou Akuyaku Reijou na Konyakusha no Kansatsu Kiroku.
+jujutsu-kaisen	jujutsu-kaisen.yaml		呪術廻戦|en=Jujutsu Kaisen
+kami-no-niwatsuki-kusunoki-tei	kami-no-niwatsuki-kusunoki-tei.yaml		神の庭付き楠木邸|en=Kami no Niwatsuki Kusunoki-tei
+kami-no-shizuku	kami-no-shizuku.yaml		神の雫|en=Kami no Shizuku
+kamiina-botan-yoeru-sugata-wa-yuri-no-hana	kamiina-botan-yoeru-sugata-wa-yuri-no-hana.yaml		上伊那ぼたん, 酔へる姿は百合の花|en=Kamiina Botan, Yoeru Sugata wa Yuri no Hana
+kanagawa-ni-sunderu-elf	kanagawa-ni-sunderu-elf.yaml		#神奈川に住んでるエルフ|en=#Kanagawa ni Sunderu Elf
+kanan-sama-wa-akumade-choroi	kanan-sama-wa-akumade-choroi.yaml		カナン様はあくまでチョロい|en=Kanan-sama wa Akumade Choroi
+kanojo-okarishimasu	kanojo-okarishimasu.yaml		彼女, お借りします|en=Kanojo, Okarishimasu
+kaya-chan-wa-kowakunai	kaya-chan-wa-kowakunai.yaml		カヤちゃんはコワくない|en=Kaya-chan wa Kowakunai
+kikansha-no-mahou-wa-tokubetsu-desu	kikansha-no-mahou-wa-tokubetsu-desu.yaml		帰還者の魔法は特別です|en=Kikansha no Mahou wa Tokubetsu desu
+kill-ao	kill-ao.yaml		キルアオ|en=Kill Ao
+kirei-ni-shitemoraemasu-ka	kirei-ni-shitemoraemasu-ka.yaml		綺麗にしてもらえますか.|en=Kirei ni Shitemoraemasu ka.
+kirio-fanclub	kirio-fanclub.yaml		霧尾ファンクラブ|en=Kirio Fanclub
+kizoku-tensei-megumareta-umare-kara-saikyou-no-chikara-wo	kizoku-tensei-megumareta-umare-kara-saikyou-no-chikara-wo.yaml		貴族転生 ~恵まれた生まれから最強の力を得る~|en=Kizoku Tensei: Megumareta Umare kara Saikyou no Chikara wo Eru
+komekami-girls	komekami-girls.yaml		こめかみっ！ Girls|en=Komekami! Girls
+koori-no-jouheki	koori-no-jouheki.yaml		氷の城壁|en=Koori no Jouheki
+kujima-utaeba-ie-hororo	kujima-utaeba-ie-hororo.yaml		クジマ歌えば家ほろろ|en=Kujima Utaeba Ie Hororo
+kumarba	kumarba.yaml		クマーバ|en=Kumarba
+kuroneko-to-majo-no-kyoushitsu	kuroneko-to-majo-no-kyoushitsu.yaml		黒猫と魔女の教室|en=Kuroneko to Majo no Kyoushitsu
+liar-game	liar-game.yaml		LIAR GAME -ライアーゲーム-|en=Liar Game
+mahou-no-shimai-lulutto-lilly	mahou-no-shimai-lulutto-lilly.yaml		魔法の姉妹ルルットリリィ|en=Mahou no Shimai Lulutto Lilly
+maid-san-wa-taberu-dake	maid-san-wa-taberu-dake.yaml		メイドさんは食べるだけ|en=Maid-san wa Taberu dake
+mairimashita-iruma-kun	mairimashita-iruma-kun.yaml		魔入りました! 入間くん|en=Mairimashita! Iruma-kun
+majutsushi-kunon-wa-mieteiru	majutsushi-kunon-wa-mieteiru.yaml		魔術師クノンは見えている|en=Majutsushi Kunon wa Mieteiru
+mao	mao.yaml		マオ|en=Mao
+maou-no-musume-wa-yasashisugiru	maou-no-musume-wa-yasashisugiru.yaml		魔王の娘は優しすぎる!!|en=Maou no Musume wa Yasashisugiru!!
+marika-chan-no-koukando-wa-bukkowareteiru	marika-chan-no-koukando-wa-bukkowareteiru.yaml		茉莉花ちゃんの好感度はぶっ壊れている|en=Marika-chan no Koukando wa Bukkowareteiru
+marriagetoxin	marriagetoxin.yaml		マリッジトキシン|en=Marriagetoxin
+mata-korosarete-shimatta-no-desu-ne-tantei-sama	mata-korosarete-shimatta-no-desu-ne-tantei-sama.yaml		また殺されてしまったのですね, 探偵様|en=Mata Korosarete Shimatta no desu ne, Tantei-sama
+mato-seihei-no-slave	mato-seihei-no-slave.yaml		魔都精兵のスレイブ|en=Mato Seihei no Slave
+mayonaka-heart-tune	mayonaka-heart-tune.yaml		真夜中ハートチューン|en=Mayonaka Heart Tune
+medalist	medalist.yaml		メダリスト|en=Medalist
+megami-isekai-tensei-nani-ni-naritai-desu-ka-ore-yuusha	megami-isekai-tensei-nani-ni-naritai-desu-ka-ore-yuusha.yaml		女神「異世界転生先は何になりたいですか」 俺「勇者の肋骨で」|en=Megami "Isekai Tensei Nani ni Naritai desu ka" Ore "Yuusha no Rokkotsu de"
+meitantei-precure	meitantei-precure.yaml		TanPre (たんプリ)|en=Meitantei Precure!
+metal-cardbot-w	metal-cardbot-w.yaml		메탈카드봇W|en=Metal Cardbot W
+mf-ghost	mf-ghost.yaml		エムエフゴースト|en=MF Ghost
+naruto-shinsaku-anime	naruto-shinsaku-anime.yaml		NARUTO -ナルト- (新作アニメ)|en=Naruto (Shinsaku Anime)
+needy-girl-overdose	needy-girl-overdose.yaml		ニーディガール オーバードーズ|en=Needy Girl Overdose
+nezumi-kun-no-chokki-tv	nezumi-kun-no-chokki-tv.yaml		ねずみくんのチョッキ (TV)|en=Nezumi-kun no Chokki (TV)
+nigashita-sakana-wa-ookikatta-ga-tsuriageta-sakana-ga	nigashita-sakana-wa-ookikatta-ga-tsuriageta-sakana-ga.yaml		逃がした魚は大きかったが釣りあげた魚が大きすぎた件|en=Nigashita Sakana wa Ookikatta ga Tsuriageta Sakana ga Ookisugita Ken
+nippon-sangoku	nippon-sangoku.yaml		日本三國|en=Nippon Sangoku
+niwatori-fighter	niwatori-fighter.yaml		ニワトリ・ファイター|en=Niwatori Fighter
+odayaka-kizoku-no-kyuuka-no-susume	odayaka-kizoku-no-kyuuka-no-susume.yaml		穏やか貴族の休暇のすすめ.|en=Odayaka Kizoku no Kyuuka no Susume.
+odekake-kozame	odekake-kozame.yaml		おでかけ子ザメ シーズン2|en=Odekake Kozame
+ojisan-wa-kawaii-mono-ga-osuki	ojisan-wa-kawaii-mono-ga-osuki.yaml		おじさんはカワイイものがお好き.|en=Ojisan wa Kawaii Mono ga Osuki.
+okiraku-ryoushu-no-tanoshii-ryouchi-bouei-seisankei	okiraku-ryoushu-no-tanoshii-ryouchi-bouei-seisankei.yaml		お気楽領主の楽しい領地防衛 ～生産系魔術で名もなき村を最強の城塞都市に～|en=Okiraku Ryoushu no Tanoshii Ryouchi Bouei: Seisankei Majutsu de Na mo Naki Mura wo Saikyou no Jousai Toshi ni
+omae-gotoki-ga-maou-ni-kateru-to-omouna-to-yuusha-party	omae-gotoki-ga-maou-ni-kateru-to-omouna-to-yuusha-party.yaml		「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので, 王都で気ままに暮らしたい|en="Omae Gotoki ga Maou ni Kateru to Omouna" to Yuusha Party wo Tsuihou sareta node, Outo de Kimama ni Kurashitai
+omae-wa-mada-gunma-wo-shiranai-reiwa-ban	omae-wa-mada-gunma-wo-shiranai-reiwa-ban.yaml		お前はまだグンマを知らない~令和版~|en=Omae wa Mada Gunma wo Shiranai: Reiwa-ban
+onegai-aipri	onegai-aipri.yaml		おねがいアイプリ|en=Onegai AiPri
+osananajimi-to-wa-love-comedy-ni-naranai	osananajimi-to-wa-love-comedy-ni-naranai.yaml		幼馴染とはラブコメにならない|en=Osananajimi to wa Love Comedy ni Naranai
+oshi-no-ko	oshi-no-ko.yaml		【推しの子】Mother and Children|en=[Oshi no Ko]
+oshiri-dandy-the-young	oshiri-dandy-the-young.yaml		おしりダンディ ザ・ヤング|en=Oshiri Dandy the Young
+otaku-ni-yasashii-gal-wa-inai	otaku-ni-yasashii-gal-wa-inai.yaml		オタクに優しいギャルはいない!?|en=Otaku ni Yasashii Gal wa Inai!?
+otome-game-sekai-wa-mob-ni-kibishii-sekai-desu	otome-game-sekai-wa-mob-ni-kibishii-sekai-desu.yaml		乙女ゲー世界はモブに厳しい世界です|en=Otome Game Sekai wa Mob ni Kibishii Sekai desu
+otonari-no-tenshi-sama-ni-itsunomanika-dame-ningen-ni	otonari-no-tenshi-sama-ni-itsunomanika-dame-ningen-ni.yaml		お隣の天使様にいつの間にか駄目人間にされていた件|en=Otonari no Tenshi-sama ni Itsunomanika Dame Ningen ni Sareteita Ken
+ponkotsu-fuuki-iin-to-skirt-take-ga-futekisetsu-na-jk-no	ponkotsu-fuuki-iin-to-skirt-take-ga-futekisetsu-na-jk-no.yaml		ポンコツ風紀委員とスカート丈が不適切なJKの話|en=Ponkotsu Fuuki Iin to Skirt-take ga Futekisetsu na JK no Hanashi
+re-zero-kara-hajimeru-isekai-seikatsu	re-zero-kara-hajimeru-isekai-seikatsu.yaml		Re:ゼロから始める異世界生活 新編集版|en=Re:Zero kara Hajimeru Isekai Seikatsu
+reincarnation-no-kaben	reincarnation-no-kaben.yaml		リィンカーネーションの花弁|en=Reincarnation no Kaben
+replica-datte-koi-wo-suru	replica-datte-koi-wo-suru.yaml		レプリカだって, 恋をする.|en=Replica datte, Koi wo Suru.
+rilakkuma	rilakkuma.yaml		リラックマ ～ごゆるり夢の旅～|en=Rilakkuma
+romelia-senki	romelia-senki.yaml		Romelia Senki: Maou wo Taoshita Nochi mo Jinrui Yaba Souda kara Guntai Soshiki Shita (ロメリア戦記 ～魔王を倒した後も人類やばそうだから軍隊組織した～)|en=Romelia Senki
+saikyou-no-ousama-nidome-no-jinsei-wa-nani-wo-suru	saikyou-no-ousama-nidome-no-jinsei-wa-nani-wo-suru.yaml		最強の王様, 二度目の人生は何をする?|en=Saikyou no Ousama, Nidome no Jinsei wa Nani wo Suru?
+sasaki-to-pii-chan	sasaki-to-pii-chan.yaml		佐々木とピーちゃん|en=Sasaki to Pii-chan
+second-prettiest-girl-in-class	second-prettiest-girl-in-class.yaml		クラスで2番目に可愛い女の子と友だちになった|en=I Made Friends with the Second Prettiest Girl in My Class
+seihantai-na-kimi-to-boku	seihantai-na-kimi-to-boku.yaml		正反対な君と僕|en=Seihantai na Kimi to Boku
+shibou-yuugi-de-meshi-wo-kuu	shibou-yuugi-de-meshi-wo-kuu.yaml		死亡遊戯で飯を食う.|en=Shibou Yuugi de Meshi wo Kuu.
+shou-3-ashibe-qq-goma-chan	shou-3-ashibe-qq-goma-chan.yaml		小3アシベ QQゴマちゃん|en=Shou 3 Ashibe QQ Goma-chan
+shunkashuutou-daikousha-haru-no-mai	shunkashuutou-daikousha-haru-no-mai.yaml		春夏秋冬代行者 春の舞|en=Shunkashuutou Daikousha: Haru no Mai
+skip-to-loafer	skip-to-loafer.yaml		スキップとローファー|en=Skip to Loafer
+snowball-earth	snowball-earth.yaml		スノウボールアース|en=Snowball Earth
+sousou-no-frieren	sousou-no-frieren.yaml		葬送のフリーレン|en=Sousou no Frieren
+tadaima-ojamasaremasu	tadaima-ojamasaremasu.yaml		ただいま, おじゃまされます!|en=Tadaima, Ojamasaremasu!
+tamon-kun-ima-docchi	tamon-kun-ima-docchi.yaml		多聞くん今どっち!?|en=Tamon-kun Ima Docchi!?
+tensei-shitara-dragon-no-tamago-datta	tensei-shitara-dragon-no-tamago-datta.yaml		転生したらドラゴンの卵だった ～最強以外目指さねぇ～|en=Tensei shitara Dragon no Tamago datta
+tensei-shitara-slime-datta-ken	tensei-shitara-slime-datta-ken.yaml		転生したらスライムだった件|en=Tensei shitara Slime Datta Ken
+tetsunabe-no-jan	tetsunabe-no-jan.yaml		鉄鍋のジャン!|en=Tetsunabe no Jan!
+tongari-boushi-no-atelier	tongari-boushi-no-atelier.yaml		とんがり帽子のアトリエ|en=Tongari Boushi no Atelier
+toumei-otoko-to-ningen-onna-sonouchi-fuufu-ni-naru-futari	toumei-otoko-to-ningen-onna-sonouchi-fuufu-ni-naru-futari.yaml		透明男と人間女~そのうち夫婦になるふたり~|en=Toumei Otoko to Ningen Onna: Sonouchi Fuufu ni Naru Futari
+trigun-stampede	trigun-stampede.yaml		トライガン スタンピード|en=Trigun Stampede
+uruwashi-no-yoi-no-tsuki	uruwashi-no-yoi-no-tsuki.yaml		うるわしの宵の月|en=Uruwashi no Yoi no Tsuki
+vigilante-boku-no-hero-academia-illegals	vigilante-boku-no-hero-academia-illegals.yaml		ヴィジランテ -僕のヒーローアカデミア ILLEGALS-|en=Vigilante: Boku no Hero Academia Illegals
+watashi-ga-koibito-ni-nareru-wake-naijan-murimuri-muri-ja	watashi-ga-koibito-ni-nareru-wake-naijan-murimuri-muri-ja.yaml		わたしが恋人になれるわけないじゃん、ムリムリ! (※ムリじゃなかった!?) ~Next Shine~|en=Watashi ga Koibito ni Nareru Wake Naijan, Murimuri! (※Muri ja Nakatta!?): Next Shine!
+wistoria	wistoria.yaml		杖と剣のウィストリア|en=Wistoria: Wand and Sword
+xi-yangyang-yu-hui-tailang-gu-guguai-jie-you-guguai	xi-yangyang-yu-hui-tailang-gu-guguai-jie-you-guguai.yaml		喜羊羊与灰太狼之古古怪界有古怪|en=Xi Yangyang Yu Hui Tailang: Gu Guguai Jie You Guguai
+yami-shibai-16	yami-shibai-16.yaml		暗芝居 第十六季|en=Yami Shibai 16
+yomi-no-tsugai	yomi-no-tsugai.yaml		黄泉のツガイ|en=Yomi no Tsugai
+yoroi-shin-den-samurai-troopers	yoroi-shin-den-samurai-troopers.yaml		鎧真伝サムライトルーパー|en=Yoroi Shin Den Samurai Troopers
+youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e	youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e.yaml		ようこそ実力至上主義の教室へ|en=Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e
+yowayowa-sensei	yowayowa-sensei.yaml		よわよわ先生|en=Yowayowa Sensei
+yozakura-san-chi-no-daisakusen	yozakura-san-chi-no-daisakusen.yaml		夜桜さんちの大作戦|en=Yozakura-san Chi no Daisakusen
+yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku	yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku.yaml		勇者刑に処す 懲罰勇者9004隊刑務記録|en=Yuusha-kei ni Shosu: Choubatsu Yuusha 9004-tai Keimu Kiroku
+yuusha-no-kuzu	yuusha-no-kuzu.yaml		勇者のクズ|en=Yuusha no Kuzu
+yuusha-party-ni-kawaii-ko-ga-ita-node-kokuhaku-shitemita	yuusha-party-ni-kawaii-ko-ga-ita-node-kokuhaku-shitemita.yaml		勇者パーティーにかわいい子がいたので, 告白してみた.|en=Yuusha Party ni Kawaii Ko ga Ita node, Kokuhaku shitemita.
+yuusha-party-wo-oidasareta-kiyoubinbou	yuusha-party-wo-oidasareta-kiyoubinbou.yaml		勇者パーティを追い出された器用貧乏|en=Yuusha Party wo Oidasareta Kiyoubinbou
+zombie-no-afureta-sekai-de-ore-dake-ga-osowarenai	zombie-no-afureta-sekai-de-ore-dake-ga-osowarenai.yaml		ゾンビのあふれた世界で俺だけが襲われない|en=Zombie no Afureta Sekai de Ore dake ga Osowarenai
+!entries	kind	row	first_year	latest_year	works	episodes
+series	1	2026	2026	1	12
+series	2	2026	2026	1	12
+series	3	2026	2026	1	12
+series	4	2026	2026	1	12
+series	5	2024	2026	2	38
+series	6	2026	2026	1	12
+series	7	2026	2026	1	12
+series	8	2017	2026	2	171
+series	9	2021	2026	2	24
+series	10	2026	2026	1	1
+series	11	2026	2026	1	10
+series	12	2026	2026	1	12
+series	13	2026	2026	1	12
+series	14	2026	2026	1	12
+series	15	2026	2026	1	13
+series	16	2026	2026	1	12
+series	17	2019	2025	7	63
+series	18	2013	2026	4	190
+series	19	2025	2026	2	24
+series	20	2025	2026	3	36
+series	21	2026	2026	1	1
+series	22	2019	2026	4	73
+series	23	2026	2026	1	12
+franchise	1	2006	2026	6	74
+series	24	2006	2017	3	36
+series	25	2011	2012	2	25
+series	26	2026	2026	1	13
+series	27	2026	2026	1	12
+series	28	2026	2026	1	13
+series	29	2026	2026	1	10
+series	30	2026	2026	1	12
+series	31	2018	2026	5	62
+series	32	2026	2026	1	12
+series	33	2026	2026	1	12
+series	34	2026	2026	1	12
+series	35	2026	2026	1	12
+series	36	2026	2026	1	12
+series	37	2023	2026	2	24
+series	38	2026	2026	1	12
+series	39	2026	2026	1	12
+series	40	2026	2026	1	12
+series	41	2024	2026	2	24
+series	42	2026	2026	1	12
+series	43	2026	2026	1	12
+series	44	2019	2026	4	60
+series	45	2026	2026	1	12
+series	46	2026	2026	1	1
+series	47	2026	2026	1	12
+series	48	2026	2026	1	12
+series	49	2026	2026	1	13
+series	50	2026	2026	1	12
+series	51	2026	2026	1	12
+series	52	2023	2026	2	24
+series	53	2023	2026	3	36
+series	54	2026	2026	1	13
+series	55	2023	2026	2	25
+series	56	2026	2026	1	13
+series	57	2026	2026	1	12
+series	58	2026	2026	1	12
+series	59	2020	2026	3	59
+series	60	2026	2026	1	12
+series	61	2026	2026	1	24
+series	62	2026	2026	1	12
+series	63	2026	2026	1	12
+series	64	2026	2026	1	12
+series	65	2020	2026	5	60
+series	66	2026	2026	1	12
+series	67	2023	2026	2	24
+series	68	2026	2026	1	12
+series	69	2026	2026	1	12
+series	70	2026	2026	1	12
+series	71	2026	2026	1	12
+series	72	2026	2026	1	12
+series	73	2026	2026	1	12
+series	74	2026	2026	1	12
+series	75	2024	2026	3	36
+series	76	2026	2026	1	12
+series	77	2026	2026	1	24
+series	78	2026	2026	1	12
+series	79	2026	2026	1	1
+series	80	2019	2026	4	89
+series	81	2026	2026	1	13
+series	82	2026	2026	1	26
+series	83	2026	2026	1	12
+series	84	2026	2026	1	1
+series	85	2026	2026	1	12
+series	86	2026	2026	1	12
+series	87	2024	2026	2	24
+series	88	2026	2026	1	12
+series	89	2025	2026	2	22
+series	90	2026	2026	1	1
+series	91	2026	2026	1	51
+series	92	2026	2026	1	26
+series	93	2023	2026	3	37
+series	94	2026	2026	1	4
+series	95	2026	2026	1	13
+series	96	2026	2026	1	1
+series	97	2026	2026	1	12
+series	98	2026	2026	1	12
+series	99	2026	2026	1	3
+series	100	2026	2026	1	12
+series	101	2026	2026	1	1
+series	102	2026	2026	1	12
+series	103	2026	2026	1	12
+series	104	2026	2026	1	12
+series	105	2026	2026	1	12
+series	106	2026	2026	1	12
+series	107	2026	2026	1	12
+series	108	2023	2026	3	35
+series	109	2026	2026	1	12
+series	110	2026	2026	1	12
+series	111	2022	2026	2	24
+series	112	2023	2026	2	24
+series	113	2026	2026	1	1
+series	114	2016	2026	5	85
+series	115	2026	2026	1	12
+series	116	2026	2026	1	12
+series	117	2026	2026	1	12
+series	118	2026	2026	1	12
+series	119	2025	2026	2	24
+series	120	2024	2026	2	24
+series	121	2026	2026	1	12
+series	122	2026	2026	1	12
+series	123	2026	2026	1	11
+series	124	2026	2026	1	12
+series	125	2026	2026	1	14
+series	126	2023	2026	2	24
+series	127	2026	2026	1	13
+series	128	2023	2026	2	38
+series	129	2026	2026	1	12
+series	130	2026	2026	1	13
+series	131	2026	2026	1	12
+series	132	2018	2026	5	96
+series	133	2026	2026	1	12
+series	134	2026	2026	1	13
+series	135	2026	2026	1	12
+series	136	2023	2026	2	24
+series	137	2026	2026	1	12
+series	138	2025	2026	2	26
+series	139	2026	2026	1	5
+series	140	2024	2026	2	24
+series	141	2026	2026	1	60
+series	142	2026	2026	1	13
+series	143	2026	2026	1	24
+series	144	2026	2026	1	12
+series	145	2017	2026	4	50
+series	146	2026	2026	1	12
+series	147	2024	2026	2	39
+series	148	2026	2026	1	12
+series	149	2026	2026	1	24
+series	150	2026	2026	1	13
+series	151	2026	2026	1	12
+series	152	2026	2026	1	12
+!works	kind	id	series	number	date	year	quarter	format	episodes	titles	anilist	anidb	tmdb	tvdb	wikidata
+season	29-sai-dokushin-chuuken-boukensha-no-nichijou-s1	1	1		2026	WINTER		12		192261	19324		463334	
+season	aishiteru-game-wo-owarasetai-s1	2	1		2026	SPRING		12		194393	19382		464717	
+season	akane-banashi-s1	3	1		2026	SPRING		12		196935	19513		466488	
+season	akuyaku-reijou-wa-ringoku-no-outaishi-ni-dekiai-sareru-s1	4	1		2026	WINTER		12		195518	19512		465498	
+season	ao-no-miburo-s1	5	1		2024	FALL		24		169258	18193		439531	
+season	ao-no-miburo-s2	5	2		2026	WINTER		14	青のミブロ 芹沢暗殺編|en=Serizawa Ansatsu-hen|ja=青のミブロ 芹沢暗殺編	189258	19258		439531	
+season	arne-no-jikenbo-s1	6	1		2026	WINTER		12		183984	18967		456392	
+season	awajima-hyakkei-s1	7	1		2026	SPRING		12		177501	18618		449883	
+season	black-clover-s1	8	1		2017	FALL		170		97940	12665		331753	
+season	black-clover-s2	8	2		2026	WINTER		1		195604	19433			
+season	bungou-stray-dogs-wan-s1	9	1		2021	WINTER		12		120150	15602		392195	
+season	bungou-stray-dogs-wan-s2	9	2		2026	WINTER		12		201667	19698			
+season	candy-caries-s1	10	1		2026	SPRING		1		205772				
+season	cardfight-vanguard-divinez-genma-seisen-hen-s1	11	1		2026	WINTER		10		203296	19780			
+season	champignon-no-majo-s1	12	1		2026	WINTER		12		185514	19046		457766	
+season	dark-machine-the-animation-s1	13	1		2026	WINTER		12		179876	18777		452665	
+season	dark-moon-tsuki-no-saidan-s1	14	1		2026	WINTER		12		181443	18869		454526	
+season	darwin-jihen-s1	15	1		2026	WINTER		13		177679	18646		450282	
+season	dead-account-s1	16	1		2026	WINTER		12		187901	19209		461423	
+season	demon-slayer-s1	17	1		2019	SPRING		26		101922	14107		348545	
+season	demon-slayer-s2	17	2		2021	FALL		7	鬼滅の刃 無限列車編|en=Mugen Train Arc|ja=鬼滅の刃 無限列車編	129874	16803		348545	
+season	demon-slayer-s3	17	3		2022	WINTER		11	鬼滅の刃 遊郭編|en=Entertainment District Arc|ja=鬼滅の刃 遊郭編	142329	16054		348545	
+season	demon-slayer-s4	17	4		2023	SPRING		11	鬼滅の刃 刀鍛冶の里編|en=Swordsmith Village Arc|ja=鬼滅の刃 刀鍛冶の里編	145139	17198		348545	
+season	demon-slayer-s5	17	5		2024	SPRING		8	鬼滅の刃 柱稽古編|en=Hashira Training Arc|ja=鬼滅の刃 柱稽古編	166240	18067		348545	
+movie	demon-slayer-mugen-train-film	17			2020				劇場版 鬼滅の刃 無限列車編|en=Mugen Train|ja=劇場版 鬼滅の刃 無限列車編	112151	15113		348545	
+movie	demon-slayer-infinity-castle-1	17			2025				劇場版 鬼滅の刃 無限城編|en=Infinity Castle|ja=劇場版 鬼滅の刃 無限城編	178788	18699			
+season	diamond-no-ace-s1	18	1		2013	FALL		75		18689	9881		273005	
+season	diamond-no-ace-s2	18	2		2015	SPRING		51		21085	11115		273005	
+season	diamond-no-ace-s3	18	3		2019	SPRING		52	ダイヤのA act II|en=Act II|ja=ダイヤのA act II	105749	14504		273005	
+season	diamond-no-ace-s4	18	4		2026	SPRING		12	ダイヤのA actII -Second Season-|en=Act II Second Season|ja=ダイヤのA actII -Second Season-	177634	18638		273005	
+season	douse-koishite-shimaunda-s1	19	1		2025	WINTER		12		175409	18506		446692	
+season	douse-koishite-shimaunda-s2	19	2		2026	WINTER		12		189137	19250		446692	
+season	dr-stone-science-future-s1	20	1		2025	WINTER		12		172019	18336		355774	
+season	dr-stone-science-future-s2p2	20	2		2025	SUMMER		12		189117	19248		355774	
+season	dr-stone-science-future-s3p3	20	3		2026	SPRING		12		199221	19614		355774	
+season	eleceed-s1	21	1		2026	WINTER		1		195350	19425			
+season	enen-no-shouboutai-s1	22	1		2019	SUMMER		24		105310	14488		355480	
+season	enen-no-shouboutai-s2	22	2		2020	SUMMER		24		114236	15335		355480	
+season	enen-no-shouboutai-s3p1	22	3		2025	SPRING		12		149118	17420		355480	
+season	enen-no-shouboutai-s3p2	22	3		2026	WINTER		13		179062	18742		355480	
+season	eris-no-seihai-s1	23	1		2026	WINTER		12		183270	18938		455709	
+season	fate-stay-night-s1	24	1		2006	WINTER		24		356	3348		79151	
+season	fate-stay-night-s2	24	2		2014	FALL		12	フェイト/ステイナイト (2014)|en=Unlimited Blade Works|ja=フェイト/ステイナイト (2014)	19603	9977		278626	
+movie	fate-stay-night-hf-1	24			2017				劇場版「Fate/stay night [Heaven's Feel] Ⅰ.presage flower」|en=Heaven's Feel I|ja=劇場版「Fate/stay night [Heaven's Feel] Ⅰ.presage flower」	20791				
+season	fate-zero-s1	25	1		2011	FALL		13		10087	8160		275798	
+season	fate-zero-s2	25	1		2012	SPRING		12		11741	8880		275798	
+season	fate-strange-fake-s1	26	1		2026	WINTER		13		166617	18093		436779	
+season	fx-senshi-kurumi-chan-s1	27	1		2026	WINTER		12		206401	19847		472962	
+season	ganbare-nakamura-kun-s1	28	1		2026	SPRING		13		180228	18815		453319	
+season	gelpiyo-s1	29	1		2026	WINTER		10		204698	19788			
+season	ghost-concert-missing-songs-s1	30	1		2026	SPRING		12		201090	19674		469599	
+season	golden-kamuy-s1	31	1		2018	SPRING		12		99699	13337		338455	
+season	golden-kamuy-s2	31	2		2018	FALL		12		102977	14185		338455	
+season	golden-kamuy-s3	31	3		2020	FALL		12		110355	14995		338455	
+season	golden-kamuy-s4	31	4		2022	FALL		13		142343	17023		338455	
+season	golden-kamuy-s5	31	5		2026	WINTER		13		166521	18081		338455	
+season	goumon-baito-kun-no-nichijou-s1	32	1		2026	WINTER		12		197731	19399		464977	
+season	haibara-kun-no-tsuyokute-seishun-new-game-s1	33	1		2026	SPRING		12		195333	19744		471000	
+season	hanazakari-no-kimitachi-e-s1	34	1		2026	WINTER		12		177580	18636		450072	
+season	hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai-s1	35	1		2026	WINTER		12		185262	19029		457532	
+season	hidarikiki-no-eren-s1	36	1		2026	SPRING		12		158036	17751		468660	
+season	higeki-no-genkyou-to-naru-saikyou-gedou-last-boss-joou-wa-s1	37	1		2023	SUMMER		12		156040	17688		426528	
+season	higeki-no-genkyou-to-naru-saikyou-gedou-last-boss-joou-wa-s2	37	2		2026	SPRING		12		195268	19420		426528	
+season	high-school-kimengumi-2026-s1	38	1		2026	WINTER		12		200556	19657		469342	
+season	hikuidori-ushuu-boro-tobi-gumi-s1	39	1		2026	WINTER		12		187062	19181		460693	
+season	himekishi-wa-barbaroi-no-yome-s1	40	1		2026	SPRING		12		182483	18898		455164	
+season	himesama-goumon-no-jikan-desu-s1	41	1		2024	WINTER		12		166522	18082		436603	
+season	himesama-goumon-no-jikan-desu-s2	41	2		2026	WINTER		12		176370	18566		436603	
+season	hokuto-no-ken-fist-of-the-north-star-s1	42	1		2026	SPRING		12		169228	18190		465216	
+season	hokuto-no-ken-kenougun-zako-tachi-no-banka-s1	43	1		2026	WINTER		12		198720				
+season	honzuki-no-gekokujou-s1	44	1		2019	FALL		14		108268	14727		366263	
+season	honzuki-no-gekokujou-s2	44	2		2020	SPRING		12		113693	15293		366263	
+season	honzuki-no-gekokujou-s3	44	3		2022	SPRING		10		121176	15634		366263	
+season	honzuki-no-gekokujou-s4	44	4		2026	SPRING		24	本好きの下剋上 司書になるためには手段を選んでいられません 第4期|en=Ryoushu no Youjo|ja=本好きの下剋上 司書になるためには手段を選んでいられません 第4期	171110	18302		366263	
+season	hoppe-chan-sun-oukoku-to-kuro-hoppe-dan-no-himitsu-s1	45	1		2026	WINTER		12		203148	19725		466523	
+season	hyakki-yakou-shou-s1	46	1		2026	SPRING		1		207675				
+season	ibitte-konai-gibo-to-gishi-s1	47	1		2026	WINTER		12		196356	19492		466092	
+season	ichijouma-mankitsugurashi-s1	48	1		2026	SPRING		12		195734	19455		465639	
+season	ikoku-nikki-s1	49	1		2026	WINTER		13		177385	18610		449723	
+season	ingoku-danchi-s1	50	1		2026	SPRING		12		206166	19879		473930	
+season	isekai-no-sata-wa-shachiku-shidai-s1	51	1		2026	WINTER		12		183661	19507		456099	
+season	isekai-nonbiri-nouka-s1	52	1		2023	WINTER		12		146850	17290		418367	
+season	isekai-nonbiri-nouka-s2	52	2		2026	SPRING		12		197824	19506		418367	
+season	jidou-hanbaiki-ni-umarekawatta-ore-wa-meikyuu-wo-samayou-s1	53	1		2023	SUMMER		12		153360	17557		423121	
+season	jidou-hanbaiki-ni-umarekawatta-ore-wa-meikyuu-wo-samayou-s2	53	2		2025	SUMMER		12		169440	18204		423121	
+season	jidou-hanbaiki-ni-umarekawatta-ore-wa-meikyuu-wo-samayou-s3	53	3		2026	SPRING		12		198939	19580		423121	
+season	jigoku-sensei-nube-2025-s1p2	54	1		2026	WINTER		13		191967	19321		452421	
+season	jigokuraku-s1	55	1		2023	SPRING		13		128893	16012		402474	
+season	jigokuraku-s2	55	2		2026	WINTER		12		166613	18090		402474	
+season	jingai-kyoushitsu-no-ningengirai-kyoushi-s1	56	1		2026	WINTER		13		198374	19564		467839	
+season	jirai-nan-desu-ka-chihara-san-s1	57	1		2026	WINTER		12		204579	19791		471946	
+season	jishou-akuyaku-reijou-na-konyakusha-no-kansatsu-kiroku-s1	58	1		2026	SPRING		12		192808	19328		463583	
+season	jujutsu-kaisen-s1	59	1		2020	FALL		24		113415	15275		377543	
+season	jujutsu-kaisen-s2	59	2		2023	SUMMER		23		145064	17196		377543	
+season	jujutsu-kaisen-s3p1	59	3		2026	WINTER		12	呪術廻戦 「死滅回游 前編」|en=Shimetsu Kaiyuu|ja=呪術廻戦 「死滅回游 前編」	172463	18363		377543	
+season	kami-no-niwatsuki-kusunoki-tei-s1	60	1		2026	SPRING		12		196029	19472		465799	
+season	kami-no-shizuku-s1	61	1		2026	SPRING		24		202508	19728		470659	
+season	kamiina-botan-yoeru-sugata-wa-yuri-no-hana-s1	62	1		2026	SPRING		12		187869	19206		461374	
+season	kanagawa-ni-sunderu-elf-s1	63	1		2026	WINTER		12		199005	19565		471236	
+season	kanan-sama-wa-akumade-choroi-s1	64	1		2026	SPRING		12		190704	19293		462598	
+season	kanojo-okarishimasu-s1	65	1		2020	SUMMER		12		113813	15299		380654	
+season	kanojo-okarishimasu-s2	65	2		2022	SUMMER		12		124410	15743		380654	
+season	kanojo-okarishimasu-s3	65	3		2023	SUMMER		12		154745	17629		380654	
+season	kanojo-okarishimasu-s4	65	4		2025	SUMMER		12		179344	18753		380654	
+season	kanojo-okarishimasu-s5	65	5		2026	SPRING		12		199029	19587		380654	
+season	kaya-chan-wa-kowakunai-s1	66	1		2026	WINTER		12		183660	18956		456159	
+season	kikansha-no-mahou-wa-tokubetsu-desu-s1	67	1		2023	FALL		12		163142	17944		432815	
+season	kikansha-no-mahou-wa-tokubetsu-desu-s2	67	2		2026	WINTER		12		172192	18345			
+season	kill-ao-s1	68	1		2026	SPRING		12		198113	19546		467414	
+season	kirei-ni-shitemoraemasu-ka-s1	69	1		2026	WINTER		12		194028	19373		464460	
+season	kirio-fanclub-s1	70	1		2026	SPRING		12		181284	19675		456679	
+season	kizoku-tensei-megumareta-umare-kara-saikyou-no-chikara-wo-s1	71	1		2026	WINTER		12		185993	19087		458508	
+season	komekami-girls-s1	72	1		2026	SPRING		12		209940	19932		476071	
+season	koori-no-jouheki-s1	73	1		2026	SPRING		12		186497	19139		459627	
+season	kujima-utaeba-ie-hororo-s1	74	1		2026	SPRING		12		177508	18622		449913	
+season	kumarba-s1	75	1		2024	SPRING		12		173249				
+season	kumarba-s2	75	2		2024	FALL		12		178395				
+season	kumarba-s3	75	3		2026	SPRING		12		206950				
+season	kuroneko-to-majo-no-kyoushitsu-s1	76	1		2026	SPRING		12		196974	19516		466524	
+season	liar-game-s1	77	1		2026	SPRING		24		197754	19538		467209	
+season	mahou-no-shimai-lulutto-lilly-s1	78	1		2026	SPRING		12		178749	19214		461457	
+season	maid-san-wa-taberu-dake-s1	79	1		2026	SPRING		1		197868	19541		467292	
+season	mairimashita-iruma-kun-s1	80	1		2019	FALL		23		107693	14660		369144	
+season	mairimashita-iruma-kun-s2	80	2		2021	SPRING		21		116338	15428		369144	
+season	mairimashita-iruma-kun-s3	80	3		2022	FALL		21		139092	16627		369144	
+season	mairimashita-iruma-kun-s4	80	4		2026	SPRING		24		184492	18995		369144	
+season	majutsushi-kunon-wa-mieteiru-s1	81	1		2026	WINTER		13		186333	19131		459339	
+season	mao-s1	82	1		2026	SPRING		26		196012	19469		465787	
+season	maou-no-musume-wa-yasashisugiru-s1	83	1		2026	WINTER		12		194742	19398		464963	
+season	marika-chan-no-koukando-wa-bukkowareteiru-s1	84	1		2026	SPRING		1		202523	19730		471300	
+season	marriagetoxin-s1	85	1		2026	SPRING		12		199547	19625		468734	
+season	mata-korosarete-shimatta-no-desu-ne-tantei-sama-s1	86	1		2026	SPRING		12		202381	19722		470519	
+season	mato-seihei-no-slave-s1	87	1		2024	WINTER		12		141821	16982		412656	
+season	mato-seihei-no-slave-s2	87	2		2026	WINTER		12		176276	18548		412656	
+season	mayonaka-heart-tune-s1	88	1		2026	WINTER		12		187942	19210		461472	
+season	medalist-s1	89	1		2025	WINTER		13		165171	18030		433953	
+season	medalist-s2	89	2		2026	WINTER		9		189275	19260		433953	
+season	megami-isekai-tensei-nani-ni-naritai-desu-ka-ore-yuusha-s1	90	1		2026	SPRING		1		206951	19862		473229	
+season	meitantei-precure-s1	91	1		2026	WINTER		51		202957	19742		470961	
+season	metal-cardbot-w-s1	92	1		2026	WINTER		26		204626				
+season	mf-ghost-s1	93	1		2023	FALL		12		143327	17094		414207	
+season	mf-ghost-s2	93	2		2024	FALL		12		171642	18327		414207	
+season	mf-ghost-s3	93	3		2026	WINTER		13		185753	19071		414207	
+season	naruto-shinsaku-anime-s1	94	1		2026	WINTER		4		162561	17897			
+season	needy-girl-overdose-s1	95	1		2026	SPRING		13		202102	19713		470270	
+season	nezumi-kun-no-chokki-tv-s1	96	1		2026	SPRING		1		198411				
+season	nigashita-sakana-wa-ookikatta-ga-tsuriageta-sakana-ga-s1	97	1		2026	SPRING		12		201817	19699		469985	
+season	nippon-sangoku-s1	98	1		2026	SPRING		12		206914	19861		473228	
+season	niwatori-fighter-s1	99	1		2026	SPRING		3		179813	18772		452575	
+season	odayaka-kizoku-no-kyuuka-no-susume-s1	100	1		2026	WINTER		12		182771	18914		455309	
+season	odekake-kozame-s2	101	2		2026	SPRING		1		204269				
+season	ojisan-wa-kawaii-mono-ga-osuki-s1	102	1		2026	WINTER		12		202079	19705		470200	
+season	okiraku-ryoushu-no-tanoshii-ryouchi-bouei-seisankei-s1	103	1		2026	WINTER		12		191205	19298		462789	
+season	omae-gotoki-ga-maou-ni-kateru-to-omouna-to-yuusha-party-s1	104	1		2026	WINTER		12		191718	19310		463013	
+season	omae-wa-mada-gunma-wo-shiranai-reiwa-ban-s1	105	1		2026	WINTER		12		202419	19821		474202	
+season	onegai-aipri-s1	106	1		2026	SPRING		12		206523	19850		474655	
+season	osananajimi-to-wa-love-comedy-ni-naranai-s1	107	1		2026	WINTER		12		189565	19266		462226	
+season	oshi-no-ko-s1	108	1		2023	SPRING		11		150672	17449		421069	
+season	oshi-no-ko-s2	108	2		2024	SUMMER		13		166531	18086		421069	
+season	oshi-no-ko-s3	108	3		2026	WINTER		11		182587	18901		421069	
+season	oshiri-dandy-the-young-s1	109	1		2026	SPRING		12		201910				
+season	otaku-ni-yasashii-gal-wa-inai-s1	110	1		2026	SPRING		12		199588	19628		468761	
+season	otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-s1	111	1		2022	SPRING		12		142074	17005		412826	
+season	otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-s2	111	2		2026	WINTER		12		159309	17796			
+season	otonari-no-tenshi-sama-ni-itsunomanika-dame-ningen-ni-s1	112	1		2023	WINTER		12		143338	17108		414221	
+season	otonari-no-tenshi-sama-ni-itsunomanika-dame-ningen-ni-s2	112	2		2026	SPRING		12		170019	18235		414221	
+season	ponkotsu-fuuki-iin-to-skirt-take-ga-futekisetsu-na-jk-no-s1	113	1		2026	SPRING		1		189987	19277		462400	
+season	re-zero-kara-hajimeru-isekai-seikatsu-s1	114	1		2016	SPRING		25		21355	11370		305089	
+season	re-zero-kara-hajimeru-isekai-seikatsu-s2p1	114	2		2020	SUMMER		13		108632	14792		305089	
+season	re-zero-kara-hajimeru-isekai-seikatsu-s2p2	114	2		2021	WINTER		12		119661	15593		305089	
+season	re-zero-kara-hajimeru-isekai-seikatsu-s3	114	3		2024	FALL		16		163134	17947		305089	
+season	re-zero-kara-hajimeru-isekai-seikatsu-s4	114	4		2026	SPRING		19		189046	19242		305089	
+season	reincarnation-no-kaben-s1	115	1		2026	SPRING		12		179950	18791		452801	
+season	replica-datte-koi-wo-suru-s1	116	1		2026	SPRING		12		186744	19158		460313	
+season	rilakkuma-s1	117	1		2026	SPRING		12		183231	18936		472971	
+season	romelia-senki-s1	118	1		2026	WINTER		12		180894	18858		470269	
+season	saikyou-no-ousama-nidome-no-jinsei-wa-nani-wo-suru-s1	119	1		2025	SPRING		12		183161	18935		455684	
+season	saikyou-no-ousama-nidome-no-jinsei-wa-nani-wo-suru-s2	119	2		2026	SPRING		12		194317	19381		455684	
+season	sasaki-to-pii-chan-s1	120	1		2024	WINTER		12		152682	17530		422728	
+season	sasaki-to-pii-chan-s2	120	2		2026	WINTER		12		176314	18563		422728	
+season	second-prettiest-girl-in-class-s1	121	1		2026	SPRING		12		169580	18209		440057	
+season	seihantai-na-kimi-to-boku-s1	122	1		2026	WINTER		12		184951	19010		457078	
+season	shibou-yuugi-de-meshi-wo-kuu-s1	123	1		2026	WINTER		11		180746	18845		453992	
+season	shou-3-ashibe-qq-goma-chan-s1	124	1		2026	SPRING		12		202386	19930			
+season	shunkashuutou-daikousha-haru-no-mai-s1	125	1		2026	SPRING		14		190143	19283		462446	
+season	skip-to-loafer-s1	126	1		2023	SPRING		12		141911	16981		412696	
+season	skip-to-loafer-s2	126	2		2026	WINTER		12		185657	19061			
+season	snowball-earth-s1	127	1		2026	SPRING		13		196144	19477		465925	
+season	sousou-no-frieren-s1	128	1		2023	FALL		28		154587	17617		424536	
+season	sousou-no-frieren-s2	128	2		2026	WINTER		10		182255	18886		424536	
+season	tadaima-ojamasaremasu-s1	129	1		2026	SPRING		12		202985	19736		470864	
+season	tamon-kun-ima-docchi-s1	130	1		2026	WINTER		13		178005	18681		451101	
+season	tensei-shitara-dragon-no-tamago-datta-s1	131	1		2026	WINTER		12		187941	19217		461466	
+season	tensei-shitara-slime-datta-ken-s1	132	1		2018	FALL		24		101280	13871		352408	
+season	tensei-shitara-slime-datta-ken-s2p1	132	2		2021	WINTER		12		108511	14767		352408	
+season	tensei-shitara-slime-datta-ken-s2p2	132	2		2021	SUMMER		12		116742	15456		352408	
+season	tensei-shitara-slime-datta-ken-s3	132	3		2024	SPRING		24		156822	17709		352408	
+season	tensei-shitara-slime-datta-ken-s4	132	4		2026	SPRING		24		182205	18884		352408	
+season	tetsunabe-no-jan-s1	133	1		2026	WINTER		12		204060	19768		471657	
+season	tongari-boushi-no-atelier-s1	134	1		2026	SPRING		13		147105	17305		418666	
+season	toumei-otoko-to-ningen-onna-sonouchi-fuufu-ni-naru-futari-s1	135	1		2026	WINTER		12		185039	19015		457201	
+season	trigun-stampede-s1	136	1		2023	WINTER		12		151040	17464		421378	
+season	trigun-stampede-s2	136	2		2026	WINTER		12	TRIGUN STAMPEDE (完結編)|en=Trigun Stargaze|ja=TRIGUN STAMPEDE (完結編)	163144	17953		421378	
+season	uruwashi-no-yoi-no-tsuki-s1	137	1		2026	WINTER		12		192507	19325		463481	
+season	vigilante-boku-no-hero-academia-illegals-s1	138	1		2025	SPRING		13		185736	19069		458058	
+season	vigilante-boku-no-hero-academia-illegals-s2	138	2		2026	WINTER		13		195322	19423		458058	
+season	watashi-ga-koibito-ni-nareru-wake-naijan-murimuri-muri-ja-s1	139	1		2026	WINTER		5		199112				
+season	wistoria-s1	140	1		2024	SUMMER		12		174576	18482		445829	
+season	wistoria-s2	140	2		2026	SPRING		12		182300	18889		445829	
+season	xi-yangyang-yu-hui-tailang-gu-guguai-jie-you-guguai-s1	141	1		2026	WINTER		60		207363				
+season	yami-shibai-16-s1	142	1		2026	WINTER		13		203939	19825		271591	
+season	yomi-no-tsugai-s1	143	1		2026	SPRING		24		195600	19451		452711	
+season	yoroi-shin-den-samurai-troopers-s1	144	1		2026	WINTER		12		194318	19380		464693	
+season	youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-s1	145	1		2017	SUMMER		12		98659	13153		329822	
+season	youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-s2	145	2		2022	SUMMER		13		145545	17208		329822	
+season	youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-s3	145	3		2024	WINTER		13		146066	17237		329822	
+season	youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-s4	145	4		2026	SPRING		12	Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e: Ninensei-hen (ようこそ実力至上主義の教室へ 2年生編)|en=4th Season: 2-nensei-hen 1 Gakki|ja=Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e: Ninensei-hen (ようこそ実力至上主義の教室へ 2年生編)	180745	18844		329822	
+season	yowayowa-sensei-s1	146	1		2026	SPRING		12		185211	19024		457471	
+season	yozakura-san-chi-no-daisakusen-s1	147	1		2024	SPRING		27		158898	17773		424019	
+season	yozakura-san-chi-no-daisakusen-s2	147	2		2026	SPRING		12		182578	18900		424019	
+season	yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku-s1	148	1		2026	WINTER		12		167152	18124		437266	
+season	yuusha-no-kuzu-s1	149	1		2026	WINTER		24		187989	19219		461513	
+season	yuusha-party-ni-kawaii-ko-ga-ita-node-kokuhaku-shitemita-s1	150	1		2026	WINTER		13		195515	19440		465505	
+season	yuusha-party-wo-oidasareta-kiyoubinbou-s1	151	1		2026	WINTER		12		187264	19190		460903	
+season	zombie-no-afureta-sekai-de-ore-dake-ga-osowarenai-s1	152	1		2026	WINTER		12		174427	18462			
+!characters	id	file	names	series
+akane-suoh	aishiteru-game-wo-owarasetai.yaml	蘇芳アカネ|en=Akane Suoh|ja=蘇芳アカネ	2
+haruto-yamabuki	aishiteru-game-wo-owarasetai.yaml	山吹陽斗|en=Haruto Yamabuki|ja=山吹陽斗	2
+hayato-ishiba	aishiteru-game-wo-owarasetai.yaml	飯柴隼人|en=Hayato Ishiba|ja=飯柴隼人	2
+hinako-hanaba	aishiteru-game-wo-owarasetai.yaml	花葉雛子|en=Hinako Hanaba|ja=花葉雛子	2
+kakeru-chigusa	aishiteru-game-wo-owarasetai.yaml	千草駆流|en=Kakeru Chigusa|ja=千草駆流	2
+kazane-shirayuri	aishiteru-game-wo-owarasetai.yaml	白百合風音|en=Kazane Shirayuri|ja=白百合風音	2
+marika-yanagi	aishiteru-game-wo-owarasetai.yaml	柳茉莉花|en=Marika Yanagi|ja=柳茉莉花	2
+masaru-shinonome	aishiteru-game-wo-owarasetai.yaml	東雲匡琉|en=Masaru Shinonome|ja=東雲匡琉	2
+mei-oguri	aishiteru-game-wo-owarasetai.yaml	小栗芽衣|en=Mei Oguri|ja=小栗芽衣	2
+mika-mihashi	aishiteru-game-wo-owarasetai.yaml	三橋ミカ|en=Mika Mihashi|ja=三橋ミカ	2
+miku-sakura	aishiteru-game-wo-owarasetai.yaml	桜みく|en=Miku Sakura|ja=桜みく	2
+natsuki-moegi	aishiteru-game-wo-owarasetai.yaml	萌木菜月|en=Natsuki Moegi|ja=萌木菜月	2
+riku-chikamasa	aishiteru-game-wo-owarasetai.yaml	近政陸空|en=Riku Chikamasa|ja=近政陸空	2
+rio-unohana	aishiteru-game-wo-owarasetai.yaml	卯ノ花梨生|en=Rio Unohana|ja=卯ノ花梨生	2
+ryotaro-fuji	aishiteru-game-wo-owarasetai.yaml	藤遼太郎|en=Ryōtarō Fuji|ja=藤遼太郎	2
+wakana-asagi	aishiteru-game-wo-owarasetai.yaml	浅葱若菜|en=Wakana Asagi|ja=浅葱若菜	2
+yukiya-asagi	aishiteru-game-wo-owarasetai.yaml	浅葱優希也|en=Yukiya Asagi|ja=浅葱優希也	2
+akane-osaki	akane-banashi.yaml	桜咲朱音|en=Akane Osaki|ja=桜咲朱音	3
+asta	black-clover.yaml	アスタ|en=Asta|ja=アスタ	8
+heath-grice	black-clover.yaml	ヒース・グライス|en=Heath Grice|ja=ヒース・グライス	8
+lotus-whomalt	black-clover.yaml	ロータス・フーモルト|en=Lotus Whomalt|ja=ロータス・フーモルト	8
+luck-voltia	black-clover.yaml	ラック・ボルティア|en=Luck Voltia|ja=ラック・ボルティア	8
+magna-swing	black-clover.yaml	マグナ・スウィング|en=Magna Swing|ja=マグナ・スウィング	8
+mimosa-vermillion	black-clover.yaml	ミモザ・ヴァーミリオン|en=Mimosa Vermillion|ja=ミモザ・ヴァーミリオン	8
+noelle-silva	black-clover.yaml	ノエル・シルヴァ|en=Noelle Silva|ja=ノエル・シルヴァ	8
+revchi-salik	black-clover.yaml	レブチ・サリーク|en=Revchi Salik|ja=レブチ・サリーク	8
+sekke-bronzazza	black-clover.yaml	セッケ・ブロンザッザ|en=Sekke Bronzazza|ja=セッケ・ブロンザッザ	8
+yami-sukehiro	black-clover.yaml	ヤミ・スケヒロ|en=Yami Sukehiro|ja=ヤミ・スケヒロ	8
+luna	champignon-no-majo.yaml	ルーナ|en=Luna|ja=ルーナ	12
+tanjiro-kamado	demon-slayer.yaml	竈門炭治郎|en=Tanjirō Kamado|ja=竈門炭治郎	17
+shinra-kusakabe	enen-no-shouboutai.yaml	森羅日下部|en=Shinra Kusakabe|ja=森羅日下部	22
+tamaki-kotatsu	enen-no-shouboutai.yaml	環古達|en=Tamaki Kotatsu|ja=環古達	22
+artoria-pendragon	fate.yaml	セイバー|en=Saber|ja=セイバー	24|25
+saichi-sugimoto	golden-kamuy.yaml	杉元佐一|en=Saichi Sugimoto|ja=杉元佐一	31
+hikari-hoshimiya	haibara-kun-no-tsuyokute-seishun-new-game.yaml	星宮陽花里|en=Hikari Hoshimiya|ja=星宮陽花里	33
+miori-motomiya	haibara-kun-no-tsuyokute-seishun-new-game.yaml	本宮美織|en=Miori Motomiya|ja=本宮美織	33
+natsuki-haibara	haibara-kun-no-tsuyokute-seishun-new-game.yaml	灰原夏希|en=Natsuki Haibara|ja=灰原夏希	33
+reita-shiratori	haibara-kun-no-tsuyokute-seishun-new-game.yaml	白鳥怜太|en=Reita Shiratori|ja=白鳥怜太	33
+tatsuya-nagiura	haibara-kun-no-tsuyokute-seishun-new-game.yaml	凪浦竜也|en=Tatsuya Nagiura|ja=凪浦竜也	33
+uta-sakura	haibara-kun-no-tsuyokute-seishun-new-game.yaml	佐倉詩|en=Uta Sakura|ja=佐倉詩	33
+yuino-nanase	haibara-kun-no-tsuyokute-seishun-new-game.yaml	七瀬唯乃|en=Yuino Nanase|ja=七瀬唯乃	33
+izumi-sano	hanazakari-no-kimitachi-e.yaml	|en=Izumi Sano	34
+mizuki-ashiya	hanazakari-no-kimitachi-e.yaml	|en=Mizuki Ashiya	34
+shuichi-nakatsu	hanazakari-no-kimitachi-e.yaml	中津秀一|en=Shuichi Nakatsu|ja=中津秀一	34
+allen	hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai.yaml	アレン|en=Allen|ja=アレン	35
+butler-von-granvelle	hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai.yaml	パトラー＝フォン＝グランヴェル|en=Butler von Granvelle|ja=パトラー＝フォン＝グランヴェル	35
+carnelle	hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai.yaml	カルネル|en=Carnelle|ja=カルネル	35
+cecil	hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai.yaml	セシル|en=Cecil|ja=セシル	35
+dogora	hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai.yaml	ドゴラ|en=Dogora|ja=ドゴラ	35
+krena	hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai.yaml	クレナ|en=Krena|ja=クレナ	35
+mash	hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai.yaml	マッシュ|en=Mash|ja=マッシュ	35
+mihai-granvelle	hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai.yaml	ミハイ＝グランヴェル|en=Mihai Granvelle|ja=ミハイ＝グランヴェル	35
+rodin	hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai.yaml	ロダン|en=Rodin|ja=ロダン	35
+theresia	hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai.yaml	テレシア|en=Theresia|ja=テレシア	35
+thomas-granvelle	hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai.yaml	トマス＝グランヴェル|en=Thomas Granvelle|ja=トマス＝グランヴェル	35
+zenof	hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai.yaml	ゼノフ|en=Zenof|ja=ゼノフ	35
+chie-uru	high-school-kimengumi-2026.yaml	宇留千絵|en=Chie Uru|ja=宇留千絵	38
+chikara-suji	high-school-kimengumi-2026.yaml	筋力|en=Chikara Suji|ja=筋力	38
+dai-monohoshi	high-school-kimengumi-2026.yaml	物星大|en=Dai Monohoshi|ja=物星大	38
+desuko-honba	high-school-kimengumi-2026.yaml	本場出須子|en=Desuko Honba|ja=本場出須子	38
+don-harumage	high-school-kimengumi-2026.yaml	春曲鈍|en=Don Harumage|ja=春曲鈍	38
+doremi-hasorashi	high-school-kimengumi-2026.yaml	葉反度礼美|en=Doremi Hasorashi|ja=葉反度礼美	38
+gorou-mutsu	high-school-kimengumi-2026.yaml	陸奥五郎|en=Gorou Mutsu|ja=陸奥五郎	38
+go-reietsu	high-school-kimengumi-2026.yaml	冷越豪|en=Gō Reietsu|ja=冷越豪	38
+ichirou-shinjitsu	high-school-kimengumi-2026.yaml	真実一郎|en=Ichirou Shinjitsu|ja=真実一郎	38
+ikue-sandanbara	high-school-kimengumi-2026.yaml	三段腹幾重|en=Ikue Sandanbara|ja=三段腹幾重	38
+ippei-kawa	high-school-kimengumi-2026.yaml	河川一平|en=Ippei Kawa|ja=河川一平	38
+itazou-kawa	high-school-kimengumi-2026.yaml	河川板造|en=Itazou Kawa|ja=河川板造	38
+jako-amano	high-school-kimengumi-2026.yaml	天野邪子|en=Jako Amano|ja=天野邪子	38
+jin-daima	high-school-kimengumi-2026.yaml	大間仁|en=Jin Daima|ja=大間仁	38
+kai-undou	high-school-kimengumi-2026.yaml	雲童塊|en=Kai Undou|ja=雲童塊	38
+kayo-ooba	high-school-kimengumi-2026.yaml	大場加代|en=Kayo Ooba|ja=大場加代	38
+kazaru-sugata	high-school-kimengumi-2026.yaml	姿飾|en=Kazaru Sugata|ja=姿飾	38
+ken-akiresu	high-school-kimengumi-2026.yaml	亜切須腱|en=Ken Akiresu|ja=亜切須腱	38
+kensaku-meri	high-school-kimengumi-2026.yaml	米利堅作|en=Kensaku Meri|ja=米利堅作	38
+kimeru-setto	high-school-kimengumi-2026.yaml	節戸決|en=Kimeru Setto|ja=節戸決	38
+kiri-ichidou	high-school-kimengumi-2026.yaml	一堂霧|en=Kiri Ichidou|ja=一堂霧	38
+kiyoi-shusse	high-school-kimengumi-2026.yaml	出瀬清|en=Kiyoi Shusse|ja=出瀬清	38
+kiyoshi-shusse	high-school-kimengumi-2026.yaml	出瀬潔|en=Kiyoshi Shusse|ja=出瀬潔	38
+koeru-tabuchi	high-school-kimengumi-2026.yaml	田打肥|en=Koeru Tabuchi|ja=田打肥	38
+kou-irooto	high-school-kimengumi-2026.yaml	色音好|en=Kou Irooto|ja=色音好	38
+lassie-ichidou	high-school-kimengumi-2026.yaml	一堂ラッシー|en=Lassie Ichidou|ja=一堂ラッシー	38
+maki-hidari	high-school-kimengumi-2026.yaml	左真紀|en=Maki Hidari|ja=左真紀	38
+mari-oda	high-school-kimengumi-2026.yaml	織田魔利|en=Mari Oda|ja=織田魔利	38
+masuyo-ikari	high-school-kimengumi-2026.yaml	伊狩増代|en=Masuyo Ikari|ja=伊狩増代	38
+mei-undou	high-school-kimengumi-2026.yaml	雲童命|en=Mei Undou|ja=雲童命	38
+menichi-nikaidou	high-school-kimengumi-2026.yaml	二階胴面一|en=Menichi Nikaidou|ja=二階胴面一	38
+naori-ichidou	high-school-kimengumi-2026.yaml	一堂直利|en=Naori Ichidou|ja=一堂直利	38
+omiya-nakasudou	high-school-kimengumi-2026.yaml	中須藤臣也|en=Omiya Nakasudou|ja=中須藤臣也	38
+pochi	high-school-kimengumi-2026.yaml	ポチ|en=Pochi|ja=ポチ	38
+puutarou-reietsu	high-school-kimengumi-2026.yaml	冷越風太郎|en=Puutarou Reietsu|ja=冷越風太郎	38
+ran-wakato	high-school-kimengumi-2026.yaml	若人蘭|en=Ran Wakato|ja=若人蘭	38
+ranto-jougai	high-school-kimengumi-2026.yaml	城亥乱人|en=Ranto Jougai|ja=城亥乱人	38
+rei-ichido	high-school-kimengumi-2026.yaml	一堂零|en=Rei Ichidō|ja=一堂零	38
+sakio-kochou	high-school-kimengumi-2026.yaml	小蝶先生|en=Sakio Kochou|ja=小蝶先生	38
+sakugo-jidai	high-school-kimengumi-2026.yaml	事代作吾|en=Sakugo Jidai|ja=事代作吾	38
+shou-kireide	high-school-kimengumi-2026.yaml	切出翔|en=Shou Kireide|ja=切出翔	38
+shumi-monozuki	high-school-kimengumi-2026.yaml	物月珠美|en=Shumi Monozuki|ja=物月珠美	38
+susumu-intahai	high-school-kimengumi-2026.yaml	印田灰進|en=Susumu Intahai|ja=印田灰進	38
+takashi-hokori	high-school-kimengumi-2026.yaml	矛利高志|en=Takashi Hokori|ja=矛利高志	38
+takuma-sessa	high-school-kimengumi-2026.yaml	石砂拓真|en=Takuma Sessa|ja=石砂拓真	38
+takuseki-ichidou	high-school-kimengumi-2026.yaml	一堂啄石|en=Takuseki Ichidou|ja=一堂啄石	38
+torio-tanokin	high-school-kimengumi-2026.yaml	頼金鳥雄|en=Torio Tanokin|ja=頼金鳥雄	38
+wakazou-temekono	high-school-kimengumi-2026.yaml	手目小野若蔵|en=Wakazou Temekono|ja=手目小野若蔵	38
+you-nihiruda	high-school-kimengumi-2026.yaml	似蛭田妖|en=You Nihiruda|ja=似蛭田妖	38
+yui-kawa	high-school-kimengumi-2026.yaml	河川唯|en=Yui Kawa|ja=河川唯	38
+yutaka-konjou	high-school-kimengumi-2026.yaml	今條豊|en=Yutaka Konjou|ja=今條豊	38
+serafina-de-lavillant	himekishi-wa-barbaroi-no-yome.yaml	セラフィーナ・ド・ラヴィラント|en=Serafina de Lavillant|ja=セラフィーナ・ド・ラヴィラント	40
+veor	himekishi-wa-barbaroi-no-yome.yaml	ヴェーオル|en=Veor|ja=ヴェーオル	40
+angelica	honzuki-no-gekokujou.yaml	アンゲリカ|en=Angelica|ja=アンゲリカ	44
+arno	honzuki-no-gekokujou.yaml	アルノー|en=Arno|ja=アルノー	44
+benno	honzuki-no-gekokujou.yaml	ベンノ|en=Benno|ja=ベンノ	44
+bezewanst	honzuki-no-gekokujou.yaml	ベーゼヴァンス|en=Bezewanst|ja=ベーゼヴァンス	44
+bierce	honzuki-no-gekokujou.yaml	ビアス|en=Bierce|ja=ビアス	44
+christine	honzuki-no-gekokujou.yaml	クリスティーネ|en=Christine|ja=クリスティーネ	44
+corinna	honzuki-no-gekokujou.yaml	コリンナ|en=Corinna|ja=コリンナ	44
+damuel	honzuki-no-gekokujou.yaml	ダームエル|en=Damuel|ja=ダームエル	44
+deid	honzuki-no-gekokujou.yaml	ディード|en=Deid|ja=ディード	44
+delia	honzuki-no-gekokujou.yaml	デリア|en=Delia|ja=デリア	44
+eckhart	honzuki-no-gekokujou.yaml	エックハルト|en=Eckhart|ja=エックハルト	44
+effa	honzuki-no-gekokujou.yaml	エーファ|en=Effa|ja=エーファ	44
+ella	honzuki-no-gekokujou.yaml	エラ|en=Ella|ja=エラ	44
+elvira	honzuki-no-gekokujou.yaml	エルヴィーラ|en=Elvira|ja=エルヴィーラ	44
+ferdinand	honzuki-no-gekokujou.yaml	フェルディナンド|en=Ferdinand|ja=フェルディナンド	44
+fey	honzuki-no-gekokujou.yaml	フェイ|en=Fey|ja=フェイ	44
+fran	honzuki-no-gekokujou.yaml	フラン|en=Fran|ja=フラン	44
+freida	honzuki-no-gekokujou.yaml	フリーダ|en=Freida|ja=フリーダ	44
+giebe-bindewald	honzuki-no-gekokujou.yaml	ギーベ・ビンデバルト|en=Giebe Bindewald|ja=ギーベ・ビンデバルト	44
+gil	honzuki-no-gekokujou.yaml	ギル|en=Gil|ja=ギル	44
+gloria	honzuki-no-gekokujou.yaml	グローリエ|en=Gloria|ja=グローリエ	44
+grausam	honzuki-no-gekokujou.yaml	グラオザム|en=Grausam|ja=グラオザム	44
+gunther	honzuki-no-gekokujou.yaml	ギュンター|en=Gunther|ja=ギュンター	44
+gustav	honzuki-no-gekokujou.yaml	グスタフ|en=Gustav|ja=グスタフ	44
+hartmut	honzuki-no-gekokujou.yaml	ハルトムート|en=Hartmut|ja=ハルトムート	44
+heidi	honzuki-no-gekokujou.yaml	ハイディ|en=Heidi|ja=ハイディ	44
+hugo	honzuki-no-gekokujou.yaml	フーゴ|en=Hugo|ja=フーゴ	44
+jenni	honzuki-no-gekokujou.yaml	イェンニ|en=Jenni|ja=イェンニ	44
+johann	honzuki-no-gekokujou.yaml	ヨハン|en=Johann|ja=ヨハン	44
+josef	honzuki-no-gekokujou.yaml	ヨゼフ|en=Josef|ja=ヨゼフ	44
+justus	honzuki-no-gekokujou.yaml	ユストクス|en=Justus|ja=ユストクス	44
+jutte	honzuki-no-gekokujou.yaml	ユッテ|en=Jutte|ja=ユッテ	44
+karla	honzuki-no-gekokujou.yaml	カルラ|en=Karla|ja=カルラ	44
+karstedt	honzuki-no-gekokujou.yaml	カルステッド|en=Karstedt|ja=カルステッド	44
+lutz	honzuki-no-gekokujou.yaml	ルッツ|en=Lutz|ja=ルッツ	44
+mark	honzuki-no-gekokujou.yaml	マルク|en=Mark|ja=マルク	44
+myne	honzuki-no-gekokujou.yaml	マイン|en=Myne|ja=マイン	44
+otto	honzuki-no-gekokujou.yaml	オットー|en=Otto|ja=オットー	44
+ralph	honzuki-no-gekokujou.yaml	ラルフ|en=Ralph|ja=ラルフ	44
+rico	honzuki-no-gekokujou.yaml	リコ|en=Rico|ja=リコ	44
+rosina	honzuki-no-gekokujou.yaml	ロジーナ|en=Rosina|ja=ロジーナ	44
+shikikoza	honzuki-no-gekokujou.yaml	シキコーザ|en=Shikikoza|ja=シキコーザ	44
+sieg	honzuki-no-gekokujou.yaml	ジーく|en=Sieg|ja=ジーく	44
+sylvester	honzuki-no-gekokujou.yaml	ジルヴェスター|en=Sylvester|ja=ジルヴェスター	44
+tuuli	honzuki-no-gekokujou.yaml	トゥーリ|en=Tuuli|ja=トゥーリ	44
+wilma	honzuki-no-gekokujou.yaml	ヴィルマ|en=Wilma|ja=ヴィルマ	44
+wolf	honzuki-no-gekokujou.yaml	ヴォルフ|en=Wolf|ja=ヴォルフ	44
+zasha	honzuki-no-gekokujou.yaml	ザシャ|en=Zasha|ja=ザシャ	44
+marika-suzuki	ichijouma-mankitsugurashi.yaml	鈴木万里花|en=Marika Suzuki|ja=鈴木万里花	48
+meiko-morita	ichijouma-mankitsugurashi.yaml	森田芽衣子|en=Meiko Morita|ja=森田芽衣子	48
+michika-narumi	ichijouma-mankitsugurashi.yaml	成海みちか|en=Michika Narumi|ja=成海みちか	48
+neo-nakano	ichijouma-mankitsugurashi.yaml	中埜音緒|en=Neo Nakano|ja=中埜音緒	48
+rie-amamiya	ichijouma-mankitsugurashi.yaml	天宮梨絵|en=Rie Amamiya|ja=天宮梨絵	48
+hiraku-machio	isekai-nonbiri-nouka.yaml	街尾火楽|en=Hiraku Machio|ja=街尾火楽	52
+ria	isekai-nonbiri-nouka.yaml	リア|en=Ria|ja=リア	52
+ru	isekai-nonbiri-nouka.yaml	ルールーシー＝ルー|en=Ru|ja=ルールーシー＝ルー	52
+tia	isekai-nonbiri-nouka.yaml	ティア|en=Tia|ja=ティア	52
+aza-chobei	jigokuraku.yaml	亜左弔兵衛|en=Aza Chōbei|ja=亜左弔兵衛	55
+aza-toma	jigokuraku.yaml	亜左桐馬|en=Aza Tōma|ja=亜左桐馬	55
+gabimaru	jigokuraku.yaml	画眉丸|en=Gabimaru|ja=画眉丸	55
+nurugai	jigokuraku.yaml	ヌルガイ|en=Nurugai|ja=ヌルガイ	55
+tamiya-gantetsusai	jigokuraku.yaml	民谷巌鉄斎|en=Tamiya Gantetsusai|ja=民谷巌鉄斎	55
+tokugawa-nariyoshi	jigokuraku.yaml	徳川斉慶|en=Tokugawa Nariyoshi|ja=徳川斉慶	55
+yamada-asaemon-eizen	jigokuraku.yaml	山田浅ェ門衛善|en=Yamada Asaemon Eizen|ja=山田浅ェ門衛善	55
+yamada-asaemon-fuchi	jigokuraku.yaml	山田浅ェ門付知|en=Yamada Asaemon Fuchi|ja=山田浅ェ門付知	55
+yamada-asaemon-genji	jigokuraku.yaml	山田浅ェ門源嗣|en=Yamada Asaemon Genji|ja=山田浅ェ門源嗣	55
+yamada-asaemon-kisho	jigokuraku.yaml	山田浅ェ門期聖|en=Yamada Asaemon Kishō|ja=山田浅ェ門期聖	55
+yamada-asaemon-sagiri	jigokuraku.yaml	山田浅ェ門佐切|en=Yamada Asaemon Sagiri|ja=山田浅ェ門佐切	55
+yamada-asaemon-senta	jigokuraku.yaml	山田浅ェ門仙汰|en=Yamada Asaemon Senta|ja=山田浅ェ門仙汰	55
+yamada-asaemon-shion	jigokuraku.yaml	山田浅ェ門士遠|en=Yamada Asaemon Shion|ja=山田浅ェ門士遠	55
+yamada-asaemon-tenza	jigokuraku.yaml	山田浅ェ門典坐|en=Yamada Asaemon Tenza|ja=山田浅ェ門典坐	55
+yuzuriha	jigokuraku.yaml	杠|en=Yuzuriha|ja=杠	55
+bertia-ibil-noches	jishou-akuyaku-reijou-na-konyakusha-no-kansatsu-kiroku.yaml	バーティア・イビル・ノーチェス|en=Bertia Ibil Noches|ja=バーティア・イビル・ノーチェス	58
+cecil-glo-alphasta	jishou-akuyaku-reijou-na-konyakusha-no-kansatsu-kiroku.yaml	セシル・グロー・アルファスタ|en=Cecil Glo Alphasta|ja=セシル・グロー・アルファスタ	58
+akari-nitta	jujutsu-kaisen.yaml	新田明|en=Akari Nitta|ja=新田明	59
+aoi-todo	jujutsu-kaisen.yaml	東堂葵|en=Aoi Tōdō|ja=東堂葵	59
+choso	jujutsu-kaisen.yaml	脹相|en=Choso|ja=脹相	59
+eso	jujutsu-kaisen.yaml	壊相|en=Eso|ja=壊相	59
+hanami	jujutsu-kaisen.yaml	花御|en=Hanami|ja=花御	59
+haruta-shigemo	jujutsu-kaisen.yaml	重面春太|en=Haruta Shigemo|ja=重面春太	59
+junpei-yoshino	jujutsu-kaisen.yaml	吉野順平|en=Junpei Yoshino|ja=吉野順平	59
+juzo-kumiya	jujutsu-kaisen.yaml	組屋鞣造|en=Juzo Kumiya|ja=組屋鞣造	59
+jogo	jujutsu-kaisen.yaml	漏瑚|en=Jōgo|ja=漏瑚	59
+kasumi-miwa	jujutsu-kaisen.yaml	三輪霞|en=Kasumi Miwa|ja=三輪霞	59
+kechizu	jujutsu-kaisen.yaml	血塗|en=Kechizu|ja=血塗	59
+kento-nanami	jujutsu-kaisen.yaml	七海建人|en=Kento Nanami|ja=七海建人	59
+kiyotaka-ijichi	jujutsu-kaisen.yaml	伊地知潔高|en=Kiyotaka Ijichi|ja=伊地知潔高	59
+kokichi-muta	jujutsu-kaisen.yaml	与幸吉|en=Kōkichi Muta|ja=与幸吉	59
+mahito	jujutsu-kaisen.yaml	真人|en=Mahito|ja=真人	59
+mai-zen-in	jujutsu-kaisen.yaml	禪院真依|en=Mai Zen'in|ja=禪院真依	59
+maki-zen-in	jujutsu-kaisen.yaml	禪院真希|en=Maki Zen'in|ja=禪院真希	59
+masamichi-yaga	jujutsu-kaisen.yaml	夜蛾正道|en=Masamichi Yaga|ja=夜蛾正道	59
+megumi-fushiguro	jujutsu-kaisen.yaml	伏黒恵|en=Megumi Fushiguro|ja=伏黒恵	59
+mei-mei	jujutsu-kaisen.yaml	冥冥|en=Mei Mei|ja=冥冥	59
+momo-nishimiya	jujutsu-kaisen.yaml	西宮桃|en=Momo Nishimiya|ja=西宮桃	59
+naobito-zen-in	jujutsu-kaisen.yaml	禪院直毘人|en=Naobito Zen'in|ja=禪院直毘人	59
+nobara-kugisaki	jujutsu-kaisen.yaml	釘崎野薔薇|en=Nobara Kugisaki|ja=釘崎野薔薇	59
+noritoshi-kamo	jujutsu-kaisen.yaml	加茂憲紀|en=Noritoshi Kamo|ja=加茂憲紀	59
+panda	jujutsu-kaisen.yaml	パンダ|en=Panda|ja=パンダ	59
+riko-amanai	jujutsu-kaisen.yaml	天内理子|en=Riko Amanai|ja=天内理子	59
+ryomen-sukuna	jujutsu-kaisen.yaml	両面宿儺|en=Ryomen Sukuna|ja=両面宿儺	59
+satoru-gojo	jujutsu-kaisen.yaml	五条悟|en=Satoru Gojo|ja=五条悟	59
+shoko-ieiri	jujutsu-kaisen.yaml	家入硝子|en=Shōko Ieiri|ja=家入硝子	59
+suguru-geto	jujutsu-kaisen.yaml	夏油傑|en=Suguru Getō|ja=夏油傑	59
+toge-inumaki	jujutsu-kaisen.yaml	狗巻棘|en=Toge Inumaki|ja=狗巻棘	59
+toji-fushiguro	jujutsu-kaisen.yaml	伏黒甚爾|en=Toji Fushiguro|ja=伏黒甚爾	59
+utahime-iori	jujutsu-kaisen.yaml	庵歌姫|en=Utahime Iori|ja=庵歌姫	59
+yoshinobu-gakuganji	jujutsu-kaisen.yaml	楽巌寺嘉伸|en=Yoshinobu Gakuganji|ja=楽巌寺嘉伸	59
+yuji-itadori	jujutsu-kaisen.yaml	虎杖悠仁|en=Yuji Itadori|ja=虎杖悠仁	59
+yuta-okkotsu	jujutsu-kaisen.yaml	乙骨憂太|en=Yūta Okkotsu|ja=乙骨憂太	59
+akane-yusa	kamiina-botan-yoeru-sugata-wa-yuri-no-hana.yaml	遊佐あかね|en=Akane Yusa|ja=遊佐あかね	62
+botan-kamiina	kamiina-botan-yoeru-sugata-wa-yuri-no-hana.yaml	上伊那ぼたん|en=Botan Kamiina|ja=上伊那ぼたん	62
+chang-chin-lan	kamiina-botan-yoeru-sugata-wa-yuri-no-hana.yaml	張景嵐|en=Chang Chin-lan|ja=張景嵐	62
+ibuki-tonami	kamiina-botan-yoeru-sugata-wa-yuri-no-hana.yaml	砺波いぶき|en=Ibuki Tonami|ja=砺波いぶき	62
+kanade-gujyo	kamiina-botan-yoeru-sugata-wa-yuri-no-hana.yaml	郡上かなで|en=Kanade Gujyo|ja=郡上かなで	62
+yaeka-kitamori	kamiina-botan-yoeru-sugata-wa-yuri-no-hana.yaml	北杜やえか|en=Yaeka Kitamori|ja=北杜やえか	62
+chizuru-ichinose	kanojo-okarishimasu.yaml	一ノ瀬ちづる|en=Chizuru Ichinose|ja=一ノ瀬ちづる	65
+kinoshita-kazuya	kanojo-okarishimasu.yaml	木ノ下和也|en=Kinoshita Kazuya|ja=木ノ下和也	65
+mami-nanami	kanojo-okarishimasu.yaml	七海麻美|en=Mami Nanami|ja=七海麻美	65
+sarashina-ruka	kanojo-okarishimasu.yaml	更科瑠夏|en=Sarashina Ruka|ja=更科瑠夏	65
+sumi-sakurasawa	kanojo-okarishimasu.yaml	桜沢墨|en=Sumi Sakurasawa|ja=桜沢墨	65
+aji	kirei-ni-shitemoraemasu-ka.yaml	安治|en=Aji|ja=安治	69
+asami-yagara	kirei-ni-shitemoraemasu-ka.yaml	矢柄麻未|en=Asami Yagara|ja=矢柄麻未	69
+kuriru-wakasagi	kirei-ni-shitemoraemasu-ka.yaml	鰙久里留|en=Kuriru Wakasagi|ja=鰙久里留	69
+kyusho-ishimochi	kirei-ni-shitemoraemasu-ka.yaml	石持毬祥|en=Kyūshō Ishimochi|ja=石持毬祥	69
+moruda-wakasagi	kirei-ni-shitemoraemasu-ka.yaml	鰙守大|en=Moruda Wakasagi|ja=鰙守大	69
+nairo-katakuchi	kirei-ni-shitemoraemasu-ka.yaml	片口那色|en=Nairo Katakuchi|ja=片口那色	69
+wakana-kinme	kirei-ni-shitemoraemasu-ka.yaml	金目綿花奈|en=Wakana Kinme|ja=金目綿花奈	69
+akine-atagawa	koori-no-jouheki.yaml	熱川秋音|en=Akine Atagawa|ja=熱川秋音	73
+koyuki-hikawa	koori-no-jouheki.yaml	氷川小雪|en=Koyuki Hikawa|ja=氷川小雪	73
+miki-azumi	koori-no-jouheki.yaml	安曇美姫|en=Miki Azumi|ja=安曇美姫	73
+minato-amamiya	koori-no-jouheki.yaml	雨宮湊|en=Minato Amamiya|ja=雨宮湊	73
+momoka-kuriki	koori-no-jouheki.yaml	栗木桃香|en=Momoka Kuriki|ja=栗木桃香	73
+tsubasa-igarashi	koori-no-jouheki.yaml	五十嵐翼|en=Tsubasa Igarashi|ja=五十嵐翼	73
+tsukiko-shimojima	koori-no-jouheki.yaml	霜島月子|en=Tsukiko Shimojima|ja=霜島月子	73
+yuki-azumi	koori-no-jouheki.yaml	安曇優希|en=Yuki Azumi|ja=安曇優希	73
+yota-hino	koori-no-jouheki.yaml	日野陽太|en=Yōta Hino|ja=日野陽太	73
+aria-aquarius	kuroneko-to-majo-no-kyoushitsu.yaml	アリア・アクエリアス|en=Aria Aquarius|ja=アリア・アクエリアス	76
+astraea-libra	kuroneko-to-majo-no-kyoushitsu.yaml	アストレア・ライブラ|en=Astraea Libra|ja=アストレア・ライブラ	76
+capella-capricorn	kuroneko-to-majo-no-kyoushitsu.yaml	カペラ・カプリコーン|en=Capella Capricorn|ja=カペラ・カプリコーン	76
+castor-gemini	kuroneko-to-majo-no-kyoushitsu.yaml	カストル・ジェミニ|en=Castor Gemini|ja=カストル・ジェミニ	76
+chiron-sagittarius-aldea	kuroneko-to-majo-no-kyoushitsu.yaml	キロン・サジタリアス・アラディア|en=Chiron Sagittarius Aldea|ja=キロン・サジタリアス・アラディア	76
+claude-sirius	kuroneko-to-majo-no-kyoushitsu.yaml	クロード・シリウス|en=Claude Sirius|ja=クロード・シリウス	76
+ewe-aries	kuroneko-to-majo-no-kyoushitsu.yaml	ユゥ・アリーズ|en=Ewe Aries|ja=ユゥ・アリーズ	76
+hana-sasorijo	kuroneko-to-majo-no-kyoushitsu.yaml	ハナ・サソリジョウ|en=Hana Sasorijō|ja=ハナ・サソリジョウ	76
+io-taurus	kuroneko-to-majo-no-kyoushitsu.yaml	イオ・トーラス|en=Io Taurus|ja=イオ・トーラス	76
+leo-regulus	kuroneko-to-majo-no-kyoushitsu.yaml	レオ・レグルス|en=Leo Regulus|ja=レオ・レグルス	76
+merrow-pisces	kuroneko-to-majo-no-kyoushitsu.yaml	メロウ・パイシーズ|en=Merrow Pisces|ja=メロウ・パイシーズ	76
+pollux-gemini	kuroneko-to-majo-no-kyoushitsu.yaml	ポルックス・ジェミニ|en=Pollux Gemini|ja=ポルックス・ジェミニ	76
+spica-virgo	kuroneko-to-majo-no-kyoushitsu.yaml	スピカ・ヴァルゴ|en=Spica Virgo|ja=スピカ・ヴァルゴ	76
+tarf-cancer	kuroneko-to-majo-no-kyoushitsu.yaml	タルフ・キャンサー|en=Tarf Cancer|ja=タルフ・キャンサー	76
+alice-asmodeus	mairimashita-iruma-kun.yaml	アスモデウス・アリス|en=Alice Asmodeus|ja=アスモデウス・アリス	80
+allocer-schneider	mairimashita-iruma-kun.yaml	アロケル・シュナイダー|en=Allocer Schneider|ja=アロケル・シュナイダー	80
+amaryllis-asmodeus	mairimashita-iruma-kun.yaml	アスモデウス・アムリリス|en=Amaryllis Asmodeus|ja=アスモデウス・アムリリス	80
+amelie-azazel	mairimashita-iruma-kun.yaml	アザゼル・アメリ|en=Amelie Azazel|ja=アザゼル・アメリ	80
+clara-valac	mairimashita-iruma-kun.yaml	ウァラク・クララ|en=Clara Valac|ja=ウァラク・クララ	80
+elizabetta-ix	mairimashita-iruma-kun.yaml	イクス・エリザベッタ|en=Elizabetta Ix|ja=イクス・エリザベッタ	80
+gaap-goemon	mairimashita-iruma-kun.yaml	ガープ・ゴエモン|en=Gaap Goemon|ja=ガープ・ゴエモン	80
+henri-azazel	mairimashita-iruma-kun.yaml	アザゼル・アンリ|en=Henri Azazel|ja=アザゼル・アンリ	80
+iruma-suzuki	mairimashita-iruma-kun.yaml	鈴木入間|en=Iruma Suzuki|ja=鈴木入間	80
+jazz-m-andro	mairimashita-iruma-kun.yaml	アンドロ・M・ジャズ|en=Jazz M. Andro|ja=アンドロ・M・ジャズ	80
+kalego-naberius	mairimashita-iruma-kun.yaml	ナベリウス・カルエゴ|en=Kalego Naberius|ja=ナベリウス・カルエゴ	80
+kamui-caim	mairimashita-iruma-kun.yaml	カイム・カムイ|en=Kamui Caim|ja=カイム・カムイ	80
+kerori-crocell	mairimashita-iruma-kun.yaml	クロケル・ケロリ|en=Kerori Crocell|ja=クロケル・ケロリ	80
+kimaris-quichelight	mairimashita-iruma-kun.yaml	キマリス・キッシュライト|en=Kimaris Quichelight|ja=キマリス・キッシュライト	80
+kirio-amy	mairimashita-iruma-kun.yaml	アミィ・キリヲ|en=Kirio Amy|ja=アミィ・キリヲ	80
+lied-shax	mairimashita-iruma-kun.yaml	シャックス・リード|en=Lied Shax|ja=シャックス・リード	80
+opera	mairimashita-iruma-kun.yaml	オペラ|en=Opera|ja=オペラ	80
+picero-agares	mairimashita-iruma-kun.yaml	アガレス・ピケロ|en=Picero Agares|ja=アガレス・ピケロ	80
+robin-bars	mairimashita-iruma-kun.yaml	バルス・ロビン|en=Robin Bars|ja=バルス・ロビン	80
+sabro-sabnock	mairimashita-iruma-kun.yaml	サブノック・サブロ|en=Sabro Sabnock|ja=サブノック・サブロ	80
+sullivan	mairimashita-iruma-kun.yaml	サリバン|en=Sullivan|ja=サリバン	80
+zagan-johnny-western	mairimashita-iruma-kun.yaml	ザガン・ジョニー・ウエスタン|en=Zagan Johnny Western|ja=ザガン・ジョニー・ウエスタン	80
+hikaru-gero	marriagetoxin.yaml	下呂ヒカル|en=Hikaru Gero|ja=下呂ヒカル	85
+mei-kinosaki	marriagetoxin.yaml	城崎メイ|en=Mei Kinosaki|ja=城崎メイ	85
+lilithea	mata-korosarete-shimatta-no-desu-ne-tantei-sama.yaml	リリテア|en=Lilithea|ja=リリテア	86
+sakuya-outsuki	mata-korosarete-shimatta-no-desu-ne-tantei-sama.yaml	追月朔也|en=Sakuya Outsuki|ja=追月朔也	86
+himari-azuma	mato-seihei-no-slave.yaml	東日万凛|en=Himari Azuma|ja=東日万凛	87
+kyoka-uzen	mato-seihei-no-slave.yaml	羽前京香|en=Kyōka Uzen|ja=羽前京香	87
+nei-okawamura	mato-seihei-no-slave.yaml	大河村寧|en=Nei Ōkawamura|ja=大河村寧	87
+sahara-wakasa	mato-seihei-no-slave.yaml	若狭サハラ|en=Sahara Wakasa|ja=若狭サハラ	87
+shushu-suruga	mato-seihei-no-slave.yaml	駿河朱々|en=Shushu Suruga|ja=駿河朱々	87
+tenka-izumo	mato-seihei-no-slave.yaml	出雲天花|en=Tenka Izumo|ja=出雲天花	87
+yachiho-azuma	mato-seihei-no-slave.yaml	東八千穂|en=Yachiho Azuma|ja=東八千穂	87
+yuki-wakura	mato-seihei-no-slave.yaml	和倉優希|en=Yūki Wakura|ja=和倉優希	87
+hikaru-kamisaki	medalist.yaml	狼嵜光|en=Hikaru Kamisaki|ja=狼嵜光	89
+inori-yuitsuka	medalist.yaml	結束いのり|en=Inori Yuitsuka|ja=結束いのり	89
+jun-yodaka	medalist.yaml	夜鷹純|en=Jun Yodaka|ja=夜鷹純	89
+tsukasa-akeuraji	medalist.yaml	明浦路司|en=Tsukasa Akeuraji|ja=明浦路司	89
+anna-akechi	meitantei-precure.yaml	明智あんな|en=Anna Akechi|ja=明智あんな	91
+kurea-howa	meitantei-precure.yaml	帆羽くれあ|en=Kurea Howa|ja=帆羽くれあ	91
+luluka-moria	meitantei-precure.yaml	森亜るるか|en=Luluka Moria|ja=森亜るるか	91
+mikuru-kobayashi	meitantei-precure.yaml	小林みくる|en=Mikuru Kobayashi|ja=小林みくる	91
+ai-hoshino	oshi-no-ko.yaml	星野アイ|en=Ai Hoshino|ja=星野アイ	108
+akane-kurokawa	oshi-no-ko.yaml	黒川茜|en=Akane Kurokawa|ja=黒川茜	108
+aquamarine-hoshino	oshi-no-ko.yaml	星野愛久愛海|en=Aquamarine Hoshino|ja=星野愛久愛海	108
+gorou-amamiya	oshi-no-ko.yaml	雨宮吾郎|en=Gorou Amamiya|ja=雨宮吾郎	108
+kana-arima	oshi-no-ko.yaml	有馬かな|en=Kana Arima|ja=有馬かな	108
+mem-cho	oshi-no-ko.yaml	MEMちょ|en=MEM-cho|ja=MEMちょ	108
+ruby-hoshino	oshi-no-ko.yaml	星野瑠美衣|en=Ruby Hoshino|ja=星野瑠美衣	108
+ryosuke-kaihara	oshi-no-ko.yaml	貝原亮介|en=Ryōsuke Kaihara|ja=貝原亮介	108
+sarina-tendouji	oshi-no-ko.yaml	天童寺さりな|en=Sarina Tendouji|ja=天童寺さりな	108
+kei-amane	otaku-ni-yasashii-gal-wa-inai.yaml	天音慶|en=Kei Amane|ja=天音慶	110
+kotoko-ijichi	otaku-ni-yasashii-gal-wa-inai.yaml	伊地知琴子|en=Kotoko Ijichi|ja=伊地知琴子	110
+sayu-amamiya	otaku-ni-yasashii-gal-wa-inai.yaml	雨宮紗優|en=Sayu Amamiya|ja=雨宮紗優	110
+takuya-seo	otaku-ni-yasashii-gal-wa-inai.yaml	瀬尾卓也|en=Takuya Seo|ja=瀬尾卓也	110
+annerose-miload	re-zero-kara-hajimeru-isekai-seikatsu.yaml	アンネローゼ・ミロード|en=Annerose Miload|ja=アンネローゼ・ミロード	114
+arch	re-zero-kara-hajimeru-isekai-seikatsu.yaml	アーチ|en=Arch|ja=アーチ	114
+beatrice	re-zero-kara-hajimeru-isekai-seikatsu.yaml	ベアトリス|en=Beatrice|ja=ベアトリス	114
+capella-emerada-lugunica	re-zero-kara-hajimeru-isekai-seikatsu.yaml	カペラ・エメラダ・ルグニカ|en=Capella Emerada Lugunica|ja=カペラ・エメラダ・ルグニカ	114
+clind	re-zero-kara-hajimeru-isekai-seikatsu.yaml	クリンド|en=Clind|ja=クリンド	114
+emilia	re-zero-kara-hajimeru-isekai-seikatsu.yaml	エミリア|en=Emilia|ja=エミリア	114
+fortuna	re-zero-kara-hajimeru-isekai-seikatsu.yaml	フォルトナ|en=Fortuna|ja=フォルトナ	114
+fred-thompson	re-zero-kara-hajimeru-isekai-seikatsu.yaml	フレド・トンプソン|en=Fred Thompson|ja=フレド・トンプソン	114
+garek-thompson	re-zero-kara-hajimeru-isekai-seikatsu.yaml	ギャレク・トンプソン|en=Garek Thompson|ja=ギャレク・トンプソン	114
+hector	re-zero-kara-hajimeru-isekai-seikatsu.yaml	ヘクトール|en=Hector|ja=ヘクトール	114
+heinkel-astrea	re-zero-kara-hajimeru-isekai-seikatsu.yaml	ハインケル・アストレア|en=Heinkel Astrea|ja=ハインケル・アストレア	114
+joshua-juukulius	re-zero-kara-hajimeru-isekai-seikatsu.yaml	ヨシュア・ユークリウス|en=Joshua Juukulius|ja=ヨシュア・ユークリウス	114
+kiritaka-muse	re-zero-kara-hajimeru-isekai-seikatsu.yaml	キリタカ・ミューズ|en=Kiritaka Muse|ja=キリタカ・ミューズ	114
+liliana-masquerade	re-zero-kara-hajimeru-isekai-seikatsu.yaml	リリアナ・マスカレード|en=Liliana Masquerade|ja=リリアナ・マスカレード	114
+lusbel-kallard	re-zero-kara-hajimeru-isekai-seikatsu.yaml	ルスベル・カラード|en=Lusbel Kallard|ja=ルスベル・カラード	114
+pandora	re-zero-kara-hajimeru-isekai-seikatsu.yaml	パンドラ|en=Pandora|ja=パンドラ	114
+rafiel-thompson	re-zero-kara-hajimeru-isekai-seikatsu.yaml	ラフィール・トンプソン|en=Rafiel Thompson|ja=ラフィール・トンプソン	114
+ram	re-zero-kara-hajimeru-isekai-seikatsu.yaml	ラム|en=Ram|ja=ラム	114
+reala-thompson	re-zero-kara-hajimeru-isekai-seikatsu.yaml	リアラ・トンプソン|en=Reala Thompson|ja=リアラ・トンプソン	114
+reid-astrea	re-zero-kara-hajimeru-isekai-seikatsu.yaml	レイド・アストレア|en=Reid Astrea|ja=レイド・アストレア	114
+rem	re-zero-kara-hajimeru-isekai-seikatsu.yaml	レム|en=Rem|ja=レム	114
+rui-arneb	re-zero-kara-hajimeru-isekai-seikatsu.yaml	ルイ・アルネブ|en=Rui Arneb|ja=ルイ・アルネブ	114
+schult	re-zero-kara-hajimeru-isekai-seikatsu.yaml	シュルト|en=Schult|ja=シュルト	114
+shaula	re-zero-kara-hajimeru-isekai-seikatsu.yaml	シャウラ|en=Shaula|ja=シャウラ	114
+sirius-romanee-conti	re-zero-kara-hajimeru-isekai-seikatsu.yaml	シリウス・ロマネコンティ|en=Sirius Romanée-Conti|ja=シリウス・ロマネコンティ	114
+subaru-natsuki	re-zero-kara-hajimeru-isekai-seikatsu.yaml	ナツキ・スバル|en=Subaru Natsuki|ja=ナツキ・スバル	114
+sylphy	re-zero-kara-hajimeru-isekai-seikatsu.yaml	シルフィ|en=Sylphy|ja=シルフィ	114
+tina	re-zero-kara-hajimeru-isekai-seikatsu.yaml	ティーナ|en=Tina|ja=ティーナ	114
+maki-maehara	second-prettiest-girl-in-class.yaml	前原真樹|en=Maki Maehara|ja=前原真樹	121
+nina-nitta	second-prettiest-girl-in-class.yaml	新田新奈|en=Nina Nitta|ja=新田新奈	121
+umi-asanagi	second-prettiest-girl-in-class.yaml	朝凪海|en=Umi Asanagi|ja=朝凪海	121
+yu-amami	second-prettiest-girl-in-class.yaml	天海夕|en=Yū Amami|ja=天海夕	121
+aoi-sato	seihantai-na-kimi-to-boku.yaml	佐藤葵|en=Aoi Satō|ja=佐藤葵	122
+kentaro-yamada	seihantai-na-kimi-to-boku.yaml	山田健太郎|en=Kentarō Yamada|ja=山田健太郎	122
+manami-watanabe	seihantai-na-kimi-to-boku.yaml	渡辺真奈美|en=Manami Watanabe|ja=渡辺真奈美	122
+miyu-suzuki	seihantai-na-kimi-to-boku.yaml	鈴木みゆ|en=Miyu Suzuki|ja=鈴木みゆ	122
+natsumi-nishi	seihantai-na-kimi-to-boku.yaml	西奈津美|en=Natsumi Nishi|ja=西奈津美	122
+rikako-honda	seihantai-na-kimi-to-boku.yaml	本田梨花子|en=Rikako Honda|ja=本田梨花子	122
+shino-azuma	seihantai-na-kimi-to-boku.yaml	東紫乃|en=Shino Azuma|ja=東紫乃	122
+shuji-taira	seihantai-na-kimi-to-boku.yaml	平秀司|en=Shūji Taira|ja=平秀司	122
+yusuke-tani	seihantai-na-kimi-to-boku.yaml	谷悠介|en=Yūsuke Tani|ja=谷悠介	122
+aura	sousou-no-frieren.yaml	アウラ|en=Aura|ja=アウラ	128
+blei	sousou-no-frieren.yaml	ブライ|en=Blei|ja=ブライ	128
+dach	sousou-no-frieren.yaml	ダッハ|en=Dach|ja=ダッハ	128
+denken	sousou-no-frieren.yaml	デンケン|en=Denken|ja=デンケン	128
+draht	sousou-no-frieren.yaml	ドラート|en=Draht|ja=ドラート	128
+dunste	sousou-no-frieren.yaml	ドゥンスト|en=Dünste|ja=ドゥンスト	128
+edel	sousou-no-frieren.yaml	エーデル|en=Edel|ja=エーデル	128
+ehre	sousou-no-frieren.yaml	エーレ|en=Ehre|ja=エーレ	128
+eisen	sousou-no-frieren.yaml	アイゼン|en=Eisen|ja=アイゼン	128
+falsch	sousou-no-frieren.yaml	ファルシュ|en=Falsch|ja=ファルシュ	128
+fern	sousou-no-frieren.yaml	フェルン|en=Fern|ja=フェルン	128
+flamme	sousou-no-frieren.yaml	フランメ|en=Flamme|ja=フランメ	128
+frieren	sousou-no-frieren.yaml	フリーレン|en=Frieren|ja=フリーレン	128
+gabel	sousou-no-frieren.yaml	ガーベル|en=Gabel|ja=ガーベル	128
+genau	sousou-no-frieren.yaml	ゲナウ|en=Genau|ja=ゲナウ	128
+gorilla	sousou-no-frieren.yaml	ゴリラ|en=Gorilla|ja=ゴリラ	128
+granat	sousou-no-frieren.yaml	グラナト|en=Granat|ja=グラナト	128
+heiter	sousou-no-frieren.yaml	ハイター|en=Heiter|ja=ハイター	128
+hero-of-the-south	sousou-no-frieren.yaml	南の勇者|en=Hero of the South|ja=南の勇者	128
+himmel	sousou-no-frieren.yaml	ヒンメル|en=Himmel|ja=ヒンメル	128
+kanne	sousou-no-frieren.yaml	カンネ|en=Kanne|ja=カンネ	128
+kraft	sousou-no-frieren.yaml	クラフト|en=Kraft|ja=クラフト	128
+land	sousou-no-frieren.yaml	ラント|en=Land|ja=ラント	128
+laufen	sousou-no-frieren.yaml	ラオフェン|en=Laufen|ja=ラオフェン	128
+lawine	sousou-no-frieren.yaml	ラヴィーネ|en=Lawine|ja=ラヴィーネ	128
+lernen	sousou-no-frieren.yaml	レルネン|en=Lernen|ja=レルネン	128
+linie	sousou-no-frieren.yaml	リーニエ|en=Linie|ja=リーニエ	128
+lange	sousou-no-frieren.yaml	レンゲ|en=Länge|ja=レンゲ	128
+lugner	sousou-no-frieren.yaml	リュグナー|en=Lügner|ja=リュグナー	128
+methode	sousou-no-frieren.yaml	メトーデ|en=Methode|ja=メトーデ	128
+orden	sousou-no-frieren.yaml	オルデン|en=Orden|ja=オルデン	128
+revolte	sousou-no-frieren.yaml	レヴォルテ|en=Revolte|ja=レヴォルテ	128
+richter	sousou-no-frieren.yaml	リヒター|en=Richter|ja=リヒター	128
+scharf	sousou-no-frieren.yaml	シャルフ|en=Scharf|ja=シャルフ	128
+sein	sousou-no-frieren.yaml	ザイン|en=Sein|ja=ザイン	128
+sense	sousou-no-frieren.yaml	ゼンゼ|en=Sense|ja=ゼンゼ	128
+serie	sousou-no-frieren.yaml	ゼーリエ|en=Serie|ja=ゼーリエ	128
+stark	sousou-no-frieren.yaml	シュタルク|en=Stark|ja=シュタルク	128
+stoltz	sousou-no-frieren.yaml	シュトルツ|en=Stoltz|ja=シュトルツ	128
+ton	sousou-no-frieren.yaml	トーン|en=Ton|ja=トーン	128
+voll	sousou-no-frieren.yaml	フォル|en=Voll|ja=フォル	128
+wirbel	sousou-no-frieren.yaml	ヴィアベル|en=Wirbel|ja=ヴィアベル	128
+ubel	sousou-no-frieren.yaml	ユーベル|en=Übel|ja=ユーベル	128
+abiru	tensei-shitara-slime-datta-ken.yaml	アビル|en=Abiru|ja=アビル	132
+adalman	tensei-shitara-slime-datta-ken.yaml	アダルマン|en=Adalman|ja=アダルマン	132
+aegil	tensei-shitara-slime-datta-ken.yaml	エーギル|en=Aegil|ja=エーギル	132
+agera	tensei-shitara-slime-datta-ken.yaml	アゲーラ|en=Agera|ja=アゲーラ	132
+albis	tensei-shitara-slime-datta-ken.yaml	アルビス|en=Albis|ja=アルビス	132
+alice-rondo	tensei-shitara-slime-datta-ken.yaml	アリス・ロンド|en=Alice Rondo|ja=アリス・ロンド	132
+alrose	tensei-shitara-slime-datta-ken.yaml	アルロス|en=Alrose|ja=アルロス	132
+anrietta	tensei-shitara-slime-datta-ken.yaml	アンリエッタ|en=Anrietta|ja=アンリエッタ	132
+arnaud-bauman	tensei-shitara-slime-datta-ken.yaml	アルノー・バウマン|en=Arnaud Bauman|ja=アルノー・バウマン	132
+ayn	tensei-shitara-slime-datta-ken.yaml	アイン|en=Ayn|ja=アイン	132
+bacchus	tensei-shitara-slime-datta-ken.yaml	バッカス|en=Bacchus|ja=バッカス	132
+benimaru	tensei-shitara-slime-datta-ken.yaml	紅丸|en=Benimaru|ja=紅丸	132
+beretta	tensei-shitara-slime-datta-ken.yaml	ベレッタ|en=Beretta|ja=ベレッタ	132
+bernie	tensei-shitara-slime-datta-ken.yaml	バーニィ|en=Bernie|ja=バーニィ	132
+carrera	tensei-shitara-slime-datta-ken.yaml	カレラ|en=Carrera|ja=カレラ	132
+carrion	tensei-shitara-slime-datta-ken.yaml	カリオン|en=Carrion|ja=カリオン	132
+charys	tensei-shitara-slime-datta-ken.yaml	カリス|en=Charys|ja=カリス	132
+chloe-aubert	tensei-shitara-slime-datta-ken.yaml	クロエ・オベール|en=Chloe Aubert|ja=クロエ・オベール	132
+cien	tensei-shitara-slime-datta-ken.yaml	シエン|en=Cien|ja=シエン	132
+clayman	tensei-shitara-slime-datta-ken.yaml	クレイマン|en=Clayman|ja=クレイマン	132
+dagruel	tensei-shitara-slime-datta-ken.yaml	ダグリュール|en=Dagruel|ja=ダグリュール	132
+dagura	tensei-shitara-slime-datta-ken.yaml	ダグラ|en=Dagura|ja=ダグラ	132
+damrada	tensei-shitara-slime-datta-ken.yaml	ダムラダ|en=Damrada|ja=ダムラダ	132
+debura	tensei-shitara-slime-datta-ken.yaml	デブラ|en=Debura|ja=デブラ	132
+diablo	tensei-shitara-slime-datta-ken.yaml	ディアブロ|en=Diablo|ja=ディアブロ	132
+dino	tensei-shitara-slime-datta-ken.yaml	ディーノ|en=Dino|ja=ディーノ	132
+dord	tensei-shitara-slime-datta-ken.yaml	ドルド|en=Dord|ja=ドルド	132
+doreth	tensei-shitara-slime-datta-ken.yaml	ドリス|en=Doreth|ja=ドリス	132
+dorf	tensei-shitara-slime-datta-ken.yaml	ドルフ|en=Dorf|ja=ドルフ	132
+drum-blumund	tensei-shitara-slime-datta-ken.yaml	ドラム・ブルムンド|en=Drum Blumund|ja=ドラム・ブルムンド	132
+edgar	tensei-shitara-slime-datta-ken.yaml	エドガー|en=Edgar|ja=エドガー	132
+edmaris-falmuth	tensei-shitara-slime-datta-ken.yaml	エドマリス・ファルムス|en=Edmaris Falmuth|ja=エドマリス・ファルムス	132
+edward	tensei-shitara-slime-datta-ken.yaml	エドワルド|en=Edward|ja=エドワルド	132
+elmesia-el-ru-sarion	tensei-shitara-slime-datta-ken.yaml	エルメシア・エル・リュ・サリオン|en=Elmesia El Ru Sarion|ja=エルメシア・エル・リュ・サリオン	132
+elric-von-englassia	tensei-shitara-slime-datta-ken.yaml	エルリック・フォン・イングラシア|en=Elric von Englassia|ja=エルリック・フォン・イングラシア	132
+erald-grimwald	tensei-shitara-slime-datta-ken.yaml	エラルド・グリムワルト|en=Erald Grimwald|ja=エラルド・グリムワルト	132
+eren	tensei-shitara-slime-datta-ken.yaml	エレン|en=Eren|ja=エレン	132
+esprit	tensei-shitara-slime-datta-ken.yaml	エスプリ|en=Esprit|ja=エスプリ	132
+eva	tensei-shitara-slime-datta-ken.yaml	エヴァ|en=Eva|ja=エヴァ	132
+folgen	tensei-shitara-slime-datta-ken.yaml	フォルゲン|en=Folgen|ja=フォルゲン	132
+footman	tensei-shitara-slime-datta-ken.yaml	フットマン|en=Footman|ja=フットマン	132
+frey	tensei-shitara-slime-datta-ken.yaml	フレイ|en=Frey|ja=フレイ	132
+fritz	tensei-shitara-slime-datta-ken.yaml	フリッツ|en=Fritz|ja=フリッツ	132
+fuze	tensei-shitara-slime-datta-ken.yaml	フューズ|en=Fuze|ja=フューズ	132
+gaban	tensei-shitara-slime-datta-ken.yaml	ギャバン|en=Gaban|ja=ギャバン	132
+gabiru	tensei-shitara-slime-datta-ken.yaml	ガビル|en=Gabiru|ja=ガビル	132
+gaiye	tensei-shitara-slime-datta-ken.yaml	ガイ|en=Gaiye|ja=ガイ	132
+gale-gibson	tensei-shitara-slime-datta-ken.yaml	ゲイル・ギブスン|en=Gale Gibson|ja=ゲイル・ギブスン	132
+gard-mjollmile	tensei-shitara-slime-datta-ken.yaml	ガルド・ミョルマイル|en=Gard Mjöllmile|ja=ガルド・ミョルマイル	132
+garde	tensei-shitara-slime-datta-ken.yaml	ギャルド|en=Garde|ja=ギャルド	132
+garm	tensei-shitara-slime-datta-ken.yaml	ガルム|en=Garm|ja=ガルム	132
+gazel-dwargo	tensei-shitara-slime-datta-ken.yaml	ガゼル・ドワルゴ|en=Gazel Dwargo|ja=ガゼル・ドワルゴ	132
+geld	tensei-shitara-slime-datta-ken.yaml	ゲルド|en=Geld|ja=ゲルド	132
+geld-i	tensei-shitara-slime-datta-ken.yaml	ゲルド|en=Geld I|ja=ゲルド	132
+gelmud	tensei-shitara-slime-datta-ken.yaml	ゲルミュッド|en=Gelmud|ja=ゲルミュッド	132
+gido	tensei-shitara-slime-datta-ken.yaml	ギド|en=Gido|ja=ギド	132
+girard	tensei-shitara-slime-datta-ken.yaml	ジラード|en=Girard|ja=ジラード	132
+glenda-attley	tensei-shitara-slime-datta-ken.yaml	グレンダ・アトリー|en=Glenda Attley|ja=グレンダ・アトリー	132
+gob-emon	tensei-shitara-slime-datta-ken.yaml	ゴブエモン|en=Gob'emon|ja=ゴブエモン	132
+gobkyu	tensei-shitara-slime-datta-ken.yaml	ゴブキュウ|en=Gobkyū|ja=ゴブキュウ	132
+gobta	tensei-shitara-slime-datta-ken.yaml	ゴブタ|en=Gobta|ja=ゴブタ	132
+gobwa	tensei-shitara-slime-datta-ken.yaml	ゴブア|en=Gobwa|ja=ゴブア	132
+gobzo	tensei-shitara-slime-datta-ken.yaml	ゴブゾウ|en=Gobzo|ja=ゴブゾウ	132
+gozul	tensei-shitara-slime-datta-ken.yaml	ゴズール|en=Gozul|ja=ゴズール	132
+granbell-rosso	tensei-shitara-slime-datta-ken.yaml	グランベル・ロッゾ|en=Granbell Rosso|ja=グランベル・ロッゾ	132
+grigori	tensei-shitara-slime-datta-ken.yaml	グレゴリー|en=Grigori|ja=グレゴリー	132
+grucius	tensei-shitara-slime-datta-ken.yaml	グルーシス|en=Grucius|ja=グルーシス	132
+gunther-strauss	tensei-shitara-slime-datta-ken.yaml	ギュンター・シュトラウス|en=Gunther Strauss|ja=ギュンター・シュトラウス	132
+guy-crimson	tensei-shitara-slime-datta-ken.yaml	ギィ・クリムゾン|en=Guy Crimson|ja=ギィ・クリムゾン	132
+hakurou	tensei-shitara-slime-datta-ken.yaml	白老|en=Hakurou|ja=白老	132
+haruna	tensei-shitara-slime-datta-ken.yaml	ハルナ|en=Haruna|ja=ハルナ	132
+hermes	tensei-shitara-slime-datta-ken.yaml	ヘルメス|en=Hermes|ja=ヘルメス	132
+hinata-sakaguchi	tensei-shitara-slime-datta-ken.yaml	坂口日向|en=Hinata Sakaguchi|ja=坂口日向	132
+jaine	tensei-shitara-slime-datta-ken.yaml	ジェーン|en=Jaine|ja=ジェーン	132
+jinrai	tensei-shitara-slime-datta-ken.yaml	ジンライ|en=Jinrai|ja=ジンライ	132
+jiwu	tensei-shitara-slime-datta-ken.yaml	ジウ|en=Jiwu|ja=ジウ	132
+johann-rostia	tensei-shitara-slime-datta-ken.yaml	ヨハン・ロスティア|en=Johann Rostia|ja=ヨハン・ロスティア	132
+kaede	tensei-shitara-slime-datta-ken.yaml	楓|en=Kaede|ja=楓	132
+kagali	tensei-shitara-slime-datta-ken.yaml	カガリ|en=Kagali|ja=カガリ	132
+kaijin	tensei-shitara-slime-datta-ken.yaml	カイジン|en=Kaijin|ja=カイジン	132
+kaoru-yoshida	tensei-shitara-slime-datta-ken.yaml	吉田薫|en=Kaoru Yoshida|ja=吉田薫	132
+kaval	tensei-shitara-slime-datta-ken.yaml	カバル|en=Kaval|ja=カバル	132
+kenya-misaki	tensei-shitara-slime-datta-ken.yaml	三崎剣也|en=Kenya Misaki|ja=三崎剣也	132
+kirara-mizutani	tensei-shitara-slime-datta-ken.yaml	キララ・ミズタニ|en=Kirara Mizutani|ja=キララ・ミズタニ	132
+kumara	tensei-shitara-slime-datta-ken.yaml	九魔羅|en=Kumara|ja=九魔羅	132
+kurobe	tensei-shitara-slime-datta-ken.yaml	黒兵衛|en=Kurobe|ja=黒兵衛	132
+kyoya-tachibana	tensei-shitara-slime-datta-ken.yaml	キョウヤ・タチバナ|en=Kyōya Tachibana|ja=キョウヤ・タチバナ	132
+laplace	tensei-shitara-slime-datta-ken.yaml	ラプラス|en=Laplace|ja=ラプラス	132
+leon-cromwell	tensei-shitara-slime-datta-ken.yaml	レオン・クロムウェル|en=Leon Cromwell|ja=レオン・クロムウェル	132
+leonard-jester	tensei-shitara-slime-datta-ken.yaml	レナード・ジェスター|en=Leonard Jester|ja=レナード・ジェスター	132
+lester	tensei-shitara-slime-datta-ken.yaml	レスター|en=Lester|ja=レスター	132
+litus	tensei-shitara-slime-datta-ken.yaml	リティス|en=Litus|ja=リティス	132
+louis-valentine	tensei-shitara-slime-datta-ken.yaml	ルイ・ヴァレンタイン|en=Louis Valentine|ja=ルイ・ヴァレンタイン	132
+luminous-valentine	tensei-shitara-slime-datta-ken.yaml	ルミナス・バレンタイン|en=Luminous Valentine|ja=ルミナス・バレンタイン	132
+maribel-rosso	tensei-shitara-slime-datta-ken.yaml	マリアベル・ロッゾ|en=Maribel Rosso|ja=マリアベル・ロッゾ	132
+masayuki-rudra-nam-ul-nasca	tensei-shitara-slime-datta-ken.yaml	マサユキ・ルドラ・ナム・ウル・ナスカ|en=Masayuki Rudra Nam Ul Nasca|ja=マサユキ・ルドラ・ナム・ウル・ナスカ	132
+mezul	tensei-shitara-slime-datta-ken.yaml	ゴズール|en=Mezul|ja=ゴズール	132
+middray	tensei-shitara-slime-datta-ken.yaml	ミッドレイ|en=Middray|ja=ミッドレイ	132
+milim-nava	tensei-shitara-slime-datta-ken.yaml	ミリム・ナーヴァ|en=Milim Nava|ja=ミリム・ナーヴァ	132
+misery	tensei-shitara-slime-datta-ken.yaml	ミザリー|en=Misery|ja=ミザリー	132
+misha	tensei-shitara-slime-datta-ken.yaml	ミーシャ|en=Misha|ja=ミーシャ	132
+mjurran	tensei-shitara-slime-datta-ken.yaml	ミュウラン|en=Mjurran|ja=ミュウラン	132
+momiji	tensei-shitara-slime-datta-ken.yaml	紅葉|en=Momiji|ja=紅葉	132
+moss	tensei-shitara-slime-datta-ken.yaml	モス|en=Moss|ja=モス	132
+muese	tensei-shitara-slime-datta-ken.yaml	ミューゼ|en=Muese|ja=ミューゼ	132
+myrd	tensei-shitara-slime-datta-ken.yaml	ミルド|en=Myrd|ja=ミルド	132
+nikolaus-spertus	tensei-shitara-slime-datta-ken.yaml	ニコラウス・シュペルタス|en=Nikolaus Spertus|ja=ニコラウス・シュペルタス	132
+phobio	tensei-shitara-slime-datta-ken.yaml	フォビオ|en=Phobio|ja=フォビオ	132
+rain	tensei-shitara-slime-datta-ken.yaml	レイン|en=Rain|ja=レイン	132
+ramiris	tensei-shitara-slime-datta-ken.yaml	ラミリス|en=Ramiris|ja=ラミリス	132
+ranga	tensei-shitara-slime-datta-ken.yaml	嵐牙|en=Ranga|ja=嵐牙	132
+raphael	tensei-shitara-slime-datta-ken.yaml	智慧之王|en=Raphael|ja=智慧之王	132
+razen	tensei-shitara-slime-datta-ken.yaml	ラーゼン|en=Razen|ja=ラーゼン	132
+reiner	tensei-shitara-slime-datta-ken.yaml	ライナー|en=Reiner|ja=ライナー	132
+reyhiem	tensei-shitara-slime-datta-ken.yaml	レイヒム|en=Reyhiem|ja=レイヒム	132
+rigur	tensei-shitara-slime-datta-ken.yaml	リグル|en=Rigur|ja=リグル	132
+rigurd	tensei-shitara-slime-datta-ken.yaml	リグルド|en=Rigurd|ja=リグルド	132
+rimuru-tempest	tensei-shitara-slime-datta-ken.yaml	リムル＝テンペスト|en=Rimuru Tempest|ja=リムル＝テンペスト	132
+roy-valentine	tensei-shitara-slime-datta-ken.yaml	ロイ・ヴァレンタイン|en=Roy Valentine|ja=ロイ・ヴァレンタイン	132
+ryota-sekiguchi	tensei-shitara-slime-datta-ken.yaml	関口良太|en=Ryota Sekiguchi|ja=関口良太	132
+ryura	tensei-shitara-slime-datta-ken.yaml	リューラ|en=Ryura|ja=リューラ	132
+saare	tensei-shitara-slime-datta-ken.yaml	サーレ|en=Saare|ja=サーレ	132
+satoru-mikami	tensei-shitara-slime-datta-ken.yaml	三上悟|en=Satoru Mikami|ja=三上悟	132
+shion	tensei-shitara-slime-datta-ken.yaml	紫苑|en=Shion|ja=紫苑	132
+shizu	tensei-shitara-slime-datta-ken.yaml	シズ|en=Shizu|ja=シズ	132
+shuna	tensei-shitara-slime-datta-ken.yaml	朱菜|en=Shuna|ja=朱菜	132
+shogo-taguchi	tensei-shitara-slime-datta-ken.yaml	ショウゴ・タグチ|en=Shōgo Taguchi|ja=ショウゴ・タグチ	132
+souei	tensei-shitara-slime-datta-ken.yaml	蒼影|en=Souei|ja=蒼影	132
+souka	tensei-shitara-slime-datta-ken.yaml	蒼華|en=Souka|ja=蒼華	132
+suphia	tensei-shitara-slime-datta-ken.yaml	スフィア|en=Suphia|ja=スフィア	132
+tamura	tensei-shitara-slime-datta-ken.yaml	田村|en=Tamura|ja=田村	132
+tear	tensei-shitara-slime-datta-ken.yaml	ティア|en=Tear|ja=ティア	132
+testarossa	tensei-shitara-slime-datta-ken.yaml	テスタロッサ|en=Testarossa|ja=テスタロッサ	132
+tiss	tensei-shitara-slime-datta-ken.yaml	ティス|en=Tiss|ja=ティス	132
+treyni	tensei-shitara-slime-datta-ken.yaml	トレイニー|en=Treyni|ja=トレイニー	132
+trya	tensei-shitara-slime-datta-ken.yaml	トライア|en=Trya|ja=トライア	132
+ultima	tensei-shitara-slime-datta-ken.yaml	ウルティマ|en=Ultima|ja=ウルティマ	132
+vaughn	tensei-shitara-slime-datta-ken.yaml	バーン|en=Vaughn|ja=バーン	132
+veldora-tempest	tensei-shitara-slime-datta-ken.yaml	ヴェルドラ＝テンペスト|en=Veldora Tempest|ja=ヴェルドラ＝テンペスト	132
+velzard	tensei-shitara-slime-datta-ken.yaml	ヴェルザード|en=Velzard|ja=ヴェルザード	132
+venom	tensei-shitara-slime-datta-ken.yaml	ヴェノム|en=Venom|ja=ヴェノム	132
+veryard	tensei-shitara-slime-datta-ken.yaml	ベルヤード|en=Veryard|ja=ベルヤード	132
+vesta	tensei-shitara-slime-datta-ken.yaml	ベスター|en=Vesta|ja=ベスター	132
+veyron	tensei-shitara-slime-datta-ken.yaml	ヴェイロン|en=Veyron|ja=ヴェイロン	132
+yamza	tensei-shitara-slime-datta-ken.yaml	ヤムザ|en=Yamza|ja=ヤムザ	132
+youm	tensei-shitara-slime-datta-ken.yaml	ヨウム|en=Youm|ja=ヨウム	132
+yuuki-kagurazaka	tensei-shitara-slime-datta-ken.yaml	神楽坂優樹|en=Yuuki Kagurazaka|ja=神楽坂優樹	132
+zonda	tensei-shitara-slime-datta-ken.yaml	ゾンダ|en=Zonda|ja=ゾンダ	132
+agott	tongari-boushi-no-atelier.yaml	アガット|en=Agott|ja=アガット	134
+alaira	tongari-boushi-no-atelier.yaml	アライラ|en=Alaira|ja=アライラ	134
+coco	tongari-boushi-no-atelier.yaml	ココ|en=Coco|ja=ココ	134
+custas	tongari-boushi-no-atelier.yaml	クスタス|en=Custas|ja=クスタス	134
+dagda	tongari-boushi-no-atelier.yaml	ダグダ|en=Dagda|ja=ダグダ	134
+easthies	tongari-boushi-no-atelier.yaml	イースヒース|en=Easthies|ja=イースヒース	134
+galga	tongari-boushi-no-atelier.yaml	ガルガ|en=Galga|ja=ガルガ	134
+iguin	tongari-boushi-no-atelier.yaml	イグイーン|en=Iguin|ja=イグイーン	134
+luluci	tongari-boushi-no-atelier.yaml	ルルシィ|en=Luluci|ja=ルルシィ	134
+nolnoa	tongari-boushi-no-atelier.yaml	ノルノア|en=Nolnoa|ja=ノルノア	134
+olruggio	tongari-boushi-no-atelier.yaml	オルーギオ|en=Olruggio|ja=オルーギオ	134
+richeh	tongari-boushi-no-atelier.yaml	リチェ|en=Richeh|ja=リチェ	134
+tartah	tongari-boushi-no-atelier.yaml	タータ|en=Tartah|ja=タータ	134
+tetia	tongari-boushi-no-atelier.yaml	テティア|en=Tetia|ja=テティア	134
+utowin	tongari-boushi-no-atelier.yaml	ウトウィン|en=Utowin|ja=ウトウィン	134
+knives-millions	trigun-stampede.yaml	|en=Knives Millions	136
+legato-bluesummers	trigun-stampede.yaml	|en=Legato Bluesummers	136
+nicholas-d-wolfwood	trigun-stampede.yaml	ニコラス・D・ウルフウッド|en=Nicholas D. Wolfwood|ja=ニコラス・D・ウルフウッド	136
+rem-saverem	trigun-stampede.yaml	レム・セイブレム|en=Rem Saverem|ja=レム・セイブレム	136
+vash-the-stampede	trigun-stampede.yaml	ヴァッシュ・ザ・スタンピード|en=Vash the Stampede|ja=ヴァッシュ・ザ・スタンピード	136
+all-might	vigilante-boku-no-hero-academia-illegals.yaml	オールマイト|en=All Might|ja=オールマイト	138
+izuku-midoriya	vigilante-boku-no-hero-academia-illegals.yaml	緑谷出久|en=Izuku Midoriya|ja=緑谷出久	138
+aaron-masterias-oldking	wistoria.yaml	アロン・マステリアス・オールドキング|en=Aaron Masterias Oldking|ja=アロン・マステリアス・オールドキング	140
+brandtal-les-ailes	wistoria.yaml	ブランタール・レゼール|en=Brandtal les Ailes|ja=ブランタール・レゼール	140
+caldron-anouve	wistoria.yaml	コルドロン・アヌーブ|en=Caldron Anouve|ja=コルドロン・アヌーブ	140
+cariott-incindia-wiseman	wistoria.yaml	キャリオット・インスティア・ワイズマン|en=Cariott Incindia Wiseman|ja=キャリオット・インスティア・ワイズマン	140
+cerridwen	wistoria.yaml	ケリドウェン|en=Cerridwen|ja=ケリドウェン	140
+clairie-serah	wistoria.yaml	クレイルウィ・セラ|en=Clairie Serah|ja=クレイルウィ・セラ	140
+colette-loire	wistoria.yaml	コレット・ロワール|en=Colette Loire|ja=コレット・ロワール	140
+donan	wistoria.yaml	ドナン|en=Donan|ja=ドナン	140
+edward-serfence	wistoria.yaml	エドワルド・セルフェンス|en=Edward Serfence|ja=エドワルド・セルフェンス	140
+elfaria-albis-serfort	wistoria.yaml	エルファリア・アルヴィス・セルフォルト|en=Elfaria Albis Serfort|ja=エルファリア・アルヴィス・セルフォルト	140
+eliza-nosferat	wistoria.yaml	エリザ・ノスフェラート|en=Eliza Nosferat|ja=エリザ・ノスフェラート	140
+ellenor-ljos-alf	wistoria.yaml	エルノール・リヨス・アールヴ|en=Ellenor Ljos Alf|ja=エルノール・リヨス・アールヴ	140
+emma-klever	wistoria.yaml	エマ・クレバー|en=Emma Klever|ja=エマ・クレバー	140
+filvis-challia	wistoria.yaml	フイルヴイス・シヤリア|en=Filvis Challia|ja=フイルヴイス・シヤリア	140
+finn	wistoria.yaml	フィン|en=Finn|ja=フィン	140
+flip-marteau	wistoria.yaml	フリップ・マルトー|en=Flip Marteau|ja=フリップ・マルトー	140
+gina	wistoria.yaml	ジーナ|en=Gina|ja=ジーナ	140
+gordon-vally	wistoria.yaml	ゴードン・バレー|en=Gordon Vally|ja=ゴードン・バレー	140
+guilford-zurgas	wistoria.yaml	ギルフォード・ズルガス|en=Guilford Zurgas|ja=ギルフォード・ズルガス	140
+iris-x-stellamaris	wistoria.yaml	アイリス・X・ステラマリス|en=Iris X. Stellamaris|ja=アイリス・X・ステラマリス	140
+jorua-moraine	wistoria.yaml	ジョルア・モレーン|en=Jorua Moraine|ja=ジョルア・モレーン	140
+julius-reinberg	wistoria.yaml	ユリウス・レインバーグ|en=Julius Reinberg|ja=ユリウス・レインバーグ	140
+kiki	wistoria.yaml	キキ|en=Kiki|ja=キキ	140
+kreutz-harlon	wistoria.yaml	クロイツ・ハーロン|en=Kreutz Harlon|ja=クロイツ・ハーロン	140
+lefiya-viridis	wistoria.yaml	レフィーヤ・ウィリディス|en=Lefiya Viridis|ja=レフィーヤ・ウィリディス	140
+lihanna-owenzaus	wistoria.yaml	リアーナ・オーウェンザウス|en=Lihanna Owenzaus|ja=リアーナ・オーウェンザウス	140
+logwell	wistoria.yaml	ログウェル|en=Logwell|ja=ログウェル	140
+lyril-mars	wistoria.yaml	リリール・マース|en=Lyril Mars|ja=リリール・マース	140
+marze	wistoria.yaml	マルゼ|en=Marze|ja=マルゼ	140
+mike-maius	wistoria.yaml	マイク・マイウス|en=Mike Maius|ja=マイク・マイウス	140
+palm-snoke	wistoria.yaml	パーム・スノック|en=Palm Snoke|ja=パーム・スノック	140
+renaisse-arette	wistoria.yaml	ルナイス・アレート|en=Renaisse Arette|ja=ルナイス・アレート	140
+rodge-holland	wistoria.yaml	ロッジ・ホランド|en=Rodge Holland|ja=ロッジ・ホランド	140
+rose-prehnite	wistoria.yaml	ロゼ・プレナイト|en=Rose Prehnite|ja=ロゼ・プレナイト	140
+rosti-nauman	wistoria.yaml	ロスティ・ナウマン|en=Rosti Nauman|ja=ロスティ・ナウマン	140
+sarissa-alfeld	wistoria.yaml	サリサ・アルフェルト|en=Sarissa Alfeld|ja=サリサ・アルフェルト	140
+sion-ulster	wistoria.yaml	シオン・アルスター|en=Sion Ulster|ja=シオン・アルスター	140
+wignall-lindor	wistoria.yaml	グノール・リンドール|en=Wignall Lindor|ja=グノール・リンドール	140
+will-serfort	wistoria.yaml	ウィル・セルフォルト|en=Will Serfort|ja=ウィル・セルフォルト	140
+workner-norgram	wistoria.yaml	ワークナー・ノーグラム|en=Workner Norgram|ja=ワークナー・ノーグラム	140
+zeo-thorzeus-reinbolt	wistoria.yaml	ゼオ・トルゼウス・ラインボルト|en=Zeo Thorzeus Reinbolt|ja=ゼオ・トルゼウス・ラインボルト	140
+arisu-sakayanagi	youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e.yaml	坂柳有栖|en=Arisu Sakayanagi|ja=坂柳有栖	145
+honami-ichinose	youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e.yaml	一之瀬帆波|en=Honami Ichinose|ja=一之瀬帆波	145
+kakeru-ryuuen	youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e.yaml	龍園翔|en=Kakeru Ryuuen|ja=龍園翔	145
+kei-karuizawa	youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e.yaml	軽井沢恵|en=Kei Karuizawa|ja=軽井沢恵	145
+kikyou-kushida	youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e.yaml	櫛田桔梗|en=Kikyou Kushida|ja=櫛田桔梗	145
+kiyotaka-ayanokoji	youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e.yaml	綾小路清隆|en=Kiyotaka Ayanokōji|ja=綾小路清隆	145
+suzune-horikita	youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e.yaml	堀北鈴音|en=Suzune Horikita|ja=堀北鈴音	145
+akemi-abikura	yowayowa-sensei.yaml	阿比倉朱美|en=Akemi Abikura|ja=阿比倉朱美	146
+akihito-abikura	yowayowa-sensei.yaml	阿比倉章人|en=Akihito Abikura|ja=阿比倉章人	146
+hiyori-hiwamura	yowayowa-sensei.yaml	鶸村ひより|en=Hiyori Hiwamura|ja=鶸村ひより	146
+kaya-kuguri	yowayowa-sensei.yaml	九栗香夜|en=Kaya Kuguri|ja=九栗香夜	146
+mizuki-mukubayashi	yowayowa-sensei.yaml	椋林瑞希|en=Mizuki Mukubayashi|ja=椋林瑞希	146
+yuki-yukishita	yowayowa-sensei.yaml	雪下祐樹|en=Yūki Yukishita|ja=雪下祐樹	146
+asano-taiyo	yozakura-san-chi-no-daisakusen.yaml	朝野太陽|en=Asano Taiyō|ja=朝野太陽	147
+yozakura-futaba	yozakura-san-chi-no-daisakusen.yaml	夜桜二刃|en=Yozakura Futaba|ja=夜桜二刃	147
+yozakura-kengo	yozakura-san-chi-no-daisakusen.yaml	夜桜嫌五|en=Yozakura Kengo|ja=夜桜嫌五	147
+yozakura-kyoichiro	yozakura-san-chi-no-daisakusen.yaml	夜桜凶一郎|en=Yozakura Kyōichirō|ja=夜桜凶一郎	147
+yozakura-mutsumi	yozakura-san-chi-no-daisakusen.yaml	夜桜六美|en=Yozakura Mutsumi|ja=夜桜六美	147
+yozakura-nanao	yozakura-san-chi-no-daisakusen.yaml	夜桜七悪|en=Yozakura Nanao|ja=夜桜七悪	147
+yozakura-shinzo	yozakura-san-chi-no-daisakusen.yaml	夜桜辛三|en=Yozakura Shinzō|ja=夜桜辛三	147
+yozakura-shion	yozakura-san-chi-no-daisakusen.yaml	夜桜四怨|en=Yozakura Shion|ja=夜桜四怨	147
+dotta-luzulas	yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku.yaml	ドッタ・ルズラス|en=Dotta Luzulas|ja=ドッタ・ルズラス	148
+frenci-mastibolt	yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku.yaml	フレンシィ・マスティボルト|en=Frenci Mastibolt|ja=フレンシィ・マスティボルト	148
+jayce-partiract	yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku.yaml	ジェイス・パーチラクト|en=Jayce Partiract|ja=ジェイス・パーチラクト	148
+neely	yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku.yaml	ニーリィ|en=Neely|ja=ニーリィ	148
+norgalle-senridge	yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku.yaml	ノルガユ・センリッジ|en=Norgalle Senridge|ja=ノルガユ・センリッジ	148
+patausche-kivia	yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku.yaml	パトーシェ・キヴィア|en=Patausche Kivia|ja=パトーシェ・キヴィア	148
+rhyno	yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku.yaml	ライノー|en=Rhyno|ja=ライノー	148
+tatsuya	yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku.yaml	タツヤ|en=Tatsuya|ja=タツヤ	148
+teoritta	yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku.yaml	テオリッタ|en=Teoritta|ja=テオリッタ	148
+tsav	yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku.yaml	ツァーヴ|en=Tsav|ja=ツァーヴ	148
+venetim-leopool	yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku.yaml	ベネティム・レオプール|en=Venetim Leopool|ja=ベネティム・レオプール	148
+xylo-forbartz	yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku.yaml	ザイロ・フォルバーツ|en=Xylo Forbartz|ja=ザイロ・フォルバーツ	148
+aki-jogamine	yuusha-no-kuzu.yaml	城ヶ峰亜希|en=Aki Jōgamine|ja=城ヶ峰亜希	149
+sara-kashiwagi-pendragon	yuusha-no-kuzu.yaml	セーラ・カシワギ・ペンドラゴン|en=Sara Kashiwagi Pendragon|ja=セーラ・カシワギ・ペンドラゴン	149
+yashiro	yuusha-no-kuzu.yaml	ヤシロ|en=Yashiro|ja=ヤシロ	149
+yukine-indo	yuusha-no-kuzu.yaml	印堂雪音|en=Yukine Indō|ja=印堂雪音	149
+!staff	id	file	names	langs	anilist	anidb	tmdb	tvdb	wikidata
+ayako-kawasumi	japanese-voice-actors.yaml	川澄綾子|en=Ayako Kawasumi|ja=川澄綾子	ja					Q49566
+natsuki-hanae	japanese-voice-actors.yaml	花江夏樹|en=Natsuki Hanae|ja=花江夏樹	ja					Q2596113
+ai-kakuma	japanese-voice-actors.yaml	加隈亜衣|en=Ai Kakuma|ja=加隈亜衣	ja					Q498632
+aimi	japanese-voice-actors.yaml	愛美|en=Aimi|ja=愛美	ja					Q11457880
+akane-kumada	japanese-voice-actors.yaml	熊田茜音|en=Akane Kumada|ja=熊田茜音	ja					Q59072330
+akane-tomonaga	japanese-voice-actors.yaml	友永朱音|en=Akane Tomonaga|ja=友永朱音	ja					Q845936
+akari-kito	japanese-voice-actors.yaml	鬼頭明里|en=Akari Kitō|ja=鬼頭明里	ja					Q20039636
+akeno-watanabe	japanese-voice-actors.yaml	渡辺明乃|en=Akeno Watanabe|ja=渡辺明乃	ja					Q1323415
+aki-toyosaki	japanese-voice-actors.yaml	豊崎愛生|en=Aki Toyosaki|ja=豊崎愛生	ja					Q242014
+akio-otsuka	japanese-voice-actors.yaml	大塚明夫|en=Akio Ōtsuka|ja=大塚明夫	ja					Q418649
+akira-ishida	japanese-voice-actors.yaml	石田彰|en=Akira Ishida|ja=石田彰	ja					Q418736
+akira-sekine	japanese-voice-actors.yaml	関根明良|en=Akira Sekine|ja=関根明良	ja					Q17160276
+ami-koshimizu	japanese-voice-actors.yaml	小清水亜美|en=Ami Koshimizu|ja=小清水亜美	ja					Q236715
+anji-iwata	japanese-voice-actors.yaml	岩田アンジ|en=Anji Iwata|ja=岩田アンジ	ja					Q134508433
+anna-nagase	japanese-voice-actors.yaml	永瀬アンナ|en=Anna Nagase|ja=永瀬アンナ	ja					Q108110143
+anzu-haruno	japanese-voice-actors.yaml	春野杏|en=Anzu Haruno|ja=春野杏	ja					Q30922639
+aoi-ichikawa	japanese-voice-actors.yaml	市川蒼|en=Aoi Ichikawa|ja=市川蒼	ja					Q48760762
+aoi-inase	japanese-voice-actors.yaml	いなせあおい|en=Aoi Inase|ja=いなせあおい	ja					Q24874042
+aoi-koga	japanese-voice-actors.yaml	古賀葵|en=Aoi Koga|ja=古賀葵	ja					Q26678197
+aoi-yuki	japanese-voice-actors.yaml	悠木碧|en=Aoi Yūki|ja=悠木碧	ja					Q1347031
+asami-seto	japanese-voice-actors.yaml	瀬戸麻沙美|en=Asami Seto|ja=瀬戸麻沙美	ja					Q4703774
+asuka-nishi	japanese-voice-actors.yaml	西明日香|en=Asuka Nishi|ja=西明日香	ja					Q11485494
+asuna-tomari	japanese-voice-actors.yaml	泊明日菜|en=Asuna Tomari|ja=泊明日菜	ja					Q26043249
+atsuko-tanaka	japanese-voice-actors.yaml	田中敦子|en=Atsuko Tanaka|ja=田中敦子	ja					Q1208611
+atsumi-tanezaki	japanese-voice-actors.yaml	種﨑敦美|en=Atsumi Tanezaki|ja=種﨑敦美	ja					Q3183413
+atsushi-abe	japanese-voice-actors.yaml	阿部敦|en=Atsushi Abe|ja=阿部敦	ja					Q939679
+atsushi-imaruoka	japanese-voice-actors.yaml	伊丸岡篤|en=Atsushi Imaruoka|ja=伊丸岡篤	ja					Q392207
+atsushi-kosaka	japanese-voice-actors.yaml	髙坂篤志|en=Atsushi Kōsaka|ja=髙坂篤志	ja					Q6643546
+atsushi-miyauchi	japanese-voice-actors.yaml	宮内敦士|en=Atsushi Miyauchi|ja=宮内敦士	ja					Q11453317
+atsushi-ono	japanese-voice-actors.yaml	斧アツシ|en=Atsushi Ono|ja=斧アツシ	ja					Q11500800
+atsushi-tamaru	japanese-voice-actors.yaml	田丸篤志|en=Atsushi Tamaru|ja=田丸篤志	ja					Q4896220
+aya-endo	japanese-voice-actors.yaml	遠藤綾|en=Aya Endō|ja=遠藤綾	ja					Q1369247
+aya-hisakawa	japanese-voice-actors.yaml	久川綾|en=Aya Hisakawa|ja=久川綾	ja					Q49573
+aya-suzaki	japanese-voice-actors.yaml	洲崎綾|en=Aya Suzaki|ja=洲崎綾	ja					Q888218
+aya-uchida	japanese-voice-actors.yaml	内田彩|en=Aya Uchida|ja=内田彩	ja					Q4822691
+aya-yamane	japanese-voice-actors.yaml	山根綺|en=Aya Yamane|ja=山根綺	ja					Q57314549
+ayaka-asai	japanese-voice-actors.yaml	朝井彩加|en=Ayaka Asai|ja=朝井彩加	ja					Q17685820
+ayaka-nanase	japanese-voice-actors.yaml	七瀬彩夏|en=Ayaka Nanase|ja=七瀬彩夏	ja					Q22126767
+ayaka-shimizu	japanese-voice-actors.yaml	清水彩香|en=Ayaka Shimizu|ja=清水彩香	ja					Q11254552
+ayana-taketatsu	japanese-voice-actors.yaml	竹達彩奈|en=Ayana Taketatsu|ja=竹達彩奈	ja					Q1204576
+ayano-shibuya	japanese-voice-actors.yaml	渋谷彩乃|en=Ayano Shibuya|ja=渋谷彩乃	ja					Q30924445
+ayumu-asakura	japanese-voice-actors.yaml	浅倉歩|en=Ayumu Asakura|ja=浅倉歩	ja					Q6643543
+ayumu-murase	japanese-voice-actors.yaml	村瀬歩|en=Ayumu Murase|ja=村瀬歩	ja					Q11523377
+azumi-waki	japanese-voice-actors.yaml	和氣あず未|en=Azumi Waki|ja=和氣あず未	ja					Q23948485
+azusa-tachibana	japanese-voice-actors.yaml	橘杏咲|en=Azusa Tachibana|ja=橘杏咲	ja					Q124943862
+azusa-tadokoro	japanese-voice-actors.yaml	田所あずさ|en=Azusa Tadokoro|ja=田所あずさ	ja					Q247629
+bin-shimada	japanese-voice-actors.yaml	島田敏|en=Bin Shimada|ja=島田敏	ja					Q1323728
+chafurin	japanese-voice-actors.yaml	茶風林|en=Chafurin|ja=茶風林	ja					Q2714894
+chiaki-kobayashi	japanese-voice-actors.yaml	小林千晃|en=Chiaki Kobayashi|ja=小林千晃	ja					Q56808711
+chiharu-sawashiro	japanese-voice-actors.yaml	沢城千春|en=Chiharu Sawashiro|ja=沢城千春	ja					Q17159211
+chika-anzai	japanese-voice-actors.yaml	安済知佳|en=Chika Anzai|ja=安済知佳	ja					Q11450941
+chikahiro-kobayashi	japanese-voice-actors.yaml	小林親弘|en=Chikahiro Kobayashi|ja=小林親弘	ja					Q17158231
+chinatsu-akasaki	japanese-voice-actors.yaml	赤﨑千夏|en=Chinatsu Akasaki|ja=赤﨑千夏	ja					Q5100189
+chiyo-tomaru	japanese-voice-actors.yaml	都丸ちよ|en=Chiyo Tomaru|ja=都丸ちよ	ja					Q17161754
+daiki-kobayashi	japanese-voice-actors.yaml	小林大紀|en=Daiki Kobayashi|ja=小林大紀	ja					Q24865397
+daiki-yamashita	japanese-voice-actors.yaml	山下大輝|en=Daiki Yamashita|ja=山下大輝	ja					Q15975368
+daisuke-namikawa	japanese-voice-actors.yaml	浪川大輔|en=Daisuke Namikawa|ja=浪川大輔	ja					Q1145291
+daisuke-ono	japanese-voice-actors.yaml	小野大輔|en=Daisuke Ono|ja=小野大輔	ja					Q718358
+daisuke-sakuma	japanese-voice-actors.yaml	佐久間大介|en=Daisuke Sakuma|ja=佐久間大介	ja					Q20040262
+eiji-hanawa	japanese-voice-actors.yaml	花輪英司|en=Eiji Hanawa|ja=花輪英司	ja					Q11284088
+eiji-takemoto	japanese-voice-actors.yaml	竹本英史|en=Eiji Takemoto|ja=竹本英史	ja					Q604099
+eiko-yamada	japanese-voice-actors.yaml	山田栄子|en=Eiko Yamada|ja=山田栄子	ja					Q2706764
+eri-yukimura	japanese-voice-actors.yaml	幸村恵理|en=Eri Yukimura|ja=幸村恵理	ja					Q59141816
+fairouz-ai	japanese-voice-actors.yaml	ファイルーズあい|en=Fairouz Ai|ja=ファイルーズあい	ja					Q65600537
+fuka-izumi	japanese-voice-actors.yaml	和泉風花|en=Fūka Izumi|ja=和泉風花	ja					Q71679217
+fumiko-orikasa	japanese-voice-actors.yaml	折笠富美子|en=Fumiko Orikasa|ja=折笠富美子	ja					Q49547
+fumiya-imai	japanese-voice-actors.yaml	今井文也|en=Fumiya Imai|ja=今井文也	ja					Q68185187
+gakuto-kajiwara	japanese-voice-actors.yaml	梶原岳人|en=Gakuto Kajiwara|ja=梶原岳人	ja					Q45819909
+gen-sato	japanese-voice-actors.yaml	佐藤元|en=Gen Satō|ja=佐藤元	ja					Q64782625
+genki-muro	japanese-voice-actors.yaml	室元気|en=Genki Muro|ja=室元気	ja					Q11452982
+genki-okawa	japanese-voice-actors.yaml	大河元気|en=Genki Ōkawa|ja=大河元気	ja					Q9125044
+hajime-iijima	japanese-voice-actors.yaml	飯島肇|en=Hajime Iijima|ja=飯島肇	ja					Q5639967
+hana-sato	japanese-voice-actors.yaml	佐藤はな|en=Hana Satō|ja=佐藤はな	ja					Q20040353
+haruka-aikawa	japanese-voice-actors.yaml	相川遥花|en=Haruka Aikawa|ja=相川遥花	ja					Q117481662
+haruka-shiraishi	japanese-voice-actors.yaml	白石晴香|en=Haruka Shiraishi|ja=白石晴香	ja					Q17993659
+haruka-terui	japanese-voice-actors.yaml	照井春佳|en=Haruka Terui|ja=照井春佳	ja					Q11567752
+haruka-tomatsu	japanese-voice-actors.yaml	戸松遥|en=Haruka Tomatsu|ja=戸松遥	ja					Q50025
+haruki-ishiya	japanese-voice-actors.yaml	石谷春貴|en=Haruki Ishiya|ja=石谷春貴	ja					Q18335661
+haruna-asami	japanese-voice-actors.yaml	浅見春那|en=Haruna Asami|ja=浅見春那	ja					Q98117540
+hayato-fujii	japanese-voice-actors.yaml	藤井隼|en=Hayato Fujii|ja=藤井隼	ja					Q64782549
+hibiku-yamamura	japanese-voice-actors.yaml	山村響|en=Hibiku Yamamura|ja=山村響	ja					Q11469493
+hideo-ishikawa	japanese-voice-actors.yaml	石川英郎|en=Hideo Ishikawa|ja=石川英郎	ja					Q1204249
+hideyuki-tanaka	japanese-voice-actors.yaml	田中秀幸|en=Hideyuki Tanaka|ja=田中秀幸	ja					Q2440809
+hika-tsukishiro	japanese-voice-actors.yaml	月城日花|en=Hika Tsukishiro|ja=月城日花	ja					Q85884118
+hikari-senga	japanese-voice-actors.yaml	千賀光莉|en=Hikari Senga|ja=千賀光莉	ja					Q137534224
+hina-tachibana	japanese-voice-actors.yaml	立花日菜|en=Hina Tachibana|ja=立花日菜	ja					Q63050400
+hiroki-tochi	japanese-voice-actors.yaml	東地宏樹|en=Hiroki Tōchi|ja=東地宏樹	ja					Q2704867
+hiroki-yasumoto	japanese-voice-actors.yaml	安元洋貴|en=Hiroki Yasumoto|ja=安元洋貴	ja					Q1365535
+hiroko-emori	japanese-voice-actors.yaml	江森浩子|en=Hiroko Emori|ja=江森浩子	ja					Q3089633
+hiromichi-tezuka	japanese-voice-actors.yaml	手塚ヒロミチ|en=Hiromichi Tezuka|ja=手塚ヒロミチ	ja					Q17161488
+hiromu-mineta	japanese-voice-actors.yaml	峯田大夢|en=Hiromu Mineta|ja=峯田大夢	ja					Q68185038
+hiroshi-izawa	japanese-voice-actors.yaml	伊沢弘|en=Hiroshi Izawa|ja=伊沢弘	ja					Q3546217
+hiroshi-naka	japanese-voice-actors.yaml	中博史|en=Hiroshi Naka|ja=中博史	ja					Q1060969
+hiroshi-takemura	japanese-voice-actors.yaml	竹村拓|en=Hiroshi Takemura|ja=竹村拓	ja					Q4450268
+hiroshi-yanaka	japanese-voice-actors.yaml	家中宏|en=Hiroshi Yanaka|ja=家中宏	ja					Q1000626
+hisako-kanemoto	japanese-voice-actors.yaml	金元寿子|en=Hisako Kanemoto|ja=金元寿子	ja					Q50031
+hisako-tojo	japanese-voice-actors.yaml	東城日沙子|en=Hisako Tōjō|ja=東城日沙子	ja					Q17220436
+hisao-egawa	japanese-voice-actors.yaml	江川央生|en=Hisao Egawa|ja=江川央生	ja					Q1349299
+hitomi-nabatame	japanese-voice-actors.yaml	生天目仁美|en=Hitomi Nabatame|ja=生天目仁美	ja					Q1142387
+hiyori-kono	japanese-voice-actors.yaml	河野ひより|en=Hiyori Kono|ja=河野ひより	ja					Q43427019
+hochu-otsuka	japanese-voice-actors.yaml	大塚芳忠|en=Hōchū Ōtsuka|ja=大塚芳忠	ja					Q520669
+ikumi-hasegawa	japanese-voice-actors.yaml	長谷川育美|en=Ikumi Hasegawa|ja=長谷川育美	ja					Q48765485
+inori-minase	japanese-voice-actors.yaml	水瀬いのり|en=Inori Minase|ja=水瀬いのり	ja					Q11548933
+issei-futamata	japanese-voice-actors.yaml	二又一成|en=Issei Futamata|ja=二又一成	ja					Q2463489
+itaru-yamamoto	japanese-voice-actors.yaml	山本格|en=Itaru Yamamoto|ja=山本格	ja					Q11469140
+jiro-saito	japanese-voice-actors.yaml	斉藤次郎|en=Jirō Saitō|ja=斉藤次郎	ja					Q11500307
+joji-nakata	japanese-voice-actors.yaml	中田譲治|en=Jōji Nakata|ja=中田譲治	ja					Q1372791
+jun-fukushima	japanese-voice-actors.yaml	福島潤|en=Jun Fukushima|ja=福島潤	ja					Q1826251
+jun-fukuyama	japanese-voice-actors.yaml	福山潤|en=Jun Fukuyama|ja=福山潤	ja					Q441288
+jun-ichi-kanemaru	japanese-voice-actors.yaml	金丸淳一|en=Jun'ichi Kanemaru|ja=金丸淳一	ja					Q1351561
+jun-ichi-yanagita	japanese-voice-actors.yaml	柳田淳一|en=Jun'ichi Yanagita|ja=柳田淳一	ja					Q11534574
+jun-kasama	japanese-voice-actors.yaml	笠間淳|en=Jun Kasama|ja=笠間淳	ja					Q27150536
+junichi-suwabe	japanese-voice-actors.yaml	諏訪部順一|en=Junichi Suwabe|ja=諏訪部順一	ja					Q1331947
+junya-enoki	japanese-voice-actors.yaml	榎木淳弥|en=Junya Enoki|ja=榎木淳弥	ja					Q16264591
+juri-kimura	japanese-voice-actors.yaml	木村珠莉|en=Juri Kimura|ja=木村珠莉	ja					Q18048266
+kaede-hondo	japanese-voice-actors.yaml	本渡楓|en=Kaede Hondo|ja=本渡楓	ja					Q22130427
+kaho-koda	japanese-voice-actors.yaml	幸田夏穂|en=Kaho Kōda|ja=幸田夏穂	ja					Q6347112
+kaito-ishikawa	japanese-voice-actors.yaml	石川界人|en=Kaito Ishikawa|ja=石川界人	ja					Q1964086
+kakeru-hatano	japanese-voice-actors.yaml	波多野翔|en=Kakeru Hatano|ja=波多野翔	ja					Q118330668
+kana-asumi	japanese-voice-actors.yaml	阿澄佳奈|en=Kana Asumi|ja=阿澄佳奈	ja					Q49474
+kana-ichinose	japanese-voice-actors.yaml	市ノ瀬加那|en=Kana Ichinose|ja=市ノ瀬加那	ja					Q48761396
+kana-yuki	japanese-voice-actors.yaml	優木かな|en=Kana Yūki|ja=優木かな	ja					Q17225102
+kanae-ito	japanese-voice-actors.yaml	伊藤かな恵|en=Kanae Itō|ja=伊藤かな恵	ja					Q50022
+kanako-miyamoto	japanese-voice-actors.yaml	宮本佳那子|en=Kanako Miyamoto|ja=宮本佳那子	ja					Q7485228
+kanehira-yamamoto	japanese-voice-actors.yaml	山本兼平|en=Kanehira Yamamoto|ja=山本兼平	ja					Q11468888
+kaneto-shiozawa	japanese-voice-actors.yaml	塩沢兼人|en=Kaneto Shiozawa|ja=塩沢兼人	ja					Q2447488
+kanna-nakamura	japanese-voice-actors.yaml	‎中村カンナ|en=Kanna Nakamura|ja=‎中村カンナ	ja					Q109657760
+kanon-takao	japanese-voice-actors.yaml	高尾奏音|en=Kanon Takao|ja=高尾奏音	ja					Q22124852
+kaori-maeda	japanese-voice-actors.yaml	前田佳織里|en=Kaori Maeda|ja=前田佳織里	ja					Q41693141
+kaoru-sakura	japanese-voice-actors.yaml	佐倉薫|en=Kaoru Sakura|ja=佐倉薫	ja					Q11383006
+kappei-yamaguchi	japanese-voice-actors.yaml	山口勝平|en=Kappei Yamaguchi|ja=山口勝平	ja					Q355173
+katsuyuki-konishi	japanese-voice-actors.yaml	小西克幸|en=Katsuyuki Konishi|ja=小西克幸	ja					Q725392
+kazuhiko-inoue	japanese-voice-actors.yaml	井上和彦|en=Kazuhiko Inoue|ja=井上和彦	ja					Q225654
+kazuhiro-nakaya	japanese-voice-actors.yaml	中谷一博|en=Kazuhiro Nakaya|ja=中谷一博	ja					Q11367121
+kazuki-ogawa	japanese-voice-actors.yaml	小川一樹|en=Kazuki Ogawa|ja=小川一樹	ja					Q11460334
+kazuki-ura	japanese-voice-actors.yaml	浦和希|en=Kazuki Ura|ja=浦和希	ja					Q81028715
+kazumi-amemiya	japanese-voice-actors.yaml	雨宮かずみ|en=Kazumi Amemiya|ja=雨宮かずみ	ja					Q11659676
+kazuo-oka	japanese-voice-actors.yaml	岡和男|en=Kazuo Oka|ja=岡和男	ja					Q1093241
+kazuya-nakai	japanese-voice-actors.yaml	中井和哉|en=Kazuya Nakai|ja=中井和哉	ja					Q540366
+kazuyuki-okitsu	japanese-voice-actors.yaml	興津和幸|en=Kazuyuki Okitsu|ja=興津和幸	ja					Q868226
+keiichi-nanba	japanese-voice-actors.yaml	難波圭一|en=Keiichi Nanba|ja=難波圭一	ja					Q430395
+ken-narita	japanese-voice-actors.yaml	成田剣|en=Ken Narita|ja=成田剣	ja					Q1317207
+kengo-kawanishi	japanese-voice-actors.yaml	河西健吾|en=Kengo Kawanishi|ja=河西健吾	ja					Q11554087
+kengo-takanashi	japanese-voice-actors.yaml	高梨謙吾|en=Kengo Takanashi|ja=高梨謙吾	ja					Q11670701
+kenichi-ogata	japanese-voice-actors.yaml	緒方賢一|en=Kenichi Ogata|ja=緒方賢一	ja					Q2707888
+kenji-hamada	japanese-voice-actors.yaml	浜田賢二|en=Kenji Hamada|ja=浜田賢二	ja					Q1076842
+kenji-nojima	japanese-voice-actors.yaml	野島健児|en=Kenji Nojima|ja=野島健児	ja					Q1155778
+kenji-nomura	japanese-voice-actors.yaml	乃村健次|en=Kenji Nomura|ja=乃村健次	ja					Q2705748
+kenjiro-tsuda	japanese-voice-actors.yaml	津田健次郎|en=Kenjiro Tsuda|ja=津田健次郎	ja					Q1255370
+kensho-ono	japanese-voice-actors.yaml	小野賢章|en=Kensho Ono|ja=小野賢章	ja					Q1139912
+kensuke-shimizu	japanese-voice-actors.yaml	清水健佑|en=Kensuke Shimizu|ja=清水健佑	ja					Q88724202
+kenta-miyake	japanese-voice-actors.yaml	三宅健太|en=Kenta Miyake|ja=三宅健太	ja					Q2779622
+kento-ito	japanese-voice-actors.yaml	伊東健人|en=Kento Itō|ja=伊東健人	ja					Q16264168
+kento-shiraishi	japanese-voice-actors.yaml	白石兼斗|en=Kento Shiraishi|ja=白石兼斗	ja					Q64782533
+kenyu-horiuchi	japanese-voice-actors.yaml	堀内賢雄|en=Kenyu Horiuchi|ja=堀内賢雄	ja					Q1202136
+kikuko-inoue	japanese-voice-actors.yaml	井上喜久子|en=Kikuko Inoue|ja=井上喜久子	ja					Q1154469
+kikunosuke-toya	japanese-voice-actors.yaml	戸谷菊之介|en=Kikunosuke Toya|ja=戸谷菊之介	ja					Q113452137
+kisho-taniyama	japanese-voice-actors.yaml	谷山紀章|en=Kishō Taniyama|ja=谷山紀章	ja					Q1142407
+kiyono-yasuno	japanese-voice-actors.yaml	安野希世乃|en=Kiyono Yasuno|ja=安野希世乃	ja					Q11451654
+kohei-amasaki	japanese-voice-actors.yaml	天﨑滉平|en=Kōhei Amasaki|ja=天﨑滉平	ja					Q20038507
+koichi-kitamura	japanese-voice-actors.yaml	北村弘一|en=Kōichi Kitamura|ja=北村弘一	ja					Q4353745
+koichi-soma	japanese-voice-actors.yaml	相馬康一|en=Kōichi Sōma|ja=相馬康一	ja					Q11582498
+koji-okino	japanese-voice-actors.yaml	沖野晃司|en=Kōji Okino|ja=沖野晃司	ja					Q18383331
+koji-takahashi	japanese-voice-actors.yaml	高橋孝治|en=Kōji Takahashi|ja=高橋孝治	ja					Q11671168
+koji-totani	japanese-voice-actors.yaml	戸谷公次|en=Kōji Totani|ja=戸谷公次	ja					Q3045663
+koji-yusa	japanese-voice-actors.yaml	遊佐浩二|en=Kōji Yusa|ja=遊佐浩二	ja					Q1351599
+koki-osuzu	japanese-voice-actors.yaml	大鈴功起|en=Kōki Ōsuzu|ja=大鈴功起	ja					Q112239249
+koki-uchiyama	japanese-voice-actors.yaml	内山昂輝|en=Kōki Uchiyama|ja=内山昂輝	ja					Q1320826
+kokoro-omori	japanese-voice-actors.yaml	大森こころ|en=Kokoro Ōmori|ja=大森こころ	ja					Q135967744
+konatsu-hirabayashi	japanese-voice-actors.yaml	平林瑚夏|en=Konatsu Hirabayashi|ja=平林瑚夏	ja					Q135922633
+konomi-inagaki	japanese-voice-actors.yaml	稲垣好|en=Konomi Inagaki|ja=稲垣好	ja					Q112241886
+konomi-kohara	japanese-voice-actors.yaml	小原好美|en=Konomi Kohara|ja=小原好美	ja					Q29350701
+kosuke-katayama	japanese-voice-actors.yaml	片山公輔|en=Kosuke Katayama|ja=片山公輔	ja					Q79017539
+kosuke-kobayashi	japanese-voice-actors.yaml	小林康介|en=Kōsuke Kobayashi|ja=小林康介	ja					Q11461582
+kosuke-okano	japanese-voice-actors.yaml	岡野浩介|en=Kōsuke Okano|ja=岡野浩介	ja					Q1091562
+kosuke-toriumi	japanese-voice-actors.yaml	鳥海浩輔|en=Kōsuke Toriumi|ja=鳥海浩輔	ja					Q1372804
+kotaro-nishiyama	japanese-voice-actors.yaml	西山宏太朗|en=Kōtarō Nishiyama|ja=西山宏太朗	ja					Q17211665
+kotono-mitsuishi	japanese-voice-actors.yaml	三石琴乃|en=Kotono Mitsuishi|ja=三石琴乃	ja					Q18735
+kozo-shioya	japanese-voice-actors.yaml	塩屋浩三|en=Kōzō Shioya|ja=塩屋浩三	ja					Q1059620
+kurumi-haruki	japanese-voice-actors.yaml	陽木くるみ|en=Kurumi Haruki|ja=陽木くるみ	ja					Q138386666
+kyo-yaoya	japanese-voice-actors.yaml	八百屋杏|en=Kyō Yaoya|ja=八百屋杏	ja					Q17220993
+kyohei-natsume	japanese-voice-actors.yaml	夏目響平|en=Kyōhei Natsume|ja=夏目響平	ja					Q120908033
+lynn	japanese-voice-actors.yaml	Lynn|en=Lynn|ja=Lynn	ja					Q22046619
+maaya-sakamoto	japanese-voice-actors.yaml	坂本真綾|en=Maaya Sakamoto|ja=坂本真綾	ja					Q235216
+maaya-uchida	japanese-voice-actors.yaml	内田真礼|en=Maaya Uchida|ja=内田真礼	ja					Q44552
+madoka-asahina	japanese-voice-actors.yaml	朝日奈丸佳|en=Madoka Asahina|ja=朝日奈丸佳	ja					Q20038446
+mai-nakahara	japanese-voice-actors.yaml	中原麻衣|en=Mai Nakahara|ja=中原麻衣	ja					Q237361
+maki-kawase	japanese-voice-actors.yaml	河瀬茉希|en=Maki Kawase|ja=河瀬茉希	ja					Q24867153
+makoto-furukawa	japanese-voice-actors.yaml	古川慎|en=Makoto Furukawa|ja=古川慎	ja					Q11411149
+makoto-koichi	japanese-voice-actors.yaml	小市眞琴|en=Makoto Koichi|ja=小市眞琴	ja					Q20039931
+makoto-yasumura	japanese-voice-actors.yaml	保村真|en=Makoto Yasumura|ja=保村真	ja					Q850865
+mami	japanese-voice-actors.yaml	摩味|en=Mami|ja=摩味	ja					Q3284992
+manaka-iwami	japanese-voice-actors.yaml	石見舞菜香|en=Manaka Iwami|ja=石見舞菜香	ja					Q29479266
+manami-numakura	japanese-voice-actors.yaml	沼倉愛美|en=Manami Numakura|ja=沼倉愛美	ja					Q3844242
+mao-ichimichi	japanese-voice-actors.yaml	市道真央|en=Mao Ichimichi|ja=市道真央	ja					Q1186964
+mari-hino	japanese-voice-actors.yaml	日野まり|en=Mari Hino|ja=日野まり	ja					Q11510537
+mari-yokoo	japanese-voice-actors.yaml	横尾まり|en=Mari Yokoo|ja=横尾まり	ja					Q11542438
+marie-miyake	japanese-voice-actors.yaml	三宅麻理恵|en=Marie Miyake|ja=三宅麻理恵	ja					Q6127820
+marie-oi	japanese-voice-actors.yaml	大井麻利衣|en=Marie Ōi|ja=大井麻利衣	ja					Q11432243
+marika-kono	japanese-voice-actors.yaml	高野麻里佳|en=Marika Kōno|ja=高野麻里佳	ja					Q17130365
+mariko-higashiuchi	japanese-voice-actors.yaml	東内マリ子|en=Mariko Higashiuchi|ja=東内マリ子	ja					Q17223258
+marina-inoue	japanese-voice-actors.yaml	井上麻里奈|en=Marina Inoue|ja=井上麻里奈	ja					Q1329906
+mariya-ise	japanese-voice-actors.yaml	伊瀬茉莉也|en=Mariya Ise|ja=伊瀬茉莉也	ja					Q1333938
+masaaki-mizunaka	japanese-voice-actors.yaml	水中雅章|en=Masaaki Mizunaka|ja=水中雅章	ja					Q27917957
+masafumi-kobatake	japanese-voice-actors.yaml	こばたけまさふみ|en=Masafumi Kobatake|ja=こばたけまさふみ	ja					Q22125368
+masaharu-sato	japanese-voice-actors.yaml	佐藤正治|en=Masaharu Satō|ja=佐藤正治	ja					Q531846
+masako-katsuki	japanese-voice-actors.yaml	勝生真沙子|en=Masako Katsuki|ja=勝生真沙子	ja					Q2665343
+masashi-nogawa	japanese-voice-actors.yaml	野川雅史|en=Masashi Nogawa|ja=野川雅史	ja					Q11645437
+masashi-yamane	japanese-voice-actors.yaml	山根雅史|en=Masashi Yamane|ja=山根雅史	ja					Q64782567
+matsumi-oshiro	japanese-voice-actors.yaml	大城松美|en=Matsumi Ōshiro|ja=大城松美	ja					Q6788128
+mayu-iizuka	japanese-voice-actors.yaml	飯塚麻結|en=Mayu Iizuka|ja=飯塚麻結	ja					Q18700531
+mayu-minami	japanese-voice-actors.yaml	南真由|en=Mayu Minami|ja=南真由	ja					Q40034390
+mayumi-sho	japanese-voice-actors.yaml	荘真由美|en=Mayumi Shō|ja=荘真由美	ja					Q3031438
+megumi-han	japanese-voice-actors.yaml	潘めぐみ|en=Megumi Han|ja=潘めぐみ	ja					Q8966502
+megumi-nakajima	japanese-voice-actors.yaml	中島愛|en=Megumi Nakajima|ja=中島愛	ja					Q271869
+megumi-ogata	japanese-voice-actors.yaml	緒方恵美|en=Megumi Ogata|ja=緒方恵美	ja					Q254368
+megumi-toyoguchi	japanese-voice-actors.yaml	豊口めぐみ|en=Megumi Toyoguchi|ja=豊口めぐみ	ja					Q864846
+miho-okasaki	japanese-voice-actors.yaml	岡咲美保|en=Miho Okasaki|ja=岡咲美保	ja					Q51676463
+miho-wataya	japanese-voice-actors.yaml	渡谷美帆|en=Miho Wataya|ja=渡谷美帆	ja					Q28691932
+mikako-komatsu	japanese-voice-actors.yaml	小松未可子|en=Mikako Komatsu|ja=小松未可子	ja					Q1593184
+miki-takahashi	japanese-voice-actors.yaml	高橋美紀|en=Miki Takahashi|ja=高橋美紀	ja					Q11671543
+miku-ito	japanese-voice-actors.yaml	伊藤美来|en=Miku Itō|ja=伊藤美来	ja					Q16264202
+minako-kotobuki	japanese-voice-actors.yaml	寿美菜子|en=Minako Kotobuki|ja=寿美菜子	ja					Q50029
+minori-suzuki	japanese-voice-actors.yaml	鈴木みのり|en=Minori Suzuki|ja=鈴木みのり	ja					Q22129371
+misato-matsuoka	japanese-voice-actors.yaml	松岡美里|en=Misato Matsuoka|ja=松岡美里	ja					Q76283342
+mitsuaki-hoshino	japanese-voice-actors.yaml	星野充昭|en=Mitsuaki Hoshino|ja=星野充昭	ja					Q305023
+mitsuki-saiga	japanese-voice-actors.yaml	斎賀みつき|en=Mitsuki Saiga|ja=斎賀みつき	ja					Q1371697
+mitsuo-iwata	japanese-voice-actors.yaml	岩田光央|en=Mitsuo Iwata|ja=岩田光央	ja					Q1142399
+miyu-tomita	japanese-voice-actors.yaml	富田美憂|en=Miyu Tomita|ja=富田美憂	ja					Q22131362
+miyuki-sakurai	japanese-voice-actors.yaml	櫻井みゆき|en=Miyuki Sakurai|ja=櫻井みゆき	ja					Q121323857
+miyuri-shimabukuro	japanese-voice-actors.yaml	島袋美由利|en=Miyuri Shimabukuro|ja=島袋美由利	ja					Q54370392
+moe-kahara	japanese-voice-actors.yaml	佳原萌枝|en=Moe Kahara|ja=佳原萌枝	ja					Q106479481
+momo-harumi	japanese-voice-actors.yaml	春海百乃|en=Momo Harumi|ja=春海百乃	ja					Q133282695
+mugihito	japanese-voice-actors.yaml	麦人|en=Mugihito|ja=麦人	ja					Q2462286
+mutsumi-tamura	japanese-voice-actors.yaml	田村睦心|en=Mutsumi Tamura|ja=田村睦心	ja					Q6132945
+nagisa-maruyama	japanese-voice-actors.yaml	丸山なぎ沙|en=Nagisa Maruyama|ja=丸山なぎ沙	ja					Q139917213
+nao-toyama	japanese-voice-actors.yaml	東山奈央|en=Nao Tōyama|ja=東山奈央	ja					Q865906
+naoki-tatsuta	japanese-voice-actors.yaml	龍田直樹|en=Naoki Tatsuta|ja=龍田直樹	ja					Q933540
+naoko-matsui	japanese-voice-actors.yaml	松井菜桜子|en=Naoko Matsui|ja=松井菜桜子	ja					Q1193618
+naoya-nosaka	japanese-voice-actors.yaml	野坂尚也|en=Naoya Nosaka|ja=野坂尚也	ja					Q11645275
+natsumi-haruse	japanese-voice-actors.yaml	春瀬なつみ|en=Natsumi Haruse|ja=春瀬なつみ	ja					Q24875141
+natsumi-kawaida	japanese-voice-actors.yaml	川井田夏海|en=Natsumi Kawaida|ja=川井田夏海	ja					Q60986805
+nene-hieda	japanese-voice-actors.yaml	稗田寧々|en=Nene Hieda|ja=稗田寧々	ja					Q48763264
+nobuhiko-okamoto	japanese-voice-actors.yaml	岡本信彦|en=Nobuhiko Okamoto|ja=岡本信彦	ja					Q1345336
+nobunaga-shimazaki	japanese-voice-actors.yaml	島﨑信長|en=Nobunaga Shimazaki|ja=島﨑信長	ja					Q5968283
+nobuyuki-hiyama	japanese-voice-actors.yaml	檜山修之|en=Nobuyuki Hiyama|ja=檜山修之	ja					Q2273472
+noriko-uemura	japanese-voice-actors.yaml	上村典子|en=Noriko Uemura|ja=上村典子	ja					Q7051287
+rebecca-danae	japanese-voice-actors.yaml	|en=Rebecca Danae	ja					Q139576178
+reiji-kawashima	japanese-voice-actors.yaml	川島零士|en=Reiji Kawashima|ja=川島零士	ja					Q96716618
+reiko-suzuki	japanese-voice-actors.yaml	鈴木れい子|en=Reiko Suzuki|ja=鈴木れい子	ja					Q1067536
+reina-ueda	japanese-voice-actors.yaml	上田麗奈|en=Reina Ueda|ja=上田麗奈	ja					Q16264425
+rena-hasegawa	japanese-voice-actors.yaml	長谷川玲奈|en=Rena Hasegawa|ja=長谷川玲奈	ja					Q59134513
+rena-motomura	japanese-voice-actors.yaml	本村玲奈|en=Rena Motomura|ja=本村玲奈	ja					Q130396708
+rie-kugimiya	japanese-voice-actors.yaml	釘宮理恵|en=Rie Kugimiya|ja=釘宮理恵	ja					Q49554
+rie-murakawa	japanese-voice-actors.yaml	村川梨衣|en=Rie Murakawa|ja=村川梨衣	ja					Q2811985
+rie-takahashi	japanese-voice-actors.yaml	高橋李依|en=Rie Takahashi|ja=高橋李依	ja					Q17160610
+rie-tanaka	japanese-voice-actors.yaml	田中理恵|en=Rie Tanaka|ja=田中理恵	ja					Q237371
+rika-kinugawa	japanese-voice-actors.yaml	衣川里佳|en=Rika Kinugawa|ja=衣川里佳	ja					Q23948927
+rikiya-koyama	japanese-voice-actors.yaml	小山力也|en=Rikiya Koyama|ja=小山力也	ja					Q1204898
+rikuya-yasuda	japanese-voice-actors.yaml	安田陸矢|en=Rikuya Yasuda|ja=安田陸矢	ja					Q55535277
+rina-hidaka	japanese-voice-actors.yaml	日高里菜|en=Rina Hidaka|ja=日高里菜	ja					Q152707
+rumi-okubo	japanese-voice-actors.yaml	大久保瑠美|en=Rumi Ōkubo|ja=大久保瑠美	ja					Q902038
+ryo-horikawa	japanese-voice-actors.yaml	堀川りょう|en=Ryō Horikawa|ja=堀川りょう	ja					Q2540053
+ryo-sugisaki	japanese-voice-actors.yaml	杉崎亮|en=Ryō Sugisaki|ja=杉崎亮	ja					Q11521986
+ryohei-arai	japanese-voice-actors.yaml	新井良平|en=Ryōhei Arai|ja=新井良平	ja					Q19726283
+ryohei-kimura	japanese-voice-actors.yaml	木村良平|en=Ryōhei Kimura|ja=木村良平	ja					Q1138419
+ryota-osaka	japanese-voice-actors.yaml	逢坂良太|en=Ryōta Ōsaka|ja=逢坂良太	ja					Q9351342
+ryota-suzuki	japanese-voice-actors.yaml	鈴木崚汰|en=Ryōta Suzuki|ja=鈴木崚汰	ja					Q38276919
+ryotaro-okiayu	japanese-voice-actors.yaml	置鮎龍太郎|en=Ryōtarō Okiayu|ja=置鮎龍太郎	ja					Q1199055
+ryuho-nagaoka	japanese-voice-actors.yaml	長岡龍歩|en=Ryūho Nagaoka|ja=長岡龍歩	ja					Q110403875
+ryuichi-kijima	japanese-voice-actors.yaml	木島隆一|en=Ryūichi Kijima|ja=木島隆一	ja					Q11518345
+sachiko-okada	japanese-voice-actors.yaml	岡田幸子|en=Sachiko Okada|ja=岡田幸子	ja					Q11473528
+sakura-shinfuku	japanese-voice-actors.yaml	新福桜|en=Sakura Shinfuku|ja=新福桜	ja					Q115734789
+saori-hayami	japanese-voice-actors.yaml	早見沙織|en=Saori Hayami|ja=早見沙織	ja					Q1153079
+saori-onishi	japanese-voice-actors.yaml	大西沙織|en=Saori Ōnishi|ja=大西沙織	ja					Q15973074
+satomi-amano	japanese-voice-actors.yaml	天野聡美|en=Satomi Amano|ja=天野聡美	ja					Q62023684
+satomi-arai	japanese-voice-actors.yaml	新井里美|en=Satomi Arai|ja=新井里美	ja					Q1343959
+satoshi-hino	japanese-voice-actors.yaml	日野聡|en=Satoshi Hino|ja=日野聡	ja					Q1142853
+satoshi-inomata	japanese-voice-actors.yaml	猪股慧士|en=Satoshi Inomata|ja=猪股慧士	ja					Q64782621
+sayaka-ohara	japanese-voice-actors.yaml	大原さやか|en=Sayaka Ohara|ja=大原さやか	ja					Q2325296
+sayaka-senbongi	japanese-voice-actors.yaml	千本木彩花|en=Sayaka Senbongi|ja=千本木彩花	ja					Q17160365
+sayumi-suzushiro	japanese-voice-actors.yaml	鈴代紗弓|en=Sayumi Suzushiro|ja=鈴代紗弓	ja					Q56259856
+seiichiro-yamashita	japanese-voice-actors.yaml	山下誠一郎|en=Seiichirō Yamashita|ja=山下誠一郎	ja					Q17230607
+seiro-ogino	japanese-voice-actors.yaml	荻野晴朗|en=Seirō Ogino|ja=荻野晴朗	ja					Q11619043
+shigeru-chiba	japanese-voice-actors.yaml	千葉繁|en=Shigeru Chiba|ja=千葉繁	ja					Q2444815
+shigeru-nakahara	japanese-voice-actors.yaml	中原茂|en=Shigeru Nakahara|ja=中原茂	ja					Q2663030
+shin-ichiro-miki	japanese-voice-actors.yaml	三木眞一郎|en=Shin-ichiro Miki|ja=三木眞一郎	ja					Q719326
+shin-ya-takahashi	japanese-voice-actors.yaml	高橋伸也|en=Shin'ya Takahashi|ja=高橋伸也	ja					Q9448725
+shinji-kawada	japanese-voice-actors.yaml	川田紳司|en=Shinji Kawada|ja=川田紳司	ja					Q1135000
+shinnosuke-tachibana	japanese-voice-actors.yaml	立花慎之介|en=Shinnosuke Tachibana|ja=立花慎之介	ja					Q1041924
+shino-shimoji	japanese-voice-actors.yaml	下地紫野|en=Shino Shimoji|ja=下地紫野	ja					Q17159583
+shion-wakayama	japanese-voice-actors.yaml	若山詩音|en=Shion Wakayama|ja=若山詩音	ja					Q11616308
+shizuka-ishigami	japanese-voice-actors.yaml	石上静香|en=Shizuka Ishigami|ja=石上静香	ja					Q11584776
+sho-hayami	japanese-voice-actors.yaml	速水奨|en=Shō Hayami|ja=速水奨	ja					Q1355841
+sho-karino	japanese-voice-actors.yaml	狩野翔|en=Shō Karino|ja=狩野翔	ja					Q17686378
+sho-nogami	japanese-voice-actors.yaml	野上翔|en=Shō Nogami|ja=野上翔	ja					Q18460273
+shogo-sakata	japanese-voice-actors.yaml	坂田将吾|en=Shōgo Sakata|ja=坂田将吾	ja					Q68185104
+shohei-komatsu	japanese-voice-actors.yaml	小松昌平|en=Shōhei Komatsu|ja=小松昌平	ja					Q24877064
+shoto-kashii	japanese-voice-actors.yaml	樫井笙人|en=Shōto Kashii|ja=樫井笙人	ja					Q8189014
+shou-komura	japanese-voice-actors.yaml	小村将|en=Shou Komura|ja=小村将	ja					Q125314127
+shoya-chiba	japanese-voice-actors.yaml	千葉翔也|en=Shōya Chiba|ja=千葉翔也	ja					Q11406719
+shoya-ishige	japanese-voice-actors.yaml	石毛翔弥|en=Shōya Ishige|ja=石毛翔弥	ja					Q11586731
+shuichiro-umeda	japanese-voice-actors.yaml	梅田修一朗|en=Shūichirō Umeda|ja=梅田修一朗	ja					Q69635227
+shun-horie	japanese-voice-actors.yaml	堀江瞬|en=Shun Horie|ja=堀江瞬	ja					Q22129969
+shun-ichi-maki	japanese-voice-actors.yaml	真木駿一|en=Shun'ichi Maki|ja=真木駿一	ja					Q22131341
+shun-ichi-toki	japanese-voice-actors.yaml	土岐隼一|en=Shun'ichi Toki|ja=土岐隼一	ja					Q18457703
+shunsuke-sakuya	japanese-voice-actors.yaml	咲野俊介|en=Shunsuke Sakuya|ja=咲野俊介	ja					Q7505133
+shunsuke-takeuchi	japanese-voice-actors.yaml	武内駿輔|en=Shunsuke Takeuchi|ja=武内駿輔	ja					Q18759065
+so-takeuchi	japanese-voice-actors.yaml	竹内想|en=Sō Takeuchi|ja=竹内想	ja					Q17160692
+sora-amamiya	japanese-voice-actors.yaml	雨宮天|en=Sora Amamiya|ja=雨宮天	ja					Q14635194
+sora-tokui	japanese-voice-actors.yaml	徳井青空|en=Sora Tokui|ja=徳井青空	ja					Q420417
+soshiro-hori	japanese-voice-actors.yaml	堀総士郎|en=Sōshirō Hori|ja=堀総士郎	ja					Q27151268
+subaru-kimura	japanese-voice-actors.yaml	木村昴|en=Subaru Kimura|ja=木村昴	ja					Q7630810
+taishi-murata	japanese-voice-actors.yaml	村田太志|en=Taishi Murata|ja=村田太志	ja					Q11523423
+taito-ban	japanese-voice-actors.yaml	坂泰斗|en=Taito Ban|ja=坂泰斗	ja					Q61058294
+takaaki-torashima	japanese-voice-actors.yaml	虎島貴明|en=Takaaki Torashima|ja=虎島貴明	ja					Q28691559
+takaaki-uchino	japanese-voice-actors.yaml	内野孝聡|en=Takaaki Uchino|ja=内野孝聡	ja					Q18545782
+takahiro-miyamoto	japanese-voice-actors.yaml	宮本崇弘|en=Takahiro Miyamoto|ja=宮本崇弘	ja					Q11454827
+takahiro-sakurai	japanese-voice-actors.yaml	櫻井孝宏|en=Takahiro Sakurai|ja=櫻井孝宏	ja					Q459902
+takaya-hashi	japanese-voice-actors.yaml	土師孝也|en=Takaya Hashi|ja=土師孝也	ja					Q3275906
+takaya-kuroda	japanese-voice-actors.yaml	黒田崇矢|en=Takaya Kuroda|ja=黒田崇矢	ja					Q3275921
+takayuki-nakatsukasa	japanese-voice-actors.yaml	中務貴幸|en=Takayuki Nakatsukasa|ja=中務貴幸	ja					Q20041826
+takehiro-hasu	japanese-voice-actors.yaml	蓮岳大|en=Takehiro Hasu|ja=蓮岳大	ja					Q11621659
+takehito-koyasu	japanese-voice-actors.yaml	子安武人|en=Takehito Koyasu|ja=子安武人	ja					Q464348
+takeo-otsuka	japanese-voice-actors.yaml	大塚剛央|en=Takeo Ōtsuka|ja=大塚剛央	ja					Q55536620
+taku-yashiro	japanese-voice-actors.yaml	八代拓|en=Taku Yashiro|ja=八代拓	ja					Q23846671
+takugo-iwakawa	japanese-voice-actors.yaml	岩河拓吾|en=Takugo Iwakawa|ja=岩河拓吾	ja					Q29841173
+takuma-terashima	japanese-voice-actors.yaml	寺島拓篤|en=Takuma Terashima|ja=寺島拓篤	ja					Q1041912
+takuro-kitagawa	japanese-voice-actors.yaml	喜多川拓郎|en=Takurō Kitagawa|ja=喜多川拓郎	ja					Q7678611
+takuto-yoshinaga	japanese-voice-actors.yaml	吉永拓斗|en=Takuto Yoshinaga|ja=吉永拓斗	ja					Q11413381
+takuya-eguchi	japanese-voice-actors.yaml	江口拓也|en=Takuya Eguchi|ja=江口拓也	ja					Q3268048
+takuya-sato	japanese-voice-actors.yaml	佐藤拓也|en=Takuya Satō|ja=佐藤拓也	ja					Q9076955
+taro-kiuchi	japanese-voice-actors.yaml	木内太郎|en=Tarō Kiuchi|ja=木内太郎	ja					Q38276955
+taro-yamaguchi	japanese-voice-actors.yaml	山口太郎|en=Taro Yamaguchi|ja=山口太郎	ja					Q11466747
+tarusuke-shingaki	japanese-voice-actors.yaml	新垣樽助|en=Tarusuke Shingaki|ja=新垣樽助	ja					Q5356263
+tasuku-hatanaka	japanese-voice-actors.yaml	畠中祐|en=Tasuku Hatanaka|ja=畠中祐	ja					Q7687763
+tatsumaru-tachibana	japanese-voice-actors.yaml	橘龍丸|en=Tatsumaru Tachibana|ja=橘龍丸	ja					Q66365025
+tessho-genda	japanese-voice-actors.yaml	玄田哲章|en=Tesshō Genda|ja=玄田哲章	ja					Q2529130
+tetsu-inada	japanese-voice-actors.yaml	稲田徹|en=Tetsu Inada|ja=稲田徹	ja					Q1206700
+tetsuya-kakihara	japanese-voice-actors.yaml	柿原徹也|en=Tetsuya Kakihara|ja=柿原徹也	ja					Q708022
+tomiko-suzuki	japanese-voice-actors.yaml	鈴木富子|en=Tomiko Suzuki|ja=鈴木富子	ja					Q1117893
+tomoaki-maeno	japanese-voice-actors.yaml	前野智昭|en=Tomoaki Maeno|ja=前野智昭	ja					Q1206674
+tomohiro-ono	japanese-voice-actors.yaml	大野智敬|en=Tomohiro Ōno|ja=大野智敬	ja					Q98734286
+tomohito-takatsuka	japanese-voice-actors.yaml	高塚智人|en=Tomohito Takatsuka|ja=高塚智人	ja					Q21019125
+tomokazu-seki	japanese-voice-actors.yaml	関智一|en=Tomokazu Seki|ja=関智一	ja					Q284401
+tomokazu-sugita	japanese-voice-actors.yaml	杉田智和|en=Tomokazu Sugita|ja=杉田智和	ja					Q579296
+tomori-kusunoki	japanese-voice-actors.yaml	楠木ともり|en=Tomori Kusunoki|ja=楠木ともり	ja					Q41698621
+tomoyo-kurosawa	japanese-voice-actors.yaml	黒沢ともよ|en=Tomoyo Kurosawa|ja=黒沢ともよ	ja					Q1955926
+tomoyo-takayanagi	japanese-voice-actors.yaml	高柳知葉|en=Tomoyo Takayanagi|ja=高柳知葉	ja					Q28691709
+tomoyuki-shimura	japanese-voice-actors.yaml	志村知幸|en=Tomoyuki Shimura|ja=志村知幸	ja					Q1749211
+toru-furuya	japanese-voice-actors.yaml	古谷徹|en=Tōru Furuya|ja=古谷徹	ja					Q917318
+toshihiko-seki	japanese-voice-actors.yaml	関俊彦|en=Toshihiko Seki|ja=関俊彦	ja					Q1201334
+toshiki-kumagai	japanese-voice-actors.yaml	熊谷俊輝|en=Toshiki Kumagai|ja=熊谷俊輝	ja					Q98758320
+toshitsugu-takashina	japanese-voice-actors.yaml	髙階俊嗣|en=Toshitsugu Takashina|ja=髙階俊嗣	ja					Q11673204
+toshiyuki-morikawa	japanese-voice-actors.yaml	森川智之|en=Toshiyuki Morikawa|ja=森川智之	ja					Q460361
+tsuyoshi-koyama	japanese-voice-actors.yaml	小山剛志|en=Tsuyoshi Koyama|ja=小山剛志	ja					Q4261875
+volcano-ota	japanese-voice-actors.yaml	ボルケーノ太田|en=Volcano Ōta|ja=ボルケーノ太田	ja					Q11328674
+wakana-maruoka	japanese-voice-actors.yaml	丸岡和佳奈|en=Wakana Maruoka|ja=丸岡和佳奈	ja					Q56702852
+wasabi-mizuta	japanese-voice-actors.yaml	水田わさび|en=Wasabi Mizuta|ja=水田わさび	ja					Q287166
+wataru-hatano	japanese-voice-actors.yaml	羽多野渉|en=Wataru Hatano|ja=羽多野渉	ja					Q1153870
+wataru-kato	japanese-voice-actors.yaml	加藤渉|en=Wataru Katō|ja=加藤渉	ja					Q68185024
+wataru-komada	japanese-voice-actors.yaml	駒田航|en=Wataru Komada|ja=駒田航	ja					Q20040112
+yasuaki-takumi	japanese-voice-actors.yaml	内匠靖明|en=Yasuaki Takumi|ja=内匠靖明	ja					Q11393876
+yasunori-matsumoto	japanese-voice-actors.yaml	松本保典|en=Yasunori Matsumoto|ja=松本保典	ja					Q1192158
+yo-inoue	japanese-voice-actors.yaml	井上瑤|en=Yō Inoue|ja=井上瑤	ja					Q2564944
+yo-taichi	japanese-voice-actors.yaml	大地葉|en=Yō Taichi|ja=大地葉	ja					Q14527810
+yohei-azakami	japanese-voice-actors.yaml	阿座上洋平|en=Yōhei Azakami|ja=阿座上洋平	ja					Q11657409
+yohei-hamada	japanese-voice-actors.yaml	浜田洋平|en=Yōhei Hamada|ja=浜田洋平	ja					Q27917945
+yoji-ueda	japanese-voice-actors.yaml	上田燿司|en=Yōji Ueda|ja=上田燿司	ja					Q576142
+yoko-hikasa	japanese-voice-actors.yaml	日笠陽子|en=Yōko Hikasa|ja=日笠陽子	ja					Q50023
+yoshiki-nakajima	japanese-voice-actors.yaml	中島ヨシキ|en=Yoshiki Nakajima|ja=中島ヨシキ	ja					Q11364383
+yoshimasa-hosoya	japanese-voice-actors.yaml	細谷佳正|en=Yoshimasa Hosoya|ja=細谷佳正	ja					Q1139886
+yoshino-aoyama	japanese-voice-actors.yaml	青山吉能|en=Yoshino Aoyama|ja=青山吉能	ja					Q17988251
+yoshitaka-yamaya	japanese-voice-actors.yaml	山谷祥生|en=Yoshitaka Yamaya|ja=山谷祥生	ja					Q16746698
+yoshito-yasuhara	japanese-voice-actors.yaml	安原義人|en=Yoshito Yasuhara|ja=安原義人	ja					Q2778060
+yoshitsugu-matsuoka	japanese-voice-actors.yaml	松岡禎丞|en=Yoshitsugu Matsuoka|ja=松岡禎丞	ja					Q957795
+yoshiyuki-ito	japanese-voice-actors.yaml	伊藤良幸|en=Yoshiyuki Itō|ja=伊藤良幸	ja					Q139889656
+yu-sasahara	japanese-voice-actors.yaml	篠原侑|en=Yū Sasahara|ja=篠原侑	ja					Q48765539
+yu-serizawa	japanese-voice-actors.yaml	芹澤優|en=Yū Serizawa|ja=芹澤優	ja					Q11616039
+yuga-sato	japanese-voice-actors.yaml	佐藤悠雅|en=Yūga Satō|ja=佐藤悠雅	ja					Q108776560
+yuhi-asagiri	japanese-voice-actors.yaml	朝霧友陽|en=Yuhi Asagiri|ja=朝霧友陽	ja					Q63975279
+yui-horie	japanese-voice-actors.yaml	堀江由衣|en=Yui Horie|ja=堀江由衣	ja					Q50033
+yui-ishikawa	japanese-voice-actors.yaml	石川由依|en=Yui Ishikawa|ja=石川由依	ja					Q8973140
+yui-ogura	japanese-voice-actors.yaml	小倉唯|en=Yui Ogura|ja=小倉唯	ja					Q2477774
+yuichi-nakamura	japanese-voice-actors.yaml	中村悠一|en=Yūichi Nakamura|ja=中村悠一	ja					Q984641
+yuichiro-umehara	japanese-voice-actors.yaml	梅原裕一郎|en=Yūichirō Umehara|ja=梅原裕一郎	ja					Q18225739
+yuji-murai	japanese-voice-actors.yaml	村井雄治|en=Yūji Murai|ja=村井雄治	ja					Q52717763
+yuka-iguchi	japanese-voice-actors.yaml	井口裕香|en=Yuka Iguchi|ja=井口裕香	ja					Q1183854
+yuki-hirose	japanese-voice-actors.yaml	広瀬ゆうき|en=Yūki Hirose|ja=広瀬ゆうき	ja					Q20042582
+yuki-ishikari	japanese-voice-actors.yaml	石狩勇気|en=Yūki Ishikari|ja=石狩勇気	ja					Q11586860
+yuki-nagano	japanese-voice-actors.yaml	長野佑紀|en=Yuki Nagano|ja=長野佑紀	ja					Q30108577
+yuki-okada	japanese-voice-actors.yaml	岡田雄樹|en=Yūki Okada|ja=岡田雄樹	ja					Q112238426
+yukiya-matsui	japanese-voice-actors.yaml	眞對友樹也|en=Yukiya Matsui|ja=眞對友樹也	ja					Q123405318
+yuko-kaida	japanese-voice-actors.yaml	甲斐田裕子|en=Yūko Kaida|ja=甲斐田裕子	ja					Q2710143
+yuko-mita	japanese-voice-actors.yaml	三田ゆう子|en=Yūko Mita|ja=三田ゆう子	ja					Q3113201
+yuko-natsuyoshi	japanese-voice-actors.yaml	夏吉ゆうこ|en=Yūko Natsuyoshi|ja=夏吉ゆうこ	ja					Q66365004
+yuko-sanpei	japanese-voice-actors.yaml	三瓶由布子|en=Yūko Sanpei|ja=三瓶由布子	ja					Q958874
+yuko-tachibana	japanese-voice-actors.yaml	橘U子|en=Yūko Tachibana|ja=橘U子	ja					Q5356584
+yuma-uchida	japanese-voice-actors.yaml	内田雄馬|en=Yuma Uchida|ja=内田雄馬	ja					Q17349748
+yume-miyamoto	japanese-voice-actors.yaml	宮本侑芽|en=Yume Miyamoto|ja=宮本侑芽	ja					Q11454795
+yumi-kakazu	japanese-voice-actors.yaml	かかずゆみ|en=Yumi Kakazu|ja=かかずゆみ	ja					Q1373594
+yumi-uchiyama	japanese-voice-actors.yaml	内山夕実|en=Yumi Uchiyama|ja=内山夕実	ja					Q322979
+yumiko-shibata	japanese-voice-actors.yaml	柴田由美子|en=Yumiko Shibata|ja=柴田由美子	ja					Q8061128
+yumiri-hanamori	japanese-voice-actors.yaml	花守ゆみり|en=Yumiri Hanamori|ja=花守ゆみり	ja					Q17219891
+yuna-taniguchi	japanese-voice-actors.yaml	谷口夢奈|en=Yuna Taniguchi|ja=谷口夢奈	ja					Q20041306
+yurie-igoma	japanese-voice-actors.yaml	伊駒ゆりえ|en=Yurie Igoma|ja=伊駒ゆりえ	ja					Q117354720
+yurika-kubo	japanese-voice-actors.yaml	久保ユリカ|en=Yurika Kubo|ja=久保ユリカ	ja					Q11368954
+yurina-amami	japanese-voice-actors.yaml	天海由梨奈|en=Yurina Amami|ja=天海由梨奈	ja					Q45819489
+yusaku-yara	japanese-voice-actors.yaml	屋良有作|en=Yūsaku Yara|ja=屋良有作	ja					Q3113155
+yusuke-kobayashi	japanese-voice-actors.yaml	小林裕介|en=Yūsuke Kobayashi|ja=小林裕介	ja					Q17158282
+yutaka-aoyama	japanese-voice-actors.yaml	青山穣|en=Yutaka Aoyama|ja=青山穣	ja					Q1028227
+yuto-suzuki	japanese-voice-actors.yaml	鈴木祐斗|en=Yuto Suzuki|ja=鈴木祐斗	ja					Q104013483
+yuto-uemura	japanese-voice-actors.yaml	上村祐翔|en=Yūto Uemura|ja=上村祐翔	ja					Q11359321
+yuu-shimaka	japanese-voice-actors.yaml	島香裕|en=Yuu Shimaka|ja=島香裕	ja					Q3574297
+yuya-hirose	japanese-voice-actors.yaml	広瀬裕也|en=Yūya Hirose|ja=広瀬裕也	ja					Q22128472
+yuya-uchida	japanese-voice-actors.yaml	内田夕夜|en=Yūya Uchida|ja=内田夕夜	ja					Q549931
+!credits	staff	character	language	series
+97	1	ja	2
+69	3	ja	2
+384	4	ja	2
+109	5	ja	2
+38	6	ja	2
+46	7	ja	2
+324	8	ja	2
+222	11	ja	2
+248	16	ja	2
+358	16	ja	2
+118	17	ja	2
+15	18	ja	3
+68	19	ja	8
+269	20	ja	8
+155	21	ja	8
+43	22	ja	8
+70	23	ja	8
+22	24	ja	8
+122	25	ja	8
+412	26	ja	8
+267	27	ja	8
+113	28	ja	8
+75	29	ja	12
+2	30	ja	17
+68	31	ja	22
+20	32	ja	22
+1	33	ja	24|25
+52	34	ja	31
+128	35	ja	33
+127	36	ja	33
+413	37	ja	33
+343	38	ja	33
+268	39	ja	33
+36	40	ja	33
+282	41	ja	33
+235	45	ja	35
+346	46	ja	35
+318	47	ja	35
+281	48	ja	35
+336	49	ja	35
+211	50	ja	35
+190	51	ja	35
+82	53	ja	35
+280	54	ja	35
+198	55	ja	35
+10	56	ja	35
+102	57	ja	38
+239	57	ja	38
+42	58	ja	38
+263	58	ja	38
+126	59	ja	38
+157	59	ja	38
+175	59	ja	38
+192	60	ja	38
+199	60	ja	38
+176	61	ja	38
+351	61	ja	38
+25	62	ja	38
+161	63	ja	38
+364	63	ja	38
+414	63	ja	38
+308	64	ja	38
+338	64	ja	38
+47	65	ja	38
+67	65	ja	38
+247	66	ja	38
+272	66	ja	38
+395	67	ja	38
+135	68	ja	38
+165	68	ja	38
+195	69	ja	38
+365	69	ja	38
+49	70	ja	38
+238	70	ja	38
+155	71	ja	38
+410	71	ja	38
+197	72	ja	38
+92	74	ja	38
+263	75	ja	38
+381	75	ja	38
+329	76	ja	38
+127	77	ja	38
+213	77	ja	38
+79	78	ja	38
+341	78	ja	38
+104	79	ja	38
+376	79	ja	38
+135	80	ja	38
+179	80	ja	38
+92	81	ja	38
+294	81	ja	38
+238	82	ja	38
+392	82	ja	38
+89	83	ja	38
+130	83	ja	38
+4	84	ja	38
+137	84	ja	38
+207	85	ja	38
+370	85	ja	38
+62	86	ja	38
+94	87	ja	38
+114	87	ja	38
+117	88	ja	38
+165	89	ja	38
+282	90	ja	38
+308	91	ja	38
+382	92	ja	38
+403	92	ja	38
+205	93	ja	38
+206	93	ja	38
+285	94	ja	38
+345	94	ja	38
+145	95	ja	38
+83	96	ja	38
+346	96	ja	38
+59	97	ja	38
+141	97	ja	38
+210	98	ja	38
+383	98	ja	38
+101	99	ja	38
+286	100	ja	38
+132	101	ja	38
+375	101	ja	38
+369	102	ja	38
+409	102	ja	38
+110	103	ja	38
+132	104	ja	38
+138	104	ja	38
+101	105	ja	38
+244	105	ja	38
+75	106	ja	38
+221	106	ja	38
+282	108	ja	40
+279	109	ja	40
+237	110	ja	44
+377	111	ja	44
+324	112	ja	44
+226	113	ja	44
+327	114	ja	44
+258	116	ja	44
+386	117	ja	44
+54	119	ja	44
+410	120	ja	44
+66	121	ja	44
+236	122	ja	44
+156	123	ja	44
+294	124	ja	44
+404	125	ja	44
+295	126	ja	44
+35	127	ja	44
+48	128	ja	44
+397	129	ja	44
+6	130	ja	44
+155	131	ja	44
+356	132	ja	44
+93	133	ja	44
+399	134	ja	44
+41	135	ja	44
+309	136	ja	44
+391	137	ja	44
+164	138	ja	44
+344	139	ja	44
+352	140	ja	44
+398	142	ja	44
+355	143	ja	44
+235	144	ja	44
+342	145	ja	44
+388	146	ja	44
+278	147	ja	44
+99	148	ja	44
+124	149	ja	44
+224	150	ja	44
+78	151	ja	44
+133	153	ja	44
+215	154	ja	44
+159	155	ja	44
+354	156	ja	44
+196	157	ja	44
+26	163	ja	52
+183	164	ja	52
+291	165	ja	52
+34	166	ja	52
+266	167	ja	55
+150	168	ja	55
+49	169	ja	55
+190	170	ja	55
+339	171	ja	55
+48	172	ja	55
+189	173	ja	55
+17	174	ja	55
+357	175	ja	55
+306	176	ja	55
+404	177	ja	55
+56	178	ja	55
+52	179	ja	55
+410	180	ja	55
+256	181	ja	55
+229	182	ja	58
+410	183	ja	58
+311	184	ja	59
+313	185	ja	59
+57	186	ja	59
+246	187	ja	59
+24	188	ja	59
+360	189	ja	59
+374	190	ja	59
+339	191	ja	59
+285	192	ja	59
+53	193	ja	59
+131	194	ja	59
+149	195	ja	59
+228	196	ja	59
+376	197	ja	59
+245	198	ja	59
+202	199	ja	59
+220	200	ja	59
+321	201	ja	59
+399	202	ja	59
+178	203	ja	59
+254	204	ja	59
+107	205	ja	59
+21	206	ja	59
+278	207	ja	59
+345	208	ja	59
+15	209	ja	59
+113	210	ja	59
+385	211	ja	59
+32	212	ja	59
+319	213	ja	59
+168	214	ja	59
+324	215	ja	59
+370	216	ja	59
+234	217	ja	59
+114	218	ja	59
+216	219	ja	59
+408	220	ja	62
+282	221	ja	62
+188	222	ja	62
+373	223	ja	62
+223	224	ja	62
+229	225	ja	62
+310	226	ja	65
+20	228	ja	65
+256	230	ja	65
+359	231	ja	69
+13	232	ja	69
+373	233	ja	69
+303	234	ja	69
+154	235	ja	69
+171	236	ja	69
+282	237	ja	69
+242	238	ja	73
+15	239	ja	73
+65	240	ja	73
+301	241	ja	73
+7	242	ja	73
+49	243	ja	73
+273	244	ja	73
+119	245	ja	73
+279	246	ja	73
+65	247	ja	76
+343	248	ja	76
+230	249	ja	76
+413	250	ja	76
+136	251	ja	76
+245	252	ja	76
+45	253	ja	76
+219	254	ja	76
+75	255	ja	76
+64	256	ja	76
+224	257	ja	76
+252	258	ja	76
+116	259	ja	76
+302	260	ja	76
+266	261	ja	80
+306	262	ja	80
+401	263	ja	80
+274	264	ja	80
+37	265	ja	80
+116	266	ja	80
+71	267	ja	80
+166	268	ja	80
+43	269	ja	80
+340	270	ja	80
+58	271	ja	80
+68	272	ja	80
+237	273	ja	80
+326	274	ja	80
+267	275	ja	80
+374	276	ja	80
+227	277	ja	80
+330	278	ja	80
+330	279	ja	80
+332	280	ja	80
+321	281	ja	80
+331	282	ja	80
+78	283	ja	85
+292	284	ja	85
+292	285	ja	86
+260	286	ja	86
+400	287	ja	87
+7	288	ja	87
+86	289	ja	87
+251	290	ja	87
+196	291	ja	87
+185	292	ja	87
+243	293	ja	87
+415	294	ja	87
+121	295	ja	89
+241	296	ja	89
+399	297	ja	89
+325	298	ja	89
+85	299	ja	91
+102	300	ja	91
+237	301	ja	91
+116	302	ja	91
+256	303	ja	108
+193	304	ja	108
+325	305	ja	108
+402	305	ja	108
+153	306	ja	108
+214	307	ja	108
+262	308	ja	108
+406	309	ja	108
+349	311	ja	108
+171	312	ja	110
+379	313	ja	110
+172	314	ja	110
+300	315	ja	110
+121	316	ja	114
+57	317	ja	114
+277	318	ja	114
+20	319	ja	114
+256	321	ja	114
+77	322	ja	114
+253	323	ja	114
+125	324	ja	114
+113	325	ja	114
+149	326	ja	114
+302	327	ja	114
+177	328	ja	114
+36	329	ja	114
+190	330	ja	114
+254	331	ja	114
+232	332	ja	114
+255	333	ja	114
+32	334	ja	114
+346	335	ja	114
+103	336	ja	114
+172	337	ja	114
+188	338	ja	114
+64	339	ja	114
+51	340	ja	114
+410	341	ja	114
+19	342	ja	114
+276	343	ja	114
+78	344	ja	121
+102	345	ja	121
+193	346	ja	121
+282	347	ja	121
+170	348	ja	122
+14	349	ja	122
+405	350	ja	122
+282	351	ja	122
+169	352	ja	122
+347	353	ja	122
+231	354	ja	122
+361	355	ja	122
+297	356	ja	122
+40	357	ja	128
+288	358	ja	128
+174	359	ja	128
+106	360	ja	128
+167	361	ja	128
+205	362	ja	128
+348	363	ja	128
+123	364	ja	128
+369	365	ja	128
+154	366	ja	128
+121	367	ja	128
+24	368	ja	128
+25	369	ja	128
+322	370	ja	128
+335	371	ja	128
+90	372	ja	128
+307	373	ja	128
+87	374	ja	128
+133	375	ja	128
+244	376	ja	128
+44	377	ja	128
+324	378	ja	128
+298	379	ja	128
+293	380	ja	128
+282	381	ja	128
+29	382	ja	128
+193	383	ja	128
+113	385	ja	128
+251	386	ja	128
+416	387	ja	128
+287	388	ja	128
+60	389	ja	128
+387	390	ja	128
+385	391	ja	128
+76	392	ja	128
+203	393	ja	128
+49	394	ja	128
+331	395	ja	128
+315	396	ja	128
+226	397	ja	128
+158	398	ja	128
+102	399	ja	128
+350	400	ja	132
+346	401	ja	132
+316	402	ja	132
+134	403	ja	132
+3	404	ja	132
+75	405	ja	132
+325	406	ja	132
+186	407	ja	132
+61	408	ja	132
+408	409	ja	132
+72	410	ja	132
+189	411	ja	132
+1	412	ja	132
+302	413	ja	132
+102	414	ja	132
+363	415	ja	132
+201	416	ja	132
+326	416	ja	132
+46	417	ja	132
+337	418	ja	132
+324	419	ja	132
+259	420	ja	132
+270	421	ja	132
+57	422	ja	132
+368	423	ja	132
+319	424	ja	132
+410	425	ja	132
+264	426	ja	132
+129	427	ja	132
+98	428	ja	132
+323	429	ja	132
+212	430	ja	132
+95	431	ja	132
+299	432	ja	132
+96	433	ja	132
+265	434	ja	132
+146	435	ja	132
+5	436	ja	132
+407	437	ja	132
+9	438	ja	132
+305	439	ja	132
+289	440	ja	132
+280	441	ja	132
+314	442	ja	132
+142	443	ja	132
+151	444	ja	132
+108	445	ja	132
+91	446	ja	132
+69	447	ja	132
+411	448	ja	132
+362	449	ja	132
+162	450	ja	132
+320	451	ja	132
+334	452	ja	132
+148	453	ja	132
+143	454	ja	132
+271	455	ja	132
+163	456	ja	132
+196	457	ja	132
+260	458	ja	132
+393	459	ja	132
+23	460	ja	132
+15	461	ja	132
+68	462	ja	132
+240	463	ja	132
+58	464	ja	132
+209	465	ja	132
+278	466	ja	132
+173	467	ja	132
+11	468	ja	132
+101	469	ja	132
+115	470	ja	132
+55	471	ja	132
+194	472	ja	132
+181	473	ja	132
+333	474	ja	132
+171	475	ja	132
+390	476	ja	132
+394	477	ja	132
+383	478	ja	132
+30	479	ja	132
+356	480	ja	132
+144	481	ja	132
+37	482	ja	132
+100	483	ja	132
+282	484	ja	132
+111	485	ja	132
+296	486	ja	132
+139	487	ja	132
+109	488	ja	132
+147	489	ja	132
+312	490	ja	132
+74	491	ja	132
+204	492	ja	132
+183	493	ja	132
+103	494	ja	132
+376	495	ja	132
+182	496	ja	132
+27	497	ja	132
+261	498	ja	132
+389	499	ja	132
+73	500	ja	132
+25	501	ja	132
+232	502	ja	132
+225	503	ja	132
+367	504	ja	132
+208	505	ja	132
+191	506	ja	132
+283	507	ja	132
+63	508	ja	132
+16	509	ja	132
+52	510	ja	132
+217	511	ja	132
+49	512	ja	132
+60	512	ja	132
+317	513	ja	132
+80	514	ja	132
+78	515	ja	132
+125	516	ja	132
+218	517	ja	132
+204	518	ja	132
+293	519	ja	132
+380	520	ja	132
+301	521	ja	132
+328	522	ja	132
+195	523	ja	132
+404	524	ja	132
+281	525	ja	132
+49	526	ja	132
+331	527	ja	132
+262	528	ja	132
+366	529	ja	132
+268	530	ja	132
+116	531	ja	132
+402	532	ja	132
+220	533	ja	132
+257	534	ja	132
+120	535	ja	132
+229	536	ja	132
+333	537	ja	132
+342	538	ja	132
+388	539	ja	132
+50	540	ja	132
+105	541	ja	132
+149	542	ja	132
+234	543	ja	132
+415	544	ja	132
+372	545	ja	132
+2	546	ja	132
+371	547	ja	132
+81	548	ja	134
+178	549	ja	134
+253	550	ja	134
+353	551	ja	134
+132	552	ja	134
+88	554	ja	134
+383	556	ja	134
+375	557	ja	134
+385	558	ja	134
+84	559	ja	134
+235	560	ja	134
+180	561	ja	134
+112	562	ja	134
+33	566	ja	136
+184	566	ja	136
+152	568	ja	138
+8	569	ja	138
+56	569	ja	138
+101	570	ja	140
+290	571	ja	140
+250	572	ja	140
+109	573	ja	140
+280	574	ja	140
+187	575	ja	140
+276	576	ja	140
+264	577	ja	140
+166	578	ja	140
+12	579	ja	140
+13	580	ja	140
+310	581	ja	140
+282	582	ja	140
+96	583	ja	140
+235	584	ja	140
+343	585	ja	140
+181	586	ja	140
+136	587	ja	140
+262	589	ja	140
+31	590	ja	140
+340	591	ja	140
+18	592	ja	140
+284	593	ja	140
+115	594	ja	140
+183	595	ja	140
+10	596	ja	140
+343	597	ja	140
+244	598	ja	140
+28	599	ja	140
+90	600	ja	140
+288	601	ja	140
+31	602	ja	140
+188	603	ja	140
+39	605	ja	140
+204	606	ja	140
+143	607	ja	140
+160	608	ja	140
+345	609	ja	140
+189	610	ja	140
+237	612	ja	145
+2	616	ja	145
+301	616	ja	145
+187	618	ja	146
+119	619	ja	146
+200	620	ja	146
+396	621	ja	146
+406	622	ja	146
+378	623	ja	146
+249	624	ja	147
+7	625	ja	147
+376	626	ja	147
+132	627	ja	147
+116	628	ja	147
+402	629	ja	147
+140	630	ja	147
+20	631	ja	147
+304	632	ja	148
+275	633	ja	148
+301	634	ja	148
+370	635	ja	148
+369	636	ja	148
+293	637	ja	148
+385	638	ja	148
+376	639	ja	148
+211	640	ja	148
+108	641	ja	148
+306	642	ja	148
+367	643	ja	148
+7	644	ja	149
+404	645	ja	149
+268	646	ja	149
+233	647	ja	149

@@ -76,4 +76,15 @@ is stateless and self-contained:
 go run ./cmd/api                 # listens on :8080
 ```
 
+Browse, search and catalog requests are answered from `data/index.tsv` — a
+generated file holding only the fields a listing renders — rather than from the
+records themselves, so the server starts without parsing any YAML and reads a
+record only when a request asks for one by id. It is derived entirely from
+`data/`, so regenerate and commit it after any dataset change:
+
+```sh
+make index                       # rewrites data/index.tsv
+make index-check                 # what CI runs; fails if it is stale
+```
+
 See [Using the API](/docs/using-the-api) for the request format.

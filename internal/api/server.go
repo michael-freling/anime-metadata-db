@@ -10,6 +10,7 @@ import (
 
 	animedb "github.com/michael-freling/anime-metadata-db"
 	"github.com/michael-freling/anime-metadata-db/internal/gen/anime/v1/animev1connect"
+	"github.com/michael-freling/anime-metadata-db/internal/index"
 )
 
 // NewHandler builds the HTTP handler that serves AnimeService over the Connect,
@@ -37,16 +38,24 @@ func varyAcceptLanguage() connect.UnaryInterceptorFunc {
 	}
 }
 
-// New loads the embedded dataset and returns the API handler. It is the
-// entrypoint used by both cmd/api and the Vercel function.
+// New opens the embedded listing index and returns the API handler. It is the
+// entrypoint used by cmd/api.
+//
+// Only the index is read here. Record files are parsed when a request asks for
+// one, so this returns in microseconds regardless of how large the dataset is.
 func New(version string) (http.Handler, error) {
-	return newFromFS(animedb.DataFS, version)
+	ix, err := index.Open(animedb.Index)
+	if err != nil {
+		return nil, err
+	}
+	return NewHandler(NewStore(ix, animedb.DataFS), version), nil
 }
 
-// newFromFS builds the handler from an arbitrary dataset filesystem. It backs
-// New and lets tests exercise the load-error path with a synthetic FS.
+// newFromFS builds the handler from an arbitrary dataset filesystem, indexing
+// it in memory. It lets tests drive the whole server off a fixture dataset, and
+// exercise the load-error path with a synthetic FS.
 func newFromFS(fsys fs.FS, version string) (http.Handler, error) {
-	store, err := NewStore(fsys)
+	store, err := NewStoreFromDataset(fsys)
 	if err != nil {
 		return nil, err
 	}

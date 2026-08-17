@@ -95,6 +95,15 @@ func NewDate(year int, month time.Month, day int) Date {
 	return Date{time.Date(year, month, day, 0, 0, 0, 0, time.UTC)}
 }
 
+// ParseDate reads the canonical YYYY-MM-DD form that MarshalYAML writes.
+func ParseDate(s string) (*Date, error) {
+	t, err := time.Parse(dateLayout, s)
+	if err != nil {
+		return nil, err
+	}
+	return &Date{t}, nil
+}
+
 // MarshalYAML renders the date as YYYY-MM-DD.
 func (d Date) MarshalYAML() (any, error) {
 	return d.Format(dateLayout), nil
@@ -106,11 +115,11 @@ func (d *Date) UnmarshalYAML(unmarshal func(any) error) error {
 	if err := unmarshal(&s); err != nil {
 		return err
 	}
-	t, err := time.Parse(dateLayout, s)
+	parsed, err := ParseDate(s)
 	if err != nil {
 		return err
 	}
-	d.Time = t
+	*d = *parsed
 	return nil
 }
 

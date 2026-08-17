@@ -51,10 +51,16 @@ fail=0
 #                the same way `docs/` swept up web/content/docs/, and naming
 #                only the package the API imports would miss it.
 #   data/**      embedded into that function with go:embed
+#   data/index.tsv
+#                named on its own, not just covered by data/: it is the listing
+#                index every browse and search request is answered from, and
+#                without it the server does not start at all. A pattern that
+#                excluded only this one file would leave the rest of data/
+#                matching and the check passing.
 for required in \
   'web/package.json' 'web/content/docs' 'web/src' \
   'cmd' 'internal' 'go.mod' 'go.sum' 'dataset.go' \
-  'data'; do
+  'data' 'data/index.tsv'; do
   matched=0
   while IFS= read -r -d '' f; do
     matched=$((matched + 1))

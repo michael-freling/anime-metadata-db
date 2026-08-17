@@ -1,8 +1,11 @@
 package api
 
 import (
+	"fmt"
 	"testing"
 	"testing/fstest"
+
+	"github.com/michael-freling/anime-metadata-db/internal/index"
 )
 
 // franchiseYAML exercises every R1 shape: original+translated titles, seasons
@@ -161,7 +164,7 @@ func newTestFS() fstest.MapFS {
 // mustStore builds a Store from the standard test fixtures.
 func mustStore(t *testing.T) *Store {
 	t.Helper()
-	s, err := NewStore(newTestFS())
+	s, err := NewStoreFromDataset(newTestFS())
 	if err != nil {
 		t.Fatalf("NewStore: %v", err)
 	}
@@ -182,19 +185,22 @@ func TestNewStoreStats(t *testing.T) {
 
 func TestStoreFranchises(t *testing.T) {
 	s := mustStore(t)
-	fs := s.Franchises()
-	if len(fs) != 1 || fs[0].ID != "aaa" {
-		t.Fatalf("Franchises() = %v, want one franchise aaa", fs)
+	page, err := s.FranchisesPage("", 0)
+	if err != nil {
+		t.Fatalf("FranchisesPage: %v", err)
 	}
-	f, ok := s.Franchise("aaa")
-	if !ok || f.ID != "aaa" {
-		t.Fatalf("Franchise(aaa) = %v, %v", f, ok)
+	if len(page.Items) != 1 || page.Items[0].ID != "aaa" || page.Total != 1 {
+		t.Fatalf("FranchisesPage() = %v (total %d), want one franchise aaa", page.Items, page.Total)
 	}
-	if _, ok := s.Franchise("nope"); ok {
+	f, ok, err := s.Franchise("aaa")
+	if err != nil || !ok || f.ID != "aaa" {
+		t.Fatalf("Franchise(aaa) = %v, %v, %v", f, ok, err)
+	}
+	if _, ok, _ := s.Franchise("nope"); ok {
 		t.Error("Franchise(nope) should not be found")
 	}
 	// A series id is not a franchise id.
-	if _, ok := s.Franchise("aaa-main"); ok {
+	if _, ok, _ := s.Franchise("aaa-main"); ok {
 		t.Error("Franchise(aaa-main) should not be found")
 	}
 }
@@ -202,17 +208,20 @@ func TestStoreFranchises(t *testing.T) {
 func TestStoreSeries(t *testing.T) {
 	s := mustStore(t)
 	// Series under a franchise.
-	series, fid, ok := s.Series("aaa-main")
-	if !ok || series.ID != "aaa-main" || fid != "aaa" {
-		t.Fatalf("Series(aaa-main) = %v, %q, %v", series, fid, ok)
+	series, fid, ok, err := s.Series("aaa-main")
+	if err != nil || !ok || series.ID != "aaa-main" || fid != "aaa" {
+		t.Fatalf("Series(aaa-main) = %v, %q, %v, %v", series, fid, ok, err)
 	}
 	// Standalone series: empty franchise id.
-	series, fid, ok = s.Series("zzz")
-	if !ok || series.ID != "zzz" || fid != "" {
-		t.Fatalf("Series(zzz) = %v, %q, %v", series, fid, ok)
+	series, fid, ok, err = s.Series("zzz")
+	if err != nil || !ok || series.ID != "zzz" || fid != "" {
+		t.Fatalf("Series(zzz) = %v, %q, %v, %v", series, fid, ok, err)
 	}
-	if _, _, ok := s.Series("missing"); ok {
+	if _, _, ok, _ := s.Series("missing"); ok {
 		t.Error("Series(missing) should not be found")
+	}
+	if !s.SeriesExists("zzz") || s.SeriesExists("missing") {
+		t.Error("SeriesExists disagrees with Series")
 	}
 }
 
@@ -285,7 +294,7 @@ func TestNewStoreErrors(t *testing.T) {
 	}
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
-			if _, err := NewStore(tc.fsys); err == nil {
+			if _, err := NewStoreFromDataset(tc.fsys); err == nil {
 				t.Fatal("expected error, got nil")
 			}
 		})
@@ -294,7 +303,7 @@ func TestNewStoreErrors(t *testing.T) {
 
 // A dataset with no data/staff subtree loads fine — staff are optional.
 func TestNewStoreWithoutStaffDir(t *testing.T) {
-	s, err := NewStore(fstest.MapFS{"data/series/a.yaml": {Data: []byte("series:\n  id: a\n")}})
+	s, err := NewStoreFromDataset(fstest.MapFS{"data/series/a.yaml": {Data: []byte("series:\n  id: a\n")}})
 	if err != nil {
 		t.Fatalf("NewStore: %v", err)
 	}
@@ -313,11 +322,11 @@ func TestNewStoreWithoutStaffDir(t *testing.T) {
 func TestStoreCharacters(t *testing.T) {
 	s := mustStore(t)
 
-	c, ok := s.Character("alpha-hero")
-	if !ok || c.Names.Translations["en"] != "Alpha Hero" {
-		t.Fatalf("Character(alpha-hero) = %+v, %v", c, ok)
+	c, ok, err := s.Character("alpha-hero")
+	if err != nil || !ok || c.Names.Translations["en"] != "Alpha Hero" {
+		t.Fatalf("Character(alpha-hero) = %+v, %v, %v", c, ok, err)
 	}
-	if _, ok := s.Character("nobody"); ok {
+	if _, ok, _ := s.Character("nobody"); ok {
 		t.Error("Character(nobody) should not be found")
 	}
 
@@ -337,7 +346,10 @@ func TestStoreCharacters(t *testing.T) {
 	}
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
-			got := s.Characters(tc.seriesID, tc.limit)
+			got, err := s.Characters(tc.seriesID, tc.limit)
+			if err != nil {
+				t.Fatalf("Characters(%q, %d): %v", tc.seriesID, tc.limit, err)
+			}
 			if len(got) != len(tc.wantIDs) {
 				t.Fatalf("Characters(%q, %d) = %d, want %d", tc.seriesID, tc.limit, len(got), len(tc.wantIDs))
 			}
@@ -403,13 +415,13 @@ func TestStoreStaffCredits(t *testing.T) {
 	if len(credits) != 2 {
 		t.Fatalf("StaffCredits(va-one) = %d credits, want 2: %+v", len(credits), credits)
 	}
-	if credits[0].Character.ID != "alpha-hero" || credits[0].Language != "ja" {
-		t.Errorf("credit 0 = %s/%s", credits[0].Character.ID, credits[0].Language)
+	if credits[0].CharacterID != "alpha-hero" || credits[0].Language != "ja" {
+		t.Errorf("credit 0 = %s/%s", credits[0].CharacterID, credits[0].Language)
 	}
 	if len(credits[0].SeriesIDs) != 1 || credits[0].SeriesIDs[0] != "aaa-main" {
 		t.Errorf("credit 0 series = %v, want [aaa-main]", credits[0].SeriesIDs)
 	}
-	if credits[1].Character.ID != "zed-friend" || credits[1].Language != "en" || credits[1].SeriesIDs != nil {
+	if credits[1].CharacterID != "zed-friend" || credits[1].Language != "en" || credits[1].SeriesIDs != nil {
 		t.Errorf("credit 1 = %+v", credits[1])
 	}
 
@@ -438,12 +450,133 @@ func TestStoreStaffCreditsDeduplicates(t *testing.T) {
             - staffId: va
               language: ja
 `
-	s, err := NewStore(fstest.MapFS{"data/series/d.yaml": {Data: []byte(dupYAML)}})
+	s, err := NewStoreFromDataset(fstest.MapFS{
+		"data/series/d.yaml": {Data: []byte(dupYAML)},
+		"data/staff/s.yaml":  {Data: []byte("staff:\n  - id: va\n")},
+	})
 	if err != nil {
 		t.Fatalf("NewStore: %v", err)
 	}
 	credits := s.StaffCredits("va")
 	if len(credits) != 1 || len(credits[0].SeriesIDs) != 1 {
 		t.Fatalf("StaffCredits(va) = %+v, want one credit for one series", credits)
+	}
+}
+
+// A casting that names a staff member with no record of their own is dropped
+// rather than indexed against an invented row. Such a credit was never
+// reachable — GetStaff answers NotFound for the same id, and that is the only
+// call that reads credits — and the dataset lint is what catches the dangling
+// reference itself.
+func TestStoreCreditsToUnknownStaffAreDropped(t *testing.T) {
+	const yaml = `series:
+  id: d
+  characters:
+    - id: dup-cast
+      appearances:
+        - seriesId: d
+          voiceActors:
+            - staffId: ghost
+              language: ja
+`
+	s, err := NewStoreFromDataset(fstest.MapFS{"data/series/d.yaml": {Data: []byte(yaml)}})
+	if err != nil {
+		t.Fatalf("NewStore: %v", err)
+	}
+	if got := s.StaffCredits("ghost"); got != nil {
+		t.Errorf("StaffCredits(ghost) = %+v, want nil", got)
+	}
+	if _, ok := s.Staff("ghost"); ok {
+		t.Error("Staff(ghost) should not be found")
+	}
+}
+
+// The index names the file each record lives in. If that file has since
+// changed so that it no longer holds the record, the two have drifted — which
+// must surface as an error, not as a "not found" that looks like a typo.
+func TestStoreReportsIndexDriftRatherThanNotFound(t *testing.T) {
+	dataset := fstest.MapFS{
+		"data/series/a.yaml": {Data: []byte("franchise:\n  id: f\n  series:\n    - id: s\n  characters:\n    - id: c\n")},
+	}
+	ix, err := index.Build(dataset)
+	if err != nil {
+		t.Fatalf("Build: %v", err)
+	}
+
+	// Same index, but every record file is now something else entirely.
+	drifted := NewStore(ix, fstest.MapFS{
+		"data/series/a.yaml": {Data: []byte("series:\n  id: other\n")},
+	})
+	if _, _, err := drifted.Franchise("f"); err == nil {
+		t.Error("Franchise: want an error naming the drift")
+	}
+	if _, _, _, err := drifted.Series("s"); err == nil {
+		t.Error("Series: want an error naming the drift")
+	}
+	if _, _, err := drifted.Character("c"); err == nil {
+		t.Error("Character: want an error naming the drift")
+	}
+	if _, err := drifted.CharactersPage("", "", "", 0); err == nil {
+		t.Error("CharactersPage: want an error naming the drift")
+	}
+	if _, err := drifted.FranchisesPage("", 0); err == nil {
+		t.Error("FranchisesPage: want an error naming the drift")
+	}
+}
+
+// A record file the index names but that cannot be read or parsed at all.
+func TestStoreReportsUnreadableRecords(t *testing.T) {
+	dataset := fstest.MapFS{"data/series/a.yaml": {Data: []byte("series:\n  id: s\n")}}
+	ix, err := index.Build(dataset)
+	if err != nil {
+		t.Fatalf("Build: %v", err)
+	}
+
+	missing := NewStore(ix, fstest.MapFS{})
+	if _, _, _, err := missing.Series("s"); err == nil {
+		t.Error("Series over an empty filesystem: want a read error")
+	}
+
+	corrupt := NewStore(ix, fstest.MapFS{"data/series/a.yaml": {Data: []byte("series: [unterminated")}})
+	if _, _, _, err := corrupt.Series("s"); err == nil {
+		t.Error("Series over a malformed record: want a parse error")
+	}
+}
+
+// The record cache must hand every caller the same parse, and must not grow
+// without bound as different files are read.
+func TestRecordCacheIsSharedAndBounded(t *testing.T) {
+	dataset := fstest.MapFS{}
+	for i := 0; i < recordCacheSize*2; i++ {
+		name := fmt.Sprintf("data/series/s%02d.yaml", i)
+		dataset[name] = &fstest.MapFile{Data: []byte(fmt.Sprintf("series:\n  id: s%02d\n", i))}
+	}
+	s, err := NewStoreFromDataset(dataset)
+	if err != nil {
+		t.Fatalf("NewStore: %v", err)
+	}
+
+	first, _, _, err := s.Series("s00")
+	if err != nil {
+		t.Fatalf("Series: %v", err)
+	}
+	again, _, _, err := s.Series("s00")
+	if err != nil {
+		t.Fatalf("Series: %v", err)
+	}
+	if first != again {
+		t.Error("a cached record was parsed twice")
+	}
+
+	for i := 0; i < recordCacheSize*2; i++ {
+		if _, _, _, err := s.Series(fmt.Sprintf("s%02d", i)); err != nil {
+			t.Fatalf("Series(s%02d): %v", i, err)
+		}
+	}
+	s.mu.Lock()
+	size := len(s.cache)
+	s.mu.Unlock()
+	if size > recordCacheSize {
+		t.Errorf("cache holds %d records, want at most %d", size, recordCacheSize)
 	}
 }

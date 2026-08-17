@@ -10,7 +10,16 @@ package animedb
 import "embed"
 
 // DataFS holds the generated dataset under the "data/" prefix
-// (data/series/*.yaml, data/staff/*.yaml).
+// (data/series/*.yaml, data/staff/*.yaml). The API reads a record out of it
+// only when a request names a single id.
 //
 //go:embed data
 var DataFS embed.FS
+
+// Index is the generated listing index (see internal/index). Embedding it as a
+// string rather than reading it out of DataFS is deliberate: a string constant
+// lives in the binary's read-only data, so the server holds the whole index
+// without allocating a byte of heap for it, and boots without parsing YAML.
+//
+//go:embed data/index.tsv
+var Index string

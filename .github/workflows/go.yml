@@ -60,6 +60,30 @@ jobs:
             exit 1
           fi
 
+  index:
+    name: Listing index matches the dataset
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      # data/index.tsv is generated from data/ and embedded in the API binary.
+      # Nothing regenerates it at deploy time — Vercel just runs `go build` —
+      # so a dataset change that forgets `make index` would ship a server
+      # describing the previous dataset. Regenerating here and diffing is what
+      # makes that impossible to merge.
+      - name: Verify data/index.tsv is up to date
+        run: |
+          if ! make index-check; then
+            echo "::error::data/index.tsv is stale; run 'make index' and commit the result."
+            exit 1
+          fi
+
   lint:
     name: golangci-lint v2
     runs-on: ubuntu-latest

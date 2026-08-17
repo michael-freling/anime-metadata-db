@@ -21,3 +21,13 @@ generate: ## Regenerate the committed Go and TypeScript clients (needs buf; run 
 .PHONY: api
 api: ## Run the read-only Connect API server locally (defaults to :8080)
 	go run ./cmd/api
+
+# --- Dataset: the listing index the API serves ------------------------------
+
+.PHONY: index
+index: ## Regenerate data/index.tsv from data/ (run after any dataset change)
+	go run ./cmd/index
+
+.PHONY: index-check
+index-check: ## Fail if data/index.tsv no longer matches data/
+	go run ./cmd/index -check

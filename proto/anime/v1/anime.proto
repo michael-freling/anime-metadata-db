@@ -316,10 +316,23 @@ message DatasetStats {
   int32 latest_release_year = 8;
 }
 
-message ListFranchisesRequest {}
+message ListFranchisesRequest {
+  // page_token continues a previous listing; limit caps the page.
+  //
+  // A franchise carries its whole tree — every series, season and episode —
+  // so an unbounded listing is a request to serve the entire dataset in one
+  // response. It is paginated for that reason. Callers that want a flat,
+  // cheap catalogue should use ListCatalog instead.
+  string page_token = 1;
+  int32 limit = 2;
+}
 
 message ListFranchisesResponse {
   repeated Franchise franchises = 1;
+  // next_page_token is empty on the last page.
+  string next_page_token = 2;
+  // total_size counts every franchise, not just this page.
+  int32 total_size = 3;
 }
 
 message GetFranchiseRequest {

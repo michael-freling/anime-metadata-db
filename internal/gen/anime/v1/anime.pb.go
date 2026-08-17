@@ -2020,7 +2020,15 @@ func (x *DatasetStats) GetLatestReleaseYear() int32 {
 }
 
 type ListFranchisesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// page_token continues a previous listing; limit caps the page.
+	//
+	// A franchise carries its whole tree — every series, season and episode —
+	// so an unbounded listing is a request to serve the entire dataset in one
+	// response. It is paginated for that reason. Callers that want a flat,
+	// cheap catalogue should use ListCatalog instead.
+	PageToken     string `protobuf:"bytes,1,opt,name=page_token,json=pageToken,proto3" json:"page_token,omitempty"`
+	Limit         int32  `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2055,9 +2063,27 @@ func (*ListFranchisesRequest) Descriptor() ([]byte, []int) {
 	return file_anime_v1_anime_proto_rawDescGZIP(), []int{21}
 }
 
+func (x *ListFranchisesRequest) GetPageToken() string {
+	if x != nil {
+		return x.PageToken
+	}
+	return ""
+}
+
+func (x *ListFranchisesRequest) GetLimit() int32 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
 type ListFranchisesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Franchises    []*Franchise           `protobuf:"bytes,1,rep,name=franchises,proto3" json:"franchises,omitempty"`
+	state      protoimpl.MessageState `protogen:"open.v1"`
+	Franchises []*Franchise           `protobuf:"bytes,1,rep,name=franchises,proto3" json:"franchises,omitempty"`
+	// next_page_token is empty on the last page.
+	NextPageToken string `protobuf:"bytes,2,opt,name=next_page_token,json=nextPageToken,proto3" json:"next_page_token,omitempty"`
+	// total_size counts every franchise, not just this page.
+	TotalSize     int32 `protobuf:"varint,3,opt,name=total_size,json=totalSize,proto3" json:"total_size,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2097,6 +2123,20 @@ func (x *ListFranchisesResponse) GetFranchises() []*Franchise {
 		return x.Franchises
 	}
 	return nil
+}
+
+func (x *ListFranchisesResponse) GetNextPageToken() string {
+	if x != nil {
+		return x.NextPageToken
+	}
+	return ""
+}
+
+func (x *ListFranchisesResponse) GetTotalSize() int32 {
+	if x != nil {
+		return x.TotalSize
+	}
+	return 0
 }
 
 type GetFranchiseRequest struct {
@@ -3426,12 +3466,18 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"characters\x12\x14\n" +
 	"\x05staff\x18\x06 \x01(\x05R\x05staff\x122\n" +
 	"\x15earliest_release_year\x18\a \x01(\x05R\x13earliestReleaseYear\x12.\n" +
-	"\x13latest_release_year\x18\b \x01(\x05R\x11latestReleaseYear\"\x17\n" +
-	"\x15ListFranchisesRequest\"M\n" +
+	"\x13latest_release_year\x18\b \x01(\x05R\x11latestReleaseYear\"L\n" +
+	"\x15ListFranchisesRequest\x12\x1d\n" +
+	"\n" +
+	"page_token\x18\x01 \x01(\tR\tpageToken\x12\x14\n" +
+	"\x05limit\x18\x02 \x01(\x05R\x05limit\"\x94\x01\n" +
 	"\x16ListFranchisesResponse\x123\n" +
 	"\n" +
 	"franchises\x18\x01 \x03(\v2\x13.anime.v1.FranchiseR\n" +
-	"franchises\"%\n" +
+	"franchises\x12&\n" +
+	"\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n" +
+	"\n" +
+	"total_size\x18\x03 \x01(\x05R\ttotalSize\"%\n" +
 	"\x13GetFranchiseRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"I\n" +
 	"\x14GetFranchiseResponse\x121\n" +

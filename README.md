@@ -96,9 +96,17 @@ clients can call it with an ordinary HTTP `POST` + JSON, no special tooling
 required. The dataset is compiled into the binary with `go:embed`, so the server
 is stateless and self-contained.
 
-The code is split to keep the two concerns explicit: `internal/builder` (+
-`cmd/builder`) **writes** `data/`; `internal/api` (+ `cmd/api`) **reads** the
-embedded copy and serves it. `internal/model` is the shared data model.
+Listings are answered from `data/index.tsv`, a generated file carrying just the
+fields a browse row shows. The server holds it as a string constant — read-only
+data in the binary, so it costs no heap — and parses a YAML record only when a
+request names a single id. That is what keeps startup flat as the catalogue
+grows; see [`internal/index`](internal/index/index.go) for the measurements
+behind it. Regenerate it with `make index` after any change under `data/`.
+
+The code is split to keep the concerns explicit: `internal/builder` (+
+`cmd/builder`) **writes** `data/`; `cmd/index` **indexes** it; `internal/api` (+
+`cmd/api`) **reads** the embedded copy and serves it. `internal/model` is the
+shared data model.
 
 `AnimeService` exposes the structure — `ListFranchises`, `GetFranchise`,
 `GetSeries`, `Search` — the R2 cast — `GetCharacter`, `ListCharacters`,

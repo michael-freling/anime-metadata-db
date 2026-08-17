@@ -73,6 +73,12 @@ run "excluding internal/ is rejected" reject '/docs/' '/proto/' '/internal/'
 run "excluding cmd/ is rejected" reject '/docs/' '/proto/' '/cmd/'
 run "excluding go.mod is rejected" reject '/docs/' '/proto/' '/go.mod'
 
+# The listing index is one file inside a directory the check already requires,
+# so excluding just it would leave every other data/ file matching. It is named
+# separately for that reason, and this is what proves the naming works: without
+# the index the API does not boot at all.
+run "excluding data/index.tsv is rejected" reject '/docs/' '/proto/' '/config/' '/data/index.tsv'
+
 # config/ unanchored repeats the docs/ collision, since internal/config/ exists.
 run "unanchored config/ is rejected" reject '/docs/' '/proto/' 'config/'
 

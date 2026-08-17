@@ -357,8 +357,8 @@ func toStaffCredits(loc localizer, in []StaffCredit) []*animev1.StaffCredit {
 	out := make([]*animev1.StaffCredit, len(in))
 	for i, credit := range in {
 		out[i] = &animev1.StaffCredit{
-			CharacterId:   credit.Character.ID,
-			CharacterName: resolveTitle(credit.Character.Names, loc.lang),
+			CharacterId:   credit.CharacterID,
+			CharacterName: resolveTitle(credit.CharacterNames, loc.lang),
 			Language:      credit.Language,
 			SeriesIds:     credit.SeriesIDs,
 		}
@@ -367,13 +367,17 @@ func toStaffCredits(loc localizer, in []StaffCredit) []*animev1.StaffCredit {
 }
 
 // toSeries converts one series, its installments and the cast appearing in it.
-func toSeries(loc localizer, store *Store, s *model.Series) *animev1.Series {
+func toSeries(loc localizer, store *Store, s *model.Series) (*animev1.Series, error) {
 	title, full := loc.title(s.Titles)
+	cast, err := store.Characters(s.ID, 0)
+	if err != nil {
+		return nil, err
+	}
 	out := &animev1.Series{
 		Id:             s.ID,
 		Title:          title,
 		LocalizedTitle: full,
-		Characters:     toCharacters(loc, store, store.Characters(s.ID, 0)),
+		Characters:     toCharacters(loc, store, cast),
 	}
 	if len(s.Seasons) > 0 {
 		out.Seasons = make([]*animev1.Season, len(s.Seasons))
@@ -393,18 +397,22 @@ func toSeries(loc localizer, store *Store, s *model.Series) *animev1.Series {
 			out.Specials[i] = toSpecial(loc, s.Specials[i])
 		}
 	}
-	return out
+	return out, nil
 }
 
 // toFranchise converts one franchise and its nested series and watch orders.
 // The cast is carried by each nested series, not by the franchise itself.
-func toFranchise(loc localizer, store *Store, f *model.Franchise) *animev1.Franchise {
+func toFranchise(loc localizer, store *Store, f *model.Franchise) (*animev1.Franchise, error) {
 	title, full := loc.title(f.Titles)
 	out := &animev1.Franchise{Id: f.ID, Title: title, LocalizedTitle: full}
 	if len(f.Series) > 0 {
 		out.Series = make([]*animev1.Series, len(f.Series))
 		for i := range f.Series {
-			out.Series[i] = toSeries(loc, store, &f.Series[i])
+			series, err := toSeries(loc, store, &f.Series[i])
+			if err != nil {
+				return nil, err
+			}
+			out.Series[i] = series
 		}
 	}
 	if len(f.WatchOrders) > 0 {
@@ -417,7 +425,7 @@ func toFranchise(loc localizer, store *Store, f *model.Franchise) *animev1.Franc
 			out.WatchOrders[i] = &animev1.WatchOrder{Name: wo.Name, Entries: entries}
 		}
 	}
-	return out
+	return out, nil
 }
 
 // toSearchResult converts a catalog entry to a search result, resolving its
@@ -537,10 +545,10 @@ func fromReleaseSeason(s animev1.ReleaseSeason) model.ReleaseSeason {
 // Empty when the id names nothing, which the build's referential integrity
 // check should already have prevented.
 func seriesTitle(loc localizer, store *Store, seriesID string) string {
-	series, _, ok := store.Series(seriesID)
+	titles, ok := store.SeriesTitle(seriesID)
 	if !ok {
 		return ""
 	}
-	title, _ := loc.title(series.Titles)
+	title, _ := loc.title(titles)
 	return title
 }
