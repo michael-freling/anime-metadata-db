@@ -240,6 +240,40 @@ test('the chosen language persists across pages', async ({ page }) => {
 // Ids are slugs the reader never typed and cannot act on. They were printed in
 // every detail-page subtitle; what belongs there is what the thing is and how
 // much of it there is.
+// A blanket check rather than one assertion per known field: the subtitles were
+// fixed once and slugs still reached readers through the roles list, untitled
+// films and specials, and cast fallbacks. This catches whichever one is missed
+// next, without hardcoding a list of ids — a page's own links name every id it
+// knows about, and none of them should be visible as text.
+test('no page shows a reader an id it links to', async ({ page }) => {
+  for (const path of [
+    '/browse',
+    '/browse?q=demon',
+    '/browse/demon-slayer',
+    '/characters/tanjiro-kamado',
+    '/staff/ayako-kawasumi',
+  ]) {
+    await page.goto(path);
+    const body = page.locator('main').last();
+
+    const ids = new Set(
+      (
+        await body.locator('a[href]').evaluateAll((els) =>
+          els.map((el) => (el as HTMLAnchorElement).getAttribute('href') ?? ''),
+        )
+      )
+        .filter((href) => /^\/(browse|characters|staff)\/[^?#]+$/.test(href))
+        .map((href) => href.split('/').pop()!),
+    );
+    expect(ids.size, `${path} links to nothing`).toBeGreaterThan(0);
+
+    const text = await body.innerText();
+    for (const id of ids) {
+      expect(text, `${path} displays the id "${id}"`).not.toContain(id);
+    }
+  }
+});
+
 test('detail pages describe the entry instead of printing its id', async ({ page }) => {
   await page.goto('/browse/demon-slayer');
   await expect(page.getByText(/Series · 5 seasons · 2 films/)).toBeVisible();
@@ -252,4 +286,10 @@ test('detail pages describe the entry instead of printing its id', async ({ page
   await page.goto('/staff/natsuki-hanae');
   await expect(page.getByText(/role/)).toBeVisible();
   await expect(page.getByText('natsuki-hanae', { exact: true })).toHaveCount(0);
+
+  // The roles list named its series by id and its language by code.
+  const body = page.locator('main').last();
+  await expect(body).toContainText('Demon Slayer');
+  await expect(body).toContainText('Japanese');
+  await expect(body).not.toContainText('demon-slayer');
 });

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { humanizeId, plural, yearsLabel } from './format';
+import { humanizeId, languageLabel, plural, yearsLabel } from './format';
 
 describe('yearsLabel', () => {
   it('collapses a single-year span', () => {
@@ -87,5 +87,18 @@ describe('humanizeId', () => {
     expect(humanizeId('a--b')).toBe('A B');
     expect(humanizeId('')).toBe('');
     expect(humanizeId('single')).toBe('Single');
+  });
+});
+
+describe('languageLabel', () => {
+  it('names the languages the dataset credits', () => {
+    expect(languageLabel('ja')).toBe('Japanese');
+    expect(languageLabel('en')).toBe('English');
+  });
+
+  // Better an unfamiliar code than an invented name.
+  it('falls back to the code it does not know', () => {
+    expect(languageLabel('de')).toBe('de');
+    expect(languageLabel('')).toBe('');
   });
 });

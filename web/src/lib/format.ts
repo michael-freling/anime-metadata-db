@@ -48,3 +48,16 @@ export function humanizeId(id: string): string {
     .map((word) => (/^\d+$/.test(word) ? word : word.charAt(0).toUpperCase() + word.slice(1)))
     .join(' ');
 }
+
+// languageLabel turns a BCP-47 code into something a reader recognises. A code
+// is no more meaningful to them than a slug is; the dataset currently credits
+// only these two, and anything else falls back to the code rather than
+// inventing a name for it.
+const LANGUAGE_NAMES: Record<string, string> = {
+  en: 'English',
+  ja: 'Japanese',
+};
+
+export function languageLabel(code: string): string {
+  return LANGUAGE_NAMES[code] ?? code;
+}

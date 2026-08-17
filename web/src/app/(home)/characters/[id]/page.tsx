@@ -5,7 +5,7 @@ import { cache } from 'react';
 import { Code, ConnectError } from '@connectrpc/connect';
 import { localizedApi } from '@/lib/api';
 import { ApiError, isBadRequest, PageHeader, plural } from '@/components/browse';
-import { humanizeId } from '@/lib/format';
+import { humanizeId, languageLabel } from '@/lib/format';
 
 // Shared by generateMetadata and the page body, which would otherwise each
 // issue their own RPC for the same character.
@@ -63,8 +63,8 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
 
   return (
     <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-12">
-      <Link href="/search" className="text-sm text-fd-muted-foreground hover:underline">
-        ← Search
+      <Link href="/browse" className="text-sm text-fd-muted-foreground hover:underline">
+        ← Browse
       </Link>
       <div className="mt-4">
         <PageHeader
@@ -90,9 +90,9 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
                 className="flex items-baseline justify-between gap-4 border-b border-fd-border py-3 last:border-0"
               >
                 <Link href={`/staff/${v.staffId}`} className="font-medium hover:underline">
-                  {v.staffName || v.staffId}
+                  {v.staffName || humanizeId(v.staffId)}
                 </Link>
-                <span className="text-sm text-fd-muted-foreground">{v.language}</span>
+                <span className="text-sm text-fd-muted-foreground">{languageLabel(v.language)}</span>
               </li>
             ))}
           </ul>
@@ -109,12 +109,12 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
                 className="flex flex-wrap items-baseline justify-between gap-4 border-b border-fd-border py-3 last:border-0"
               >
                 <Link href={`/browse/${a.seriesId}`} className="font-medium hover:underline">
-                  {a.seriesTitle || a.seriesId}
+                  {a.seriesTitle || humanizeId(a.seriesId)}
                 </Link>
                 {/* An appearance may override the default cast for that series. */}
                 {a.voiceActors.length > 0 ? (
                   <span className="text-sm text-fd-muted-foreground">
-                    {a.voiceActors.map((v) => v.staffName || v.staffId).join(', ')}
+                    {a.voiceActors.map((v) => v.staffName || humanizeId(v.staffId)).join(', ')}
                   </span>
                 ) : null}
               </li>

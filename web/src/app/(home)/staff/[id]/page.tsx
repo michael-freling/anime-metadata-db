@@ -5,7 +5,7 @@ import { cache } from 'react';
 import { Code, ConnectError } from '@connectrpc/connect';
 import { localizedApi } from '@/lib/api';
 import { ApiError, isBadRequest, PageHeader, plural } from '@/components/browse';
-import { humanizeId } from '@/lib/format';
+import { humanizeId, languageLabel } from '@/lib/format';
 
 const load = cache(async (id: string) => {
   try {
@@ -61,8 +61,8 @@ export default async function StaffPage({ params }: { params: Promise<{ id: stri
 
   return (
     <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-12">
-      <Link href="/search" className="text-sm text-fd-muted-foreground hover:underline">
-        ← Search
+      <Link href="/browse" className="text-sm text-fd-muted-foreground hover:underline">
+        ← Browse
       </Link>
       <div className="mt-4">
         <PageHeader
@@ -81,10 +81,15 @@ export default async function StaffPage({ params }: { params: Promise<{ id: stri
                 className="flex flex-wrap items-baseline justify-between gap-4 border-b border-fd-border py-3 last:border-0"
               >
                 <Link href={`/characters/${c.characterId}`} className="font-medium hover:underline">
-                  {c.characterName || c.characterId}
+                  {c.characterName || humanizeId(c.characterId)}
                 </Link>
                 <span className="text-sm text-fd-muted-foreground">
-                  {[c.language, ...c.seriesIds].join(' · ')}
+                  {[
+                    languageLabel(c.language),
+                    // Titles come denormalized on the credit; the id is only a
+                    // fallback for a series the dataset cannot name.
+                    ...c.seriesIds.map((id, i) => c.seriesTitles[i] || humanizeId(id)),
+                  ].join(' · ')}
                 </span>
               </li>
             ))}

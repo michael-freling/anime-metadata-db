@@ -67,7 +67,7 @@ const FORMAT_LABEL: Record<number, string> = {
   [SpecialFormat.SPECIAL]: 'Special',
 };
 
-function Row({ title, meta }: { title: string; meta: string }) {
+function Row({ title, meta }: { title: React.ReactNode; meta: React.ReactNode }) {
   return (
     <li className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-fd-border py-3 last:border-0">
       <span className="font-medium">{title}</span>
@@ -114,7 +114,7 @@ function SeriesBody({ series }: { series: Series }) {
           {series.movies.map((m) => (
             <Row
               key={m.id}
-              title={m.title || m.id}
+              title={m.title || humanizeId(m.id)}
               meta={m.releaseYear ? String(m.releaseYear) : '—'}
             />
           ))}
@@ -126,7 +126,7 @@ function SeriesBody({ series }: { series: Series }) {
           {series.specials.map((sp) => (
             <Row
               key={sp.id}
-              title={sp.title || sp.id}
+              title={sp.title || humanizeId(sp.id)}
               meta={[FORMAT_LABEL[sp.format], sp.releaseYear || null, sp.episodes.length ? plural(sp.episodes.length, 'episode') : null]
                 .filter(Boolean)
                 .join(' · ')}
@@ -140,8 +140,19 @@ function SeriesBody({ series }: { series: Series }) {
           {series.characters.map((c) => (
             <Row
               key={c.id}
-              title={c.name || c.id}
-              meta={c.voiceActors.map((v) => v.staffName || v.staffId).join(', ')}
+              title={
+                <Link href={`/characters/${c.id}`} className="hover:underline">
+                  {c.name || humanizeId(c.id)}
+                </Link>
+              }
+              meta={c.voiceActors.map((v, i) => (
+                <span key={v.staffId}>
+                  {i > 0 ? ', ' : null}
+                  <Link href={`/staff/${v.staffId}`} className="hover:underline">
+                    {v.staffName || humanizeId(v.staffId)}
+                  </Link>
+                </span>
+              ))}
             />
           ))}
         </Section>
@@ -205,7 +216,7 @@ export default async function EntryPage({ params }: { params: Promise<{ id: stri
             <div key={s.id} className="mt-12">
               <h2 className="text-xl font-semibold">
                 <Link href={`/browse/${s.id}`} className="hover:underline">
-                  {s.title || s.id}
+                  {s.title || humanizeId(s.id)}
                 </Link>
               </h2>
               <SeriesBody series={s} />

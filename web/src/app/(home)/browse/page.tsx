@@ -338,7 +338,7 @@ export default async function BrowsePage({ searchParams }: { searchParams: Promi
                 title={c.name || humanizeId(c.id)}
                 meta={
                   c.voiceActors.length
-                    ? `Voiced by ${c.voiceActors.map((v) => v.staffName || v.staffId).join(', ')}`
+                    ? `Voiced by ${c.voiceActors.map((v) => v.staffName || humanizeId(v.staffId)).join(', ')}`
                     : plural(c.appearances.length, 'appearance')
                 }
               />

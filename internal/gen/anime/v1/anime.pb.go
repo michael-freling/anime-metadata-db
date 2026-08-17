@@ -1314,6 +1314,12 @@ type StaffCredit struct {
 	CharacterName string                 `protobuf:"bytes,2,opt,name=character_name,json=characterName,proto3" json:"character_name,omitempty"`
 	Language      string                 `protobuf:"bytes,3,opt,name=language,proto3" json:"language,omitempty"`
 	SeriesIds     []string               `protobuf:"bytes,4,rep,name=series_ids,json=seriesIds,proto3" json:"series_ids,omitempty"`
+	// series_titles are those series' titles resolved for the request's
+	// Accept-Language, positionally matching series_ids. Denormalized for the
+	// same reason VoiceActor carries staff_name: a client listing someone's
+	// roles should not have to call GetSeries once per credit, and without it
+	// the only thing it can show a reader is a slug.
+	SeriesTitles  []string `protobuf:"bytes,5,rep,name=series_titles,json=seriesTitles,proto3" json:"series_titles,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1372,6 +1378,13 @@ func (x *StaffCredit) GetLanguage() string {
 func (x *StaffCredit) GetSeriesIds() []string {
 	if x != nil {
 		return x.SeriesIds
+	}
+	return nil
+}
+
+func (x *StaffCredit) GetSeriesTitles() []string {
+	if x != nil {
+		return x.SeriesTitles
 	}
 	return nil
 }
@@ -3363,13 +3376,14 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12?\n" +
 	"\x0elocalized_name\x18\x03 \x01(\v2\x18.anime.v1.LocalizedTitleR\rlocalizedName\x128\n" +
-	"\fexternal_ids\x18\x04 \x01(\v2\x15.anime.v1.ExternalIdsR\vexternalIds\"\x92\x01\n" +
+	"\fexternal_ids\x18\x04 \x01(\v2\x15.anime.v1.ExternalIdsR\vexternalIds\"\xb7\x01\n" +
 	"\vStaffCredit\x12!\n" +
 	"\fcharacter_id\x18\x01 \x01(\tR\vcharacterId\x12%\n" +
 	"\x0echaracter_name\x18\x02 \x01(\tR\rcharacterName\x12\x1a\n" +
 	"\blanguage\x18\x03 \x01(\tR\blanguage\x12\x1d\n" +
 	"\n" +
-	"series_ids\x18\x04 \x03(\tR\tseriesIds\"7\n" +
+	"series_ids\x18\x04 \x03(\tR\tseriesIds\x12#\n" +
+	"\rseries_titles\x18\x05 \x03(\tR\fseriesTitles\"7\n" +
 	"\x0fWatchOrderEntry\x12\x10\n" +
 	"\x03ref\x18\x01 \x01(\tR\x03ref\x12\x12\n" +
 	"\x04note\x18\x02 \x01(\tR\x04note\"U\n" +
