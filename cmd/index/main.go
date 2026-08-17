@@ -33,7 +33,22 @@ func main() {
 	}
 }
 
+// verify re-reads a generated index, and is the real implementation behind
+// run's backstop.
+func verify(blob string) error {
+	_, err := index.Open(blob)
+	return err
+}
+
 func run(args []string, out io.Writer) error {
+	return runWith(args, out, verify)
+}
+
+// runWith takes its verifier as a parameter so the failure path can be tested.
+// By construction a correct writer never emits something the reader rejects,
+// which is what makes this backstop otherwise unreachable from a test — and an
+// untested backstop is one that can quietly stop being called.
+func runWith(args []string, out io.Writer, verify func(string) error) error {
 	fs := flag.NewFlagSet("index", flag.ContinueOnError)
 	fs.SetOutput(io.Discard)
 	root := fs.String("root", ".", "repository root holding data/")
@@ -51,10 +66,12 @@ func run(args []string, out io.Writer) error {
 		return err
 	}
 
-	// Opening what was just written catches a writer that emits something the
+	// Re-reading what was just written catches a writer that emits something the
 	// reader cannot load — a mismatched column count, a dangling row reference
-	// — at build time rather than at the server's next boot.
-	if _, err := index.Open(buf.String()); err != nil {
+	// — at build time rather than at the server's next boot. It runs before the
+	// file is touched, so a failure leaves the committed index alone rather
+	// than replacing it with something unloadable.
+	if err := verify(buf.String()); err != nil {
 		return fmt.Errorf("generated index does not load: %w", err)
 	}
 
