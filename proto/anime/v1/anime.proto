@@ -91,7 +91,10 @@ message Season {
   int32 release_year = 6;
   ReleaseSeason release_season = 7;
   ExternalIds external_ids = 8;
+  // episodes is the first page only, capped; episodes_total is the real count.
+  // Use ListEpisodes to page the rest.
   repeated Episode episodes = 9;
+  int32 episodes_total = 11;
 }
 
 // AlternateCutOf links an alternate-cut film to the Season it re-cuts.
@@ -125,7 +128,10 @@ message Special {
   string release_date = 4;
   int32 release_year = 5;
   ExternalIds external_ids = 6;
+  // episodes is the first page only, capped; episodes_total is the real count.
+  // Use ListEpisodes to page the rest.
   repeated Episode episodes = 7;
+  int32 episodes_total = 10;
   optional int32 absolute_number = 8;
 }
 
@@ -136,12 +142,21 @@ message Series {
   string title = 6;
   // localized_title carries every language; set only for Accept-Language: *.
   LocalizedTitle localized_title = 2;
+  // Every collection below is the first page only, capped at a fixed limit.
+  // The matching *_total is the real count, and a List RPC pages the rest:
+  // ListWorks(series_id) for releases, ListCharacters(series_id) for the cast.
+  // Embedding them unbounded would make one GetSeries call serialize an entire
+  // long-running show, which is exactly what this API is built not to do.
   repeated Season seasons = 3;
+  int32 seasons_total = 8;
   repeated Movie movies = 4;
+  int32 movies_total = 9;
   repeated Special specials = 5;
+  int32 specials_total = 10;
   // characters appearing in this series, in dataset order. Each is the full
   // global Character node, so its appearances may name other series too.
   repeated Character characters = 7;
+  int32 characters_total = 11;
 }
 
 // VoiceActor links a Character to the Staff who voices it in one language.
@@ -190,7 +205,10 @@ message Character {
   // voice_actors is the default cast, used for every appearance that does not
   // override it.
   repeated VoiceActor voice_actors = 5;
+  // appearances is the first page only, capped; appearances_total is the real
+  // count. Use ListAppearances to page the rest.
   repeated CharacterAppearance appearances = 6;
+  int32 appearances_total = 7;
 }
 
 // Staff is a global real person — currently only voice actors.
@@ -237,8 +255,14 @@ message Franchise {
   string title = 5;
   // localized_title carries every language; set only for Accept-Language: *.
   LocalizedTitle localized_title = 2;
+  // series is the first page only, capped, and each Series in it carries its
+  // own capped collections. A franchise nests the deepest structure in the
+  // dataset, so an unbounded GetFranchise would serialize every episode of
+  // every season of every series under the brand. Use ListSeries to page.
   repeated Series series = 3;
+  int32 series_total = 6;
   repeated WatchOrder watch_orders = 4;
+  int32 watch_orders_total = 7;
 }
 
 // SearchResult is one match: a top-level franchise or a series.
@@ -322,10 +346,23 @@ message DatasetStats {
   int32 latest_release_year = 8;
 }
 
-message ListFranchisesRequest {}
+message ListFranchisesRequest {
+  // page_token continues a previous listing; limit caps the page.
+  //
+  // A franchise carries its whole tree — every series, season and episode —
+  // so an unbounded listing is a request to serve the entire dataset in one
+  // response. It is paginated for that reason. Callers that want a flat,
+  // cheap catalogue should use ListCatalog instead.
+  string page_token = 1;
+  int32 limit = 2;
+}
 
 message ListFranchisesResponse {
   repeated Franchise franchises = 1;
+  // next_page_token is empty on the last page.
+  string next_page_token = 2;
+  // total_size counts every franchise, not just this page.
+  int32 total_size = 3;
 }
 
 message GetFranchiseRequest {
@@ -400,8 +437,11 @@ message GetStaffRequest {
 
 message GetStaffResponse {
   Staff staff = 1;
-  // credits is every character this person is cast as, in dataset order.
+  // credits is the first page only, capped, in dataset order; credits_total is
+  // the real count. A prolific voice actor accumulates roles for as long as
+  // they work, so this cannot be unbounded. Use ListCredits to page the rest.
   repeated StaffCredit credits = 2;
+  int32 credits_total = 3;
 }
 
 message ListStaffRequest {
@@ -525,6 +565,71 @@ service AnimeService {
   // ListStaff returns every staff member, optionally filtered by the language
   // they are credited in.
   rpc ListStaff(ListStaffRequest) returns (ListStaffResponse) {}
+  // ListEpisodes pages the episodes of one season or special. A long-running
+  // show accumulates episodes indefinitely, so they are never embedded whole.
+  rpc ListEpisodes(ListEpisodesRequest) returns (ListEpisodesResponse) {}
+  // ListSeries pages the series belonging to one franchise.
+  rpc ListSeries(ListSeriesRequest) returns (ListSeriesResponse) {}
+  // ListAppearances pages the series one character appears in.
+  rpc ListAppearances(ListAppearancesRequest) returns (ListAppearancesResponse) {}
+  // ListCredits pages the roles one staff member is cast in.
+  rpc ListCredits(ListCreditsRequest) returns (ListCreditsResponse) {}
   // GetHealth reports liveness, build version and dataset stats.
   rpc GetHealth(GetHealthRequest) returns (GetHealthResponse) {}
+}
+
+// ListEpisodesRequest names exactly one parent: a season or a special.
+message ListEpisodesRequest {
+  string season_id = 1;
+  string special_id = 2;
+  string page_token = 3;
+  int32 limit = 4;
+}
+
+message ListEpisodesResponse {
+  repeated Episode episodes = 1;
+  // next_page_token is empty on the last page.
+  string next_page_token = 2;
+  // total_size counts every episode of the parent, not just this page.
+  int32 total_size = 3;
+}
+
+message ListSeriesRequest {
+  // franchise_id is required: this pages one franchise's series. The flat
+  // catalog of every series is ListCatalog.
+  string franchise_id = 1;
+  string page_token = 2;
+  int32 limit = 3;
+}
+
+message ListSeriesResponse {
+  // Each Series carries its own capped collections, exactly as GetSeries
+  // returns it.
+  repeated Series series = 1;
+  string next_page_token = 2;
+  int32 total_size = 3;
+}
+
+message ListAppearancesRequest {
+  string character_id = 1;
+  string page_token = 2;
+  int32 limit = 3;
+}
+
+message ListAppearancesResponse {
+  repeated CharacterAppearance appearances = 1;
+  string next_page_token = 2;
+  int32 total_size = 3;
+}
+
+message ListCreditsRequest {
+  string staff_id = 1;
+  string page_token = 2;
+  int32 limit = 3;
+}
+
+message ListCreditsResponse {
+  repeated StaffCredit credits = 1;
+  string next_page_token = 2;
+  int32 total_size = 3;
 }

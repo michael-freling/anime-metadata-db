@@ -119,7 +119,7 @@ function SeriesBody({
 }) {
   return (
     <>
-      {series.seasons.length > 0 ? (
+      {series.seasonsTotal > 0 ? (
         <Section title="Seasons">
           {series.seasons.map((s) => (
             <Row
@@ -131,7 +131,7 @@ function SeriesBody({
                 s.releaseYear
                   ? `${SEASON_LABEL[s.releaseSeason] ? `${SEASON_LABEL[s.releaseSeason]} ` : ''}${s.releaseYear}`
                   : null,
-                s.episodes.length ? plural(s.episodes.length, 'episode') : null,
+                s.episodesTotal ? plural(s.episodesTotal, 'episode') : null,
               ]
                 .filter(Boolean)
                 .join(' · ')}
@@ -140,7 +140,7 @@ function SeriesBody({
         </Section>
       ) : null}
 
-      {series.movies.length > 0 ? (
+      {series.moviesTotal > 0 ? (
         <Section title="Films">
           {series.movies.map((m) => (
             <Row
@@ -152,13 +152,13 @@ function SeriesBody({
         </Section>
       ) : null}
 
-      {series.specials.length > 0 ? (
+      {series.specialsTotal > 0 ? (
         <Section title="Specials">
           {series.specials.map((sp) => (
             <Row
               key={sp.id}
               title={sp.title || humanizeId(sp.id)}
-              meta={[FORMAT_LABEL[sp.format], sp.releaseYear || null, sp.episodes.length ? plural(sp.episodes.length, 'episode') : null]
+              meta={[FORMAT_LABEL[sp.format], sp.releaseYear || null, sp.episodesTotal ? plural(sp.episodesTotal, 'episode') : null]
                 .filter(Boolean)
                 .join(' · ')}
             />
@@ -272,12 +272,12 @@ export default async function EntryPage({
           // there is.
           subtitle={
             franchise
-              ? `Franchise · ${plural(franchise.series.length, 'series', 'series')}`
+              ? `Franchise · ${plural(franchise.seriesTotal, 'series', 'series')}`
               : [
                   'Series',
-                  series?.seasons.length ? plural(series.seasons.length, 'season') : null,
-                  series?.movies.length ? plural(series.movies.length, 'film') : null,
-                  series?.specials.length ? plural(series.specials.length, 'special') : null,
+                  series?.seasonsTotal ? plural(series.seasonsTotal, 'season') : null,
+                  series?.moviesTotal ? plural(series.moviesTotal, 'film') : null,
+                  series?.specialsTotal ? plural(series.specialsTotal, 'special') : null,
                 ]
                   .filter(Boolean)
                   .join(' · ')

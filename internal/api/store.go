@@ -5,410 +5,419 @@
 package api
 
 import (
-	"errors"
 	"fmt"
 	"io/fs"
 	"path"
-	"sort"
-	"strings"
+	"sync"
 
 	"gopkg.in/yaml.v3"
 
+	"github.com/michael-freling/anime-metadata-db/internal/index"
 	"github.com/michael-freling/anime-metadata-db/internal/model"
 )
 
-// seriesRef pairs a resolved series with the id of the franchise that owns it
-// (empty for a standalone top-level series).
-type seriesRef struct {
-	series      *model.Series
-	franchiseID string
-}
-
-// CatalogEntry is a searchable top-level node: a franchise or a standalone
-// series. FranchiseID is set only for a series owned by a franchise.
-type CatalogEntry struct {
-	Kind        EntryKind
-	ID          string
-	Titles      model.Title
-	FranchiseID string
-
-	// Aggregates over everything beneath the entry, computed once at load by
-	// indexWorks so listing the catalog never walks the hierarchy. The year
-	// span is 0/0 when nothing beneath it carries a release year.
-	FirstReleaseYear  int
-	LatestReleaseYear int
-	Works             int
-	Episodes          int
-}
-
-// EntryKind classifies a catalog entry.
-type EntryKind int
+// The types the service works in are the index's: listing a browse page and
+// reading the index are the same operation, so there is nothing for this
+// package to redefine.
+type (
+	// CatalogEntry is a searchable top-level node.
+	CatalogEntry = index.CatalogEntry
+	// EntryKind classifies a catalog entry.
+	EntryKind = index.EntryKind
+	// Work is one release flattened out of the hierarchy.
+	Work = index.Work
+	// WorkKind classifies a release.
+	WorkKind = index.WorkKind
+	// WorkFilter narrows a work listing.
+	WorkFilter = index.WorkFilter
+	// Stats summarizes the loaded dataset.
+	Stats = index.Stats
+	// StaffCredit is one role a staff member is cast in.
+	StaffCredit = index.StaffCredit
+	// Page is one slice of a longer result set.
+	Page[T any] = index.Page[T]
+)
 
 // The catalog entry kinds.
 const (
-	EntryFranchise EntryKind = iota
-	EntrySeries
+	EntryFranchise = index.EntryFranchise
+	EntrySeries    = index.EntrySeries
 )
 
-// Stats summarizes the loaded dataset.
-type Stats struct {
-	Franchises int
-	Series     int
-	Seasons    int
-	Episodes   int
-	Characters int
-	Staff      int
-
-	// The span of release years the dataset actually covers. Both are 0 when
-	// nothing in it carries a year. EarliestReleaseYear is the floor below which
-	// a year cannot be real data for this dataset.
-	EarliestReleaseYear int
-	LatestReleaseYear   int
-}
-
-// StaffCredit is one role a staff member is cast in: the character they voice,
-// the language, and the series the casting applies to.
-type StaffCredit struct {
-	Character *model.Character
-	Language  string
-	SeriesIDs []string
-}
-
-// Store is an in-memory, read-only index over the dataset. It is built once at
-// startup and is safe for concurrent reads.
-type Store struct {
-	franchises    []*model.Franchise
-	franchiseByID map[string]*model.Franchise
-	seriesByID    map[string]seriesRef
-	entries       []CatalogEntry
-	stats         Stats
-
-	// R2 cast. Characters are nested in the series records; staff live in their
-	// own files. Both are global, so they are indexed once across every record.
-	characters         []*model.Character
-	characterByID      map[string]*model.Character
-	charactersBySeries map[string][]*model.Character
-	staff              []*model.Staff
-	staffByID          map[string]*model.Staff
-	creditsByStaff     map[string][]StaffCredit
-
-	// works is every release flattened out of the hierarchy, in catalog order,
-	// so browsing by year or quarter scans one slice instead of walking every
-	// record. Built by indexWorks at load.
-	works []Work
-}
-
-// The dataset subtrees the store reads.
+// The work kinds.
 const (
-	seriesGlob = "data/series"
-	staffGlob  = "data/staff"
+	WorkSeason  = index.WorkSeason
+	WorkMovie   = index.WorkMovie
+	WorkSpecial = index.WorkSpecial
 )
 
-// NewStore reads every data/series/*.yaml record from fsys and builds the
-// indexes. It returns an error if a record is malformed or if two records share
-// a franchise or series id.
-func NewStore(fsys fs.FS) (*Store, error) {
-	entries, err := fs.ReadDir(fsys, seriesGlob)
+// Store answers requests from the prebuilt listing index, reading a record file
+// only when a request names a single id.
+//
+// Listing, searching and browsing touch the index alone — see internal/index
+// for why that matters — so the only YAML parsed on a request path is the one
+// file behind a detail page.
+//
+// It is safe for concurrent use.
+type Store struct {
+	ix   *index.Index
+	fsys fs.FS
+
+	// Detail requests come in bursts against the same file: a series page reads
+	// the series and then its cast, and a page of one series' cast is one file
+	// repeated. A small cache turns those into a single parse without letting
+	// the process drift back towards holding the whole dataset.
+	mu     sync.Mutex
+	cache  map[string]*model.Record
+	recent []string
+}
+
+// recordCacheSize bounds the parsed-record cache. It is deliberately small:
+// the cache exists to collapse the handful of reads one page makes, not to
+// keep the dataset resident.
+const recordCacheSize = 16
+
+// NewStore returns a store serving ix, reading record files from fsys.
+//
+// fsys is the dataset root — the filesystem holding data/series/*.yaml — and is
+// read from lazily, so nothing is parsed here.
+func NewStore(ix *index.Index, fsys fs.FS) *Store {
+	return &Store{ix: ix, fsys: fsys, cache: map[string]*model.Record{}}
+}
+
+// NewStoreFromDataset builds an index from the YAML in fsys and returns a store
+// over it, for callers with no prebuilt index — tests, and tools that read a
+// dataset they have just written.
+//
+// It parses the whole dataset, which is what the committed index exists to
+// avoid. The server must not use it.
+func NewStoreFromDataset(fsys fs.FS) (*Store, error) {
+	ix, err := index.Build(fsys)
 	if err != nil {
-		return nil, fmt.Errorf("read dataset dir: %w", err)
-	}
-	s := &Store{
-		franchiseByID:      map[string]*model.Franchise{},
-		seriesByID:         map[string]seriesRef{},
-		characterByID:      map[string]*model.Character{},
-		charactersBySeries: map[string][]*model.Character{},
-		staffByID:          map[string]*model.Staff{},
-		creditsByStaff:     map[string][]StaffCredit{},
-	}
-	for _, name := range yamlNames(entries) {
-		raw, err := fs.ReadFile(fsys, path.Join(seriesGlob, name))
-		if err != nil {
-			return nil, fmt.Errorf("read %s: %w", name, err)
-		}
-		var rec model.Record
-		if err := yaml.Unmarshal(raw, &rec); err != nil {
-			return nil, fmt.Errorf("parse %s: %w", name, err)
-		}
-		if err := s.add(name, rec); err != nil {
-			return nil, err
-		}
-	}
-	if err := s.loadStaff(fsys); err != nil {
 		return nil, err
 	}
-	s.indexCredits()
-	s.indexWorks()
-	return s, nil
+	return NewStore(ix, fsys), nil
 }
 
-// yamlNames returns the YAML filenames of entries, sorted, so the catalog order
-// is deterministic regardless of the filesystem's directory order.
-func yamlNames(entries []fs.DirEntry) []string {
-	names := make([]string, 0, len(entries))
-	for _, e := range entries {
-		if e.IsDir() || !isYAML(e.Name()) {
-			continue
-		}
-		names = append(names, e.Name())
+// record parses one data/series file, or returns the cached parse.
+func (s *Store) record(file string) (*model.Record, error) {
+	s.mu.Lock()
+	if rec, ok := s.cache[file]; ok {
+		s.mu.Unlock()
+		return rec, nil
 	}
-	sort.Strings(names)
-	return names
-}
+	s.mu.Unlock()
 
-// loadStaff reads every data/staff/*.yaml record. The subtree is optional: a
-// dataset with no staff files loads fine, it just has no staff.
-func (s *Store) loadStaff(fsys fs.FS) error {
-	entries, err := fs.ReadDir(fsys, staffGlob)
-	if errors.Is(err, fs.ErrNotExist) {
-		return nil
-	}
+	raw, err := fs.ReadFile(s.fsys, path.Join("data/series", file))
 	if err != nil {
-		return fmt.Errorf("read staff dir: %w", err)
+		return nil, fmt.Errorf("read %s: %w", file, err)
 	}
-	for _, name := range yamlNames(entries) {
-		raw, err := fs.ReadFile(fsys, path.Join(staffGlob, name))
+	rec := &model.Record{}
+	if err := yaml.Unmarshal(raw, rec); err != nil {
+		return nil, fmt.Errorf("parse %s: %w", file, err)
+	}
+
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	// Re-check: a concurrent reader may have parsed the same file. Keeping the
+	// first copy means two callers holding the same record see the same pointer.
+	if existing, ok := s.cache[file]; ok {
+		return existing, nil
+	}
+	if len(s.recent) >= recordCacheSize {
+		delete(s.cache, s.recent[0])
+		s.recent = s.recent[1:]
+	}
+	s.cache[file] = rec
+	s.recent = append(s.recent, file)
+	return rec, nil
+}
+
+// A note on drift, since the two halves behave differently on purpose.
+//
+// Listings answer from the index alone and never open a record, so they cannot
+// notice that data/index.tsv has fallen out of step with data/series — they
+// would serve stale titles and counts happily. The detail reads do notice,
+// because they open the file the index names and check the record is the one it
+// promised, and they return an error rather than a not-found.
+//
+// That asymmetry is the point: making listings verify would mean reading every
+// record they list, which is the cost this whole package exists to avoid. Drift
+// is prevented rather than detected — `make index-check` regenerates the index
+// in CI and fails on any difference — and the detail path's check is the
+// backstop for the case where prevention was bypassed.
+
+// Stats returns the dataset summary recorded in the index.
+func (s *Store) Stats() Stats { return s.ix.Stats() }
+
+// FranchisesPage returns one page of franchises, fully expanded.
+//
+// This is the one listing that reads record files, because a franchise response
+// embeds its whole tree. It is paginated for that reason: unbounded, it would
+// be a request to parse the entire dataset.
+func (s *Store) FranchisesPage(token string, limit int) (Page[*model.Franchise], error) {
+	refs := s.ix.Franchises()
+	p, err := index.Paginate(refs, token, limit)
+	if err != nil {
+		return Page[*model.Franchise]{}, err
+	}
+	out := Page[*model.Franchise]{NextToken: p.NextToken, Total: p.Total}
+	for _, ref := range p.Items {
+		f, ok, err := s.franchiseIn(ref.File, ref.ID)
 		if err != nil {
-			return fmt.Errorf("read %s: %w", name, err)
+			return Page[*model.Franchise]{}, err
 		}
-		var rec model.StaffRecord
-		if err := yaml.Unmarshal(raw, &rec); err != nil {
-			return fmt.Errorf("parse %s: %w", name, err)
-		}
-		for i := range rec.Staff {
-			st := &rec.Staff[i]
-			if _, dup := s.staffByID[st.ID]; dup {
-				return fmt.Errorf("%s: duplicate staff id %q", name, st.ID)
-			}
-			s.staff = append(s.staff, st)
-			s.staffByID[st.ID] = st
-			s.stats.Staff++
+		if ok {
+			out.Items = append(out.Items, f)
 		}
 	}
-	return nil
+	return out, nil
 }
-
-// indexCredits builds the staff -> characters reverse index. A character's
-// default voiceActors apply to every appearance that does not override them, so
-// one credit is recorded per (staff, language) with the series it covers.
-func (s *Store) indexCredits() {
-	for _, c := range s.characters {
-		// staff id -> language -> series ids (deduplicated, insertion-ordered).
-		byStaff := map[string]map[string][]string{}
-		record := func(staffID, language, seriesID string) {
-			langs, ok := byStaff[staffID]
-			if !ok {
-				langs = map[string][]string{}
-				byStaff[staffID] = langs
-			}
-			for _, existing := range langs[language] {
-				if existing == seriesID {
-					return
-				}
-			}
-			if seriesID != "" {
-				langs[language] = append(langs[language], seriesID)
-			} else if _, seen := langs[language]; !seen {
-				langs[language] = nil
-			}
-		}
-		for _, a := range c.Appearances {
-			cast := a.VoiceActors
-			if len(cast) == 0 {
-				cast = c.VoiceActors
-			}
-			for _, va := range cast {
-				record(va.StaffID, va.Language, a.SeriesID)
-			}
-		}
-		if len(c.Appearances) == 0 {
-			for _, va := range c.VoiceActors {
-				record(va.StaffID, va.Language, "")
-			}
-		}
-		// Emit in a deterministic order: character order outer, language inner.
-		for staffID, langs := range byStaff {
-			keys := make([]string, 0, len(langs))
-			for lang := range langs {
-				keys = append(keys, lang)
-			}
-			sort.Strings(keys)
-			for _, lang := range keys {
-				s.creditsByStaff[staffID] = append(s.creditsByStaff[staffID], StaffCredit{
-					Character: c,
-					Language:  lang,
-					SeriesIDs: langs[lang],
-				})
-			}
-		}
-	}
-}
-
-// isYAML reports whether name has a YAML extension.
-func isYAML(name string) bool {
-	ext := strings.ToLower(path.Ext(name))
-	return ext == ".yaml" || ext == ".yml"
-}
-
-// add indexes one record (a franchise or a standalone series) and accumulates
-// its stats, rejecting duplicate ids.
-func (s *Store) add(file string, rec model.Record) error {
-	switch {
-	case rec.Franchise != nil:
-		f := rec.Franchise
-		if _, dup := s.franchiseByID[f.ID]; dup {
-			return fmt.Errorf("%s: duplicate franchise id %q", file, f.ID)
-		}
-		s.franchises = append(s.franchises, f)
-		s.franchiseByID[f.ID] = f
-		s.entries = append(s.entries, CatalogEntry{Kind: EntryFranchise, ID: f.ID, Titles: f.Titles})
-		s.stats.Franchises++
-		for i := range f.Series {
-			if err := s.addSeries(file, &f.Series[i], f.ID); err != nil {
-				return err
-			}
-		}
-	case rec.Series != nil:
-		if err := s.addSeries(file, rec.Series, ""); err != nil {
-			return err
-		}
-	default:
-		return fmt.Errorf("%s: record has neither franchise nor series", file)
-	}
-	return s.indexCast(file, rec)
-}
-
-// indexCast indexes the record's characters, which are nested under the
-// franchise (for a multi-series brand) or under the standalone series. Ids are
-// global, so a duplicate across two files is an error. A character is filed
-// under every series it appears in.
-func (s *Store) indexCast(file string, rec model.Record) error {
-	cast := rec.Cast()
-	for i := range cast {
-		c := &cast[i]
-		if _, dup := s.characterByID[c.ID]; dup {
-			return fmt.Errorf("%s: duplicate character id %q", file, c.ID)
-		}
-		s.characters = append(s.characters, c)
-		s.characterByID[c.ID] = c
-		s.stats.Characters++
-		for _, a := range c.Appearances {
-			if a.SeriesID == "" {
-				continue
-			}
-			s.charactersBySeries[a.SeriesID] = append(s.charactersBySeries[a.SeriesID], c)
-		}
-	}
-	return nil
-}
-
-// addSeries indexes one series and its installments, rejecting duplicate ids.
-func (s *Store) addSeries(file string, series *model.Series, franchiseID string) error {
-	if _, dup := s.seriesByID[series.ID]; dup {
-		return fmt.Errorf("%s: duplicate series id %q", file, series.ID)
-	}
-	s.seriesByID[series.ID] = seriesRef{series: series, franchiseID: franchiseID}
-	s.entries = append(s.entries, CatalogEntry{
-		Kind:        EntrySeries,
-		ID:          series.ID,
-		Titles:      series.Titles,
-		FranchiseID: franchiseID,
-	})
-	s.stats.Series++
-	for i := range series.Seasons {
-		s.stats.Seasons++
-		s.stats.Episodes += len(series.Seasons[i].Episodes)
-	}
-	for i := range series.Specials {
-		s.stats.Episodes += len(series.Specials[i].Episodes)
-	}
-	return nil
-}
-
-// Franchises returns the franchises in deterministic (filename) order.
-func (s *Store) Franchises() []*model.Franchise { return s.franchises }
 
 // Franchise returns the franchise with the given id, or false if none exists.
-func (s *Store) Franchise(id string) (*model.Franchise, bool) {
-	f, ok := s.franchiseByID[id]
-	return f, ok
+func (s *Store) Franchise(id string) (*model.Franchise, bool, error) {
+	file, ok := s.ix.Franchise(id)
+	if !ok {
+		return nil, false, nil
+	}
+	return s.franchiseIn(file, id)
+}
+
+// franchiseIn reads the franchise with the given id out of one record file.
+func (s *Store) franchiseIn(file, id string) (*model.Franchise, bool, error) {
+	rec, err := s.record(file)
+	if err != nil {
+		return nil, false, err
+	}
+	if rec.Franchise == nil || rec.Franchise.ID != id {
+		// The index named this file for this id, so a miss means the two have
+		// drifted — the index is stale relative to data/.
+		return nil, false, fmt.Errorf("%s: index names franchise %q, which the record does not contain", file, id)
+	}
+	return rec.Franchise, true, nil
 }
 
 // Series returns the series with the given id and its owning franchise id
 // (empty for a standalone series), or false if none exists.
-func (s *Store) Series(id string) (*model.Series, string, bool) {
-	ref, ok := s.seriesByID[id]
+func (s *Store) Series(id string) (*model.Series, string, bool, error) {
+	file, franchiseID, ok := s.ix.Series(id)
 	if !ok {
-		return nil, "", false
+		return nil, "", false, nil
 	}
-	return ref.series, ref.franchiseID, true
+	rec, err := s.record(file)
+	if err != nil {
+		return nil, "", false, err
+	}
+	var found *model.Series
+	rec.EachSeries(func(series *model.Series) {
+		if series.ID == id {
+			found = series
+		}
+	})
+	if found == nil {
+		return nil, "", false, fmt.Errorf("%s: index names series %q, which the record does not contain", file, id)
+	}
+	return found, franchiseID, true, nil
 }
 
-// Stats returns the dataset summary computed at load time.
-func (s *Store) Stats() Stats { return s.stats }
+// SeriesExists reports whether a series id is known, without reading its file.
+func (s *Store) SeriesExists(id string) bool {
+	_, _, ok := s.ix.Series(id)
+	return ok
+}
 
 // Character returns the character with the given id, or false if none exists.
-func (s *Store) Character(id string) (*model.Character, bool) {
-	c, ok := s.characterByID[id]
-	return c, ok
-}
-
-// Characters returns the cast of seriesID, or the whole cast when seriesID is
-// empty, in deterministic dataset order. limit caps the count; a non-positive
-// limit applies defaultListLimit.
-//
-// It shares charactersFor with CharactersPage so a series' embedded cast and
-// the cast returned by ListCharacters cannot drift apart.
-func (s *Store) Characters(seriesID string, limit int) []*model.Character {
-	return capSlice(s.charactersFor(seriesID), limit)
-}
-
-// charactersFor is the one definition of "the cast of a series": the whole cast
-// when seriesID is empty, otherwise that series' cast (empty for an unknown id;
-// the service layer is what turns a typo into NotFound).
-func (s *Store) charactersFor(seriesID string) []*model.Character {
-	if seriesID == "" {
-		return s.characters
+func (s *Store) Character(id string) (*model.Character, bool, error) {
+	file, ok := s.ix.Character(id)
+	if !ok {
+		return nil, false, nil
 	}
-	return s.charactersBySeries[seriesID]
+	c, err := s.characterIn(file, id)
+	if err != nil {
+		return nil, false, err
+	}
+	return c, true, nil
+}
+
+// characterIn reads one character out of a record file.
+func (s *Store) characterIn(file, id string) (*model.Character, error) {
+	rec, err := s.record(file)
+	if err != nil {
+		return nil, err
+	}
+	cast := rec.Cast()
+	for i := range cast {
+		if cast[i].ID == id {
+			return &cast[i], nil
+		}
+	}
+	return nil, fmt.Errorf("%s: index names character %q, which the record does not contain", file, id)
 }
 
 // Staff returns the staff member with the given id, or false if none exists.
-func (s *Store) Staff(id string) (*model.Staff, bool) {
-	st, ok := s.staffByID[id]
-	return st, ok
-}
+// Staff records are small enough to live in the index in full, so this reads no
+// file.
+func (s *Store) Staff(id string) (*model.Staff, bool) { return s.ix.Staff(id) }
 
 // StaffCredits returns every character the staff member is cast as, in
 // deterministic dataset order (nil for an unknown or uncredited id).
-func (s *Store) StaffCredits(staffID string) []StaffCredit { return s.creditsByStaff[staffID] }
+func (s *Store) StaffCredits(staffID string) []StaffCredit { return s.ix.Credits(staffID) }
 
-// capSlice truncates in to limit entries, applying defaultListLimit when limit
-// is non-positive.
-func capSlice[T any](in []T, limit int) []T {
-	if limit <= 0 {
-		limit = defaultListLimit
-	}
-	if len(in) > limit {
-		return in[:limit]
-	}
-	return in
+// Catalog returns one page of top-level entries, optionally restricted to a
+// single kind.
+func (s *Store) Catalog(kind *EntryKind, token string, limit int) (Page[CatalogEntry], error) {
+	return s.ix.Catalog(kind, token, limit)
 }
 
-// defaultListLimit caps list results when the caller passes no limit.
-const defaultListLimit = 100
+// Works returns one page of releases matching f.
+func (s *Store) Works(f WorkFilter, token string, limit int) (Page[Work], error) {
+	return s.ix.Works(f, token, limit)
+}
 
-// defaultSearchLimit caps search results when the caller passes no limit.
-const defaultSearchLimit = 50
+// SearchPage returns catalog entries whose original or translated title
+// contains query (case-insensitive), one page at a time.
+func (s *Store) SearchPage(query, token string, limit int) (Page[CatalogEntry], error) {
+	return s.ix.Search(query, token, limit)
+}
 
-// titleMatches reports whether any form of t contains the lowercased needle.
-func titleMatches(t model.Title, needle string) bool {
-	if strings.Contains(strings.ToLower(t.Original), needle) {
-		return true
+// StaffPage returns staff, or only those credited in language when it is
+// non-empty, one page at a time.
+func (s *Store) StaffPage(language, query, token string, limit int) (Page[*model.Staff], error) {
+	return s.ix.StaffPage(language, query, token, limit)
+}
+
+// CharactersPage returns one page of the cast of seriesID, or of the whole cast
+// when seriesID is empty, narrowed by query.
+//
+// Only the page's own characters are read from disk, and a page drawn from one
+// series is one file.
+func (s *Store) CharactersPage(seriesID, query, token string, limit int) (Page[*model.Character], error) {
+	refs, err := s.ix.Characters(seriesID, query, token, limit)
+	if err != nil {
+		return Page[*model.Character]{}, err
 	}
-	for _, v := range t.Translations {
-		if strings.Contains(strings.ToLower(v), needle) {
-			return true
+	out := Page[*model.Character]{NextToken: refs.NextToken, Total: refs.Total}
+	for _, ref := range refs.Items {
+		c, err := s.characterIn(ref.File, ref.ID)
+		if err != nil {
+			return Page[*model.Character]{}, err
+		}
+		out.Items = append(out.Items, c)
+	}
+	return out, nil
+}
+
+// Characters returns the cast of seriesID, or the whole cast when seriesID is
+// empty. limit caps the count; a non-positive limit applies the default.
+//
+// It shares the index's definition of a series' cast with CharactersPage, so a
+// series' embedded cast and the cast returned by ListCharacters cannot drift
+// apart.
+func (s *Store) Characters(seriesID string, limit int) ([]*model.Character, error) {
+	page, err := s.CharactersPage(seriesID, "", "", limit)
+	if err != nil {
+		return nil, err
+	}
+	return page.Items, nil
+}
+
+// SeriesTitle returns the titles of a series id, for naming a series a response
+// references but does not embed.
+func (s *Store) SeriesTitle(id string) (model.Title, bool) { return s.ix.SeriesTitle(id) }
+
+// EpisodesPage returns one page of the episodes of a season or special.
+//
+// Reading the record parses the whole series, including every episode of every
+// installment — that is inherent to one-record-per-series storage. What this
+// bounds is the response: a caller asking for a 1000-episode season gets the
+// page it asked for, not a megabyte of JSON.
+func (s *Store) EpisodesPage(seasonID, specialID, token string, limit int) (Page[model.Episode], error) {
+	id := seasonID
+	if id == "" {
+		id = specialID
+	}
+	seriesID, file, _, ok := s.ix.Work(id)
+	if !ok {
+		return Page[model.Episode]{}, nil
+	}
+	rec, err := s.record(file)
+	if err != nil {
+		return Page[model.Episode]{}, err
+	}
+
+	var episodes []model.Episode
+	var found bool
+	rec.EachSeries(func(series *model.Series) {
+		if found || series.ID != seriesID {
+			return
+		}
+		for i := range series.Seasons {
+			if series.Seasons[i].ID == id && seasonID != "" {
+				episodes, found = series.Seasons[i].Episodes, true
+				return
+			}
+		}
+		for i := range series.Specials {
+			if series.Specials[i].ID == id && specialID != "" {
+				episodes, found = series.Specials[i].Episodes, true
+				return
+			}
+		}
+	})
+	if !found {
+		// The id resolved to a work of the other kind — a movie, or a season
+		// asked for as a special. Neither has the episodes requested.
+		return Page[model.Episode]{}, nil
+	}
+	return index.Paginate(episodes, token, limit)
+}
+
+// SeriesPage returns one page of the series belonging to a franchise.
+func (s *Store) SeriesPage(franchiseID, token string, limit int) (Page[*model.Series], error) {
+	refs, err := s.ix.SeriesOf(franchiseID, token, limit)
+	if err != nil {
+		return Page[*model.Series]{}, err
+	}
+	out := Page[*model.Series]{NextToken: refs.NextToken, Total: refs.Total}
+	for _, ref := range refs.Items {
+		series, _, ok, err := s.Series(ref.ID)
+		if err != nil {
+			return Page[*model.Series]{}, err
+		}
+		if ok {
+			out.Items = append(out.Items, series)
 		}
 	}
-	return false
+	return out, nil
 }
+
+// AppearancesPage returns one page of the series a character appears in.
+func (s *Store) AppearancesPage(characterID, token string, limit int) (Page[model.CharacterAppearance], error) {
+	c, ok, err := s.Character(characterID)
+	if err != nil || !ok {
+		return Page[model.CharacterAppearance]{}, err
+	}
+	return index.Paginate(c.Appearances, token, limit)
+}
+
+// CreditsPage returns one page of the roles a staff member is cast in.
+func (s *Store) CreditsPage(staffID, token string, limit int) (Page[StaffCredit], error) {
+	return s.ix.CreditsPage(staffID, token, limit)
+}
+
+// CharacterExists reports whether a character id is known, without reading its
+// record.
+func (s *Store) CharacterExists(id string) bool {
+	_, ok := s.ix.Character(id)
+	return ok
+}
+
+// WorkExists reports whether an installment id is known.
+func (s *Store) WorkExists(id string) bool {
+	_, _, _, ok := s.ix.Work(id)
+	return ok
+}
+
+// FranchiseExists reports whether a franchise id is known, without reading its
+// record.
+func (s *Store) FranchiseExists(id string) (string, bool) { return s.ix.Franchise(id) }

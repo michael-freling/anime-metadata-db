@@ -340,3 +340,32 @@ test('a franchise previews each cast without misreporting it', async ({ page }) 
     await expect(hint.getByRole('link')).toBeVisible();
   }
 });
+
+// Every Get* response embeds a capped page of each collection, so any count the
+// UI derives from `.length` is the size of the page, not of the collection.
+// That shipped once already: capping episodes at 25 turned "26 episodes" into
+// "25 episodes" on the series page, silently. Counts must come from the
+// reported total, and this checks the one case where the two differ.
+test('counts come from the reported total, not the page that was sent', async ({ page }) => {
+  await page.goto('/browse/demon-slayer');
+  const body = page.locator('main').last();
+  // Season 1 has 26 episodes, one more than the embed cap, so a count taken
+  // from the embedded array reads 25 here and this fails.
+  await expect(body.getByText('Spring 2019 · 26 episodes')).toBeVisible();
+});
+
+// The detail pages page their own collections now, so none of them can present
+// a truncated list as a complete one.
+test('a staff page pages its roles', async ({ page }) => {
+  await page.goto('/staff/ayako-kawasumi');
+  const body = page.locator('main').last();
+  const roles = body.locator('a[href^="/characters/"]');
+  const subtitle = await body.locator('header p').textContent();
+  const claimed = Number(subtitle!.match(/(\d+)/)![1]);
+  // Whatever the page claims, it must either show that many or offer the rest.
+  const shown = await roles.count();
+  if (shown < claimed) {
+    await expect(body.getByText(/Showing \d+ of [\d,]+/)).toBeVisible();
+  }
+  expect(claimed).toBeGreaterThan(0);
+});

@@ -466,9 +466,12 @@ type Season struct {
 	ReleaseYear    int32           `protobuf:"varint,6,opt,name=release_year,json=releaseYear,proto3" json:"release_year,omitempty"`
 	ReleaseSeason  ReleaseSeason   `protobuf:"varint,7,opt,name=release_season,json=releaseSeason,proto3,enum=anime.v1.ReleaseSeason" json:"release_season,omitempty"`
 	ExternalIds    *ExternalIds    `protobuf:"bytes,8,opt,name=external_ids,json=externalIds,proto3" json:"external_ids,omitempty"`
-	Episodes       []*Episode      `protobuf:"bytes,9,rep,name=episodes,proto3" json:"episodes,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	// episodes is the first page only, capped; episodes_total is the real count.
+	// Use ListEpisodes to page the rest.
+	Episodes      []*Episode `protobuf:"bytes,9,rep,name=episodes,proto3" json:"episodes,omitempty"`
+	EpisodesTotal int32      `protobuf:"varint,11,opt,name=episodes_total,json=episodesTotal,proto3" json:"episodes_total,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Season) Reset() {
@@ -569,6 +572,13 @@ func (x *Season) GetEpisodes() []*Episode {
 		return x.Episodes
 	}
 	return nil
+}
+
+func (x *Season) GetEpisodesTotal() int32 {
+	if x != nil {
+		return x.EpisodesTotal
+	}
+	return 0
 }
 
 // AlternateCutOf links an alternate-cut film to the Season it re-cuts.
@@ -739,8 +749,11 @@ type Special struct {
 	ReleaseDate    string          `protobuf:"bytes,4,opt,name=release_date,json=releaseDate,proto3" json:"release_date,omitempty"`
 	ReleaseYear    int32           `protobuf:"varint,5,opt,name=release_year,json=releaseYear,proto3" json:"release_year,omitempty"`
 	ExternalIds    *ExternalIds    `protobuf:"bytes,6,opt,name=external_ids,json=externalIds,proto3" json:"external_ids,omitempty"`
-	Episodes       []*Episode      `protobuf:"bytes,7,rep,name=episodes,proto3" json:"episodes,omitempty"`
-	AbsoluteNumber *int32          `protobuf:"varint,8,opt,name=absolute_number,json=absoluteNumber,proto3,oneof" json:"absolute_number,omitempty"`
+	// episodes is the first page only, capped; episodes_total is the real count.
+	// Use ListEpisodes to page the rest.
+	Episodes       []*Episode `protobuf:"bytes,7,rep,name=episodes,proto3" json:"episodes,omitempty"`
+	EpisodesTotal  int32      `protobuf:"varint,10,opt,name=episodes_total,json=episodesTotal,proto3" json:"episodes_total,omitempty"`
+	AbsoluteNumber *int32     `protobuf:"varint,8,opt,name=absolute_number,json=absoluteNumber,proto3,oneof" json:"absolute_number,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -831,6 +844,13 @@ func (x *Special) GetEpisodes() []*Episode {
 	return nil
 }
 
+func (x *Special) GetEpisodesTotal() int32 {
+	if x != nil {
+		return x.EpisodesTotal
+	}
+	return 0
+}
+
 func (x *Special) GetAbsoluteNumber() int32 {
 	if x != nil && x.AbsoluteNumber != nil {
 		return *x.AbsoluteNumber
@@ -846,14 +866,23 @@ type Series struct {
 	Title string `protobuf:"bytes,6,opt,name=title,proto3" json:"title,omitempty"`
 	// localized_title carries every language; set only for Accept-Language: *.
 	LocalizedTitle *LocalizedTitle `protobuf:"bytes,2,opt,name=localized_title,json=localizedTitle,proto3" json:"localized_title,omitempty"`
-	Seasons        []*Season       `protobuf:"bytes,3,rep,name=seasons,proto3" json:"seasons,omitempty"`
-	Movies         []*Movie        `protobuf:"bytes,4,rep,name=movies,proto3" json:"movies,omitempty"`
-	Specials       []*Special      `protobuf:"bytes,5,rep,name=specials,proto3" json:"specials,omitempty"`
+	// Every collection below is the first page only, capped at a fixed limit.
+	// The matching *_total is the real count, and a List RPC pages the rest:
+	// ListWorks(series_id) for releases, ListCharacters(series_id) for the cast.
+	// Embedding them unbounded would make one GetSeries call serialize an entire
+	// long-running show, which is exactly what this API is built not to do.
+	Seasons       []*Season  `protobuf:"bytes,3,rep,name=seasons,proto3" json:"seasons,omitempty"`
+	SeasonsTotal  int32      `protobuf:"varint,8,opt,name=seasons_total,json=seasonsTotal,proto3" json:"seasons_total,omitempty"`
+	Movies        []*Movie   `protobuf:"bytes,4,rep,name=movies,proto3" json:"movies,omitempty"`
+	MoviesTotal   int32      `protobuf:"varint,9,opt,name=movies_total,json=moviesTotal,proto3" json:"movies_total,omitempty"`
+	Specials      []*Special `protobuf:"bytes,5,rep,name=specials,proto3" json:"specials,omitempty"`
+	SpecialsTotal int32      `protobuf:"varint,10,opt,name=specials_total,json=specialsTotal,proto3" json:"specials_total,omitempty"`
 	// characters appearing in this series, in dataset order. Each is the full
 	// global Character node, so its appearances may name other series too.
-	Characters    []*Character `protobuf:"bytes,7,rep,name=characters,proto3" json:"characters,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	Characters      []*Character `protobuf:"bytes,7,rep,name=characters,proto3" json:"characters,omitempty"`
+	CharactersTotal int32        `protobuf:"varint,11,opt,name=characters_total,json=charactersTotal,proto3" json:"characters_total,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *Series) Reset() {
@@ -914,11 +943,25 @@ func (x *Series) GetSeasons() []*Season {
 	return nil
 }
 
+func (x *Series) GetSeasonsTotal() int32 {
+	if x != nil {
+		return x.SeasonsTotal
+	}
+	return 0
+}
+
 func (x *Series) GetMovies() []*Movie {
 	if x != nil {
 		return x.Movies
 	}
 	return nil
+}
+
+func (x *Series) GetMoviesTotal() int32 {
+	if x != nil {
+		return x.MoviesTotal
+	}
+	return 0
 }
 
 func (x *Series) GetSpecials() []*Special {
@@ -928,11 +971,25 @@ func (x *Series) GetSpecials() []*Special {
 	return nil
 }
 
+func (x *Series) GetSpecialsTotal() int32 {
+	if x != nil {
+		return x.SpecialsTotal
+	}
+	return 0
+}
+
 func (x *Series) GetCharacters() []*Character {
 	if x != nil {
 		return x.Characters
 	}
 	return nil
+}
+
+func (x *Series) GetCharactersTotal() int32 {
+	if x != nil {
+		return x.CharactersTotal
+	}
+	return 0
 }
 
 // VoiceActor links a Character to the Staff who voices it in one language.
@@ -1157,10 +1214,13 @@ type Character struct {
 	ExternalIds   *ExternalIds    `protobuf:"bytes,4,opt,name=external_ids,json=externalIds,proto3" json:"external_ids,omitempty"`
 	// voice_actors is the default cast, used for every appearance that does not
 	// override it.
-	VoiceActors   []*VoiceActor          `protobuf:"bytes,5,rep,name=voice_actors,json=voiceActors,proto3" json:"voice_actors,omitempty"`
-	Appearances   []*CharacterAppearance `protobuf:"bytes,6,rep,name=appearances,proto3" json:"appearances,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	VoiceActors []*VoiceActor `protobuf:"bytes,5,rep,name=voice_actors,json=voiceActors,proto3" json:"voice_actors,omitempty"`
+	// appearances is the first page only, capped; appearances_total is the real
+	// count. Use ListAppearances to page the rest.
+	Appearances      []*CharacterAppearance `protobuf:"bytes,6,rep,name=appearances,proto3" json:"appearances,omitempty"`
+	AppearancesTotal int32                  `protobuf:"varint,7,opt,name=appearances_total,json=appearancesTotal,proto3" json:"appearances_total,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *Character) Reset() {
@@ -1233,6 +1293,13 @@ func (x *Character) GetAppearances() []*CharacterAppearance {
 		return x.Appearances
 	}
 	return nil
+}
+
+func (x *Character) GetAppearancesTotal() int32 {
+	if x != nil {
+		return x.AppearancesTotal
+	}
+	return 0
 }
 
 // Staff is a global real person — currently only voice actors.
@@ -1503,10 +1570,16 @@ type Franchise struct {
 	Title string `protobuf:"bytes,5,opt,name=title,proto3" json:"title,omitempty"`
 	// localized_title carries every language; set only for Accept-Language: *.
 	LocalizedTitle *LocalizedTitle `protobuf:"bytes,2,opt,name=localized_title,json=localizedTitle,proto3" json:"localized_title,omitempty"`
-	Series         []*Series       `protobuf:"bytes,3,rep,name=series,proto3" json:"series,omitempty"`
-	WatchOrders    []*WatchOrder   `protobuf:"bytes,4,rep,name=watch_orders,json=watchOrders,proto3" json:"watch_orders,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	// series is the first page only, capped, and each Series in it carries its
+	// own capped collections. A franchise nests the deepest structure in the
+	// dataset, so an unbounded GetFranchise would serialize every episode of
+	// every season of every series under the brand. Use ListSeries to page.
+	Series           []*Series     `protobuf:"bytes,3,rep,name=series,proto3" json:"series,omitempty"`
+	SeriesTotal      int32         `protobuf:"varint,6,opt,name=series_total,json=seriesTotal,proto3" json:"series_total,omitempty"`
+	WatchOrders      []*WatchOrder `protobuf:"bytes,4,rep,name=watch_orders,json=watchOrders,proto3" json:"watch_orders,omitempty"`
+	WatchOrdersTotal int32         `protobuf:"varint,7,opt,name=watch_orders_total,json=watchOrdersTotal,proto3" json:"watch_orders_total,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *Franchise) Reset() {
@@ -1567,11 +1640,25 @@ func (x *Franchise) GetSeries() []*Series {
 	return nil
 }
 
+func (x *Franchise) GetSeriesTotal() int32 {
+	if x != nil {
+		return x.SeriesTotal
+	}
+	return 0
+}
+
 func (x *Franchise) GetWatchOrders() []*WatchOrder {
 	if x != nil {
 		return x.WatchOrders
 	}
 	return nil
+}
+
+func (x *Franchise) GetWatchOrdersTotal() int32 {
+	if x != nil {
+		return x.WatchOrdersTotal
+	}
+	return 0
 }
 
 // SearchResult is one match: a top-level franchise or a series.
@@ -2033,7 +2120,15 @@ func (x *DatasetStats) GetLatestReleaseYear() int32 {
 }
 
 type ListFranchisesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// page_token continues a previous listing; limit caps the page.
+	//
+	// A franchise carries its whole tree — every series, season and episode —
+	// so an unbounded listing is a request to serve the entire dataset in one
+	// response. It is paginated for that reason. Callers that want a flat,
+	// cheap catalogue should use ListCatalog instead.
+	PageToken     string `protobuf:"bytes,1,opt,name=page_token,json=pageToken,proto3" json:"page_token,omitempty"`
+	Limit         int32  `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2068,9 +2163,27 @@ func (*ListFranchisesRequest) Descriptor() ([]byte, []int) {
 	return file_anime_v1_anime_proto_rawDescGZIP(), []int{21}
 }
 
+func (x *ListFranchisesRequest) GetPageToken() string {
+	if x != nil {
+		return x.PageToken
+	}
+	return ""
+}
+
+func (x *ListFranchisesRequest) GetLimit() int32 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
 type ListFranchisesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Franchises    []*Franchise           `protobuf:"bytes,1,rep,name=franchises,proto3" json:"franchises,omitempty"`
+	state      protoimpl.MessageState `protogen:"open.v1"`
+	Franchises []*Franchise           `protobuf:"bytes,1,rep,name=franchises,proto3" json:"franchises,omitempty"`
+	// next_page_token is empty on the last page.
+	NextPageToken string `protobuf:"bytes,2,opt,name=next_page_token,json=nextPageToken,proto3" json:"next_page_token,omitempty"`
+	// total_size counts every franchise, not just this page.
+	TotalSize     int32 `protobuf:"varint,3,opt,name=total_size,json=totalSize,proto3" json:"total_size,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2110,6 +2223,20 @@ func (x *ListFranchisesResponse) GetFranchises() []*Franchise {
 		return x.Franchises
 	}
 	return nil
+}
+
+func (x *ListFranchisesResponse) GetNextPageToken() string {
+	if x != nil {
+		return x.NextPageToken
+	}
+	return ""
+}
+
+func (x *ListFranchisesResponse) GetTotalSize() int32 {
+	if x != nil {
+		return x.TotalSize
+	}
+	return 0
 }
 
 type GetFranchiseRequest struct {
@@ -2695,8 +2822,11 @@ func (x *GetStaffRequest) GetId() string {
 type GetStaffResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	Staff *Staff                 `protobuf:"bytes,1,opt,name=staff,proto3" json:"staff,omitempty"`
-	// credits is every character this person is cast as, in dataset order.
+	// credits is the first page only, capped, in dataset order; credits_total is
+	// the real count. A prolific voice actor accumulates roles for as long as
+	// they work, so this cannot be unbounded. Use ListCredits to page the rest.
 	Credits       []*StaffCredit `protobuf:"bytes,2,rep,name=credits,proto3" json:"credits,omitempty"`
+	CreditsTotal  int32          `protobuf:"varint,3,opt,name=credits_total,json=creditsTotal,proto3" json:"credits_total,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2743,6 +2873,13 @@ func (x *GetStaffResponse) GetCredits() []*StaffCredit {
 		return x.Credits
 	}
 	return nil
+}
+
+func (x *GetStaffResponse) GetCreditsTotal() int32 {
+	if x != nil {
+		return x.CreditsTotal
+	}
+	return 0
 }
 
 type ListStaffRequest struct {
@@ -3276,6 +3413,501 @@ func (x *ListWorksResponse) GetTotalSize() int32 {
 	return 0
 }
 
+// ListEpisodesRequest names exactly one parent: a season or a special.
+type ListEpisodesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	SeasonId      string                 `protobuf:"bytes,1,opt,name=season_id,json=seasonId,proto3" json:"season_id,omitempty"`
+	SpecialId     string                 `protobuf:"bytes,2,opt,name=special_id,json=specialId,proto3" json:"special_id,omitempty"`
+	PageToken     string                 `protobuf:"bytes,3,opt,name=page_token,json=pageToken,proto3" json:"page_token,omitempty"`
+	Limit         int32                  `protobuf:"varint,4,opt,name=limit,proto3" json:"limit,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListEpisodesRequest) Reset() {
+	*x = ListEpisodesRequest{}
+	mi := &file_anime_v1_anime_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListEpisodesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListEpisodesRequest) ProtoMessage() {}
+
+func (x *ListEpisodesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_anime_v1_anime_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListEpisodesRequest.ProtoReflect.Descriptor instead.
+func (*ListEpisodesRequest) Descriptor() ([]byte, []int) {
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *ListEpisodesRequest) GetSeasonId() string {
+	if x != nil {
+		return x.SeasonId
+	}
+	return ""
+}
+
+func (x *ListEpisodesRequest) GetSpecialId() string {
+	if x != nil {
+		return x.SpecialId
+	}
+	return ""
+}
+
+func (x *ListEpisodesRequest) GetPageToken() string {
+	if x != nil {
+		return x.PageToken
+	}
+	return ""
+}
+
+func (x *ListEpisodesRequest) GetLimit() int32 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
+type ListEpisodesResponse struct {
+	state    protoimpl.MessageState `protogen:"open.v1"`
+	Episodes []*Episode             `protobuf:"bytes,1,rep,name=episodes,proto3" json:"episodes,omitempty"`
+	// next_page_token is empty on the last page.
+	NextPageToken string `protobuf:"bytes,2,opt,name=next_page_token,json=nextPageToken,proto3" json:"next_page_token,omitempty"`
+	// total_size counts every episode of the parent, not just this page.
+	TotalSize     int32 `protobuf:"varint,3,opt,name=total_size,json=totalSize,proto3" json:"total_size,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListEpisodesResponse) Reset() {
+	*x = ListEpisodesResponse{}
+	mi := &file_anime_v1_anime_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListEpisodesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListEpisodesResponse) ProtoMessage() {}
+
+func (x *ListEpisodesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_anime_v1_anime_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListEpisodesResponse.ProtoReflect.Descriptor instead.
+func (*ListEpisodesResponse) Descriptor() ([]byte, []int) {
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *ListEpisodesResponse) GetEpisodes() []*Episode {
+	if x != nil {
+		return x.Episodes
+	}
+	return nil
+}
+
+func (x *ListEpisodesResponse) GetNextPageToken() string {
+	if x != nil {
+		return x.NextPageToken
+	}
+	return ""
+}
+
+func (x *ListEpisodesResponse) GetTotalSize() int32 {
+	if x != nil {
+		return x.TotalSize
+	}
+	return 0
+}
+
+type ListSeriesRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// franchise_id is required: this pages one franchise's series. The flat
+	// catalog of every series is ListCatalog.
+	FranchiseId   string `protobuf:"bytes,1,opt,name=franchise_id,json=franchiseId,proto3" json:"franchise_id,omitempty"`
+	PageToken     string `protobuf:"bytes,2,opt,name=page_token,json=pageToken,proto3" json:"page_token,omitempty"`
+	Limit         int32  `protobuf:"varint,3,opt,name=limit,proto3" json:"limit,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListSeriesRequest) Reset() {
+	*x = ListSeriesRequest{}
+	mi := &file_anime_v1_anime_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListSeriesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListSeriesRequest) ProtoMessage() {}
+
+func (x *ListSeriesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_anime_v1_anime_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListSeriesRequest.ProtoReflect.Descriptor instead.
+func (*ListSeriesRequest) Descriptor() ([]byte, []int) {
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *ListSeriesRequest) GetFranchiseId() string {
+	if x != nil {
+		return x.FranchiseId
+	}
+	return ""
+}
+
+func (x *ListSeriesRequest) GetPageToken() string {
+	if x != nil {
+		return x.PageToken
+	}
+	return ""
+}
+
+func (x *ListSeriesRequest) GetLimit() int32 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
+type ListSeriesResponse struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Each Series carries its own capped collections, exactly as GetSeries
+	// returns it.
+	Series        []*Series `protobuf:"bytes,1,rep,name=series,proto3" json:"series,omitempty"`
+	NextPageToken string    `protobuf:"bytes,2,opt,name=next_page_token,json=nextPageToken,proto3" json:"next_page_token,omitempty"`
+	TotalSize     int32     `protobuf:"varint,3,opt,name=total_size,json=totalSize,proto3" json:"total_size,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListSeriesResponse) Reset() {
+	*x = ListSeriesResponse{}
+	mi := &file_anime_v1_anime_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListSeriesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListSeriesResponse) ProtoMessage() {}
+
+func (x *ListSeriesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_anime_v1_anime_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListSeriesResponse.ProtoReflect.Descriptor instead.
+func (*ListSeriesResponse) Descriptor() ([]byte, []int) {
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *ListSeriesResponse) GetSeries() []*Series {
+	if x != nil {
+		return x.Series
+	}
+	return nil
+}
+
+func (x *ListSeriesResponse) GetNextPageToken() string {
+	if x != nil {
+		return x.NextPageToken
+	}
+	return ""
+}
+
+func (x *ListSeriesResponse) GetTotalSize() int32 {
+	if x != nil {
+		return x.TotalSize
+	}
+	return 0
+}
+
+type ListAppearancesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CharacterId   string                 `protobuf:"bytes,1,opt,name=character_id,json=characterId,proto3" json:"character_id,omitempty"`
+	PageToken     string                 `protobuf:"bytes,2,opt,name=page_token,json=pageToken,proto3" json:"page_token,omitempty"`
+	Limit         int32                  `protobuf:"varint,3,opt,name=limit,proto3" json:"limit,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListAppearancesRequest) Reset() {
+	*x = ListAppearancesRequest{}
+	mi := &file_anime_v1_anime_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListAppearancesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListAppearancesRequest) ProtoMessage() {}
+
+func (x *ListAppearancesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_anime_v1_anime_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListAppearancesRequest.ProtoReflect.Descriptor instead.
+func (*ListAppearancesRequest) Descriptor() ([]byte, []int) {
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *ListAppearancesRequest) GetCharacterId() string {
+	if x != nil {
+		return x.CharacterId
+	}
+	return ""
+}
+
+func (x *ListAppearancesRequest) GetPageToken() string {
+	if x != nil {
+		return x.PageToken
+	}
+	return ""
+}
+
+func (x *ListAppearancesRequest) GetLimit() int32 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
+type ListAppearancesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Appearances   []*CharacterAppearance `protobuf:"bytes,1,rep,name=appearances,proto3" json:"appearances,omitempty"`
+	NextPageToken string                 `protobuf:"bytes,2,opt,name=next_page_token,json=nextPageToken,proto3" json:"next_page_token,omitempty"`
+	TotalSize     int32                  `protobuf:"varint,3,opt,name=total_size,json=totalSize,proto3" json:"total_size,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListAppearancesResponse) Reset() {
+	*x = ListAppearancesResponse{}
+	mi := &file_anime_v1_anime_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListAppearancesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListAppearancesResponse) ProtoMessage() {}
+
+func (x *ListAppearancesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_anime_v1_anime_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListAppearancesResponse.ProtoReflect.Descriptor instead.
+func (*ListAppearancesResponse) Descriptor() ([]byte, []int) {
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *ListAppearancesResponse) GetAppearances() []*CharacterAppearance {
+	if x != nil {
+		return x.Appearances
+	}
+	return nil
+}
+
+func (x *ListAppearancesResponse) GetNextPageToken() string {
+	if x != nil {
+		return x.NextPageToken
+	}
+	return ""
+}
+
+func (x *ListAppearancesResponse) GetTotalSize() int32 {
+	if x != nil {
+		return x.TotalSize
+	}
+	return 0
+}
+
+type ListCreditsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	StaffId       string                 `protobuf:"bytes,1,opt,name=staff_id,json=staffId,proto3" json:"staff_id,omitempty"`
+	PageToken     string                 `protobuf:"bytes,2,opt,name=page_token,json=pageToken,proto3" json:"page_token,omitempty"`
+	Limit         int32                  `protobuf:"varint,3,opt,name=limit,proto3" json:"limit,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListCreditsRequest) Reset() {
+	*x = ListCreditsRequest{}
+	mi := &file_anime_v1_anime_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListCreditsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListCreditsRequest) ProtoMessage() {}
+
+func (x *ListCreditsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_anime_v1_anime_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListCreditsRequest.ProtoReflect.Descriptor instead.
+func (*ListCreditsRequest) Descriptor() ([]byte, []int) {
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *ListCreditsRequest) GetStaffId() string {
+	if x != nil {
+		return x.StaffId
+	}
+	return ""
+}
+
+func (x *ListCreditsRequest) GetPageToken() string {
+	if x != nil {
+		return x.PageToken
+	}
+	return ""
+}
+
+func (x *ListCreditsRequest) GetLimit() int32 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
+type ListCreditsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Credits       []*StaffCredit         `protobuf:"bytes,1,rep,name=credits,proto3" json:"credits,omitempty"`
+	NextPageToken string                 `protobuf:"bytes,2,opt,name=next_page_token,json=nextPageToken,proto3" json:"next_page_token,omitempty"`
+	TotalSize     int32                  `protobuf:"varint,3,opt,name=total_size,json=totalSize,proto3" json:"total_size,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListCreditsResponse) Reset() {
+	*x = ListCreditsResponse{}
+	mi := &file_anime_v1_anime_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListCreditsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListCreditsResponse) ProtoMessage() {}
+
+func (x *ListCreditsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_anime_v1_anime_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListCreditsResponse.ProtoReflect.Descriptor instead.
+func (*ListCreditsResponse) Descriptor() ([]byte, []int) {
+	return file_anime_v1_anime_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *ListCreditsResponse) GetCredits() []*StaffCredit {
+	if x != nil {
+		return x.Credits
+	}
+	return nil
+}
+
+func (x *ListCreditsResponse) GetNextPageToken() string {
+	if x != nil {
+		return x.NextPageToken
+	}
+	return ""
+}
+
+func (x *ListCreditsResponse) GetTotalSize() int32 {
+	if x != nil {
+		return x.TotalSize
+	}
+	return 0
+}
+
 var File_anime_v1_anime_proto protoreflect.FileDescriptor
 
 const file_anime_v1_anime_proto_rawDesc = "" +
@@ -3300,7 +3932,7 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\faired_number\x18\x02 \x01(\x05R\vairedNumber\x12!\n" +
 	"\frelease_date\x18\x03 \x01(\tR\vreleaseDate\x12\x14\n" +
 	"\x05title\x18\x04 \x01(\tR\x05titleB\x12\n" +
-	"\x10_absolute_number\"\x9a\x03\n" +
+	"\x10_absolute_number\"\xc1\x03\n" +
 	"\x06Season\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
 	"\x05title\x18\n" +
@@ -3312,7 +3944,8 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\frelease_year\x18\x06 \x01(\x05R\vreleaseYear\x12>\n" +
 	"\x0erelease_season\x18\a \x01(\x0e2\x17.anime.v1.ReleaseSeasonR\rreleaseSeason\x128\n" +
 	"\fexternal_ids\x18\b \x01(\v2\x15.anime.v1.ExternalIdsR\vexternalIds\x12-\n" +
-	"\bepisodes\x18\t \x03(\v2\x11.anime.v1.EpisodeR\bepisodesB\a\n" +
+	"\bepisodes\x18\t \x03(\v2\x11.anime.v1.EpisodeR\bepisodes\x12%\n" +
+	"\x0eepisodes_total\x18\v \x01(\x05R\repisodesTotalB\a\n" +
 	"\x05_part\"I\n" +
 	"\x0eAlternateCutOf\x12\x1b\n" +
 	"\tseason_id\x18\x01 \x01(\tR\bseasonId\x12\x1a\n" +
@@ -3326,7 +3959,7 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\fexternal_ids\x18\x05 \x01(\v2\x15.anime.v1.ExternalIdsR\vexternalIds\x12,\n" +
 	"\x0fabsolute_number\x18\x06 \x01(\x05H\x00R\x0eabsoluteNumber\x88\x01\x01\x12B\n" +
 	"\x10alternate_cut_of\x18\a \x01(\v2\x18.anime.v1.AlternateCutOfR\x0ealternateCutOfB\x12\n" +
-	"\x10_absolute_number\"\x94\x03\n" +
+	"\x10_absolute_number\"\xbb\x03\n" +
 	"\aSpecial\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
 	"\x05title\x18\t \x01(\tR\x05title\x12A\n" +
@@ -3335,19 +3968,26 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\frelease_date\x18\x04 \x01(\tR\vreleaseDate\x12!\n" +
 	"\frelease_year\x18\x05 \x01(\x05R\vreleaseYear\x128\n" +
 	"\fexternal_ids\x18\x06 \x01(\v2\x15.anime.v1.ExternalIdsR\vexternalIds\x12-\n" +
-	"\bepisodes\x18\a \x03(\v2\x11.anime.v1.EpisodeR\bepisodes\x12,\n" +
+	"\bepisodes\x18\a \x03(\v2\x11.anime.v1.EpisodeR\bepisodes\x12%\n" +
+	"\x0eepisodes_total\x18\n" +
+	" \x01(\x05R\repisodesTotal\x12,\n" +
 	"\x0fabsolute_number\x18\b \x01(\x05H\x00R\x0eabsoluteNumber\x88\x01\x01B\x12\n" +
-	"\x10_absolute_number\"\xaa\x02\n" +
+	"\x10_absolute_number\"\xc4\x03\n" +
 	"\x06Series\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
 	"\x05title\x18\x06 \x01(\tR\x05title\x12A\n" +
 	"\x0flocalized_title\x18\x02 \x01(\v2\x18.anime.v1.LocalizedTitleR\x0elocalizedTitle\x12*\n" +
-	"\aseasons\x18\x03 \x03(\v2\x10.anime.v1.SeasonR\aseasons\x12'\n" +
-	"\x06movies\x18\x04 \x03(\v2\x0f.anime.v1.MovieR\x06movies\x12-\n" +
-	"\bspecials\x18\x05 \x03(\v2\x11.anime.v1.SpecialR\bspecials\x123\n" +
+	"\aseasons\x18\x03 \x03(\v2\x10.anime.v1.SeasonR\aseasons\x12#\n" +
+	"\rseasons_total\x18\b \x01(\x05R\fseasonsTotal\x12'\n" +
+	"\x06movies\x18\x04 \x03(\v2\x0f.anime.v1.MovieR\x06movies\x12!\n" +
+	"\fmovies_total\x18\t \x01(\x05R\vmoviesTotal\x12-\n" +
+	"\bspecials\x18\x05 \x03(\v2\x11.anime.v1.SpecialR\bspecials\x12%\n" +
+	"\x0especials_total\x18\n" +
+	" \x01(\x05R\rspecialsTotal\x123\n" +
 	"\n" +
 	"characters\x18\a \x03(\v2\x13.anime.v1.CharacterR\n" +
-	"characters\"b\n" +
+	"characters\x12)\n" +
+	"\x10characters_total\x18\v \x01(\x05R\x0fcharactersTotal\"b\n" +
 	"\n" +
 	"VoiceActor\x12\x19\n" +
 	"\bstaff_id\x18\x01 \x01(\tR\astaffId\x12\x1a\n" +
@@ -3364,14 +4004,15 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\fseries_title\x18\x05 \x01(\tR\vseriesTitle\x12(\n" +
 	"\x05scope\x18\x02 \x03(\v2\x12.anime.v1.ScopeRefR\x05scope\x127\n" +
 	"\fvoice_actors\x18\x03 \x03(\v2\x14.anime.v1.VoiceActorR\vvoiceActors\x128\n" +
-	"\fexternal_ids\x18\x04 \x01(\v2\x15.anime.v1.ExternalIdsR\vexternalIds\"\xa4\x02\n" +
+	"\fexternal_ids\x18\x04 \x01(\v2\x15.anime.v1.ExternalIdsR\vexternalIds\"\xd1\x02\n" +
 	"\tCharacter\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12?\n" +
 	"\x0elocalized_name\x18\x03 \x01(\v2\x18.anime.v1.LocalizedTitleR\rlocalizedName\x128\n" +
 	"\fexternal_ids\x18\x04 \x01(\v2\x15.anime.v1.ExternalIdsR\vexternalIds\x127\n" +
 	"\fvoice_actors\x18\x05 \x03(\v2\x14.anime.v1.VoiceActorR\vvoiceActors\x12?\n" +
-	"\vappearances\x18\x06 \x03(\v2\x1d.anime.v1.CharacterAppearanceR\vappearances\"\xa6\x01\n" +
+	"\vappearances\x18\x06 \x03(\v2\x1d.anime.v1.CharacterAppearanceR\vappearances\x12+\n" +
+	"\x11appearances_total\x18\a \x01(\x05R\x10appearancesTotal\"\xa6\x01\n" +
 	"\x05Staff\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12?\n" +
@@ -3390,13 +4031,15 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\n" +
 	"WatchOrder\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x123\n" +
-	"\aentries\x18\x02 \x03(\v2\x19.anime.v1.WatchOrderEntryR\aentries\"\xd7\x01\n" +
+	"\aentries\x18\x02 \x03(\v2\x19.anime.v1.WatchOrderEntryR\aentries\"\xa8\x02\n" +
 	"\tFranchise\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
 	"\x05title\x18\x05 \x01(\tR\x05title\x12A\n" +
 	"\x0flocalized_title\x18\x02 \x01(\v2\x18.anime.v1.LocalizedTitleR\x0elocalizedTitle\x12(\n" +
-	"\x06series\x18\x03 \x03(\v2\x10.anime.v1.SeriesR\x06series\x127\n" +
-	"\fwatch_orders\x18\x04 \x03(\v2\x14.anime.v1.WatchOrderR\vwatchOrders\"\xc3\x01\n" +
+	"\x06series\x18\x03 \x03(\v2\x10.anime.v1.SeriesR\x06series\x12!\n" +
+	"\fseries_total\x18\x06 \x01(\x05R\vseriesTotal\x127\n" +
+	"\fwatch_orders\x18\x04 \x03(\v2\x14.anime.v1.WatchOrderR\vwatchOrders\x12,\n" +
+	"\x12watch_orders_total\x18\a \x01(\x05R\x10watchOrdersTotal\"\xc3\x01\n" +
 	"\fSearchResult\x12'\n" +
 	"\x04kind\x18\x01 \x01(\x0e2\x13.anime.v1.EntryKindR\x04kind\x12\x0e\n" +
 	"\x02id\x18\x02 \x01(\tR\x02id\x12\x14\n" +
@@ -3440,12 +4083,18 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"characters\x12\x14\n" +
 	"\x05staff\x18\x06 \x01(\x05R\x05staff\x122\n" +
 	"\x15earliest_release_year\x18\a \x01(\x05R\x13earliestReleaseYear\x12.\n" +
-	"\x13latest_release_year\x18\b \x01(\x05R\x11latestReleaseYear\"\x17\n" +
-	"\x15ListFranchisesRequest\"M\n" +
+	"\x13latest_release_year\x18\b \x01(\x05R\x11latestReleaseYear\"L\n" +
+	"\x15ListFranchisesRequest\x12\x1d\n" +
+	"\n" +
+	"page_token\x18\x01 \x01(\tR\tpageToken\x12\x14\n" +
+	"\x05limit\x18\x02 \x01(\x05R\x05limit\"\x94\x01\n" +
 	"\x16ListFranchisesResponse\x123\n" +
 	"\n" +
 	"franchises\x18\x01 \x03(\v2\x13.anime.v1.FranchiseR\n" +
-	"franchises\"%\n" +
+	"franchises\x12&\n" +
+	"\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n" +
+	"\n" +
+	"total_size\x18\x03 \x01(\x05R\ttotalSize\"%\n" +
 	"\x13GetFranchiseRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"I\n" +
 	"\x14GetFranchiseResponse\x121\n" +
@@ -3483,10 +4132,11 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\n" +
 	"total_size\x18\x03 \x01(\x05R\ttotalSize\"!\n" +
 	"\x0fGetStaffRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\"j\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\"\x8f\x01\n" +
 	"\x10GetStaffResponse\x12%\n" +
 	"\x05staff\x18\x01 \x01(\v2\x0f.anime.v1.StaffR\x05staff\x12/\n" +
-	"\acredits\x18\x02 \x03(\v2\x15.anime.v1.StaffCreditR\acredits\"y\n" +
+	"\acredits\x18\x02 \x03(\v2\x15.anime.v1.StaffCreditR\acredits\x12#\n" +
+	"\rcredits_total\x18\x03 \x01(\x05R\fcreditsTotal\"y\n" +
 	"\x10ListStaffRequest\x12\x1a\n" +
 	"\blanguage\x18\x01 \x01(\tR\blanguage\x12\x14\n" +
 	"\x05query\x18\x04 \x01(\tR\x05query\x12\x14\n" +
@@ -3526,6 +4176,48 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\x05works\x18\x01 \x03(\v2\x15.anime.v1.WorkSummaryR\x05works\x12&\n" +
 	"\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n" +
 	"\n" +
+	"total_size\x18\x03 \x01(\x05R\ttotalSize\"\x86\x01\n" +
+	"\x13ListEpisodesRequest\x12\x1b\n" +
+	"\tseason_id\x18\x01 \x01(\tR\bseasonId\x12\x1d\n" +
+	"\n" +
+	"special_id\x18\x02 \x01(\tR\tspecialId\x12\x1d\n" +
+	"\n" +
+	"page_token\x18\x03 \x01(\tR\tpageToken\x12\x14\n" +
+	"\x05limit\x18\x04 \x01(\x05R\x05limit\"\x8c\x01\n" +
+	"\x14ListEpisodesResponse\x12-\n" +
+	"\bepisodes\x18\x01 \x03(\v2\x11.anime.v1.EpisodeR\bepisodes\x12&\n" +
+	"\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n" +
+	"\n" +
+	"total_size\x18\x03 \x01(\x05R\ttotalSize\"k\n" +
+	"\x11ListSeriesRequest\x12!\n" +
+	"\ffranchise_id\x18\x01 \x01(\tR\vfranchiseId\x12\x1d\n" +
+	"\n" +
+	"page_token\x18\x02 \x01(\tR\tpageToken\x12\x14\n" +
+	"\x05limit\x18\x03 \x01(\x05R\x05limit\"\x85\x01\n" +
+	"\x12ListSeriesResponse\x12(\n" +
+	"\x06series\x18\x01 \x03(\v2\x10.anime.v1.SeriesR\x06series\x12&\n" +
+	"\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n" +
+	"\n" +
+	"total_size\x18\x03 \x01(\x05R\ttotalSize\"p\n" +
+	"\x16ListAppearancesRequest\x12!\n" +
+	"\fcharacter_id\x18\x01 \x01(\tR\vcharacterId\x12\x1d\n" +
+	"\n" +
+	"page_token\x18\x02 \x01(\tR\tpageToken\x12\x14\n" +
+	"\x05limit\x18\x03 \x01(\x05R\x05limit\"\xa1\x01\n" +
+	"\x17ListAppearancesResponse\x12?\n" +
+	"\vappearances\x18\x01 \x03(\v2\x1d.anime.v1.CharacterAppearanceR\vappearances\x12&\n" +
+	"\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n" +
+	"\n" +
+	"total_size\x18\x03 \x01(\x05R\ttotalSize\"d\n" +
+	"\x12ListCreditsRequest\x12\x19\n" +
+	"\bstaff_id\x18\x01 \x01(\tR\astaffId\x12\x1d\n" +
+	"\n" +
+	"page_token\x18\x02 \x01(\tR\tpageToken\x12\x14\n" +
+	"\x05limit\x18\x03 \x01(\x05R\x05limit\"\x8d\x01\n" +
+	"\x13ListCreditsResponse\x12/\n" +
+	"\acredits\x18\x01 \x03(\v2\x15.anime.v1.StaffCreditR\acredits\x12&\n" +
+	"\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n" +
+	"\n" +
 	"total_size\x18\x03 \x01(\x05R\ttotalSize*\x99\x01\n" +
 	"\rReleaseSeason\x12\x1e\n" +
 	"\x1aRELEASE_SEASON_UNSPECIFIED\x10\x00\x12\x19\n" +
@@ -3546,7 +4238,7 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\tEntryKind\x12\x1a\n" +
 	"\x16ENTRY_KIND_UNSPECIFIED\x10\x00\x12\x18\n" +
 	"\x14ENTRY_KIND_FRANCHISE\x10\x01\x12\x15\n" +
-	"\x11ENTRY_KIND_SERIES\x10\x022\xd0\x06\n" +
+	"\x11ENTRY_KIND_SERIES\x10\x022\x94\t\n" +
 	"\fAnimeService\x12U\n" +
 	"\x0eListFranchises\x12\x1f.anime.v1.ListFranchisesRequest\x1a .anime.v1.ListFranchisesResponse\"\x00\x12O\n" +
 	"\fGetFranchise\x12\x1d.anime.v1.GetFranchiseRequest\x1a\x1e.anime.v1.GetFranchiseResponse\"\x00\x12F\n" +
@@ -3557,7 +4249,12 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\fGetCharacter\x12\x1d.anime.v1.GetCharacterRequest\x1a\x1e.anime.v1.GetCharacterResponse\"\x00\x12U\n" +
 	"\x0eListCharacters\x12\x1f.anime.v1.ListCharactersRequest\x1a .anime.v1.ListCharactersResponse\"\x00\x12C\n" +
 	"\bGetStaff\x12\x19.anime.v1.GetStaffRequest\x1a\x1a.anime.v1.GetStaffResponse\"\x00\x12F\n" +
-	"\tListStaff\x12\x1a.anime.v1.ListStaffRequest\x1a\x1b.anime.v1.ListStaffResponse\"\x00\x12F\n" +
+	"\tListStaff\x12\x1a.anime.v1.ListStaffRequest\x1a\x1b.anime.v1.ListStaffResponse\"\x00\x12O\n" +
+	"\fListEpisodes\x12\x1d.anime.v1.ListEpisodesRequest\x1a\x1e.anime.v1.ListEpisodesResponse\"\x00\x12I\n" +
+	"\n" +
+	"ListSeries\x12\x1b.anime.v1.ListSeriesRequest\x1a\x1c.anime.v1.ListSeriesResponse\"\x00\x12X\n" +
+	"\x0fListAppearances\x12 .anime.v1.ListAppearancesRequest\x1a!.anime.v1.ListAppearancesResponse\"\x00\x12L\n" +
+	"\vListCredits\x12\x1c.anime.v1.ListCreditsRequest\x1a\x1d.anime.v1.ListCreditsResponse\"\x00\x12F\n" +
 	"\tGetHealth\x12\x1a.anime.v1.GetHealthRequest\x1a\x1b.anime.v1.GetHealthResponse\"\x00BLZJgithub.com/michael-freling/anime-metadata-db/internal/gen/anime/v1;animev1b\x06proto3"
 
 var (
@@ -3573,59 +4270,67 @@ func file_anime_v1_anime_proto_rawDescGZIP() []byte {
 }
 
 var file_anime_v1_anime_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
-var file_anime_v1_anime_proto_msgTypes = make([]protoimpl.MessageInfo, 44)
+var file_anime_v1_anime_proto_msgTypes = make([]protoimpl.MessageInfo, 52)
 var file_anime_v1_anime_proto_goTypes = []any{
-	(ReleaseSeason)(0),             // 0: anime.v1.ReleaseSeason
-	(SpecialFormat)(0),             // 1: anime.v1.SpecialFormat
-	(WorkKind)(0),                  // 2: anime.v1.WorkKind
-	(EntryKind)(0),                 // 3: anime.v1.EntryKind
-	(*LocalizedTitle)(nil),         // 4: anime.v1.LocalizedTitle
-	(*ExternalIds)(nil),            // 5: anime.v1.ExternalIds
-	(*Episode)(nil),                // 6: anime.v1.Episode
-	(*Season)(nil),                 // 7: anime.v1.Season
-	(*AlternateCutOf)(nil),         // 8: anime.v1.AlternateCutOf
-	(*Movie)(nil),                  // 9: anime.v1.Movie
-	(*Special)(nil),                // 10: anime.v1.Special
-	(*Series)(nil),                 // 11: anime.v1.Series
-	(*VoiceActor)(nil),             // 12: anime.v1.VoiceActor
-	(*ScopeRef)(nil),               // 13: anime.v1.ScopeRef
-	(*CharacterAppearance)(nil),    // 14: anime.v1.CharacterAppearance
-	(*Character)(nil),              // 15: anime.v1.Character
-	(*Staff)(nil),                  // 16: anime.v1.Staff
-	(*StaffCredit)(nil),            // 17: anime.v1.StaffCredit
-	(*WatchOrderEntry)(nil),        // 18: anime.v1.WatchOrderEntry
-	(*WatchOrder)(nil),             // 19: anime.v1.WatchOrder
-	(*Franchise)(nil),              // 20: anime.v1.Franchise
-	(*SearchResult)(nil),           // 21: anime.v1.SearchResult
-	(*CatalogEntry)(nil),           // 22: anime.v1.CatalogEntry
-	(*WorkSummary)(nil),            // 23: anime.v1.WorkSummary
-	(*DatasetStats)(nil),           // 24: anime.v1.DatasetStats
-	(*ListFranchisesRequest)(nil),  // 25: anime.v1.ListFranchisesRequest
-	(*ListFranchisesResponse)(nil), // 26: anime.v1.ListFranchisesResponse
-	(*GetFranchiseRequest)(nil),    // 27: anime.v1.GetFranchiseRequest
-	(*GetFranchiseResponse)(nil),   // 28: anime.v1.GetFranchiseResponse
-	(*GetSeriesRequest)(nil),       // 29: anime.v1.GetSeriesRequest
-	(*GetSeriesResponse)(nil),      // 30: anime.v1.GetSeriesResponse
-	(*SearchRequest)(nil),          // 31: anime.v1.SearchRequest
-	(*SearchResponse)(nil),         // 32: anime.v1.SearchResponse
-	(*GetCharacterRequest)(nil),    // 33: anime.v1.GetCharacterRequest
-	(*GetCharacterResponse)(nil),   // 34: anime.v1.GetCharacterResponse
-	(*ListCharactersRequest)(nil),  // 35: anime.v1.ListCharactersRequest
-	(*ListCharactersResponse)(nil), // 36: anime.v1.ListCharactersResponse
-	(*GetStaffRequest)(nil),        // 37: anime.v1.GetStaffRequest
-	(*GetStaffResponse)(nil),       // 38: anime.v1.GetStaffResponse
-	(*ListStaffRequest)(nil),       // 39: anime.v1.ListStaffRequest
-	(*ListStaffResponse)(nil),      // 40: anime.v1.ListStaffResponse
-	(*GetHealthRequest)(nil),       // 41: anime.v1.GetHealthRequest
-	(*GetHealthResponse)(nil),      // 42: anime.v1.GetHealthResponse
-	(*ListCatalogRequest)(nil),     // 43: anime.v1.ListCatalogRequest
-	(*ListCatalogResponse)(nil),    // 44: anime.v1.ListCatalogResponse
-	(*ListWorksRequest)(nil),       // 45: anime.v1.ListWorksRequest
-	(*ListWorksResponse)(nil),      // 46: anime.v1.ListWorksResponse
-	nil,                            // 47: anime.v1.LocalizedTitle.TranslationsEntry
+	(ReleaseSeason)(0),              // 0: anime.v1.ReleaseSeason
+	(SpecialFormat)(0),              // 1: anime.v1.SpecialFormat
+	(WorkKind)(0),                   // 2: anime.v1.WorkKind
+	(EntryKind)(0),                  // 3: anime.v1.EntryKind
+	(*LocalizedTitle)(nil),          // 4: anime.v1.LocalizedTitle
+	(*ExternalIds)(nil),             // 5: anime.v1.ExternalIds
+	(*Episode)(nil),                 // 6: anime.v1.Episode
+	(*Season)(nil),                  // 7: anime.v1.Season
+	(*AlternateCutOf)(nil),          // 8: anime.v1.AlternateCutOf
+	(*Movie)(nil),                   // 9: anime.v1.Movie
+	(*Special)(nil),                 // 10: anime.v1.Special
+	(*Series)(nil),                  // 11: anime.v1.Series
+	(*VoiceActor)(nil),              // 12: anime.v1.VoiceActor
+	(*ScopeRef)(nil),                // 13: anime.v1.ScopeRef
+	(*CharacterAppearance)(nil),     // 14: anime.v1.CharacterAppearance
+	(*Character)(nil),               // 15: anime.v1.Character
+	(*Staff)(nil),                   // 16: anime.v1.Staff
+	(*StaffCredit)(nil),             // 17: anime.v1.StaffCredit
+	(*WatchOrderEntry)(nil),         // 18: anime.v1.WatchOrderEntry
+	(*WatchOrder)(nil),              // 19: anime.v1.WatchOrder
+	(*Franchise)(nil),               // 20: anime.v1.Franchise
+	(*SearchResult)(nil),            // 21: anime.v1.SearchResult
+	(*CatalogEntry)(nil),            // 22: anime.v1.CatalogEntry
+	(*WorkSummary)(nil),             // 23: anime.v1.WorkSummary
+	(*DatasetStats)(nil),            // 24: anime.v1.DatasetStats
+	(*ListFranchisesRequest)(nil),   // 25: anime.v1.ListFranchisesRequest
+	(*ListFranchisesResponse)(nil),  // 26: anime.v1.ListFranchisesResponse
+	(*GetFranchiseRequest)(nil),     // 27: anime.v1.GetFranchiseRequest
+	(*GetFranchiseResponse)(nil),    // 28: anime.v1.GetFranchiseResponse
+	(*GetSeriesRequest)(nil),        // 29: anime.v1.GetSeriesRequest
+	(*GetSeriesResponse)(nil),       // 30: anime.v1.GetSeriesResponse
+	(*SearchRequest)(nil),           // 31: anime.v1.SearchRequest
+	(*SearchResponse)(nil),          // 32: anime.v1.SearchResponse
+	(*GetCharacterRequest)(nil),     // 33: anime.v1.GetCharacterRequest
+	(*GetCharacterResponse)(nil),    // 34: anime.v1.GetCharacterResponse
+	(*ListCharactersRequest)(nil),   // 35: anime.v1.ListCharactersRequest
+	(*ListCharactersResponse)(nil),  // 36: anime.v1.ListCharactersResponse
+	(*GetStaffRequest)(nil),         // 37: anime.v1.GetStaffRequest
+	(*GetStaffResponse)(nil),        // 38: anime.v1.GetStaffResponse
+	(*ListStaffRequest)(nil),        // 39: anime.v1.ListStaffRequest
+	(*ListStaffResponse)(nil),       // 40: anime.v1.ListStaffResponse
+	(*GetHealthRequest)(nil),        // 41: anime.v1.GetHealthRequest
+	(*GetHealthResponse)(nil),       // 42: anime.v1.GetHealthResponse
+	(*ListCatalogRequest)(nil),      // 43: anime.v1.ListCatalogRequest
+	(*ListCatalogResponse)(nil),     // 44: anime.v1.ListCatalogResponse
+	(*ListWorksRequest)(nil),        // 45: anime.v1.ListWorksRequest
+	(*ListWorksResponse)(nil),       // 46: anime.v1.ListWorksResponse
+	(*ListEpisodesRequest)(nil),     // 47: anime.v1.ListEpisodesRequest
+	(*ListEpisodesResponse)(nil),    // 48: anime.v1.ListEpisodesResponse
+	(*ListSeriesRequest)(nil),       // 49: anime.v1.ListSeriesRequest
+	(*ListSeriesResponse)(nil),      // 50: anime.v1.ListSeriesResponse
+	(*ListAppearancesRequest)(nil),  // 51: anime.v1.ListAppearancesRequest
+	(*ListAppearancesResponse)(nil), // 52: anime.v1.ListAppearancesResponse
+	(*ListCreditsRequest)(nil),      // 53: anime.v1.ListCreditsRequest
+	(*ListCreditsResponse)(nil),     // 54: anime.v1.ListCreditsResponse
+	nil,                             // 55: anime.v1.LocalizedTitle.TranslationsEntry
 }
 var file_anime_v1_anime_proto_depIdxs = []int32{
-	47, // 0: anime.v1.LocalizedTitle.translations:type_name -> anime.v1.LocalizedTitle.TranslationsEntry
+	55, // 0: anime.v1.LocalizedTitle.translations:type_name -> anime.v1.LocalizedTitle.TranslationsEntry
 	4,  // 1: anime.v1.Season.localized_title:type_name -> anime.v1.LocalizedTitle
 	0,  // 2: anime.v1.Season.release_season:type_name -> anime.v1.ReleaseSeason
 	5,  // 3: anime.v1.Season.external_ids:type_name -> anime.v1.ExternalIds
@@ -3679,33 +4384,45 @@ var file_anime_v1_anime_proto_depIdxs = []int32{
 	0,  // 51: anime.v1.ListWorksRequest.release_season:type_name -> anime.v1.ReleaseSeason
 	2,  // 52: anime.v1.ListWorksRequest.kind:type_name -> anime.v1.WorkKind
 	23, // 53: anime.v1.ListWorksResponse.works:type_name -> anime.v1.WorkSummary
-	25, // 54: anime.v1.AnimeService.ListFranchises:input_type -> anime.v1.ListFranchisesRequest
-	27, // 55: anime.v1.AnimeService.GetFranchise:input_type -> anime.v1.GetFranchiseRequest
-	29, // 56: anime.v1.AnimeService.GetSeries:input_type -> anime.v1.GetSeriesRequest
-	43, // 57: anime.v1.AnimeService.ListCatalog:input_type -> anime.v1.ListCatalogRequest
-	45, // 58: anime.v1.AnimeService.ListWorks:input_type -> anime.v1.ListWorksRequest
-	31, // 59: anime.v1.AnimeService.Search:input_type -> anime.v1.SearchRequest
-	33, // 60: anime.v1.AnimeService.GetCharacter:input_type -> anime.v1.GetCharacterRequest
-	35, // 61: anime.v1.AnimeService.ListCharacters:input_type -> anime.v1.ListCharactersRequest
-	37, // 62: anime.v1.AnimeService.GetStaff:input_type -> anime.v1.GetStaffRequest
-	39, // 63: anime.v1.AnimeService.ListStaff:input_type -> anime.v1.ListStaffRequest
-	41, // 64: anime.v1.AnimeService.GetHealth:input_type -> anime.v1.GetHealthRequest
-	26, // 65: anime.v1.AnimeService.ListFranchises:output_type -> anime.v1.ListFranchisesResponse
-	28, // 66: anime.v1.AnimeService.GetFranchise:output_type -> anime.v1.GetFranchiseResponse
-	30, // 67: anime.v1.AnimeService.GetSeries:output_type -> anime.v1.GetSeriesResponse
-	44, // 68: anime.v1.AnimeService.ListCatalog:output_type -> anime.v1.ListCatalogResponse
-	46, // 69: anime.v1.AnimeService.ListWorks:output_type -> anime.v1.ListWorksResponse
-	32, // 70: anime.v1.AnimeService.Search:output_type -> anime.v1.SearchResponse
-	34, // 71: anime.v1.AnimeService.GetCharacter:output_type -> anime.v1.GetCharacterResponse
-	36, // 72: anime.v1.AnimeService.ListCharacters:output_type -> anime.v1.ListCharactersResponse
-	38, // 73: anime.v1.AnimeService.GetStaff:output_type -> anime.v1.GetStaffResponse
-	40, // 74: anime.v1.AnimeService.ListStaff:output_type -> anime.v1.ListStaffResponse
-	42, // 75: anime.v1.AnimeService.GetHealth:output_type -> anime.v1.GetHealthResponse
-	65, // [65:76] is the sub-list for method output_type
-	54, // [54:65] is the sub-list for method input_type
-	54, // [54:54] is the sub-list for extension type_name
-	54, // [54:54] is the sub-list for extension extendee
-	0,  // [0:54] is the sub-list for field type_name
+	6,  // 54: anime.v1.ListEpisodesResponse.episodes:type_name -> anime.v1.Episode
+	11, // 55: anime.v1.ListSeriesResponse.series:type_name -> anime.v1.Series
+	14, // 56: anime.v1.ListAppearancesResponse.appearances:type_name -> anime.v1.CharacterAppearance
+	17, // 57: anime.v1.ListCreditsResponse.credits:type_name -> anime.v1.StaffCredit
+	25, // 58: anime.v1.AnimeService.ListFranchises:input_type -> anime.v1.ListFranchisesRequest
+	27, // 59: anime.v1.AnimeService.GetFranchise:input_type -> anime.v1.GetFranchiseRequest
+	29, // 60: anime.v1.AnimeService.GetSeries:input_type -> anime.v1.GetSeriesRequest
+	43, // 61: anime.v1.AnimeService.ListCatalog:input_type -> anime.v1.ListCatalogRequest
+	45, // 62: anime.v1.AnimeService.ListWorks:input_type -> anime.v1.ListWorksRequest
+	31, // 63: anime.v1.AnimeService.Search:input_type -> anime.v1.SearchRequest
+	33, // 64: anime.v1.AnimeService.GetCharacter:input_type -> anime.v1.GetCharacterRequest
+	35, // 65: anime.v1.AnimeService.ListCharacters:input_type -> anime.v1.ListCharactersRequest
+	37, // 66: anime.v1.AnimeService.GetStaff:input_type -> anime.v1.GetStaffRequest
+	39, // 67: anime.v1.AnimeService.ListStaff:input_type -> anime.v1.ListStaffRequest
+	47, // 68: anime.v1.AnimeService.ListEpisodes:input_type -> anime.v1.ListEpisodesRequest
+	49, // 69: anime.v1.AnimeService.ListSeries:input_type -> anime.v1.ListSeriesRequest
+	51, // 70: anime.v1.AnimeService.ListAppearances:input_type -> anime.v1.ListAppearancesRequest
+	53, // 71: anime.v1.AnimeService.ListCredits:input_type -> anime.v1.ListCreditsRequest
+	41, // 72: anime.v1.AnimeService.GetHealth:input_type -> anime.v1.GetHealthRequest
+	26, // 73: anime.v1.AnimeService.ListFranchises:output_type -> anime.v1.ListFranchisesResponse
+	28, // 74: anime.v1.AnimeService.GetFranchise:output_type -> anime.v1.GetFranchiseResponse
+	30, // 75: anime.v1.AnimeService.GetSeries:output_type -> anime.v1.GetSeriesResponse
+	44, // 76: anime.v1.AnimeService.ListCatalog:output_type -> anime.v1.ListCatalogResponse
+	46, // 77: anime.v1.AnimeService.ListWorks:output_type -> anime.v1.ListWorksResponse
+	32, // 78: anime.v1.AnimeService.Search:output_type -> anime.v1.SearchResponse
+	34, // 79: anime.v1.AnimeService.GetCharacter:output_type -> anime.v1.GetCharacterResponse
+	36, // 80: anime.v1.AnimeService.ListCharacters:output_type -> anime.v1.ListCharactersResponse
+	38, // 81: anime.v1.AnimeService.GetStaff:output_type -> anime.v1.GetStaffResponse
+	40, // 82: anime.v1.AnimeService.ListStaff:output_type -> anime.v1.ListStaffResponse
+	48, // 83: anime.v1.AnimeService.ListEpisodes:output_type -> anime.v1.ListEpisodesResponse
+	50, // 84: anime.v1.AnimeService.ListSeries:output_type -> anime.v1.ListSeriesResponse
+	52, // 85: anime.v1.AnimeService.ListAppearances:output_type -> anime.v1.ListAppearancesResponse
+	54, // 86: anime.v1.AnimeService.ListCredits:output_type -> anime.v1.ListCreditsResponse
+	42, // 87: anime.v1.AnimeService.GetHealth:output_type -> anime.v1.GetHealthResponse
+	73, // [73:88] is the sub-list for method output_type
+	58, // [58:73] is the sub-list for method input_type
+	58, // [58:58] is the sub-list for extension type_name
+	58, // [58:58] is the sub-list for extension extendee
+	0,  // [0:58] is the sub-list for field type_name
 }
 
 func init() { file_anime_v1_anime_proto_init() }
@@ -3723,7 +4440,7 @@ func file_anime_v1_anime_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_anime_v1_anime_proto_rawDesc), len(file_anime_v1_anime_proto_rawDesc)),
 			NumEnums:      4,
-			NumMessages:   44,
+			NumMessages:   52,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

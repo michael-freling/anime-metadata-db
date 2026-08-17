@@ -69,6 +69,17 @@ const (
 	AnimeServiceGetStaffProcedure = "/anime.v1.AnimeService/GetStaff"
 	// AnimeServiceListStaffProcedure is the fully-qualified name of the AnimeService's ListStaff RPC.
 	AnimeServiceListStaffProcedure = "/anime.v1.AnimeService/ListStaff"
+	// AnimeServiceListEpisodesProcedure is the fully-qualified name of the AnimeService's ListEpisodes
+	// RPC.
+	AnimeServiceListEpisodesProcedure = "/anime.v1.AnimeService/ListEpisodes"
+	// AnimeServiceListSeriesProcedure is the fully-qualified name of the AnimeService's ListSeries RPC.
+	AnimeServiceListSeriesProcedure = "/anime.v1.AnimeService/ListSeries"
+	// AnimeServiceListAppearancesProcedure is the fully-qualified name of the AnimeService's
+	// ListAppearances RPC.
+	AnimeServiceListAppearancesProcedure = "/anime.v1.AnimeService/ListAppearances"
+	// AnimeServiceListCreditsProcedure is the fully-qualified name of the AnimeService's ListCredits
+	// RPC.
+	AnimeServiceListCreditsProcedure = "/anime.v1.AnimeService/ListCredits"
 	// AnimeServiceGetHealthProcedure is the fully-qualified name of the AnimeService's GetHealth RPC.
 	AnimeServiceGetHealthProcedure = "/anime.v1.AnimeService/GetHealth"
 )
@@ -103,6 +114,15 @@ type AnimeServiceClient interface {
 	// ListStaff returns every staff member, optionally filtered by the language
 	// they are credited in.
 	ListStaff(context.Context, *connect.Request[v1.ListStaffRequest]) (*connect.Response[v1.ListStaffResponse], error)
+	// ListEpisodes pages the episodes of one season or special. A long-running
+	// show accumulates episodes indefinitely, so they are never embedded whole.
+	ListEpisodes(context.Context, *connect.Request[v1.ListEpisodesRequest]) (*connect.Response[v1.ListEpisodesResponse], error)
+	// ListSeries pages the series belonging to one franchise.
+	ListSeries(context.Context, *connect.Request[v1.ListSeriesRequest]) (*connect.Response[v1.ListSeriesResponse], error)
+	// ListAppearances pages the series one character appears in.
+	ListAppearances(context.Context, *connect.Request[v1.ListAppearancesRequest]) (*connect.Response[v1.ListAppearancesResponse], error)
+	// ListCredits pages the roles one staff member is cast in.
+	ListCredits(context.Context, *connect.Request[v1.ListCreditsRequest]) (*connect.Response[v1.ListCreditsResponse], error)
 	// GetHealth reports liveness, build version and dataset stats.
 	GetHealth(context.Context, *connect.Request[v1.GetHealthRequest]) (*connect.Response[v1.GetHealthResponse], error)
 }
@@ -178,6 +198,30 @@ func NewAnimeServiceClient(httpClient connect.HTTPClient, baseURL string, opts .
 			connect.WithSchema(animeServiceMethods.ByName("ListStaff")),
 			connect.WithClientOptions(opts...),
 		),
+		listEpisodes: connect.NewClient[v1.ListEpisodesRequest, v1.ListEpisodesResponse](
+			httpClient,
+			baseURL+AnimeServiceListEpisodesProcedure,
+			connect.WithSchema(animeServiceMethods.ByName("ListEpisodes")),
+			connect.WithClientOptions(opts...),
+		),
+		listSeries: connect.NewClient[v1.ListSeriesRequest, v1.ListSeriesResponse](
+			httpClient,
+			baseURL+AnimeServiceListSeriesProcedure,
+			connect.WithSchema(animeServiceMethods.ByName("ListSeries")),
+			connect.WithClientOptions(opts...),
+		),
+		listAppearances: connect.NewClient[v1.ListAppearancesRequest, v1.ListAppearancesResponse](
+			httpClient,
+			baseURL+AnimeServiceListAppearancesProcedure,
+			connect.WithSchema(animeServiceMethods.ByName("ListAppearances")),
+			connect.WithClientOptions(opts...),
+		),
+		listCredits: connect.NewClient[v1.ListCreditsRequest, v1.ListCreditsResponse](
+			httpClient,
+			baseURL+AnimeServiceListCreditsProcedure,
+			connect.WithSchema(animeServiceMethods.ByName("ListCredits")),
+			connect.WithClientOptions(opts...),
+		),
 		getHealth: connect.NewClient[v1.GetHealthRequest, v1.GetHealthResponse](
 			httpClient,
 			baseURL+AnimeServiceGetHealthProcedure,
@@ -189,17 +233,21 @@ func NewAnimeServiceClient(httpClient connect.HTTPClient, baseURL string, opts .
 
 // animeServiceClient implements AnimeServiceClient.
 type animeServiceClient struct {
-	listFranchises *connect.Client[v1.ListFranchisesRequest, v1.ListFranchisesResponse]
-	getFranchise   *connect.Client[v1.GetFranchiseRequest, v1.GetFranchiseResponse]
-	getSeries      *connect.Client[v1.GetSeriesRequest, v1.GetSeriesResponse]
-	listCatalog    *connect.Client[v1.ListCatalogRequest, v1.ListCatalogResponse]
-	listWorks      *connect.Client[v1.ListWorksRequest, v1.ListWorksResponse]
-	search         *connect.Client[v1.SearchRequest, v1.SearchResponse]
-	getCharacter   *connect.Client[v1.GetCharacterRequest, v1.GetCharacterResponse]
-	listCharacters *connect.Client[v1.ListCharactersRequest, v1.ListCharactersResponse]
-	getStaff       *connect.Client[v1.GetStaffRequest, v1.GetStaffResponse]
-	listStaff      *connect.Client[v1.ListStaffRequest, v1.ListStaffResponse]
-	getHealth      *connect.Client[v1.GetHealthRequest, v1.GetHealthResponse]
+	listFranchises  *connect.Client[v1.ListFranchisesRequest, v1.ListFranchisesResponse]
+	getFranchise    *connect.Client[v1.GetFranchiseRequest, v1.GetFranchiseResponse]
+	getSeries       *connect.Client[v1.GetSeriesRequest, v1.GetSeriesResponse]
+	listCatalog     *connect.Client[v1.ListCatalogRequest, v1.ListCatalogResponse]
+	listWorks       *connect.Client[v1.ListWorksRequest, v1.ListWorksResponse]
+	search          *connect.Client[v1.SearchRequest, v1.SearchResponse]
+	getCharacter    *connect.Client[v1.GetCharacterRequest, v1.GetCharacterResponse]
+	listCharacters  *connect.Client[v1.ListCharactersRequest, v1.ListCharactersResponse]
+	getStaff        *connect.Client[v1.GetStaffRequest, v1.GetStaffResponse]
+	listStaff       *connect.Client[v1.ListStaffRequest, v1.ListStaffResponse]
+	listEpisodes    *connect.Client[v1.ListEpisodesRequest, v1.ListEpisodesResponse]
+	listSeries      *connect.Client[v1.ListSeriesRequest, v1.ListSeriesResponse]
+	listAppearances *connect.Client[v1.ListAppearancesRequest, v1.ListAppearancesResponse]
+	listCredits     *connect.Client[v1.ListCreditsRequest, v1.ListCreditsResponse]
+	getHealth       *connect.Client[v1.GetHealthRequest, v1.GetHealthResponse]
 }
 
 // ListFranchises calls anime.v1.AnimeService.ListFranchises.
@@ -252,6 +300,26 @@ func (c *animeServiceClient) ListStaff(ctx context.Context, req *connect.Request
 	return c.listStaff.CallUnary(ctx, req)
 }
 
+// ListEpisodes calls anime.v1.AnimeService.ListEpisodes.
+func (c *animeServiceClient) ListEpisodes(ctx context.Context, req *connect.Request[v1.ListEpisodesRequest]) (*connect.Response[v1.ListEpisodesResponse], error) {
+	return c.listEpisodes.CallUnary(ctx, req)
+}
+
+// ListSeries calls anime.v1.AnimeService.ListSeries.
+func (c *animeServiceClient) ListSeries(ctx context.Context, req *connect.Request[v1.ListSeriesRequest]) (*connect.Response[v1.ListSeriesResponse], error) {
+	return c.listSeries.CallUnary(ctx, req)
+}
+
+// ListAppearances calls anime.v1.AnimeService.ListAppearances.
+func (c *animeServiceClient) ListAppearances(ctx context.Context, req *connect.Request[v1.ListAppearancesRequest]) (*connect.Response[v1.ListAppearancesResponse], error) {
+	return c.listAppearances.CallUnary(ctx, req)
+}
+
+// ListCredits calls anime.v1.AnimeService.ListCredits.
+func (c *animeServiceClient) ListCredits(ctx context.Context, req *connect.Request[v1.ListCreditsRequest]) (*connect.Response[v1.ListCreditsResponse], error) {
+	return c.listCredits.CallUnary(ctx, req)
+}
+
 // GetHealth calls anime.v1.AnimeService.GetHealth.
 func (c *animeServiceClient) GetHealth(ctx context.Context, req *connect.Request[v1.GetHealthRequest]) (*connect.Response[v1.GetHealthResponse], error) {
 	return c.getHealth.CallUnary(ctx, req)
@@ -287,6 +355,15 @@ type AnimeServiceHandler interface {
 	// ListStaff returns every staff member, optionally filtered by the language
 	// they are credited in.
 	ListStaff(context.Context, *connect.Request[v1.ListStaffRequest]) (*connect.Response[v1.ListStaffResponse], error)
+	// ListEpisodes pages the episodes of one season or special. A long-running
+	// show accumulates episodes indefinitely, so they are never embedded whole.
+	ListEpisodes(context.Context, *connect.Request[v1.ListEpisodesRequest]) (*connect.Response[v1.ListEpisodesResponse], error)
+	// ListSeries pages the series belonging to one franchise.
+	ListSeries(context.Context, *connect.Request[v1.ListSeriesRequest]) (*connect.Response[v1.ListSeriesResponse], error)
+	// ListAppearances pages the series one character appears in.
+	ListAppearances(context.Context, *connect.Request[v1.ListAppearancesRequest]) (*connect.Response[v1.ListAppearancesResponse], error)
+	// ListCredits pages the roles one staff member is cast in.
+	ListCredits(context.Context, *connect.Request[v1.ListCreditsRequest]) (*connect.Response[v1.ListCreditsResponse], error)
 	// GetHealth reports liveness, build version and dataset stats.
 	GetHealth(context.Context, *connect.Request[v1.GetHealthRequest]) (*connect.Response[v1.GetHealthResponse], error)
 }
@@ -358,6 +435,30 @@ func NewAnimeServiceHandler(svc AnimeServiceHandler, opts ...connect.HandlerOpti
 		connect.WithSchema(animeServiceMethods.ByName("ListStaff")),
 		connect.WithHandlerOptions(opts...),
 	)
+	animeServiceListEpisodesHandler := connect.NewUnaryHandler(
+		AnimeServiceListEpisodesProcedure,
+		svc.ListEpisodes,
+		connect.WithSchema(animeServiceMethods.ByName("ListEpisodes")),
+		connect.WithHandlerOptions(opts...),
+	)
+	animeServiceListSeriesHandler := connect.NewUnaryHandler(
+		AnimeServiceListSeriesProcedure,
+		svc.ListSeries,
+		connect.WithSchema(animeServiceMethods.ByName("ListSeries")),
+		connect.WithHandlerOptions(opts...),
+	)
+	animeServiceListAppearancesHandler := connect.NewUnaryHandler(
+		AnimeServiceListAppearancesProcedure,
+		svc.ListAppearances,
+		connect.WithSchema(animeServiceMethods.ByName("ListAppearances")),
+		connect.WithHandlerOptions(opts...),
+	)
+	animeServiceListCreditsHandler := connect.NewUnaryHandler(
+		AnimeServiceListCreditsProcedure,
+		svc.ListCredits,
+		connect.WithSchema(animeServiceMethods.ByName("ListCredits")),
+		connect.WithHandlerOptions(opts...),
+	)
 	animeServiceGetHealthHandler := connect.NewUnaryHandler(
 		AnimeServiceGetHealthProcedure,
 		svc.GetHealth,
@@ -386,6 +487,14 @@ func NewAnimeServiceHandler(svc AnimeServiceHandler, opts ...connect.HandlerOpti
 			animeServiceGetStaffHandler.ServeHTTP(w, r)
 		case AnimeServiceListStaffProcedure:
 			animeServiceListStaffHandler.ServeHTTP(w, r)
+		case AnimeServiceListEpisodesProcedure:
+			animeServiceListEpisodesHandler.ServeHTTP(w, r)
+		case AnimeServiceListSeriesProcedure:
+			animeServiceListSeriesHandler.ServeHTTP(w, r)
+		case AnimeServiceListAppearancesProcedure:
+			animeServiceListAppearancesHandler.ServeHTTP(w, r)
+		case AnimeServiceListCreditsProcedure:
+			animeServiceListCreditsHandler.ServeHTTP(w, r)
 		case AnimeServiceGetHealthProcedure:
 			animeServiceGetHealthHandler.ServeHTTP(w, r)
 		default:
@@ -435,6 +544,22 @@ func (UnimplementedAnimeServiceHandler) GetStaff(context.Context, *connect.Reque
 
 func (UnimplementedAnimeServiceHandler) ListStaff(context.Context, *connect.Request[v1.ListStaffRequest]) (*connect.Response[v1.ListStaffResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.ListStaff is not implemented"))
+}
+
+func (UnimplementedAnimeServiceHandler) ListEpisodes(context.Context, *connect.Request[v1.ListEpisodesRequest]) (*connect.Response[v1.ListEpisodesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.ListEpisodes is not implemented"))
+}
+
+func (UnimplementedAnimeServiceHandler) ListSeries(context.Context, *connect.Request[v1.ListSeriesRequest]) (*connect.Response[v1.ListSeriesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.ListSeries is not implemented"))
+}
+
+func (UnimplementedAnimeServiceHandler) ListAppearances(context.Context, *connect.Request[v1.ListAppearancesRequest]) (*connect.Response[v1.ListAppearancesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.ListAppearances is not implemented"))
+}
+
+func (UnimplementedAnimeServiceHandler) ListCredits(context.Context, *connect.Request[v1.ListCreditsRequest]) (*connect.Response[v1.ListCreditsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.ListCredits is not implemented"))
 }
 
 func (UnimplementedAnimeServiceHandler) GetHealth(context.Context, *connect.Request[v1.GetHealthRequest]) (*connect.Response[v1.GetHealthResponse], error) {

@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { cache } from 'react';
 import { Code, ConnectError } from '@connectrpc/connect';
 import { localizedApi } from '@/lib/api';
-import { ApiError, isBadRequest, PageHeader, plural } from '@/components/browse';
+import { ApiError, isBadRequest, PageHeader, Pager, plural } from '@/components/browse';
 import { humanizeId, languageLabel } from '@/lib/format';
 
 // Shared by generateMetadata and the page body, which would otherwise each
@@ -20,6 +20,16 @@ const load = cache(async (id: string) => {
     if (err instanceof ConnectError && err.code === Code.NotFound) return null;
     throw err;
   }
+});
+
+// How many appearances one page shows.
+const APPEARANCE_LIMIT = 24;
+
+// GetCharacter embeds a capped page of appearances; ListAppearances is what
+// makes the rest reachable.
+const loadAppearances = cache(async (id: string, token: string) => {
+  const api = await localizedApi();
+  return api.listAppearances({ characterId: id, pageToken: token, limit: APPEARANCE_LIMIT });
 });
 
 export async function generateMetadata({
@@ -42,12 +52,21 @@ export async function generateMetadata({
   return { title: humanizeId(id) };
 }
 
-export default async function CharacterPage({ params }: { params: Promise<{ id: string }> }) {
+export default async function CharacterPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ token?: string }>;
+}) {
   const { id } = await params;
+  const { token = '' } = await searchParams;
 
   let character;
+  let page;
   try {
     character = await load(id);
+    if (character) page = await loadAppearances(id, token);
   } catch (err) {
     return (
       <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-12">
@@ -59,7 +78,7 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
       </main>
     );
   }
-  if (!character) notFound();
+  if (!character || !page) notFound();
 
   return (
     <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-12">
@@ -70,7 +89,7 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
         <PageHeader
           title={character.name || humanizeId(character.id)}
           subtitle={[
-            plural(character.appearances.length, 'appearance'),
+            plural(page.totalSize, 'appearance'),
             character.voiceActors.length
               ? plural(character.voiceActors.length, 'voice actor')
               : null,
@@ -99,11 +118,11 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
         </section>
       ) : null}
 
-      {character.appearances.length > 0 ? (
+      {page.totalSize > 0 ? (
         <section className="mt-10">
           <h2 className="mb-2 text-lg font-semibold">Appears in</h2>
           <ul>
-            {character.appearances.map((a) => (
+            {page.appearances.map((a) => (
               <li
                 key={a.seriesId}
                 className="flex flex-wrap items-baseline justify-between gap-4 border-b border-fd-border py-3 last:border-0"
@@ -120,6 +139,12 @@ export default async function CharacterPage({ params }: { params: Promise<{ id: 
               </li>
             ))}
           </ul>
+          <Pager
+            basePath={`/characters/${character.id}`}
+            nextToken={page.nextPageToken}
+            shown={page.appearances.length}
+            total={page.totalSize}
+          />
         </section>
       ) : null}
     </main>
