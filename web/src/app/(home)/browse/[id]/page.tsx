@@ -4,9 +4,9 @@ import { notFound } from 'next/navigation';
 import { cache } from 'react';
 import { Code, ConnectError } from '@connectrpc/connect';
 import { localizedApi } from '@/lib/api';
-import type { Franchise, Series } from '@/lib/gen/anime/v1/anime_pb';
+import type { Character, Franchise, Series } from '@/lib/gen/anime/v1/anime_pb';
 import { ReleaseSeason, SpecialFormat } from '@/lib/gen/anime/v1/anime_pb';
-import { ApiError, isBadRequest, PageHeader, plural } from '@/components/browse';
+import { ApiError, isBadRequest, PageHeader, Pager, plural } from '@/components/browse';
 import { humanizeId } from '@/lib/format';
 
 // An id names either a franchise or a series, and the API has a separate call
@@ -34,6 +34,25 @@ const load = cache(async (id: string): Promise<{ series?: Series; franchise?: Fr
     if (!(err instanceof ConnectError) || err.code !== Code.NotFound) throw err;
   }
   return null;
+});
+
+// How many cast members one page of a series shows, and how many a franchise
+// page previews per series before pointing at that series' own page.
+const CAST_LIMIT = 24;
+const CAST_PREVIEW = 6;
+
+// Cast is a page of a series' cast, not the whole of it.
+//
+// GetSeries embeds a series' cast, but that embed is capped, so rendering it
+// directly silently dropped everyone past the cap — 48 of the 148 characters in
+// tensei-shitara-slime-datta-ken, with nothing on the page to say so. Asking
+// ListCharacters instead means the count is honest and the rest is reachable.
+type Cast = { items: Character[]; total: number; nextToken: string };
+
+const loadCast = cache(async (seriesID: string, token: string, limit: number): Promise<Cast> => {
+  const api = await localizedApi();
+  const res = await api.listCharacters({ seriesId: seriesID, limit, pageToken: token });
+  return { items: res.characters, total: res.totalSize, nextToken: res.nextPageToken };
 });
 
 export async function generateMetadata({
@@ -85,7 +104,19 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   );
 }
 
-function SeriesBody({ series }: { series: Series }) {
+function SeriesBody({
+  series,
+  cast,
+  pagerPath,
+}: {
+  series: Series;
+  cast: Cast;
+  // Set only for a page showing one series, where a single cursor describes the
+  // whole view. A franchise page renders several casts at once, so it previews
+  // each and links onward instead — the same reason /browse pages only its
+  // single-kind views.
+  pagerPath?: string;
+}) {
   return (
     <>
       {series.seasons.length > 0 ? (
@@ -135,9 +166,9 @@ function SeriesBody({ series }: { series: Series }) {
         </Section>
       ) : null}
 
-      {series.characters.length > 0 ? (
+      {cast.total > 0 ? (
         <Section title="Cast">
-          {series.characters.map((c) => (
+          {cast.items.map((c) => (
             <Row
               key={c.id}
               title={
@@ -161,16 +192,57 @@ function SeriesBody({ series }: { series: Series }) {
           ))}
         </Section>
       ) : null}
+
+      {cast.total > 0 && pagerPath ? (
+        <Pager
+          basePath={pagerPath}
+          nextToken={cast.nextToken}
+          shown={cast.items.length}
+          total={cast.total}
+        />
+      ) : null}
+
+      {cast.total > cast.items.length && !pagerPath ? (
+        <p className="mt-3 text-sm text-fd-muted-foreground">
+          Showing {cast.items.length} of {cast.total} —{' '}
+          <Link href={`/browse/${series.id}`} className="underline">
+            open {series.title || humanizeId(series.id)}
+          </Link>{' '}
+          for the rest.
+        </p>
+      ) : null}
     </>
   );
 }
 
-export default async function EntryPage({ params }: { params: Promise<{ id: string }> }) {
+export default async function EntryPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ token?: string }>;
+}) {
   const { id } = await params;
+  const { token = '' } = await searchParams;
 
-  let found;
+  let found: Awaited<ReturnType<typeof load>>;
+  let casts: Record<string, Cast> = {};
   try {
     found = await load(id);
+    // One request per series whose cast is rendered: the series itself, or each
+    // series of a franchise. Issued together rather than in sequence.
+    const ids = found?.series
+      ? [found.series.id]
+      : (found?.franchise?.series.map((s) => s.id) ?? []);
+    const limit = found?.series ? CAST_LIMIT : CAST_PREVIEW;
+    casts = Object.fromEntries(
+      await Promise.all(
+        ids.map(async (seriesID) => [
+          seriesID,
+          await loadCast(seriesID, found?.series ? token : '', limit),
+        ]),
+      ),
+    );
   } catch (err) {
     return (
       <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-12">
@@ -213,7 +285,13 @@ export default async function EntryPage({ params }: { params: Promise<{ id: stri
         />
       </div>
 
-      {series ? <SeriesBody series={series} /> : null}
+      {series ? (
+        <SeriesBody
+          series={series}
+          cast={casts[series.id] ?? { items: [], total: 0, nextToken: '' }}
+          pagerPath={`/browse/${series.id}`}
+        />
+      ) : null}
 
       {franchise
         ? franchise.series.map((s) => (
@@ -223,7 +301,7 @@ export default async function EntryPage({ params }: { params: Promise<{ id: stri
                   {s.title || humanizeId(s.id)}
                 </Link>
               </h2>
-              <SeriesBody series={s} />
+              <SeriesBody series={s} cast={casts[s.id] ?? { items: [], total: 0, nextToken: '' }} />
             </div>
           ))
         : null}

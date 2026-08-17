@@ -293,3 +293,50 @@ test('detail pages describe the entry instead of printing its id', async ({ page
   await expect(body).toContainText('Japanese');
   await expect(body).not.toContainText('demon-slayer');
 });
+
+// The series page used to render the cast embedded in GetSeries, which the API
+// caps. tensei-shitara-slime-datta-ken has 148 characters and the page showed
+// 100 — no pager, no count, nothing to indicate 48 were missing. A cap you
+// cannot see is worse than a page you have to click through, so this asserts
+// the count is honest and the rest is reachable.
+test('a large cast is paged rather than silently cut off', async ({ page }) => {
+  await page.goto('/browse/tensei-shitara-slime-datta-ken');
+  const body = page.locator('main').last();
+
+  const pager = body.getByText(/Showing \d+ of [\d,]+/);
+  await expect(pager).toBeVisible();
+  const [, shown, total] = (await pager.textContent())!.match(/Showing (\d+) of ([\d,]+)/)!;
+  const totalNum = Number(total.replace(/,/g, ''));
+  expect(totalNum).toBeGreaterThan(Number(shown));
+
+  const hrefs = () =>
+    body
+      .locator('a[href^="/characters/"]')
+      .evaluateAll((els) => els.map((e) => (e as HTMLAnchorElement).getAttribute('href')!));
+
+  const first = await hrefs();
+  expect(first.length).toBe(Number(shown));
+
+  await body.getByRole('link', { name: /Next/ }).click();
+  // The navigation is client-side, so without this the next read races it and
+  // sees page one again — which would pass a weaker assertion than intended.
+  await page.waitForURL(/token=/);
+  const second = await hrefs();
+  // A cursor that repeated rows would still "page", so require disjointness.
+  expect(second.filter((h) => first.includes(h))).toEqual([]);
+});
+
+// A franchise renders several casts at once, so one cursor cannot describe the
+// view; each is previewed and links onward instead. Whatever it shows, the
+// count it reports has to match what it rendered.
+test('a franchise previews each cast without misreporting it', async ({ page }) => {
+  await page.goto('/browse/fate');
+  const body = page.locator('main').last();
+  await expect(body.getByRole('heading', { name: 'Cast' }).first()).toBeVisible();
+
+  for (const hint of await body.getByText(/Showing \d+ of \d+ —/).all()) {
+    const [, shown, total] = (await hint.textContent())!.match(/Showing (\d+) of (\d+)/)!;
+    expect(Number(total)).toBeGreaterThan(Number(shown));
+    await expect(hint.getByRole('link')).toBeVisible();
+  }
+});
