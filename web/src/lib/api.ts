@@ -44,7 +44,11 @@ export const currentLanguage = cache(async (): Promise<LanguageCode> => {
 
 // The API resolves every title and name from Accept-Language, so the client has
 // to be built per request rather than once at module load.
-export async function localizedApi(): Promise<Client<typeof AnimeService>> {
+//
+// cache()d for the same reason as currentLanguage above: a detail page can ask
+// for it more than once — /browse/[id] tries getSeries and then getFranchise —
+// and without this each call builds a transport and a client of its own.
+export const localizedApi = cache(async (): Promise<Client<typeof AnimeService>> => {
   const lang = await currentLanguage();
   return createClient(
     AnimeService,
@@ -58,7 +62,7 @@ export async function localizedApi(): Promise<Client<typeof AnimeService>> {
       ],
     }),
   );
-}
+});
 
 // The earliest release year the dataset covers, used as the floor below which a
 // year cannot be real data (see lib/format.ts). Wrapped in cache() so a page

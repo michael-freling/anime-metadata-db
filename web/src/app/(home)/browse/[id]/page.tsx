@@ -146,7 +146,11 @@ function SeriesBody({ series }: { series: Series }) {
                 </Link>
               }
               meta={c.voiceActors.map((v, i) => (
-                <span key={v.staffId}>
+                // Keyed by staff *and* language: one actor can be cast twice
+                // for the same character — the Japanese and English dub — so
+                // the staff id alone is not unique. Same key as the character
+                // page's own cast list.
+                <span key={`${v.staffId}-${v.language}`}>
                   {i > 0 ? ', ' : null}
                   <Link href={`/staff/${v.staffId}`} className="hover:underline">
                     {v.staffName || humanizeId(v.staffId)}
