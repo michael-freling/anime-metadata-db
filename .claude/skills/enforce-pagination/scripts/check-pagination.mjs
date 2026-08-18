@@ -5,14 +5,14 @@
 // or a total, and it cannot know whether a collection grows with the catalogue.
 // That judgement lives in SKILL.md, and in BOUNDED_BY_ENTITY below, where each
 // exemption carries its reason. The runtime half is
-// TestNoResponseEmbedsAnUnboundedCollection in internal/api.
+// TestNoResponseEmbedsAnUnboundedCollection in api/internal/api.
 //
 // Usage: node .claude/skills/enforce-pagination/scripts/check-pagination.mjs [proto-path]
 
 import { readFileSync } from 'node:fs';
 import { argv, exit } from 'node:process';
 
-const PROTO = argv[2] ?? 'proto/anime/v1/anime.proto';
+const PROTO = argv[2] ?? 'api/proto/anime/v1/anime.proto';
 
 // Collections bounded by the entity that owns them, not by how large the
 // catalogue grows. Each entry states why, because "it is small today" is not a

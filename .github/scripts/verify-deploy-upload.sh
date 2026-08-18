@@ -44,12 +44,15 @@ fail=0
 # projects build from this repository, so both are covered:
 #
 #   web/**       the app the web project builds, including the MDX it renders
-#   cmd/, internal/, go.mod, go.sum, dataset.go
-#                what Vercel's Go builder compiles into the API function. The
-#                whole of internal/ rather than internal/api/ alone: an
-#                unanchored `config/` pattern would sweep up internal/config/
-#                the same way `docs/` swept up web/content/docs/, and naming
-#                only the package the API imports would miss it.
+#   api/, internal/, go.mod, go.sum, dataset.go
+#                what Vercel's Go builder compiles. The API builds from api/
+#                with Root Directory set there, but it depends on the root
+#                module through a replace directive, so the repository root's
+#                go.mod and internal/ have to reach the upload too — building
+#                from api/ alone would fail to resolve the dataset module.
+#                The whole of internal/ rather than one package: an unanchored
+#                `config/` pattern would sweep up builder/internal/config/ the
+#                same way `docs/` swept up web/content/docs/.
 #   data/**      embedded into that function with go:embed
 #   data/index.tsv
 #                named on its own, not just covered by data/: it is the listing
@@ -59,7 +62,8 @@ fail=0
 #                matching and the check passing.
 for required in \
   'web/package.json' 'web/content/docs' 'web/src' \
-  'cmd' 'internal' 'go.mod' 'go.sum' 'dataset.go' \
+  'api/cmd' 'api/internal' 'api/go.mod' 'api/go.sum' \
+  'internal' 'go.mod' 'go.sum' 'dataset.go' \
   'data' 'data/index.tsv'; do
   matched=0
   while IFS= read -r -d '' f; do
@@ -82,7 +86,7 @@ done
 # Checked against every directory pattern the file carries, not a sample: an
 # unanchored `config/` would collide with internal/config/ exactly as the
 # unanchored `docs/` collided with web/content/docs/.
-for intended in 'proto' 'docs' 'config'; do
+for intended in 'api/proto' 'docs' 'builder'; do
   first="$(git -C "$REPO" ls-files -- "$intended" | head -1 || true)"
   [ -n "$first" ] || continue
   if ! excluded "$first"; then

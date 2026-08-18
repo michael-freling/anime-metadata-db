@@ -54,8 +54,8 @@ jobs:
       # showing up as a type error in the web build.
       - name: Regenerate and verify no diff
         run: |
-          buf generate
-          if ! git diff --exit-code -- internal/gen web/src/lib/gen; then
+          (cd api && buf generate)
+          if ! git diff --exit-code -- api/internal/gen web/src/lib/gen; then
             echo "::error::generated code is out of date; run 'make generate' and commit the result."
             exit 1
           fi
@@ -126,8 +126,15 @@ jobs:
           curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
             | sh -s -- -b "${{ runner.temp }}/golangci" "${GOLANGCI_LINT_VERSION}"
 
+      # Each module is linted on its own: golangci-lint resolves types per
+      # module, and a repo-wide run would silently skip the ones it could not
+      # load rather than fail.
       - name: Lint
-        run: "${{ runner.temp }}/golangci/golangci-lint run ./..."
+        run: |
+          for mod in . api builder; do
+            echo "--- $mod"
+            (cd "$mod" && "${{ runner.temp }}/golangci/golangci-lint" run ./...)
+          done
 
   test:
     name: Test & coverage (>95%)
@@ -150,9 +157,36 @@ jobs:
             exit 1
           fi
 
+      # One profile per module, merged before the threshold is applied, so the
+      # figure means the same thing it did when this was a single module.
+      #
+      # -coverpkg spans all three modules, because a test in one legitimately
+      # covers code in another: api's tests exercise internal/model, and
+      # crediting that only to the module the test lives in would understate
+      # both. It is spelled out subtree by subtree rather than as a single
+      # wildcard: the repo root is a Go module, so a bare .../... also matches
+      # the Go sources that ship inside web/node_modules, which are nobody's
+      # code and drag the total down by six points when npm has run.
       - name: Run tests with coverage
         run: |
-          go test -race -covermode=atomic -coverpkg=./... -coverprofile=coverage.out ./...
+          set -euo pipefail
+          M=github.com/michael-freling/anime-metadata-db
+          pkgs="$M,$M/internal/...,$M/api/...,$M/builder/..."
+          for mod in . api builder; do
+            (cd "$mod" && go test -race -covermode=atomic \
+               -coverpkg="$pkgs" -coverprofile="$(basename "$PWD")-cover.out" ./...)
+          done
+          # Merge by summing each block's hit count. Concatenating would list a
+          # block once per module that had it in -coverpkg, and the runs that
+          # never executed it contribute a zero that reads as missing coverage.
+          awk '
+            /^mode:/ { next }
+            { key = $1 " " $2
+              if (!(key in seen)) { order[++n] = key; seen[key] = 1 }
+              count[key] += $3 }
+            END { print "mode: atomic"
+                  for (i = 1; i <= n; i++) print order[i], count[order[i]] }
+          ' ./*-cover.out api/*-cover.out builder/*-cover.out > coverage.out
 
       - name: Enforce coverage threshold
         run: |

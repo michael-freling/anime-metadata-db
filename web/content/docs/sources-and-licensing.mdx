@@ -62,7 +62,7 @@ override supplied one.
 | `seasons[].externalIds.tvdbId`, `movies[].externalIds.tvdbId`, `specials[].externalIds.tvdbId` | Anime-Lists — the AniDB→TVDB map, keyed by the `anidbId` above | *none stated* |
 | `*.externalIds.wikidataId` | this project — the authored QID join key; in practice only cast nodes carry one | ODbL |
 | `*.characters[].names`, `staff[].names` | Wikidata — the `ja` label becomes `original` and `ja`, the `en` label becomes `en` | **CC0** |
-| `*.characters[].voiceActors[]`, `*.characters[].appearances[]` | this project — the cast structure is authored by hand in `config/overrides/`, with Wikidata used as a research aid rather than extracted from | ODbL |
+| `*.characters[].voiceActors[]`, `*.characters[].appearances[]` | this project — the cast structure is authored by hand in `builder/config/overrides/`, with Wikidata used as a research aid rather than extracted from | ODbL |
 | `movies[].alternateCutOf` | this project — Anime-Lists movie sets only *report* a grouping hint during a build; nothing from them is written to `data/` | ODbL |
 | `franchise.watchOrders`, `numbered` | this project — editorial | ODbL |
 
@@ -127,7 +127,7 @@ Two consequences worth being explicit about:
   you extend, correct or re-derive `data/` and make it publicly available, the
   result carries the same licence.
 - **The terms travel with binaries.** `dataset.go` embeds `data/` with
-  `go:embed`, so a compiled `cmd/api` binary — or a deployment of it — contains
+  `go:embed`, so a compiled `api/cmd/api` binary — or a deployment of it — contains
   the database. It is not only the YAML files that are covered.
 
 A *Produced Work* built from the data — a chart, an article, an app screen — is
@@ -148,7 +148,7 @@ dataset in a context where that matters, reach your own view.
 AniList's Terms of Service prohibit using its API as a backup or data storage
 service and prohibit mass collection, so the build never calls AniList and no
 AniList content is stored or served. There is no AniList endpoint in
-[`config.yaml`](https://github.com/michael-freling/anime-metadata-db/blob/main/config.yaml).
+[`builder/config.yaml`](https://github.com/michael-freling/anime-metadata-db/blob/main/builder/config.yaml).
 
 The `anilistId` on every node is an identifier **parsed out of the
 cross-reference URLs that anime-offline-database publishes** — the same array

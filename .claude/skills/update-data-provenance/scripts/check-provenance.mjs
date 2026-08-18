@@ -2,7 +2,7 @@
 // Mechanical drift checks for the data provenance documentation.
 //
 // This script does NOT decide which source fills which field — that is a
-// judgement call that has to be made by reading internal/build. What it does is
+// judgement call that has to be made by reading builder/internal/build. What it does is
 // catch the two drifts that are purely mechanical, and therefore the two most
 // likely to slip through review:
 //
@@ -19,10 +19,10 @@ import { join } from 'node:path'
 const ROOT = process.cwd()
 const DOC = 'web/content/docs/sources-and-licensing.mdx'
 const NOTICE = 'NOTICE'
-const SCHEMA_DIR = 'config/schemas'
-const SOURCES_DIR = 'internal/sources'
-const BUILD_DIR = 'internal/build'
-const CONFIG = 'config.yaml'
+const SCHEMA_DIR = 'builder/config/schemas'
+const SOURCES_DIR = 'builder/internal/sources'
+const BUILD_DIR = 'builder/internal/build'
+const CONFIG = 'builder/config.yaml'
 const SECTION = '## Where each field comes from'
 
 // Anything that stops the comparison from happening is fatal. Passing because
@@ -268,7 +268,7 @@ if (missing.length) {
     fail(`  ${f.path.padEnd(40)} — ${f.file} ${f.def === '(root)' ? 'top level' : `$defs/${f.def}`}`)
   }
   fail(`\n  Each needs a row in "${SECTION}" saying what fills it and under`)
-  fail('  which licence. Read internal/build to find out; do not guess.')
+  fail('  which licence. Read builder/internal/build to find out; do not guess.')
   fail('  Use `*.field` only if it is filled the same way under every container.')
 }
 
@@ -305,7 +305,7 @@ if (skipped.length) {
 // 2. Every source the build fetches must be credited in NOTICE.
 // ---------------------------------------------------------------------------
 
-// config.yaml is the authoritative list of what the build actually downloads.
+// builder/config.yaml is the authoritative list of what the build actually downloads.
 // A URL added there without a matching NOTICE entry is an attribution gap.
 const notice = read(NOTICE)
 const urls = [...read(CONFIG).matchAll(/^\s*url:\s*(\S+)/gm)].map((m) => m[1])
@@ -342,7 +342,7 @@ if (uncredited.length) {
   console.log(`OK  ${credited.length} fetched sources, all credited in NOTICE`)
 }
 
-// A source adapter with no config.yaml entry would be missed by the check
+// A source adapter with no builder/config.yaml entry would be missed by the check
 // above, so surface the package list too.
 if (existsSync(join(ROOT, SOURCES_DIR))) {
   const pkgs = readdirSync(join(ROOT, SOURCES_DIR), { withFileTypes: true })

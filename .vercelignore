@@ -17,7 +17,7 @@
 # in web/content/docs/ and must ship.
 #
 # The dataset under data/ is embedded into the Go function and MUST ship.
-/proto/
+/api/proto/
 /.sources/
-/config/
+/builder/
 /coverage.out
