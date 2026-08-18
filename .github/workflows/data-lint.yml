@@ -46,8 +46,8 @@ jobs:
           mapfile -t series < <(yaml builder/config/overrides/series data/series)
           mapfile -t staff < <(yaml builder/config/overrides/staff data/staff)
           if [ ${#series[@]} -gt 0 ]; then
-            check-jsonschema --schemafile config/schemas/anime.schema.json "${series[@]}"
+            check-jsonschema --schemafile builder/config/schemas/anime.schema.json "${series[@]}"
           fi
           if [ ${#staff[@]} -gt 0 ]; then
-            check-jsonschema --schemafile config/schemas/staff.schema.json "${staff[@]}"
+            check-jsonschema --schemafile builder/config/schemas/staff.schema.json "${staff[@]}"
           fi

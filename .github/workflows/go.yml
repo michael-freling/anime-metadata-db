@@ -42,11 +42,16 @@ jobs:
         run: npm ci
         working-directory: web
 
+      # The plugins are installed from api/, deliberately: an unversioned
+      # `go install` resolves the version from the current module, and only
+      # api/ requires protobuf and connect. Run from the root — which now
+      # requires neither — it would pick whatever is latest and stamp the
+      # generated files with a version that never matches the committed ones.
       - name: Install buf and protoc plugins
         run: |
           go install "github.com/bufbuild/buf/cmd/buf@${BUF_VERSION}"
-          go install google.golang.org/protobuf/cmd/protoc-gen-go
-          go install connectrpc.com/connect/cmd/protoc-gen-connect-go
+          (cd api && go install google.golang.org/protobuf/cmd/protoc-gen-go)
+          (cd api && go install connectrpc.com/connect/cmd/protoc-gen-connect-go)
           echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
 
       # Checks BOTH generated trees, so a proto change that updates the Go
@@ -171,10 +176,18 @@ jobs:
         run: |
           set -euo pipefail
           M=github.com/michael-freling/anime-metadata-db
-          pkgs="$M,$M/internal/...,$M/api/...,$M/builder/..."
+          # A module can only instrument packages it requires. There is no
+          # go.work, so naming api/ from the root module resolves nothing and
+          # the profile comes back empty — which reads as 0% coverage rather
+          # than as an error.
+          root="$M,$M/internal/..."
           for mod in . api builder; do
+            case "$mod" in
+              .) pkgs="$root"; out=root-cover.out ;;
+              *) pkgs="$root,$M/$mod/..."; out="$mod-cover.out" ;;
+            esac
             (cd "$mod" && go test -race -covermode=atomic \
-               -coverpkg="$pkgs" -coverprofile="$(basename "$PWD")-cover.out" ./...)
+               -coverpkg="$pkgs" -coverprofile="$out" ./...)
           done
           # Merge by summing each block's hit count. Concatenating would list a
           # block once per module that had it in -coverpkg, and the runs that
@@ -186,7 +199,7 @@ jobs:
               count[key] += $3 }
             END { print "mode: atomic"
                   for (i = 1; i <= n; i++) print order[i], count[order[i]] }
-          ' ./*-cover.out api/*-cover.out builder/*-cover.out > coverage.out
+          ' root-cover.out api/api-cover.out builder/builder-cover.out > coverage.out
 
       - name: Enforce coverage threshold
         run: |
@@ -194,7 +207,14 @@ jobs:
           # is not hand-written and carries no tests, so it should not count
           # toward the threshold. The "mode:" header line is preserved.
           grep -v '/internal/gen/' coverage.out > coverage.filtered
-          total="$(go tool cover -func=coverage.filtered | awk '/^total:/ {print $3}' | tr -d '%')"
+          # Summed straight from the profile rather than via `go tool cover`,
+          # which loads every package it reports on and so has to run inside a
+          # module that can resolve them all — no module here can, and without
+          # a go.work it fails rather than reporting a number. On a merged
+          # profile the arithmetic is what `go tool cover -func` prints as its
+          # total; verified identical before this replaced it.
+          total="$(awk '!/^mode:/ { statements += $2; if ($3 > 0) covered += $2 }
+                        END { printf "%.1f", 100 * covered / statements }' coverage.filtered)"
           echo "Total coverage (excluding internal/gen/): ${total}%"
           awk -v total="$total" -v min="${COVERAGE_THRESHOLD}" 'BEGIN {
             if (total+0 > min+0) {
