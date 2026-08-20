@@ -69,7 +69,7 @@ pins deliberately.
 ## Usage
 
 ```sh
-cd builder && go build ./cmd/builder
+cd builder && go build ./cmd/builder   # or: make build-data
 
 ./builder init                 # download the pinned sources into .sources/
 ./builder build                # (re)build data/ for all overrides

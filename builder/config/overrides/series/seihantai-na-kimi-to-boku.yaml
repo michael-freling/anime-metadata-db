@@ -42,6 +42,7 @@ series:
       externalIds: { wikidataId: Q137405017 }  # Shino Azuma
       voiceActors:
         - { staffId: miyuri-shimabukuro, language: ja }  # Miyuri Shimabukuro
+        - { staffId: sarah-roach, language: en }
     - id: shuji-taira
       externalIds: { wikidataId: Q137404448 }  # Shūji Taira
       voiceActors:

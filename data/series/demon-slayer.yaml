@@ -234,5 +234,7 @@ series:
       voiceActors:
         - staffId: natsuki-hanae
           language: ja
+        - staffId: zach-aguilar
+          language: en
       appearances:
         - seriesId: demon-slayer

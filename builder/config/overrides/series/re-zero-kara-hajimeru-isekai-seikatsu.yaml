@@ -109,6 +109,7 @@ series:
       externalIds: { wikidataId: Q28859527 }  # Rem
       voiceActors:
         - { staffId: inori-minase, language: ja }  # Inori Minase
+        - { staffId: brianna-knickerbocker, language: en }
     - id: rui-arneb
       externalIds: { wikidataId: Q105609325 }  # Rui Arneb
       voiceActors:
@@ -129,6 +130,7 @@ series:
       externalIds: { wikidataId: Q85988152 }  # Subaru Natsuki
       voiceActors:
         - { staffId: yusuke-kobayashi, language: ja }  # Yūsuke Kobayashi
+        - { staffId: sean-chiplock, language: en }
     - id: sylphy
       externalIds: { wikidataId: Q123074722 }  # Sylphy
       voiceActors:
