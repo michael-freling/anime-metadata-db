@@ -129,6 +129,8 @@ series:
       voiceActors:
         - staffId: miyuri-shimabukuro
           language: ja
+        - staffId: sarah-roach
+          language: en
       appearances:
         - seriesId: seihantai-na-kimi-to-boku
     - id: shuji-taira

@@ -1,0 +1,112 @@
+# Authored staff — English voice actors. Staff are global and organized by
+# language (Japanese cast lives in japanese-voice-actors.yaml).
+#
+# Ids and names come from Wikidata (CC0), looked up per character through the
+# "voice actor" (P725) statements qualified with "language of work" (P407) =
+# English (Q1860). Wikidata is the research aid here, as it is for the
+# Japanese cast — the casting itself is recorded in this repository.
+staff:
+  - id: aaron-roberts
+    externalIds: { wikidataId: Q141031024 }
+  - id: annie-wild
+    externalIds: { wikidataId: Q134440355 }
+  - id: anthony-bowling
+    externalIds: { wikidataId: Q4772144 }
+  - id: armen-taylor
+    externalIds: { wikidataId: Q107465292 }
+  - id: bill-butts
+    externalIds: { wikidataId: Q120292547 }
+  - id: brad-hawkins
+    externalIds: { wikidataId: Q13576980 }
+  - id: brianna-knickerbocker
+    externalIds: { wikidataId: Q96675501 }
+  - id: brook-chalmers
+    externalIds: { wikidataId: Q115625355 }
+  - id: bryn-apprill
+    externalIds: { wikidataId: Q20090133 }
+  - id: chaney-moore
+    externalIds: { wikidataId: Q109734187 }
+  - id: chris-hackney
+    externalIds: { wikidataId: Q134963135 }
+  - id: chris-hutchison
+    externalIds: { wikidataId: Q5106962 }
+  - id: christopher-wehkamp
+    externalIds: { wikidataId: Q19665600 }
+  - id: dallas-reid
+    externalIds: { wikidataId: Q109051005 }
+  - id: daman-mills
+    externalIds: { wikidataId: Q108171590 }
+  - id: danielle-mcrae
+    externalIds: { wikidataId: Q109051030 }
+  - id: erica-mendez
+    externalIds: { wikidataId: Q5387900 }
+  - id: erika-harlacher
+    externalIds: { wikidataId: Q23879975 }
+  - id: felecia-angelle
+    externalIds: { wikidataId: Q17305620 }
+  - id: ian-sinclair
+    externalIds: { wikidataId: Q5982914 }
+  - id: j-michael-tatum
+    externalIds: { wikidataId: Q6106552 }
+  - id: jay-hickman
+    externalIds: { wikidataId: Q6166700 }
+  - id: jeannie-tirado
+    externalIds: { wikidataId: Q80992320 }
+  - id: jenny-yokobori
+    externalIds: { wikidataId: Q104803374 }
+  - id: jill-harris
+    externalIds: { wikidataId: Q109320298 }
+  - id: joe-zieja
+    externalIds: { wikidataId: Q116868160 }
+  - id: justin-briner
+    externalIds: { wikidataId: Q30610426 }
+  - id: kaiji-tang
+    externalIds: { wikidataId: Q15120664 }
+  - id: kara-edwards
+    externalIds: { wikidataId: Q6367509 }
+  - id: kari-wahlgren
+    externalIds: { wikidataId: Q272919 }
+  - id: kate-higgins
+    externalIds: { wikidataId: Q2330871 }
+  - id: kayli-mills
+    externalIds: { wikidataId: Q104237996 }
+  - id: laila-berzins
+    externalIds: { wikidataId: Q102427087 }
+  - id: laura-stahl
+    externalIds: { wikidataId: Q106141965 }
+  - id: lisa-reimold
+    externalIds: { wikidataId: Q109319643 }
+  - id: lizzie-freeman
+    externalIds: { wikidataId: Q108139170 }
+  - id: luci-christian
+    externalIds: { wikidataId: Q4115622 }
+  - id: margaret-mcdonald
+    externalIds: { wikidataId: Q16232274 }
+  - id: mark-whitten
+    externalIds: { wikidataId: Q124217816 }
+  - id: michelle-ruff
+    externalIds: { wikidataId: Q842585 }
+  - id: natalie-rial
+    externalIds: { wikidataId: Q109734195 }
+  - id: paul-st-peter
+    externalIds: { wikidataId: Q7153744 }
+  - id: ray-chase
+    externalIds: { wikidataId: Q28974090 }
+  - id: ray-hurd
+    externalIds: { wikidataId: Q141058249 }
+  - id: robert-mccollum
+    externalIds: { wikidataId: Q7347478 }
+  - id: ryan-reynolds
+    externalIds: { wikidataId: Q108205165 }
+  - id: sara-ragsdale
+    externalIds: { wikidataId: Q89436043 }
+  - id: sarah-roach
+    externalIds: { wikidataId: Q141013989 }
+  - id: sean-chiplock
+    externalIds: { wikidataId: Q56787218 }
+  - id: tyson-rinehart
+    externalIds: { wikidataId: Q141033441 }
+  - id: xander-mobus
+    externalIds: { wikidataId: Q27681028 }
+  - id: zach-aguilar
+    externalIds: { wikidataId: Q104760737 }

@@ -294,6 +294,8 @@ series:
       voiceActors:
         - staffId: tarusuke-shingaki
           language: ja
+        - staffId: aaron-roberts
+          language: en
       appearances:
         - seriesId: sousou-no-frieren
     - id: gorilla

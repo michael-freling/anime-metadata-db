@@ -27,6 +27,7 @@ series:
       externalIds: { wikidataId: Q137827186 }  # Hinako Hanaba
       voiceActors:
         - { staffId: yui-ogura, language: ja }  # Yui Ogura
+        - { staffId: sara-ragsdale, language: en }
     - id: kakeru-chigusa
       externalIds: { wikidataId: Q137830924 }  # Kakeru Chigusa
       voiceActors:
@@ -43,6 +44,7 @@ series:
       externalIds: { wikidataId: Q137826910 }  # Masaru Shinonome
       voiceActors:
         - { staffId: takehito-koyasu, language: ja }  # Takehito Koyasu
+        - { staffId: ian-sinclair, language: en }
     - id: mei-oguri
       externalIds: { wikidataId: Q137831605 }  # Mei Oguri
     - id: mika-mihashi

@@ -20,6 +20,7 @@ series:
       externalIds: { wikidataId: Q108935450 }  # Asta
       voiceActors:
         - { staffId: gakuto-kajiwara, language: ja }  # Gakuto Kajiwara
+        - { staffId: dallas-reid, language: en }
     - id: heath-grice
       externalIds: { wikidataId: Q123554784 }  # Heath Grice
       voiceActors:
@@ -28,10 +29,12 @@ series:
       externalIds: { wikidataId: Q123554864 }  # Lotus Whomalt
       voiceActors:
         - { staffId: kenyu-horiuchi, language: ja }  # Kenyu Horiuchi
+        - { staffId: brad-hawkins, language: en }
     - id: luck-voltia
       externalIds: { wikidataId: Q123554840 }  # Luck Voltia
       voiceActors:
         - { staffId: ayumu-murase, language: ja }  # Ayumu Murase
+        - { staffId: justin-briner, language: en }
     - id: magna-swing
       externalIds: { wikidataId: Q123554392 }  # Magna Swing
       voiceActors:
@@ -40,6 +43,7 @@ series:
       externalIds: { wikidataId: Q123554884 }  # Mimosa Vermillion
       voiceActors:
         - { staffId: asuka-nishi, language: ja }  # Asuka Nishi
+        - { staffId: bryn-apprill, language: en }
     - id: noelle-silva
       externalIds: { wikidataId: Q110904202 }  # Noelle Silva
       voiceActors:
@@ -48,6 +52,7 @@ series:
       externalIds: { wikidataId: Q123554739 }  # Revchi Salik
       voiceActors:
         - { staffId: yuto-suzuki, language: ja }  # Yuto Suzuki
+        - { staffId: daman-mills, language: en }
     - id: sekke-bronzazza
       externalIds: { wikidataId: Q123554802 }  # Sekke Bronzazza
       voiceActors:

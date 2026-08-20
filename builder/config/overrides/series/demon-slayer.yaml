@@ -49,6 +49,7 @@ series:
       externalIds: { wikidataId: Q85805158 }
       voiceActors:
         - { staffId: natsuki-hanae, language: ja }
+        - { staffId: zach-aguilar, language: en }
 # Demon Slayer is one linear storyline, so its episodes carry a continuous
 # absoluteNumber across the seasons (and the original film).
 numbered: [demon-slayer]

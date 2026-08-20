@@ -183,6 +183,8 @@ series:
       voiceActors:
         - staffId: sora-amamiya
           language: ja
+        - staffId: lizzie-freeman
+          language: en
       appearances:
         - seriesId: kanojo-okarishimasu
     - id: kinoshita-kazuya

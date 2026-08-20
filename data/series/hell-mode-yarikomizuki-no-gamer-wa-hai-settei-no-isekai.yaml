@@ -51,6 +51,8 @@ series:
       voiceActors:
         - staffId: mutsumi-tamura
           language: ja
+        - staffId: luci-christian
+          language: en
       appearances:
         - seriesId: hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai
     - id: butler-von-granvelle
@@ -64,6 +66,8 @@ series:
       voiceActors:
         - staffId: tomokazu-sugita
           language: ja
+        - staffId: chris-hutchison
+          language: en
       appearances:
         - seriesId: hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai
     - id: carnelle
@@ -103,6 +107,8 @@ series:
       voiceActors:
         - staffId: tasuku-hatanaka
           language: ja
+        - staffId: chaney-moore
+          language: en
       appearances:
         - seriesId: hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai
     - id: krena
@@ -116,6 +122,8 @@ series:
       voiceActors:
         - staffId: mayu-iizuka
           language: ja
+        - staffId: natalie-rial
+          language: en
       appearances:
         - seriesId: hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai
     - id: mash
@@ -165,6 +173,8 @@ series:
       voiceActors:
         - staffId: sayaka-ohara
           language: ja
+        - staffId: annie-wild
+          language: en
       appearances:
         - seriesId: hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai
     - id: thomas-granvelle
@@ -191,5 +201,7 @@ series:
       voiceActors:
         - staffId: akio-otsuka
           language: ja
+        - staffId: jay-hickman
+          language: en
       appearances:
         - seriesId: hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai

@@ -507,6 +507,8 @@ series:
       voiceActors:
         - staffId: junichi-suwabe
           language: ja
+        - staffId: ray-chase
+          language: en
       appearances:
         - seriesId: jujutsu-kaisen
     - id: satoru-gojo
@@ -520,6 +522,8 @@ series:
       voiceActors:
         - staffId: yuichi-nakamura
           language: ja
+        - staffId: kaiji-tang
+          language: en
       appearances:
         - seriesId: jujutsu-kaisen
     - id: shoko-ieiri

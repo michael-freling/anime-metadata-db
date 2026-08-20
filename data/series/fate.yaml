@@ -212,6 +212,12 @@ franchise:
       voiceActors:
         - staffId: ayako-kawasumi
           language: ja
+        - staffId: kate-higgins
+          language: en
+        - staffId: michelle-ruff
+          language: en
+        - staffId: kari-wahlgren
+          language: en
       appearances:
         - seriesId: fate-stay-night
         - seriesId: fate-zero

@@ -76,5 +76,6 @@ series:
       externalIds: { wikidataId: Q115807208 }  # Yuzuriha
       voiceActors:
         - { staffId: rie-takahashi, language: ja }  # Rie Takahashi
+        - { staffId: jill-harris, language: en }
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [jigokuraku]

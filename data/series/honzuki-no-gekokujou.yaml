@@ -205,6 +205,8 @@ series:
       voiceActors:
         - staffId: takehito-koyasu
           language: ja
+        - staffId: xander-mobus
+          language: en
       appearances:
         - seriesId: honzuki-no-gekokujou
     - id: bezewanst
@@ -218,6 +220,8 @@ series:
       voiceActors:
         - staffId: mitsuaki-hoshino
           language: ja
+        - staffId: brook-chalmers
+          language: en
       appearances:
         - seriesId: honzuki-no-gekokujou
     - id: bierce
@@ -231,6 +235,8 @@ series:
       voiceActors:
         - staffId: takugo-iwakawa
           language: ja
+        - staffId: paul-st-peter
+          language: en
       appearances:
         - seriesId: honzuki-no-gekokujou
     - id: christine
@@ -254,6 +260,8 @@ series:
       voiceActors:
         - staffId: rika-kinugawa
           language: ja
+        - staffId: erika-harlacher
+          language: en
       appearances:
         - seriesId: honzuki-no-gekokujou
     - id: damuel
@@ -290,6 +298,8 @@ series:
       voiceActors:
         - staffId: chiyo-tomaru
           language: ja
+        - staffId: lizzie-freeman
+          language: en
       appearances:
         - seriesId: honzuki-no-gekokujou
     - id: eckhart
@@ -355,6 +365,8 @@ series:
       voiceActors:
         - staffId: sho-hayami
           language: ja
+        - staffId: armen-taylor
+          language: en
       appearances:
         - seriesId: honzuki-no-gekokujou
     - id: fey
@@ -368,6 +380,8 @@ series:
       voiceActors:
         - staffId: yumiri-hanamori
           language: ja
+        - staffId: laila-berzins
+          language: en
       appearances:
         - seriesId: honzuki-no-gekokujou
     - id: fran
@@ -394,6 +408,8 @@ series:
       voiceActors:
         - staffId: aya-uchida
           language: ja
+        - staffId: kayli-mills
+          language: en
       appearances:
         - seriesId: honzuki-no-gekokujou
     - id: giebe-bindewald
@@ -420,6 +436,8 @@ series:
       voiceActors:
         - staffId: yuko-sanpei
           language: ja
+        - staffId: laura-stahl
+          language: en
       appearances:
         - seriesId: honzuki-no-gekokujou
     - id: gloria
@@ -459,6 +477,8 @@ series:
       voiceActors:
         - staffId: tsuyoshi-koyama
           language: ja
+        - staffId: kaiji-tang
+          language: en
       appearances:
         - seriesId: honzuki-no-gekokujou
     - id: gustav
@@ -472,6 +492,8 @@ series:
       voiceActors:
         - staffId: hiroshi-naka
           language: ja
+        - staffId: brook-chalmers
+          language: en
       appearances:
         - seriesId: honzuki-no-gekokujou
     - id: hartmut
@@ -537,6 +559,8 @@ series:
       voiceActors:
         - staffId: koji-takahashi
           language: ja
+        - staffId: chris-hackney
+          language: en
       appearances:
         - seriesId: honzuki-no-gekokujou
     - id: josef
@@ -563,6 +587,8 @@ series:
       voiceActors:
         - staffId: toshihiko-seki
           language: ja
+        - staffId: mark-whitten
+          language: en
       appearances:
         - seriesId: honzuki-no-gekokujou
     - id: jutte
@@ -599,6 +625,8 @@ series:
       voiceActors:
         - staffId: toshiyuki-morikawa
           language: ja
+        - staffId: bill-butts
+          language: en
       appearances:
         - seriesId: honzuki-no-gekokujou
     - id: lutz
@@ -612,6 +640,8 @@ series:
       voiceActors:
         - staffId: mutsumi-tamura
           language: ja
+        - staffId: jeannie-tirado
+          language: en
       appearances:
         - seriesId: honzuki-no-gekokujou
     - id: mark
@@ -651,6 +681,8 @@ series:
       voiceActors:
         - staffId: satoshi-hino
           language: ja
+        - staffId: joe-zieja
+          language: en
       appearances:
         - seriesId: honzuki-no-gekokujou
     - id: ralph
@@ -664,6 +696,8 @@ series:
       voiceActors:
         - staffId: hitomi-nabatame
           language: ja
+        - staffId: danielle-mcrae
+          language: en
       appearances:
         - seriesId: honzuki-no-gekokujou
     - id: rico
@@ -690,6 +724,8 @@ series:
       voiceActors:
         - staffId: minori-suzuki
           language: ja
+        - staffId: brianna-knickerbocker
+          language: en
       appearances:
         - seriesId: honzuki-no-gekokujou
     - id: shikikoza
@@ -703,6 +739,8 @@ series:
       voiceActors:
         - staffId: haruki-ishiya
           language: ja
+        - staffId: j-michael-tatum
+          language: en
       appearances:
         - seriesId: honzuki-no-gekokujou
     - id: sieg
@@ -726,6 +764,8 @@ series:
       voiceActors:
         - staffId: kazuhiko-inoue
           language: ja
+        - staffId: christopher-wehkamp
+          language: en
       appearances:
         - seriesId: honzuki-no-gekokujou
     - id: tuuli
@@ -739,6 +779,8 @@ series:
       voiceActors:
         - staffId: megumi-nakajima
           language: ja
+        - staffId: lisa-reimold
+          language: en
       appearances:
         - seriesId: honzuki-no-gekokujou
     - id: wilma
@@ -752,6 +794,8 @@ series:
       voiceActors:
         - staffId: kiyono-yasuno
           language: ja
+        - staffId: erica-mendez
+          language: en
       appearances:
         - seriesId: honzuki-no-gekokujou
     - id: wolf
