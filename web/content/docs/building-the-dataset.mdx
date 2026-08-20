@@ -9,7 +9,7 @@ rebuild can never clobber authored work:
 
 | Layer | Who writes it | Holds |
 |---|---|---|
-| `config/overrides/` | **you** (hand-edited) | Structure the open sources can't express: Series / Franchise boundaries, ordering, `alternateCutOf`, `watchOrders`, which series are linearly `numbered`. |
+| `builder/config/overrides/` | **you** (hand-edited) | Structure the open sources can't express: Series / Franchise boundaries, ordering, `alternateCutOf`, `watchOrders`, which series are linearly `numbered`. |
 | `data/` | `builder build` (generated) | The resolved records: overrides **+** facts from open data **+** computed `absoluteNumber`. Never hand-edit. |
 
 (`absoluteNumber` is the running episode count across a whole series, computed by
@@ -25,7 +25,7 @@ sources always produce the same `data/`.
 CLI from the repository root:
 
 ```sh
-go build ./cmd/builder
+cd builder && go build ./cmd/builder
 ```
 
 ## Commands
@@ -44,7 +44,7 @@ override.
 
 ## Adding an entry
 
-Create `config/overrides/series/<id>.yaml` describing the structure, then run
+Create `builder/config/overrides/series/<id>.yaml` describing the structure, then run
 `./builder build <id>`. The builder fills in facts (titles, episode counts,
 cross-IDs) from the open sources and writes the resolved record to
 `data/series/<id>.yaml`.
@@ -63,7 +63,7 @@ the result, is set out in
 [Sources and licensing](/docs/sources-and-licensing).
 
 Sources are **not committed**. `builder init` downloads them into a gitignored
-`.sources/` cache at the versions pinned in `config.yaml`, and `builder refresh`
+`.sources/` cache at the versions pinned in `builder/config.yaml`, and `builder refresh`
 updates those pins. (The build verifies pinned checksums, so a rebuild uses
 exactly the sources it was authored against.)
 
@@ -73,7 +73,7 @@ The same dataset is compiled into the API binary with `go:embed`, so the server
 is stateless and self-contained:
 
 ```sh
-go run ./cmd/api                 # listens on :8080
+cd api && go run ./cmd/api                 # listens on :8080
 ```
 
 Browse, search and catalog requests are answered from `data/index.tsv` — a

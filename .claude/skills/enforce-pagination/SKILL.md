@@ -1,6 +1,6 @@
 ---
 name: enforce-pagination
-description: Check that no API response can return an unbounded amount of data — every collection is either paginated or explicitly capped with its true size reported. Use whenever proto/anime/v1/anime.proto gains a repeated field or an RPC, whenever a Get* response embeds a new collection, whenever a UI page renders a list from the API, and whenever asked whether an endpoint scales or why a response is truncated.
+description: Check that no API response can return an unbounded amount of data — every collection is either paginated or explicitly capped with its true size reported. Use whenever api/proto/anime/v1/anime.proto gains a repeated field or an RPC, whenever a Get* response embeds a new collection, whenever a UI page renders a list from the API, and whenever asked whether an endpoint scales or why a response is truncated.
 ---
 
 # Keep every response bounded
@@ -11,7 +11,7 @@ follows from one rule:
 
 > **No response may contain a collection whose size grows with the dataset.**
 
-The storage rework (`internal/index`) exists to keep the *server* from holding
+The storage rework (`api/internal/index`) exists to keep the *server* from holding
 everything. That is only half the problem. A server that boots in 100 ms and
 then serialises 40,000 rows into one response has simply moved the cost from
 startup to request time, where the user is waiting for it.
@@ -113,7 +113,7 @@ shows `series.characters`, it is showing at most `EmbeddedLimit` of them — ask
   count of every match, not the page).
 - Reject a malformed token rather than silently starting from the beginning — a
   corrupt cursor must not look like a first page.
-- Page tokens are opaque (`internal/index`, base64) so the cursor scheme can
+- Page tokens are opaque (`api/internal/index`, base64) so the cursor scheme can
   change later without a wire break. Never document the format.
 - Add the endpoint to `TestNewListEndpointsPageTheirWholeCollection`, which
   walks it to exhaustion and asserts every item appears exactly once and the

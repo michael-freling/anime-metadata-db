@@ -77,10 +77,10 @@ const CONFIG = 'sources:\n    a:\n        url: https://example.com/data.json\n'
 function fixture(overrides = {}) {
   const dir = mkdtempSync(join(tmpdir(), 'provenance-'))
   const files = {
-    'config/schemas/anime.schema.json': JSON.stringify(SCHEMA, null, 2),
+    'builder/config/schemas/anime.schema.json': JSON.stringify(SCHEMA, null, 2),
     'web/content/docs/sources-and-licensing.mdx': TABLE,
     NOTICE,
-    'config.yaml': CONFIG,
+    'builder/config.yaml': CONFIG,
     ...overrides,
   }
   for (const [path, content] of Object.entries(files)) {
@@ -105,7 +105,7 @@ function run(dir) {
 const withSchema = (mutate) => {
   const s = structuredClone(SCHEMA)
   mutate(s)
-  return { 'config/schemas/anime.schema.json': JSON.stringify(s, null, 2) }
+  return { 'builder/config/schemas/anime.schema.json': JSON.stringify(s, null, 2) }
 }
 
 test('passes when every field is documented under its container', () => {
@@ -196,7 +196,7 @@ test('flags a row for a field no schema defines', () => {
 
 // Exit 2 is "could not compare", which must never be confused with a pass.
 test('aborts with 2 on malformed schema JSON', () => {
-  const dir = fixture({ 'config/schemas/anime.schema.json': '{ "broken": ' })
+  const dir = fixture({ 'builder/config/schemas/anime.schema.json': '{ "broken": ' })
   const { code, out } = run(dir)
   assert.equal(code, 2)
   assert.match(out, /not valid JSON/)
@@ -214,7 +214,7 @@ test('aborts with 2 when the table heading is renamed', () => {
 })
 
 test('aborts with 2 when config.yaml declares no sources', () => {
-  const dir = fixture({ 'config.yaml': 'settings:\n    dataDir: data\n' })
+  const dir = fixture({ 'builder/config.yaml': 'settings:\n    dataDir: data\n' })
   const { code, out } = run(dir)
   assert.equal(code, 2)
   assert.match(out, /no source URLs/)

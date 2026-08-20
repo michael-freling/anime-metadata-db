@@ -47,21 +47,21 @@ else
 fi
 
 # Anchored patterns: what the file should look like.
-run "anchored patterns pass" ok '/docs/' '/proto/' '/.sources/' '/config/' '/coverage.out'
+run "anchored patterns pass" ok '/docs/' '/api/proto/' '/.sources/' '/builder/' '/coverage.out'
 
 # The outage: unanchored docs/ also matched web/content/docs/ and removed every
 # documentation page from the deployment.
 run "unanchored docs/ is rejected" reject 'docs/' '/proto/'
 
 # The earlier failure: excluding the app the web project builds.
-run "excluding web/ is rejected" reject '/docs/' '/proto/' 'web/'
+run "excluding web/ is rejected" reject '/docs/' '/api/proto/' 'web/'
 
 # The same class, one level in.
-run "excluding web/content/ is rejected" reject '/docs/' '/proto/' '/web/content/'
+run "excluding web/content/ is rejected" reject '/docs/' '/api/proto/' '/web/content/'
 
 # data/** is embedded into the Go function; losing the staff half would break
 # the API without touching the site.
-run "excluding data/staff/ is rejected" reject '/docs/' '/proto/' '/data/staff/'
+run "excluding data/staff/ is rejected" reject '/docs/' '/api/proto/' '/data/staff/'
 
 # An emptied file keeps everything, which must NOT count as passing: the
 # intended exclusions are part of the contract.
@@ -69,22 +69,31 @@ run "an empty file is rejected" reject ''
 
 # The Go API deploys from this repository too, and its files are a separate
 # failure: the site would keep working while the API function stopped building.
-run "excluding internal/ is rejected" reject '/docs/' '/proto/' '/internal/'
-run "excluding cmd/ is rejected" reject '/docs/' '/proto/' '/cmd/'
-run "excluding go.mod is rejected" reject '/docs/' '/proto/' '/go.mod'
+run "excluding internal/ is rejected" reject '/docs/' '/api/proto/' '/internal/'
+run "excluding api/ is rejected" reject '/docs/' '/api/proto/' '/api/'
+run "excluding go.mod is rejected" reject '/docs/' '/api/proto/' '/go.mod'
+
+# The API module resolves the dataset module through `replace ../`, so the
+# repository root's go.mod must reach the upload even though Vercel builds
+# from api/. Dropping it fails the build with an unresolvable module rather
+# than anything that names the real cause.
+run "excluding api/go.mod is rejected" reject '/docs/' '/api/proto/' '/api/go.mod'
 
 # The listing index is one file inside a directory the check already requires,
 # so excluding just it would leave every other data/ file matching. It is named
 # separately for that reason, and this is what proves the naming works: without
 # the index the API does not boot at all.
-run "excluding data/index.tsv is rejected" reject '/docs/' '/proto/' '/config/' '/data/index.tsv'
+run "excluding data/index.tsv is rejected" reject '/docs/' '/api/proto/' '/config/' '/data/index.tsv'
 
 # config/ unanchored repeats the docs/ collision, since internal/config/ exists.
-run "unanchored config/ is rejected" reject '/docs/' '/proto/' 'config/'
+# The unanchored-pattern trap has a new shape rather than being gone: there
+# are now three internal/ directories, and an unanchored pattern meant for the
+# builder's would take the API's with it.
+run "unanchored internal/ is rejected" reject '/docs/' '/api/proto/' '/builder/' 'internal/'
 
 # Dropping a pattern entirely must not pass: the exclusions are part of the
 # contract, not an optimisation.
-run "dropping /config/ is rejected" reject '/docs/' '/proto/'
+run "dropping /builder/ is rejected" reject '/docs/' '/api/proto/'
 
 # A wildcard that sweeps up the whole repository.
 run "excluding everything is rejected" reject '*'

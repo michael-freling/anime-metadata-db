@@ -16,7 +16,7 @@ can never clobber authored work:
 
 | Layer | Who writes it | Holds |
 |---|---|---|
-| [`config/overrides/`](config/overrides/) | **you** (hand-edited) | Structure + decisions the open sources can't express: Series/Franchise boundaries, ordering, `alternateCutOf`, `WatchOrder`s, which series are linearly `numbered`. |
+| [`builder/config/overrides/`](builder/config/overrides/) | **you** (hand-edited) | Structure + decisions the open sources can't express: Series/Franchise boundaries, ordering, `alternateCutOf`, `WatchOrder`s, which series are linearly `numbered`. |
 | `data/` | `builder build` (generated) | The full resolved records: overrides **+** facts filled from open data **+** computed `absoluteNumber`. Never hand-edit. |
 
 `builder build` treats `overrides/` as read-only input, so builds are
@@ -43,11 +43,11 @@ guide.
 ## Characters & staff (R2)
 
 A series' **cast** is co-located with it: the `characters:` list is **nested
-under** the `franchise:`/`series:` in the same `config/overrides/series/<id>.yaml`
+under** the `franchise:`/`series:` in the same `builder/config/overrides/series/<id>.yaml`
 file as the structure (most characters belong to one series; a cross-franchise
 character lives in its home file and its `appearances` reference the other series
 by id). **Staff** (voice actors) are global and grouped by language —
-`config/overrides/staff/japanese-voice-actors.yaml`, etc.
+`builder/config/overrides/staff/japanese-voice-actors.yaml`, etc.
 
 You author the graph — who appears in which series (`appearances` → `seriesId`,
 optionally `scope`d to a season/movie/special), the voice-actor links
@@ -60,7 +60,7 @@ build never touches AniList/MAL; a consumer fetches *expression* (roles, bios,
 images) live at runtime using the stored ids, storing nothing.
 
 Sources are **not committed**; `builder init` downloads them into a gitignored
-cache (`.sources/`) at the versions pinned in [`config.yaml`](config.yaml). A
+cache (`.sources/`) at the versions pinned in [`builder/config.yaml`](builder/config.yaml). A
 source pinned to a rolling ref (`latest`/`master`) is re-pinned automatically
 when it changes upstream; a source pinned to a fixed version fails the build on
 a checksum mismatch (tamper detection). Use `builder refresh` to update all
@@ -69,7 +69,7 @@ pins deliberately.
 ## Usage
 
 ```sh
-go build ./cmd/builder
+cd builder && go build ./cmd/builder
 
 ./builder init                 # download the pinned sources into .sources/
 ./builder build                # (re)build data/ for all overrides
@@ -77,9 +77,9 @@ go build ./cmd/builder
 ./builder refresh              # update sources to latest, bump pins, rebuild all
 ```
 
-A new entry = create `config/overrides/series/<id>.yaml` and run `builder build`.
+A new entry = create `builder/config/overrides/series/<id>.yaml` and run `builder build`.
 Both standalone Series and multi-storyline Franchises live together under
-`config/overrides/series/` (the builder mirrors that layout into `data/series/`),
+`builder/config/overrides/series/` (the builder mirrors that layout into `data/series/`),
 so a
 file's `series:` or `franchise:` key — not its directory — determines its kind.
 The build fails on any unknown id, dangling reference, or schema violation, so a
@@ -90,7 +90,7 @@ override. Auto-filled titles default to Japanese (`ja` + romanized `ja-Latn`).
 ## API
 
 The same dataset is served read-only over a [Connect RPC](https://connectrpc.com)
-service defined in [`proto/anime/v1/anime.proto`](proto/anime/v1/anime.proto).
+service defined in [`api/proto/anime/v1/anime.proto`](api/proto/anime/v1/anime.proto).
 Connect speaks the **Connect protocol, gRPC and gRPC-Web over plain HTTP**, so
 clients can call it with an ordinary HTTP `POST` + JSON, no special tooling
 required. The dataset is compiled into the binary with `go:embed`, so the server
@@ -100,20 +100,30 @@ Listings are answered from `data/index.tsv`, a generated file carrying just the
 fields a browse row shows. The server holds it as a string constant — read-only
 data in the binary, so it costs no heap — and parses a YAML record only when a
 request names a single id. That is what keeps startup flat as the catalogue
-grows; see [`internal/index`](internal/index/index.go) for the measurements
+grows; see [`api/internal/index`](api/internal/index/index.go) for the measurements
 behind it. Regenerate it with `make index` after any change under `data/`.
 
-The code is split to keep the concerns explicit: `internal/builder` (+
-`cmd/builder`) **writes** `data/`; `cmd/index` **indexes** it; `internal/api` (+
-`cmd/api`) **reads** the embedded copy and serves it. `internal/model` is the
-shared data model.
+The repository is three Go modules, so the two programs cannot quietly grow a
+dependency on each other and neither imposes its dependencies on someone who
+only wants the data:
+
+| Module | Holds | Depends on |
+|---|---|---|
+| `.` (root) | `data/`, `dataset.go`, `internal/model` — the dataset and the types describing it | nothing but a YAML parser |
+| `api/` | `cmd/api`, `cmd/index`, `internal/api`, `internal/index`, the proto | the root module |
+| `builder/` | `cmd/builder`, `internal/build`, the sources and `config/` | the root module |
+
+`builder` **writes** `data/`; `api/cmd/index` **indexes** it; `api/cmd/api`
+**reads** the embedded copy and serves it. Each module resolves the others with
+a `replace` pointing into the working tree, so no `go.work` is needed and every
+module builds standalone — which is exactly how CI builds them.
 
 `AnimeService` exposes the structure — `ListFranchises`, `GetFranchise`,
 `GetSeries`, `Search` — the R2 cast — `GetCharacter`, `ListCharacters`,
 `GetStaff`, `ListStaff` — and `GetHealth`. Run it locally:
 
 ```sh
-go run ./cmd/api                 # listens on :8080 (HTTP/1.1 + cleartext HTTP/2)
+cd api && go run ./cmd/api                 # listens on :8080 (HTTP/1.1 + cleartext HTTP/2)
 
 curl -X POST localhost:8080/anime.v1.AnimeService/GetHealth \
   -H 'Content-Type: application/json' -d '{}'
@@ -147,7 +157,7 @@ curl -X POST localhost:8080/anime.v1.AnimeService/ListFranchises \
 ### Hosting (Vercel)
 
 The service deploys to Vercel's free tier using Vercel's native **Go web-server**
-builder: it compiles [`cmd/api`](cmd/api) and runs it as a server, injecting the
+builder: it compiles [`api/cmd/api`](api/cmd/api) and runs it as a server, injecting the
 listen port via `$PORT` (which the server binds automatically). No `vercel.json`
 or serverless-function wrapper is needed — every request is proxied to the
 server. `GetHealth` reports `$VERCEL_GIT_COMMIT_SHA` as its `version`.

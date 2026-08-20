@@ -148,7 +148,7 @@ run(
 
 // --- the real proto ---------------------------------------------------------
 
-run('the committed proto passes', readFileSync('proto/anime/v1/anime.proto', 'utf8'), accepts);
+run('the committed proto passes', readFileSync('api/proto/anime/v1/anime.proto', 'utf8'), accepts);
 
 console.log(failed === 0 ? '\nall checks passed' : `\n${failed} failed`);
 exit(failed === 0 ? 0 : 1);

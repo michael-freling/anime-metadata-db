@@ -33,7 +33,7 @@ jobs:
           set -euo pipefail
           yaml() { find "$@" -type f \( -name '*.yaml' -o -name '*.yml' \) 2>/dev/null | sort; }
 
-          mapfile -t all < <(yaml config/overrides data)
+          mapfile -t all < <(yaml builder/config/overrides data)
           if [ ${#all[@]} -eq 0 ]; then
             echo "No dataset YAML files found; nothing to lint."
             exit 0
@@ -43,11 +43,11 @@ jobs:
 
           # Series files (structure + co-located cast) and global staff files use
           # different schemas.
-          mapfile -t series < <(yaml config/overrides/series data/series)
-          mapfile -t staff < <(yaml config/overrides/staff data/staff)
+          mapfile -t series < <(yaml builder/config/overrides/series data/series)
+          mapfile -t staff < <(yaml builder/config/overrides/staff data/staff)
           if [ ${#series[@]} -gt 0 ]; then
-            check-jsonschema --schemafile config/schemas/anime.schema.json "${series[@]}"
+            check-jsonschema --schemafile builder/config/schemas/anime.schema.json "${series[@]}"
           fi
           if [ ${#staff[@]} -gt 0 ]; then
-            check-jsonschema --schemafile config/schemas/staff.schema.json "${staff[@]}"
+            check-jsonschema --schemafile builder/config/schemas/staff.schema.json "${staff[@]}"
           fi

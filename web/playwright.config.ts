@@ -31,7 +31,9 @@ export default defineConfig({
   webServer: [
     {
       command: `go run ./cmd/api -addr :${API_PORT}`,
-      cwd: '..',
+      // The API is its own Go module now; the dataset it serves lives in the
+      // module one level up, which its go.mod resolves with a replace.
+      cwd: '../api',
       url: `http://127.0.0.1:${API_PORT}/`,
       reuseExistingServer: !process.env.CI,
       timeout: 180_000,

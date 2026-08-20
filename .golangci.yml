@@ -26,6 +26,11 @@ linters:
         - fmt.Fprintln
   exclusions:
     generated: lax
+    # The repository root is a Go module, so a run from there also walks web/,
+    # which carries Go sources shipped inside npm packages. They are nobody's
+    # code here and would be judged by this project's style rules.
+    paths:
+      - web/
     rules:
       # Test files may skip error checks on helpers and use dot-style fixtures.
       - path: _test\.go

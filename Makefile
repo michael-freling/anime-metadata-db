@@ -16,18 +16,18 @@ help: ## Show this help
 
 .PHONY: generate
 generate: ## Regenerate the committed Go and TypeScript clients (needs buf; run npm install in web/ first)
-	buf generate
+	cd api && buf generate
 
 .PHONY: api
 api: ## Run the read-only Connect API server locally (defaults to :8080)
-	go run ./cmd/api
+	cd api && go run ./cmd/api
 
 # --- Dataset: the listing index the API serves ------------------------------
 
 .PHONY: index
 index: ## Regenerate data/index.tsv from data/ (run after any dataset change)
-	go run ./cmd/index
+	cd api && go run ./cmd/index -root ..
 
 .PHONY: index-check
 index-check: ## Fail if data/index.tsv no longer matches data/
-	go run ./cmd/index -check
+	cd api && go run ./cmd/index -check -root ..

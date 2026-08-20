@@ -12,9 +12,8 @@ on:
   pull_request:
     paths:
       - "web/**"
-      - "proto/**"
-      - "internal/api/**"
-      - "cmd/api/**"
+      - "api/**"
+      - "internal/model/**"
       - "data/**"
       - ".vercelignore"
       - ".github/scripts/**"
@@ -23,9 +22,8 @@ on:
     branches: [main]
     paths:
       - "web/**"
-      - "proto/**"
-      - "internal/api/**"
-      - "cmd/api/**"
+      - "api/**"
+      - "internal/model/**"
       - "data/**"
       - ".vercelignore"
       - ".github/scripts/**"
