@@ -77,6 +77,7 @@ jobs:
       - name: The rebuild must not delete records
         run: |
           set -euo pipefail
+          test -s /tmp/build.log || { echo "::error::the build produced no output"; exit 1; }
           if grep -q "removed orphaned" /tmp/build.log; then
             echo "::error::the build pruned records — the overrides were not found where config.yaml says they are"
             grep "removed orphaned" /tmp/build.log | head -20
@@ -87,6 +88,11 @@ jobs:
             echo "$deleted" | head -20
             exit 1
           fi
+          # Deliberately counts *.yaml under data/series and nothing else.
+          # data/index.tsv would be a tempting thing to check, but the prune
+          # only walks *.yaml/*.yml and `builder build` never touches the index
+          # — it would have survived the original incident untouched and proved
+          # nothing.
           count=$(find data/series -name '*.yaml' | wc -l)
           echo "series records after the rebuild: $count"
           test "$count" -gt 0 || { echo "::error::the rebuild left data/series empty"; exit 1; }

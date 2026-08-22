@@ -53,6 +53,22 @@ func newRootCmd(fetcher builder.Fetcher) *cobra.Command {
 		return builder.New(dir, fetcher, cmd.OutOrStdout())
 	}
 
+	// The only destructive flag, so it lives on build alone rather than on the
+	// root command where refresh and init would inherit it.
+	var allowPrune bool
+	build := &cobra.Command{
+		Use:   "build [id...]",
+		Short: "Build data/ for all overrides, or only the given ids",
+		RunE: func(cmd *cobra.Command, args []string) error {
+			app := newApp(cmd)
+			app.AllowPrune = allowPrune
+			return app.Build(cmd.Context(), args...)
+		},
+	}
+	build.Flags().BoolVar(&allowPrune, "allow-prune", false,
+		"permit deleting more records than the build writes (refused by default, "+
+			"since that shape usually means the wrong overrides directory)")
+
 	root.AddCommand(
 		&cobra.Command{
 			Use:   "init",
@@ -62,13 +78,7 @@ func newRootCmd(fetcher builder.Fetcher) *cobra.Command {
 				return newApp(cmd).Init(cmd.Context())
 			},
 		},
-		&cobra.Command{
-			Use:   "build [id...]",
-			Short: "Build data/ for all overrides, or only the given ids",
-			RunE: func(cmd *cobra.Command, args []string) error {
-				return newApp(cmd).Build(cmd.Context(), args...)
-			},
-		},
+		build,
 		&cobra.Command{
 			Use:   "refresh",
 			Short: "Update sources to latest, bump pins, and rebuild everything",

@@ -490,7 +490,7 @@ func TestBuildRefusesToPruneEverythingWhenNoOverridesResolve(t *testing.T) {
 	if err == nil {
 		t.Fatal("build succeeded with no overrides; it should refuse rather than prune")
 	}
-	if !strings.Contains(err.Error(), "no overrides found") {
+	if !strings.Contains(err.Error(), "yielded no overrides at all") {
 		t.Errorf("error = %v, want it to name the empty overrides directory", err)
 	}
 	if strings.Contains(out.String(), "removed orphaned") {
@@ -518,5 +518,90 @@ func TestBuildWithNoOverridesAndNoDataSucceeds(t *testing.T) {
 	}
 	if err := a.Build(ctx); err != nil {
 		t.Errorf("build with nothing to build and nothing to lose: %v", err)
+	}
+}
+
+// The dangerous case is not only an empty overrides directory. A path that
+// resolves to some *other* tree — an old snapshot, a sibling with a couple of
+// files, a half-finished move — yields a non-empty bundle, so a guard that only
+// checks for zero overrides waves it through and the prune still eats most of
+// the dataset.
+func TestBuildRefusesWhenItWouldDeleteMoreThanItWrites(t *testing.T) {
+	dir := newRepo(t)
+	a, out := newApp(t, dir, testsupport.FakeFetcher{})
+	ctx := context.Background()
+	if err := a.Init(ctx); err != nil {
+		t.Fatalf("init: %v", err)
+	}
+	if err := a.Build(ctx); err != nil {
+		t.Fatalf("first build: %v", err)
+	}
+	// Records the real overrides do not account for — as if data/ had been
+	// built from a larger tree than the one now being read.
+	for _, name := range []string{"ghost-a", "ghost-b", "ghost-c"} {
+		mustWrite(t, filepath.Join(dir, "data", "series", name+".yaml"), "series:\n  id: "+name+"\n")
+	}
+	out.Reset()
+
+	err := a.Build(ctx)
+	if err == nil {
+		t.Fatal("build pruned more than it wrote without refusing")
+	}
+	if !strings.Contains(err.Error(), "--allow-prune") {
+		t.Errorf("error = %v, want it to point at the escape hatch", err)
+	}
+	for _, name := range []string{"ghost-a", "ghost-b", "ghost-c"} {
+		if _, statErr := os.Stat(filepath.Join(dir, "data", "series", name+".yaml")); statErr != nil {
+			t.Errorf("%s was deleted despite the refusal", name)
+		}
+	}
+
+	// And the escape hatch works, because deliberately removing a lot of series
+	// is a real thing to want.
+	a.AllowPrune = true
+	if err := a.Build(ctx); err != nil {
+		t.Fatalf("build with --allow-prune: %v", err)
+	}
+	for _, name := range []string{"ghost-a", "ghost-b", "ghost-c"} {
+		if _, statErr := os.Stat(filepath.Join(dir, "data", "series", name+".yaml")); statErr == nil {
+			t.Errorf("%s survived a build that was explicitly allowed to prune", name)
+		}
+	}
+}
+
+// Pruning a few records because their overrides were removed is ordinary and
+// must not need a flag.
+func TestBuildPrunesASingleOrphanWithoutComplaint(t *testing.T) {
+	dir := newRepo(t)
+	a, out := newApp(t, dir, testsupport.FakeFetcher{})
+	ctx := context.Background()
+	if err := a.Init(ctx); err != nil {
+		t.Fatalf("init: %v", err)
+	}
+	if err := a.Build(ctx); err != nil {
+		t.Fatalf("first build: %v", err)
+	}
+	mustWrite(t, filepath.Join(dir, "data", "series", "ghost.yaml"), "series:\n  id: ghost\n")
+	out.Reset()
+
+	if err := a.Build(ctx); err != nil {
+		t.Fatalf("pruning one orphan should not need a flag: %v", err)
+	}
+	if _, err := os.Stat(filepath.Join(dir, "data", "series", "ghost.yaml")); err == nil {
+		t.Error("the orphan was not pruned")
+	}
+	if !strings.Contains(out.String(), "removed orphaned series/ghost.yaml") {
+		t.Errorf("the prune was not reported:\n%s", out.String())
+	}
+}
+
+// mustWrite creates a file and its parents, failing the test on error.
+func mustWrite(t *testing.T, path, body string) {
+	t.Helper()
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(path, []byte(body), 0o644); err != nil {
+		t.Fatal(err)
 	}
 }

@@ -37,6 +37,11 @@ type App struct {
 	Dir     string
 	Fetcher Fetcher
 	Out     io.Writer
+	// AllowPrune permits a build to delete more records than it writes. Off by
+	// default: that shape almost always means the overrides being read are not
+	// the ones the dataset came from, and the cost of being wrong is the
+	// dataset. Deliberately removing a lot of series is the case it exists for.
+	AllowPrune bool
 }
 
 // New returns an App rooted at dir. A nil fetcher defaults to a real HTTP
@@ -356,25 +361,33 @@ func (a *App) build(cfg config.Config, ids []string) error {
 	// directories) whose override was deleted or moved, so data/ never keeps a
 	// stale record. A filtered build only touches the requested ids.
 	if len(filter) == 0 {
-		// Owning the tree means a misconfiguration can empty it. If the
-		// overrides resolved to nothing, every record in data/ looks orphaned
-		// and the prune below deletes the entire dataset — which is exactly
-		// what a wrong overridesDir did after the module split: `builder build`
-		// reported "removed orphaned ..." 151 times and exited 0.
+		// Owning the tree means a misconfiguration can empty it: every record
+		// the overrides do not account for looks orphaned. That is what a wrong
+		// overridesDir did after the module split — `builder build` reported
+		// "removed orphaned ..." 151 times and exited 0.
 		//
-		// Nothing to build is never a reason to delete everything. Refuse, and
-		// name the directory that came up empty, because the path is the bug.
-		if len(expected) == 0 {
-			doomed, err := pruneData(dataDir, expected, true)
-			if err != nil {
-				return err
-			}
-			if len(doomed) > 0 {
-				return fmt.Errorf(
-					"refusing to build: no overrides found in %s, which would delete all %d record(s) under %s",
-					overridesDir, len(doomed), dataDir)
-			}
+		// So look before deleting. Removing more than was built means the
+		// overrides being read are not the ones this dataset came from, whether
+		// they resolved to nothing at all or to some other tree with a handful
+		// of files in it. Deleting a few records because their overrides were
+		// removed is ordinary; deleting more than remain is not.
+		doomed, err := pruneData(dataDir, expected, true)
+		if err != nil {
+			return err
 		}
+		if len(doomed) > len(expected) && !a.AllowPrune {
+			where := overridesDir
+			if len(expected) == 0 {
+				where = overridesDir + " (which yielded no overrides at all)"
+			}
+			return fmt.Errorf(
+				"refusing to build: this would delete %d record(s) under %s while writing only %d, "+
+					"which usually means %s is not the tree this dataset was built from; "+
+					"pass --allow-prune if the removal is intended",
+				len(doomed), dataDir, len(expected), where)
+		}
+		// The dry run above already walked the tree and nothing has changed
+		// since, so the deletion pass only needs to act on what it found.
 		removed, err := pruneData(dataDir, expected, false)
 		if err != nil {
 			return err
@@ -438,13 +451,12 @@ func knownID(bundle overrides.Bundle, id string) bool {
 	return false
 }
 
-// pruneData deletes every *.yaml under dataDir whose relative path is not in
-// expected, then removes any directories left empty. It returns the relative
-// paths that were removed. A missing dataDir is a no-op.
-// pruneData removes generated files under dataDir that no override accounts
-// for, and returns their paths. With dryRun set it reports what it would remove
-// and deletes nothing, which is how the caller checks a prune before trusting
-// it.
+// pruneData removes every *.yaml under dataDir whose relative path is not in
+// expected, then removes any directories left empty, and returns the relative
+// paths removed. A missing dataDir is a no-op.
+//
+// With dryRun set it reports what it would remove and deletes nothing, which is
+// how the caller inspects a prune before trusting it.
 func pruneData(dataDir string, expected map[string]bool, dryRun bool) ([]string, error) {
 	var removed []string
 	err := filepath.WalkDir(dataDir, func(path string, d fs.DirEntry, err error) error {
