@@ -458,6 +458,14 @@ func knownID(bundle overrides.Bundle, id string) bool {
 // deleted is a change visible in the diff of the very commit that causes it;
 // the case this guards is the one that is *not* visible there, where the
 // overrides are fine and the build is reading somewhere else entirely.
+//
+// It compares which records exist, not what is in them. An overridesDir that
+// is a stale copy of the right tree — an old backup, an out-of-date sibling
+// checkout — shares the paths and passes, then rewrites records with older
+// content. That is deliberate: rebuilding from older overrides is a legitimate
+// operation producing a legitimate diff, and the builder cannot know which
+// version was meant. It shows up as content changes in review, which is where
+// that judgement belongs; what it cannot show up as is a silent deletion.
 func (a *App) checkPrune(dataDir, overridesDir string, expected map[string]bool) ([]string, error) {
 	doomed, kept, err := planPrune(dataDir, expected)
 	if err != nil {

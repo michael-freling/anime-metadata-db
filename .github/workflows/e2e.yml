@@ -68,6 +68,19 @@ jobs:
       # and removes none: a record disappears only when its override does, so a
       # deletion here means the build could not see the overrides — which is
       # exactly the failure this job exists to catch.
+      # Cached so this job does not add a second unconditional 61 MB download
+      # to every pull request. The key is the committed config.yaml, which
+      # holds the pins, so a change to what is pinned fetches afresh and
+      # everything else reuses. `init` still verifies what it restores, and
+      # re-fetches anything missing, so a stale or partial cache cannot make
+      # the job pass on the wrong inputs.
+      - name: Cache the source downloads
+        uses: actions/cache@v4
+        with:
+          path: .sources
+          key: sources-${{ hashFiles('builder/config.yaml') }}
+          restore-keys: sources-
+
       - name: Fetch the sources
         run: make init
 
