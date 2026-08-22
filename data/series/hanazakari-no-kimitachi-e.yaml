@@ -50,8 +50,10 @@ series:
         - seriesId: hanazakari-no-kimitachi-e
     - id: mizuki-ashiya
       names:
+        original: 芦屋瑞稀
         translations:
           en: Mizuki Ashiya
+          ja: 芦屋瑞稀
       externalIds:
         wikidataId: Q3859648
       appearances:

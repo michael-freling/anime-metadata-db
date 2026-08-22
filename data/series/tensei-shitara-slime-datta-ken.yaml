@@ -941,10 +941,10 @@ series:
         - seriesId: tensei-shitara-slime-datta-ken
     - id: geld-i
       names:
-        original: ゲルド
+        original: 豚頭帝ゲルド
         translations:
           en: Geld I
-          ja: ゲルド
+          ja: 豚頭帝ゲルド
       externalIds:
         wikidataId: Q104822017
       voiceActors:
@@ -1510,10 +1510,10 @@ series:
         - seriesId: tensei-shitara-slime-datta-ken
     - id: mezul
       names:
-        original: ゴズール
+        original: メズール
         translations:
           en: Mezul
-          ja: ゴズール
+          ja: メズール
       externalIds:
         wikidataId: Q130249560
       voiceActors:
