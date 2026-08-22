@@ -377,6 +377,8 @@ series:
       voiceActors:
         - staffId: gakuto-kajiwara
           language: ja
+        - staffId: dallas-reid
+          language: en
       appearances:
         - seriesId: black-clover
     - id: heath-grice
@@ -403,6 +405,8 @@ series:
       voiceActors:
         - staffId: kenyu-horiuchi
           language: ja
+        - staffId: brad-hawkins
+          language: en
       appearances:
         - seriesId: black-clover
     - id: luck-voltia
@@ -416,6 +420,8 @@ series:
       voiceActors:
         - staffId: ayumu-murase
           language: ja
+        - staffId: justin-briner
+          language: en
       appearances:
         - seriesId: black-clover
     - id: magna-swing
@@ -442,6 +448,8 @@ series:
       voiceActors:
         - staffId: asuka-nishi
           language: ja
+        - staffId: bryn-apprill
+          language: en
       appearances:
         - seriesId: black-clover
     - id: noelle-silva
@@ -468,6 +476,8 @@ series:
       voiceActors:
         - staffId: yuto-suzuki
           language: ja
+        - staffId: daman-mills
+          language: en
       appearances:
         - seriesId: black-clover
     - id: sekke-bronzazza

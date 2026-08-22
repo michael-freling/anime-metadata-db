@@ -268,5 +268,7 @@ series:
       voiceActors:
         - staffId: rie-takahashi
           language: ja
+        - staffId: jill-harris
+          language: en
       appearances:
         - seriesId: jigokuraku

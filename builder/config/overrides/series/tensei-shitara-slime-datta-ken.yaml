@@ -172,6 +172,7 @@ series:
       externalIds: { wikidataId: Q107435056 }  # Erald Grimwald
       voiceActors:
         - { staffId: kenji-hamada, language: ja }  # Kenji Hamada
+        - { staffId: robert-mccollum, language: en }
     - id: eren
       externalIds: { wikidataId: Q104862024 }  # Eren
       voiceActors:
@@ -272,6 +273,7 @@ series:
       externalIds: { wikidataId: Q104822005 }  # Gobta
       voiceActors:
         - { staffId: asuna-tomari, language: ja }  # Asuna Tomari
+        - { staffId: ryan-reynolds, language: en }
     - id: gobwa
       externalIds: { wikidataId: Q125873400 }  # Gobwa
       voiceActors:
@@ -284,6 +286,7 @@ series:
       externalIds: { wikidataId: Q130249563 }  # Gozul
       voiceActors:
         - { staffId: naoya-nosaka, language: ja }  # Naoya Nosaka
+        - { staffId: ray-hurd, language: en }
     - id: granbell-rosso
       externalIds: { wikidataId: Q125873771 }  # Granbell Rosso
       voiceActors:
@@ -304,6 +307,7 @@ series:
       externalIds: { wikidataId: Q107435061 }  # Guy Crimson
       voiceActors:
         - { staffId: akira-ishida, language: ja }  # Akira Ishida
+        - { staffId: anthony-bowling, language: en }
     - id: hakurou
       externalIds: { wikidataId: Q104833624 }  # Hakurou
       voiceActors:
@@ -344,6 +348,7 @@ series:
       externalIds: { wikidataId: Q107484298 }  # Kagali
       voiceActors:
         - { staffId: yui-ishikawa, language: ja }  # Yui Ishikawa
+        - { staffId: margaret-mcdonald, language: en }
     - id: kaijin
       externalIds: { wikidataId: Q104822032 }  # Kaijin
       voiceActors:
@@ -404,6 +409,7 @@ series:
       externalIds: { wikidataId: Q107484336 }  # Luminous Valentine
       voiceActors:
         - { staffId: lynn, language: ja }  # Lynn
+        - { staffId: jill-harris, language: en }
     - id: maribel-rosso
       externalIds: { wikidataId: Q124623731 }  # Maribel Rosso
       voiceActors:
@@ -428,6 +434,7 @@ series:
       externalIds: { wikidataId: Q107484060 }  # Misery
       voiceActors:
         - { staffId: yuki-hirose, language: ja }  # Yūki Hirose
+        - { staffId: kara-edwards, language: en }
     - id: misha
       externalIds: { wikidataId: Q140603087 }  # Misha
       voiceActors:
@@ -464,6 +471,7 @@ series:
       externalIds: { wikidataId: Q107484061 }  # Rain
       voiceActors:
         - { staffId: eri-yukimura, language: ja }  # Eri Yukimura
+        - { staffId: jenny-yokobori, language: en }
     - id: ramiris
       externalIds: { wikidataId: Q104862969 }  # Ramiris
       voiceActors:
@@ -472,6 +480,7 @@ series:
       externalIds: { wikidataId: Q104839230 }  # Ranga
       voiceActors:
         - { staffId: chikahiro-kobayashi, language: ja }  # Chikahiro Kobayashi
+        - { staffId: tyson-rinehart, language: en }
     - id: raphael
       externalIds: { wikidataId: Q104864678 }  # Raphael
       voiceActors:
@@ -573,6 +582,7 @@ series:
       externalIds: { wikidataId: Q104899745 }  # Trya
       voiceActors:
         - { staffId: kana-asumi, language: ja }  # Kana Asumi
+        - { staffId: felecia-angelle, language: en }
     - id: ultima
       externalIds: { wikidataId: Q127608212 }  # Ultima
       voiceActors:
@@ -621,5 +631,6 @@ series:
       externalIds: { wikidataId: Q140482552 }  # Zonda
       voiceActors:
         - { staffId: yoshiki-nakajima, language: ja }  # Yoshiki Nakajima
+        - { staffId: aaron-roberts, language: en }
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [tensei-shitara-slime-datta-ken]

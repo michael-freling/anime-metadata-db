@@ -29,6 +29,7 @@ series:
       externalIds: { wikidataId: Q112940099 }  # Chizuru Ichinose
       voiceActors:
         - { staffId: sora-amamiya, language: ja }  # Sora Amamiya
+        - { staffId: lizzie-freeman, language: en }
     - id: kinoshita-kazuya
       externalIds: { wikidataId: Q112940087 }  # Kinoshita Kazuya
     - id: mami-nanami

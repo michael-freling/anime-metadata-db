@@ -136,3 +136,45 @@ func TestFetchLabelsErrors(t *testing.T) {
 		t.Error("expected url parse error")
 	}
 }
+
+// Wikidata is migrating names that do not vary by language onto a single "mul"
+// label instead of a per-language duplicate. Read literally, those entities
+// have no en or ja label and the name comes out empty — which is how a batch of
+// English voice actors first arrived nameless.
+func TestParseFillsMissingLanguagesFromMul(t *testing.T) {
+	e, err := Parse(strings.NewReader(`{"entities":{
+		"Q1":{"id":"Q1","labels":{"mul":{"language":"mul","value":"Sarah Roach"}}},
+		"Q2":{"id":"Q2","labels":{
+			"mul":{"language":"mul","value":"Latin Form"},
+			"ja":{"language":"ja","value":"日本語名"}}},
+		"Q3":{"id":"Q3","labels":{"en":{"language":"en","value":"Only English"}}}
+	}}`))
+	if err != nil {
+		t.Fatalf("Parse: %v", err)
+	}
+
+	// A lone mul label fills en — and pointedly not ja: the build reads ja as
+	// Title.Original, the native-script form, so a romanized value there would
+	// be wrong and would also suppress the report that flags it as missing.
+	one, _ := e.Lookup("Q1")
+	if one.Labels["en"] != "Sarah Roach" {
+		t.Errorf("Q1 en = %q, want the mul value", one.Labels["en"])
+	}
+	if one.Labels["ja"] != "" {
+		t.Errorf("Q1 ja = %q, want it left empty so the build reports it", one.Labels["ja"])
+	}
+	// A real per-language label always wins over the fallback.
+	two, _ := e.Lookup("Q2")
+	if two.Labels["ja"] != "日本語名" || two.Labels["en"] != "Latin Form" {
+		t.Errorf("Q2 labels = %v", two.Labels)
+	}
+	// mul is a source of values, not a language we store.
+	if _, ok := one.Labels["mul"]; ok {
+		t.Error("mul was kept as if it were a language")
+	}
+	// An entity without mul is untouched.
+	three, _ := e.Lookup("Q3")
+	if len(three.Labels) != 1 || three.Labels["en"] != "Only English" {
+		t.Errorf("Q3 labels = %v", three.Labels)
+	}
+}

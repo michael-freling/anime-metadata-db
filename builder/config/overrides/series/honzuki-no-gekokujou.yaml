@@ -35,20 +35,24 @@ series:
       externalIds: { wikidataId: Q139718449 }  # Benno
       voiceActors:
         - { staffId: takehito-koyasu, language: ja }  # Takehito Koyasu
+        - { staffId: xander-mobus, language: en }
     - id: bezewanst
       externalIds: { wikidataId: Q139862695 }  # Bezewanst
       voiceActors:
         - { staffId: mitsuaki-hoshino, language: ja }  # Mitsuaki Hoshino
+        - { staffId: brook-chalmers, language: en }
     - id: bierce
       externalIds: { wikidataId: Q139889591 }  # Bierce
       voiceActors:
         - { staffId: takugo-iwakawa, language: ja }  # Takugo Iwakawa
+        - { staffId: paul-st-peter, language: en }
     - id: christine
       externalIds: { wikidataId: Q140193961 }  # Christine
     - id: corinna
       externalIds: { wikidataId: Q139862756 }  # Corinna
       voiceActors:
         - { staffId: rika-kinugawa, language: ja }  # Rika Kinugawa
+        - { staffId: erika-harlacher, language: en }
     - id: damuel
       externalIds: { wikidataId: Q139886509 }  # Damuel
       voiceActors:
@@ -59,6 +63,7 @@ series:
       externalIds: { wikidataId: Q139880591 }  # Delia
       voiceActors:
         - { staffId: chiyo-tomaru, language: ja }  # Chiyo Tomaru
+        - { staffId: lizzie-freeman, language: en }
     - id: eckhart
       externalIds: { wikidataId: Q139891981 }  # Eckhart
       voiceActors:
@@ -79,10 +84,12 @@ series:
       externalIds: { wikidataId: Q139718416 }  # Ferdinand
       voiceActors:
         - { staffId: sho-hayami, language: ja }  # Shō Hayami
+        - { staffId: armen-taylor, language: en }
     - id: fey
       externalIds: { wikidataId: Q139880011 }  # Fey
       voiceActors:
         - { staffId: yumiri-hanamori, language: ja }  # Yumiri Hanamori
+        - { staffId: laila-berzins, language: en }
     - id: fran
       externalIds: { wikidataId: Q139880449 }  # Fran
       voiceActors:
@@ -91,6 +98,7 @@ series:
       externalIds: { wikidataId: Q139857194 }  # Freida
       voiceActors:
         - { staffId: aya-uchida, language: ja }  # Aya Uchida
+        - { staffId: kayli-mills, language: en }
     - id: giebe-bindewald
       externalIds: { wikidataId: Q139889595 }  # Giebe Bindewald
       voiceActors:
@@ -99,6 +107,7 @@ series:
       externalIds: { wikidataId: Q139886824 }  # Gil
       voiceActors:
         - { staffId: yuko-sanpei, language: ja }  # Yūko Sanpei
+        - { staffId: laura-stahl, language: en }
     - id: gloria
       externalIds: { wikidataId: Q139889601 }  # Gloria
       voiceActors:
@@ -111,10 +120,12 @@ series:
       externalIds: { wikidataId: Q139718748 }  # Gunther
       voiceActors:
         - { staffId: tsuyoshi-koyama, language: ja }  # Tsuyoshi Koyama
+        - { staffId: kaiji-tang, language: en }
     - id: gustav
       externalIds: { wikidataId: Q139880192 }  # Gustav
       voiceActors:
         - { staffId: hiroshi-naka, language: ja }  # Hiroshi Naka
+        - { staffId: brook-chalmers, language: en }
     - id: hartmut
       externalIds: { wikidataId: Q139889659 }  # Hartmut
       voiceActors:
@@ -135,6 +146,7 @@ series:
       externalIds: { wikidataId: Q139888165 }  # Johann
       voiceActors:
         - { staffId: koji-takahashi, language: ja }  # Kōji Takahashi
+        - { staffId: chris-hackney, language: en }
     - id: josef
       externalIds: { wikidataId: Q139889635 }  # Josef
       voiceActors:
@@ -143,6 +155,7 @@ series:
       externalIds: { wikidataId: Q139889843 }  # Justus
       voiceActors:
         - { staffId: toshihiko-seki, language: ja }  # Toshihiko Seki
+        - { staffId: mark-whitten, language: en }
     - id: jutte
       externalIds: { wikidataId: Q140197253 }  # Jutte
     - id: karla
@@ -153,10 +166,12 @@ series:
       externalIds: { wikidataId: Q139888184 }  # Karstedt
       voiceActors:
         - { staffId: toshiyuki-morikawa, language: ja }  # Toshiyuki Morikawa
+        - { staffId: bill-butts, language: en }
     - id: lutz
       externalIds: { wikidataId: Q139718439 }  # Lutz
       voiceActors:
         - { staffId: mutsumi-tamura, language: ja }  # Mutsumi Tamura
+        - { staffId: jeannie-tirado, language: en }
     - id: mark
       externalIds: { wikidataId: Q139862665 }  # Mark
       voiceActors:
@@ -169,10 +184,12 @@ series:
       externalIds: { wikidataId: Q139861514 }  # Otto
       voiceActors:
         - { staffId: satoshi-hino, language: ja }  # Satoshi Hino
+        - { staffId: joe-zieja, language: en }
     - id: ralph
       externalIds: { wikidataId: Q139862640 }  # Ralph
       voiceActors:
         - { staffId: hitomi-nabatame, language: ja }  # Hitomi Nabatame
+        - { staffId: danielle-mcrae, language: en }
     - id: rico
       externalIds: { wikidataId: Q139889570 }  # Rico
       voiceActors:
@@ -181,24 +198,29 @@ series:
       externalIds: { wikidataId: Q139886814 }  # Rosina
       voiceActors:
         - { staffId: minori-suzuki, language: ja }  # Minori Suzuki
+        - { staffId: brianna-knickerbocker, language: en }
     - id: shikikoza
       externalIds: { wikidataId: Q139889572 }  # Shikikoza
       voiceActors:
         - { staffId: haruki-ishiya, language: ja }  # Haruki Ishiya
+        - { staffId: j-michael-tatum, language: en }
     - id: sieg
       externalIds: { wikidataId: Q139920321 }  # Sieg
     - id: sylvester
       externalIds: { wikidataId: Q139889587 }  # Sylvester
       voiceActors:
         - { staffId: kazuhiko-inoue, language: ja }  # Kazuhiko Inoue
+        - { staffId: christopher-wehkamp, language: en }
     - id: tuuli
       externalIds: { wikidataId: Q139718466 }  # Tuuli
       voiceActors:
         - { staffId: megumi-nakajima, language: ja }  # Megumi Nakajima
+        - { staffId: lisa-reimold, language: en }
     - id: wilma
       externalIds: { wikidataId: Q139889575 }  # Wilma
       voiceActors:
         - { staffId: kiyono-yasuno, language: ja }  # Kiyono Yasuno
+        - { staffId: erica-mendez, language: en }
     - id: wolf
       externalIds: { wikidataId: Q139889647 }  # Wolf
       voiceActors:

@@ -24,6 +24,10 @@ api: ## Run the read-only Connect API server locally (defaults to :8080)
 
 # --- Dataset: the listing index the API serves ------------------------------
 
+.PHONY: build-data
+build-data: ## Rebuild data/ from the sources and the builder's overrides
+	cd builder && go run ./cmd/builder build
+
 .PHONY: index
 index: ## Regenerate data/index.tsv from data/ (run after any dataset change)
 	cd api && go run ./cmd/index -root ..

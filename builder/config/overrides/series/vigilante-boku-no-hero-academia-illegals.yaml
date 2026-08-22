@@ -25,5 +25,6 @@ series:
       voiceActors:
         - { staffId: akeno-watanabe, language: ja }  # Akeno Watanabe
         - { staffId: daiki-yamashita, language: ja }  # Daiki Yamashita
+        - { staffId: justin-briner, language: en }
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [vigilante-boku-no-hero-academia-illegals]

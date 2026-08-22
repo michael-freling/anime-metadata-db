@@ -492,6 +492,8 @@ series:
       voiceActors:
         - staffId: inori-minase
           language: ja
+        - staffId: brianna-knickerbocker
+          language: en
       appearances:
         - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
     - id: rui-arneb
@@ -557,6 +559,8 @@ series:
       voiceActors:
         - staffId: yusuke-kobayashi
           language: ja
+        - staffId: sean-chiplock
+          language: en
       appearances:
         - seriesId: re-zero-kara-hajimeru-isekai-seikatsu
     - id: sylphy

@@ -56,3 +56,10 @@ coverage.out
 # by accident (PR #13), adding a frozen 75-file duplicate of the tree that
 # every grep and every deployment upload then had to carry.
 .claude/worktrees/
+
+# Compiled binaries. `go build ./cmd/<name>` writes one named after the package
+# into the directory it is run from, and a bare `git add -A` will commit ten
+# megabytes of it — which is how a 9.8 MB `builder` once reached a pull request.
+/builder/builder
+/api/api
+/api/index

@@ -19,7 +19,16 @@ import (
 const batchSize = 50
 
 // languages restricts fetched labels to the ones we store.
-const languages = "en|ja"
+//
+// "mul" is Wikidata's single label for values that do not vary by language —
+// increasingly how a Latin-script personal name is recorded, in place of a
+// per-language duplicate. Without it those entities come back with no label at
+// all and the name is silently left empty.
+const languages = "en|ja|mul"
+
+// multilingual is the Wikidata language code for a label that applies to every
+// language.
+const multilingual = "mul"
 
 // label is one localized label value.
 type label struct {
@@ -67,6 +76,22 @@ func Parse(r io.Reader) (*Entities, error) {
 		labels := make(map[string]string, len(re.Labels))
 		for lang, l := range re.Labels {
 			labels[lang] = l.Value
+		}
+		// A "mul" label stands in for a language that has none of its own.
+		// Wikidata uses it when the value is the same everywhere, which is the
+		// common case for a name written in Latin script.
+		//
+		// It fills en and deliberately not ja. The build takes the ja label as
+		// Title.Original — "the original native-script form" — so a romanized
+		// mul value would land there as if it were the native one, and would
+		// also silence the "no Japanese label; original left empty" report that
+		// is how a missing native name gets a human's attention. Better an
+		// empty Original and a warning than a wrong Original and silence.
+		if mul, ok := labels[multilingual]; ok {
+			if labels["en"] == "" {
+				labels["en"] = mul
+			}
+			delete(labels, multilingual)
 		}
 		e.byQID[qid] = Entity{QID: qid, Labels: labels}
 	}

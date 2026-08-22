@@ -129,10 +129,12 @@ series:
       externalIds: { wikidataId: Q105037685 }  # Ryomen Sukuna
       voiceActors:
         - { staffId: junichi-suwabe, language: ja }  # Junichi Suwabe
+        - { staffId: ray-chase, language: en }
     - id: satoru-gojo
       externalIds: { wikidataId: Q105037411 }  # Satoru Gojo
       voiceActors:
         - { staffId: yuichi-nakamura, language: ja }  # Yūichi Nakamura
+        - { staffId: kaiji-tang, language: en }
     - id: shoko-ieiri
       externalIds: { wikidataId: Q105152950 }  # Shōko Ieiri
       voiceActors:

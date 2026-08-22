@@ -103,5 +103,7 @@ series:
           language: ja
         - staffId: daiki-yamashita
           language: ja
+        - staffId: justin-briner
+          language: en
       appearances:
         - seriesId: vigilante-boku-no-hero-academia-illegals

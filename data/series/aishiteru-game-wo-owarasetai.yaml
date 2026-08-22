@@ -87,6 +87,8 @@ series:
       voiceActors:
         - staffId: yui-ogura
           language: ja
+        - staffId: sara-ragsdale
+          language: en
       appearances:
         - seriesId: aishiteru-game-wo-owarasetai
     - id: kakeru-chigusa
@@ -139,6 +141,8 @@ series:
       voiceActors:
         - staffId: takehito-koyasu
           language: ja
+        - staffId: ian-sinclair
+          language: en
       appearances:
         - seriesId: aishiteru-game-wo-owarasetai
     - id: mei-oguri
