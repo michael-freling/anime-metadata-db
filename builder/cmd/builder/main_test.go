@@ -87,3 +87,50 @@ func TestRunBuildError(t *testing.T) {
 		t.Errorf("expected error message, got %q", errOut)
 	}
 }
+
+// The refusal and its escape hatch, exercised through the flag a user actually
+// types rather than the struct field behind it — the wiring between the two is
+// the part a typo breaks silently.
+func TestRunAllowPruneFlag(t *testing.T) {
+	for _, command := range []string{"build", "refresh"} {
+		t.Run(command, func(t *testing.T) {
+			dir := repoDir(t)
+			if code, _, errOut := runCmd("--dir", dir, "init"); code != 0 {
+				t.Fatalf("init exit %d: %s", code, errOut)
+			}
+			if code, _, errOut := runCmd("--dir", dir, "build"); code != 0 {
+				t.Fatalf("build exit %d: %s", code, errOut)
+			}
+			// More records than the overrides account for, so a full build
+			// would delete more than it keeps.
+			for _, name := range []string{"ghost-a", "ghost-b", "ghost-c"} {
+				path := filepath.Join(dir, "data", name+".yaml")
+				if err := os.WriteFile(path, []byte("series:\n  id: "+name+"\n"), 0o644); err != nil {
+					t.Fatal(err)
+				}
+			}
+
+			code, _, errOut := runCmd("--dir", dir, command)
+			if code == 0 {
+				t.Fatalf("%s deleted an unrecognised dataset without refusing", command)
+			}
+			if !strings.Contains(errOut, "--allow-prune") {
+				t.Errorf("%s error = %q, want it to point at the flag", command, errOut)
+			}
+			for _, name := range []string{"ghost-a", "ghost-b", "ghost-c"} {
+				if _, err := os.Stat(filepath.Join(dir, "data", name+".yaml")); err != nil {
+					t.Errorf("%s was deleted despite the refusal", name)
+				}
+			}
+
+			if code, _, errOut := runCmd("--dir", dir, command, "--allow-prune"); code != 0 {
+				t.Fatalf("%s --allow-prune exit %d: %s", command, code, errOut)
+			}
+			for _, name := range []string{"ghost-a", "ghost-b", "ghost-c"} {
+				if _, err := os.Stat(filepath.Join(dir, "data", name+".yaml")); err == nil {
+					t.Errorf("%s survived a build explicitly allowed to prune", name)
+				}
+			}
+		})
+	}
+}

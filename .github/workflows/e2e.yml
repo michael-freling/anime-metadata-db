@@ -74,17 +74,22 @@ jobs:
       - name: Rebuild data/ from the committed overrides
         run: make build-data 2>&1 | tee /tmp/build.log
 
-      - name: The rebuild must not delete records
+      - name: The rebuild must leave data/ whole
         run: |
           set -euo pipefail
           test -s /tmp/build.log || { echo "::error::the build produced no output"; exit 1; }
-          if grep -q "removed orphaned" /tmp/build.log; then
-            echo "::error::the build pruned records — the overrides were not found where config.yaml says they are"
-            grep "removed orphaned" /tmp/build.log | head -20
-            exit 1
-          fi
+          # Deliberately not "did the build prune anything". Pruning a few
+          # records whose overrides were deleted is ordinary, and the builder
+          # allows it without a flag; failing on any prune at all would be
+          # stricter than the tool and would blame a wrong overridesDir for
+          # something else entirely. A build that really is misconfigured
+          # refuses on its own and fails the step above.
+          #
+          # What is wrong is a deletion relative to what is committed: it means
+          # data/ holds records whose overrides are gone, so somebody removed
+          # overrides without rebuilding.
           if deleted=$(git diff --diff-filter=D --name-only -- data/) && [ -n "$deleted" ]; then
-            echo "::error::the rebuild deleted records from data/"
+            echo "::error::rebuilding deleted records that are still committed — an override was removed without running 'make build-data'"
             echo "$deleted" | head -20
             exit 1
           fi
