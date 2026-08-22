@@ -38,7 +38,7 @@ jobs:
           done
 
   reproducible:
-    name: data/ is reproducible from the overrides
+    name: A full build produces records and deletes none
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -49,39 +49,56 @@ jobs:
         with:
           go-version-file: go.mod
 
-      # The unit tests build in synthetic temp directories, so nothing until now
-      # ran the builder against the checked-in config.yaml, overrides and
+      # The unit tests build in synthetic temp directories, so nothing else
+      # runs the builder against the checked-in config.yaml, overrides and
       # sources. That gap hid a real incident: after the module split,
       # config.yaml's sourcesDir/dataDir pointed at the wrong tree and a full
-      # build deleted every record in data/ as orphaned, exiting 0. The builder
-      # now refuses that, but only this job proves the committed configuration
-      # actually produces the committed dataset.
+      # build deleted every record in data/ as orphaned, exiting 0.
       #
-      # It runs here rather than in go.yml because it downloads the real pinned
-      # sources. That also means upstream drift under a pinned URL shows up as a
-      # diff — which is true and worth knowing: it says data/ is no longer
-      # reproducible and needs rebuilding.
-      - name: Fetch the pinned sources
+      # What this job does NOT do is diff the rebuild against data/. The two
+      # large sources are rolling — their URLs name "master" and "latest", and
+      # config.yaml's sha256 records what was last seen rather than addressing
+      # a version that can be fetched again. A clean runner therefore always
+      # downloads newer upstream data than data/ was built from, and `init`
+      # re-pins accordingly, so a byte-comparison would fail permanently for
+      # reasons no pull request caused. (Asked for one anyway, it produced a
+      # 41-file diff on its first run.)
+      #
+      # What holds regardless of upstream is that a full build produces records
+      # and removes none: a record disappears only when its override does, so a
+      # deletion here means the build could not see the overrides — which is
+      # exactly the failure this job exists to catch.
+      - name: Fetch the sources
         run: make init
 
       - name: Rebuild data/ from the committed overrides
-        run: make build-data
+        run: make build-data 2>&1 | tee /tmp/build.log
 
-      - name: The rebuild must change nothing
+      - name: The rebuild must not delete records
         run: |
-          if ! git diff --exit-code --stat -- data/; then
-            echo "::error::rebuilding from builder/config/overrides changed data/ — commit the rebuild, or a source has drifted"
+          set -euo pipefail
+          if grep -q "removed orphaned" /tmp/build.log; then
+            echo "::error::the build pruned records — the overrides were not found where config.yaml says they are"
+            grep "removed orphaned" /tmp/build.log | head -20
             exit 1
           fi
-          echo "data/ matches what the builder produces from the committed overrides"
-
-      # A prune that removes everything is the failure this job exists for, so
-      # assert it separately from the diff: a build that deleted the dataset and
-      # a build that never ran both leave `git diff` looking wrong in ways that
-      # are easy to misread.
-      - name: The rebuild must not have pruned records
-        run: |
-          test -s data/index.tsv || { echo "::error::data/index.tsv is missing after the rebuild"; exit 1; }
+          if deleted=$(git diff --diff-filter=D --name-only -- data/) && [ -n "$deleted" ]; then
+            echo "::error::the rebuild deleted records from data/"
+            echo "$deleted" | head -20
+            exit 1
+          fi
           count=$(find data/series -name '*.yaml' | wc -l)
           echo "series records after the rebuild: $count"
           test "$count" -gt 0 || { echo "::error::the rebuild left data/series empty"; exit 1; }
+
+      # Informational: upstream moved, so this is expected to be non-empty and
+      # is what a dataset refresh would commit. It is printed rather than
+      # asserted for the reason above.
+      - name: Report how far data/ has drifted from upstream
+        run: |
+          if git diff --quiet -- data/; then
+            echo "data/ still matches what today's upstream produces"
+          else
+            git diff --stat -- data/ | tail -5
+            echo "::notice::upstream has moved since data/ was last rebuilt; run 'make init && make build-data' to refresh it"
+          fi
