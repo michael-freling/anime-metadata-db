@@ -456,3 +456,67 @@ func TestNewDefaults(t *testing.T) {
 		t.Error("nil writer should default to os.Stdout")
 	}
 }
+
+// A full build owns data/, so a misconfiguration that resolves the overrides to
+// an empty tree makes every committed record look orphaned. That is not
+// hypothetical: after the Go module split, config.yaml's overridesDir pointed at
+// a directory that no longer held the overrides, and `builder build` reported
+// "removed orphaned ..." 151 times, deleted the whole dataset and exited 0.
+//
+// Nothing to build must never mean delete everything.
+func TestBuildRefusesToPruneEverythingWhenNoOverridesResolve(t *testing.T) {
+	dir := newRepo(t)
+	a, out := newApp(t, dir, testsupport.FakeFetcher{})
+	ctx := context.Background()
+	if err := a.Init(ctx); err != nil {
+		t.Fatalf("init: %v", err)
+	}
+	if err := a.Build(ctx); err != nil {
+		t.Fatalf("first build: %v", err)
+	}
+	built, err := filepath.Glob(filepath.Join(dir, "data", "series", "*.yaml"))
+	if err != nil || len(built) == 0 {
+		t.Fatalf("the first build produced no records to protect (%v)", err)
+	}
+
+	// The overrides resolve to nothing — a wrong overridesDir, a moved tree, a
+	// bad --dir. The records in data/ are now unaccounted for.
+	if err := os.RemoveAll(filepath.Join(dir, "config", "overrides")); err != nil {
+		t.Fatal(err)
+	}
+	out.Reset()
+
+	err = a.Build(ctx)
+	if err == nil {
+		t.Fatal("build succeeded with no overrides; it should refuse rather than prune")
+	}
+	if !strings.Contains(err.Error(), "no overrides found") {
+		t.Errorf("error = %v, want it to name the empty overrides directory", err)
+	}
+	if strings.Contains(out.String(), "removed orphaned") {
+		t.Errorf("records were pruned before the refusal:\n%s", out.String())
+	}
+	for _, path := range built {
+		if _, statErr := os.Stat(path); statErr != nil {
+			t.Errorf("%s was deleted despite the refusal: %v", filepath.Base(path), statErr)
+		}
+	}
+}
+
+// The guard must not fire on the legitimate case it resembles: a repository
+// with no overrides and no data yet. There is nothing to lose, so the build
+// should simply do nothing.
+func TestBuildWithNoOverridesAndNoDataSucceeds(t *testing.T) {
+	dir := newRepo(t)
+	a, _ := newApp(t, dir, testsupport.FakeFetcher{})
+	ctx := context.Background()
+	if err := a.Init(ctx); err != nil {
+		t.Fatalf("init: %v", err)
+	}
+	if err := os.RemoveAll(filepath.Join(dir, "config", "overrides")); err != nil {
+		t.Fatal(err)
+	}
+	if err := a.Build(ctx); err != nil {
+		t.Errorf("build with nothing to build and nothing to lose: %v", err)
+	}
+}

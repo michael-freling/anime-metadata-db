@@ -277,7 +277,8 @@ func (a *App) build(cfg config.Config, ids []string) error {
 	if err != nil {
 		return err
 	}
-	bundle, err := overrides.LoadDir(filepath.Join(a.Dir, cfg.Settings.OverridesDir))
+	overridesDir := filepath.Join(a.Dir, cfg.Settings.OverridesDir)
+	bundle, err := overrides.LoadDir(overridesDir)
 	if err != nil {
 		return err
 	}
@@ -355,7 +356,26 @@ func (a *App) build(cfg config.Config, ids []string) error {
 	// directories) whose override was deleted or moved, so data/ never keeps a
 	// stale record. A filtered build only touches the requested ids.
 	if len(filter) == 0 {
-		removed, err := pruneData(dataDir, expected)
+		// Owning the tree means a misconfiguration can empty it. If the
+		// overrides resolved to nothing, every record in data/ looks orphaned
+		// and the prune below deletes the entire dataset — which is exactly
+		// what a wrong overridesDir did after the module split: `builder build`
+		// reported "removed orphaned ..." 151 times and exited 0.
+		//
+		// Nothing to build is never a reason to delete everything. Refuse, and
+		// name the directory that came up empty, because the path is the bug.
+		if len(expected) == 0 {
+			doomed, err := pruneData(dataDir, expected, true)
+			if err != nil {
+				return err
+			}
+			if len(doomed) > 0 {
+				return fmt.Errorf(
+					"refusing to build: no overrides found in %s, which would delete all %d record(s) under %s",
+					overridesDir, len(doomed), dataDir)
+			}
+		}
+		removed, err := pruneData(dataDir, expected, false)
 		if err != nil {
 			return err
 		}
@@ -421,7 +441,11 @@ func knownID(bundle overrides.Bundle, id string) bool {
 // pruneData deletes every *.yaml under dataDir whose relative path is not in
 // expected, then removes any directories left empty. It returns the relative
 // paths that were removed. A missing dataDir is a no-op.
-func pruneData(dataDir string, expected map[string]bool) ([]string, error) {
+// pruneData removes generated files under dataDir that no override accounts
+// for, and returns their paths. With dryRun set it reports what it would remove
+// and deletes nothing, which is how the caller checks a prune before trusting
+// it.
+func pruneData(dataDir string, expected map[string]bool, dryRun bool) ([]string, error) {
 	var removed []string
 	err := filepath.WalkDir(dataDir, func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
@@ -440,8 +464,10 @@ func pruneData(dataDir string, expected map[string]bool) ([]string, error) {
 		if expected[rel] {
 			return nil
 		}
-		if err := os.Remove(path); err != nil {
-			return fmt.Errorf("remove orphaned data file: %w", err)
+		if !dryRun {
+			if err := os.Remove(path); err != nil {
+				return fmt.Errorf("remove orphaned data file: %w", err)
+			}
 		}
 		removed = append(removed, filepath.ToSlash(rel))
 		return nil
@@ -452,7 +478,7 @@ func pruneData(dataDir string, expected map[string]bool) ([]string, error) {
 		}
 		return nil, fmt.Errorf("prune data dir: %w", err)
 	}
-	if len(removed) > 0 {
+	if len(removed) > 0 && !dryRun {
 		removeEmptyDirs(dataDir)
 	}
 	sort.Strings(removed)
