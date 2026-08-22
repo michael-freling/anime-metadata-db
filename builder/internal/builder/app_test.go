@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"context"
 	"errors"
+	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
@@ -490,8 +491,11 @@ func TestBuildRefusesToPruneEverythingWhenNoOverridesResolve(t *testing.T) {
 	if err == nil {
 		t.Fatal("build succeeded with no overrides; it should refuse rather than prune")
 	}
-	if !strings.Contains(err.Error(), "yielded no overrides at all") {
-		t.Errorf("error = %v, want it to name the empty overrides directory", err)
+	if !strings.Contains(err.Error(), "recognising none of them") {
+		t.Errorf("error = %v, want it to say it recognised none of the dataset", err)
+	}
+	if !strings.Contains(err.Error(), filepath.Join(dir, "config", "overrides")) {
+		t.Errorf("error = %v, want it to name the overrides directory it read", err)
 	}
 	if strings.Contains(out.String(), "removed orphaned") {
 		t.Errorf("records were pruned before the refusal:\n%s", out.String())
@@ -603,5 +607,91 @@ func mustWrite(t *testing.T, path, body string) {
 	}
 	if err := os.WriteFile(path, []byte(body), 0o644); err != nil {
 		t.Fatal(err)
+	}
+}
+
+// A magnitude check — deletions against the number of overrides read — looks
+// like it covers the wrong-tree case and does not. An overridesDir resolving to
+// an unrelated tree of comparable size deletes the whole dataset while writing
+// a similar number of files, so the counts balance and the guard never fires.
+// What distinguishes the wrong tree is that none of it corresponds to what is
+// already there.
+func TestBuildRefusesAnUnrelatedTreeOfComparableSize(t *testing.T) {
+	dir := newRepo(t)
+	a, _ := newApp(t, dir, testsupport.FakeFetcher{})
+	ctx := context.Background()
+	if err := a.Init(ctx); err != nil {
+		t.Fatalf("init: %v", err)
+	}
+	if err := a.Build(ctx); err != nil {
+		t.Fatalf("first build: %v", err)
+	}
+	// A dataset far larger than the overrides account for, sharing no paths
+	// with them — as if data/ came from a different tree entirely.
+	var existing []string
+	for i := 0; i < 12; i++ {
+		path := filepath.Join(dir, "data", "series", fmt.Sprintf("other-%02d.yaml", i))
+		mustWrite(t, path, fmt.Sprintf("series:\n  id: other-%02d\n", i))
+		existing = append(existing, path)
+	}
+
+	err := a.Build(ctx)
+	if err == nil {
+		t.Fatal("build deleted an unrecognised dataset without refusing")
+	}
+	if !strings.Contains(err.Error(), "recognising none of them") &&
+		!strings.Contains(err.Error(), "keeping only") {
+		t.Errorf("error = %v, want it to say how little of the dataset it recognised", err)
+	}
+	for _, path := range existing {
+		if _, statErr := os.Stat(path); statErr != nil {
+			t.Errorf("%s was deleted despite the refusal", filepath.Base(path))
+		}
+	}
+}
+
+// The refusal has to happen before anything is written, or a build that refuses
+// still leaves data/ partly overwritten by the wrong tree — an error that reads
+// as "nothing happened" while the dataset has already changed.
+func TestARefusedBuildWritesNothing(t *testing.T) {
+	dir := newRepo(t)
+	a, _ := newApp(t, dir, testsupport.FakeFetcher{})
+	ctx := context.Background()
+	if err := a.Init(ctx); err != nil {
+		t.Fatalf("init: %v", err)
+	}
+	if err := a.Build(ctx); err != nil {
+		t.Fatalf("first build: %v", err)
+	}
+
+	// Snapshot every record, including the ones the overrides do account for
+	// and would therefore rewrite.
+	before := map[string][]byte{}
+	paths, _ := filepath.Glob(filepath.Join(dir, "data", "series", "*.yaml"))
+	for _, p := range paths {
+		b, err := os.ReadFile(p)
+		if err != nil {
+			t.Fatal(err)
+		}
+		before[p] = b
+	}
+	// Enough unaccounted-for records to trip the refusal.
+	for i := 0; i < 5; i++ {
+		mustWrite(t, filepath.Join(dir, "data", "series", fmt.Sprintf("ghost-%d.yaml", i)),
+			fmt.Sprintf("series:\n  id: ghost-%d\n", i))
+	}
+
+	if err := a.Build(ctx); err == nil {
+		t.Fatal("expected the build to refuse")
+	}
+	for p, want := range before {
+		got, err := os.ReadFile(p)
+		if err != nil {
+			t.Errorf("%s vanished during a refused build: %v", filepath.Base(p), err)
+			continue
+		}
+		if !bytes.Equal(got, want) {
+			t.Errorf("%s was rewritten during a refused build", filepath.Base(p))
+		}
 	}
 }

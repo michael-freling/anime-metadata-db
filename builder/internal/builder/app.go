@@ -324,6 +324,17 @@ func (a *App) build(cfg config.Config, ids []string) error {
 		seriesOut = append(seriesOut, resolvedSeries{o, rec, report})
 	}
 
+	// Decide whether this build is sane before writing a single file. A full
+	// build owns data/, so a wrong overridesDir does not merely delete records
+	// — it overwrites the ones whose paths happen to collide first. Refusing
+	// after the write phase would leave data/ half-replaced behind an error
+	// that reads as "nothing happened".
+	if len(filter) == 0 {
+		if err := a.checkPrune(dataDir, overridesDir, expected); err != nil {
+			return err
+		}
+	}
+
 	// Validate every cast against the full id universe, then write what matches.
 	ctx := build.CharacterContext{R1: idx, Staff: staffIDs}
 	updated := 0
@@ -359,36 +370,10 @@ func (a *App) build(cfg config.Config, ids []string) error {
 
 	// A full build owns the whole data tree: remove generated files (and now-empty
 	// directories) whose override was deleted or moved, so data/ never keeps a
-	// stale record. A filtered build only touches the requested ids.
+	// stale record. A filtered build only touches the requested ids. The
+	// decision to allow this was made above, before anything was written.
 	if len(filter) == 0 {
-		// Owning the tree means a misconfiguration can empty it: every record
-		// the overrides do not account for looks orphaned. That is what a wrong
-		// overridesDir did after the module split — `builder build` reported
-		// "removed orphaned ..." 151 times and exited 0.
-		//
-		// So look before deleting. Removing more than was built means the
-		// overrides being read are not the ones this dataset came from, whether
-		// they resolved to nothing at all or to some other tree with a handful
-		// of files in it. Deleting a few records because their overrides were
-		// removed is ordinary; deleting more than remain is not.
-		doomed, err := pruneData(dataDir, expected, true)
-		if err != nil {
-			return err
-		}
-		if len(doomed) > len(expected) && !a.AllowPrune {
-			where := overridesDir
-			if len(expected) == 0 {
-				where = overridesDir + " (which yielded no overrides at all)"
-			}
-			return fmt.Errorf(
-				"refusing to build: this would delete %d record(s) under %s while writing only %d, "+
-					"which usually means %s is not the tree this dataset was built from; "+
-					"pass --allow-prune if the removal is intended",
-				len(doomed), dataDir, len(expected), where)
-		}
-		// The dry run above already walked the tree and nothing has changed
-		// since, so the deletion pass only needs to act on what it found.
-		removed, err := pruneData(dataDir, expected, false)
+		removed, err := pruneData(dataDir, expected)
 		if err != nil {
 			return err
 		}
@@ -451,14 +436,59 @@ func knownID(bundle overrides.Bundle, id string) bool {
 	return false
 }
 
-// pruneData removes every *.yaml under dataDir whose relative path is not in
-// expected, then removes any directories left empty, and returns the relative
-// paths removed. A missing dataDir is a no-op.
+// checkPrune refuses a full build that does not recognise the dataset it is
+// about to overwrite.
 //
-// With dryRun set it reports what it would remove and deletes nothing, which is
-// how the caller inspects a prune before trusting it.
-func pruneData(dataDir string, expected map[string]bool, dryRun bool) ([]string, error) {
-	var removed []string
+// The test is overlap, not volume. Counting deletions against the number of
+// overrides read looks right and is not: an overridesDir pointing at some other
+// tree of comparable size deletes everything while writing a similar number of
+// files, and a magnitude check waves that through. What actually distinguishes
+// the wrong tree is that almost none of what it produces corresponds to what is
+// already there.
+//
+// So: a build may remove records whose overrides were deleted, but not more
+// than it keeps. Deliberately removing most of the dataset is a real thing to
+// want, and that is what AllowPrune is for.
+func (a *App) checkPrune(dataDir, overridesDir string, expected map[string]bool) error {
+	doomed, kept, err := planPrune(dataDir, expected)
+	if err != nil {
+		return err
+	}
+	if len(doomed) <= kept || a.AllowPrune {
+		return nil
+	}
+	detail := fmt.Sprintf("keeping only %d", kept)
+	if kept == 0 {
+		detail = "recognising none of them"
+	}
+	return fmt.Errorf(
+		"refusing to build: this would delete %d of the %d record(s) under %s, %s — "+
+			"which usually means %s is not the tree this dataset was built from; "+
+			"pass --allow-prune if the removal is intended",
+		len(doomed), len(doomed)+kept, dataDir, detail, overridesDir)
+}
+
+// planPrune surveys dataDir without touching it: which records no override
+// accounts for, and how many the build would rewrite in place.
+func planPrune(dataDir string, expected map[string]bool) (doomed []string, kept int, err error) {
+	err = walkRecords(dataDir, func(rel string) error {
+		if expected[rel] {
+			kept++
+			return nil
+		}
+		doomed = append(doomed, filepath.ToSlash(rel))
+		return nil
+	})
+	if err != nil {
+		return nil, 0, err
+	}
+	sort.Strings(doomed)
+	return doomed, kept, nil
+}
+
+// walkRecords calls fn with the dataDir-relative path of every generated record
+// file. A missing dataDir is a no-op.
+func walkRecords(dataDir string, fn func(rel string) error) error {
 	err := filepath.WalkDir(dataDir, func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
 			return err
@@ -473,24 +503,33 @@ func pruneData(dataDir string, expected map[string]bool, dryRun bool) ([]string,
 		if err != nil {
 			return err
 		}
+		return fn(rel)
+	})
+	if err != nil && os.IsNotExist(err) {
+		return nil
+	}
+	return err
+}
+
+// pruneData removes every *.yaml under dataDir whose relative path is not in
+// expected, then removes any directories left empty, and returns the relative
+// paths removed. A missing dataDir is a no-op.
+func pruneData(dataDir string, expected map[string]bool) ([]string, error) {
+	var removed []string
+	err := walkRecords(dataDir, func(rel string) error {
 		if expected[rel] {
 			return nil
 		}
-		if !dryRun {
-			if err := os.Remove(path); err != nil {
-				return fmt.Errorf("remove orphaned data file: %w", err)
-			}
+		if err := os.Remove(filepath.Join(dataDir, rel)); err != nil {
+			return fmt.Errorf("remove orphaned data file: %w", err)
 		}
 		removed = append(removed, filepath.ToSlash(rel))
 		return nil
 	})
 	if err != nil {
-		if os.IsNotExist(err) {
-			return nil, nil
-		}
 		return nil, fmt.Errorf("prune data dir: %w", err)
 	}
-	if len(removed) > 0 && !dryRun {
+	if len(removed) > 0 {
 		removeEmptyDirs(dataDir)
 	}
 	sort.Strings(removed)

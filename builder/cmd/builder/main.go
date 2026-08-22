@@ -53,8 +53,10 @@ func newRootCmd(fetcher builder.Fetcher) *cobra.Command {
 		return builder.New(dir, fetcher, cmd.OutOrStdout())
 	}
 
-	// The only destructive flag, so it lives on build alone rather than on the
-	// root command where refresh and init would inherit it.
+	// The one destructive flag. It sits on the two commands that actually
+	// build — refresh runs the same build and hits the same refusal, so
+	// omitting it there leaves that workflow with no way to complete an
+	// intended removal.
 	var allowPrune bool
 	build := &cobra.Command{
 		Use:   "build [id...]",
@@ -65,9 +67,21 @@ func newRootCmd(fetcher builder.Fetcher) *cobra.Command {
 			return app.Build(cmd.Context(), args...)
 		},
 	}
-	build.Flags().BoolVar(&allowPrune, "allow-prune", false,
-		"permit deleting more records than the build writes (refused by default, "+
-			"since that shape usually means the wrong overrides directory)")
+	refresh := &cobra.Command{
+		Use:   "refresh",
+		Short: "Update sources to latest, bump pins, and rebuild everything",
+		Args:  cobra.NoArgs,
+		RunE: func(cmd *cobra.Command, _ []string) error {
+			app := newApp(cmd)
+			app.AllowPrune = allowPrune
+			return app.Refresh(cmd.Context())
+		},
+	}
+	for _, c := range []*cobra.Command{build, refresh} {
+		c.Flags().BoolVar(&allowPrune, "allow-prune", false,
+			"permit deleting more records than the build keeps (refused by default, "+
+				"since that shape usually means the wrong overrides directory)")
+	}
 
 	root.AddCommand(
 		&cobra.Command{
@@ -79,14 +93,7 @@ func newRootCmd(fetcher builder.Fetcher) *cobra.Command {
 			},
 		},
 		build,
-		&cobra.Command{
-			Use:   "refresh",
-			Short: "Update sources to latest, bump pins, and rebuild everything",
-			Args:  cobra.NoArgs,
-			RunE: func(cmd *cobra.Command, _ []string) error {
-				return newApp(cmd).Refresh(cmd.Context())
-			},
-		},
+		refresh,
 	)
 	return root
 }
