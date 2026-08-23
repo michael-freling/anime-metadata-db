@@ -506,8 +506,7 @@ export const ScopeRefSchema: GenMessage<ScopeRef> = /*@__PURE__*/
 
 /**
  * CharacterAppearance is a Character <-> Series edge. series_id is the rollup
- * association; scope optionally narrows it to specific installments; and
- * voice_actors, when set, overrides the character's default cast for it.
+ * association and scope optionally narrows it to specific installments.
  *
  * @generated from message anime.v1.CharacterAppearance
  */
@@ -533,6 +532,10 @@ export type CharacterAppearance = Message<"anime.v1.CharacterAppearance"> & {
   scope: ScopeRef[];
 
   /**
+   * voice_actors is the cast for this appearance, resolved: it is the
+   * character's constant cast plus whoever is specific to this series. Render
+   * it as-is; there is nothing to merge client-side.
+   *
    * @generated from field: repeated anime.v1.VoiceActor voice_actors = 3;
    */
   voiceActors: VoiceActor[];
@@ -582,8 +585,11 @@ export type Character = Message<"anime.v1.Character"> & {
   externalIds?: ExternalIds | undefined;
 
   /**
-   * voice_actors is the default cast, used for every appearance that does not
-   * override it.
+   * voice_actors is the cast that holds throughout — an original-language role
+   * is nearly always the same person in every adaptation. Cast that varies by
+   * series (English dubs are routinely recast) is not here; it is on the
+   * appearance it belongs to. An appearance's voice_actors already includes
+   * these, so a client showing per-appearance cast never needs this field.
    *
    * @generated from field: repeated anime.v1.VoiceActor voice_actors = 5;
    */
@@ -1313,7 +1319,10 @@ export const GetCharacterResponseSchema: GenMessage<GetCharacterResponse> = /*@_
 export type ListCharactersRequest = Message<"anime.v1.ListCharactersRequest"> & {
   /**
    * series_id restricts the result to that series' cast; empty lists every
-   * character in the dataset.
+   * character in the dataset. It also decides what each character's
+   * voice_actors means: with a series, they are that series' cast (the constant
+   * cast plus anyone cast only there); without one, only the cast that holds
+   * throughout. Series.characters is scoped the same way.
    *
    * @generated from field: string series_id = 1;
    */

@@ -194,7 +194,7 @@ func (s *Service) GetCharacter(_ context.Context, req *connect.Request[animev1.G
 		return nil, connect.NewError(connect.CodeNotFound, fmt.Errorf("character %q not found", id))
 	}
 	loc := newLocalizer(req.Header().Get("Accept-Language"))
-	return connect.NewResponse(&animev1.GetCharacterResponse{Character: toCharacter(loc, s.store, c)}), nil
+	return connect.NewResponse(&animev1.GetCharacterResponse{Character: toCharacter(loc, s.store, "", c)}), nil
 }
 
 // ListCharacters returns the whole cast, or one series' cast when series_id is
@@ -213,7 +213,7 @@ func (s *Service) ListCharacters(_ context.Context, req *connect.Request[animev1
 		return nil, storeError(err)
 	}
 	return connect.NewResponse(&animev1.ListCharactersResponse{
-		Characters:    toCharacters(loc, s.store, page.Items),
+		Characters:    toCharacters(loc, s.store, seriesID, page.Items),
 		NextPageToken: page.NextToken,
 		TotalSize:     int32(page.Total),
 	}), nil
@@ -339,13 +339,20 @@ func (s *Service) ListAppearances(_ context.Context, req *connect.Request[animev
 		return nil, connect.NewError(connect.CodeNotFound, fmt.Errorf("character %q not found", id))
 	}
 	loc := newLocalizer(req.Header().Get("Accept-Language"))
+	// The character's own cast applies to every appearance, so it is needed to
+	// resolve each one. Reading it costs nothing extra: AppearancesPage parses
+	// the same record, and the store caches it.
+	character, _, err := s.store.Character(id)
+	if err != nil {
+		return nil, storeError(err)
+	}
 	page, err := s.store.AppearancesPage(id, req.Msg.GetPageToken(), int(req.Msg.GetLimit()))
 	if err != nil {
 		return nil, storeError(err)
 	}
 	out := make([]*animev1.CharacterAppearance, len(page.Items))
 	for i := range page.Items {
-		out[i] = toAppearance(loc, s.store, page.Items[i])
+		out[i] = toAppearance(loc, s.store, character.VoiceActors, page.Items[i])
 	}
 	return connect.NewResponse(&animev1.ListAppearancesResponse{
 		Appearances:   out,

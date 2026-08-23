@@ -179,8 +179,7 @@ message ScopeRef {
 }
 
 // CharacterAppearance is a Character <-> Series edge. series_id is the rollup
-// association; scope optionally narrows it to specific installments; and
-// voice_actors, when set, overrides the character's default cast for it.
+// association and scope optionally narrows it to specific installments.
 message CharacterAppearance {
   string series_id = 1;
   // series_title is that series' title resolved for the request's
@@ -189,6 +188,9 @@ message CharacterAppearance {
   // call GetSeries once per appearance to label them.
   string series_title = 5;
   repeated ScopeRef scope = 2;
+  // voice_actors is the cast for this appearance, resolved: it is the
+  // character's constant cast plus whoever is specific to this series. Render
+  // it as-is; there is nothing to merge client-side.
   repeated VoiceActor voice_actors = 3;
   ExternalIds external_ids = 4;
 }
@@ -202,8 +204,11 @@ message Character {
   // localized_name carries every language; set only for Accept-Language: *.
   LocalizedTitle localized_name = 3;
   ExternalIds external_ids = 4;
-  // voice_actors is the default cast, used for every appearance that does not
-  // override it.
+  // voice_actors is the cast that holds throughout — an original-language role
+  // is nearly always the same person in every adaptation. Cast that varies by
+  // series (English dubs are routinely recast) is not here; it is on the
+  // appearance it belongs to. An appearance's voice_actors already includes
+  // these, so a client showing per-appearance cast never needs this field.
   repeated VoiceActor voice_actors = 5;
   // appearances is the first page only, capped; appearances_total is the real
   // count. Use ListAppearances to page the rest.
@@ -410,7 +415,10 @@ message GetCharacterResponse {
 
 message ListCharactersRequest {
   // series_id restricts the result to that series' cast; empty lists every
-  // character in the dataset.
+  // character in the dataset. It also decides what each character's
+  // voice_actors means: with a series, they are that series' cast (the constant
+  // cast plus anyone cast only there); without one, only the cast that holds
+  // throughout. Series.characters is scoped the same way.
   string series_id = 1;
   // query matches a character's name in any language, case-insensitively, as a
   // substring. Empty matches every character. Combined with series_id it

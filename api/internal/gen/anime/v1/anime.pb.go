@@ -1120,8 +1120,7 @@ func (x *ScopeRef) GetSpecialId() string {
 }
 
 // CharacterAppearance is a Character <-> Series edge. series_id is the rollup
-// association; scope optionally narrows it to specific installments; and
-// voice_actors, when set, overrides the character's default cast for it.
+// association and scope optionally narrows it to specific installments.
 type CharacterAppearance struct {
 	state    protoimpl.MessageState `protogen:"open.v1"`
 	SeriesId string                 `protobuf:"bytes,1,opt,name=series_id,json=seriesId,proto3" json:"series_id,omitempty"`
@@ -1129,8 +1128,11 @@ type CharacterAppearance struct {
 	// Accept-Language, denormalized for the same reason VoiceActor carries
 	// staff_name: a client rendering a character's appearances should not have to
 	// call GetSeries once per appearance to label them.
-	SeriesTitle   string        `protobuf:"bytes,5,opt,name=series_title,json=seriesTitle,proto3" json:"series_title,omitempty"`
-	Scope         []*ScopeRef   `protobuf:"bytes,2,rep,name=scope,proto3" json:"scope,omitempty"`
+	SeriesTitle string      `protobuf:"bytes,5,opt,name=series_title,json=seriesTitle,proto3" json:"series_title,omitempty"`
+	Scope       []*ScopeRef `protobuf:"bytes,2,rep,name=scope,proto3" json:"scope,omitempty"`
+	// voice_actors is the cast for this appearance, resolved: it is the
+	// character's constant cast plus whoever is specific to this series. Render
+	// it as-is; there is nothing to merge client-side.
 	VoiceActors   []*VoiceActor `protobuf:"bytes,3,rep,name=voice_actors,json=voiceActors,proto3" json:"voice_actors,omitempty"`
 	ExternalIds   *ExternalIds  `protobuf:"bytes,4,opt,name=external_ids,json=externalIds,proto3" json:"external_ids,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -1212,8 +1214,11 @@ type Character struct {
 	// localized_name carries every language; set only for Accept-Language: *.
 	LocalizedName *LocalizedTitle `protobuf:"bytes,3,opt,name=localized_name,json=localizedName,proto3" json:"localized_name,omitempty"`
 	ExternalIds   *ExternalIds    `protobuf:"bytes,4,opt,name=external_ids,json=externalIds,proto3" json:"external_ids,omitempty"`
-	// voice_actors is the default cast, used for every appearance that does not
-	// override it.
+	// voice_actors is the cast that holds throughout — an original-language role
+	// is nearly always the same person in every adaptation. Cast that varies by
+	// series (English dubs are routinely recast) is not here; it is on the
+	// appearance it belongs to. An appearance's voice_actors already includes
+	// these, so a client showing per-appearance cast never needs this field.
 	VoiceActors []*VoiceActor `protobuf:"bytes,5,rep,name=voice_actors,json=voiceActors,proto3" json:"voice_actors,omitempty"`
 	// appearances is the first page only, capped; appearances_total is the real
 	// count. Use ListAppearances to page the rest.
@@ -2640,7 +2645,10 @@ func (x *GetCharacterResponse) GetCharacter() *Character {
 type ListCharactersRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// series_id restricts the result to that series' cast; empty lists every
-	// character in the dataset.
+	// character in the dataset. It also decides what each character's
+	// voice_actors means: with a series, they are that series' cast (the constant
+	// cast plus anyone cast only there); without one, only the cast that holds
+	// throughout. Series.characters is scoped the same way.
 	SeriesId string `protobuf:"bytes,1,opt,name=series_id,json=seriesId,proto3" json:"series_id,omitempty"`
 	// query matches a character's name in any language, case-insensitively, as a
 	// substring. Empty matches every character. Combined with series_id it

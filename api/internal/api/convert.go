@@ -293,12 +293,18 @@ func toVoiceActors(loc localizer, store *Store, in []model.VoiceActor) []*animev
 	return out
 }
 
-// toAppearance converts one Character <-> Series edge.
-func toAppearance(loc localizer, store *Store, a model.CharacterAppearance) *animev1.CharacterAppearance {
+// toAppearance converts one Character <-> Series edge, resolving the cast that
+// actually applies to it: the character's own voice actors, which hold across
+// every appearance, plus any specific to this one.
+//
+// The merge happens here rather than in the caller so a client is handed the
+// answer instead of a rule. Reading the two lists and combining them is easy to
+// get subtly wrong, and getting it wrong means showing someone the wrong actor.
+func toAppearance(loc localizer, store *Store, throughout []model.VoiceActor, a model.CharacterAppearance) *animev1.CharacterAppearance {
 	out := &animev1.CharacterAppearance{
 		SeriesId:    a.SeriesID,
 		SeriesTitle: seriesTitle(loc, store, a.SeriesID),
-		VoiceActors: toVoiceActors(loc, store, a.VoiceActors),
+		VoiceActors: toVoiceActors(loc, store, effectiveCast(throughout, a.VoiceActors)),
 		ExternalIds: toExternalIDs(a.ExternalIDs),
 	}
 	if len(a.Scope) > 0 {
@@ -314,35 +320,74 @@ func toAppearance(loc localizer, store *Store, a model.CharacterAppearance) *ani
 	return out
 }
 
+// effectiveCast appends the cast specific to one appearance to the cast that
+// holds throughout, keeping the first occurrence of each credit. Order matters:
+// the constant cast (in practice the original-language role) leads, and the
+// series-specific additions — recast dubs — follow.
+func effectiveCast(throughout, specific []model.VoiceActor) []model.VoiceActor {
+	if len(specific) == 0 {
+		return throughout
+	}
+	cast := make([]model.VoiceActor, 0, len(throughout)+len(specific))
+	seen := make(map[model.VoiceActor]bool, len(throughout)+len(specific))
+	for _, va := range throughout {
+		if !seen[va] {
+			seen[va] = true
+			cast = append(cast, va)
+		}
+	}
+	for _, va := range specific {
+		if !seen[va] {
+			seen[va] = true
+			cast = append(cast, va)
+		}
+	}
+	return cast
+}
+
 // toCharacter converts one character, resolving its name via loc.
-func toCharacter(loc localizer, store *Store, c *model.Character) *animev1.Character {
+//
+// seriesID, when set, is the series the caller asked about: the character's
+// voice_actors are then the cast for that series, not just the cast that holds
+// throughout. A listing of one series' cast that omitted its own English dub
+// because the dub is per-appearance would be answering a different question
+// than the one asked.
+func toCharacter(loc localizer, store *Store, seriesID string, c *model.Character) *animev1.Character {
 	name, full := loc.title(c.Names)
+	cast := c.VoiceActors
+	if seriesID != "" {
+		for _, a := range c.Appearances {
+			if a.SeriesID == seriesID {
+				cast = effectiveCast(cast, a.VoiceActors)
+			}
+		}
+	}
 	out := &animev1.Character{
 		Id:            c.ID,
 		Name:          name,
 		LocalizedName: full,
 		ExternalIds:   toExternalIDs(c.ExternalIDs),
-		VoiceActors:   toVoiceActors(loc, store, c.VoiceActors),
+		VoiceActors:   toVoiceActors(loc, store, cast),
 	}
 	appearances, appearancesTotal := capped(c.Appearances)
 	out.AppearancesTotal = appearancesTotal
 	if len(appearances) > 0 {
 		out.Appearances = make([]*animev1.CharacterAppearance, len(appearances))
 		for i := range appearances {
-			out.Appearances[i] = toAppearance(loc, store, appearances[i])
+			out.Appearances[i] = toAppearance(loc, store, c.VoiceActors, appearances[i])
 		}
 	}
 	return out
 }
 
 // toCharacters converts a slice of characters, returning nil for an empty input.
-func toCharacters(loc localizer, store *Store, in []*model.Character) []*animev1.Character {
+func toCharacters(loc localizer, store *Store, seriesID string, in []*model.Character) []*animev1.Character {
 	if len(in) == 0 {
 		return nil
 	}
 	out := make([]*animev1.Character, len(in))
 	for i, c := range in {
-		out[i] = toCharacter(loc, store, c)
+		out[i] = toCharacter(loc, store, seriesID, c)
 	}
 	return out
 }
@@ -405,7 +450,7 @@ func toSeries(loc localizer, store *Store, s *model.Series) (*animev1.Series, er
 		Id:              s.ID,
 		Title:           title,
 		LocalizedTitle:  full,
-		Characters:      toCharacters(loc, store, castPage.Items),
+		Characters:      toCharacters(loc, store, s.ID, castPage.Items),
 		CharactersTotal: int32(castPage.Total),
 		SeasonsTotal:    seasonsTotal,
 		MoviesTotal:     moviesTotal,

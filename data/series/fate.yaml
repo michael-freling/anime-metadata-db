@@ -215,13 +215,9 @@ franchise:
       appearances:
         - seriesId: fate-stay-night
           voiceActors:
-            - staffId: ayako-kawasumi
-              language: ja
             - staffId: kate-higgins
               language: en
         - seriesId: fate-zero
           voiceActors:
-            - staffId: ayako-kawasumi
-              language: ja
             - staffId: kari-wahlgren
               language: en

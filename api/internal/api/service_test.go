@@ -2,6 +2,7 @@ package api
 
 import (
 	"context"
+	"slices"
 	"testing"
 
 	"connectrpc.com/connect"
@@ -279,13 +280,19 @@ func TestGetCharacter(t *testing.T) {
 	if len(scope) != 3 || scope[0].GetSeasonId() != "aaa-s1" || scope[1].GetMovieId() != "aaa-movie" || scope[2].GetSpecialId() != "aaa-ova" {
 		t.Errorf("scope = %+v", scope)
 	}
-	if appearances[0].GetVoiceActors() != nil {
-		t.Error("appearance without an override should carry no voice actors")
+	// An appearance that lists no cast of its own still reports the character's:
+	// the response carries the cast that actually applies, so a caller never has
+	// to merge two lists itself.
+	if plain := appearances[0].GetVoiceActors(); len(plain) != 1 || plain[0].GetStaffId() != "va-one" {
+		t.Errorf("appearance with no cast of its own = %+v, want the character's", plain)
 	}
-	// The second appearance overrides the cast, with an unnamed staff member.
-	override := appearances[1].GetVoiceActors()
-	if len(override) != 1 || override[0].GetStaffId() != "va-two" || override[0].GetStaffName() != "" {
-		t.Errorf("override cast = %+v", override)
+	// The second appearance adds a voice actor rather than replacing the
+	// character's — an English dub does not unseat the original cast — so it
+	// reports both, the added one being an unnamed staff member.
+	both := appearances[1].GetVoiceActors()
+	if len(both) != 2 || both[0].GetStaffId() != "va-one" || both[1].GetStaffId() != "va-two" ||
+		both[1].GetStaffName() != "" {
+		t.Errorf("appearance cast = %+v, want the character's plus its own", both)
 	}
 	if appearances[1].GetExternalIds().GetAnilistId() != 99 {
 		t.Errorf("appearance external ids = %+v", appearances[1].GetExternalIds())
@@ -306,6 +313,42 @@ func TestGetCharacter(t *testing.T) {
 	}
 	if got := resp.Msg.GetCharacter().GetVoiceActors()[0].GetStaffName(); got != "声優一" {
 		t.Errorf("ja staff name = %q, want 声優一", got)
+	}
+}
+
+// Which cast a character reports depends on what was asked. Scoped to a series
+// it is that series' cast; unscoped there is no series to be specific to, so it
+// is only the cast that holds throughout, and the per-series additions are on
+// the appearances.
+func TestCharacterCastIsScopedToTheSeriesAsked(t *testing.T) {
+	svc := newTestService(t)
+	staffIDs := func(vas []*animev1.VoiceActor) []string {
+		out := make([]string, len(vas))
+		for i, va := range vas {
+			out[i] = va.GetStaffId()
+		}
+		return out
+	}
+	for _, tc := range []struct {
+		seriesID string
+		want     []string
+	}{
+		{"", []string{"va-one"}},              // every character: no series in question
+		{"aaa-main", []string{"va-one"}},      // nobody is cast only here
+		{"zzz", []string{"va-one", "va-two"}}, // va-two is cast only here
+	} {
+		resp, err := svc.ListCharacters(context.Background(), connect.NewRequest(
+			&animev1.ListCharactersRequest{SeriesId: tc.seriesID, Query: "Alpha Hero"}))
+		if err != nil {
+			t.Fatalf("ListCharacters(%q): %v", tc.seriesID, err)
+		}
+		chars := resp.Msg.GetCharacters()
+		if len(chars) != 1 {
+			t.Fatalf("ListCharacters(%q) returned %d characters, want 1", tc.seriesID, len(chars))
+		}
+		if got := staffIDs(chars[0].GetVoiceActors()); !slices.Equal(got, tc.want) {
+			t.Errorf("ListCharacters(seriesId=%q) cast = %v, want %v", tc.seriesID, got, tc.want)
+		}
 	}
 }
 
@@ -377,8 +420,10 @@ func TestGetStaff(t *testing.T) {
 	if len(credits) != 2 {
 		t.Fatalf("got %d credits, want 2: %+v", len(credits), credits)
 	}
+	// va-one is the character's own voice actor, so the credit covers every
+	// series they appear in — including the one that adds an English actor.
 	if credits[0].GetCharacterId() != "alpha-hero" || credits[0].GetCharacterName() != "Alpha Hero" ||
-		credits[0].GetLanguage() != "ja" || len(credits[0].GetSeriesIds()) != 1 {
+		credits[0].GetLanguage() != "ja" || len(credits[0].GetSeriesIds()) != 2 {
 		t.Errorf("credit 0 = %+v", credits[0])
 	}
 	if credits[1].GetCharacterId() != "zed-friend" || credits[1].GetSeriesIds() != nil {
@@ -417,12 +462,15 @@ func TestGetStaffCreditsCarrySeriesTitles(t *testing.T) {
 				c.GetCharacterId(), len(c.GetSeriesTitles()), len(c.GetSeriesIds()))
 		}
 	}
+	// The character's own voice actor covers every series they appear in, so
+	// both are named and both carry a resolved title.
 	credit := resp.Msg.GetCredits()[0]
-	if len(credit.GetSeriesIds()) != 1 || credit.GetSeriesIds()[0] != "aaa-main" {
-		t.Fatalf("credit series ids = %v, want [aaa-main]", credit.GetSeriesIds())
+	if len(credit.GetSeriesIds()) != 2 || credit.GetSeriesIds()[0] != "aaa-main" ||
+		credit.GetSeriesIds()[1] != "zzz" {
+		t.Fatalf("credit series ids = %v, want [aaa-main zzz]", credit.GetSeriesIds())
 	}
-	if credit.GetSeriesTitles()[0] != "Alpha Main" {
-		t.Errorf("series title = %q, want %q", credit.GetSeriesTitles()[0], "Alpha Main")
+	if credit.GetSeriesTitles()[0] != "Alpha Main" || credit.GetSeriesTitles()[1] != "Zed Standalone" {
+		t.Errorf("series titles = %v", credit.GetSeriesTitles())
 	}
 
 	// Resolved for the request's language, like every other title. zzz is the
@@ -492,6 +540,12 @@ func TestGetSeriesIncludesCast(t *testing.T) {
 	cast := resp.Msg.GetSeries().GetCharacters()
 	if len(cast) != 1 || cast[0].GetId() != "alpha-hero" {
 		t.Fatalf("zzz cast = %+v, want alpha-hero", cast)
+	}
+	// A series' cast is that series' cast: va-two is cast only in zzz, and a
+	// page about zzz that left them out would be listing the wrong actors.
+	if vas := cast[0].GetVoiceActors(); len(vas) != 2 ||
+		vas[0].GetStaffId() != "va-one" || vas[1].GetStaffId() != "va-two" {
+		t.Errorf("zzz cast voice actors = %+v, want va-one and va-two", vas)
 	}
 	// A series with no cast carries none.
 	resp, err = svc.GetSeries(context.Background(), connect.NewRequest(&animev1.GetSeriesRequest{Id: "minimal"}))

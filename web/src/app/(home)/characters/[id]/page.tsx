@@ -88,19 +88,17 @@ export default async function CharacterPage({
       <div className="mt-4">
         <PageHeader
           title={character.name || humanizeId(character.id)}
-          subtitle={[
-            plural(page.totalSize, 'appearance'),
-            character.voiceActors.length
-              ? plural(character.voiceActors.length, 'voice actor')
-              : null,
-          ]
-            .filter(Boolean)
-            .join(' · ')}
+          // No voice-actor count here: cast that varies by series lives on the
+          // appearances, and those are paged, so any total would be a count of
+          // the page rather than of the character.
+          subtitle={plural(page.totalSize, 'appearance')}
         />
       </div>
 
       {character.voiceActors.length > 0 ? (
         <section className="mt-10">
+          {/* The cast that holds throughout. Anyone cast for a single series
+              is listed under that series below, not here. */}
           <h2 className="mb-2 text-lg font-semibold">Voiced by</h2>
           <ul>
             {character.voiceActors.map((v) => (
@@ -130,7 +128,8 @@ export default async function CharacterPage({
                 <Link href={`/browse/${a.seriesId}`} className="font-medium hover:underline">
                   {a.seriesTitle || humanizeId(a.seriesId)}
                 </Link>
-                {/* An appearance may override the default cast for that series. */}
+                {/* The cast for that series, resolved by the API: the actors
+                    above plus anyone cast only there. */}
                 {a.voiceActors.length > 0 ? (
                   <span className="text-sm text-fd-muted-foreground">
                     {a.voiceActors.map((v) => v.staffName || humanizeId(v.staffId)).join(', ')}

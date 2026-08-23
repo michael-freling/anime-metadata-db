@@ -418,8 +418,11 @@ func TestStoreStaffCredits(t *testing.T) {
 	if credits[0].CharacterID != "alpha-hero" || credits[0].Language != "ja" {
 		t.Errorf("credit 0 = %s/%s", credits[0].CharacterID, credits[0].Language)
 	}
-	if len(credits[0].SeriesIDs) != 1 || credits[0].SeriesIDs[0] != "aaa-main" {
-		t.Errorf("credit 0 series = %v, want [aaa-main]", credits[0].SeriesIDs)
+	// Additive cast: va-one is the character's own voice actor, so the credit
+	// covers both appearances — including the one that adds an English actor.
+	if len(credits[0].SeriesIDs) != 2 || credits[0].SeriesIDs[0] != "aaa-main" ||
+		credits[0].SeriesIDs[1] != "zzz" {
+		t.Errorf("credit 0 series = %v, want [aaa-main zzz]", credits[0].SeriesIDs)
 	}
 	if credits[1].CharacterID != "zed-friend" || credits[1].Language != "en" || credits[1].SeriesIDs != nil {
 		t.Errorf("credit 1 = %+v", credits[1])

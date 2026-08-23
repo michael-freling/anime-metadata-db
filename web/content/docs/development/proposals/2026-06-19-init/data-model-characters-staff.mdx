@@ -103,6 +103,11 @@ Fate work), so the default cast lives on the `Character` as `voiceActors[]`, one
 `language`. When an appearance **recasts** or **adds a dub**, it overrides with its own
 `voiceActors[]`; otherwise it inherits the default. Each `staffId` resolves to a `Staff` node.
 
+> **Amended 2026-08-23.** The shape held, the rule did not: an appearance's `voiceActors[]` **adds
+> to** the character's rather than replacing them. Replacing meant one English dub forced every
+> appearance to restate the Japanese cast, and forgetting to dropped it silently — which happened to
+> Saber. See [Using the API](/docs/using-the-api) for the behaviour as shipped.
+
 ### 2.4 Voice roles live on the character side
 
 A `Staff` node holds only the person (names + ids) — the **voice roles live on the character side**

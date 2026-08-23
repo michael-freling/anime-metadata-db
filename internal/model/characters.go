@@ -20,8 +20,10 @@ type ScopeRef struct {
 }
 
 // CharacterAppearance is a Character ↔ Series edge. SeriesID is the rollup
-// association; Scope optionally narrows it to specific nodes; VoiceActors
-// optionally overrides the character's default cast for this appearance.
+// association; Scope optionally narrows it to specific nodes; VoiceActors adds
+// the cast specific to this appearance — it does not replace the character's,
+// which holds throughout. A recast dub is therefore recorded once, where it
+// applies, and the original-language cast is never restated to keep it.
 type CharacterAppearance struct {
 	SeriesID    string       `yaml:"seriesId"`
 	Scope       []ScopeRef   `yaml:"scope,omitempty"`
@@ -31,9 +33,11 @@ type CharacterAppearance struct {
 
 // Character is a global fictional entity, owned by no Franchise or Series.
 type Character struct {
-	ID          string                `yaml:"id"`
-	Names       Title                 `yaml:"names,omitempty"`
-	ExternalIDs ExternalIDs           `yaml:"externalIds,omitempty"`
+	ID          string      `yaml:"id"`
+	Names       Title       `yaml:"names,omitempty"`
+	ExternalIDs ExternalIDs `yaml:"externalIds,omitempty"`
+	// VoiceActors is the cast that holds across every appearance. Cast that
+	// varies by series belongs on the appearance instead.
 	VoiceActors []VoiceActor          `yaml:"voiceActors,omitempty"`
 	Appearances []CharacterAppearance `yaml:"appearances,omitempty"`
 }

@@ -561,9 +561,10 @@ func writeCredits(w io.Writer, credits []buildCredit) {
 // creditsFor collects one character's castings as staff id -> language ->
 // series ids, plus the staff ids in first-seen order so output is stable.
 //
-// A character's default voiceActors apply to every appearance that does not
-// override them, so one credit is recorded per (staff, language) with the
-// series it covers.
+// A character's own voiceActors hold across every appearance and an appearance
+// adds whoever is specific to it, so one credit is recorded per (staff,
+// language) naming every series it covers. A character with no appearance at
+// all still yields a credit, with no series to name.
 func creditsFor(c *model.Character) (map[string]map[string][]string, []string) {
 	byStaff := map[string]map[string][]string{}
 	var order []string
@@ -586,11 +587,16 @@ func creditsFor(c *model.Character) (map[string]map[string][]string, []string) {
 		}
 	}
 	for _, a := range c.Appearances {
-		cast := a.VoiceActors
-		if len(cast) == 0 {
-			cast = c.VoiceActors
+		// Additive, not replacing. The character's own cast is the one that
+		// holds throughout — an original-language role is almost always the
+		// same person in every adaptation — and an appearance lists only what
+		// is specific to it, which is where recast dubs go. Replacing meant a
+		// single English credit forced every appearance to restate the
+		// Japanese one, and getting that wrong dropped a cast silently.
+		for _, va := range c.VoiceActors {
+			record(va.StaffID, va.Language, a.SeriesID)
 		}
-		for _, va := range cast {
+		for _, va := range a.VoiceActors {
 			record(va.StaffID, va.Language, a.SeriesID)
 		}
 	}
