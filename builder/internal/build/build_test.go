@@ -109,6 +109,19 @@ func TestFillTitlesReportsAnAssumedLanguage(t *testing.T) {
 		t.Errorf("a Han-only original should be reported as an assumption, got %q", report.String())
 	}
 
+	// Two uncertain fills report a line each, and their order has to be the
+	// same on every run: a report a reader cannot diff against the last one is
+	// worth much less. Map iteration order made it vary.
+	first := &Report{}
+	fillTitles("season z", &model.Title{}, offlinedb.Anime{Title: "Jujutsu Kaisen", Synonyms: []string{"呪術廻戦"}}, first)
+	for i := 0; i < 20; i++ {
+		again := &Report{}
+		fillTitles("season z", &model.Title{}, offlinedb.Anime{Title: "Jujutsu Kaisen", Synonyms: []string{"呪術廻戦"}}, again)
+		if again.String() != first.String() {
+			t.Fatalf("report order varies between runs:\n%s\nvs\n%s", first.String(), again.String())
+		}
+	}
+
 	// A title with kana is not a guess and must not add noise to the report.
 	quiet := &Report{}
 	fillTitles("season y", &model.Title{}, offlinedb.Anime{Title: "Kimetsu no Yaiba", Synonyms: []string{"鬼滅の刃"}}, quiet)

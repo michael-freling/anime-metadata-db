@@ -62,13 +62,12 @@ func hasNativeScript(s string) bool {
 // English title is a different fact, and one only a human can supply, so it
 // stays in the overrides.
 //
-// Which language the native title is in is decided by its script, not assumed:
-// kana is Japanese and Hangul is Korean, both unambiguously. A title written
-// only in Han characters could be either Japanese or Chinese — 呪術廻戦 and
-// 喜羊羊与灰太狼 look alike to a range check — so no language is claimed for it
-// and the guess is reported for a human instead. Nothing is lost by that: the
-// language key duplicates `original`, and a request in the original's language
-// resolves to `original` anyway.
+// Which language the native title is in is decided by its script where the
+// script decides it: kana is Japanese and Hangul is Korean, both unambiguously.
+// A title written only in Han characters could be either Japanese or Chinese —
+// 呪術廻戦 and 喜羊羊与灰太狼 look alike to a range check — so it defaults to
+// Japanese, this being a catalogue of anime, and fillTitles reports the
+// assumption so a human can correct it by authoring the language.
 func inferTitle(a offlinedb.Anime) model.Title {
 	var original, latin string
 	if hasNativeScript(a.Title) {

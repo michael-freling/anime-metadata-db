@@ -84,7 +84,11 @@ func resolveTitle(t model.Title, lang string) string {
 			}
 		}
 	}
-	if p := primaryTag(lang); p != lang {
+	// Not for a request that named a script: falling back to its bare language
+	// would answer "give me the Latin form" with native script, which is the
+	// one answer it definitely did not want. It carries on to an English title,
+	// then to the original as a last resort.
+	if p := primaryTag(lang); p != lang && !model.IsRomanization(lang) {
 		if v := translation(t, p); v != "" {
 			return v
 		}
@@ -129,13 +133,6 @@ func isOriginalLanguage(t model.Title, lang string) bool {
 	found := false
 	for _, code := range sortedTranslationKeys(t) {
 		if t.Translations[code] == "" || !model.IsRomanization(code) {
-			continue
-		}
-		// "und-Latn" is a romanization whose language the build could not
-		// determine — a title written only in Han characters. It names the
-		// script, not the language, so it cannot answer this question and the
-		// language list decides instead.
-		if strings.EqualFold(primaryTag(code), "und") {
 			continue
 		}
 		found = true

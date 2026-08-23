@@ -138,7 +138,16 @@ func fillTitles(entity string, dst *model.Title, a offlinedb.Anime, report *Repo
 	if dst.Original == "" && inferred.Original != "" {
 		dst.Original = inferred.Original
 	}
-	for code, val := range inferred.Translations {
+	// Sorted, not map order: two uncertain fills report a line each, and their
+	// order in the report would otherwise vary between runs over identical
+	// inputs. A report a reader cannot diff against the last one is worth less.
+	codes := make([]string, 0, len(inferred.Translations))
+	for code := range inferred.Translations {
+		codes = append(codes, code)
+	}
+	sort.Strings(codes)
+	for _, code := range codes {
+		val := inferred.Translations[code]
 		if _, ok := dst.Translations[code]; ok {
 			continue // override wins for this language
 		}

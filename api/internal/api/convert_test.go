@@ -104,6 +104,14 @@ func TestResolveTitle(t *testing.T) {
 			mk("鬼滅の刃", map[string]string{"ja": "鬼滅の刃", "ja-Latn": "Kimetsu no Yaiba"}), "Kimetsu no Yaiba"},
 		{"a script request for a language the title has no romanization in", "ko-latn",
 			mk("鬼滅の刃", map[string]string{"ja-Latn": "Kimetsu no Yaiba"}), "Kimetsu no Yaiba"},
+		// With no Latin form to offer, a script request must not be answered by
+		// the bare language it was built from — that hands back the native
+		// script it explicitly asked to avoid. An English title is the better
+		// answer, and the original is the last resort.
+		{"a script request with no romanization takes the english title", "ja-latn",
+			mk("鬼滅の刃", map[string]string{"ja": "鬼滅の刃", "en": "Demon Slayer"}), "Demon Slayer"},
+		{"and the original only when there is nothing else", "ja-latn",
+			mk("鬼滅の刃", map[string]string{"ja": "鬼滅の刃"}), "鬼滅の刃"},
 	}
 	for _, tc := range tests {
 		if got := resolveTitle(tc.in, tc.lang); got != tc.want {
