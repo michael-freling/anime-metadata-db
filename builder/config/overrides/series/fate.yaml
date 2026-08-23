@@ -63,8 +63,14 @@ franchise:
       # specific than the series: Kate Higgins's names the 2006 TV series alone,
       # not the 2014 re-adaptation or the Heaven's Feel films that this same
       # series id also holds, so her appearance is scoped to that season. Those
-      # other installments get their own appearance with no English cast — Saber
-      # is certainly in them, and the source simply does not say who dubbed her.
+      # other installments get their own appearance with no English cast. That
+      # is a gap in the source, not in the import: Wikidata's Saber item
+      # (Q4918886) carries exactly three English voice-actor statements — the
+      # 2006 TV series, the 2010 film and Fate/Zero — and none of them names the
+      # 2014 re-adaptation (Q19980978) or Heaven's Feel I (Q66777794). She is
+      # certainly voiced in both; nothing we may redistribute says by whom. The
+      # same item also carries Cantonese, Mandarin and Korean casts, which this
+      # dataset does not record yet.
       # Michelle Ruff is absent for the same reason in the opposite direction:
       # hers applies to the 2010 Unlimited Blade Works film (Q3740068), which
       # this dataset does not carry at all. Add her with that film, not before.
