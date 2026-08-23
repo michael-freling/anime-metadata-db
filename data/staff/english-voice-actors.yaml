@@ -2,31 +2,35 @@
 staff:
   - id: aaron-roberts
     names:
+      original: Aaron Roberts
       translations:
         en: Aaron Roberts
     externalIds:
       wikidataId: Q141031024
   - id: annie-wild
     names:
+      original: Annie Wild
       translations:
         en: Annie Wild
     externalIds:
       wikidataId: Q134440355
   - id: anthony-bowling
     names:
+      original: Anthony Bowling
       translations:
         en: Anthony Bowling
     externalIds:
       wikidataId: Q4772144
   - id: armen-taylor
     names:
+      original: Armen Taylor
       translations:
         en: Armen Taylor
     externalIds:
       wikidataId: Q107465292
   - id: bill-butts
     names:
-      original: ビル・バッツ
+      original: Bill Butts
       translations:
         en: Bill Butts
         ja: ビル・バッツ
@@ -34,7 +38,7 @@ staff:
       wikidataId: Q120292547
   - id: brad-hawkins
     names:
-      original: ブラッド・ホーキンス
+      original: Brad Hawkins
       translations:
         en: Brad Hawkins
         ja: ブラッド・ホーキンス
@@ -42,7 +46,7 @@ staff:
       wikidataId: Q13576980
   - id: brianna-knickerbocker
     names:
-      original: ブリアナ・ニッカーボッカー
+      original: Brianna Knickerbocker
       translations:
         en: Brianna Knickerbocker
         ja: ブリアナ・ニッカーボッカー
@@ -50,13 +54,14 @@ staff:
       wikidataId: Q96675501
   - id: brook-chalmers
     names:
+      original: Brook Chalmers
       translations:
         en: Brook Chalmers
     externalIds:
       wikidataId: Q115625355
   - id: bryn-apprill
     names:
-      original: ブライン・アップリル
+      original: Bryn Apprill
       translations:
         en: Bryn Apprill
         ja: ブライン・アップリル
@@ -64,31 +69,35 @@ staff:
       wikidataId: Q20090133
   - id: chaney-moore
     names:
+      original: Chaney Moore
       translations:
         en: Chaney Moore
     externalIds:
       wikidataId: Q109734187
   - id: chris-hackney
     names:
+      original: Chris Hackney
       translations:
         en: Chris Hackney
     externalIds:
       wikidataId: Q134963135
   - id: chris-hutchison
     names:
+      original: Chris Hutchison
       translations:
         en: Chris Hutchison
     externalIds:
       wikidataId: Q5106962
   - id: christopher-wehkamp
     names:
+      original: Christopher Wehkamp
       translations:
         en: Christopher Wehkamp
     externalIds:
       wikidataId: Q19665600
   - id: dallas-reid
     names:
-      original: ダラス・リード
+      original: Dallas Reid
       translations:
         en: Dallas Reid
         ja: ダラス・リード
@@ -96,7 +105,7 @@ staff:
       wikidataId: Q109051005
   - id: daman-mills
     names:
-      original: ダマン・ミルズ
+      original: Daman Mills
       translations:
         en: Daman Mills
         ja: ダマン・ミルズ
@@ -104,13 +113,14 @@ staff:
       wikidataId: Q108171590
   - id: danielle-mcrae
     names:
+      original: Danielle McRae
       translations:
         en: Danielle McRae
     externalIds:
       wikidataId: Q109051030
   - id: erica-mendez
     names:
-      original: エリカ・メンデス
+      original: Erica Mendez
       translations:
         en: Erica Mendez
         ja: エリカ・メンデス
@@ -118,7 +128,7 @@ staff:
       wikidataId: Q5387900
   - id: erika-harlacher
     names:
-      original: エリカ・ハーラーチャー
+      original: Erika Harlacher
       translations:
         en: Erika Harlacher
         ja: エリカ・ハーラーチャー
@@ -126,6 +136,7 @@ staff:
       wikidataId: Q23879975
   - id: felecia-angelle
     names:
+      original: Felecia Angelle
       translations:
         en: Felecia Angelle
     externalIds:
@@ -140,13 +151,14 @@ staff:
       wikidataId: Q5982914
   - id: j-michael-tatum
     names:
+      original: J. Michael Tatum
       translations:
         en: J. Michael Tatum
     externalIds:
       wikidataId: Q6106552
   - id: jay-hickman
     names:
-      original: ジェイ・ヒックマン
+      original: Jay Hickman
       translations:
         en: Jay Hickman
         ja: ジェイ・ヒックマン
@@ -154,7 +166,7 @@ staff:
       wikidataId: Q6166700
   - id: jeannie-tirado
     names:
-      original: ジーニー・ティラド
+      original: Jeannie Tirado
       translations:
         en: Jeannie Tirado
         ja: ジーニー・ティラド
@@ -162,7 +174,7 @@ staff:
       wikidataId: Q80992320
   - id: jenny-yokobori
     names:
-      original: ジェニー・ヨコボリ
+      original: Jenny Yokobori
       translations:
         en: Jenny Yokobori
         ja: ジェニー・ヨコボリ
@@ -170,7 +182,7 @@ staff:
       wikidataId: Q104803374
   - id: jill-harris
     names:
-      original: ジル・ハリス
+      original: Jill Harris
       translations:
         en: Jill Harris
         ja: ジル・ハリス
@@ -178,7 +190,7 @@ staff:
       wikidataId: Q109320298
   - id: joe-zieja
     names:
-      original: ジョー・ジージャ
+      original: Joe Zieja
       translations:
         en: Joe Zieja
         ja: ジョー・ジージャ
@@ -186,13 +198,14 @@ staff:
       wikidataId: Q116868160
   - id: justin-briner
     names:
+      original: Justin Briner
       translations:
         en: Justin Briner
     externalIds:
       wikidataId: Q30610426
   - id: kaiji-tang
     names:
-      original: カイジ・タン
+      original: Kaiji Tang
       translations:
         en: Kaiji Tang
         ja: カイジ・タン
@@ -200,13 +213,14 @@ staff:
       wikidataId: Q15120664
   - id: kara-edwards
     names:
+      original: Kara Edwards
       translations:
         en: Kara Edwards
     externalIds:
       wikidataId: Q6367509
   - id: kari-wahlgren
     names:
-      original: カリ・ウォールグレン
+      original: Kari Wahlgren
       translations:
         en: Kari Wahlgren
         ja: カリ・ウォールグレン
@@ -214,7 +228,7 @@ staff:
       wikidataId: Q272919
   - id: kate-higgins
     names:
-      original: ケイト・ヒギンス
+      original: Kate Higgins
       translations:
         en: Kate Higgins
         ja: ケイト・ヒギンス
@@ -222,7 +236,7 @@ staff:
       wikidataId: Q2330871
   - id: kayli-mills
     names:
-      original: ケイリー・ミルズ
+      original: Kayli Mills
       translations:
         en: Kayli Mills
         ja: ケイリー・ミルズ
@@ -230,7 +244,7 @@ staff:
       wikidataId: Q104237996
   - id: laila-berzins
     names:
-      original: ライラ・バーズィンズ
+      original: Laila Berzins
       translations:
         en: Laila Berzins
         ja: ライラ・バーズィンズ
@@ -238,7 +252,7 @@ staff:
       wikidataId: Q102427087
   - id: laura-stahl
     names:
-      original: ラウラ・シュタール
+      original: Laura Stahl
       translations:
         en: Laura Stahl
         ja: ラウラ・シュタール
@@ -246,7 +260,7 @@ staff:
       wikidataId: Q106141965
   - id: lisa-reimold
     names:
-      original: リサ・レイモルド
+      original: Lisa Reimold
       translations:
         en: Lisa Reimold
         ja: リサ・レイモルド
@@ -254,7 +268,7 @@ staff:
       wikidataId: Q109319643
   - id: lizzie-freeman
     names:
-      original: リジー・フリーマン
+      original: Lizzie Freeman
       translations:
         en: Lizzie Freeman
         ja: リジー・フリーマン
@@ -262,7 +276,7 @@ staff:
       wikidataId: Q108139170
   - id: luci-christian
     names:
-      original: ルーシ・クリスチャン
+      original: Luci Christian
       translations:
         en: Luci Christian
         ja: ルーシ・クリスチャン
@@ -270,7 +284,7 @@ staff:
       wikidataId: Q4115622
   - id: margaret-mcdonald
     names:
-      original: マーガレット・マクドナルド
+      original: Margaret McDonald
       translations:
         en: Margaret McDonald
         ja: マーガレット・マクドナルド
@@ -278,7 +292,7 @@ staff:
       wikidataId: Q16232274
   - id: mark-whitten
     names:
-      original: マーク・ウィッテン
+      original: Mark Whitten
       translations:
         en: Mark Whitten
         ja: マーク・ウィッテン
@@ -286,13 +300,14 @@ staff:
       wikidataId: Q124217816
   - id: natalie-rial
     names:
+      original: Natalie Rial
       translations:
         en: Natalie Rial
     externalIds:
       wikidataId: Q109734195
   - id: paul-st-peter
     names:
-      original: ポール・セント・ピーター
+      original: Paul St. Peter
       translations:
         en: Paul St. Peter
         ja: ポール・セント・ピーター
@@ -300,7 +315,7 @@ staff:
       wikidataId: Q7153744
   - id: ray-chase
     names:
-      original: レイ・チェイス
+      original: Ray Chase
       translations:
         en: Ray Chase
         ja: レイ・チェイス
@@ -308,13 +323,14 @@ staff:
       wikidataId: Q28974090
   - id: ray-hurd
     names:
+      original: Ray Hurd
       translations:
         en: Ray Hurd
     externalIds:
       wikidataId: Q141058249
   - id: robert-mccollum
     names:
-      original: ロバート・マッカラム
+      original: Robert McCollum
       translations:
         en: Robert McCollum
         ja: ロバート・マッカラム
@@ -322,25 +338,28 @@ staff:
       wikidataId: Q7347478
   - id: ryan-reynolds
     names:
+      original: Ryan Reynolds
       translations:
         en: Ryan Reynolds
     externalIds:
       wikidataId: Q108205165
   - id: sara-ragsdale
     names:
+      original: Sara Ragsdale
       translations:
         en: Sara Ragsdale
     externalIds:
       wikidataId: Q89436043
   - id: sarah-roach
     names:
+      original: Sarah Roach
       translations:
         en: Sarah Roach
     externalIds:
       wikidataId: Q141013989
   - id: sean-chiplock
     names:
-      original: ショーン・チップロック
+      original: Sean Chiplock
       translations:
         en: Sean Chiplock
         ja: ショーン・チップロック
@@ -348,13 +367,14 @@ staff:
       wikidataId: Q56787218
   - id: tyson-rinehart
     names:
+      original: Tyson Rinehart
       translations:
         en: Tyson Rinehart
     externalIds:
       wikidataId: Q141033441
   - id: xander-mobus
     names:
-      original: ザンダー・モーブス
+      original: Xander Mobus
       translations:
         en: Xander Mobus
         ja: ザンダー・モーブス
@@ -362,7 +382,7 @@ staff:
       wikidataId: Q27681028
   - id: zach-aguilar
     names:
-      original: ザック・アギラール
+      original: Zach Aguilar
       translations:
         en: Zach Aguilar
         ja: ザック・アギラール

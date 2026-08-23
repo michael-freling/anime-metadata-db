@@ -2,6 +2,7 @@ package build
 
 import (
 	"fmt"
+	"unicode"
 
 	"github.com/michael-freling/anime-metadata-db/builder/internal/overrides"
 	"github.com/michael-freling/anime-metadata-db/internal/model"
@@ -84,16 +85,36 @@ func (b *Builder) BuildStaff(o overrides.StaffOverride) (model.StaffRecord, *Rep
 	rec := model.StaffRecord{Staff: o.Staff}
 	for i := range rec.Staff {
 		s := &rec.Staff[i]
-		b.fillNames("staff "+s.ID, &s.Names, s.ExternalIDs.WikidataID, report)
+		b.fillNames(personName, "staff "+s.ID, &s.Names, s.ExternalIDs.WikidataID, report)
 	}
 	report.Sort()
 	return rec, report, nil
 }
 
 // fillNames merges Wikidata labels into a node's names per field (an authored
-// name always wins): the Japanese label becomes original + ja, the English
-// label becomes en.
-func (b *Builder) fillNames(entity string, dst *model.Title, qid string, report *Report) {
+// name always wins): the Japanese label becomes ja, the English label becomes
+// en, and whichever of the two is the name as its owner writes it becomes the
+// original.
+//
+// That last part is the whole difficulty. For 竈門炭治郎 the Japanese label is
+// the name and the English one is a transliteration of it; for Zach Aguilar it
+// is the other way round, and ザック・アギラール is a rendering of his name for
+// Japanese readers rather than his name. Filing the Japanese label as the
+// original regardless — which this did — recorded 30 of the 51 English voice
+// actors under a katakana spelling of a name written in Latin script.
+//
+// The script decides, for a real person: a Japanese label containing kanji or
+// hiragana is a Japanese name, and one written only in katakana is a foreign
+// name transliterated. Nothing in the dataset contradicts that today — no
+// Japanese staff member has a katakana-only label — and a Japanese stage name
+// written in katakana would be the case to watch, which is why it is reported.
+//
+// A *character* is different, and the same rule applied to one would be wrong:
+// セイバー is not a rendering of "Saber" for Japanese readers, it is the name
+// the character has in the work, and English-language releases render it back
+// the other way. So a character keeps the Japanese label as its original
+// whatever script it is written in.
+func (b *Builder) fillNames(kind nameKind, entity string, dst *model.Title, qid string, report *Report) {
 	if qid == "" {
 		report.add(entity, "names", "no externalIds.wikidataId; names not auto-filled")
 		return
@@ -107,14 +128,74 @@ func (b *Builder) fillNames(entity string, dst *model.Title, qid string, report 
 		return
 	}
 	ja, en := ent.Labels["ja"], ent.Labels["en"]
-	if dst.Original == "" && ja != "" {
-		dst.Original = ja
-	}
 	addTranslation(dst, "ja", ja)
 	addTranslation(dst, "en", en)
 	if dst.Original == "" {
-		report.add(entity, "names", fmt.Sprintf("Wikidata %s has no Japanese label; original left empty", qid))
+		dst.Original = kind.original(ja, en, entity, report)
 	}
+	if dst.Original == "" {
+		report.add(entity, "names", fmt.Sprintf("Wikidata %s has neither a Japanese nor an English label; original left empty", qid))
+	}
+}
+
+// nameKind says whose name is being filled, because a character and a person
+// answer "which label is the name itself?" differently.
+type nameKind int
+
+const (
+	// characterName is a name as it appears in the work. The Japanese label is
+	// it, katakana included.
+	characterName nameKind = iota
+	// personName is a real person's name, which belongs to whichever language
+	// they write it in.
+	personName
+)
+
+// original picks the label that is the name itself rather than a rendering of
+// it, and reports the reasoning where it had to choose.
+func (k nameKind) original(ja, en, entity string, report *Report) string {
+	if k == characterName {
+		if ja != "" {
+			return ja
+		}
+		return en
+	}
+	switch {
+	case ja == "":
+		// Nothing Japanese to prefer, so the English label is all there is —
+		// and for a name written in Latin script that is the right answer
+		// anyway, which is why this no longer reports an empty original.
+		return en
+	case isTransliteration(ja):
+		if en == "" {
+			// Katakana with nothing to fall back to: it is a rendering of a
+			// name we do not otherwise have, so it stands in for one.
+			report.add(entity, "names", fmt.Sprintf(
+				"the Japanese label %q is katakana, so it is a rendering of a foreign name, but there is no English label to use instead", ja))
+			return ja
+		}
+		return en
+	default:
+		return ja
+	}
+}
+
+// isTransliteration reports whether a Japanese label is written only in
+// katakana, the script Japanese reserves for foreign words — so the name it
+// spells belongs to another language. Kanji or hiragana anywhere means it is a
+// Japanese name.
+func isTransliteration(s string) bool {
+	for _, r := range s {
+		if unicode.In(r, unicode.Han, unicode.Hiragana) {
+			return false
+		}
+	}
+	for _, r := range s {
+		if unicode.In(r, unicode.Katakana) {
+			return true
+		}
+	}
+	return false
 }
 
 // addTranslation sets a translation only when the value is non-empty and the

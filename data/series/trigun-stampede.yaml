@@ -81,6 +81,7 @@ series:
   characters:
     - id: knives-millions
       names:
+        original: Knives Millions
         translations:
           en: Knives Millions
       externalIds:
@@ -89,6 +90,7 @@ series:
         - seriesId: trigun-stampede
     - id: legato-bluesummers
       names:
+        original: Legato Bluesummers
         translations:
           en: Legato Bluesummers
       externalIds:
