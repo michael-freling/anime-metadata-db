@@ -178,3 +178,40 @@ func TestParseFillsMissingLanguagesFromMul(t *testing.T) {
 		t.Errorf("Q3 labels = %v", three.Labels)
 	}
 }
+
+// Wikidata appends a parenthetical to a label that would collide with another
+// entity's — "イアン・シンクレア (声優)", where 声優 means voice actor. It is an
+// artifact of their index, not part of a name, and leaving it in did two kinds
+// of damage: it stored a name nobody has, and its kanji made an otherwise
+// all-katakana label stop looking like one, so the rule that picks a person's
+// name over its Japanese rendering skipped him without a word.
+func TestParseDropsWikidataDisambiguators(t *testing.T) {
+	const raw = `{"entities":{
+	  "Q1":{"id":"Q1","labels":{
+	    "ja":{"language":"ja","value":"イアン・シンクレア (声優)"},
+	    "en":{"language":"en","value":"Ian Sinclair"}}},
+	  "Q2":{"id":"Q2","labels":{
+	    "ja":{"language":"ja","value":"花江夏樹"},
+	    "en":{"language":"en","value":"Kana Hanazawa （声優）"}}},
+	  "Q3":{"id":"Q3","labels":{"ja":{"language":"ja","value":"(声優)"}}}
+	}}`
+	got, err := Parse(strings.NewReader(raw))
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, tc := range []struct{ qid, lang, want string }{
+		{"Q1", "ja", "イアン・シンクレア"},    // the suffix goes
+		{"Q1", "en", "Ian Sinclair"}, // a label without one is untouched
+		{"Q2", "ja", "花江夏樹"},
+		{"Q2", "en", "Kana Hanazawa"}, // full-width brackets too
+		{"Q3", "ja", "(声優)"},          // nothing but the suffix: keep it
+	} {
+		e, ok := got.Lookup(tc.qid)
+		if !ok {
+			t.Fatalf("%s missing", tc.qid)
+		}
+		if e.Labels[tc.lang] != tc.want {
+			t.Errorf("%s %s = %q, want %q", tc.qid, tc.lang, e.Labels[tc.lang], tc.want)
+		}
+	}
+}
