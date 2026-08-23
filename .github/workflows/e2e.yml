@@ -25,5 +25,104 @@ jobs:
         with:
           go-version-file: go.mod
 
+      # Per module. Run from the repository root this matches only the root
+      # module — which holds the dataset and nothing else — so it passed
+      # vacuously from the moment the Go code moved into api/ and builder/,
+      # reporting success having executed no test at all.
       - name: Run e2e tests (no mocks)
-        run: go test -tags e2e -run E2E -timeout 15m ./...
+        run: |
+          set -euo pipefail
+          for mod in . api builder; do
+            echo "--- $mod"
+            (cd "$mod" && go test -tags e2e -run E2E -timeout 15m ./...)
+          done
+
+  reproducible:
+    name: A full build produces records and deletes none
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      # The unit tests build in synthetic temp directories, so nothing else
+      # runs the builder against the checked-in config.yaml, overrides and
+      # sources. That gap hid a real incident: after the module split,
+      # config.yaml's sourcesDir/dataDir pointed at the wrong tree and a full
+      # build deleted every record in data/ as orphaned, exiting 0.
+      #
+      # What this job does NOT do is diff the rebuild against data/. The two
+      # large sources are rolling — their URLs name "master" and "latest", and
+      # config.yaml's sha256 records what was last seen rather than addressing
+      # a version that can be fetched again. A clean runner therefore always
+      # downloads newer upstream data than data/ was built from, and `init`
+      # re-pins accordingly, so a byte-comparison would fail permanently for
+      # reasons no pull request caused. (Asked for one anyway, it produced a
+      # 41-file diff on its first run.)
+      #
+      # What holds regardless of upstream is that a full build produces records
+      # and removes none: a record disappears only when its override does, so a
+      # deletion here means the build could not see the overrides — which is
+      # exactly the failure this job exists to catch.
+      # Cached so this job does not add a second unconditional 61 MB download
+      # to every pull request. The key is the committed config.yaml, which
+      # holds the pins, so a change to what is pinned fetches afresh and
+      # everything else reuses. `init` still verifies what it restores, and
+      # re-fetches anything missing, so a stale or partial cache cannot make
+      # the job pass on the wrong inputs.
+      - name: Cache the source downloads
+        uses: actions/cache@v4
+        with:
+          path: .sources
+          key: sources-${{ hashFiles('builder/config.yaml') }}
+          restore-keys: sources-
+
+      - name: Fetch the sources
+        run: make init
+
+      - name: Rebuild data/ from the committed overrides
+        run: make build-data 2>&1 | tee /tmp/build.log
+
+      - name: The rebuild must leave data/ whole
+        run: |
+          set -euo pipefail
+          test -s /tmp/build.log || { echo "::error::the build produced no output"; exit 1; }
+          # Deliberately not "did the build prune anything". Pruning a few
+          # records whose overrides were deleted is ordinary, and the builder
+          # allows it without a flag; failing on any prune at all would be
+          # stricter than the tool and would blame a wrong overridesDir for
+          # something else entirely. A build that really is misconfigured
+          # refuses on its own and fails the step above.
+          #
+          # What is wrong is a deletion relative to what is committed: it means
+          # data/ holds records whose overrides are gone, so somebody removed
+          # overrides without rebuilding.
+          if deleted=$(git diff --diff-filter=D --name-only -- data/) && [ -n "$deleted" ]; then
+            echo "::error::rebuilding deleted records that are still committed — an override was removed without running 'make build-data'"
+            echo "$deleted" | head -20
+            exit 1
+          fi
+          # Deliberately counts *.yaml under data/series and nothing else.
+          # data/index.tsv would be a tempting thing to check, but the prune
+          # only walks *.yaml/*.yml and `builder build` never touches the index
+          # — it would have survived the original incident untouched and proved
+          # nothing.
+          count=$(find data/series -name '*.yaml' | wc -l)
+          echo "series records after the rebuild: $count"
+          test "$count" -gt 0 || { echo "::error::the rebuild left data/series empty"; exit 1; }
+
+      # Informational: upstream moved, so this is expected to be non-empty and
+      # is what a dataset refresh would commit. It is printed rather than
+      # asserted for the reason above.
+      - name: Report how far data/ has drifted from upstream
+        run: |
+          if git diff --quiet -- data/; then
+            echo "data/ still matches what today's upstream produces"
+          else
+            git diff --stat -- data/ | tail -5
+            echo "::notice::upstream has moved since data/ was last rebuilt; run 'make init && make build-data' to refresh it"
+          fi

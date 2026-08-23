@@ -113,6 +113,13 @@ only wants the data:
 | `api/` | `cmd/api`, `cmd/index`, `internal/api`, `internal/index`, the proto | the root module |
 | `builder/` | `cmd/builder`, `internal/build`, the sources and `config/` | the root module |
 
+A full build owns `data/`: records whose override was deleted are pruned, so
+the tree never keeps a stale one. That also makes a wrong `overridesDir` the
+most destructive mistake available here, so the builder refuses to run when the
+overrides resolve to nothing and the prune would empty the dataset. CI checks
+the committed configuration both ways — a fast path-resolution test in the
+normal run, and a job that rebuilds `data/` from the real sources and diffs it.
+
 `builder` **writes** `data/`; `api/cmd/index` **indexes** it; `api/cmd/api`
 **reads** the embedded copy and serves it. Each module resolves the others with
 a `replace` pointing into the working tree, so no `go.work` is needed and every

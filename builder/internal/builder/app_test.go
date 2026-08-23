@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"context"
 	"errors"
+	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
@@ -454,5 +455,243 @@ func TestNewDefaults(t *testing.T) {
 	}
 	if a.Out != os.Stdout {
 		t.Error("nil writer should default to os.Stdout")
+	}
+}
+
+// A full build owns data/, so a misconfiguration that resolves the overrides to
+// an empty tree makes every committed record look orphaned. That is not
+// hypothetical: after the Go module split, config.yaml's overridesDir pointed at
+// a directory that no longer held the overrides, and `builder build` reported
+// "removed orphaned ..." 151 times, deleted the whole dataset and exited 0.
+//
+// Nothing to build must never mean delete everything.
+func TestBuildRefusesToPruneEverythingWhenNoOverridesResolve(t *testing.T) {
+	dir := newRepo(t)
+	a, out := newApp(t, dir, testsupport.FakeFetcher{})
+	ctx := context.Background()
+	if err := a.Init(ctx); err != nil {
+		t.Fatalf("init: %v", err)
+	}
+	if err := a.Build(ctx); err != nil {
+		t.Fatalf("first build: %v", err)
+	}
+	built, err := filepath.Glob(filepath.Join(dir, "data", "series", "*.yaml"))
+	if err != nil || len(built) == 0 {
+		t.Fatalf("the first build produced no records to protect (%v)", err)
+	}
+
+	// The overrides resolve to nothing — a wrong overridesDir, a moved tree, a
+	// bad --dir. The records in data/ are now unaccounted for.
+	if err := os.RemoveAll(filepath.Join(dir, "config", "overrides")); err != nil {
+		t.Fatal(err)
+	}
+	out.Reset()
+
+	err = a.Build(ctx)
+	if err == nil {
+		t.Fatal("build succeeded with no overrides; it should refuse rather than prune")
+	}
+	if !strings.Contains(err.Error(), "recognising none of them") {
+		t.Errorf("error = %v, want it to say it recognised none of the dataset", err)
+	}
+	if !strings.Contains(err.Error(), filepath.Join(dir, "config", "overrides")) {
+		t.Errorf("error = %v, want it to name the overrides directory it read", err)
+	}
+	if strings.Contains(out.String(), "removed orphaned") {
+		t.Errorf("records were pruned before the refusal:\n%s", out.String())
+	}
+	for _, path := range built {
+		if _, statErr := os.Stat(path); statErr != nil {
+			t.Errorf("%s was deleted despite the refusal: %v", filepath.Base(path), statErr)
+		}
+	}
+}
+
+// The guard must not fire on the legitimate case it resembles: a repository
+// with no overrides and no data yet. There is nothing to lose, so the build
+// should simply do nothing.
+func TestBuildWithNoOverridesAndNoDataSucceeds(t *testing.T) {
+	dir := newRepo(t)
+	a, _ := newApp(t, dir, testsupport.FakeFetcher{})
+	ctx := context.Background()
+	if err := a.Init(ctx); err != nil {
+		t.Fatalf("init: %v", err)
+	}
+	if err := os.RemoveAll(filepath.Join(dir, "config", "overrides")); err != nil {
+		t.Fatal(err)
+	}
+	if err := a.Build(ctx); err != nil {
+		t.Errorf("build with nothing to build and nothing to lose: %v", err)
+	}
+}
+
+// The dangerous case is not only an empty overrides directory. A path that
+// resolves to some *other* tree — an old snapshot, a sibling with a couple of
+// files, a half-finished move — yields a non-empty bundle, so a guard that only
+// checks for zero overrides waves it through and the prune still eats most of
+// the dataset.
+func TestBuildRefusesWhenItWouldDeleteMoreThanItWrites(t *testing.T) {
+	dir := newRepo(t)
+	a, out := newApp(t, dir, testsupport.FakeFetcher{})
+	ctx := context.Background()
+	if err := a.Init(ctx); err != nil {
+		t.Fatalf("init: %v", err)
+	}
+	if err := a.Build(ctx); err != nil {
+		t.Fatalf("first build: %v", err)
+	}
+	// Records the real overrides do not account for — as if data/ had been
+	// built from a larger tree than the one now being read.
+	for _, name := range []string{"ghost-a", "ghost-b", "ghost-c"} {
+		mustWrite(t, filepath.Join(dir, "data", "series", name+".yaml"), "series:\n  id: "+name+"\n")
+	}
+	out.Reset()
+
+	err := a.Build(ctx)
+	if err == nil {
+		t.Fatal("build pruned more than it wrote without refusing")
+	}
+	if !strings.Contains(err.Error(), "--allow-prune") {
+		t.Errorf("error = %v, want it to point at the escape hatch", err)
+	}
+	for _, name := range []string{"ghost-a", "ghost-b", "ghost-c"} {
+		if _, statErr := os.Stat(filepath.Join(dir, "data", "series", name+".yaml")); statErr != nil {
+			t.Errorf("%s was deleted despite the refusal", name)
+		}
+	}
+
+	// And the escape hatch works, because deliberately removing a lot of series
+	// is a real thing to want.
+	a.AllowPrune = true
+	if err := a.Build(ctx); err != nil {
+		t.Fatalf("build with --allow-prune: %v", err)
+	}
+	for _, name := range []string{"ghost-a", "ghost-b", "ghost-c"} {
+		if _, statErr := os.Stat(filepath.Join(dir, "data", "series", name+".yaml")); statErr == nil {
+			t.Errorf("%s survived a build that was explicitly allowed to prune", name)
+		}
+	}
+}
+
+// Pruning a few records because their overrides were removed is ordinary and
+// must not need a flag.
+func TestBuildPrunesASingleOrphanWithoutComplaint(t *testing.T) {
+	dir := newRepo(t)
+	a, out := newApp(t, dir, testsupport.FakeFetcher{})
+	ctx := context.Background()
+	if err := a.Init(ctx); err != nil {
+		t.Fatalf("init: %v", err)
+	}
+	if err := a.Build(ctx); err != nil {
+		t.Fatalf("first build: %v", err)
+	}
+	mustWrite(t, filepath.Join(dir, "data", "series", "ghost.yaml"), "series:\n  id: ghost\n")
+	out.Reset()
+
+	if err := a.Build(ctx); err != nil {
+		t.Fatalf("pruning one orphan should not need a flag: %v", err)
+	}
+	if _, err := os.Stat(filepath.Join(dir, "data", "series", "ghost.yaml")); err == nil {
+		t.Error("the orphan was not pruned")
+	}
+	if !strings.Contains(out.String(), "removed orphaned series/ghost.yaml") {
+		t.Errorf("the prune was not reported:\n%s", out.String())
+	}
+}
+
+// mustWrite creates a file and its parents, failing the test on error.
+func mustWrite(t *testing.T, path, body string) {
+	t.Helper()
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(path, []byte(body), 0o644); err != nil {
+		t.Fatal(err)
+	}
+}
+
+// A magnitude check — deletions against the number of overrides read — looks
+// like it covers the wrong-tree case and does not. An overridesDir resolving to
+// an unrelated tree of comparable size deletes the whole dataset while writing
+// a similar number of files, so the counts balance and the guard never fires.
+// What distinguishes the wrong tree is that none of it corresponds to what is
+// already there.
+func TestBuildRefusesAnUnrelatedTreeOfComparableSize(t *testing.T) {
+	dir := newRepo(t)
+	a, _ := newApp(t, dir, testsupport.FakeFetcher{})
+	ctx := context.Background()
+	if err := a.Init(ctx); err != nil {
+		t.Fatalf("init: %v", err)
+	}
+	if err := a.Build(ctx); err != nil {
+		t.Fatalf("first build: %v", err)
+	}
+	// A dataset far larger than the overrides account for, sharing no paths
+	// with them — as if data/ came from a different tree entirely.
+	var existing []string
+	for i := 0; i < 12; i++ {
+		path := filepath.Join(dir, "data", "series", fmt.Sprintf("other-%02d.yaml", i))
+		mustWrite(t, path, fmt.Sprintf("series:\n  id: other-%02d\n", i))
+		existing = append(existing, path)
+	}
+
+	err := a.Build(ctx)
+	if err == nil {
+		t.Fatal("build deleted an unrecognised dataset without refusing")
+	}
+	if !strings.Contains(err.Error(), "recognising none of them") &&
+		!strings.Contains(err.Error(), "keeping only") {
+		t.Errorf("error = %v, want it to say how little of the dataset it recognised", err)
+	}
+	for _, path := range existing {
+		if _, statErr := os.Stat(path); statErr != nil {
+			t.Errorf("%s was deleted despite the refusal", filepath.Base(path))
+		}
+	}
+}
+
+// The refusal has to happen before anything is written, or a build that refuses
+// still leaves data/ partly overwritten by the wrong tree — an error that reads
+// as "nothing happened" while the dataset has already changed.
+func TestARefusedBuildWritesNothing(t *testing.T) {
+	dir := newRepo(t)
+	a, _ := newApp(t, dir, testsupport.FakeFetcher{})
+	ctx := context.Background()
+	if err := a.Init(ctx); err != nil {
+		t.Fatalf("init: %v", err)
+	}
+	if err := a.Build(ctx); err != nil {
+		t.Fatalf("first build: %v", err)
+	}
+
+	// Snapshot every record, including the ones the overrides do account for
+	// and would therefore rewrite.
+	before := map[string][]byte{}
+	paths, _ := filepath.Glob(filepath.Join(dir, "data", "series", "*.yaml"))
+	for _, p := range paths {
+		b, err := os.ReadFile(p)
+		if err != nil {
+			t.Fatal(err)
+		}
+		before[p] = b
+	}
+	// Enough unaccounted-for records to trip the refusal.
+	for i := 0; i < 5; i++ {
+		mustWrite(t, filepath.Join(dir, "data", "series", fmt.Sprintf("ghost-%d.yaml", i)),
+			fmt.Sprintf("series:\n  id: ghost-%d\n", i))
+	}
+
+	if err := a.Build(ctx); err == nil {
+		t.Fatal("expected the build to refuse")
+	}
+	for p, want := range before {
+		got, err := os.ReadFile(p)
+		if err != nil {
+			t.Errorf("%s vanished during a refused build: %v", filepath.Base(p), err)
+			continue
+		}
+		if !bytes.Equal(got, want) {
+			t.Errorf("%s was rewritten during a refused build", filepath.Base(p))
+		}
 	}
 }

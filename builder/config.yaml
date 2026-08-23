@@ -19,10 +19,6 @@ sources:
         version: latest
         filename: wikidata-entities.json
 settings:
-    # Relative to this module's directory, which is what `builder --dir`
-    # points at. The dataset and the source cache stay at the repository root
-    # — data/ is the product and its path is public — so they are reached with
-    # "..", while the overrides belong to the builder and sit beside it.
     sourcesDir: ../.sources
     overridesDir: config/overrides
     dataDir: ../data

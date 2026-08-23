@@ -24,6 +24,10 @@ api: ## Run the read-only Connect API server locally (defaults to :8080)
 
 # --- Dataset: the listing index the API serves ------------------------------
 
+.PHONY: init
+init: ## Download the pinned open-data sources into the cache
+	cd builder && go run ./cmd/builder init
+
 .PHONY: build-data
 build-data: ## Rebuild data/ from the sources and the builder's overrides
 	cd builder && go run ./cmd/builder build
