@@ -6,6 +6,7 @@ package build
 import (
 	"fmt"
 	"sort"
+	"strings"
 	"time"
 
 	"github.com/michael-freling/anime-metadata-db/builder/internal/overrides"
@@ -146,7 +147,11 @@ func fillTitles(entity string, dst *model.Title, a offlinedb.Anime, report *Repo
 		// written in Latin script — the Fate/stay night case — claims nothing,
 		// so there is nothing to disagree with, and dropping it would lose a
 		// perfectly good title to a rule about a question it never answered.
-		if lang, _ := model.NativeLanguage(inferred.Original); lang != "" && lang != authored {
+		// EqualFold, because a tag's case is convention and not a rule: an
+		// override writing `Ko-Latn` names the same language as `ko-Latn`, and
+		// reading it as a different one would throw the source's title away
+		// over a capital letter. The API compares these tags the same way.
+		if lang, _ := model.NativeLanguage(inferred.Original); lang != "" && !strings.EqualFold(lang, authored) {
 			inferred = model.Title{}
 		}
 	}

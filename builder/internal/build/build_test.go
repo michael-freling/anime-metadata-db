@@ -186,6 +186,16 @@ func TestFillTitlesMerge(t *testing.T) {
 		t.Errorf("a Latin-script source title should still fill the original, got %q", authoredKorean.Original)
 	}
 
+	// Tag case is convention, not a rule, and the schema does not constrain
+	// it. `Ko-Latn` names the same language as `ko-Latn`, so it must not read
+	// as a disagreement — that would throw away the source's title over a
+	// capital letter and then report the original as missing.
+	oddCase := &model.Title{Translations: map[string]string{"Ja-LATN": "Authored Romaji"}}
+	fillTitles("season c", oddCase, a, &Report{})
+	if oddCase.Original != "鬼滅の刃" || oddCase.Translations["ja"] != "鬼滅の刃" {
+		t.Errorf("an unconventionally cased romanization should still agree: %+v", oddCase)
+	}
+
 	// The guard that stops a second romanization has to survive a tag written
 	// with a region too: `ja-Latn-JP` and `ja-Latn` are different map keys, so
 	// the plain already-authored check misses them and only that guard catches
