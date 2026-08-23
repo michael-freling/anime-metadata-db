@@ -1,10 +1,11 @@
 package build
 
 import (
-	"github.com/michael-freling/anime-metadata-db/builder/internal/sources/offlinedb"
-	"github.com/michael-freling/anime-metadata-db/internal/model"
 	"sort"
 	"strings"
+
+	"github.com/michael-freling/anime-metadata-db/builder/internal/sources/offlinedb"
+	"github.com/michael-freling/anime-metadata-db/internal/model"
 )
 
 // inferTitle best-effort derives a Title from an offline-database entry: the
