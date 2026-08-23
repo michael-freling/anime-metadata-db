@@ -335,18 +335,20 @@ func (s *Service) ListAppearances(_ context.Context, req *connect.Request[animev
 	if id == "" {
 		return nil, connect.NewError(connect.CodeInvalidArgument, fmt.Errorf("character_id is required"))
 	}
-	if !s.store.CharacterExists(id) {
-		return nil, connect.NewError(connect.CodeNotFound, fmt.Errorf("character %q not found", id))
-	}
-	loc := newLocalizer(req.Header().Get("Accept-Language"))
-	// The character's own cast applies to every appearance, so it is needed to
-	// resolve each one. Reading it costs nothing extra: AppearancesPage parses
-	// the same record, and the store caches it.
-	character, _, err := s.store.Character(id)
+	// Resolved once: the appearances to page and the cast that holds
+	// throughout, which each of them is resolved against, both live on the
+	// character. The not-found check comes from this read rather than a
+	// separate index probe, so there is no window where one says yes and the
+	// other returns nothing to page.
+	character, ok, err := s.store.Character(id)
 	if err != nil {
 		return nil, storeError(err)
 	}
-	page, err := s.store.AppearancesPage(id, req.Msg.GetPageToken(), int(req.Msg.GetLimit()))
+	if !ok {
+		return nil, connect.NewError(connect.CodeNotFound, fmt.Errorf("character %q not found", id))
+	}
+	loc := newLocalizer(req.Header().Get("Accept-Language"))
+	page, err := s.store.AppearancesPage(character, req.Msg.GetPageToken(), int(req.Msg.GetLimit()))
 	if err != nil {
 		return nil, storeError(err)
 	}

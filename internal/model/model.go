@@ -259,10 +259,9 @@ func (r Record) EachSeries(fn func(*Series)) {
 // builder's validation and prune accounting — reads the cast through here, so
 // a character this missed would be silently unservable rather than rejected.
 //
-// The common case returns the franchise or series slice directly, sharing the
-// record's backing array so elements can be mutated in place. Only a franchise
-// that nests cast at both levels allocates, and then the copies are of the
-// slice headers, so mutating an element still writes through to the record.
+// It is for READING. A franchise nesting cast at both levels has no single
+// slice to hand back, so this one allocates and copies, and writing to an
+// element of the result would be lost. Use EachCharacter to modify.
 func (r Record) Cast() []Character {
 	switch {
 	case r.Franchise != nil:
@@ -283,4 +282,27 @@ func (r Record) Cast() []Character {
 		return r.Series.Characters
 	}
 	return nil
+}
+
+// EachCharacter calls fn for every character in the record, by pointer, so the
+// record itself is what changes. It is the writing counterpart to Cast: the
+// build fills names and default appearances through here, and doing that
+// through Cast would silently discard the work for a franchise that nests cast
+// at both levels, since Cast has to copy to return one slice.
+func (r Record) EachCharacter(fn func(*Character)) {
+	switch {
+	case r.Franchise != nil:
+		for i := range r.Franchise.Characters {
+			fn(&r.Franchise.Characters[i])
+		}
+		for i := range r.Franchise.Series {
+			for j := range r.Franchise.Series[i].Characters {
+				fn(&r.Franchise.Series[i].Characters[j])
+			}
+		}
+	case r.Series != nil:
+		for i := range r.Series.Characters {
+			fn(&r.Series.Characters[i])
+		}
+	}
 }

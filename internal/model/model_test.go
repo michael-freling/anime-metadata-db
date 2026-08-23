@@ -161,14 +161,6 @@ func TestRecordCastSpansBothLevels(t *testing.T) {
 		t.Errorf("cast = %v, want the franchise character then the series one", got)
 	}
 
-	// The common shape — cast at one level only — must still hand back the
-	// record's own slice, so callers that mutate an element write through.
-	flat := Record{Franchise: &Franchise{Characters: []Character{{ID: "x"}}, Series: []Series{{ID: "a"}}}}
-	flat.Cast()[0].ID = "mutated"
-	if flat.Franchise.Characters[0].ID != "mutated" {
-		t.Error("Cast should expose the record's own characters, not a copy")
-	}
-
 	standalone := Record{Series: &Series{Characters: []Character{{ID: "y"}}}}
 	if cast := standalone.Cast(); len(cast) != 1 || cast[0].ID != "y" {
 		t.Errorf("standalone series cast = %v", cast)
@@ -176,4 +168,44 @@ func TestRecordCastSpansBothLevels(t *testing.T) {
 	if cast := (Record{}).Cast(); cast != nil {
 		t.Errorf("empty record cast = %v, want nil", cast)
 	}
+}
+
+// Cast has to copy when a franchise nests cast at both levels, so writing
+// through it is not reliable — EachCharacter is what the build uses to fill
+// names and default appearances, and it has to reach every character at both
+// levels. Getting this wrong loses the fill silently: the record is written
+// back to data/ with the copy's changes discarded.
+func TestRecordEachCharacterWritesThrough(t *testing.T) {
+	rec := Record{Franchise: &Franchise{
+		Characters: []Character{{ID: "spans-the-brand"}},
+		Series: []Series{
+			{ID: "a", Characters: []Character{{ID: "only-in-a"}}},
+			{ID: "b", Characters: []Character{{ID: "only-in-b"}}},
+		},
+	}}
+	visited := 0
+	rec.EachCharacter(func(c *Character) {
+		visited++
+		c.Names = Title{Original: "filled " + c.ID}
+	})
+	if visited != 3 {
+		t.Errorf("visited %d characters, want 3", visited)
+	}
+	if got := rec.Franchise.Characters[0].Names.Original; got != "filled spans-the-brand" {
+		t.Errorf("franchise-level character = %q, not written through", got)
+	}
+	if got := rec.Franchise.Series[0].Characters[0].Names.Original; got != "filled only-in-a" {
+		t.Errorf("series-nested character = %q, not written through", got)
+	}
+	if got := rec.Franchise.Series[1].Characters[0].Names.Original; got != "filled only-in-b" {
+		t.Errorf("second series' character = %q, not written through", got)
+	}
+
+	standalone := Record{Series: &Series{Characters: []Character{{ID: "y"}}}}
+	standalone.EachCharacter(func(c *Character) { c.Names = Title{Original: "filled"} })
+	if standalone.Series.Characters[0].Names.Original != "filled" {
+		t.Error("standalone series character not written through")
+	}
+
+	(Record{}).EachCharacter(func(*Character) { t.Error("empty record visited a character") })
 }
