@@ -209,9 +209,18 @@ was named to be specific to. Each link repeats the staff member's resolved
 `staffName`, so rendering a cast list needs no second call.
 
 Saber is the worked example: Ayako Kawasumi voices her in every Fate work and
-sits on the character, while Kate Higgins (Fate/stay night) and Kari Wahlgren
-(Fate/Zero) sit on their appearances. Asking for Fate/Zero's cast returns
-Kawasumi and Wahlgren, and never Higgins.
+sits on the character, while Kate Higgins and Kari Wahlgren sit on the
+appearances they were cast in. Asking for Fate/Zero's cast returns Kawasumi and
+Wahlgren, and never Higgins.
+
+An appearance can be narrower than a whole series. Higgins dubbed the 2006
+*Fate/stay night* only, not the 2014 re-adaptation the same series id also
+holds, so her appearance carries a `scope` naming that season — and Saber holds
+a second appearance, for the other installments, with no English cast. An
+appearance is therefore identified by its `seriesId` **and** its `scope`, and
+each scope entry carries the installment's resolved `title` (plus `number` for a
+season, which usually has no title of its own) so you can label it without a
+second call.
 
 `GetStaff` is the inverse — the characters a person is cast as, with the
 language and the series each casting covers:

@@ -356,6 +356,17 @@ func (ix *Index) Work(id string) (seriesID, file string, kind WorkKind, ok bool)
 	return ix.text(s.id), ix.text(s.file), w.kind, true
 }
 
+// WorkByID materialises one installment — a season, movie or special — from the
+// index. It exists so a caller holding an id can label it without reopening and
+// parsing the record file that holds it.
+func (ix *Index) WorkByID(id string) (Work, bool) {
+	row, ok := ix.workByID[id]
+	if !ok {
+		return Work{}, false
+	}
+	return ix.workAt(int(row)), true
+}
+
 // SeriesOf returns one page of the series belonging to franchiseID, in catalog
 // order. An unknown franchise yields an empty page.
 func (ix *Index) SeriesOf(franchiseID, token string, limit int) (Page[Ref], error) {

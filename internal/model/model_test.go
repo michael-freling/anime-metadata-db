@@ -140,3 +140,40 @@ func TestRecordEachSeriesMutates(t *testing.T) {
 		t.Error("EachSeries should expose mutable pointers")
 	}
 }
+
+// A franchise may hold cast at both levels: one character spanning its series,
+// another belonging to a single one. Cast has to return both, because
+// everything downstream reads the record through it — a character it dropped
+// would be validated by nothing, pruned by nothing and served by nothing.
+func TestRecordCastSpansBothLevels(t *testing.T) {
+	rec := Record{Franchise: &Franchise{
+		Characters: []Character{{ID: "spans-the-brand"}},
+		Series: []Series{
+			{ID: "a", Characters: []Character{{ID: "only-in-a"}}},
+			{ID: "b"},
+		},
+	}}
+	got := make([]string, 0, 2)
+	for _, c := range rec.Cast() {
+		got = append(got, c.ID)
+	}
+	if len(got) != 2 || got[0] != "spans-the-brand" || got[1] != "only-in-a" {
+		t.Errorf("cast = %v, want the franchise character then the series one", got)
+	}
+
+	// The common shape — cast at one level only — must still hand back the
+	// record's own slice, so callers that mutate an element write through.
+	flat := Record{Franchise: &Franchise{Characters: []Character{{ID: "x"}}, Series: []Series{{ID: "a"}}}}
+	flat.Cast()[0].ID = "mutated"
+	if flat.Franchise.Characters[0].ID != "mutated" {
+		t.Error("Cast should expose the record's own characters, not a copy")
+	}
+
+	standalone := Record{Series: &Series{Characters: []Character{{ID: "y"}}}}
+	if cast := standalone.Cast(); len(cast) != 1 || cast[0].ID != "y" {
+		t.Errorf("standalone series cast = %v", cast)
+	}
+	if cast := (Record{}).Cast(); cast != nil {
+		t.Errorf("empty record cast = %v, want nil", cast)
+	}
+}

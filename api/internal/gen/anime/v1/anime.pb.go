@@ -1058,12 +1058,19 @@ func (x *VoiceActor) GetStaffName() string {
 }
 
 // ScopeRef narrows a CharacterAppearance to one installment of a Series.
-// Exactly one field is set.
+// Exactly one id field is set.
 type ScopeRef struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	SeasonId      string                 `protobuf:"bytes,1,opt,name=season_id,json=seasonId,proto3" json:"season_id,omitempty"`
-	MovieId       string                 `protobuf:"bytes,2,opt,name=movie_id,json=movieId,proto3" json:"movie_id,omitempty"`
-	SpecialId     string                 `protobuf:"bytes,3,opt,name=special_id,json=specialId,proto3" json:"special_id,omitempty"`
+	state     protoimpl.MessageState `protogen:"open.v1"`
+	SeasonId  string                 `protobuf:"bytes,1,opt,name=season_id,json=seasonId,proto3" json:"season_id,omitempty"`
+	MovieId   string                 `protobuf:"bytes,2,opt,name=movie_id,json=movieId,proto3" json:"movie_id,omitempty"`
+	SpecialId string                 `protobuf:"bytes,3,opt,name=special_id,json=specialId,proto3" json:"special_id,omitempty"`
+	// title is that installment's own title resolved for the request's
+	// Accept-Language, denormalized for the same reason series_title is: a client
+	// labelling a scoped appearance should not have to call GetSeries to do it.
+	// A numbered season usually has no title of its own, so number carries its
+	// position for a caller composing a label; it is 0 for a movie or special.
+	Title         string `protobuf:"bytes,4,opt,name=title,proto3" json:"title,omitempty"`
+	Number        int32  `protobuf:"varint,5,opt,name=number,proto3" json:"number,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1117,6 +1124,20 @@ func (x *ScopeRef) GetSpecialId() string {
 		return x.SpecialId
 	}
 	return ""
+}
+
+func (x *ScopeRef) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *ScopeRef) GetNumber() int32 {
+	if x != nil {
+		return x.Number
+	}
+	return 0
 }
 
 // CharacterAppearance is a Character <-> Series edge. series_id is the rollup
@@ -4001,12 +4022,14 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\bstaff_id\x18\x01 \x01(\tR\astaffId\x12\x1a\n" +
 	"\blanguage\x18\x02 \x01(\tR\blanguage\x12\x1d\n" +
 	"\n" +
-	"staff_name\x18\x03 \x01(\tR\tstaffName\"a\n" +
+	"staff_name\x18\x03 \x01(\tR\tstaffName\"\x8f\x01\n" +
 	"\bScopeRef\x12\x1b\n" +
 	"\tseason_id\x18\x01 \x01(\tR\bseasonId\x12\x19\n" +
 	"\bmovie_id\x18\x02 \x01(\tR\amovieId\x12\x1d\n" +
 	"\n" +
-	"special_id\x18\x03 \x01(\tR\tspecialId\"\xf2\x01\n" +
+	"special_id\x18\x03 \x01(\tR\tspecialId\x12\x14\n" +
+	"\x05title\x18\x04 \x01(\tR\x05title\x12\x16\n" +
+	"\x06number\x18\x05 \x01(\x05R\x06number\"\xf2\x01\n" +
 	"\x13CharacterAppearance\x12\x1b\n" +
 	"\tseries_id\x18\x01 \x01(\tR\bseriesId\x12!\n" +
 	"\fseries_title\x18\x05 \x01(\tR\vseriesTitle\x12(\n" +

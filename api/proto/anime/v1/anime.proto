@@ -171,11 +171,18 @@ message VoiceActor {
 }
 
 // ScopeRef narrows a CharacterAppearance to one installment of a Series.
-// Exactly one field is set.
+// Exactly one id field is set.
 message ScopeRef {
   string season_id = 1;
   string movie_id = 2;
   string special_id = 3;
+  // title is that installment's own title resolved for the request's
+  // Accept-Language, denormalized for the same reason series_title is: a client
+  // labelling a scoped appearance should not have to call GetSeries to do it.
+  // A numbered season usually has no title of its own, so number carries its
+  // position for a caller composing a label; it is 0 for a movie or special.
+  string title = 4;
+  int32 number = 5;
 }
 
 // CharacterAppearance is a Character <-> Series edge. series_id is the rollup

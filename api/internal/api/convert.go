@@ -310,14 +310,38 @@ func toAppearance(loc localizer, store *Store, throughout []model.VoiceActor, a 
 	if len(a.Scope) > 0 {
 		out.Scope = make([]*animev1.ScopeRef, len(a.Scope))
 		for i, sc := range a.Scope {
-			out.Scope[i] = &animev1.ScopeRef{
+			ref := &animev1.ScopeRef{
 				SeasonId:  sc.SeasonID,
 				MovieId:   sc.MovieID,
 				SpecialId: sc.SpecialID,
 			}
+			// Resolve whichever id is set to a label. Without it a client has
+			// only an id to show, and showing a reader an id is the thing this
+			// site's own tests forbid.
+			if id := scopeID(sc); id != "" {
+				if w, ok := store.Work(id); ok {
+					ref.Title, _ = loc.title(w.Titles)
+					ref.Number = int32(w.Number)
+				}
+			}
+			out.Scope[i] = ref
 		}
 	}
 	return out
+}
+
+// scopeID returns whichever installment id a scope ref sets, or "" for a ref
+// that sets none (which the build's validation rejects).
+func scopeID(sc model.ScopeRef) string {
+	switch {
+	case sc.SeasonID != "":
+		return sc.SeasonID
+	case sc.MovieID != "":
+		return sc.MovieID
+	case sc.SpecialID != "":
+		return sc.SpecialID
+	}
+	return ""
 }
 
 // effectiveCast appends the cast specific to one appearance to the cast that

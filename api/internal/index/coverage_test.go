@@ -188,20 +188,6 @@ func totals(d *Dataset) []string {
 		fmt.Sprintf("| Episodes | %d |", episodes))
 }
 
-// recordCast is every character in one record. A franchise can hold cast at the
-// franchise level (a character spanning its series) and inside each series, and
-// counting only one of the two would undercount whichever the authors chose.
-func recordCast(rec model.Record) []model.Character {
-	if rec.Franchise == nil {
-		return rec.Cast()
-	}
-	out := append([]model.Character{}, rec.Franchise.Characters...)
-	for _, s := range rec.Franchise.Series {
-		out = append(out, s.Characters...)
-	}
-	return out
-}
-
 // cast renders the R2 table: characters, the staff who voice them, and the
 // links between them counted per language.
 func cast(d *Dataset) []string {
@@ -210,7 +196,7 @@ func cast(d *Dataset) []string {
 	links := map[string]int{}
 	for _, f := range d.files {
 		f.rec.EachSeries(func(*model.Series) { series++ })
-		for _, c := range recordCast(f.rec) {
+		for _, c := range f.rec.Cast() {
 			characters++
 			cast := len(c.VoiceActors)
 			for _, a := range c.Appearances {

@@ -52,3 +52,53 @@ func TestResolveTitle(t *testing.T) {
 		}
 	}
 }
+
+// The cast an appearance reports is the character's plus its own, and a credit
+// named in both must not be listed twice. Restating the constant cast on an
+// appearance is redundant rather than wrong — it is exactly what the old
+// replacing rule forced authors to do — so old-style data has to keep resolving
+// to a sensible list.
+func TestEffectiveCast(t *testing.T) {
+	ja := model.VoiceActor{StaffID: "ayako-kawasumi", Language: "ja"}
+	en := model.VoiceActor{StaffID: "kate-higgins", Language: "en"}
+	// The same person cast in two languages is two credits, not one.
+	dual := model.VoiceActor{StaffID: "ayako-kawasumi", Language: "en"}
+
+	for _, tc := range []struct {
+		name                 string
+		throughout, specific []model.VoiceActor
+		want                 []model.VoiceActor
+	}{
+		{"nothing specific keeps the constant cast", []model.VoiceActor{ja}, nil, []model.VoiceActor{ja}},
+		{"the constant cast leads, the specific follows",
+			[]model.VoiceActor{ja}, []model.VoiceActor{en}, []model.VoiceActor{ja, en}},
+		{"a restated credit is not doubled",
+			[]model.VoiceActor{ja}, []model.VoiceActor{ja, en}, []model.VoiceActor{ja, en}},
+		{"a duplicate within one list is dropped too",
+			[]model.VoiceActor{ja, ja}, []model.VoiceActor{en, en}, []model.VoiceActor{ja, en}},
+		{"the same actor in another language is a separate credit",
+			[]model.VoiceActor{ja}, []model.VoiceActor{dual}, []model.VoiceActor{ja, dual}},
+		{"a character with no constant cast reports only the appearance's",
+			nil, []model.VoiceActor{en}, []model.VoiceActor{en}},
+		{"no cast anywhere", nil, nil, nil},
+	} {
+		got := effectiveCast(tc.throughout, tc.specific)
+		if len(got) != len(tc.want) {
+			t.Errorf("%s: got %+v, want %+v", tc.name, got, tc.want)
+			continue
+		}
+		for i := range got {
+			if got[i] != tc.want[i] {
+				t.Errorf("%s: got %+v, want %+v", tc.name, got, tc.want)
+				break
+			}
+		}
+	}
+
+	// The character's own slice must not be written through when an appearance
+	// adds to it: every other appearance reads the same backing array.
+	throughout := []model.VoiceActor{ja}
+	if got := effectiveCast(throughout, []model.VoiceActor{en}); len(got) != 2 || len(throughout) != 1 {
+		t.Errorf("merging appended into the character's own cast: %+v", throughout)
+	}
+}

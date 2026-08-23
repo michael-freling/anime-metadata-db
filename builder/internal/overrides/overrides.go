@@ -34,11 +34,26 @@ type Override struct {
 	Numbered []string `yaml:"numbered,omitempty"`
 }
 
-// Cast returns the characters nested under the franchise or series.
+// Cast returns every character the override authors, at either level: nested
+// under the franchise (one spanning its series) and under each series it holds.
+// It mirrors model.Record.Cast, and for the same reason — the ids it misses are
+// the ones the build never validates and never prunes.
 func (o Override) Cast() []model.Character {
 	switch {
 	case o.Franchise != nil:
-		return o.Franchise.Characters
+		nested := 0
+		for _, s := range o.Franchise.Series {
+			nested += len(s.Characters)
+		}
+		if nested == 0 {
+			return o.Franchise.Characters
+		}
+		out := make([]model.Character, 0, len(o.Franchise.Characters)+nested)
+		out = append(out, o.Franchise.Characters...)
+		for _, s := range o.Franchise.Series {
+			out = append(out, s.Characters...)
+		}
+		return out
 	case o.Series != nil:
 		return o.Series.Characters
 	}

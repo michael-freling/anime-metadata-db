@@ -6,6 +6,7 @@ import { Code, ConnectError } from '@connectrpc/connect';
 import { localizedApi } from '@/lib/api';
 import { ApiError, isBadRequest, PageHeader, Pager, plural } from '@/components/browse';
 import { humanizeId, languageLabel } from '@/lib/format';
+import type { ScopeRef } from '@/lib/gen/anime/v1/anime_pb';
 
 // Shared by generateMetadata and the page body, which would otherwise each
 // issue their own RPC for the same character.
@@ -24,6 +25,23 @@ const load = cache(async (id: string) => {
 
 // How many appearances one page shows.
 const APPEARANCE_LIMIT = 24;
+
+// A scope narrows an appearance to particular installments of a series — Saber
+// is in every Fate/stay night adaptation, but Kate Higgins dubbed only the 2006
+// one. Exactly one id is set per entry.
+function scopeId(s: ScopeRef): string {
+  return s.seasonId || s.movieId || s.specialId;
+}
+
+// The API resolves each installment's own title, which a numbered season
+// usually lacks — hence the number as a fallback. An entry the index could not
+// resolve is dropped rather than printed as an id.
+function scopeLabel(a: { scope: ScopeRef[] }): string {
+  return a.scope
+    .map((s) => s.title || (s.number ? `Season ${s.number}` : ''))
+    .filter(Boolean)
+    .join(', ');
+}
 
 // GetCharacter embeds a capped page of appearances; ListAppearances is what
 // makes the rest reachable.
@@ -122,12 +140,23 @@ export default async function CharacterPage({
           <ul>
             {page.appearances.map((a) => (
               <li
-                key={a.seriesId}
+                // A character can hold more than one appearance in a series
+                // when the cast changes between its installments, so the series
+                // id alone is not a key.
+                key={`${a.seriesId}:${a.scope.map(scopeId).join('+')}`}
                 className="flex flex-wrap items-baseline justify-between gap-4 border-b border-fd-border py-3 last:border-0"
               >
-                <Link href={`/browse/${a.seriesId}`} className="font-medium hover:underline">
-                  {a.seriesTitle || humanizeId(a.seriesId)}
-                </Link>
+                <div>
+                  <Link href={`/browse/${a.seriesId}`} className="font-medium hover:underline">
+                    {a.seriesTitle || humanizeId(a.seriesId)}
+                  </Link>
+                  {/* Which installments this appearance covers. Only a series
+                      whose cast changed part-way through has one, and without
+                      it two such rows would read as duplicates. */}
+                  {scopeLabel(a) ? (
+                    <p className="text-sm text-fd-muted-foreground">{scopeLabel(a)}</p>
+                  ) : null}
+                </div>
                 {/* The cast for that series, resolved by the API: the actors
                     above plus anyone cast only there. */}
                 {a.voiceActors.length > 0 ? (

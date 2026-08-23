@@ -275,10 +275,26 @@ func TestGetCharacter(t *testing.T) {
 	if len(appearances) != 2 {
 		t.Fatalf("got %d appearances, want 2", len(appearances))
 	}
-	// Scope covers all three installment kinds.
+	// Scope covers all three installment kinds, and each carries a label so a
+	// client can name the installment without showing a reader its id. A
+	// numbered season usually has no title of its own, which is what number is
+	// for; a movie or special has no number, which is what the title is for.
 	scope := appearances[0].GetScope()
 	if len(scope) != 3 || scope[0].GetSeasonId() != "aaa-s1" || scope[1].GetMovieId() != "aaa-movie" || scope[2].GetSpecialId() != "aaa-ova" {
-		t.Errorf("scope = %+v", scope)
+		t.Fatalf("scope = %+v", scope)
+	}
+	if scope[0].GetNumber() != 1 || scope[0].GetTitle() != "" {
+		t.Errorf("season scope = %+v, want number 1 and no title of its own", scope[0])
+	}
+	if scope[1].GetTitle() != "Alpha Movie" || scope[1].GetNumber() != 0 {
+		t.Errorf("movie scope = %+v, want its title and no number", scope[1])
+	}
+	// An installment with neither a title nor a number — this fixture's OVA —
+	// resolves to no label at all. The client then shows the series alone
+	// rather than inventing a name or printing the id, which is the least
+	// misleading of the options available.
+	if scope[2].GetTitle() != "" || scope[2].GetNumber() != 0 {
+		t.Errorf("untitled special scope = %+v, want no label", scope[2])
 	}
 	// An appearance that lists no cast of its own still reports the character's:
 	// the response carries the cast that actually applies, so a caller never has

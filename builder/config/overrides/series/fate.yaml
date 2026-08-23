@@ -58,17 +58,28 @@ franchise:
       # the character's rather than replacing it, so the Japanese voice does not
       # have to be restated here.
       #
-      # Which English actor goes where comes from Wikidata's "applies to work"
-      # (P10663) on each voice-actor statement. Michelle Ruff is deliberately
-      # absent: hers applies to the 2010 Unlimited Blade Works film (Q3740068),
-      # which this dataset does not carry. Add her with that film, not before.
+      # Which appearance each English credit belongs to comes from Wikidata's
+      # "applies to work" (P10663) on the voice-actor statement, and it is more
+      # specific than the series: Kate Higgins's names the 2006 TV series alone,
+      # not the 2014 re-adaptation or the Heaven's Feel films that this same
+      # series id also holds, so her appearance is scoped to that season. Those
+      # other installments get their own appearance with no English cast — Saber
+      # is certainly in them, and the source simply does not say who dubbed her.
+      # Michelle Ruff is absent for the same reason in the opposite direction:
+      # hers applies to the 2010 Unlimited Blade Works film (Q3740068), which
+      # this dataset does not carry at all. Add her with that film, not before.
       voiceActors:
         - { staffId: ayako-kawasumi, language: ja }
       appearances:
-        - seriesId: fate-stay-night # 2006 TV series (Q60987686)
+        - seriesId: fate-stay-night
+          scope: [{ seasonId: fate-stay-night-s1 }] # 2006 TV series (Q60987686)
           voiceActors:
             - { staffId: kate-higgins, language: en }
-        - seriesId: fate-zero # Q96500220
+        - seriesId: fate-stay-night
+          scope:
+            - { seasonId: fate-stay-night-s2 } # Unlimited Blade Works (2014)
+            - { movieId: fate-stay-night-hf-1 } # Heaven's Feel I (2017)
+        - seriesId: fate-zero # Q96500220 — one story across both cours
           voiceActors:
             - { staffId: kari-wahlgren, language: en }
 numbered: [fate-zero, fate-strange-fake]

@@ -253,13 +253,32 @@ func (r Record) EachSeries(fn func(*Series)) {
 	}
 }
 
-// Cast returns the record's characters — nested under the franchise (for a
-// multi-series brand) or the standalone series. The returned slice shares the
-// record's backing array, so elements can be mutated in place.
+// Cast returns every character in the record: nested under the franchise (for
+// one spanning its series) and under each series it holds, or under the
+// standalone series. Everything downstream — the index, the store, the
+// builder's validation and prune accounting — reads the cast through here, so
+// a character this missed would be silently unservable rather than rejected.
+//
+// The common case returns the franchise or series slice directly, sharing the
+// record's backing array so elements can be mutated in place. Only a franchise
+// that nests cast at both levels allocates, and then the copies are of the
+// slice headers, so mutating an element still writes through to the record.
 func (r Record) Cast() []Character {
 	switch {
 	case r.Franchise != nil:
-		return r.Franchise.Characters
+		nested := 0
+		for _, s := range r.Franchise.Series {
+			nested += len(s.Characters)
+		}
+		if nested == 0 {
+			return r.Franchise.Characters
+		}
+		out := make([]Character, 0, len(r.Franchise.Characters)+nested)
+		out = append(out, r.Franchise.Characters...)
+		for _, s := range r.Franchise.Series {
+			out = append(out, s.Characters...)
+		}
+		return out
 	case r.Series != nil:
 		return r.Series.Characters
 	}

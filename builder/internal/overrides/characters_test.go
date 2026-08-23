@@ -132,3 +132,31 @@ func TestLoadDirKindErrors(t *testing.T) {
 		}
 	})
 }
+
+// A franchise override may author cast at both levels — one character spanning
+// its series, another belonging to a single one — and both have to reach the
+// build. IDs() is the part that matters most: an id missing from it is an id
+// the duplicate check never sees and the prune accounting never counts as kept.
+func TestParseFranchiseCastAtBothLevels(t *testing.T) {
+	const yaml = `franchise:
+  id: fate
+  characters:
+    - id: artoria-pendragon
+  series:
+    - id: fate-zero
+      characters:
+        - id: kiritsugu-emiya
+`
+	o, err := Parse([]byte(yaml), "series/fate.yaml")
+	if err != nil {
+		t.Fatal(err)
+	}
+	cast := o.Cast()
+	if len(cast) != 2 || cast[0].ID != "artoria-pendragon" || cast[1].ID != "kiritsugu-emiya" {
+		t.Fatalf("Cast() = %+v, want both levels", cast)
+	}
+	ids := o.IDs()
+	if len(ids) != 3 || ids[0] != "fate" || ids[2] != "kiritsugu-emiya" {
+		t.Errorf("IDs() = %v, want the franchise plus both characters", ids)
+	}
+}

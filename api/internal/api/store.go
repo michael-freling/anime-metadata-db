@@ -325,6 +325,10 @@ func (s *Store) Characters(seriesID string, limit int) ([]*model.Character, erro
 // references but does not embed.
 func (s *Store) SeriesTitle(id string) (model.Title, bool) { return s.ix.SeriesTitle(id) }
 
+// Work resolves an installment id to its indexed row, for labelling a scope
+// without reopening the record it lives in.
+func (s *Store) Work(id string) (index.Work, bool) { return s.ix.WorkByID(id) }
+
 // EpisodesPage returns one page of the episodes of a season or special.
 //
 // Reading the record parses the whole series, including every episode of every

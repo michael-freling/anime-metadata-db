@@ -215,9 +215,18 @@ func TestNewListEndpointsPageTheirWholeCollection(t *testing.T) {
 			if err != nil {
 				t.Fatalf("ListAppearances: %v", err)
 			}
+			// An appearance is identified by its series *and* its scope: a
+			// character whose cast changed part-way through a series holds one
+			// appearance per group of installments, so the series id alone is
+			// not unique. Any consumer keying on it — this test did — sees two
+			// rows collapse into one.
 			ids := make([]string, 0, len(resp.Msg.GetAppearances()))
 			for _, a := range resp.Msg.GetAppearances() {
-				ids = append(ids, a.GetSeriesId())
+				id := a.GetSeriesId()
+				for _, sc := range a.GetScope() {
+					id += "/" + sc.GetSeasonId() + sc.GetMovieId() + sc.GetSpecialId()
+				}
+				ids = append(ids, id)
 			}
 			return ids, resp.Msg.GetNextPageToken(), resp.Msg.GetTotalSize()
 		})
