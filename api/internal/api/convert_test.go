@@ -61,12 +61,33 @@ func TestResolveTitle(t *testing.T) {
 		// conventionally title case. The two have to meet.
 		{"a lowercased script subtag still matches", "ja-latn",
 			mk("鬼滅の刃", map[string]string{"ja-Latn": "Kimetsu no Yaiba"}), "Kimetsu no Yaiba"},
+		// A real English title beats a romanization for every language, not
+		// just for English — a translation someone made is a better answer
+		// than a transliteration. Checking the romanization first made French
+		// (and every other language) prefer "Fate/stay night: Unlimited Blade
+		// Works" to the actual English title.
+		{"a french request prefers the english title to the romanization", "fr",
+			mk("Fate/stay night [UBW]", map[string]string{
+				"en": "Unlimited Blade Works", "ja-Latn": "Fate/stay night: Unlimited Blade Works"}),
+			"Unlimited Blade Works"},
+		{"and takes the romanization when there is no english title", "fr",
+			mk("鬼滅の刃", map[string]string{"ja-Latn": "Kimetsu no Yaiba"}), "Kimetsu no Yaiba"},
+		// A Japanese reader still gets Japanese even when an English title
+		// exists, which is what the original is for.
+		{"a japanese request prefers the original to an english title", "ja",
+			mk("鬼滅の刃", map[string]string{"en": "Demon Slayer", "ja-Latn": "Kimetsu no Yaiba"}), "鬼滅の刃"},
 		// Not every original here is Japanese, and a Korean title romanized as
 		// ko-Latn must not be served to a Korean reader in place of Hangul.
 		{"korean gets hangul, everyone else its romanization", "ko",
 			mk("메탈카드봇W", map[string]string{"ko-Latn": "Metal Cardbot W"}), "메탈카드봇W"},
 		{"a japanese reader gets the korean romanization, not hangul", "ja",
 			mk("메탈카드봇W", map[string]string{"ko-Latn": "Metal Cardbot W"}), "Metal Cardbot W"},
+		// With no romanization to name the original's language, the language
+		// itself decides: Japanese is written in a native script, French is not.
+		{"japanese still reaches the original when nothing names its language", "ja",
+			mk("フェイト", map[string]string{"en": "Fate"}), "フェイト"},
+		{"french takes the english title in the same situation", "fr",
+			mk("フェイト", map[string]string{"en": "Fate"}), "Fate"},
 	}
 	for _, tc := range tests {
 		if got := resolveTitle(tc.in, tc.lang); got != tc.want {

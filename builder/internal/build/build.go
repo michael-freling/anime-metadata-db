@@ -145,15 +145,15 @@ func fillTitles(entity string, dst *model.Title, a offlinedb.Anime, report *Repo
 		// An authored romanization wins over the inferred one whatever its tag:
 		// a Korean or Chinese title romanized as `ko-Latn` or `zh-Latn` must not
 		// also collect a `ja-Latn` claiming it is Japanese.
-		if isRomanization(code) && hasRomanization(*dst) {
+		if model.IsRomanization(code) && hasRomanization(*dst) {
 			continue
 		}
 		if dst.Translations == nil {
 			dst.Translations = make(map[string]string)
 		}
 		dst.Translations[code] = val
-		if code == "en" {
-			report.add(entity, "titles", fmt.Sprintf("filled translations.en from source title %q (verify it is not just a romanization)", val))
+		if model.IsRomanization(code) {
+			report.add(entity, "titles", fmt.Sprintf("filled translations.%s from source title %q (verify the original is Japanese; a Korean or Chinese title needs its own tag)", code, val))
 		}
 	}
 	if dst.Original == "" {

@@ -53,11 +53,21 @@ func (l localizer) title(t model.Title) (string, *animev1.LocalizedTitle) {
 	return name, nil
 }
 
-// resolveTitle picks the best single title for lang. Order: the requested
-// language (exact, then its primary subtag), then a romanization the caller can
-// read, then — for a non-English request — the native original, then English,
-// then the native original, then any translation (deterministically). It
-// returns "" only for an empty title.
+// resolveTitle picks the best single title for lang, in this order:
+//
+//  1. the requested language, exact then by primary subtag;
+//  2. the native original, when the request is in the original's own language;
+//  3. an English title, which is a translation someone actually made;
+//  4. a romanization, which at least the caller can read;
+//  5. the native original, then any translation, deterministically.
+//
+// Three and four are in that order deliberately. Most of this catalogue has no
+// English title and only a romanization, so a French request usually lands on
+// "Kimetsu no Yaiba" — but where a real English title exists it is the better
+// answer, and putting the romanization first quietly preferred a
+// transliteration to a translation for every language except English itself.
+//
+// It returns "" only for an empty title.
 func resolveTitle(t model.Title, lang string) string {
 	if v := translation(t, lang); v != "" {
 		return v
@@ -67,24 +77,52 @@ func resolveTitle(t model.Title, lang string) string {
 			return v
 		}
 	}
-	// Most of this catalogue has no English title, only a romanized Japanese
-	// one. Someone asking in a Latin-script language is better served by
-	// "Kimetsu no Yaiba" than by 鬼滅の刃, which they cannot read at all — but a
-	// reader who asked in the title's own language wants the native script, so
-	// a romanization of their own language is skipped.
-	if v := romanization(t, lang); v != "" {
-		return v
-	}
-	if lang != defaultLang && t.Original != "" {
+	if isOriginalLanguage(t, lang) && t.Original != "" {
 		return t.Original
 	}
 	if v := translation(t, defaultLang); v != "" {
+		return v
+	}
+	if v := romanization(t, lang); v != "" {
 		return v
 	}
 	if t.Original != "" {
 		return t.Original
 	}
 	return firstTranslation(t)
+}
+
+// nativeScriptLangs are the languages this catalogue holds originals in, and so
+// the ones where a reader asking in that language wants the native script
+// rather than a translation of it. It is only consulted for a title carrying no
+// romanization, since a romanization names the original's language outright.
+// An original in a fourth script means adding its tag here.
+var nativeScriptLangs = map[string]bool{"ja": true, "ko": true, "zh": true}
+
+// isOriginalLanguage reports whether lang is the language the title's original
+// is written in — a Japanese request for a Japanese title, where the original
+// is the right answer and an English translation is not.
+//
+// A romanization tells us this outright: a title carrying `ko-Latn` has a
+// Korean original, so a Japanese reader asking for it is no better served by
+// Hangul than an English reader would be. Only a title with no romanization at
+// all falls back to the language list.
+func isOriginalLanguage(t model.Title, lang string) bool {
+	p := primaryTag(lang)
+	found := false
+	for _, code := range sortedTranslationKeys(t) {
+		if t.Translations[code] == "" || !model.IsRomanization(code) {
+			continue
+		}
+		found = true
+		if strings.EqualFold(primaryTag(code), p) {
+			return true
+		}
+	}
+	if found {
+		return false
+	}
+	return nativeScriptLangs[p]
 }
 
 // translation looks a language tag up case-insensitively: a request header is
@@ -106,13 +144,8 @@ func translation(t model.Title, lang string) string {
 // script, in deterministic key order. A rendering of the language the caller
 // asked in is not one: a Japanese request wants 鬼滅の刃, not "Kimetsu no Yaiba".
 func romanization(t model.Title, lang string) string {
-	keys := make([]string, 0, len(t.Translations))
-	for k := range t.Translations {
-		keys = append(keys, k)
-	}
-	sort.Strings(keys)
-	for _, k := range keys {
-		if t.Translations[k] == "" || !strings.HasSuffix(strings.ToLower(k), "-latn") {
+	for _, k := range sortedTranslationKeys(t) {
+		if t.Translations[k] == "" || !model.IsRomanization(k) {
 			continue
 		}
 		if strings.EqualFold(primaryTag(k), primaryTag(lang)) {
@@ -121,6 +154,17 @@ func romanization(t model.Title, lang string) string {
 		return t.Translations[k]
 	}
 	return ""
+}
+
+// sortedTranslationKeys returns a title's language tags in a fixed order, so
+// every fallback that has to pick "one of them" picks the same one each time.
+func sortedTranslationKeys(t model.Title) []string {
+	keys := make([]string, 0, len(t.Translations))
+	for k := range t.Translations {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+	return keys
 }
 
 // primaryTag returns the primary subtag of a BCP-47 tag ("en-us" -> "en").
@@ -133,12 +177,7 @@ func primaryTag(tag string) string {
 
 // firstTranslation returns a translation in deterministic key order, or "".
 func firstTranslation(t model.Title) string {
-	keys := make([]string, 0, len(t.Translations))
-	for k := range t.Translations {
-		keys = append(keys, k)
-	}
-	sort.Strings(keys)
-	for _, k := range keys {
+	for _, k := range sortedTranslationKeys(t) {
 		if t.Translations[k] != "" {
 			return t.Translations[k]
 		}

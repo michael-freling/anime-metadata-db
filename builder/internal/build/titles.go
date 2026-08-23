@@ -1,7 +1,6 @@
 package build
 
 import (
-	"strings"
 	"unicode"
 
 	"github.com/michael-freling/anime-metadata-db/builder/internal/sources/offlinedb"
@@ -84,16 +83,10 @@ func inferTitle(a offlinedb.Anime) model.Title {
 	return title
 }
 
-// isRomanization reports whether a BCP-47 tag names a Latin-script rendering of
-// a language written in another script ("ja-Latn", "ko-Latn").
-func isRomanization(tag string) bool {
-	return strings.HasSuffix(strings.ToLower(tag), "-latn")
-}
-
 // hasRomanization reports whether a title already carries one, in any language.
 func hasRomanization(t model.Title) bool {
 	for code, val := range t.Translations {
-		if val != "" && isRomanization(code) {
+		if val != "" && model.IsRomanization(code) {
 			return true
 		}
 	}

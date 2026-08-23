@@ -6,7 +6,18 @@
 // and validation logic lives in the build package.
 package model
 
-import "time"
+import (
+	"strings"
+	"time"
+)
+
+// IsRomanization reports whether a BCP-47 tag names a Latin-script rendering of
+// a language written in another script — "ja-Latn", "ko-Latn". It is the one
+// definition of that convention: the builder writes such tags and the API reads
+// them, from separate modules, and two copies of the rule would drift.
+func IsRomanization(tag string) bool {
+	return strings.HasSuffix(strings.ToLower(tag), "-latn")
+}
 
 // ReleaseSeason is the airing quarter an installment premiered in. It is a
 // calendar quarter, distinct from the Season entity (a TV installment).
