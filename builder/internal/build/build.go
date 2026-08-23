@@ -135,6 +135,17 @@ func (b *Builder) fillExternalIDs(ids *model.ExternalIDs, a offlinedb.Anime) {
 // gets a Japanese (`ja`) name and an `original` added automatically.
 func fillTitles(entity string, dst *model.Title, a offlinedb.Anime, report *Report) {
 	inferred := inferTitle(a)
+	// An authored romanization names the title's language, and that beats
+	// anything inferred from the source's own text. Without this the guard
+	// below blocks only the duplicate romanization: an override authoring
+	// `ko-Latn` alone would still collect a `ja` key, and an `original` in
+	// Japanese, from whatever the source happened to carry — and then be told
+	// by the report to "author the language explicitly", which it had.
+	if authored := romanizationLanguage(*dst); authored != "" {
+		if lang, _ := model.NativeLanguage(inferred.Original); lang != authored {
+			inferred = model.Title{}
+		}
+	}
 	if dst.Original == "" && inferred.Original != "" {
 		dst.Original = inferred.Original
 	}
@@ -161,7 +172,7 @@ func fillTitles(entity string, dst *model.Title, a offlinedb.Anime, report *Repo
 			dst.Translations = make(map[string]string)
 		}
 		dst.Translations[code] = val
-		if _, certain := nativeLanguage(inferred.Original); !certain && inferred.Original != "" {
+		if _, certain := model.NativeLanguage(inferred.Original); !certain && inferred.Original != "" {
 			report.add(entity, "titles", fmt.Sprintf(
 				"filled translations.%s from %q, assuming the original %q is Japanese — it is written only in Han characters, which Chinese shares. Author the language explicitly if that is wrong",
 				code, val, inferred.Original))

@@ -108,13 +108,6 @@ func resolveTitle(t model.Title, lang string) string {
 	return firstTranslation(t)
 }
 
-// nativeScriptLangs are the languages this catalogue holds originals in, and so
-// the ones where a reader asking in that language wants the native script
-// rather than a translation of it. It is only consulted for a title carrying no
-// romanization, since a romanization names the original's language outright.
-// An original in a fourth script means adding its tag here.
-var nativeScriptLangs = map[string]bool{"ja": true, "ko": true, "zh": true}
-
 // isOriginalLanguage reports whether lang is the language the title's original
 // is written in — a Japanese request for a Japanese title, where the original
 // is the right answer and an English translation is not. A request that names
@@ -123,8 +116,8 @@ var nativeScriptLangs = map[string]bool{"ja": true, "ko": true, "zh": true}
 //
 // A romanization tells us this outright: a title carrying `ko-Latn` has a
 // Korean original, so a Japanese reader asking for it is no better served by
-// Hangul than an English reader would be. Only a title with no romanization at
-// all falls back to the language list.
+// Hangul than an English reader would be. With no romanization to go on, the
+// original's own script decides.
 func isOriginalLanguage(t model.Title, lang string) bool {
 	if model.IsRomanization(lang) {
 		return false
@@ -143,7 +136,18 @@ func isOriginalLanguage(t model.Title, lang string) bool {
 	if found {
 		return false
 	}
-	return nativeScriptLangs[p]
+	// No romanization to name the language, so read the original's own script.
+	// A whitelist of the request language alone cannot do this: it would tell a
+	// Korean reader that 新田明 is their language — which is how every
+	// character in the dataset came to answer a `ko` request with Japanese
+	// kanji instead of its perfectly good English name.
+	lang, certain := model.NativeLanguage(t.Original)
+	if certain {
+		return lang == p
+	}
+	// Han characters and nothing else: Japanese or Chinese, and a reader of
+	// either can read them. Not Korean, which does not use them.
+	return lang != "" && (p == "ja" || p == "zh")
 }
 
 // translation looks a language tag up case-insensitively: a request header is

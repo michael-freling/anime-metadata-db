@@ -1,54 +1,11 @@
 package build
 
 import (
-	"unicode"
-
 	"github.com/michael-freling/anime-metadata-db/builder/internal/sources/offlinedb"
 	"github.com/michael-freling/anime-metadata-db/internal/model"
+	"sort"
+	"strings"
 )
-
-// nativeScripts are the Unicode ranges that mark a title as native (CJK) script
-// rather than a Latin romanization.
-var nativeScripts = []*unicode.RangeTable{
-	unicode.Han,
-	unicode.Hiragana,
-	unicode.Katakana,
-	unicode.Hangul,
-}
-
-// nativeLanguage names the language a native-script title is written in.
-//
-// Kana occurs only in Japanese and Hangul only in Korean, so either settles it.
-// Han characters are shared: 呪術廻戦 and 喜羊羊与灰太狼 look alike to a range
-// check. This is a catalogue of anime, so a Han-only title defaults to Japanese
-// — and says so by returning certain=false, which fillTitles reports for a
-// human to confirm or correct. Guessing loudly beats both guessing silently
-// (which mislabelled every Korean title before this) and refusing to guess
-// (which would tag 劇場版「…」 as an undetermined language it plainly is not).
-func nativeLanguage(s string) (lang string, certain bool) {
-	for _, r := range s {
-		switch {
-		case unicode.In(r, unicode.Hiragana, unicode.Katakana):
-			return "ja", true
-		case unicode.In(r, unicode.Hangul):
-			return "ko", true
-		}
-	}
-	if hasNativeScript(s) {
-		return "ja", false
-	}
-	return "", false
-}
-
-// hasNativeScript reports whether s contains any CJK/Hangul character.
-func hasNativeScript(s string) bool {
-	for _, r := range s {
-		if unicode.IsLetter(r) && unicode.In(r, nativeScripts...) {
-			return true
-		}
-	}
-	return false
-}
 
 // inferTitle best-effort derives a Title from an offline-database entry: the
 // native-script form becomes the original and the `ja` translation, and the
@@ -70,14 +27,14 @@ func hasNativeScript(s string) bool {
 // assumption so a human can correct it by authoring the language.
 func inferTitle(a offlinedb.Anime) model.Title {
 	var original, latin string
-	if hasNativeScript(a.Title) {
+	if model.HasNativeScript(a.Title) {
 		original = a.Title
 	} else {
 		latin = a.Title
 	}
 	if original == "" {
 		for _, syn := range a.Synonyms {
-			if hasNativeScript(syn) {
+			if model.HasNativeScript(syn) {
 				original = syn
 				break
 			}
@@ -86,7 +43,7 @@ func inferTitle(a offlinedb.Anime) model.Title {
 
 	title := model.Title{Original: original}
 	translations := map[string]string{}
-	lang, _ := nativeLanguage(original)
+	lang, _ := model.NativeLanguage(original)
 	if lang != "" {
 		translations[lang] = original
 	}
@@ -106,12 +63,38 @@ func inferTitle(a offlinedb.Anime) model.Title {
 	return title
 }
 
-// hasRomanization reports whether a title already carries one, in any language.
-func hasRomanization(t model.Title) bool {
-	for code, val := range t.Translations {
-		if val != "" && model.IsRomanization(code) {
-			return true
+// romanizationLanguage returns the language named by a title's romanization
+// tag — "ko" for `ko-Latn` — or "" when it carries none. An authored one is the
+// author saying what language the title is in, which the build cannot infer.
+func romanizationLanguage(t model.Title) string {
+	for _, code := range sortedCodes(t) {
+		if t.Translations[code] != "" && model.IsRomanization(code) {
+			return primaryTag(code)
 		}
 	}
-	return false
+	return ""
+}
+
+// hasRomanization reports whether a title already carries one, in any language.
+func hasRomanization(t model.Title) bool {
+	return romanizationLanguage(t) != ""
+}
+
+// sortedCodes returns a title's language tags in a fixed order, so a title with
+// more than one romanization always yields the same answer.
+func sortedCodes(t model.Title) []string {
+	codes := make([]string, 0, len(t.Translations))
+	for code := range t.Translations {
+		codes = append(codes, code)
+	}
+	sort.Strings(codes)
+	return codes
+}
+
+// primaryTag returns the primary subtag of a BCP-47 tag ("ja-Latn" -> "ja").
+func primaryTag(tag string) string {
+	if i := strings.IndexByte(tag, '-'); i >= 0 {
+		return tag[:i]
+	}
+	return tag
 }

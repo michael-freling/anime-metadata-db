@@ -30,18 +30,6 @@ func mustSources(t *testing.T, dbJSON, alXML, msXML string) Sources {
 
 func intp(n int) *int { return &n }
 
-func TestHasNativeScript(t *testing.T) {
-	if !hasNativeScript("鬼滅の刃") {
-		t.Error("kanji should be native")
-	}
-	if !hasNativeScript("セイバー") {
-		t.Error("katakana should be native")
-	}
-	if hasNativeScript("Fate/Zero 2011") {
-		t.Error("latin should not be native")
-	}
-}
-
 func TestInferTitle(t *testing.T) {
 	// Latin title + native synonym: native -> original/ja, Latin -> ja-Latn.
 	// The Latin form is a romanization, not an English title: upstream says
@@ -170,15 +158,32 @@ func TestFillTitlesMerge(t *testing.T) {
 		t.Errorf("authored translations should be kept, got %+v", authored.Translations)
 	}
 
-	// An authored romanization wins whatever language it names, so a Korean or
-	// Chinese title is never also credited with a Japanese one.
+	// An authored romanization names the title's language, and the source's
+	// text cannot outvote it. Asserting only that ja-Latn is absent used to
+	// pass while a bare `ja` key — and a Japanese `original` — were quietly
+	// filled in alongside the authored Korean one.
 	korean := &model.Title{Translations: map[string]string{"ko-Latn": "Metal Cardbot W"}}
-	fillTitles("season z", korean, a, &Report{})
-	if _, ok := korean.Translations["ja-Latn"]; ok {
-		t.Errorf("an authored romanization should not gain a second one: %+v", korean.Translations)
+	report := &Report{}
+	fillTitles("season z", korean, a, report)
+	if korean.Translations["ko-Latn"] != "Metal Cardbot W" || len(korean.Translations) != 1 {
+		t.Errorf("authored Korean title gained fields from a Japanese source: %+v", korean.Translations)
 	}
-	if korean.Translations["ko-Latn"] != "Metal Cardbot W" {
-		t.Errorf("authored romanization should be kept: %+v", korean.Translations)
+	if korean.Original != "" {
+		t.Errorf("original filled from a source in another language: %q", korean.Original)
+	}
+	if strings.Contains(report.String(), "Author the language explicitly") {
+		t.Errorf("the language was authored; the report should not ask for it: %q", report.String())
+	}
+
+	// A romanization naming the *same* language as the source is not a
+	// disagreement, so the rest of the title still fills.
+	japanese := &model.Title{Translations: map[string]string{"ja-Latn": "Authored Romaji"}}
+	fillTitles("season zz", japanese, a, &Report{})
+	if japanese.Original != "鬼滅の刃" || japanese.Translations["ja"] != "鬼滅の刃" {
+		t.Errorf("a matching romanization should not block the fill: %+v", japanese)
+	}
+	if japanese.Translations["ja-Latn"] != "Authored Romaji" {
+		t.Errorf("authored romanization should be kept: %+v", japanese.Translations)
 	}
 }
 

@@ -88,6 +88,14 @@ func TestResolveTitle(t *testing.T) {
 			mk("フェイト", map[string]string{"en": "Fate"}), "フェイト"},
 		{"french takes the english title in the same situation", "fr",
 			mk("フェイト", map[string]string{"en": "Fate"}), "Fate"},
+		// The mismatched pairing, which a whitelist keyed only on the request
+		// language got wrong: every character name in the dataset looks like
+		// this, and a Korean reader was being handed Japanese kanji instead of
+		// the English name sitting right there.
+		{"korean gets the english name of a japanese character, not kanji", "ko",
+			mk("新田明", map[string]string{"ja": "新田明", "en": "Akari Nitta"}), "Akari Nitta"},
+		{"and so does a chinese reader when the original is unmistakably japanese", "zh",
+			mk("鬼滅の刃", map[string]string{"ja": "鬼滅の刃", "en": "Demon Slayer"}), "Demon Slayer"},
 		// The same fallback has to hold for the other scripts this catalogue
 		// keeps originals in, or a reader in one of them gets an English title
 		// where the native one exists.
@@ -95,6 +103,10 @@ func TestResolveTitle(t *testing.T) {
 			mk("메탈카드봇W", map[string]string{"en": "Metal Cardbot W"}), "메탈카드봇W"},
 		{"chinese reaches the original the same way", "zh",
 			mk("喜羊羊与灰太狼", map[string]string{"en": "Pleasant Goat"}), "喜羊羊与灰太狼"},
+		// Han characters are shared, so a Chinese reader gets them; Korean does
+		// not use them, so a Korean reader gets something they can read.
+		{"korean does not read han, so it takes the english title", "ko",
+			mk("喜羊羊与灰太狼", map[string]string{"en": "Pleasant Goat"}), "Pleasant Goat"},
 		// A request that names the script is asking for the Latin form. It used
 		// to fall back to the bare primary subtag and get native script — the
 		// opposite of what it asked for.

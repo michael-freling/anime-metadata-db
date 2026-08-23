@@ -235,3 +235,32 @@ func TestIsRomanization(t *testing.T) {
 		}
 	}
 }
+
+// The builder writes titles by this rule and the API resolves them by it, so
+// both modules depend on it agreeing with itself.
+func TestNativeLanguage(t *testing.T) {
+	for _, tc := range []struct {
+		s, lang string
+		certain bool
+	}{
+		{"鬼滅の刃", "ja", true}, // kana settles it
+		{"セイバー", "ja", true},
+		{"메탈카드봇W", "ko", true},        // as does Hangul
+		{"呪術廻戦", "ja", false},         // Han alone: assumed, not known
+		{"喜羊羊与灰太狼", "ja", false},      // …and this one is actually Chinese
+		{"Fate/Zero 2011", "", false}, // Latin script names no language
+		{"", "", false},
+	} {
+		lang, certain := NativeLanguage(tc.s)
+		if lang != tc.lang || certain != tc.certain {
+			t.Errorf("NativeLanguage(%q) = (%q, %v), want (%q, %v)", tc.s, lang, certain, tc.lang, tc.certain)
+		}
+	}
+
+	if !HasNativeScript("鬼滅の刃") || !HasNativeScript("메탈카드봇W") {
+		t.Error("CJK and Hangul are native script")
+	}
+	if HasNativeScript("Fate/Zero 2011") {
+		t.Error("Latin script is not")
+	}
+}
