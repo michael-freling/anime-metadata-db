@@ -82,7 +82,7 @@ func TestNoResponseEmbedsAnUnboundedCollection(t *testing.T) {
 	}
 
 	for _, e := range catalog.Msg.GetEntries() {
-		if e.GetKind() == animev1.EntryKind_ENTRY_KIND_FRANCHISE {
+		if e.GetKind() == animev1.EntryKind_FRANCHISE {
 			resp, err := svc.GetFranchise(ctx, connect.NewRequest(&animev1.GetFranchiseRequest{Id: e.GetId()}))
 			if err != nil {
 				t.Fatalf("GetFranchise(%s): %v", e.GetId(), err)

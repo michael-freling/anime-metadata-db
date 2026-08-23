@@ -81,9 +81,9 @@ const SEASON_LABEL: Record<number, string> = {
 };
 
 const FORMAT_LABEL: Record<number, string> = {
-  [SpecialFormat.OVA]: 'OVA',
-  [SpecialFormat.ONA]: 'ONA',
-  [SpecialFormat.SPECIAL]: 'Special',
+  [SpecialFormat.FORMAT_OVA]: 'OVA',
+  [SpecialFormat.FORMAT_ONA]: 'ONA',
+  [SpecialFormat.FORMAT_SPECIAL]: 'Special',
 };
 
 function Row({ title, meta }: { title: React.ReactNode; meta: React.ReactNode }) {

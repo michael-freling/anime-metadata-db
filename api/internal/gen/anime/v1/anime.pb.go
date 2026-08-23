@@ -34,31 +34,37 @@ const (
 )
 
 // ReleaseSeason is the calendar quarter an installment premiered in.
+//
+// The values are unprefixed so the JSON reads "SPRING" — the same string the
+// dataset stores — rather than "RELEASE_SEASON_SPRING", which every client was
+// left to translate back. Protobuf scopes enum values to the package, so a
+// prefix is added only where the bare word would collide with another enum's
+// (see SpecialFormat and WorkKind, which both want SPECIAL).
 type ReleaseSeason int32
 
 const (
-	ReleaseSeason_RELEASE_SEASON_UNSPECIFIED ReleaseSeason = 0
-	ReleaseSeason_RELEASE_SEASON_WINTER      ReleaseSeason = 1
-	ReleaseSeason_RELEASE_SEASON_SPRING      ReleaseSeason = 2
-	ReleaseSeason_RELEASE_SEASON_SUMMER      ReleaseSeason = 3
-	ReleaseSeason_RELEASE_SEASON_FALL        ReleaseSeason = 4
+	ReleaseSeason_SEASON_UNSPECIFIED ReleaseSeason = 0
+	ReleaseSeason_WINTER             ReleaseSeason = 1
+	ReleaseSeason_SPRING             ReleaseSeason = 2
+	ReleaseSeason_SUMMER             ReleaseSeason = 3
+	ReleaseSeason_FALL               ReleaseSeason = 4
 )
 
 // Enum value maps for ReleaseSeason.
 var (
 	ReleaseSeason_name = map[int32]string{
-		0: "RELEASE_SEASON_UNSPECIFIED",
-		1: "RELEASE_SEASON_WINTER",
-		2: "RELEASE_SEASON_SPRING",
-		3: "RELEASE_SEASON_SUMMER",
-		4: "RELEASE_SEASON_FALL",
+		0: "SEASON_UNSPECIFIED",
+		1: "WINTER",
+		2: "SPRING",
+		3: "SUMMER",
+		4: "FALL",
 	}
 	ReleaseSeason_value = map[string]int32{
-		"RELEASE_SEASON_UNSPECIFIED": 0,
-		"RELEASE_SEASON_WINTER":      1,
-		"RELEASE_SEASON_SPRING":      2,
-		"RELEASE_SEASON_SUMMER":      3,
-		"RELEASE_SEASON_FALL":        4,
+		"SEASON_UNSPECIFIED": 0,
+		"WINTER":             1,
+		"SPRING":             2,
+		"SUMMER":             3,
+		"FALL":               4,
 	}
 )
 
@@ -89,29 +95,30 @@ func (ReleaseSeason) EnumDescriptor() ([]byte, []int) {
 	return file_anime_v1_anime_proto_rawDescGZIP(), []int{0}
 }
 
-// SpecialFormat is the kind of side content a Special represents.
+// SpecialFormat is the kind of side content a Special represents. Prefixed,
+// because SPECIAL alone would collide with WorkKind's.
 type SpecialFormat int32
 
 const (
-	SpecialFormat_SPECIAL_FORMAT_UNSPECIFIED SpecialFormat = 0
-	SpecialFormat_SPECIAL_FORMAT_OVA         SpecialFormat = 1
-	SpecialFormat_SPECIAL_FORMAT_ONA         SpecialFormat = 2
-	SpecialFormat_SPECIAL_FORMAT_SPECIAL     SpecialFormat = 3
+	SpecialFormat_FORMAT_UNSPECIFIED SpecialFormat = 0
+	SpecialFormat_FORMAT_OVA         SpecialFormat = 1
+	SpecialFormat_FORMAT_ONA         SpecialFormat = 2
+	SpecialFormat_FORMAT_SPECIAL     SpecialFormat = 3
 )
 
 // Enum value maps for SpecialFormat.
 var (
 	SpecialFormat_name = map[int32]string{
-		0: "SPECIAL_FORMAT_UNSPECIFIED",
-		1: "SPECIAL_FORMAT_OVA",
-		2: "SPECIAL_FORMAT_ONA",
-		3: "SPECIAL_FORMAT_SPECIAL",
+		0: "FORMAT_UNSPECIFIED",
+		1: "FORMAT_OVA",
+		2: "FORMAT_ONA",
+		3: "FORMAT_SPECIAL",
 	}
 	SpecialFormat_value = map[string]int32{
-		"SPECIAL_FORMAT_UNSPECIFIED": 0,
-		"SPECIAL_FORMAT_OVA":         1,
-		"SPECIAL_FORMAT_ONA":         2,
-		"SPECIAL_FORMAT_SPECIAL":     3,
+		"FORMAT_UNSPECIFIED": 0,
+		"FORMAT_OVA":         1,
+		"FORMAT_ONA":         2,
+		"FORMAT_SPECIAL":     3,
 	}
 )
 
@@ -147,25 +154,25 @@ func (SpecialFormat) EnumDescriptor() ([]byte, []int) {
 type WorkKind int32
 
 const (
-	WorkKind_WORK_KIND_UNSPECIFIED WorkKind = 0
-	WorkKind_WORK_KIND_SEASON      WorkKind = 1
-	WorkKind_WORK_KIND_MOVIE       WorkKind = 2
-	WorkKind_WORK_KIND_SPECIAL     WorkKind = 3
+	WorkKind_WORK_UNSPECIFIED WorkKind = 0
+	WorkKind_WORK_SEASON      WorkKind = 1
+	WorkKind_WORK_MOVIE       WorkKind = 2
+	WorkKind_WORK_SPECIAL     WorkKind = 3
 )
 
 // Enum value maps for WorkKind.
 var (
 	WorkKind_name = map[int32]string{
-		0: "WORK_KIND_UNSPECIFIED",
-		1: "WORK_KIND_SEASON",
-		2: "WORK_KIND_MOVIE",
-		3: "WORK_KIND_SPECIAL",
+		0: "WORK_UNSPECIFIED",
+		1: "WORK_SEASON",
+		2: "WORK_MOVIE",
+		3: "WORK_SPECIAL",
 	}
 	WorkKind_value = map[string]int32{
-		"WORK_KIND_UNSPECIFIED": 0,
-		"WORK_KIND_SEASON":      1,
-		"WORK_KIND_MOVIE":       2,
-		"WORK_KIND_SPECIAL":     3,
+		"WORK_UNSPECIFIED": 0,
+		"WORK_SEASON":      1,
+		"WORK_MOVIE":       2,
+		"WORK_SPECIAL":     3,
 	}
 )
 
@@ -200,22 +207,22 @@ func (WorkKind) EnumDescriptor() ([]byte, []int) {
 type EntryKind int32
 
 const (
-	EntryKind_ENTRY_KIND_UNSPECIFIED EntryKind = 0
-	EntryKind_ENTRY_KIND_FRANCHISE   EntryKind = 1
-	EntryKind_ENTRY_KIND_SERIES      EntryKind = 2
+	EntryKind_ENTRY_UNSPECIFIED EntryKind = 0
+	EntryKind_FRANCHISE         EntryKind = 1
+	EntryKind_SERIES            EntryKind = 2
 )
 
 // Enum value maps for EntryKind.
 var (
 	EntryKind_name = map[int32]string{
-		0: "ENTRY_KIND_UNSPECIFIED",
-		1: "ENTRY_KIND_FRANCHISE",
-		2: "ENTRY_KIND_SERIES",
+		0: "ENTRY_UNSPECIFIED",
+		1: "FRANCHISE",
+		2: "SERIES",
 	}
 	EntryKind_value = map[string]int32{
-		"ENTRY_KIND_UNSPECIFIED": 0,
-		"ENTRY_KIND_FRANCHISE":   1,
-		"ENTRY_KIND_SERIES":      2,
+		"ENTRY_UNSPECIFIED": 0,
+		"FRANCHISE":         1,
+		"SERIES":            2,
 	}
 )
 
@@ -557,7 +564,7 @@ func (x *Season) GetReleaseSeason() ReleaseSeason {
 	if x != nil {
 		return x.ReleaseSeason
 	}
-	return ReleaseSeason_RELEASE_SEASON_UNSPECIFIED
+	return ReleaseSeason_SEASON_UNSPECIFIED
 }
 
 func (x *Season) GetExternalIds() *ExternalIds {
@@ -813,7 +820,7 @@ func (x *Special) GetFormat() SpecialFormat {
 	if x != nil {
 		return x.Format
 	}
-	return SpecialFormat_SPECIAL_FORMAT_UNSPECIFIED
+	return SpecialFormat_FORMAT_UNSPECIFIED
 }
 
 func (x *Special) GetReleaseDate() string {
@@ -1756,7 +1763,7 @@ func (x *SearchResult) GetKind() EntryKind {
 	if x != nil {
 		return x.Kind
 	}
-	return EntryKind_ENTRY_KIND_UNSPECIFIED
+	return EntryKind_ENTRY_UNSPECIFIED
 }
 
 func (x *SearchResult) GetId() string {
@@ -1848,7 +1855,7 @@ func (x *CatalogEntry) GetKind() EntryKind {
 	if x != nil {
 		return x.Kind
 	}
-	return EntryKind_ENTRY_KIND_UNSPECIFIED
+	return EntryKind_ENTRY_UNSPECIFIED
 }
 
 func (x *CatalogEntry) GetId() string {
@@ -1972,7 +1979,7 @@ func (x *WorkSummary) GetKind() WorkKind {
 	if x != nil {
 		return x.Kind
 	}
-	return WorkKind_WORK_KIND_UNSPECIFIED
+	return WorkKind_WORK_UNSPECIFIED
 }
 
 func (x *WorkSummary) GetId() string {
@@ -2035,14 +2042,14 @@ func (x *WorkSummary) GetReleaseSeason() ReleaseSeason {
 	if x != nil {
 		return x.ReleaseSeason
 	}
-	return ReleaseSeason_RELEASE_SEASON_UNSPECIFIED
+	return ReleaseSeason_SEASON_UNSPECIFIED
 }
 
 func (x *WorkSummary) GetFormat() SpecialFormat {
 	if x != nil {
 		return x.Format
 	}
-	return SpecialFormat_SPECIAL_FORMAT_UNSPECIFIED
+	return SpecialFormat_FORMAT_UNSPECIFIED
 }
 
 func (x *WorkSummary) GetEpisodeCount() int32 {
@@ -2932,9 +2939,14 @@ func (x *GetStaffResponse) GetCreditsTotal() int32 {
 
 type ListStaffRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// language restricts the result to staff credited in that language ("ja");
-	// empty lists everyone.
-	Language string `protobuf:"bytes,1,opt,name=language,proto3" json:"language,omitempty"`
+	// credit_language restricts the result to staff credited in that language
+	// ("ja"); empty lists everyone. It selects *which people* come back, and has
+	// nothing to do with the language their names are written in — that is
+	// Accept-Language, as everywhere else. Asking for credit_language "ja"
+	// without an Accept-Language header returns the Japanese cast with their
+	// names resolved for the default language, which is English; it was called
+	// `language` until that read as a promise about the names.
+	CreditLanguage string `protobuf:"bytes,1,opt,name=credit_language,json=creditLanguage,proto3" json:"credit_language,omitempty"`
 	// query matches a staff member's name in any language, case-insensitively,
 	// as a substring. Empty matches everyone.
 	Query string `protobuf:"bytes,4,opt,name=query,proto3" json:"query,omitempty"`
@@ -2977,9 +2989,9 @@ func (*ListStaffRequest) Descriptor() ([]byte, []int) {
 	return file_anime_v1_anime_proto_rawDescGZIP(), []int{35}
 }
 
-func (x *ListStaffRequest) GetLanguage() string {
+func (x *ListStaffRequest) GetCreditLanguage() string {
 	if x != nil {
-		return x.Language
+		return x.CreditLanguage
 	}
 	return ""
 }
@@ -3224,7 +3236,7 @@ func (x *ListCatalogRequest) GetKind() EntryKind {
 	if x != nil {
 		return x.Kind
 	}
-	return EntryKind_ENTRY_KIND_UNSPECIFIED
+	return EntryKind_ENTRY_UNSPECIFIED
 }
 
 type ListCatalogResponse struct {
@@ -3375,14 +3387,14 @@ func (x *ListWorksRequest) GetReleaseSeason() ReleaseSeason {
 	if x != nil {
 		return x.ReleaseSeason
 	}
-	return ReleaseSeason_RELEASE_SEASON_UNSPECIFIED
+	return ReleaseSeason_SEASON_UNSPECIFIED
 }
 
 func (x *ListWorksRequest) GetKind() WorkKind {
 	if x != nil {
 		return x.Kind
 	}
-	return WorkKind_WORK_KIND_UNSPECIFIED
+	return WorkKind_WORK_UNSPECIFIED
 }
 
 func (x *ListWorksRequest) GetSeriesId() string {
@@ -4189,9 +4201,9 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\x10GetStaffResponse\x12%\n" +
 	"\x05staff\x18\x01 \x01(\v2\x0f.anime.v1.StaffR\x05staff\x12/\n" +
 	"\acredits\x18\x02 \x03(\v2\x15.anime.v1.StaffCreditR\acredits\x12#\n" +
-	"\rcredits_total\x18\x03 \x01(\x05R\fcreditsTotal\"y\n" +
-	"\x10ListStaffRequest\x12\x1a\n" +
-	"\blanguage\x18\x01 \x01(\tR\blanguage\x12\x14\n" +
+	"\rcredits_total\x18\x03 \x01(\x05R\fcreditsTotal\"\x86\x01\n" +
+	"\x10ListStaffRequest\x12'\n" +
+	"\x0fcredit_language\x18\x01 \x01(\tR\x0ecreditLanguage\x12\x14\n" +
 	"\x05query\x18\x04 \x01(\tR\x05query\x12\x14\n" +
 	"\x05limit\x18\x02 \x01(\x05R\x05limit\x12\x1d\n" +
 	"\n" +
@@ -4271,27 +4283,34 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\acredits\x18\x01 \x03(\v2\x15.anime.v1.StaffCreditR\acredits\x12&\n" +
 	"\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n" +
 	"\n" +
-	"total_size\x18\x03 \x01(\x05R\ttotalSize*\x99\x01\n" +
-	"\rReleaseSeason\x12\x1e\n" +
-	"\x1aRELEASE_SEASON_UNSPECIFIED\x10\x00\x12\x19\n" +
-	"\x15RELEASE_SEASON_WINTER\x10\x01\x12\x19\n" +
-	"\x15RELEASE_SEASON_SPRING\x10\x02\x12\x19\n" +
-	"\x15RELEASE_SEASON_SUMMER\x10\x03\x12\x17\n" +
-	"\x13RELEASE_SEASON_FALL\x10\x04*{\n" +
-	"\rSpecialFormat\x12\x1e\n" +
-	"\x1aSPECIAL_FORMAT_UNSPECIFIED\x10\x00\x12\x16\n" +
-	"\x12SPECIAL_FORMAT_OVA\x10\x01\x12\x16\n" +
-	"\x12SPECIAL_FORMAT_ONA\x10\x02\x12\x1a\n" +
-	"\x16SPECIAL_FORMAT_SPECIAL\x10\x03*g\n" +
-	"\bWorkKind\x12\x19\n" +
-	"\x15WORK_KIND_UNSPECIFIED\x10\x00\x12\x14\n" +
-	"\x10WORK_KIND_SEASON\x10\x01\x12\x13\n" +
-	"\x0fWORK_KIND_MOVIE\x10\x02\x12\x15\n" +
-	"\x11WORK_KIND_SPECIAL\x10\x03*X\n" +
-	"\tEntryKind\x12\x1a\n" +
-	"\x16ENTRY_KIND_UNSPECIFIED\x10\x00\x12\x18\n" +
-	"\x14ENTRY_KIND_FRANCHISE\x10\x01\x12\x15\n" +
-	"\x11ENTRY_KIND_SERIES\x10\x022\x94\t\n" +
+	"total_size\x18\x03 \x01(\x05R\ttotalSize*U\n" +
+	"\rReleaseSeason\x12\x16\n" +
+	"\x12SEASON_UNSPECIFIED\x10\x00\x12\n" +
+	"\n" +
+	"\x06WINTER\x10\x01\x12\n" +
+	"\n" +
+	"\x06SPRING\x10\x02\x12\n" +
+	"\n" +
+	"\x06SUMMER\x10\x03\x12\b\n" +
+	"\x04FALL\x10\x04*[\n" +
+	"\rSpecialFormat\x12\x16\n" +
+	"\x12FORMAT_UNSPECIFIED\x10\x00\x12\x0e\n" +
+	"\n" +
+	"FORMAT_OVA\x10\x01\x12\x0e\n" +
+	"\n" +
+	"FORMAT_ONA\x10\x02\x12\x12\n" +
+	"\x0eFORMAT_SPECIAL\x10\x03*S\n" +
+	"\bWorkKind\x12\x14\n" +
+	"\x10WORK_UNSPECIFIED\x10\x00\x12\x0f\n" +
+	"\vWORK_SEASON\x10\x01\x12\x0e\n" +
+	"\n" +
+	"WORK_MOVIE\x10\x02\x12\x10\n" +
+	"\fWORK_SPECIAL\x10\x03*=\n" +
+	"\tEntryKind\x12\x15\n" +
+	"\x11ENTRY_UNSPECIFIED\x10\x00\x12\r\n" +
+	"\tFRANCHISE\x10\x01\x12\n" +
+	"\n" +
+	"\x06SERIES\x10\x022\x94\t\n" +
 	"\fAnimeService\x12U\n" +
 	"\x0eListFranchises\x12\x1f.anime.v1.ListFranchisesRequest\x1a .anime.v1.ListFranchisesResponse\"\x00\x12O\n" +
 	"\fGetFranchise\x12\x1d.anime.v1.GetFranchiseRequest\x1a\x1e.anime.v1.GetFranchiseResponse\"\x00\x12F\n" +

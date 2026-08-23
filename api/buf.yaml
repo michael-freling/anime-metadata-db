@@ -4,6 +4,14 @@ modules:
 lint:
   use:
     - STANDARD
+  except:
+    # ENUM_VALUE_PREFIX would have every value repeat its enum's name, which
+    # protojson then puts on the wire: "RELEASE_SEASON_SPRING" for a dataset
+    # that stores "SPRING", leaving each client to strip it — the web app kept
+    # a lookup table to do exactly that. The rule exists because protobuf
+    # scopes enum values to the package, so this file prefixes only where the
+    # bare word would collide (SpecialFormat and WorkKind both want SPECIAL).
+    - ENUM_VALUE_PREFIX
 breaking:
   use:
     - FILE

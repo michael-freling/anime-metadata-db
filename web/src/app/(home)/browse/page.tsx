@@ -126,7 +126,7 @@ export default async function BrowsePage({ searchParams }: { searchParams: Promi
         ? api.listWorks({
             query: q,
             releaseYear: year,
-            releaseSeason: quarter?.enum ?? ReleaseSeason.UNSPECIFIED,
+            releaseSeason: quarter?.enum ?? ReleaseSeason.SEASON_UNSPECIFIED,
             limit,
             pageToken: single ? token : '',
           })

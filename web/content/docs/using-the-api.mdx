@@ -109,7 +109,7 @@ curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/Search \
 ```
 
 ```json
-{"results":[{"kind":"ENTRY_KIND_SERIES","id":"demon-slayer","title":"Demon Slayer"}]}
+{"results":[{"kind":"SERIES","id":"demon-slayer","title":"Demon Slayer"}]}
 ```
 
 Fetch one series — the `id` comes from a search result. Each collection below
@@ -130,7 +130,7 @@ curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/GetSerie
         "id": "demon-slayer-s1",
         "number": 1,
         "releaseYear": 2019,
-        "releaseSeason": "RELEASE_SEASON_SPRING",
+        "releaseSeason": "SPRING",
         "externalIds": {"anilistId": 101922, "anidbId": 14107, "tvdbId": 348545},
         "episodes": [
           {"absoluteNumber": 1, "airedNumber": 1},
@@ -244,6 +244,29 @@ appearance is therefore identified by its `seriesId` **and** its `scope`, and
 each scope entry carries the installment's resolved `title` (plus `number` for a
 season, which usually has no title of its own) so you can label it without a
 second call.
+
+Two different things are called a language here, and they do different jobs.
+**`Accept-Language` chooses how names and titles come back**; a request filter
+called `credit_language` chooses **which people come back**. Asking
+`ListStaff` for `credit_language: "ja"` returns the Japanese cast — with their
+names in English, because that is the default when no `Accept-Language` is
+sent. Send both to get the Japanese cast under their Japanese names:
+
+```sh
+curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/ListStaff \
+  -H 'Content-Type: application/json' -H 'Accept-Language: ja' \
+  -d '{"creditLanguage": "ja", "limit": 2}'
+```
+
+```json
+{"staff": [{"id": "ayako-kawasumi", "name": "川澄綾子", "externalIds": {"wikidataId": "Q49566"}}]}
+```
+
+An English-language actor's `name` follows the same rule, so an
+`Accept-Language: ja` request answers `ザック・アギラール` for Zach Aguilar —
+that is how a Japanese reader sees his name. The dataset stores the name
+itself as the `original` and the katakana as the `ja` translation, so reading
+`data/` directly gives you both.
 
 `GetStaff` is the inverse — the characters a person is cast as, with the
 language and the series each casting covers:
