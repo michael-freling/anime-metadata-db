@@ -193,7 +193,10 @@ func TestParseDropsWikidataDisambiguators(t *testing.T) {
 	  "Q2":{"id":"Q2","labels":{
 	    "ja":{"language":"ja","value":"花江夏樹"},
 	    "en":{"language":"en","value":"Kana Hanazawa （声優）"}}},
-	  "Q3":{"id":"Q3","labels":{"ja":{"language":"ja","value":"(声優)"}}}
+	  "Q3":{"id":"Q3","labels":{"ja":{"language":"ja","value":"(声優)"}}},
+	  "Q4":{"id":"Q4","labels":{"ja":{"language":"ja","value":"イアン・シンクレア（声優)"}}},
+	  "Q5":{"id":"Q5","labels":{"ja":{"language":"ja","value":"イアン・シンクレア (声優)　"}}},
+	  "Q6":{"id":"Q6","labels":{"ja":{"language":"ja","value":"イアン・シンクレア (俳優) (声優)"}}}
 	}}`
 	got, err := Parse(strings.NewReader(raw))
 	if err != nil {

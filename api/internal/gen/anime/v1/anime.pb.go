@@ -40,6 +40,7 @@ const (
 // left to translate back. Protobuf scopes enum values to the package, so a
 // prefix is added only where the bare word would collide with another enum's
 // (see SpecialFormat and WorkKind, which both want SPECIAL).
+// buf:lint:ignore ENUM_VALUE_PREFIX
 type ReleaseSeason int32
 
 const (
@@ -97,6 +98,7 @@ func (ReleaseSeason) EnumDescriptor() ([]byte, []int) {
 
 // SpecialFormat is the kind of side content a Special represents. Prefixed,
 // because SPECIAL alone would collide with WorkKind's.
+// buf:lint:ignore ENUM_VALUE_PREFIX
 type SpecialFormat int32
 
 const (
@@ -151,6 +153,7 @@ func (SpecialFormat) EnumDescriptor() ([]byte, []int) {
 
 // WorkKind distinguishes the three node types that map to a real release. A
 // Franchise or Series is our grouping, not a release, so neither is a work.
+// buf:lint:ignore ENUM_VALUE_PREFIX
 type WorkKind int32
 
 const (
@@ -204,6 +207,7 @@ func (WorkKind) EnumDescriptor() ([]byte, []int) {
 }
 
 // EntryKind distinguishes a top-level catalog entry's type in search results.
+// buf:lint:ignore ENUM_VALUE_PREFIX
 type EntryKind int32
 
 const (

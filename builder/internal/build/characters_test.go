@@ -15,7 +15,8 @@ const charsWikidata = `{"entities":{
   "Q3":{"id":"Q3","labels":{"en":{"language":"en","value":"Only English"}}},
   "Q4":{"id":"Q4","labels":{"en":{"language":"en","value":"Zach Aguilar"},"ja":{"language":"ja","value":"ザック・アギラール"}}},
   "Q5":{"id":"Q5","labels":{"ja":{"language":"ja","value":"ザック・アギラール"}}},
-  "Q6":{"id":"Q6","labels":{"en":{"language":"en","value":"Aimi"},"ja":{"language":"ja","value":"アイミ"}}}
+  "Q6":{"id":"Q6","labels":{"en":{"language":"en","value":"Aimi"},"ja":{"language":"ja","value":"アイミ"}}},
+  "Q7":{"id":"Q7","labels":{"ja":{"language":"ja","value":"アイミ"}}}
 }}`
 
 func wdSources(t *testing.T) Sources {
@@ -206,6 +207,22 @@ func TestFillNamesReportsAKatakanaNameThatMayNotBeForeign(t *testing.T) {
 	b.fillNames(personName, "staff f", &foreign, "Q4", quiet)
 	if !quiet.Empty() {
 		t.Errorf("a separated katakana name is unambiguous: %v", quiet.String())
+	}
+
+	// Katakana, no separator, and no English label either: both things are
+	// worth saying, and they are said in one line. Two reports about one name
+	// is noise dressed as thoroughness.
+	both := &Report{}
+	var neither model.Title
+	b.fillNames(personName, "staff g", &neither, "Q7", both)
+	if neither.Original != "アイミ" {
+		t.Errorf("original = %q, want the katakana as the only name available", neither.Original)
+	}
+	if lines := strings.Count(both.String(), "\n"); lines != 1 {
+		t.Errorf("want exactly one report line, got %d:\n%s", lines, both.String())
+	}
+	if !strings.Contains(both.String(), "no English label") || !strings.Contains(both.String(), "stage name") {
+		t.Errorf("the one line should carry both reasons: %v", both.String())
 	}
 }
 

@@ -13,6 +13,8 @@ import (
 	"os"
 	"sort"
 	"strings"
+	"unicode"
+	"unicode/utf8"
 )
 
 // batchSize is the maximum number of entity ids per wbgetentities request.
@@ -62,18 +64,34 @@ type rawResponse struct {
 // that picks a person's name over its Japanese rendering skipped him in
 // silence.
 func withoutDisambiguator(label string) string {
-	trimmed := strings.TrimRight(label, " ")
-	for _, pair := range [...][2]string{{"(", ")"}, {"（", "）"}} {
-		if !strings.HasSuffix(trimmed, pair[1]) {
-			continue
+	// Brackets are matched by kind rather than by pair, because a label mixing
+	// an ASCII "(" with a full-width "）" is exactly the sort of thing a
+	// hand-edited label does, and leaving that one unstripped would put the
+	// kanji back — reviving the bug this exists to fix, for one entity, in
+	// silence. Whitespace is trimmed with unicode.IsSpace so the ideographic
+	// space U+3000 counts.
+	const (
+		openers = "(（"
+		closers = ")）"
+	)
+	for {
+		trimmed := strings.TrimRightFunc(label, unicode.IsSpace)
+		last, _ := utf8.DecodeLastRuneInString(trimmed)
+		if !strings.ContainsRune(closers, last) {
+			return label
 		}
-		if i := strings.LastIndex(trimmed, pair[0]); i > 0 {
-			if name := strings.TrimSpace(trimmed[:i]); name != "" {
-				return name
-			}
+		i := strings.LastIndexAny(trimmed, openers)
+		if i <= 0 {
+			return label
 		}
+		name := strings.TrimRightFunc(trimmed[:i], unicode.IsSpace)
+		if name == "" {
+			return label
+		}
+		// Repeat: Wikidata occasionally stacks two of these, and stopping at
+		// the outermost would leave a disambiguator-shaped remnant behind.
+		label = name
 	}
-	return label
 }
 
 // Entity is a resolved Wikidata entity: its QID and labels by language code.

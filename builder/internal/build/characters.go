@@ -167,30 +167,45 @@ func (k nameKind) original(ja, en, entity string, report *Report) string {
 		// anyway, which is why this no longer reports an empty original.
 		return en
 	case model.IsKatakanaOnly(ja):
-		// Katakana spells a foreign name — but it also spells a Japanese stage
-		// name, and those are the ones this would get wrong. A rendering of a
-		// foreign name separates its parts with "・" (ザック・アギラール), which a
-		// one-part Japanese stage name has no reason to carry, so a katakana
-		// label without one is reported whichever way it goes. All 30 of the
-		// katakana labels in the dataset today carry the separator, and no
-		// Japanese staff member has a katakana-only label at all.
-		if !strings.Contains(ja, nameSeparator) {
+		// Katakana spells a foreign name — and it also spells a Japanese stage
+		// name, which is the case this gets wrong. A rendering of a foreign
+		// name separates its parts with "・" (ザック・アギラール); a one-part
+		// Japanese stage name has no reason to carry one, so its absence is
+		// what gets reported.
+		//
+		// A multi-part Japanese name written in katakana with a separator is
+		// therefore taken for a foreign one in silence. It is the residual
+		// risk of the whole rule, and reporting every katakana label instead
+		// would mean 30 lines a build about the case that is nearly always
+		// right — which is how a report stops being read. Authoring the name
+		// in the override is the answer when it happens.
+		//
+		// At most one line either way: two reports about one name is noise
+		// dressed as thoroughness.
+		switch {
+		case en == "":
 			report.add(entity, "names", fmt.Sprintf(
-				"the Japanese label %q is katakana with no %q separating a given name from a family one, so it may be a Japanese stage name rather than a foreign name written for Japanese readers",
-				ja, nameSeparator))
-		}
-		if en == "" {
-			// Nothing else to use, so a rendering of the name becomes the
-			// name. Worth saying out loud even when the separator makes its
-			// origin obvious: what gets stored is not what the person writes.
-			report.add(entity, "names", fmt.Sprintf(
-				"kept the katakana %q as the original because there is no English label; it is how Japanese writes the name rather than the name itself", ja))
+				"kept the katakana %q as the original because there is no English label; it is how Japanese writes the name rather than the name itself%s",
+				ja, suffixIfUnseparated(ja)))
 			return ja
+		case !strings.Contains(ja, nameSeparator):
+			report.add(entity, "names", fmt.Sprintf(
+				"used the English label as the original because the Japanese one, %q, is katakana — but it carries no %q separating a given name from a family one, so it may be a Japanese stage name rather than a foreign name written for Japanese readers",
+				ja, nameSeparator))
 		}
 		return en
 	default:
 		return ja
 	}
+}
+
+// suffixIfUnseparated adds the stage-name caveat to a report that is already
+// being written, so one name never produces two lines.
+func suffixIfUnseparated(ja string) string {
+	if strings.Contains(ja, nameSeparator) {
+		return ""
+	}
+	return fmt.Sprintf(", and with no %q in it, it may be a Japanese stage name rather than a foreign name", nameSeparator)
 }
 
 // nameSeparator is the interpunct Japanese puts between the parts of a foreign

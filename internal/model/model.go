@@ -32,43 +32,75 @@ func IsRomanization(tag string) bool {
 	return false
 }
 
-// nativeScripts are the writing systems a title in this dataset can be written
-// in, other than Latin.
-var nativeScripts = []*unicode.RangeTable{
-	unicode.Han,
-	unicode.Hiragana,
-	unicode.Katakana,
-	unicode.Hangul,
-}
-
 // HasNativeScript reports whether s contains any CJK or Hangul character — that
 // is, whether it is written in something other than Latin script.
 func HasNativeScript(s string) bool {
 	for _, r := range s {
-		if unicode.IsLetter(r) && unicode.In(r, nativeScripts...) {
+		if script(r) != scriptOther {
 			return true
 		}
 	}
 	return false
 }
 
-// IsKatakanaOnly reports whether s is written in katakana and nothing else —
-// no kanji, no hiragana. It states the script and stops there: what that
-// implies about a name is the builder's decision, not this package's.
+// IsKatakanaOnly reports whether s contains katakana and no other Japanese
+// script — no kanji, no hiragana. Latin letters, digits and punctuation are
+// ignored rather than disqualifying, because a name written for Japanese
+// readers routinely carries them: "セイバー Alter" is katakana as far as this
+// is concerned.
 //
-// It lives here with the other script tests so "which script means what" is
-// answered in one file, the one both modules already read.
+// It states the script and stops there. What that implies about a name — that
+// katakana alone usually means a foreign one — is the builder's decision, and
+// lives with the builder.
+//
+// It sits beside the other script tests, and shares their classifier, so
+// "which script means what" is answered in one file rather than in whichever
+// one a future edit happens to open.
 func IsKatakanaOnly(s string) bool {
 	katakana := false
 	for _, r := range s {
-		switch {
-		case unicode.In(r, unicode.Han, unicode.Hiragana):
+		switch script(r) {
+		case scriptJapanese:
 			return false
-		case unicode.In(r, unicode.Katakana):
+		case scriptKatakana:
 			katakana = true
 		}
 	}
 	return katakana
+}
+
+// The scripts these helpers distinguish. Everything else — Latin, digits,
+// punctuation — is scriptOther and never decides anything on its own.
+type scriptClass int
+
+const (
+	scriptOther scriptClass = iota
+	// scriptJapanese is kanji or hiragana: writing that only a Japanese word
+	// uses.
+	scriptJapanese
+	// scriptKatakana is the script Japanese reserves for foreign words, and so
+	// the one that says something about a name's origin.
+	scriptKatakana
+	// scriptHangul is Korean.
+	scriptHangul
+)
+
+// script classifies one rune. Non-letters are scriptOther, so an iteration
+// mark or a combining character never counts as script on its own — the same
+// rule HasNativeScript applies, now applied by both.
+func script(r rune) scriptClass {
+	if !unicode.IsLetter(r) {
+		return scriptOther
+	}
+	switch {
+	case unicode.In(r, unicode.Hiragana), unicode.In(r, unicode.Han):
+		return scriptJapanese
+	case unicode.In(r, unicode.Katakana):
+		return scriptKatakana
+	case unicode.In(r, unicode.Hangul):
+		return scriptHangul
+	}
+	return scriptOther
 }
 
 // PrimaryTag returns the primary subtag of a BCP-47 tag: "ja" for "ja-Latn",
@@ -93,11 +125,16 @@ func PrimaryTag(tag string) string {
 // lives here rather than twice.
 func NativeLanguage(s string) (lang string, certain bool) {
 	for _, r := range s {
-		switch {
-		case unicode.In(r, unicode.Hiragana, unicode.Katakana):
+		switch script(r) {
+		case scriptKatakana:
 			return "ja", true
-		case unicode.In(r, unicode.Hangul):
+		case scriptHangul:
 			return "ko", true
+		case scriptJapanese:
+			// Hiragana settles it; kanji alone does not, and is caught below.
+			if unicode.In(r, unicode.Hiragana) {
+				return "ja", true
+			}
 		}
 	}
 	if HasNativeScript(s) {
