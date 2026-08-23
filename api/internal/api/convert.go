@@ -304,7 +304,7 @@ func toAppearance(loc localizer, store *Store, throughout []model.VoiceActor, a 
 	out := &animev1.CharacterAppearance{
 		SeriesId:    a.SeriesID,
 		SeriesTitle: seriesTitle(loc, store, a.SeriesID),
-		VoiceActors: toVoiceActors(loc, store, effectiveCast(throughout, a.VoiceActors)),
+		VoiceActors: resolvedCast(loc, store, throughout, a.VoiceActors),
 		ExternalIds: toExternalIDs(a.ExternalIDs),
 	}
 	if len(a.Scope) > 0 {
@@ -369,6 +369,28 @@ func effectiveCast(throughout, specific []model.VoiceActor) []model.VoiceActor {
 	return cast
 }
 
+// resolvedCast converts a merged cast, marking each credit with where it came
+// from. The order effectiveCast produces — the constant cast first, then what
+// is specific to this appearance — is what makes the marking work: a credit
+// restated on an appearance is deduped to its first occurrence, which is the
+// character's, and so is correctly reported as holding throughout.
+func resolvedCast(loc localizer, store *Store, throughout, specific []model.VoiceActor) []*animev1.VoiceActor {
+	cast := effectiveCast(throughout, specific)
+	if len(cast) == 0 {
+		return nil
+	}
+	holds := make(map[model.VoiceActor]bool, len(throughout))
+	for _, va := range throughout {
+		holds[va] = true
+	}
+	out := make([]*animev1.VoiceActor, len(cast))
+	for i, va := range cast {
+		out[i] = toVoiceActor(loc, store, va)
+		out[i].Throughout = holds[va]
+	}
+	return out
+}
+
 // toCharacter converts one character, resolving its name via loc.
 //
 // seriesID, when set, is the series the caller asked about: the character's
@@ -378,12 +400,19 @@ func effectiveCast(throughout, specific []model.VoiceActor) []model.VoiceActor {
 // than the one asked.
 func toCharacter(loc localizer, store *Store, seriesID string, c *model.Character) *animev1.Character {
 	name, full := loc.title(c.Names)
-	cast := c.VoiceActors
+	cast := toVoiceActors(loc, store, c.VoiceActors)
 	if seriesID != "" {
+		// One series was named, so its own cast is part of the answer — and
+		// marked, so a caller can still tell which of these actors is specific
+		// to it and which voices the character everywhere.
+		var specific []model.VoiceActor
 		for _, a := range c.Appearances {
 			if a.SeriesID == seriesID {
-				cast = effectiveCast(cast, a.VoiceActors)
+				specific = append(specific, a.VoiceActors...)
 			}
+		}
+		if len(specific) > 0 {
+			cast = resolvedCast(loc, store, c.VoiceActors, specific)
 		}
 	}
 	out := &animev1.Character{
@@ -391,7 +420,7 @@ func toCharacter(loc localizer, store *Store, seriesID string, c *model.Characte
 		Name:          name,
 		LocalizedName: full,
 		ExternalIds:   toExternalIDs(c.ExternalIDs),
-		VoiceActors:   toVoiceActors(loc, store, cast),
+		VoiceActors:   cast,
 	}
 	appearances, appearancesTotal := capped(c.Appearances)
 	out.AppearancesTotal = appearancesTotal

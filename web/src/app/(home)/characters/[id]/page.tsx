@@ -6,7 +6,7 @@ import { Code, ConnectError } from '@connectrpc/connect';
 import { localizedApi } from '@/lib/api';
 import { ApiError, isBadRequest, PageHeader, Pager, plural } from '@/components/browse';
 import { humanizeId, languageLabel } from '@/lib/format';
-import type { ScopeRef } from '@/lib/gen/anime/v1/anime_pb';
+import type { ScopeRef, VoiceActor } from '@/lib/gen/anime/v1/anime_pb';
 
 // Shared by generateMetadata and the page body, which would otherwise each
 // issue their own RPC for the same character.
@@ -31,6 +31,12 @@ const APPEARANCE_LIMIT = 24;
 // one. Exactly one id is set per entry.
 function scopeId(s: ScopeRef): string {
   return s.seasonId || s.movieId || s.specialId;
+}
+
+// The cast this appearance adds: everyone in its resolved list who is not
+// already there because they voice the character throughout.
+function addedCast(a: { voiceActors: VoiceActor[] }): VoiceActor[] {
+  return a.voiceActors.filter((v) => !v.throughout);
 }
 
 // The API resolves each installment's own title, which a numbered season
@@ -157,11 +163,16 @@ export default async function CharacterPage({
                     <p className="text-sm text-fd-muted-foreground">{scopeLabel(a)}</p>
                   ) : null}
                 </div>
-                {/* The cast for that series, resolved by the API: the actors
-                    above plus anyone cast only there. */}
-                {a.voiceActors.length > 0 ? (
+                {/* Only who is specific to this appearance. The API sends the
+                    resolved cast — the actors above plus these — but repeating
+                    "Ayako Kawasumi" on every row says nothing; the rows exist
+                    to show where the cast differs. */}
+                {addedCast(a).length > 0 ? (
                   <span className="text-sm text-fd-muted-foreground">
-                    {a.voiceActors.map((v) => v.staffName || humanizeId(v.staffId)).join(', ')}
+                    {character.voiceActors.length > 0 ? 'also ' : null}
+                    {addedCast(a)
+                      .map((v) => v.staffName || humanizeId(v.staffId))
+                      .join(', ')}
                   </span>
                 ) : null}
               </li>

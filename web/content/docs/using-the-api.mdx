@@ -201,12 +201,20 @@ each of those lives on the appearance it was cast in, optionally with a `scope`
 narrowing it to specific seasons, movies or specials.
 
 You never have to combine the two yourself. An appearance's `voiceActors` is
-already **the cast for that series** — the constant cast plus whoever is
+already **the cast for that appearance** — the constant cast plus whoever is
 specific to it — and `ListCharacters` with a `seriesId` (and the cast embedded
 in `GetSeries`) resolves each character's `voiceActors` the same way. Only an
 unscoped character listing reports the constant cast alone, because no series
 was named to be specific to. Each link repeats the staff member's resolved
 `staffName`, so rendering a cast list needs no second call.
+
+Because those lists are resolved, an actor who voices the character everywhere
+appears in every one of them. `throughout` says so: it marks the credits that
+came from the character rather than from the thing being described. Ignore it
+and you still have the full cast; read it and you can show what a series adds
+— *"Fate/Zero — also Kari Wahlgren"* — without restating Ayako Kawasumi on
+every row. It is set only where a list mixes the two, so an unscoped
+character's own `voiceActors` carries no marks at all.
 
 Saber is the worked example: Ayako Kawasumi voices her in every Fate work and
 sits on the character, while Kate Higgins and Kari Wahlgren sit on the

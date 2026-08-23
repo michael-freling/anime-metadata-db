@@ -304,11 +304,28 @@ func TestGetCharacter(t *testing.T) {
 	}
 	// The second appearance adds a voice actor rather than replacing the
 	// character's — an English dub does not unseat the original cast — so it
-	// reports both, the added one being an unnamed staff member.
+	// reports both, the added one being an unnamed staff member. Each is
+	// marked with where it came from, so a client can render the addition
+	// without restating the constant cast on every row.
 	both := appearances[1].GetVoiceActors()
 	if len(both) != 2 || both[0].GetStaffId() != "va-one" || both[1].GetStaffId() != "va-two" ||
 		both[1].GetStaffName() != "" {
-		t.Errorf("appearance cast = %+v, want the character's plus its own", both)
+		t.Fatalf("appearance cast = %+v, want the character's plus its own", both)
+	}
+	if !both[0].GetThroughout() || both[1].GetThroughout() {
+		t.Errorf("cast provenance = %v/%v, want the character's marked and the appearance's not",
+			both[0].GetThroughout(), both[1].GetThroughout())
+	}
+	// An appearance that adds nobody reports the character's cast, marked.
+	if plain := appearances[0].GetVoiceActors(); !plain[0].GetThroughout() {
+		t.Errorf("inherited cast should be marked as holding throughout: %+v", plain[0])
+	}
+	// Asked without a series, a character's own cast holds throughout by
+	// definition, so nothing is marked and the field stays absent on the wire.
+	for _, va := range c.GetVoiceActors() {
+		if va.GetThroughout() {
+			t.Errorf("unscoped character cast should not be marked: %+v", va)
+		}
 	}
 	if appearances[1].GetExternalIds().GetAnilistId() != 99 {
 		t.Errorf("appearance external ids = %+v", appearances[1].GetExternalIds())
@@ -559,9 +576,14 @@ func TestGetSeriesIncludesCast(t *testing.T) {
 	}
 	// A series' cast is that series' cast: va-two is cast only in zzz, and a
 	// page about zzz that left them out would be listing the wrong actors.
-	if vas := cast[0].GetVoiceActors(); len(vas) != 2 ||
-		vas[0].GetStaffId() != "va-one" || vas[1].GetStaffId() != "va-two" {
-		t.Errorf("zzz cast voice actors = %+v, want va-one and va-two", vas)
+	// Marked, so "who is specific to this series" is still answerable.
+	vas := cast[0].GetVoiceActors()
+	if len(vas) != 2 || vas[0].GetStaffId() != "va-one" || vas[1].GetStaffId() != "va-two" {
+		t.Fatalf("zzz cast voice actors = %+v, want va-one and va-two", vas)
+	}
+	if !vas[0].GetThroughout() || vas[1].GetThroughout() {
+		t.Errorf("series-scoped cast provenance = %v/%v, want the character's marked only",
+			vas[0].GetThroughout(), vas[1].GetThroughout())
 	}
 	// A series with no cast carries none.
 	resp, err = svc.GetSeries(context.Background(), connect.NewRequest(&animev1.GetSeriesRequest{Id: "minimal"}))

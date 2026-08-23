@@ -168,6 +168,18 @@ message VoiceActor {
   // Accept-Language, denormalized so a client need not call GetStaff. Empty
   // when the dataset carries no name for them yet.
   string staff_name = 3;
+  // throughout marks a credit that comes from the character rather than from
+  // the thing being described — Ayako Kawasumi voices Saber in every Fate
+  // work, so she is `throughout` in each of Saber's appearances while the
+  // English dub cast alongside her is not.
+  //
+  // It is set only where a list mixes the two: an appearance's cast, and a
+  // character's cast when the request named a series. Character.voice_actors
+  // asked without a series holds nothing else, so nothing is marked there.
+  // Ignore it and you still have the full cast, which is the point of
+  // resolving the list server-side; read it and you can tell what is specific
+  // to this series without diffing two lists yourself.
+  bool throughout = 4;
 }
 
 // ScopeRef narrows a CharacterAppearance to one installment of a Series.

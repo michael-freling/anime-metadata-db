@@ -1001,7 +1001,19 @@ type VoiceActor struct {
 	// staff_name is the staff member's name resolved for the request's
 	// Accept-Language, denormalized so a client need not call GetStaff. Empty
 	// when the dataset carries no name for them yet.
-	StaffName     string `protobuf:"bytes,3,opt,name=staff_name,json=staffName,proto3" json:"staff_name,omitempty"`
+	StaffName string `protobuf:"bytes,3,opt,name=staff_name,json=staffName,proto3" json:"staff_name,omitempty"`
+	// throughout marks a credit that comes from the character rather than from
+	// the thing being described — Ayako Kawasumi voices Saber in every Fate
+	// work, so she is `throughout` in each of Saber's appearances while the
+	// English dub cast alongside her is not.
+	//
+	// It is set only where a list mixes the two: an appearance's cast, and a
+	// character's cast when the request named a series. Character.voice_actors
+	// asked without a series holds nothing else, so nothing is marked there.
+	// Ignore it and you still have the full cast, which is the point of
+	// resolving the list server-side; read it and you can tell what is specific
+	// to this series without diffing two lists yourself.
+	Throughout    bool `protobuf:"varint,4,opt,name=throughout,proto3" json:"throughout,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1055,6 +1067,13 @@ func (x *VoiceActor) GetStaffName() string {
 		return x.StaffName
 	}
 	return ""
+}
+
+func (x *VoiceActor) GetThroughout() bool {
+	if x != nil {
+		return x.Throughout
+	}
+	return false
 }
 
 // ScopeRef narrows a CharacterAppearance to one installment of a Series.
@@ -4016,13 +4035,16 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\n" +
 	"characters\x18\a \x03(\v2\x13.anime.v1.CharacterR\n" +
 	"characters\x12)\n" +
-	"\x10characters_total\x18\v \x01(\x05R\x0fcharactersTotal\"b\n" +
+	"\x10characters_total\x18\v \x01(\x05R\x0fcharactersTotal\"\x82\x01\n" +
 	"\n" +
 	"VoiceActor\x12\x19\n" +
 	"\bstaff_id\x18\x01 \x01(\tR\astaffId\x12\x1a\n" +
 	"\blanguage\x18\x02 \x01(\tR\blanguage\x12\x1d\n" +
 	"\n" +
-	"staff_name\x18\x03 \x01(\tR\tstaffName\"\x8f\x01\n" +
+	"staff_name\x18\x03 \x01(\tR\tstaffName\x12\x1e\n" +
+	"\n" +
+	"throughout\x18\x04 \x01(\bR\n" +
+	"throughout\"\x8f\x01\n" +
 	"\bScopeRef\x12\x1b\n" +
 	"\tseason_id\x18\x01 \x01(\tR\bseasonId\x12\x19\n" +
 	"\bmovie_id\x18\x02 \x01(\tR\amovieId\x12\x1d\n" +
