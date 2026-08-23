@@ -52,13 +52,24 @@ franchise:
   characters:
     - id: artoria-pendragon
       externalIds: { wikidataId: Q4918886 } # Saber
-      # Default cast across all appearances (one Character node, many series).
+      # Default cast: the Japanese voice is the same in every adaptation, so it
+      # belongs here. The English dubs are not — Saber was recast for each, and
+      # Wikidata says which is which via "applies to work" (P10663) on the
+      # voice-actor statements. An appearance that lists voiceActors replaces
+      # the default for that series, so each one restates the Japanese cast.
+      #
+      # Michelle Ruff is deliberately absent: her credit applies to the 2010
+      # Unlimited Blade Works film (Q3740068), which this dataset does not
+      # carry. Add her with that film, not before.
       voiceActors:
         - { staffId: ayako-kawasumi, language: ja }
-        - { staffId: kate-higgins, language: en }
-        - { staffId: michelle-ruff, language: en }
-        - { staffId: kari-wahlgren, language: en }
       appearances:
-        - { seriesId: fate-stay-night }
-        - { seriesId: fate-zero }
+        - seriesId: fate-stay-night # 2006 TV series (Q60987686)
+          voiceActors:
+            - { staffId: ayako-kawasumi, language: ja }
+            - { staffId: kate-higgins, language: en }
+        - seriesId: fate-zero # Q96500220
+          voiceActors:
+            - { staffId: ayako-kawasumi, language: ja }
+            - { staffId: kari-wahlgren, language: en }
 numbered: [fate-zero, fate-strange-fake]
