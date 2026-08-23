@@ -4,7 +4,7 @@
 series:
   id: dark-machine-the-animation
   titles:
-    translations: { en: "Dark Machine: The Animation" }
+    original: "Dark Machine: The Animation"
   seasons:
     - id: dark-machine-the-animation-s1
       number: 1

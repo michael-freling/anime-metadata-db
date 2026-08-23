@@ -5,7 +5,7 @@ series:
   id: dark-moon-tsuki-no-saidan
   titles:
     original: "DARK MOON　-黒の月: 月の祭壇- Original By DARK MOON : THE BLOOD ALTAR WITH ENHYPEN"
-    translations: { en: "Dark Moon: Tsuki no Saidan" }
+    translations: { ja-Latn: "Dark Moon: Tsuki no Saidan" }
   seasons:
     - id: dark-moon-tsuki-no-saidan-s1
       number: 1

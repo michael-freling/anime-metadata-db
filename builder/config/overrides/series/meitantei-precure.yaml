@@ -5,7 +5,7 @@ series:
   id: meitantei-precure
   titles:
     original: TanPre (たんプリ)
-    translations: { en: "Meitantei Precure!" }
+    translations: { ja-Latn: "Meitantei Precure!" }
   seasons:
     - id: meitantei-precure-s1
       number: 1

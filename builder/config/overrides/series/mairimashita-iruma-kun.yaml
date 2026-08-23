@@ -5,7 +5,7 @@ series:
   id: mairimashita-iruma-kun
   titles:
     original: "魔入りました! 入間くん"
-    translations: { en: "Mairimashita! Iruma-kun" }
+    translations: { ja-Latn: "Mairimashita! Iruma-kun" }
   seasons:
     - id: mairimashita-iruma-kun-s1
       number: 1

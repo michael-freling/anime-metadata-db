@@ -5,7 +5,7 @@ series:
   id: oshiri-dandy-the-young
   titles:
     original: おしりダンディ ザ・ヤング
-    translations: { en: Oshiri Dandy the Young }
+    translations: { ja-Latn: Oshiri Dandy the Young }
   seasons:
     - id: oshiri-dandy-the-young-s1
       number: 1

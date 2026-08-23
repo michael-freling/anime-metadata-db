@@ -5,7 +5,7 @@ series:
   id: romelia-senki
   titles:
     original: "Romelia Senki: Maou wo Taoshita Nochi mo Jinrui Yaba Souda kara Guntai Soshiki Shita (ロメリア戦記 ～魔王を倒した後も人類やばそうだから軍隊組織した～)"
-    translations: { en: Romelia Senki }
+    translations: { ja-Latn: Romelia Senki }
   seasons:
     - id: romelia-senki-s1
       number: 1

@@ -5,7 +5,7 @@ series:
   id: onegai-aipri
   titles:
     original: おねがいアイプリ
-    translations: { en: Onegai AiPri }
+    translations: { ja-Latn: Onegai AiPri }
   seasons:
     - id: onegai-aipri-s1
       number: 1

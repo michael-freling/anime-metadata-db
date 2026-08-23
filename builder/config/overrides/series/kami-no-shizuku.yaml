@@ -5,7 +5,7 @@ series:
   id: kami-no-shizuku
   titles:
     original: 神の雫
-    translations: { en: Kami no Shizuku }
+    translations: { ja-Latn: Kami no Shizuku }
   seasons:
     - id: kami-no-shizuku-s1
       number: 1

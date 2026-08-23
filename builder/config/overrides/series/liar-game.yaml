@@ -5,7 +5,7 @@ series:
   id: liar-game
   titles:
     original: LIAR GAME -ライアーゲーム-
-    translations: { en: Liar Game }
+    translations: { ja-Latn: Liar Game }
   seasons:
     - id: liar-game-s1
       number: 1

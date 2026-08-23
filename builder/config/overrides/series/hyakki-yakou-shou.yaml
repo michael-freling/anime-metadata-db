@@ -5,7 +5,7 @@ series:
   id: hyakki-yakou-shou
   titles:
     original: 百鬼夜行抄
-    translations: { en: Hyakki Yakou Shou }
+    translations: { ja-Latn: Hyakki Yakou Shou }
   seasons:
     - id: hyakki-yakou-shou-s1
       number: 1

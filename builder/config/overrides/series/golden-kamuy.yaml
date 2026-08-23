@@ -5,7 +5,7 @@ series:
   id: golden-kamuy
   titles:
     original: ゴールデンカムイ
-    translations: { en: Golden Kamuy }
+    translations: { ja-Latn: Golden Kamuy }
   seasons:
     - id: golden-kamuy-s1
       number: 1

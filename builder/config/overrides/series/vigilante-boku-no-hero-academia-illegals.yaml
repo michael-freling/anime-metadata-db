@@ -5,7 +5,7 @@ series:
   id: vigilante-boku-no-hero-academia-illegals
   titles:
     original: ヴィジランテ -僕のヒーローアカデミア ILLEGALS-
-    translations: { en: "Vigilante: Boku no Hero Academia Illegals" }
+    translations: { ja-Latn: "Vigilante: Boku no Hero Academia Illegals" }
   seasons:
     - id: vigilante-boku-no-hero-academia-illegals-s1
       number: 1

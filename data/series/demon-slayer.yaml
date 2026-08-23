@@ -73,6 +73,7 @@ series:
         translations:
           en: Mugen Train Arc
           ja: 鬼滅の刃 無限列車編
+          ja-Latn: 'Kimetsu no Yaiba: Mugen Ressha-hen'
       number: 2
       releaseYear: 2021
       releaseSeason: FALL
@@ -101,6 +102,7 @@ series:
         translations:
           en: Entertainment District Arc
           ja: 鬼滅の刃 遊郭編
+          ja-Latn: 'Kimetsu no Yaiba: Yuukaku-hen'
       number: 3
       releaseYear: 2022
       releaseSeason: WINTER
@@ -137,6 +139,7 @@ series:
         translations:
           en: Swordsmith Village Arc
           ja: 鬼滅の刃 刀鍛冶の里編
+          ja-Latn: 'Kimetsu no Yaiba: Katanakaji no Sato-hen'
       number: 4
       releaseYear: 2023
       releaseSeason: SPRING
@@ -173,6 +176,7 @@ series:
         translations:
           en: Hashira Training Arc
           ja: 鬼滅の刃 柱稽古編
+          ja-Latn: 'Kimetsu no Yaiba: Hashira Geiko-hen'
       number: 5
       releaseYear: 2024
       releaseSeason: SPRING
@@ -204,6 +208,7 @@ series:
         translations:
           en: Mugen Train
           ja: 劇場版 鬼滅の刃 無限列車編
+          ja-Latn: 'Kimetsu no Yaiba Movie: Mugen Ressha-hen'
       releaseYear: 2020
       externalIds:
         anilistId: 112151
@@ -217,6 +222,7 @@ series:
         translations:
           en: Infinity Castle
           ja: 劇場版 鬼滅の刃 無限城編
+          ja-Latn: 'Kimetsu no Yaiba Movie 1: Mugenjou-hen - Akaza Sairai'
       releaseYear: 2025
       externalIds:
         anilistId: 178788

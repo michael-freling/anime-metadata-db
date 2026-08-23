@@ -6,7 +6,7 @@ series:
   id: trigun-stampede
   titles:
     original: トライガン スタンピード
-    translations: { en: Trigun Stampede }
+    translations: { ja-Latn: Trigun Stampede }
   seasons:
     - id: trigun-stampede-s1
       number: 1

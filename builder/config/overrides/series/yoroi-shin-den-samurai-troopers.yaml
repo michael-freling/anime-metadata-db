@@ -5,7 +5,7 @@ series:
   id: yoroi-shin-den-samurai-troopers
   titles:
     original: 鎧真伝サムライトルーパー
-    translations: { en: Yoroi Shin Den Samurai Troopers }
+    translations: { ja-Latn: Yoroi Shin Den Samurai Troopers }
   seasons:
     - id: yoroi-shin-den-samurai-troopers-s1
       number: 1

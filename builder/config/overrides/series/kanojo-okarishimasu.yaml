@@ -5,7 +5,7 @@ series:
   id: kanojo-okarishimasu
   titles:
     original: 彼女, お借りします
-    translations: { en: "Kanojo, Okarishimasu" }
+    translations: { ja-Latn: "Kanojo, Okarishimasu" }
   seasons:
     - id: kanojo-okarishimasu-s1
       number: 1

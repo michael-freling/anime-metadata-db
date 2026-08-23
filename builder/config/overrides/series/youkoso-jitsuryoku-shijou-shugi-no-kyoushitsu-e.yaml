@@ -5,7 +5,7 @@ series:
   id: youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e
   titles:
     original: ようこそ実力至上主義の教室へ
-    translations: { en: Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e }
+    translations: { ja-Latn: Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e }
   seasons:
     - id: youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-s1
       number: 1
@@ -17,7 +17,7 @@ series:
       number: 3
       externalIds: { anilistId: 146066 } # Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e 3rd Season (Winter 2024)
     - id: youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-s4
-      titles: { translations: { en: "4th Season: 2-nensei-hen 1 Gakki" } }
+      titles: { translations: { ja-Latn: "4th Season: 2-nensei-hen 1 Gakki" } }
       number: 4
       externalIds: { anilistId: 180745 } # Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e 4th Season: 2-nensei-hen 1 Gakki (Spring 2026)
   # Cast (R2) discovered from Wikidata (CC0) and nested under the series;

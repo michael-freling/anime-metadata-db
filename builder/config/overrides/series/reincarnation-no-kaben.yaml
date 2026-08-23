@@ -5,7 +5,7 @@ series:
   id: reincarnation-no-kaben
   titles:
     original: リィンカーネーションの花弁
-    translations: { en: Reincarnation no Kaben }
+    translations: { ja-Latn: Reincarnation no Kaben }
   seasons:
     - id: reincarnation-no-kaben-s1
       number: 1

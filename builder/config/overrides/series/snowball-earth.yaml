@@ -5,7 +5,7 @@ series:
   id: snowball-earth
   titles:
     original: スノウボールアース
-    translations: { en: Snowball Earth }
+    translations: { ja-Latn: Snowball Earth }
   seasons:
     - id: snowball-earth-s1
       number: 1

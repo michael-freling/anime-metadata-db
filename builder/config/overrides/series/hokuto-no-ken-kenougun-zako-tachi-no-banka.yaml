@@ -5,7 +5,7 @@ series:
   id: hokuto-no-ken-kenougun-zako-tachi-no-banka
   titles:
     original: Animatica「北斗の拳 拳王軍ザコたちの挽歌」
-    translations: { en: "Hokuto no Ken: Kenougun Zako-tachi no Banka" }
+    translations: { ja-Latn: "Hokuto no Ken: Kenougun Zako-tachi no Banka" }
   seasons:
     - id: hokuto-no-ken-kenougun-zako-tachi-no-banka-s1
       number: 1

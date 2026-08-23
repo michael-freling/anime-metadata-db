@@ -5,7 +5,7 @@ series:
   id: mf-ghost
   titles:
     original: エムエフゴースト
-    translations: { en: MF Ghost }
+    translations: { ja-Latn: MF Ghost }
   seasons:
     - id: mf-ghost-s1
       number: 1

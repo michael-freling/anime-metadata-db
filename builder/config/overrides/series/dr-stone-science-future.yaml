@@ -5,7 +5,7 @@ series:
   id: dr-stone-science-future
   titles:
     original: ドクターストーン SCIENCE FUTURE
-    translations: { en: "Dr. Stone: Science Future" }
+    translations: { ja-Latn: "Dr. Stone: Science Future" }
   seasons:
     - id: dr-stone-science-future-s1
       number: 1

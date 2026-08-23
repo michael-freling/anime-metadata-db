@@ -5,7 +5,7 @@ series:
   id: niwatori-fighter
   titles:
     original: ニワトリ・ファイター
-    translations: { en: Niwatori Fighter }
+    translations: { ja-Latn: Niwatori Fighter }
   seasons:
     - id: niwatori-fighter-s1
       number: 1

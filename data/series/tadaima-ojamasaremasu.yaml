@@ -4,7 +4,7 @@ series:
   titles:
     original: ただいま, おじゃまされます!
     translations:
-      en: Tadaima, Ojamasaremasu!
+      ja-Latn: Tadaima, Ojamasaremasu!
   seasons:
     - id: tadaima-ojamasaremasu-s1
       number: 1

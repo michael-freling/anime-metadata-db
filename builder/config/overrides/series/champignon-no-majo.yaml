@@ -5,7 +5,7 @@ series:
   id: champignon-no-majo
   titles:
     original: シャンピニオンの魔女
-    translations: { en: Champignon no Majo }
+    translations: { ja-Latn: Champignon no Majo }
   seasons:
     - id: champignon-no-majo-s1
       number: 1

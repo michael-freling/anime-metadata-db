@@ -5,7 +5,7 @@ series:
   id: tadaima-ojamasaremasu
   titles:
     original: "ただいま, おじゃまされます!"
-    translations: { en: "Tadaima, Ojamasaremasu!" }
+    translations: { ja-Latn: "Tadaima, Ojamasaremasu!" }
   seasons:
     - id: tadaima-ojamasaremasu-s1
       number: 1

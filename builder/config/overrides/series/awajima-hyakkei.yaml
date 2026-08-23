@@ -5,7 +5,7 @@ series:
   id: awajima-hyakkei
   titles:
     original: 淡島百景
-    translations: { en: Awajima Hyakkei }
+    translations: { ja-Latn: Awajima Hyakkei }
   seasons:
     - id: awajima-hyakkei-s1
       number: 1

@@ -5,7 +5,7 @@ series:
   id: kanagawa-ni-sunderu-elf
   titles:
     original: "#神奈川に住んでるエルフ"
-    translations: { en: "#Kanagawa ni Sunderu Elf" }
+    translations: { ja-Latn: "#Kanagawa ni Sunderu Elf" }
   seasons:
     - id: kanagawa-ni-sunderu-elf-s1
       number: 1

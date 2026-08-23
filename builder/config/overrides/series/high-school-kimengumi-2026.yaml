@@ -5,7 +5,7 @@ series:
   id: high-school-kimengumi-2026
   titles:
     original: "ハイスクール! 奇面組 (2026)"
-    translations: { en: "High School! Kimengumi (2026)" }
+    translations: { ja-Latn: "High School! Kimengumi (2026)" }
   seasons:
     - id: high-school-kimengumi-2026-s1
       number: 1

@@ -5,7 +5,7 @@ series:
   id: marriagetoxin
   titles:
     original: マリッジトキシン
-    translations: { en: Marriagetoxin }
+    translations: { ja-Latn: Marriagetoxin }
   seasons:
     - id: marriagetoxin-s1
       number: 1

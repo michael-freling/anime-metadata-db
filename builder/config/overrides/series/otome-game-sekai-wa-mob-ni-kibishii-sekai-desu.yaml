@@ -5,7 +5,7 @@ series:
   id: otome-game-sekai-wa-mob-ni-kibishii-sekai-desu
   titles:
     original: 乙女ゲー世界はモブに厳しい世界です
-    translations: { en: Otome Game Sekai wa Mob ni Kibishii Sekai desu }
+    translations: { ja-Latn: Otome Game Sekai wa Mob ni Kibishii Sekai desu }
   seasons:
     - id: otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-s1
       number: 1

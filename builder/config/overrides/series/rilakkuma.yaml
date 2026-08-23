@@ -5,7 +5,7 @@ series:
   id: rilakkuma
   titles:
     original: リラックマ ～ごゆるり夢の旅～
-    translations: { en: Rilakkuma }
+    translations: { ja-Latn: Rilakkuma }
   seasons:
     - id: rilakkuma-s1
       number: 1

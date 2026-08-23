@@ -5,7 +5,7 @@ series:
   id: honzuki-no-gekokujou
   titles:
     original: 本好きの下剋上 ～司書になるためには手段を選んでいられません～
-    translations: { en: "Honzuki no Gekokujou: Shisho ni Naru Tame ni wa Shudan wo Erandeiraremasen" }
+    translations: { ja-Latn: "Honzuki no Gekokujou: Shisho ni Naru Tame ni wa Shudan wo Erandeiraremasen" }
   seasons:
     - id: honzuki-no-gekokujou-s1
       number: 1
@@ -17,7 +17,7 @@ series:
       number: 3
       externalIds: { anilistId: 121176 } # Honzuki no Gekokujou: Shisho ni Naru Tame ni wa Shudan wo Erandeiraremasen 3rd Season (Spring 2022)
     - id: honzuki-no-gekokujou-s4
-      titles: { translations: { en: Ryoushu no Youjo } }
+      titles: { translations: { ja-Latn: Ryoushu no Youjo } }
       number: 4
       externalIds: { anilistId: 171110 } # Honzuki no Gekokujou: Shisho ni Naru Tame ni wa Shudan wo Erandeiraremasen - Ryoushu no Youjo (Spring 2026)
   # Cast (R2) discovered from Wikidata (CC0) and nested under the series;

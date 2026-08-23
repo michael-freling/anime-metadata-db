@@ -5,7 +5,7 @@ series:
   id: kill-ao
   titles:
     original: キルアオ
-    translations: { en: Kill Ao }
+    translations: { ja-Latn: Kill Ao }
   seasons:
     - id: kill-ao-s1
       number: 1

@@ -5,7 +5,7 @@ series:
   id: medalist
   titles:
     original: メダリスト
-    translations: { en: Medalist }
+    translations: { ja-Latn: Medalist }
   seasons:
     - id: medalist-s1
       number: 1

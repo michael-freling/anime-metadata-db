@@ -45,6 +45,28 @@ func TestResolveTitle(t *testing.T) {
 		{"english request uses original when no en", "en", mk("Native", nil), "Native"},
 		{"deterministic first translation", "fr", mk("", map[string]string{"zz": "Z", "aa": "A"}), "A"},
 		{"empty title", "en", mk("", nil), ""},
+
+		// Most of the catalogue has a romanization and no English title. An
+		// English request must reach it rather than falling through to a
+		// native script the reader cannot read.
+		{"english falls back to a romanization, not to kanji", "en",
+			mk("鬼滅の刃", map[string]string{"ja": "鬼滅の刃", "ja-Latn": "Kimetsu no Yaiba"}), "Kimetsu no Yaiba"},
+		{"a real english title still wins over the romanization", "en",
+			mk("鬼滅の刃", map[string]string{"ja-Latn": "Kimetsu no Yaiba", "en": "Demon Slayer"}), "Demon Slayer"},
+		{"japanese still gets native script, never its own romanization", "ja",
+			mk("鬼滅の刃", map[string]string{"ja-Latn": "Kimetsu no Yaiba"}), "鬼滅の刃"},
+		{"any other language reaches the romanization too", "fr",
+			mk("鬼滅の刃", map[string]string{"ja-Latn": "Kimetsu no Yaiba"}), "Kimetsu no Yaiba"},
+		// Accept-Language is lowercased on the way in; the script subtag is
+		// conventionally title case. The two have to meet.
+		{"a lowercased script subtag still matches", "ja-latn",
+			mk("鬼滅の刃", map[string]string{"ja-Latn": "Kimetsu no Yaiba"}), "Kimetsu no Yaiba"},
+		// Not every original here is Japanese, and a Korean title romanized as
+		// ko-Latn must not be served to a Korean reader in place of Hangul.
+		{"korean gets hangul, everyone else its romanization", "ko",
+			mk("메탈카드봇W", map[string]string{"ko-Latn": "Metal Cardbot W"}), "메탈카드봇W"},
+		{"a japanese reader gets the korean romanization, not hangul", "ja",
+			mk("메탈카드봇W", map[string]string{"ko-Latn": "Metal Cardbot W"}), "Metal Cardbot W"},
 	}
 	for _, tc := range tests {
 		if got := resolveTitle(tc.in, tc.lang); got != tc.want {

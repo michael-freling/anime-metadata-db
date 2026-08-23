@@ -157,6 +157,14 @@ AniList, AniDB, TVDB and — for characters and staff — Wikidata. Episodes car
 numbering only: no title, no date. See [Sources and licensing](/docs/sources-and-licensing)
 for the full list of what the build never fills, and why.
 
+Titles resolve per request: `Accept-Language: ja` gets the native script, and
+anything else gets an English title where the dataset has one and the
+romanization otherwise — so an English request answers `Kami no Shizuku` rather
+than `神の雫`, readable without claiming to be an English title. Most of the
+catalogue has no English title at all. `Accept-Language: *` returns every
+language instead, each under its own tag: `en` for an English title, `ja-Latn`
+for a romanized Japanese one.
+
 ## Characters and staff
 
 Characters and staff are **global** nodes, not children of a series. A character

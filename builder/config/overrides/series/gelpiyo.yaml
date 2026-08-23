@@ -5,7 +5,7 @@ series:
   id: gelpiyo
   titles:
     original: ゲルぴよ
-    translations: { en: Gelpiyo }
+    translations: { ja-Latn: Gelpiyo }
   seasons:
     - id: gelpiyo-s1
       number: 1

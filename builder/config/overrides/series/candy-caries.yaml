@@ -5,7 +5,7 @@ series:
   id: candy-caries
   titles:
     original: キャンディーカリエス
-    translations: { en: Candy Caries }
+    translations: { ja-Latn: Candy Caries }
   seasons:
     - id: candy-caries-s1
       number: 1

@@ -5,7 +5,7 @@ series:
   id: mao
   titles:
     original: マオ
-    translations: { en: Mao }
+    translations: { ja-Latn: Mao }
   seasons:
     - id: mao-s1
       number: 1

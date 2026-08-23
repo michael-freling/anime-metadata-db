@@ -54,28 +54,73 @@ func (l localizer) title(t model.Title) (string, *animev1.LocalizedTitle) {
 }
 
 // resolveTitle picks the best single title for lang. Order: the requested
-// language (exact, then its primary subtag), then — for a non-English request —
-// the native original, then English, then the native original, then any
-// translation (deterministically). It returns "" only for an empty title.
+// language (exact, then its primary subtag), then a romanization the caller can
+// read, then — for a non-English request — the native original, then English,
+// then the native original, then any translation (deterministically). It
+// returns "" only for an empty title.
 func resolveTitle(t model.Title, lang string) string {
-	if v := t.Translations[lang]; v != "" {
+	if v := translation(t, lang); v != "" {
 		return v
 	}
 	if p := primaryTag(lang); p != lang {
-		if v := t.Translations[p]; v != "" {
+		if v := translation(t, p); v != "" {
 			return v
 		}
+	}
+	// Most of this catalogue has no English title, only a romanized Japanese
+	// one. Someone asking in a Latin-script language is better served by
+	// "Kimetsu no Yaiba" than by 鬼滅の刃, which they cannot read at all — but a
+	// reader who asked in the title's own language wants the native script, so
+	// a romanization of their own language is skipped.
+	if v := romanization(t, lang); v != "" {
+		return v
 	}
 	if lang != defaultLang && t.Original != "" {
 		return t.Original
 	}
-	if v := t.Translations[defaultLang]; v != "" {
+	if v := translation(t, defaultLang); v != "" {
 		return v
 	}
 	if t.Original != "" {
 		return t.Original
 	}
 	return firstTranslation(t)
+}
+
+// translation looks a language tag up case-insensitively: a request header is
+// lowercased on the way in ("ja-latn"), while a tag's script subtag is written
+// in title case by convention ("ja-Latn"), and the two must still meet.
+func translation(t model.Title, lang string) string {
+	if v := t.Translations[lang]; v != "" {
+		return v
+	}
+	for code, v := range t.Translations {
+		if v != "" && strings.EqualFold(code, lang) {
+			return v
+		}
+	}
+	return ""
+}
+
+// romanization returns a Latin-script rendering of a title written in another
+// script, in deterministic key order. A rendering of the language the caller
+// asked in is not one: a Japanese request wants 鬼滅の刃, not "Kimetsu no Yaiba".
+func romanization(t model.Title, lang string) string {
+	keys := make([]string, 0, len(t.Translations))
+	for k := range t.Translations {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+	for _, k := range keys {
+		if t.Translations[k] == "" || !strings.HasSuffix(strings.ToLower(k), "-latn") {
+			continue
+		}
+		if strings.EqualFold(primaryTag(k), primaryTag(lang)) {
+			continue
+		}
+		return t.Translations[k]
+	}
+	return ""
 }
 
 // primaryTag returns the primary subtag of a BCP-47 tag ("en-us" -> "en").

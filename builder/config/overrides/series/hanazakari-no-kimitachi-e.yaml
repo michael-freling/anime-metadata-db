@@ -5,7 +5,7 @@ series:
   id: hanazakari-no-kimitachi-e
   titles:
     original: 花さかりの君たちへ
-    translations: { en: Hanazakari no Kimitachi e }
+    translations: { ja-Latn: Hanazakari no Kimitachi e }
   seasons:
     - id: hanazakari-no-kimitachi-e-s1
       number: 1

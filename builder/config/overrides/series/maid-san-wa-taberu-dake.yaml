@@ -5,7 +5,7 @@ series:
   id: maid-san-wa-taberu-dake
   titles:
     original: メイドさんは食べるだけ
-    translations: { en: Maid-san wa Taberu dake }
+    translations: { ja-Latn: Maid-san wa Taberu dake }
   seasons:
     - id: maid-san-wa-taberu-dake-s1
       number: 1

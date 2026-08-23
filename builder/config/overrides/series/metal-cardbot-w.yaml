@@ -5,7 +5,7 @@ series:
   id: metal-cardbot-w
   titles:
     original: 메탈카드봇W
-    translations: { en: Metal Cardbot W }
+    translations: { ko-Latn: Metal Cardbot W }
   seasons:
     - id: metal-cardbot-w-s1
       number: 1
