@@ -209,3 +209,29 @@ func TestRecordEachCharacterWritesThrough(t *testing.T) {
 
 	(Record{}).EachCharacter(func(*Character) { t.Error("empty record visited a character") })
 }
+
+// IsRomanization is the shared definition of a convention two modules depend
+// on — the builder writes these tags, the API reads them — so it is worth
+// pinning directly rather than only through its callers, which all pass the
+// same two shapes.
+func TestIsRomanization(t *testing.T) {
+	for _, tc := range []struct {
+		tag  string
+		want bool
+	}{
+		{"ja-Latn", true},
+		{"ko-Latn", true},
+		{"JA-LATN", true},    // tags are case-insensitive
+		{"ja-Latn-JP", true}, // script plus region is a valid tag
+		{"ja", false},        // the language itself
+		{"en", false},
+		{"", false},
+		{"latn", false},       // a script with no language names nothing
+		{"ja-JP", false},      // a region is not a script
+		{"ja-latnish", false}, // the subtag has to be the script, not start with it
+	} {
+		if got := IsRomanization(tc.tag); got != tc.want {
+			t.Errorf("IsRomanization(%q) = %v, want %v", tc.tag, got, tc.want)
+		}
+	}
+}

@@ -95,6 +95,22 @@ func TestFillTitlesMerge(t *testing.T) {
 		t.Errorf("empty title not filled with both: %+v", empty.Translations)
 	}
 
+	// An authored value wins for its own language, which is what keeps a
+	// rebuild idempotent: the inferred title must never clobber a hand-written
+	// one. This used to be covered by the `en` case above, until inferTitle
+	// stopped emitting `en` at all — so it is pinned on the tags it does emit.
+	authored := &model.Title{
+		Original:     "authored 原題",
+		Translations: map[string]string{"ja": "authored ja", "ja-Latn": "Authored Romaji"},
+	}
+	fillTitles("season w", authored, a, &Report{})
+	if authored.Original != "authored 原題" {
+		t.Errorf("authored original should be kept, got %q", authored.Original)
+	}
+	if authored.Translations["ja"] != "authored ja" || authored.Translations["ja-Latn"] != "Authored Romaji" {
+		t.Errorf("authored translations should be kept, got %+v", authored.Translations)
+	}
+
 	// An authored romanization wins whatever language it names, so a Korean or
 	// Chinese title is never also credited with a Japanese one.
 	korean := &model.Title{Translations: map[string]string{"ko-Latn": "Metal Cardbot W"}}

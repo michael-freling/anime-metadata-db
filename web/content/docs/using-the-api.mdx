@@ -157,13 +157,20 @@ AniList, AniDB, TVDB and — for characters and staff — Wikidata. Episodes car
 numbering only: no title, no date. See [Sources and licensing](/docs/sources-and-licensing)
 for the full list of what the build never fills, and why.
 
-Titles resolve per request: `Accept-Language: ja` gets the native script, and
-anything else gets an English title where the dataset has one and the
-romanization otherwise — so an English request answers `Kami no Shizuku` rather
-than `神の雫`, readable without claiming to be an English title. Most of the
-catalogue has no English title at all. `Accept-Language: *` returns every
-language instead, each under its own tag: `en` for an English title, `ja-Latn`
-for a romanized Japanese one.
+Titles resolve per request. Ask in the language a title was written in and you
+get the native script; ask in any other and you get an English title where the
+dataset has one and the romanization otherwise — so an English request answers
+`Kami no Shizuku` rather than `神の雫`, readable without claiming to be an
+English title. Most of the catalogue has no English title at all.
+
+"The language a title was written in" is usually Japanese, but not always, and
+the rule follows the title rather than the request: `Accept-Language: ko` on
+`metal-cardbot-w` answers `메탈카드봇W`, while a Japanese reader asking for the
+same series gets `Metal Cardbot W`, being no better served by Hangul than an
+English reader would be.
+
+`Accept-Language: *` returns every language instead, each under its own tag:
+`en` for an English title, `ja-Latn` (or `ko-Latn`, …) for a romanization.
 
 ## Characters and staff
 

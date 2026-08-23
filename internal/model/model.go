@@ -15,8 +15,20 @@ import (
 // a language written in another script — "ja-Latn", "ko-Latn". It is the one
 // definition of that convention: the builder writes such tags and the API reads
 // them, from separate modules, and two copies of the rule would drift.
+//
+// It looks for the script subtag anywhere after the language, so a tag that
+// also names a region ("ja-Latn-JP", which BCP-47 permits and which someone
+// will eventually author) counts too. A script subtag is four letters, so
+// "latn" cannot collide with a two-letter or three-digit region; a bare "latn"
+// with no language before it names nothing and is not one.
 func IsRomanization(tag string) bool {
-	return strings.HasSuffix(strings.ToLower(tag), "-latn")
+	parts := strings.Split(strings.ToLower(tag), "-")
+	for _, sub := range parts[1:] {
+		if sub == "latn" {
+			return true
+		}
+	}
+	return false
 }
 
 // ReleaseSeason is the airing quarter an installment premiered in. It is a

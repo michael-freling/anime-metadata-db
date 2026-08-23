@@ -145,3 +145,46 @@ func TestEffectiveCast(t *testing.T) {
 		t.Errorf("merging appended into the character's own cast: %+v", throughout)
 	}
 }
+
+// romanization is reached from resolveTitle only after the original has been
+// ruled out, so its own same-language skip is easy to leave untested and let
+// rot. It is what stops a Korean reader being handed ko-Latn in place of
+// Hangul, so it is pinned here directly — including the shape that does reach
+// it through resolveTitle, a title carrying a romanization and no original.
+func TestRomanization(t *testing.T) {
+	mk := func(tr map[string]string) model.Title { return model.Title{Translations: tr} }
+
+	if got := romanization(mk(map[string]string{"ja-Latn": "Kimetsu no Yaiba"}), "en"); got != "Kimetsu no Yaiba" {
+		t.Errorf("english request = %q, want the romanization", got)
+	}
+	if got := romanization(mk(map[string]string{"ja-Latn": "Kimetsu no Yaiba"}), "ja"); got != "" {
+		t.Errorf("japanese request = %q, want no romanization of their own language", got)
+	}
+	if got := romanization(mk(map[string]string{"ja-Latn": "Kimetsu no Yaiba"}), "ja-JP"); got != "" {
+		t.Errorf("ja-JP request = %q, want the primary subtag to match too", got)
+	}
+	// With two, the first in key order wins, so the same request always gets
+	// the same answer.
+	both := mk(map[string]string{"ko-Latn": "Metal Cardbot W", "ja-Latn": "Kimetsu no Yaiba"})
+	if got := romanization(both, "en"); got != "Kimetsu no Yaiba" {
+		t.Errorf("two romanizations = %q, want the first in key order", got)
+	}
+	if got := romanization(mk(map[string]string{"en": "Demon Slayer"}), "fr"); got != "" {
+		t.Errorf("a translation is not a romanization: %q", got)
+	}
+	if got := romanization(mk(nil), "en"); got != "" {
+		t.Errorf("empty title = %q", got)
+	}
+
+	// Through resolveTitle: a title with a romanization and no original is the
+	// one shape where the skip decides the answer.
+	noOriginal := mk(map[string]string{"ko-Latn": "Metal Cardbot W"})
+	if got := resolveTitle(noOriginal, "ko"); got != "Metal Cardbot W" {
+		// Nothing else to offer a Korean reader, so they get it anyway — but
+		// only after the skip has declined to serve it as their own language.
+		t.Errorf("korean request with no original = %q", got)
+	}
+	if got := resolveTitle(noOriginal, "en"); got != "Metal Cardbot W" {
+		t.Errorf("english request with no original = %q", got)
+	}
+}
