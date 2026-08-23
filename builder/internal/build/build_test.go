@@ -175,6 +175,30 @@ func TestFillTitlesMerge(t *testing.T) {
 		t.Errorf("the language was authored; the report should not ask for it: %q", report.String())
 	}
 
+	// A source title in Latin script claims no language, so an authored
+	// romanization has nothing to disagree with and the title still fills.
+	// Dropping it here would lose a real title — the source had one — and then
+	// report "no native-script title found", which is true and useless.
+	latinSource := offlinedb.Anime{Title: "Fate/stay night", Synonyms: []string{"FSN"}}
+	authoredKorean := &model.Title{Translations: map[string]string{"ko-Latn": "Metal Cardbot W"}}
+	fillTitles("season l", authoredKorean, latinSource, &Report{})
+	if authoredKorean.Original != "Fate/stay night" {
+		t.Errorf("a Latin-script source title should still fill the original, got %q", authoredKorean.Original)
+	}
+
+	// The guard that stops a second romanization has to survive a tag written
+	// with a region too: `ja-Latn-JP` and `ja-Latn` are different map keys, so
+	// the plain already-authored check misses them and only that guard catches
+	// it.
+	regional := &model.Title{Translations: map[string]string{"ja-Latn-JP": "Kimetsu no Yaiba"}}
+	fillTitles("season r", regional, a, &Report{})
+	if _, ok := regional.Translations["ja-Latn"]; ok {
+		t.Errorf("a region-qualified romanization should not gain a second one: %+v", regional.Translations)
+	}
+	if regional.Translations["ja"] != "鬼滅の刃" || regional.Original != "鬼滅の刃" {
+		t.Errorf("the same language is not a disagreement; the rest should fill: %+v", regional)
+	}
+
 	// A romanization naming the *same* language as the source is not a
 	// disagreement, so the rest of the title still fills.
 	japanese := &model.Title{Translations: map[string]string{"ja-Latn": "Authored Romaji"}}
