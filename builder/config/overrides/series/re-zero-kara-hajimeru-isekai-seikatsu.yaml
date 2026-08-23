@@ -5,7 +5,7 @@ series:
   id: re-zero-kara-hajimeru-isekai-seikatsu
   titles:
     original: "Re:ゼロから始める異世界生活 新編集版"
-    translations: { en: "Re:Zero kara Hajimeru Isekai Seikatsu" }
+    translations: { ja-Latn: "Re:Zero kara Hajimeru Isekai Seikatsu" }
   seasons:
     - id: re-zero-kara-hajimeru-isekai-seikatsu-s1
       number: 1

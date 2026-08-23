@@ -45,6 +45,85 @@ func TestResolveTitle(t *testing.T) {
 		{"english request uses original when no en", "en", mk("Native", nil), "Native"},
 		{"deterministic first translation", "fr", mk("", map[string]string{"zz": "Z", "aa": "A"}), "A"},
 		{"empty title", "en", mk("", nil), ""},
+
+		// Most of the catalogue has a romanization and no English title. An
+		// English request must reach it rather than falling through to a
+		// native script the reader cannot read.
+		{"english falls back to a romanization, not to kanji", "en",
+			mk("鬼滅の刃", map[string]string{"ja": "鬼滅の刃", "ja-Latn": "Kimetsu no Yaiba"}), "Kimetsu no Yaiba"},
+		{"a real english title still wins over the romanization", "en",
+			mk("鬼滅の刃", map[string]string{"ja-Latn": "Kimetsu no Yaiba", "en": "Demon Slayer"}), "Demon Slayer"},
+		{"japanese still gets native script, never its own romanization", "ja",
+			mk("鬼滅の刃", map[string]string{"ja-Latn": "Kimetsu no Yaiba"}), "鬼滅の刃"},
+		{"any other language reaches the romanization too", "fr",
+			mk("鬼滅の刃", map[string]string{"ja-Latn": "Kimetsu no Yaiba"}), "Kimetsu no Yaiba"},
+		// Accept-Language is lowercased on the way in; the script subtag is
+		// conventionally title case. The two have to meet.
+		{"a lowercased script subtag still matches", "ja-latn",
+			mk("鬼滅の刃", map[string]string{"ja-Latn": "Kimetsu no Yaiba"}), "Kimetsu no Yaiba"},
+		// A real English title beats a romanization for every language, not
+		// just for English — a translation someone made is a better answer
+		// than a transliteration. Checking the romanization first made French
+		// (and every other language) prefer "Fate/stay night: Unlimited Blade
+		// Works" to the actual English title.
+		{"a french request prefers the english title to the romanization", "fr",
+			mk("Fate/stay night [UBW]", map[string]string{
+				"en": "Unlimited Blade Works", "ja-Latn": "Fate/stay night: Unlimited Blade Works"}),
+			"Unlimited Blade Works"},
+		{"and takes the romanization when there is no english title", "fr",
+			mk("鬼滅の刃", map[string]string{"ja-Latn": "Kimetsu no Yaiba"}), "Kimetsu no Yaiba"},
+		// A Japanese reader still gets Japanese even when an English title
+		// exists, which is what the original is for.
+		{"a japanese request prefers the original to an english title", "ja",
+			mk("鬼滅の刃", map[string]string{"en": "Demon Slayer", "ja-Latn": "Kimetsu no Yaiba"}), "鬼滅の刃"},
+		// Not every original here is Japanese, and a Korean title romanized as
+		// ko-Latn must not be served to a Korean reader in place of Hangul.
+		{"korean gets hangul, everyone else its romanization", "ko",
+			mk("메탈카드봇W", map[string]string{"ko-Latn": "Metal Cardbot W"}), "메탈카드봇W"},
+		{"a japanese reader gets the korean romanization, not hangul", "ja",
+			mk("메탈카드봇W", map[string]string{"ko-Latn": "Metal Cardbot W"}), "Metal Cardbot W"},
+		// With no romanization to name the original's language, the language
+		// itself decides: Japanese is written in a native script, French is not.
+		{"japanese still reaches the original when nothing names its language", "ja",
+			mk("フェイト", map[string]string{"en": "Fate"}), "フェイト"},
+		{"french takes the english title in the same situation", "fr",
+			mk("フェイト", map[string]string{"en": "Fate"}), "Fate"},
+		// The mismatched pairing, which a whitelist keyed only on the request
+		// language got wrong: every character name in the dataset looks like
+		// this, and a Korean reader was being handed Japanese kanji instead of
+		// the English name sitting right there.
+		{"korean gets the english name of a japanese character, not kanji", "ko",
+			mk("新田明", map[string]string{"ja": "新田明", "en": "Akari Nitta"}), "Akari Nitta"},
+		{"and so does a chinese reader when the original is unmistakably japanese", "zh",
+			mk("鬼滅の刃", map[string]string{"ja": "鬼滅の刃", "en": "Demon Slayer"}), "Demon Slayer"},
+		// The same fallback has to hold for the other scripts this catalogue
+		// keeps originals in, or a reader in one of them gets an English title
+		// where the native one exists.
+		{"korean reaches the original with nothing to name its language", "ko",
+			mk("메탈카드봇W", map[string]string{"en": "Metal Cardbot W"}), "메탈카드봇W"},
+		{"chinese reaches the original the same way", "zh",
+			mk("喜羊羊与灰太狼", map[string]string{"en": "Pleasant Goat"}), "喜羊羊与灰太狼"},
+		// Han characters are shared, so a Chinese reader gets them; Korean does
+		// not use them, so a Korean reader gets something they can read.
+		{"korean does not read han, so it takes the english title", "ko",
+			mk("喜羊羊与灰太狼", map[string]string{"en": "Pleasant Goat"}), "Pleasant Goat"},
+		// A request that names the script is asking for the Latin form. It used
+		// to fall back to the bare primary subtag and get native script — the
+		// opposite of what it asked for.
+		{"a request naming the script gets the romanization", "ja-latn",
+			mk("鬼滅の刃", map[string]string{"ja": "鬼滅の刃", "ja-Latn": "Kimetsu no Yaiba"}), "Kimetsu no Yaiba"},
+		{"a script request with a region too", "ja-latn-jp",
+			mk("鬼滅の刃", map[string]string{"ja": "鬼滅の刃", "ja-Latn": "Kimetsu no Yaiba"}), "Kimetsu no Yaiba"},
+		{"a script request for a language the title has no romanization in", "ko-latn",
+			mk("鬼滅の刃", map[string]string{"ja-Latn": "Kimetsu no Yaiba"}), "Kimetsu no Yaiba"},
+		// With no Latin form to offer, a script request must not be answered by
+		// the bare language it was built from — that hands back the native
+		// script it explicitly asked to avoid. An English title is the better
+		// answer, and the original is the last resort.
+		{"a script request with no romanization takes the english title", "ja-latn",
+			mk("鬼滅の刃", map[string]string{"ja": "鬼滅の刃", "en": "Demon Slayer"}), "Demon Slayer"},
+		{"and the original only when there is nothing else", "ja-latn",
+			mk("鬼滅の刃", map[string]string{"ja": "鬼滅の刃"}), "鬼滅の刃"},
 	}
 	for _, tc := range tests {
 		if got := resolveTitle(tc.in, tc.lang); got != tc.want {
@@ -100,5 +179,48 @@ func TestEffectiveCast(t *testing.T) {
 	throughout := []model.VoiceActor{ja}
 	if got := effectiveCast(throughout, []model.VoiceActor{en}); len(got) != 2 || len(throughout) != 1 {
 		t.Errorf("merging appended into the character's own cast: %+v", throughout)
+	}
+}
+
+// romanization is reached from resolveTitle only after the original has been
+// ruled out, so its own same-language skip is easy to leave untested and let
+// rot. It is what stops a Korean reader being handed ko-Latn in place of
+// Hangul, so it is pinned here directly — including the shape that does reach
+// it through resolveTitle, a title carrying a romanization and no original.
+func TestRomanization(t *testing.T) {
+	mk := func(tr map[string]string) model.Title { return model.Title{Translations: tr} }
+
+	if got := romanization(mk(map[string]string{"ja-Latn": "Kimetsu no Yaiba"}), "en"); got != "Kimetsu no Yaiba" {
+		t.Errorf("english request = %q, want the romanization", got)
+	}
+	if got := romanization(mk(map[string]string{"ja-Latn": "Kimetsu no Yaiba"}), "ja"); got != "" {
+		t.Errorf("japanese request = %q, want no romanization of their own language", got)
+	}
+	if got := romanization(mk(map[string]string{"ja-Latn": "Kimetsu no Yaiba"}), "ja-JP"); got != "" {
+		t.Errorf("ja-JP request = %q, want the primary subtag to match too", got)
+	}
+	// With two, the first in key order wins, so the same request always gets
+	// the same answer.
+	both := mk(map[string]string{"ko-Latn": "Metal Cardbot W", "ja-Latn": "Kimetsu no Yaiba"})
+	if got := romanization(both, "en"); got != "Kimetsu no Yaiba" {
+		t.Errorf("two romanizations = %q, want the first in key order", got)
+	}
+	if got := romanization(mk(map[string]string{"en": "Demon Slayer"}), "fr"); got != "" {
+		t.Errorf("a translation is not a romanization: %q", got)
+	}
+	if got := romanization(mk(nil), "en"); got != "" {
+		t.Errorf("empty title = %q", got)
+	}
+
+	// Through resolveTitle: a title with a romanization and no original is the
+	// one shape where the skip decides the answer.
+	noOriginal := mk(map[string]string{"ko-Latn": "Metal Cardbot W"})
+	if got := resolveTitle(noOriginal, "ko"); got != "Metal Cardbot W" {
+		// Nothing else to offer a Korean reader, so they get it anyway — but
+		// only after the skip has declined to serve it as their own language.
+		t.Errorf("korean request with no original = %q", got)
+	}
+	if got := resolveTitle(noOriginal, "en"); got != "Metal Cardbot W" {
+		t.Errorf("english request with no original = %q", got)
 	}
 }

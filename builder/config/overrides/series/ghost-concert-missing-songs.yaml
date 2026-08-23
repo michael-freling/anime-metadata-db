@@ -5,7 +5,7 @@ series:
   id: ghost-concert-missing-songs
   titles:
     original: "ゴーストコンサート : missing Songs"
-    translations: { en: "Ghost Concert: Missing Songs" }
+    translations: { ja-Latn: "Ghost Concert: Missing Songs" }
   seasons:
     - id: ghost-concert-missing-songs-s1
       number: 1

@@ -4,7 +4,7 @@ series:
   titles:
     original: メダリスト
     translations:
-      en: Medalist
+      ja-Latn: Medalist
   seasons:
     - id: medalist-s1
       number: 1

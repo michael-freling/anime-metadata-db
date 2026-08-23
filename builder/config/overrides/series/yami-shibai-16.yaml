@@ -5,7 +5,7 @@ series:
   id: yami-shibai-16
   titles:
     original: 暗芝居 第十六季
-    translations: { en: Yami Shibai 16 }
+    translations: { ja-Latn: Yami Shibai 16 }
   seasons:
     - id: yami-shibai-16-s1
       number: 1

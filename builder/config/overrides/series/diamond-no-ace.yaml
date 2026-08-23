@@ -6,7 +6,7 @@ series:
   id: diamond-no-ace
   titles:
     original: "ダイヤのA[エース]"
-    translations: { en: Diamond no Ace }
+    translations: { ja-Latn: Diamond no Ace }
   seasons:
     - id: diamond-no-ace-s1
       number: 1

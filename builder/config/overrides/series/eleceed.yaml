@@ -5,7 +5,7 @@ series:
   id: eleceed
   titles:
     original: エレキシード / 일렉시드
-    translations: { en: Eleceed }
+    translations: { ja-Latn: Eleceed }
   seasons:
     - id: eleceed-s1
       number: 1

@@ -5,7 +5,7 @@ series:
   id: tamon-kun-ima-docchi
   titles:
     original: "多聞くん今どっち!?"
-    translations: { en: "Tamon-kun Ima Docchi!?" }
+    translations: { ja-Latn: "Tamon-kun Ima Docchi!?" }
   seasons:
     - id: tamon-kun-ima-docchi-s1
       number: 1

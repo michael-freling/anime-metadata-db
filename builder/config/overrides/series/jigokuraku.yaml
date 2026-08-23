@@ -5,7 +5,7 @@ series:
   id: jigokuraku
   titles:
     original: 地狱乐
-    translations: { en: Jigokuraku }
+    translations: { ja-Latn: Jigokuraku }
   seasons:
     - id: jigokuraku-s1
       number: 1

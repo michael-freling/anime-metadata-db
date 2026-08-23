@@ -4,7 +4,7 @@ series:
   titles:
     original: ようこそ実力至上主義の教室へ
     translations:
-      en: Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e
+      ja-Latn: Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e
   seasons:
     - id: youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-s1
       number: 1
@@ -113,8 +113,8 @@ series:
       titles:
         original: 'Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e: Ninensei-hen (ようこそ実力至上主義の教室へ 2年生編)'
         translations:
-          en: '4th Season: 2-nensei-hen 1 Gakki'
           ja: 'Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e: Ninensei-hen (ようこそ実力至上主義の教室へ 2年生編)'
+          ja-Latn: '4th Season: 2-nensei-hen 1 Gakki'
       number: 4
       releaseYear: 2026
       releaseSeason: SPRING

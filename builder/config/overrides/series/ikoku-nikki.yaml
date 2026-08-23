@@ -5,7 +5,7 @@ series:
   id: ikoku-nikki
   titles:
     original: 異國日記
-    translations: { en: Ikoku Nikki }
+    translations: { ja-Latn: Ikoku Nikki }
   seasons:
     - id: ikoku-nikki-s1
       number: 1

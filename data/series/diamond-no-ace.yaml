@@ -4,7 +4,7 @@ series:
   titles:
     original: ダイヤのA[エース]
     translations:
-      en: Diamond no Ace
+      ja-Latn: Diamond no Ace
   seasons:
     - id: diamond-no-ace-s1
       number: 1
@@ -282,6 +282,7 @@ series:
         translations:
           en: Act II
           ja: ダイヤのA act II
+          ja-Latn: 'Diamond no Ace: Act II'
       number: 3
       releaseYear: 2019
       releaseSeason: SPRING
@@ -400,6 +401,7 @@ series:
         translations:
           en: Act II Second Season
           ja: ダイヤのA actII -Second Season-
+          ja-Latn: 'Diamond no Ace: Act II Second Season'
       number: 4
       releaseYear: 2026
       releaseSeason: SPRING

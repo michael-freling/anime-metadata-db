@@ -209,3 +209,70 @@ func TestRecordEachCharacterWritesThrough(t *testing.T) {
 
 	(Record{}).EachCharacter(func(*Character) { t.Error("empty record visited a character") })
 }
+
+// IsRomanization is the shared definition of a convention two modules depend
+// on — the builder writes these tags, the API reads them — so it is worth
+// pinning directly rather than only through its callers, which all pass the
+// same two shapes.
+func TestIsRomanization(t *testing.T) {
+	for _, tc := range []struct {
+		tag  string
+		want bool
+	}{
+		{"ja-Latn", true},
+		{"ko-Latn", true},
+		{"JA-LATN", true},    // tags are case-insensitive
+		{"ja-Latn-JP", true}, // script plus region is a valid tag
+		{"ja", false},        // the language itself
+		{"en", false},
+		{"", false},
+		{"latn", false},       // a script with no language names nothing
+		{"ja-JP", false},      // a region is not a script
+		{"ja-latnish", false}, // the subtag has to be the script, not start with it
+	} {
+		if got := IsRomanization(tc.tag); got != tc.want {
+			t.Errorf("IsRomanization(%q) = %v, want %v", tc.tag, got, tc.want)
+		}
+	}
+}
+
+// The builder writes titles by this rule and the API resolves them by it, so
+// both modules depend on it agreeing with itself.
+func TestNativeLanguage(t *testing.T) {
+	for _, tc := range []struct {
+		s, lang string
+		certain bool
+	}{
+		{"鬼滅の刃", "ja", true}, // kana settles it
+		{"セイバー", "ja", true},
+		{"메탈카드봇W", "ko", true},        // as does Hangul
+		{"呪術廻戦", "ja", false},         // Han alone: assumed, not known
+		{"喜羊羊与灰太狼", "ja", false},      // …and this one is actually Chinese
+		{"Fate/Zero 2011", "", false}, // Latin script names no language
+		{"", "", false},
+	} {
+		lang, certain := NativeLanguage(tc.s)
+		if lang != tc.lang || certain != tc.certain {
+			t.Errorf("NativeLanguage(%q) = (%q, %v), want (%q, %v)", tc.s, lang, certain, tc.lang, tc.certain)
+		}
+	}
+
+	for _, tc := range []struct{ tag, want string }{
+		{"ja-Latn", "ja"},
+		{"ja-Latn-JP", "ja"},
+		{"en-us", "en"},
+		{"en", "en"},
+		{"", ""},
+	} {
+		if got := PrimaryTag(tc.tag); got != tc.want {
+			t.Errorf("PrimaryTag(%q) = %q, want %q", tc.tag, got, tc.want)
+		}
+	}
+
+	if !HasNativeScript("鬼滅の刃") || !HasNativeScript("메탈카드봇W") {
+		t.Error("CJK and Hangul are native script")
+	}
+	if HasNativeScript("Fate/Zero 2011") {
+		t.Error("Latin script is not")
+	}
+}

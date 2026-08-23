@@ -6,6 +6,7 @@ package build
 import (
 	"fmt"
 	"sort"
+	"strings"
 	"time"
 
 	"github.com/michael-freling/anime-metadata-db/builder/internal/overrides"
@@ -135,19 +136,55 @@ func (b *Builder) fillExternalIDs(ids *model.ExternalIDs, a offlinedb.Anime) {
 // gets a Japanese (`ja`) name and an `original` added automatically.
 func fillTitles(entity string, dst *model.Title, a offlinedb.Anime, report *Report) {
 	inferred := inferTitle(a)
+	// An authored romanization names the title's language, and that beats
+	// anything inferred from the source's own text. Without this the guard
+	// below blocks only the duplicate romanization: an override authoring
+	// `ko-Latn` alone would still collect a `ja` key, and an `original` in
+	// Japanese, from whatever the source happened to carry — and then be told
+	// by the report to "author the language explicitly", which it had.
+	if authored := romanizationLanguage(*dst); authored != "" {
+		// Only a native-script original makes a claim about language. One
+		// written in Latin script — the Fate/stay night case — claims nothing,
+		// so there is nothing to disagree with, and dropping it would lose a
+		// perfectly good title to a rule about a question it never answered.
+		// EqualFold, because a tag's case is convention and not a rule: an
+		// override writing `Ko-Latn` names the same language as `ko-Latn`, and
+		// reading it as a different one would throw the source's title away
+		// over a capital letter. The API compares these tags the same way.
+		if lang, _ := model.NativeLanguage(inferred.Original); lang != "" && !strings.EqualFold(lang, authored) {
+			inferred = model.Title{}
+		}
+	}
 	if dst.Original == "" && inferred.Original != "" {
 		dst.Original = inferred.Original
 	}
-	for code, val := range inferred.Translations {
+	// Sorted, not map order: two uncertain fills report a line each, and their
+	// order in the report would otherwise vary between runs over identical
+	// inputs. A report a reader cannot diff against the last one is worth less.
+	codes := make([]string, 0, len(inferred.Translations))
+	for code := range inferred.Translations {
+		codes = append(codes, code)
+	}
+	sort.Strings(codes)
+	for _, code := range codes {
+		val := inferred.Translations[code]
 		if _, ok := dst.Translations[code]; ok {
 			continue // override wins for this language
+		}
+		// An authored romanization wins over the inferred one whatever its tag:
+		// a Korean or Chinese title romanized as `ko-Latn` or `zh-Latn` must not
+		// also collect a `ja-Latn` claiming it is Japanese.
+		if model.IsRomanization(code) && hasRomanization(*dst) {
+			continue
 		}
 		if dst.Translations == nil {
 			dst.Translations = make(map[string]string)
 		}
 		dst.Translations[code] = val
-		if code == "en" {
-			report.add(entity, "titles", fmt.Sprintf("filled translations.en from source title %q (verify it is not just a romanization)", val))
+		if _, certain := model.NativeLanguage(inferred.Original); !certain && inferred.Original != "" {
+			report.add(entity, "titles", fmt.Sprintf(
+				"filled translations.%s from %q, assuming the original %q is Japanese — it is written only in Han characters, which Chinese shares. Author the language explicitly if that is wrong",
+				code, val, inferred.Original))
 		}
 	}
 	if dst.Original == "" {

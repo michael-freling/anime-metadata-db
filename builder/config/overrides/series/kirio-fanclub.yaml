@@ -5,7 +5,7 @@ series:
   id: kirio-fanclub
   titles:
     original: 霧尾ファンクラブ
-    translations: { en: Kirio Fanclub }
+    translations: { ja-Latn: Kirio Fanclub }
   seasons:
     - id: kirio-fanclub-s1
       number: 1

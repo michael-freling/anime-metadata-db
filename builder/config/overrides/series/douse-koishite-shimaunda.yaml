@@ -5,7 +5,7 @@ series:
   id: douse-koishite-shimaunda
   titles:
     original: どうせ, 恋してしまうんだ.
-    translations: { en: "Douse, Koishite Shimaunda." }
+    translations: { ja-Latn: "Douse, Koishite Shimaunda." }
   seasons:
     - id: douse-koishite-shimaunda-s1
       number: 1

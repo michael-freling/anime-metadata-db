@@ -5,7 +5,7 @@ series:
   id: mato-seihei-no-slave
   titles:
     original: 魔都精兵のスレイブ
-    translations: { en: Mato Seihei no Slave }
+    translations: { ja-Latn: Mato Seihei no Slave }
   seasons:
     - id: mato-seihei-no-slave-s1
       number: 1

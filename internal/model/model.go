@@ -6,7 +6,86 @@
 // and validation logic lives in the build package.
 package model
 
-import "time"
+import (
+	"strings"
+	"time"
+	"unicode"
+)
+
+// IsRomanization reports whether a BCP-47 tag names a Latin-script rendering of
+// a language written in another script — "ja-Latn", "ko-Latn". It is the one
+// definition of that convention: the builder writes such tags and the API reads
+// them, from separate modules, and two copies of the rule would drift.
+//
+// It looks for the script subtag anywhere after the language, so a tag that
+// also names a region ("ja-Latn-JP", which BCP-47 permits and which someone
+// will eventually author) counts too. A script subtag is four letters, so
+// "latn" cannot collide with a two-letter or three-digit region; a bare "latn"
+// with no language before it names nothing and is not one.
+func IsRomanization(tag string) bool {
+	parts := strings.Split(strings.ToLower(tag), "-")
+	for _, sub := range parts[1:] {
+		if sub == "latn" {
+			return true
+		}
+	}
+	return false
+}
+
+// nativeScripts are the writing systems a title in this dataset can be written
+// in, other than Latin.
+var nativeScripts = []*unicode.RangeTable{
+	unicode.Han,
+	unicode.Hiragana,
+	unicode.Katakana,
+	unicode.Hangul,
+}
+
+// HasNativeScript reports whether s contains any CJK or Hangul character — that
+// is, whether it is written in something other than Latin script.
+func HasNativeScript(s string) bool {
+	for _, r := range s {
+		if unicode.IsLetter(r) && unicode.In(r, nativeScripts...) {
+			return true
+		}
+	}
+	return false
+}
+
+// PrimaryTag returns the primary subtag of a BCP-47 tag: "ja" for "ja-Latn",
+// "en" for "en-us". It sits here with the rest of the tag handling because the
+// builder writes these tags and the API matches on them, from separate
+// modules — the same reason IsRomanization does.
+func PrimaryTag(tag string) string {
+	if i := strings.IndexByte(tag, '-'); i >= 0 {
+		return tag[:i]
+	}
+	return tag
+}
+
+// NativeLanguage names the language a native-script string is written in, and
+// says how sure that is. Kana occurs only in Japanese and Hangul only in
+// Korean, so either settles it. Han characters are shared between Japanese and
+// Chinese — 呪術廻戦 and 喜羊羊与灰太狼 look alike to a range check — so a
+// string written in nothing else is reported as Japanese but uncertain, and
+// Latin script yields no language at all.
+//
+// The builder writes titles by this rule and the API resolves them by it, so it
+// lives here rather than twice.
+func NativeLanguage(s string) (lang string, certain bool) {
+	for _, r := range s {
+		switch {
+		case unicode.In(r, unicode.Hiragana, unicode.Katakana):
+			return "ja", true
+		case unicode.In(r, unicode.Hangul):
+			return "ko", true
+		}
+	}
+	if HasNativeScript(s) {
+		return "ja", false
+	}
+	return "", false
+}
 
 // ReleaseSeason is the airing quarter an installment premiered in. It is a
 // calendar quarter, distinct from the Season entity (a TV installment).

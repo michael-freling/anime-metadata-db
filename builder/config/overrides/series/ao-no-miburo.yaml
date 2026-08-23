@@ -5,13 +5,13 @@ series:
   id: ao-no-miburo
   titles:
     original: 青のミブロ
-    translations: { en: Ao no Miburo }
+    translations: { ja-Latn: Ao no Miburo }
   seasons:
     - id: ao-no-miburo-s1
       number: 1
       externalIds: { anilistId: 169258 } # Ao no Miburo (Fall 2024)
     - id: ao-no-miburo-s2
-      titles: { translations: { en: Serizawa Ansatsu-hen } }
+      titles: { translations: { ja-Latn: Serizawa Ansatsu-hen } }
       number: 2
       externalIds: { anilistId: 189258 } # Ao no Miburo: Serizawa Ansatsu-hen (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.

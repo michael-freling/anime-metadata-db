@@ -5,7 +5,7 @@ series:
   id: koori-no-jouheki
   titles:
     original: 氷の城壁
-    translations: { en: Koori no Jouheki }
+    translations: { ja-Latn: Koori no Jouheki }
   seasons:
     - id: koori-no-jouheki-s1
       number: 1

@@ -5,7 +5,7 @@ series:
   id: aishiteru-game-wo-owarasetai
   titles:
     original: 愛してるゲームを終わらせたい
-    translations: { en: Aishiteru Game wo Owarasetai }
+    translations: { ja-Latn: Aishiteru Game wo Owarasetai }
   seasons:
     - id: aishiteru-game-wo-owarasetai-s1
       number: 1

@@ -5,7 +5,7 @@ series:
   id: cardfight-vanguard-divinez-genma-seisen-hen
   titles:
     original: "カードファイト!! ヴァンガード DivineZ 幻真星戦編"
-    translations: { en: "Cardfight!! Vanguard: Divinez Genma Seisen-hen" }
+    translations: { ja-Latn: "Cardfight!! Vanguard: Divinez Genma Seisen-hen" }
   seasons:
     - id: cardfight-vanguard-divinez-genma-seisen-hen-s1
       number: 1

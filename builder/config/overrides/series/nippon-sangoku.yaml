@@ -5,7 +5,7 @@ series:
   id: nippon-sangoku
   titles:
     original: 日本三國
-    translations: { en: Nippon Sangoku }
+    translations: { ja-Latn: Nippon Sangoku }
   seasons:
     - id: nippon-sangoku-s1
       number: 1

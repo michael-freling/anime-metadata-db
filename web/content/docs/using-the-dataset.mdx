@@ -70,15 +70,22 @@ series:
 
 Each node stores a `titles` block: the native-script `original` plus
 `translations` keyed by [BCP-47](https://www.rfc-editor.org/info/bcp47) code
-(`en`, `ja`, …). The API resolves these to a single string per request; when
-reading the YAML directly you get every language.
+(`en`, `ja`, `ja-Latn`, …). The API resolves these to a single string per
+request; when reading the YAML directly you get every language.
 
-**Read `en` with care.** For 147 of the 152 series it holds the *romanized*
-Japanese title, not an English one — `kami-no-shizuku` is `神の雫` / `Kami no
-Shizuku`, and only a handful (Demon Slayer, Wistoria) carry a real English
-title. That is where the upstream catalogues put their Latin-script main title,
-and this dataset passed it through under `en`. `ja-Latn`, the code that
-actually means romanized Japanese, is currently unused.
+`en` means an English **title** and `ja-Latn` means the Japanese one
+*romanized*. They are different facts and are kept apart: `kami-no-shizuku` is
+`神の雫` with `ja-Latn: Kami no Shizuku` and no `en` at all, while `demon-slayer`
+is `鬼滅の刃` with both `ja-Latn: Kimetsu no Yaiba` and `en: Demon Slayer`. Only 5
+of the 152 series carry an English title, because that is a fact a human has to
+supply — the open catalogues carry the romanization, and an auto-filled title is
+therefore `original` + `ja` + `ja-Latn`, never `en`.
+
+Two edges are worth knowing. A title written in Latin script with no
+native-script form is neither an English title nor a romanization — it is the
+`original`, since *Fate/stay night* is written that way in Japan too. And a
+title whose original is not Japanese carries its own romanization tag, such as
+`ko-Latn` for `메탈카드봇W`.
 
 ## External IDs
 

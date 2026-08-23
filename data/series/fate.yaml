@@ -8,8 +8,7 @@ franchise:
   series:
     - id: fate-stay-night
       titles:
-        translations:
-          en: Fate/stay night
+        original: Fate/stay night
       seasons:
         - id: fate-stay-night-s1
           number: 1
@@ -50,6 +49,7 @@ franchise:
             translations:
               en: Unlimited Blade Works
               ja: フェイト/ステイナイト (2014)
+              ja-Latn: 'Fate/stay night: Unlimited Blade Works'
           number: 2
           releaseYear: 2014
           releaseSeason: FALL
@@ -77,13 +77,13 @@ franchise:
             translations:
               en: Heaven's Feel I
               ja: 劇場版「Fate/stay night [Heaven's Feel] Ⅰ.presage flower」
+              ja-Latn: 'Fate/stay night Movie: Heaven''s Feel - I. Presage Flower'
           releaseYear: 2017
           externalIds:
             anilistId: 20791
     - id: fate-zero
       titles:
-        translations:
-          en: Fate/Zero
+        original: Fate/Zero
       seasons:
         - id: fate-zero-s1
           number: 1
@@ -157,8 +157,7 @@ franchise:
               airedNumber: 12
     - id: fate-strange-fake
       titles:
-        translations:
-          en: Fate/strange Fake
+        original: Fate/strange Fake
       seasons:
         - id: fate-strange-fake-s1
           number: 1

@@ -5,7 +5,7 @@ series:
   id: kaya-chan-wa-kowakunai
   titles:
     original: カヤちゃんはコワくない
-    translations: { en: Kaya-chan wa Kowakunai }
+    translations: { ja-Latn: Kaya-chan wa Kowakunai }
   seasons:
     - id: kaya-chan-wa-kowakunai-s1
       number: 1

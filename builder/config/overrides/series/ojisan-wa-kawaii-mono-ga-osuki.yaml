@@ -5,7 +5,7 @@ series:
   id: ojisan-wa-kawaii-mono-ga-osuki
   titles:
     original: おじさんはカワイイものがお好き.
-    translations: { en: Ojisan wa Kawaii Mono ga Osuki. }
+    translations: { ja-Latn: Ojisan wa Kawaii Mono ga Osuki. }
   seasons:
     - id: ojisan-wa-kawaii-mono-ga-osuki-s1
       number: 1

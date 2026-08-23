@@ -5,7 +5,7 @@ series:
   id: replica-datte-koi-wo-suru
   titles:
     original: レプリカだって, 恋をする.
-    translations: { en: "Replica datte, Koi wo Suru." }
+    translations: { ja-Latn: "Replica datte, Koi wo Suru." }
   seasons:
     - id: replica-datte-koi-wo-suru-s1
       number: 1

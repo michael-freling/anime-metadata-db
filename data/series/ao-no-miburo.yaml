@@ -4,7 +4,7 @@ series:
   titles:
     original: 青のミブロ
     translations:
-      en: Ao no Miburo
+      ja-Latn: Ao no Miburo
   seasons:
     - id: ao-no-miburo-s1
       number: 1
@@ -67,8 +67,8 @@ series:
       titles:
         original: 青のミブロ 芹沢暗殺編
         translations:
-          en: Serizawa Ansatsu-hen
           ja: 青のミブロ 芹沢暗殺編
+          ja-Latn: Serizawa Ansatsu-hen
       number: 2
       releaseYear: 2026
       releaseSeason: WINTER

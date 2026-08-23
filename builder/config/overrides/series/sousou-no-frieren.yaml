@@ -5,7 +5,7 @@ series:
   id: sousou-no-frieren
   titles:
     original: 葬送のフリーレン
-    translations: { en: Sousou no Frieren }
+    translations: { ja-Latn: Sousou no Frieren }
   seasons:
     - id: sousou-no-frieren-s1
       number: 1

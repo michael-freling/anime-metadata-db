@@ -4,7 +4,7 @@ series:
   titles:
     original: 本好きの下剋上 ～司書になるためには手段を選んでいられません～
     translations:
-      en: 'Honzuki no Gekokujou: Shisho ni Naru Tame ni wa Shudan wo Erandeiraremasen'
+      ja-Latn: 'Honzuki no Gekokujou: Shisho ni Naru Tame ni wa Shudan wo Erandeiraremasen'
   seasons:
     - id: honzuki-no-gekokujou-s1
       number: 1
@@ -109,8 +109,8 @@ series:
       titles:
         original: 本好きの下剋上 司書になるためには手段を選んでいられません 第4期
         translations:
-          en: Ryoushu no Youjo
           ja: 本好きの下剋上 司書になるためには手段を選んでいられません 第4期
+          ja-Latn: Ryoushu no Youjo
       number: 4
       releaseYear: 2026
       releaseSeason: SPRING

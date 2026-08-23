@@ -5,7 +5,7 @@ series:
   id: yomi-no-tsugai
   titles:
     original: 黄泉のツガイ
-    translations: { en: Yomi no Tsugai }
+    translations: { ja-Latn: Yomi no Tsugai }
   seasons:
     - id: yomi-no-tsugai-s1
       number: 1

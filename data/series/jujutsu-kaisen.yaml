@@ -4,7 +4,7 @@ series:
   titles:
     original: 呪術廻戦
     translations:
-      en: Jujutsu Kaisen
+      ja-Latn: Jujutsu Kaisen
   seasons:
     - id: jujutsu-kaisen-s1
       number: 1
@@ -122,8 +122,8 @@ series:
       titles:
         original: 呪術廻戦 「死滅回游 前編」
         translations:
-          en: Shimetsu Kaiyuu
           ja: 呪術廻戦 「死滅回游 前編」
+          ja-Latn: Shimetsu Kaiyuu
       number: 3
       part: 1
       releaseYear: 2026

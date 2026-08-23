@@ -5,7 +5,7 @@ series:
   id: kumarba
   titles:
     original: クマーバ
-    translations: { en: Kumarba }
+    translations: { ja-Latn: Kumarba }
   seasons:
     - id: kumarba-s1
       number: 1

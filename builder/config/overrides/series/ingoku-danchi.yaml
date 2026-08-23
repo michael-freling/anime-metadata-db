@@ -5,7 +5,7 @@ series:
   id: ingoku-danchi
   titles:
     original: インゴクダンチ
-    translations: { en: Ingoku Danchi }
+    translations: { ja-Latn: Ingoku Danchi }
   seasons:
     - id: ingoku-danchi-s1
       number: 1

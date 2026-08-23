@@ -5,7 +5,7 @@ series:
   id: jirai-nan-desu-ka-chihara-san
   titles:
     original: 地雷なんですか? 地原さん
-    translations: { en: "Jirai nan desu ka? Chihara-san" }
+    translations: { ja-Latn: "Jirai nan desu ka? Chihara-san" }
   seasons:
     - id: jirai-nan-desu-ka-chihara-san-s1
       number: 1

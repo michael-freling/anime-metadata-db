@@ -5,7 +5,7 @@ series:
   id: ganbare-nakamura-kun
   titles:
     original: "ガンバレ! 中村くん!!"
-    translations: { en: "Ganbare! Nakamura-kun!!" }
+    translations: { ja-Latn: "Ganbare! Nakamura-kun!!" }
   seasons:
     - id: ganbare-nakamura-kun-s1
       number: 1

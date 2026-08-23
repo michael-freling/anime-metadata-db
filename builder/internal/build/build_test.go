@@ -30,23 +30,16 @@ func mustSources(t *testing.T, dbJSON, alXML, msXML string) Sources {
 
 func intp(n int) *int { return &n }
 
-func TestHasNativeScript(t *testing.T) {
-	if !hasNativeScript("鬼滅の刃") {
-		t.Error("kanji should be native")
-	}
-	if !hasNativeScript("セイバー") {
-		t.Error("katakana should be native")
-	}
-	if hasNativeScript("Fate/Zero 2011") {
-		t.Error("latin should not be native")
-	}
-}
-
 func TestInferTitle(t *testing.T) {
-	// Latin title + native synonym: native -> original/ja, Latin -> en.
+	// Latin title + native synonym: native -> original/ja, Latin -> ja-Latn.
+	// The Latin form is a romanization, not an English title: upstream says
+	// "Kimetsu no Yaiba", and only a human can say "Demon Slayer".
 	title := inferTitle(offlinedb.Anime{Title: "Kimetsu no Yaiba", Synonyms: []string{"x", "鬼滅の刃"}})
-	if title.Original != "鬼滅の刃" || title.Translations["ja"] != "鬼滅の刃" || title.Translations["en"] != "Kimetsu no Yaiba" {
+	if title.Original != "鬼滅の刃" || title.Translations["ja"] != "鬼滅の刃" || title.Translations["ja-Latn"] != "Kimetsu no Yaiba" {
 		t.Errorf("unexpected title: %+v", title)
+	}
+	if _, ok := title.Translations["en"]; ok {
+		t.Errorf("a romanization must not be filed as English: %+v", title.Translations)
 	}
 
 	// Native title, no latin: ja only, no en.
@@ -54,17 +47,74 @@ func TestInferTitle(t *testing.T) {
 	if title.Original != "鬼滅の刃" || title.Translations["ja"] != "鬼滅の刃" {
 		t.Errorf("native-only title: %+v", title)
 	}
-	if _, ok := title.Translations["en"]; ok {
-		t.Errorf("native-only should have no en: %+v", title.Translations)
+	if _, ok := title.Translations["ja-Latn"]; ok {
+		t.Errorf("native-only should have no romanization: %+v", title.Translations)
 	}
 
-	// No native anywhere: en only, empty original.
+	// No native form anywhere: the Latin string is the title itself, not a
+	// romanization of one — Fate/stay night is written that way in Japan too.
 	title = inferTitle(offlinedb.Anime{Title: "Fate/stay night", Synonyms: []string{"FSN"}})
-	if title.Original != "" || title.Translations["en"] != "Fate/stay night" {
+	if title.Original != "Fate/stay night" || len(title.Translations) != 0 {
 		t.Errorf("no-native: %+v", title)
 	}
-	if _, ok := title.Translations["ja"]; ok {
-		t.Errorf("no-native should have no ja: %+v", title.Translations)
+}
+
+// The script decides the language, because assuming Japanese mislabelled every
+// Korean title: a series added without a hand-authored title would have had its
+// Hangul filed under `ja`, and then served to Japanese-language requests while
+// Korean ones got nothing.
+func TestInferTitleReadsTheScript(t *testing.T) {
+	for _, tc := range []struct {
+		name, title, syn  string
+		wantLang, wantRom string
+	}{
+		{"kana is Japanese", "Kimetsu no Yaiba", "鬼滅の刃", "ja", "ja-Latn"},
+		{"hangul is Korean", "Metal Cardbot W", "메탈카드봇W", "ko", "ko-Latn"},
+		// Han characters are shared, so this one is a guess — see below.
+		{"han alone defaults to Japanese", "Jujutsu Kaisen", "呪術廻戦", "ja", "ja-Latn"},
+	} {
+		got := inferTitle(offlinedb.Anime{Title: tc.title, Synonyms: []string{tc.syn}})
+		if got.Translations[tc.wantLang] != tc.syn {
+			t.Errorf("%s: translations[%s] = %q, want %q", tc.name, tc.wantLang, got.Translations[tc.wantLang], tc.syn)
+		}
+		if got.Translations[tc.wantRom] != tc.title {
+			t.Errorf("%s: translations[%s] = %q, want %q", tc.name, tc.wantRom, got.Translations[tc.wantRom], tc.title)
+		}
+		if len(got.Translations) != 2 {
+			t.Errorf("%s: %+v, want exactly the language and its romanization", tc.name, got.Translations)
+		}
+	}
+}
+
+// A Han-only title could be Japanese or Chinese, so the build says which way it
+// guessed rather than deciding quietly. Nothing else in the pipeline can tell
+// the difference, so this report is the only thing standing between a wrong
+// guess and a shipped record.
+func TestFillTitlesReportsAnAssumedLanguage(t *testing.T) {
+	report := &Report{}
+	fillTitles("season x", &model.Title{}, offlinedb.Anime{Title: "Jujutsu Kaisen", Synonyms: []string{"呪術廻戦"}}, report)
+	if !strings.Contains(report.String(), "Han characters") {
+		t.Errorf("a Han-only original should be reported as an assumption, got %q", report.String())
+	}
+
+	// Two uncertain fills report a line each, and their order has to be the
+	// same on every run: a report a reader cannot diff against the last one is
+	// worth much less. Map iteration order made it vary.
+	first := &Report{}
+	fillTitles("season z", &model.Title{}, offlinedb.Anime{Title: "Jujutsu Kaisen", Synonyms: []string{"呪術廻戦"}}, first)
+	for i := 0; i < 20; i++ {
+		again := &Report{}
+		fillTitles("season z", &model.Title{}, offlinedb.Anime{Title: "Jujutsu Kaisen", Synonyms: []string{"呪術廻戦"}}, again)
+		if again.String() != first.String() {
+			t.Fatalf("report order varies between runs:\n%s\nvs\n%s", first.String(), again.String())
+		}
+	}
+
+	// A title with kana is not a guess and must not add noise to the report.
+	quiet := &Report{}
+	fillTitles("season y", &model.Title{}, offlinedb.Anime{Title: "Kimetsu no Yaiba", Synonyms: []string{"鬼滅の刃"}}, quiet)
+	if strings.Contains(quiet.String(), "Han characters") {
+		t.Errorf("kana is unambiguous and should not be reported: %q", quiet.String())
 	}
 }
 
@@ -85,11 +135,89 @@ func TestFillTitlesMerge(t *testing.T) {
 		t.Errorf("original should be filled, got %q", dst.Original)
 	}
 
-	// An empty title gets both en and ja.
+	// An empty title gets the native form and its romanization.
 	empty := &model.Title{}
 	fillTitles("season y", empty, a, &Report{})
-	if empty.Translations["en"] != "Kimetsu no Yaiba" || empty.Translations["ja"] != "鬼滅の刃" {
+	if empty.Translations["ja-Latn"] != "Kimetsu no Yaiba" || empty.Translations["ja"] != "鬼滅の刃" {
 		t.Errorf("empty title not filled with both: %+v", empty.Translations)
+	}
+
+	// An authored value wins for its own language, which is what keeps a
+	// rebuild idempotent: the inferred title must never clobber a hand-written
+	// one. This used to be covered by the `en` case above, until inferTitle
+	// stopped emitting `en` at all — so it is pinned on the tags it does emit.
+	authored := &model.Title{
+		Original:     "authored 原題",
+		Translations: map[string]string{"ja": "authored ja", "ja-Latn": "Authored Romaji"},
+	}
+	fillTitles("season w", authored, a, &Report{})
+	if authored.Original != "authored 原題" {
+		t.Errorf("authored original should be kept, got %q", authored.Original)
+	}
+	if authored.Translations["ja"] != "authored ja" || authored.Translations["ja-Latn"] != "Authored Romaji" {
+		t.Errorf("authored translations should be kept, got %+v", authored.Translations)
+	}
+
+	// An authored romanization names the title's language, and the source's
+	// text cannot outvote it. Asserting only that ja-Latn is absent used to
+	// pass while a bare `ja` key — and a Japanese `original` — were quietly
+	// filled in alongside the authored Korean one.
+	korean := &model.Title{Translations: map[string]string{"ko-Latn": "Metal Cardbot W"}}
+	report := &Report{}
+	fillTitles("season z", korean, a, report)
+	if korean.Translations["ko-Latn"] != "Metal Cardbot W" || len(korean.Translations) != 1 {
+		t.Errorf("authored Korean title gained fields from a Japanese source: %+v", korean.Translations)
+	}
+	if korean.Original != "" {
+		t.Errorf("original filled from a source in another language: %q", korean.Original)
+	}
+	if strings.Contains(report.String(), "Author the language explicitly") {
+		t.Errorf("the language was authored; the report should not ask for it: %q", report.String())
+	}
+
+	// A source title in Latin script claims no language, so an authored
+	// romanization has nothing to disagree with and the title still fills.
+	// Dropping it here would lose a real title — the source had one — and then
+	// report "no native-script title found", which is true and useless.
+	latinSource := offlinedb.Anime{Title: "Fate/stay night", Synonyms: []string{"FSN"}}
+	authoredKorean := &model.Title{Translations: map[string]string{"ko-Latn": "Metal Cardbot W"}}
+	fillTitles("season l", authoredKorean, latinSource, &Report{})
+	if authoredKorean.Original != "Fate/stay night" {
+		t.Errorf("a Latin-script source title should still fill the original, got %q", authoredKorean.Original)
+	}
+
+	// Tag case is convention, not a rule, and the schema does not constrain
+	// it. `Ko-Latn` names the same language as `ko-Latn`, so it must not read
+	// as a disagreement — that would throw away the source's title over a
+	// capital letter and then report the original as missing.
+	oddCase := &model.Title{Translations: map[string]string{"Ja-LATN": "Authored Romaji"}}
+	fillTitles("season c", oddCase, a, &Report{})
+	if oddCase.Original != "鬼滅の刃" || oddCase.Translations["ja"] != "鬼滅の刃" {
+		t.Errorf("an unconventionally cased romanization should still agree: %+v", oddCase)
+	}
+
+	// The guard that stops a second romanization has to survive a tag written
+	// with a region too: `ja-Latn-JP` and `ja-Latn` are different map keys, so
+	// the plain already-authored check misses them and only that guard catches
+	// it.
+	regional := &model.Title{Translations: map[string]string{"ja-Latn-JP": "Kimetsu no Yaiba"}}
+	fillTitles("season r", regional, a, &Report{})
+	if _, ok := regional.Translations["ja-Latn"]; ok {
+		t.Errorf("a region-qualified romanization should not gain a second one: %+v", regional.Translations)
+	}
+	if regional.Translations["ja"] != "鬼滅の刃" || regional.Original != "鬼滅の刃" {
+		t.Errorf("the same language is not a disagreement; the rest should fill: %+v", regional)
+	}
+
+	// A romanization naming the *same* language as the source is not a
+	// disagreement, so the rest of the title still fills.
+	japanese := &model.Title{Translations: map[string]string{"ja-Latn": "Authored Romaji"}}
+	fillTitles("season zz", japanese, a, &Report{})
+	if japanese.Original != "鬼滅の刃" || japanese.Translations["ja"] != "鬼滅の刃" {
+		t.Errorf("a matching romanization should not block the fill: %+v", japanese)
+	}
+	if japanese.Translations["ja-Latn"] != "Authored Romaji" {
+		t.Errorf("authored romanization should be kept: %+v", japanese.Translations)
 	}
 }
 

@@ -4,7 +4,7 @@ series:
   titles:
     original: トライガン スタンピード
     translations:
-      en: Trigun Stampede
+      ja-Latn: Trigun Stampede
   seasons:
     - id: trigun-stampede-s1
       number: 1
@@ -45,6 +45,7 @@ series:
         translations:
           en: Trigun Stargaze
           ja: TRIGUN STAMPEDE (完結編)
+          ja-Latn: Trigun Stargaze
       number: 2
       releaseYear: 2026
       releaseSeason: WINTER

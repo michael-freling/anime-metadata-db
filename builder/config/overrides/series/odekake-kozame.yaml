@@ -5,7 +5,7 @@ series:
   id: odekake-kozame
   titles:
     original: おでかけ子ザメ シーズン2
-    translations: { en: Odekake Kozame }
+    translations: { ja-Latn: Odekake Kozame }
   seasons:
     - id: odekake-kozame-s2
       number: 2

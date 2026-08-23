@@ -5,7 +5,7 @@ series:
   id: nezumi-kun-no-chokki-tv
   titles:
     original: ねずみくんのチョッキ (TV)
-    translations: { en: Nezumi-kun no Chokki (TV) }
+    translations: { ja-Latn: Nezumi-kun no Chokki (TV) }
   seasons:
     - id: nezumi-kun-no-chokki-tv-s1
       number: 1

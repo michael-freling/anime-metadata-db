@@ -5,7 +5,7 @@ series:
   id: dead-account
   titles:
     original: デッドアカウント
-    translations: { en: Dead Account }
+    translations: { ja-Latn: Dead Account }
   seasons:
     - id: dead-account-s1
       number: 1
