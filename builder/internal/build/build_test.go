@@ -71,6 +71,52 @@ func TestInferTitle(t *testing.T) {
 	}
 }
 
+// The script decides the language, because assuming Japanese mislabelled every
+// Korean title: a series added without a hand-authored title would have had its
+// Hangul filed under `ja`, and then served to Japanese-language requests while
+// Korean ones got nothing.
+func TestInferTitleReadsTheScript(t *testing.T) {
+	for _, tc := range []struct {
+		name, title, syn  string
+		wantLang, wantRom string
+	}{
+		{"kana is Japanese", "Kimetsu no Yaiba", "鬼滅の刃", "ja", "ja-Latn"},
+		{"hangul is Korean", "Metal Cardbot W", "메탈카드봇W", "ko", "ko-Latn"},
+		// Han characters are shared, so this one is a guess — see below.
+		{"han alone defaults to Japanese", "Jujutsu Kaisen", "呪術廻戦", "ja", "ja-Latn"},
+	} {
+		got := inferTitle(offlinedb.Anime{Title: tc.title, Synonyms: []string{tc.syn}})
+		if got.Translations[tc.wantLang] != tc.syn {
+			t.Errorf("%s: translations[%s] = %q, want %q", tc.name, tc.wantLang, got.Translations[tc.wantLang], tc.syn)
+		}
+		if got.Translations[tc.wantRom] != tc.title {
+			t.Errorf("%s: translations[%s] = %q, want %q", tc.name, tc.wantRom, got.Translations[tc.wantRom], tc.title)
+		}
+		if len(got.Translations) != 2 {
+			t.Errorf("%s: %+v, want exactly the language and its romanization", tc.name, got.Translations)
+		}
+	}
+}
+
+// A Han-only title could be Japanese or Chinese, so the build says which way it
+// guessed rather than deciding quietly. Nothing else in the pipeline can tell
+// the difference, so this report is the only thing standing between a wrong
+// guess and a shipped record.
+func TestFillTitlesReportsAnAssumedLanguage(t *testing.T) {
+	report := &Report{}
+	fillTitles("season x", &model.Title{}, offlinedb.Anime{Title: "Jujutsu Kaisen", Synonyms: []string{"呪術廻戦"}}, report)
+	if !strings.Contains(report.String(), "Han characters") {
+		t.Errorf("a Han-only original should be reported as an assumption, got %q", report.String())
+	}
+
+	// A title with kana is not a guess and must not add noise to the report.
+	quiet := &Report{}
+	fillTitles("season y", &model.Title{}, offlinedb.Anime{Title: "Kimetsu no Yaiba", Synonyms: []string{"鬼滅の刃"}}, quiet)
+	if strings.Contains(quiet.String(), "Han characters") {
+		t.Errorf("kana is unambiguous and should not be reported: %q", quiet.String())
+	}
+}
+
 func TestFillTitlesMerge(t *testing.T) {
 	a := offlinedb.Anime{Title: "Kimetsu no Yaiba", Synonyms: []string{"鬼滅の刃"}}
 

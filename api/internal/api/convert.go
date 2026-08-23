@@ -72,6 +72,18 @@ func resolveTitle(t model.Title, lang string) string {
 	if v := translation(t, lang); v != "" {
 		return v
 	}
+	// Asked for a romanization by name ("ja-Latn", "ja-Latn-JP"): any
+	// romanization of that language answers it. Without this the next step
+	// falls back to the bare primary subtag and hands back native script — the
+	// opposite of what was asked for.
+	if model.IsRomanization(lang) {
+		for _, k := range sortedTranslationKeys(t) {
+			if t.Translations[k] != "" && model.IsRomanization(k) &&
+				strings.EqualFold(primaryTag(k), primaryTag(lang)) {
+				return t.Translations[k]
+			}
+		}
+	}
 	if p := primaryTag(lang); p != lang {
 		if v := translation(t, p); v != "" {
 			return v
@@ -101,17 +113,29 @@ var nativeScriptLangs = map[string]bool{"ja": true, "ko": true, "zh": true}
 
 // isOriginalLanguage reports whether lang is the language the title's original
 // is written in — a Japanese request for a Japanese title, where the original
-// is the right answer and an English translation is not.
+// is the right answer and an English translation is not. A request that names
+// a script itself ("ja-Latn-JP") is asking for the Latin form, so it is never
+// the original's language however its primary subtag reads.
 //
 // A romanization tells us this outright: a title carrying `ko-Latn` has a
 // Korean original, so a Japanese reader asking for it is no better served by
 // Hangul than an English reader would be. Only a title with no romanization at
 // all falls back to the language list.
 func isOriginalLanguage(t model.Title, lang string) bool {
+	if model.IsRomanization(lang) {
+		return false
+	}
 	p := primaryTag(lang)
 	found := false
 	for _, code := range sortedTranslationKeys(t) {
 		if t.Translations[code] == "" || !model.IsRomanization(code) {
+			continue
+		}
+		// "und-Latn" is a romanization whose language the build could not
+		// determine — a title written only in Han characters. It names the
+		// script, not the language, so it cannot answer this question and the
+		// language list decides instead.
+		if strings.EqualFold(primaryTag(code), "und") {
 			continue
 		}
 		found = true

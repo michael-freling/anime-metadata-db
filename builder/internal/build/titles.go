@@ -16,9 +16,29 @@ var nativeScripts = []*unicode.RangeTable{
 	unicode.Hangul,
 }
 
-// romanizedLang is the BCP-47 tag for a romanized Japanese title, the form the
-// upstream catalogues supply as their Latin-script main title.
-const romanizedLang = "ja-Latn"
+// nativeLanguage names the language a native-script title is written in.
+//
+// Kana occurs only in Japanese and Hangul only in Korean, so either settles it.
+// Han characters are shared: 呪術廻戦 and 喜羊羊与灰太狼 look alike to a range
+// check. This is a catalogue of anime, so a Han-only title defaults to Japanese
+// — and says so by returning certain=false, which fillTitles reports for a
+// human to confirm or correct. Guessing loudly beats both guessing silently
+// (which mislabelled every Korean title before this) and refusing to guess
+// (which would tag 劇場版「…」 as an undetermined language it plainly is not).
+func nativeLanguage(s string) (lang string, certain bool) {
+	for _, r := range s {
+		switch {
+		case unicode.In(r, unicode.Hiragana, unicode.Katakana):
+			return "ja", true
+		case unicode.In(r, unicode.Hangul):
+			return "ko", true
+		}
+	}
+	if hasNativeScript(s) {
+		return "ja", false
+	}
+	return "", false
+}
 
 // hasNativeScript reports whether s contains any CJK/Hangul character.
 func hasNativeScript(s string) bool {
@@ -42,9 +62,13 @@ func hasNativeScript(s string) bool {
 // English title is a different fact, and one only a human can supply, so it
 // stays in the overrides.
 //
-// `ja-Latn` assumes the original is Japanese, which is true of this catalogue
-// bar a handful of Korean and Chinese titles. Those are authored with their own
-// romanization tag, and fillTitles leaves any authored romanization alone.
+// Which language the native title is in is decided by its script, not assumed:
+// kana is Japanese and Hangul is Korean, both unambiguously. A title written
+// only in Han characters could be either Japanese or Chinese — 呪術廻戦 and
+// 喜羊羊与灰太狼 look alike to a range check — so no language is claimed for it
+// and the guess is reported for a human instead. Nothing is lost by that: the
+// language key duplicates `original`, and a request in the original's language
+// resolves to `original` anyway.
 func inferTitle(a offlinedb.Anime) model.Title {
 	var original, latin string
 	if hasNativeScript(a.Title) {
@@ -63,9 +87,9 @@ func inferTitle(a offlinedb.Anime) model.Title {
 
 	title := model.Title{Original: original}
 	translations := map[string]string{}
-	if original != "" {
-		// Anime originals are Japanese: expose the native title under `ja`.
-		translations["ja"] = original
+	lang, _ := nativeLanguage(original)
+	if lang != "" {
+		translations[lang] = original
 	}
 	if latin != "" {
 		if original == "" {
@@ -74,7 +98,7 @@ func inferTitle(a offlinedb.Anime) model.Title {
 			// it a romanization would invent a native form that does not exist.
 			title.Original = latin
 		} else {
-			translations[romanizedLang] = latin
+			translations[lang+"-Latn"] = latin
 		}
 	}
 	if len(translations) > 0 {

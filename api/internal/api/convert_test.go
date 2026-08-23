@@ -88,6 +88,22 @@ func TestResolveTitle(t *testing.T) {
 			mk("フェイト", map[string]string{"en": "Fate"}), "フェイト"},
 		{"french takes the english title in the same situation", "fr",
 			mk("フェイト", map[string]string{"en": "Fate"}), "Fate"},
+		// The same fallback has to hold for the other scripts this catalogue
+		// keeps originals in, or a reader in one of them gets an English title
+		// where the native one exists.
+		{"korean reaches the original with nothing to name its language", "ko",
+			mk("메탈카드봇W", map[string]string{"en": "Metal Cardbot W"}), "메탈카드봇W"},
+		{"chinese reaches the original the same way", "zh",
+			mk("喜羊羊与灰太狼", map[string]string{"en": "Pleasant Goat"}), "喜羊羊与灰太狼"},
+		// A request that names the script is asking for the Latin form. It used
+		// to fall back to the bare primary subtag and get native script — the
+		// opposite of what it asked for.
+		{"a request naming the script gets the romanization", "ja-latn",
+			mk("鬼滅の刃", map[string]string{"ja": "鬼滅の刃", "ja-Latn": "Kimetsu no Yaiba"}), "Kimetsu no Yaiba"},
+		{"a script request with a region too", "ja-latn-jp",
+			mk("鬼滅の刃", map[string]string{"ja": "鬼滅の刃", "ja-Latn": "Kimetsu no Yaiba"}), "Kimetsu no Yaiba"},
+		{"a script request for a language the title has no romanization in", "ko-latn",
+			mk("鬼滅の刃", map[string]string{"ja-Latn": "Kimetsu no Yaiba"}), "Kimetsu no Yaiba"},
 	}
 	for _, tc := range tests {
 		if got := resolveTitle(tc.in, tc.lang); got != tc.want {

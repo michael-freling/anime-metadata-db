@@ -152,8 +152,10 @@ func fillTitles(entity string, dst *model.Title, a offlinedb.Anime, report *Repo
 			dst.Translations = make(map[string]string)
 		}
 		dst.Translations[code] = val
-		if model.IsRomanization(code) {
-			report.add(entity, "titles", fmt.Sprintf("filled translations.%s from source title %q (verify the original is Japanese; a Korean or Chinese title needs its own tag)", code, val))
+		if _, certain := nativeLanguage(inferred.Original); !certain && inferred.Original != "" {
+			report.add(entity, "titles", fmt.Sprintf(
+				"filled translations.%s from %q, assuming the original %q is Japanese — it is written only in Han characters, which Chinese shares. Author the language explicitly if that is wrong",
+				code, val, inferred.Original))
 		}
 	}
 	if dst.Original == "" {
