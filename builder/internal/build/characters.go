@@ -2,7 +2,7 @@ package build
 
 import (
 	"fmt"
-	"unicode"
+	"strings"
 
 	"github.com/michael-freling/anime-metadata-db/builder/internal/overrides"
 	"github.com/michael-freling/anime-metadata-db/internal/model"
@@ -105,9 +105,9 @@ func (b *Builder) BuildStaff(o overrides.StaffOverride) (model.StaffRecord, *Rep
 //
 // The script decides, for a real person: a Japanese label containing kanji or
 // hiragana is a Japanese name, and one written only in katakana is a foreign
-// name transliterated. Nothing in the dataset contradicts that today — no
-// Japanese staff member has a katakana-only label — and a Japanese stage name
-// written in katakana would be the case to watch, which is why it is reported.
+// name transliterated. The case that breaks the rule is a Japanese stage name
+// written in katakana, so that one is reported — see nameSeparator for how it
+// is told apart. No Japanese staff member has a katakana-only label today.
 //
 // A *character* is different, and the same rule applied to one would be wrong:
 // セイバー is not a rendering of "Saber" for Japanese readers, it is the name
@@ -166,12 +166,25 @@ func (k nameKind) original(ja, en, entity string, report *Report) string {
 		// and for a name written in Latin script that is the right answer
 		// anyway, which is why this no longer reports an empty original.
 		return en
-	case isTransliteration(ja):
-		if en == "" {
-			// Katakana with nothing to fall back to: it is a rendering of a
-			// name we do not otherwise have, so it stands in for one.
+	case model.IsKatakanaOnly(ja):
+		// Katakana spells a foreign name — but it also spells a Japanese stage
+		// name, and those are the ones this would get wrong. A rendering of a
+		// foreign name separates its parts with "・" (ザック・アギラール), which a
+		// one-part Japanese stage name has no reason to carry, so a katakana
+		// label without one is reported whichever way it goes. All 30 of the
+		// katakana labels in the dataset today carry the separator, and no
+		// Japanese staff member has a katakana-only label at all.
+		if !strings.Contains(ja, nameSeparator) {
 			report.add(entity, "names", fmt.Sprintf(
-				"the Japanese label %q is katakana, so it is a rendering of a foreign name, but there is no English label to use instead", ja))
+				"the Japanese label %q is katakana with no %q separating a given name from a family one, so it may be a Japanese stage name rather than a foreign name written for Japanese readers",
+				ja, nameSeparator))
+		}
+		if en == "" {
+			// Nothing else to use, so a rendering of the name becomes the
+			// name. Worth saying out loud even when the separator makes its
+			// origin obvious: what gets stored is not what the person writes.
+			report.add(entity, "names", fmt.Sprintf(
+				"kept the katakana %q as the original because there is no English label; it is how Japanese writes the name rather than the name itself", ja))
 			return ja
 		}
 		return en
@@ -180,23 +193,10 @@ func (k nameKind) original(ja, en, entity string, report *Report) string {
 	}
 }
 
-// isTransliteration reports whether a Japanese label is written only in
-// katakana, the script Japanese reserves for foreign words — so the name it
-// spells belongs to another language. Kanji or hiragana anywhere means it is a
-// Japanese name.
-func isTransliteration(s string) bool {
-	for _, r := range s {
-		if unicode.In(r, unicode.Han, unicode.Hiragana) {
-			return false
-		}
-	}
-	for _, r := range s {
-		if unicode.In(r, unicode.Katakana) {
-			return true
-		}
-	}
-	return false
-}
+// nameSeparator is the interpunct Japanese puts between the parts of a foreign
+// name written in katakana: ザック・アギラール. A Japanese name, written in kanji,
+// needs no separator, so its presence is evidence the name is not Japanese.
+const nameSeparator = "・"
 
 // addTranslation sets a translation only when the value is non-empty and the
 // override did not already provide that language.

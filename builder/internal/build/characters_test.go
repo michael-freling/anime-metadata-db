@@ -13,7 +13,9 @@ const charsWikidata = `{"entities":{
   "Q85805158":{"id":"Q85805158","labels":{"en":{"language":"en","value":"Tanjirō Kamado"},"ja":{"language":"ja","value":"竈門炭治郎"}}},
   "Q2596113":{"id":"Q2596113","labels":{"en":{"language":"en","value":"Natsuki Hanae"},"ja":{"language":"ja","value":"花江夏樹"}}},
   "Q3":{"id":"Q3","labels":{"en":{"language":"en","value":"Only English"}}},
-  "Q4":{"id":"Q4","labels":{"en":{"language":"en","value":"Zach Aguilar"},"ja":{"language":"ja","value":"ザック・アギラール"}}}
+  "Q4":{"id":"Q4","labels":{"en":{"language":"en","value":"Zach Aguilar"},"ja":{"language":"ja","value":"ザック・アギラール"}}},
+  "Q5":{"id":"Q5","labels":{"ja":{"language":"ja","value":"ザック・アギラール"}}},
+  "Q6":{"id":"Q6","labels":{"en":{"language":"en","value":"Aimi"},"ja":{"language":"ja","value":"アイミ"}}}
 }}`
 
 func wdSources(t *testing.T) Sources {
@@ -151,6 +153,59 @@ func TestFillNamesPicksTheNameOverItsRendering(t *testing.T) {
 	b.fillNames(characterName, "character c", &character, "Q4", &Report{})
 	if character.Original != "ザック・アギラール" {
 		t.Errorf("a character's original = %q, want the Japanese label as written", character.Original)
+	}
+
+	// The shape most of the English cast has: an English label and nothing
+	// else. The name is the only one there is, and it needs no report.
+	r := &Report{}
+	var englishOnly model.Title
+	b.fillNames(personName, "staff c", &englishOnly, "Q3", r)
+	if englishOnly.Original != "Only English" {
+		t.Errorf("original = %q, want the English label", englishOnly.Original)
+	}
+	if !r.Empty() {
+		t.Errorf("an English-only name is the common correct case: %v", r.String())
+	}
+
+	// Katakana with no English label to prefer: the rendering stands in for a
+	// name we do not otherwise have, and says so.
+	r = &Report{}
+	var noEnglish model.Title
+	b.fillNames(personName, "staff d", &noEnglish, "Q5", r)
+	if noEnglish.Original != "ザック・アギラール" {
+		t.Errorf("original = %q, want the katakana as the only name available", noEnglish.Original)
+	}
+	if r.Empty() {
+		t.Error("a katakana original with nothing behind it should be reported")
+	}
+}
+
+// A Japanese stage name written in katakana is the case the script rule gets
+// wrong, so it has to be reported rather than quietly resolved. It is told
+// apart by the separator a rendered foreign name carries and a one-part stage
+// name does not.
+func TestFillNamesReportsAKatakanaNameThatMayNotBeForeign(t *testing.T) {
+	b := New(wdSources(t))
+
+	// アイミ: katakana, no separator — this may be a Japanese performer, and
+	// the English label may be a romanization rather than her name.
+	r := &Report{}
+	var ambiguous model.Title
+	b.fillNames(personName, "staff e", &ambiguous, "Q6", r)
+	if ambiguous.Original != "Aimi" {
+		t.Errorf("original = %q; the English label is still the better guess", ambiguous.Original)
+	}
+	if !strings.Contains(r.String(), "stage name") {
+		t.Errorf("a katakana name with no separator should be reported: %v", r.String())
+	}
+
+	// ザック・アギラール carries the separator, so it is a foreign name rendered
+	// for Japanese readers and there is nothing to report.
+	quiet := &Report{}
+	var foreign model.Title
+	b.fillNames(personName, "staff f", &foreign, "Q4", quiet)
+	if !quiet.Empty() {
+		t.Errorf("a separated katakana name is unambiguous: %v", quiet.String())
 	}
 }
 

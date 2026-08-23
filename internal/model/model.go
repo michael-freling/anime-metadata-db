@@ -52,6 +52,25 @@ func HasNativeScript(s string) bool {
 	return false
 }
 
+// IsKatakanaOnly reports whether s is written in katakana and nothing else —
+// no kanji, no hiragana. It states the script and stops there: what that
+// implies about a name is the builder's decision, not this package's.
+//
+// It lives here with the other script tests so "which script means what" is
+// answered in one file, the one both modules already read.
+func IsKatakanaOnly(s string) bool {
+	katakana := false
+	for _, r := range s {
+		switch {
+		case unicode.In(r, unicode.Han, unicode.Hiragana):
+			return false
+		case unicode.In(r, unicode.Katakana):
+			katakana = true
+		}
+	}
+	return katakana
+}
+
 // PrimaryTag returns the primary subtag of a BCP-47 tag: "ja" for "ja-Latn",
 // "en" for "en-us". It sits here with the rest of the tag handling because the
 // builder writes these tags and the API matches on them, from separate
