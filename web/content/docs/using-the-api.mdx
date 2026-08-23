@@ -146,10 +146,16 @@ curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/GetSerie
 ```
 
 A `Franchise` nests `series`, which nests `seasons`, `movies` and `specials`,
-each carrying `episodes`. Dates are `YYYY-MM-DD` strings; `externalIds`
-cross-maps each node to AniList, AniDB, TMDB, TVDB and Wikidata. Field names in
-the JSON are camelCase (`releaseYear`, `externalIds`, `absoluteNumber`). See
-[Using the dataset](/docs/using-the-dataset) for the full model.
+each carrying `episodes`. Field names in the JSON are camelCase (`releaseYear`,
+`externalIds`, `absoluteNumber`). See [Using the dataset](/docs/using-the-dataset)
+for the full model.
+
+Two things the schema offers that no response currently carries: `releaseDate`
+(a `YYYY-MM-DD` string when set — a release is dated only to `releaseYear` and
+`releaseSeason` today) and `externalIds.tmdbId`. `externalIds` cross-maps to
+AniList, AniDB, TVDB and — for characters and staff — Wikidata. Episodes carry
+numbering only: no title, no date. See [Sources and licensing](/docs/sources-and-licensing)
+for the full list of what the build never fills, and why.
 
 ## Characters and staff
 

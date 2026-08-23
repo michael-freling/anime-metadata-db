@@ -70,14 +70,21 @@ series:
 
 Each node stores a `titles` block: the native-script `original` plus
 `translations` keyed by [BCP-47](https://www.rfc-editor.org/info/bcp47) code
-(`en`, `ja`, …). Auto-filled titles default to Japanese (`ja` + romanized
-`ja-Latn`). The API resolves these to a single string per request; when reading
-the YAML directly you get every language.
+(`en`, `ja`, …). The API resolves these to a single string per request; when
+reading the YAML directly you get every language.
+
+**Read `en` with care.** For 147 of the 152 series it holds the *romanized*
+Japanese title, not an English one — `kami-no-shizuku` is `神の雫` / `Kami no
+Shizuku`, and only a handful (Demon Slayer, Wistoria) carry a real English
+title. That is where the upstream catalogues put their Latin-script main title,
+and this dataset passed it through under `en`. `ja-Latn`, the code that
+actually means romanized Japanese, is currently unused.
 
 ## External IDs
 
 Every node cross-maps to external databases via `externalIds`: `anilistId`,
-`anidbId`, `tmdbId`, `tvdbId` and `wikidataId` (all optional). Use these to fetch
+`anidbId`, `tvdbId` and `wikidataId` (all optional; `tmdbId` is in the schema
+but nothing fills it). Use these to fetch
 *expression* — artwork, synopses, ratings — live from those services at runtime.
 The dataset itself stores only **facts** (ids, titles, structure), never
 licensed descriptive content.
