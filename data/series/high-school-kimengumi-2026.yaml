@@ -51,8 +51,6 @@ series:
       voiceActors:
         - staffId: ikumi-hasegawa
           language: ja
-        - staffId: naoko-matsui
-          language: ja
       appearances:
         - seriesId: high-school-kimengumi-2026
     - id: chikara-suji
@@ -66,8 +64,6 @@ series:
       voiceActors:
         - staffId: ayumu-asakura
           language: ja
-        - staffId: ryo-horikawa
-          language: ja
       appearances:
         - seriesId: high-school-kimengumi-2026
     - id: dai-monohoshi
@@ -79,8 +75,6 @@ series:
       externalIds:
         wikidataId: Q11570650
       voiceActors:
-        - staffId: kaneto-shiozawa
-          language: ja
         - staffId: kikunosuke-toya
           language: ja
         - staffId: kosuke-okano
@@ -113,8 +107,6 @@ series:
       voiceActors:
         - staffId: kosuke-toriumi
           language: ja
-        - staffId: toru-furuya
-          language: ja
       appearances:
         - seriesId: high-school-kimengumi-2026
     - id: doremi-hasorashi
@@ -139,11 +131,7 @@ series:
       externalIds:
         wikidataId: Q139494803
       voiceActors:
-        - staffId: koichi-kitamura
-          language: ja
         - staffId: yasunori-matsumoto
-          language: ja
-        - staffId: yuu-shimaka
           language: ja
       appearances:
         - seriesId: high-school-kimengumi-2026
@@ -157,8 +145,6 @@ series:
         wikidataId: Q11395377
       voiceActors:
         - staffId: shunsuke-takeuchi
-          language: ja
-        - staffId: tessho-genda
           language: ja
       appearances:
         - seriesId: high-school-kimengumi-2026
@@ -216,8 +202,6 @@ series:
       voiceActors:
         - staffId: kazuki-ogawa
           language: ja
-        - staffId: koji-totani
-          language: ja
       appearances:
         - seriesId: high-school-kimengumi-2026
     - id: jako-amano
@@ -230,8 +214,6 @@ series:
         wikidataId: Q136928742
       voiceActors:
         - staffId: mao-ichimichi
-          language: ja
-        - staffId: yo-inoue
           language: ja
       appearances:
         - seriesId: high-school-kimengumi-2026
@@ -246,8 +228,6 @@ series:
       voiceActors:
         - staffId: chiaki-kobayashi
           language: ja
-        - staffId: naoki-tatsuta
-          language: ja
       appearances:
         - seriesId: high-school-kimengumi-2026
     - id: kai-undou
@@ -259,8 +239,6 @@ series:
       externalIds:
         wikidataId: Q136821524
       voiceActors:
-        - staffId: kenyu-horiuchi
-          language: ja
         - staffId: yusuke-kobayashi
           language: ja
       appearances:
@@ -310,8 +288,6 @@ series:
       externalIds:
         wikidataId: Q136778334
       voiceActors:
-        - staffId: ryo-horikawa
-          language: ja
         - staffId: yuhi-asagiri
           language: ja
       appearances:
@@ -368,8 +344,6 @@ series:
       externalIds:
         wikidataId: Q11395709
       voiceActors:
-        - staffId: issei-futamata
-          language: ja
         - staffId: yoshitsugu-matsuoka
           language: ja
       appearances:
@@ -384,8 +358,6 @@ series:
         wikidataId: Q136780284
       voiceActors:
         - staffId: kazuki-ogawa
-          language: ja
-        - staffId: kozo-shioya
           language: ja
       appearances:
         - seriesId: high-school-kimengumi-2026
@@ -413,8 +385,6 @@ series:
       externalIds:
         wikidataId: Q137739530
       voiceActors:
-        - staffId: naoki-tatsuta
-          language: ja
         - staffId: yuki-okada
           language: ja
       appearances:
@@ -428,8 +398,6 @@ series:
       externalIds:
         wikidataId: Q136945880
       voiceActors:
-        - staffId: hiroko-emori
-          language: ja
         - staffId: kaoru-sakura
           language: ja
       appearances:
@@ -445,8 +413,6 @@ series:
       voiceActors:
         - staffId: aimi
           language: ja
-        - staffId: kazumi-amemiya
-          language: ja
       appearances:
         - seriesId: high-school-kimengumi-2026
     - id: masuyo-ikari
@@ -458,8 +424,6 @@ series:
       externalIds:
         wikidataId: Q137372568
       voiceActors:
-        - staffId: masako-katsuki
-          language: ja
         - staffId: yoko-hikasa
           language: ja
       appearances:
@@ -555,8 +519,6 @@ series:
       voiceActors:
         - staffId: yui-horie
           language: ja
-        - staffId: yumiko-shibata
-          language: ja
       appearances:
         - seriesId: high-school-kimengumi-2026
     - id: ranto-jougai
@@ -570,8 +532,6 @@ series:
       voiceActors:
         - staffId: masafumi-kobatake
           language: ja
-        - staffId: masaharu-sato
-          language: ja
       appearances:
         - seriesId: high-school-kimengumi-2026
     - id: rei-ichido
@@ -583,8 +543,6 @@ series:
       externalIds:
         wikidataId: Q11352501
       voiceActors:
-        - staffId: shigeru-chiba
-          language: ja
         - staffId: tomokazu-seki
           language: ja
       appearances:
@@ -611,8 +569,6 @@ series:
       externalIds:
         wikidataId: Q137391704
       voiceActors:
-        - staffId: hideyuki-tanaka
-          language: ja
         - staffId: tomokazu-sugita
           language: ja
       appearances:
@@ -628,8 +584,6 @@ series:
       voiceActors:
         - staffId: daisuke-sakuma
           language: ja
-        - staffId: keiichi-nanba
-          language: ja
       appearances:
         - seriesId: high-school-kimengumi-2026
     - id: shumi-monozuki
@@ -641,8 +595,6 @@ series:
       externalIds:
         wikidataId: Q137643426
       voiceActors:
-        - staffId: matsumi-oshiro
-          language: ja
         - staffId: yui-ishikawa
           language: ja
       appearances:
@@ -699,8 +651,6 @@ series:
       voiceActors:
         - staffId: yoji-ueda
           language: ja
-        - staffId: yusaku-yara
-          language: ja
       appearances:
         - seriesId: high-school-kimengumi-2026
     - id: torio-tanokin
@@ -727,8 +677,6 @@ series:
       voiceActors:
         - staffId: katsuyuki-konishi
           language: ja
-        - staffId: kazuo-oka
-          language: ja
       appearances:
         - seriesId: high-school-kimengumi-2026
     - id: you-nihiruda
@@ -740,8 +688,6 @@ series:
       externalIds:
         wikidataId: Q136745621
       voiceActors:
-        - staffId: hochu-otsuka
-          language: ja
         - staffId: nobuhiko-okamoto
           language: ja
       appearances:
@@ -756,8 +702,6 @@ series:
         wikidataId: Q11553843
       voiceActors:
         - staffId: haruka-shiraishi
-          language: ja
-        - staffId: miki-takahashi
           language: ja
       appearances:
         - seriesId: high-school-kimengumi-2026

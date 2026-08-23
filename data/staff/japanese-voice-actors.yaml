@@ -656,14 +656,6 @@ staff:
         ja: 石川英郎
     externalIds:
       wikidataId: Q1204249
-  - id: hideyuki-tanaka
-    names:
-      original: 田中秀幸
-      translations:
-        en: Hideyuki Tanaka
-        ja: 田中秀幸
-    externalIds:
-      wikidataId: Q2440809
   - id: hika-tsukishiro
     names:
       original: 月城日花
@@ -704,14 +696,6 @@ staff:
         ja: 安元洋貴
     externalIds:
       wikidataId: Q1365535
-  - id: hiroko-emori
-    names:
-      original: 江森浩子
-      translations:
-        en: Hiroko Emori
-        ja: 江森浩子
-    externalIds:
-      wikidataId: Q3089633
   - id: hiromichi-tezuka
     names:
       original: 手塚ヒロミチ
@@ -824,14 +808,6 @@ staff:
         ja: 水瀬いのり
     externalIds:
       wikidataId: Q11548933
-  - id: issei-futamata
-    names:
-      original: 二又一成
-      translations:
-        en: Issei Futamata
-        ja: 二又一成
-    externalIds:
-      wikidataId: Q2463489
   - id: itaru-yamamoto
     names:
       original: 山本格
@@ -1000,14 +976,6 @@ staff:
         ja: 山本兼平
     externalIds:
       wikidataId: Q11468888
-  - id: kaneto-shiozawa
-    names:
-      original: 塩沢兼人
-      translations:
-        en: Kaneto Shiozawa
-        ja: 塩沢兼人
-    externalIds:
-      wikidataId: Q2447488
   - id: kanna-nakamura
     names:
       original: ‎中村カンナ
@@ -1088,22 +1056,6 @@ staff:
         ja: 浦和希
     externalIds:
       wikidataId: Q81028715
-  - id: kazumi-amemiya
-    names:
-      original: 雨宮かずみ
-      translations:
-        en: Kazumi Amemiya
-        ja: 雨宮かずみ
-    externalIds:
-      wikidataId: Q11659676
-  - id: kazuo-oka
-    names:
-      original: 岡和男
-      translations:
-        en: Kazuo Oka
-        ja: 岡和男
-    externalIds:
-      wikidataId: Q1093241
   - id: kazuya-nakai
     names:
       original: 中井和哉
@@ -1120,14 +1072,6 @@ staff:
         ja: 興津和幸
     externalIds:
       wikidataId: Q868226
-  - id: keiichi-nanba
-    names:
-      original: 難波圭一
-      translations:
-        en: Keiichi Nanba
-        ja: 難波圭一
-    externalIds:
-      wikidataId: Q430395
   - id: ken-narita
     names:
       original: 成田剣
@@ -1280,14 +1224,6 @@ staff:
         ja: 天﨑滉平
     externalIds:
       wikidataId: Q20038507
-  - id: koichi-kitamura
-    names:
-      original: 北村弘一
-      translations:
-        en: Kōichi Kitamura
-        ja: 北村弘一
-    externalIds:
-      wikidataId: Q4353745
   - id: koichi-soma
     names:
       original: 相馬康一
@@ -1424,14 +1360,6 @@ staff:
         ja: 三石琴乃
     externalIds:
       wikidataId: Q18735
-  - id: kozo-shioya
-    names:
-      original: 塩屋浩三
-      translations:
-        en: Kōzō Shioya
-        ja: 塩屋浩三
-    externalIds:
-      wikidataId: Q1059620
   - id: kurumi-haruki
     names:
       original: 陽木くるみ
@@ -1640,22 +1568,6 @@ staff:
         ja: こばたけまさふみ
     externalIds:
       wikidataId: Q22125368
-  - id: masaharu-sato
-    names:
-      original: 佐藤正治
-      translations:
-        en: Masaharu Satō
-        ja: 佐藤正治
-    externalIds:
-      wikidataId: Q531846
-  - id: masako-katsuki
-    names:
-      original: 勝生真沙子
-      translations:
-        en: Masako Katsuki
-        ja: 勝生真沙子
-    externalIds:
-      wikidataId: Q2665343
   - id: masashi-nogawa
     names:
       original: 野川雅史
@@ -1672,14 +1584,6 @@ staff:
         ja: 山根雅史
     externalIds:
       wikidataId: Q64782567
-  - id: matsumi-oshiro
-    names:
-      original: 大城松美
-      translations:
-        en: Matsumi Ōshiro
-        ja: 大城松美
-    externalIds:
-      wikidataId: Q6788128
   - id: mayu-iizuka
     names:
       original: 飯塚麻結
@@ -1760,14 +1664,6 @@ staff:
         ja: 小松未可子
     externalIds:
       wikidataId: Q1593184
-  - id: miki-takahashi
-    names:
-      original: 高橋美紀
-      translations:
-        en: Miki Takahashi
-        ja: 高橋美紀
-    externalIds:
-      wikidataId: Q11671543
   - id: miku-ito
     names:
       original: 伊藤美来
@@ -1896,22 +1792,6 @@ staff:
         ja: 東山奈央
     externalIds:
       wikidataId: Q865906
-  - id: naoki-tatsuta
-    names:
-      original: 龍田直樹
-      translations:
-        en: Naoki Tatsuta
-        ja: 龍田直樹
-    externalIds:
-      wikidataId: Q933540
-  - id: naoko-matsui
-    names:
-      original: 松井菜桜子
-      translations:
-        en: Naoko Matsui
-        ja: 松井菜桜子
-    externalIds:
-      wikidataId: Q1193618
   - id: naoya-nosaka
     names:
       original: 野坂尚也
@@ -2094,14 +1974,6 @@ staff:
         ja: 大久保瑠美
     externalIds:
       wikidataId: Q902038
-  - id: ryo-horikawa
-    names:
-      original: 堀川りょう
-      translations:
-        en: Ryō Horikawa
-        ja: 堀川りょう
-    externalIds:
-      wikidataId: Q2540053
   - id: ryo-sugisaki
     names:
       original: 杉崎亮
@@ -2694,14 +2566,6 @@ staff:
         ja: 橘龍丸
     externalIds:
       wikidataId: Q66365025
-  - id: tessho-genda
-    names:
-      original: 玄田哲章
-      translations:
-        en: Tesshō Genda
-        ja: 玄田哲章
-    externalIds:
-      wikidataId: Q2529130
   - id: tetsu-inada
     names:
       original: 稲田徹
@@ -2798,14 +2662,6 @@ staff:
         ja: 志村知幸
     externalIds:
       wikidataId: Q1749211
-  - id: toru-furuya
-    names:
-      original: 古谷徹
-      translations:
-        en: Tōru Furuya
-        ja: 古谷徹
-    externalIds:
-      wikidataId: Q917318
   - id: toshihiko-seki
     names:
       original: 関俊彦
@@ -2910,14 +2766,6 @@ staff:
         ja: 松本保典
     externalIds:
       wikidataId: Q1192158
-  - id: yo-inoue
-    names:
-      original: 井上瑤
-      translations:
-        en: Yō Inoue
-        ja: 井上瑤
-    externalIds:
-      wikidataId: Q2564944
   - id: yo-taichi
     names:
       original: 大地葉
@@ -3214,14 +3062,6 @@ staff:
         ja: 内山夕実
     externalIds:
       wikidataId: Q322979
-  - id: yumiko-shibata
-    names:
-      original: 柴田由美子
-      translations:
-        en: Yumiko Shibata
-        ja: 柴田由美子
-    externalIds:
-      wikidataId: Q8061128
   - id: yumiri-hanamori
     names:
       original: 花守ゆみり
@@ -3262,14 +3102,6 @@ staff:
         ja: 天海由梨奈
     externalIds:
       wikidataId: Q45819489
-  - id: yusaku-yara
-    names:
-      original: 屋良有作
-      translations:
-        en: Yūsaku Yara
-        ja: 屋良有作
-    externalIds:
-      wikidataId: Q3113155
   - id: yusuke-kobayashi
     names:
       original: 小林裕介
@@ -3302,14 +3134,6 @@ staff:
         ja: 上村祐翔
     externalIds:
       wikidataId: Q11359321
-  - id: yuu-shimaka
-    names:
-      original: 島香裕
-      translations:
-        en: Yuu Shimaka
-        ja: 島香裕
-    externalIds:
-      wikidataId: Q3574297
   - id: yuya-hirose
     names:
       original: 広瀬裕也
