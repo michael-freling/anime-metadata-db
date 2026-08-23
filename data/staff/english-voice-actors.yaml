@@ -284,14 +284,6 @@ staff:
         ja: マーク・ウィッテン
     externalIds:
       wikidataId: Q124217816
-  - id: michelle-ruff
-    names:
-      original: ミシェル・ラフ
-      translations:
-        en: Michelle Ruff
-        ja: ミシェル・ラフ
-    externalIds:
-      wikidataId: Q842585
   - id: natalie-rial
     names:
       translations:

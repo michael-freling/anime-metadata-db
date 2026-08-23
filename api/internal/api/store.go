@@ -325,6 +325,10 @@ func (s *Store) Characters(seriesID string, limit int) ([]*model.Character, erro
 // references but does not embed.
 func (s *Store) SeriesTitle(id string) (model.Title, bool) { return s.ix.SeriesTitle(id) }
 
+// Work resolves an installment id to its indexed row, for labelling a scope
+// without reopening the record it lives in.
+func (s *Store) Work(id string) (index.Work, bool) { return s.ix.WorkByID(id) }
+
 // EpisodesPage returns one page of the episodes of a season or special.
 //
 // Reading the record parses the whole series, including every episode of every
@@ -391,25 +395,18 @@ func (s *Store) SeriesPage(franchiseID, token string, limit int) (Page[*model.Se
 	return out, nil
 }
 
-// AppearancesPage returns one page of the series a character appears in.
-func (s *Store) AppearancesPage(characterID, token string, limit int) (Page[model.CharacterAppearance], error) {
-	c, ok, err := s.Character(characterID)
-	if err != nil || !ok {
-		return Page[model.CharacterAppearance]{}, err
-	}
+// AppearancesPage returns one page of the series a character appears in. It
+// takes the character rather than an id because every caller needs the rest of
+// the record anyway — the cast that holds throughout, to resolve each
+// appearance against — and resolving it here as well would walk the record's
+// whole cast a second time per request.
+func (s *Store) AppearancesPage(c *model.Character, token string, limit int) (Page[model.CharacterAppearance], error) {
 	return index.Paginate(c.Appearances, token, limit)
 }
 
 // CreditsPage returns one page of the roles a staff member is cast in.
 func (s *Store) CreditsPage(staffID, token string, limit int) (Page[StaffCredit], error) {
 	return s.ix.CreditsPage(staffID, token, limit)
-}
-
-// CharacterExists reports whether a character id is known, without reading its
-// record.
-func (s *Store) CharacterExists(id string) bool {
-	_, ok := s.ix.Character(id)
-	return ok
 }
 
 // WorkExists reports whether an installment id is known.

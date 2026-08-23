@@ -5,6 +5,13 @@
 # "voice actor" (P725) statements qualified with "language of work" (P407) =
 # English (Q1860). Wikidata is the research aid here, as it is for the
 # Japanese cast — the casting itself is recorded in this repository.
+#
+# Where a statement also carries "applies to work" (P10663), that work decides
+# where the credit goes: onto the matching series' appearance, or nowhere at
+# all if this dataset does not carry that work. English dubs get recast between
+# adaptations, so attaching every credit to the character makes it look as
+# though one actor voiced them throughout. Most statements have no P10663 and
+# stay on the character, which is the right default for a single-series role.
 staff:
   - id: aaron-roberts
     externalIds: { wikidataId: Q141031024 }
@@ -84,8 +91,6 @@ staff:
     externalIds: { wikidataId: Q16232274 }
   - id: mark-whitten
     externalIds: { wikidataId: Q124217816 }
-  - id: michelle-ruff
-    externalIds: { wikidataId: Q842585 }
   - id: natalie-rial
     externalIds: { wikidataId: Q109734195 }
   - id: paul-st-peter

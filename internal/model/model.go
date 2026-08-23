@@ -253,15 +253,56 @@ func (r Record) EachSeries(fn func(*Series)) {
 	}
 }
 
-// Cast returns the record's characters — nested under the franchise (for a
-// multi-series brand) or the standalone series. The returned slice shares the
-// record's backing array, so elements can be mutated in place.
+// Cast returns every character in the record: nested under the franchise (for
+// one spanning its series) and under each series it holds, or under the
+// standalone series. Everything downstream — the index, the store, the
+// builder's validation and prune accounting — reads the cast through here, so
+// a character this missed would be silently unservable rather than rejected.
+//
+// It is for READING. A franchise nesting cast at both levels has no single
+// slice to hand back, so this one allocates and copies, and writing to an
+// element of the result would be lost. Use EachCharacter to modify.
 func (r Record) Cast() []Character {
 	switch {
 	case r.Franchise != nil:
-		return r.Franchise.Characters
+		nested := 0
+		for _, s := range r.Franchise.Series {
+			nested += len(s.Characters)
+		}
+		if nested == 0 {
+			return r.Franchise.Characters
+		}
+		out := make([]Character, 0, len(r.Franchise.Characters)+nested)
+		out = append(out, r.Franchise.Characters...)
+		for _, s := range r.Franchise.Series {
+			out = append(out, s.Characters...)
+		}
+		return out
 	case r.Series != nil:
 		return r.Series.Characters
 	}
 	return nil
+}
+
+// EachCharacter calls fn for every character in the record, by pointer, so the
+// record itself is what changes. It is the writing counterpart to Cast: the
+// build fills names and default appearances through here, and doing that
+// through Cast would silently discard the work for a franchise that nests cast
+// at both levels, since Cast has to copy to return one slice.
+func (r Record) EachCharacter(fn func(*Character)) {
+	switch {
+	case r.Franchise != nil:
+		for i := range r.Franchise.Characters {
+			fn(&r.Franchise.Characters[i])
+		}
+		for i := range r.Franchise.Series {
+			for j := range r.Franchise.Series[i].Characters {
+				fn(&r.Franchise.Series[i].Characters[j])
+			}
+		}
+	case r.Series != nil:
+		for i := range r.Series.Characters {
+			fn(&r.Series.Characters[i])
+		}
+	}
 }

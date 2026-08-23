@@ -96,12 +96,33 @@ default; `scope[]` covers a character who debuts in one film or a single OVA.
 Node-level (Season / Movie / Special) is the **finest** scope — per-Episode is intentionally not
 supported (too granular).
 
-### 2.3 Voice actors: default on the Character, overridable per appearance
+### 2.3 Voice actors: constant on the Character, added to per appearance
 
 A character usually keeps the **same voice actor across series** (Saber is Ayako Kawasumi in every
 Fate work), so the default cast lives on the `Character` as `voiceActors[]`, one entry per
 `language`. When an appearance **recasts** or **adds a dub**, it overrides with its own
 `voiceActors[]`; otherwise it inherits the default. Each `staffId` resolves to a `Staff` node.
+
+> **Amended 2026-08-23.** The shape held; three things about the rule did not.
+>
+> 1. **An appearance's `voiceActors[]` adds to the character's rather than replacing them.**
+>    Replacing meant one English dub forced every appearance to restate the Japanese cast, and
+>    forgetting to dropped it silently — which is what happened to Saber. So the character carries
+>    the cast that holds *throughout* (an original-language role is nearly always the same person in
+>    every adaptation) and an appearance carries only what is specific to it.
+> 2. **What a `Character` reports depends on what was asked.** `ListCharacters` with a `seriesId`,
+>    and the cast embedded in `GetSeries`, resolve `voiceActors[]` to *that series'* cast — the
+>    constant cast plus anyone cast only there. Unscoped there is no series to be specific to, so
+>    only the constant cast is reported and the rest stays on the appearances. An appearance's own
+>    `voiceActors[]` is always the resolved list, so no client ever merges the two itself.
+> 3. **A character may hold more than one appearance in the same series**, distinguished by
+>    `scope[]` (§2.2), when the cast changes between its installments: Saber is in every *Fate/stay
+>    night* adaptation, but Kate Higgins dubbed only the 2006 one. An appearance is therefore
+>    identified by `seriesId` **and** `scope[]`, not by `seriesId` alone. The credits index is
+>    coarser on purpose — it keys by series — so a staff credit reads "Saber in Fate/stay night"
+>    even when the appearance behind it is narrower.
+>
+> See [Using the API](/docs/using-the-api) for the behaviour as shipped.
 
 ### 2.4 Voice roles live on the character side
 

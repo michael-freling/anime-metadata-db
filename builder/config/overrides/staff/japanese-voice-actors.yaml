@@ -1,5 +1,13 @@
 # Authored staff — Japanese voice actors. Staff are global and organized by
 # language (others go in their own file). Names filled from Wikidata (CC0).
+#
+# The "applies to work" (P10663) rule in english-voice-actors.yaml applies here
+# too, and not only to dubs: Wikidata records every adaptation's cast on the
+# same character, so a remake picks up the original's cast unless the qualifier
+# is read. High School! Kimengumi (2026) carried 28 credits from the 1985 anime
+# for exactly that reason. A credit whose P10663 names a work this dataset does
+# not carry belongs nowhere here; one that names a series here belongs on that
+# appearance.
 staff:
   - id: ayako-kawasumi
     externalIds: { wikidataId: Q49566 }
@@ -165,8 +173,6 @@ staff:
     externalIds: { wikidataId: Q11469493 }
   - id: hideo-ishikawa
     externalIds: { wikidataId: Q1204249 }
-  - id: hideyuki-tanaka
-    externalIds: { wikidataId: Q2440809 }
   - id: hika-tsukishiro
     externalIds: { wikidataId: Q85884118 }
   - id: hikari-senga
@@ -177,8 +183,6 @@ staff:
     externalIds: { wikidataId: Q2704867 }
   - id: hiroki-yasumoto
     externalIds: { wikidataId: Q1365535 }
-  - id: hiroko-emori
-    externalIds: { wikidataId: Q3089633 }
   - id: hiromichi-tezuka
     externalIds: { wikidataId: Q17161488 }
   - id: hiromu-mineta
@@ -207,8 +211,6 @@ staff:
     externalIds: { wikidataId: Q48765485 }
   - id: inori-minase
     externalIds: { wikidataId: Q11548933 }
-  - id: issei-futamata
-    externalIds: { wikidataId: Q2463489 }
   - id: itaru-yamamoto
     externalIds: { wikidataId: Q11469140 }
   - id: jiro-saito
@@ -251,8 +253,6 @@ staff:
     externalIds: { wikidataId: Q7485228 }
   - id: kanehira-yamamoto
     externalIds: { wikidataId: Q11468888 }
-  - id: kaneto-shiozawa
-    externalIds: { wikidataId: Q2447488 }
   - id: kanna-nakamura
     externalIds: { wikidataId: Q109657760 }
   - id: kanon-takao
@@ -273,16 +273,10 @@ staff:
     externalIds: { wikidataId: Q11460334 }
   - id: kazuki-ura
     externalIds: { wikidataId: Q81028715 }
-  - id: kazumi-amemiya
-    externalIds: { wikidataId: Q11659676 }
-  - id: kazuo-oka
-    externalIds: { wikidataId: Q1093241 }
   - id: kazuya-nakai
     externalIds: { wikidataId: Q540366 }
   - id: kazuyuki-okitsu
     externalIds: { wikidataId: Q868226 }
-  - id: keiichi-nanba
-    externalIds: { wikidataId: Q430395 }
   - id: ken-narita
     externalIds: { wikidataId: Q1317207 }
   - id: kengo-kawanishi
@@ -321,8 +315,6 @@ staff:
     externalIds: { wikidataId: Q11451654 }
   - id: kohei-amasaki
     externalIds: { wikidataId: Q20038507 }
-  - id: koichi-kitamura
-    externalIds: { wikidataId: Q4353745 }
   - id: koichi-soma
     externalIds: { wikidataId: Q11582498 }
   - id: koji-okino
@@ -357,8 +349,6 @@ staff:
     externalIds: { wikidataId: Q17211665 }
   - id: kotono-mitsuishi
     externalIds: { wikidataId: Q18735 }
-  - id: kozo-shioya
-    externalIds: { wikidataId: Q1059620 }
   - id: kurumi-haruki
     externalIds: { wikidataId: Q138386666 }
   - id: kyo-yaoya
@@ -411,16 +401,10 @@ staff:
     externalIds: { wikidataId: Q27917957 }
   - id: masafumi-kobatake
     externalIds: { wikidataId: Q22125368 }
-  - id: masaharu-sato
-    externalIds: { wikidataId: Q531846 }
-  - id: masako-katsuki
-    externalIds: { wikidataId: Q2665343 }
   - id: masashi-nogawa
     externalIds: { wikidataId: Q11645437 }
   - id: masashi-yamane
     externalIds: { wikidataId: Q64782567 }
-  - id: matsumi-oshiro
-    externalIds: { wikidataId: Q6788128 }
   - id: mayu-iizuka
     externalIds: { wikidataId: Q18700531 }
   - id: mayu-minami
@@ -441,8 +425,6 @@ staff:
     externalIds: { wikidataId: Q28691932 }
   - id: mikako-komatsu
     externalIds: { wikidataId: Q1593184 }
-  - id: miki-takahashi
-    externalIds: { wikidataId: Q11671543 }
   - id: miku-ito
     externalIds: { wikidataId: Q16264202 }
   - id: minako-kotobuki
@@ -475,10 +457,6 @@ staff:
     externalIds: { wikidataId: Q139917213 }
   - id: nao-toyama
     externalIds: { wikidataId: Q865906 }
-  - id: naoki-tatsuta
-    externalIds: { wikidataId: Q933540 }
-  - id: naoko-matsui
-    externalIds: { wikidataId: Q1193618 }
   - id: naoya-nosaka
     externalIds: { wikidataId: Q11645275 }
   - id: natsumi-haruse
@@ -525,8 +503,6 @@ staff:
     externalIds: { wikidataId: Q152707 }
   - id: rumi-okubo
     externalIds: { wikidataId: Q902038 }
-  - id: ryo-horikawa
-    externalIds: { wikidataId: Q2540053 }
   - id: ryo-sugisaki
     externalIds: { wikidataId: Q11521986 }
   - id: ryohei-arai
@@ -675,8 +651,6 @@ staff:
     externalIds: { wikidataId: Q7687763 }
   - id: tatsumaru-tachibana
     externalIds: { wikidataId: Q66365025 }
-  - id: tessho-genda
-    externalIds: { wikidataId: Q2529130 }
   - id: tetsu-inada
     externalIds: { wikidataId: Q1206700 }
   - id: tetsuya-kakihara
@@ -701,8 +675,6 @@ staff:
     externalIds: { wikidataId: Q28691709 }
   - id: tomoyuki-shimura
     externalIds: { wikidataId: Q1749211 }
-  - id: toru-furuya
-    externalIds: { wikidataId: Q917318 }
   - id: toshihiko-seki
     externalIds: { wikidataId: Q1201334 }
   - id: toshiki-kumagai
@@ -729,8 +701,6 @@ staff:
     externalIds: { wikidataId: Q11393876 }
   - id: yasunori-matsumoto
     externalIds: { wikidataId: Q1192158 }
-  - id: yo-inoue
-    externalIds: { wikidataId: Q2564944 }
   - id: yo-taichi
     externalIds: { wikidataId: Q14527810 }
   - id: yohei-azakami
@@ -805,8 +775,6 @@ staff:
     externalIds: { wikidataId: Q1373594 }
   - id: yumi-uchiyama
     externalIds: { wikidataId: Q322979 }
-  - id: yumiko-shibata
-    externalIds: { wikidataId: Q8061128 }
   - id: yumiri-hanamori
     externalIds: { wikidataId: Q17219891 }
   - id: yuna-taniguchi
@@ -817,8 +785,6 @@ staff:
     externalIds: { wikidataId: Q11368954 }
   - id: yurina-amami
     externalIds: { wikidataId: Q45819489 }
-  - id: yusaku-yara
-    externalIds: { wikidataId: Q3113155 }
   - id: yusuke-kobayashi
     externalIds: { wikidataId: Q17158282 }
   - id: yutaka-aoyama
@@ -827,8 +793,6 @@ staff:
     externalIds: { wikidataId: Q104013483 }
   - id: yuto-uemura
     externalIds: { wikidataId: Q11359321 }
-  - id: yuu-shimaka
-    externalIds: { wikidataId: Q3574297 }
   - id: yuya-hirose
     externalIds: { wikidataId: Q22128472 }
   - id: yuya-uchida

@@ -52,13 +52,40 @@ franchise:
   characters:
     - id: artoria-pendragon
       externalIds: { wikidataId: Q4918886 } # Saber
-      # Default cast across all appearances (one Character node, many series).
+      # Ayako Kawasumi voices Saber in every adaptation, so she belongs to the
+      # character. The English dubs do not — Saber was recast for each — so they
+      # belong to the appearance they were cast in. An appearance's cast adds to
+      # the character's rather than replacing it, so the Japanese voice does not
+      # have to be restated here.
+      #
+      # Which appearance each English credit belongs to comes from Wikidata's
+      # "applies to work" (P10663) on the voice-actor statement, and it is more
+      # specific than the series: Kate Higgins's names the 2006 TV series alone,
+      # not the 2014 re-adaptation or the Heaven's Feel films that this same
+      # series id also holds, so her appearance is scoped to that season. Those
+      # other installments get their own appearance with no English cast. That
+      # is a gap in the source, not in the import: Wikidata's Saber item
+      # (Q4918886) carries exactly three English voice-actor statements — the
+      # 2006 TV series, the 2010 film and Fate/Zero — and none of them names the
+      # 2014 re-adaptation (Q19980978) or Heaven's Feel I (Q66777794). She is
+      # certainly voiced in both; nothing we may redistribute says by whom. The
+      # same item also carries Cantonese, Mandarin and Korean casts, which this
+      # dataset does not record yet.
+      # Michelle Ruff is absent for the same reason in the opposite direction:
+      # hers applies to the 2010 Unlimited Blade Works film (Q3740068), which
+      # this dataset does not carry at all. Add her with that film, not before.
       voiceActors:
         - { staffId: ayako-kawasumi, language: ja }
-        - { staffId: kate-higgins, language: en }
-        - { staffId: michelle-ruff, language: en }
-        - { staffId: kari-wahlgren, language: en }
       appearances:
-        - { seriesId: fate-stay-night }
-        - { seriesId: fate-zero }
+        - seriesId: fate-stay-night
+          scope: [{ seasonId: fate-stay-night-s1 }] # 2006 TV series (Q60987686)
+          voiceActors:
+            - { staffId: kate-higgins, language: en }
+        - seriesId: fate-stay-night
+          scope:
+            - { seasonId: fate-stay-night-s2 } # Unlimited Blade Works (2014)
+            - { movieId: fate-stay-night-hf-1 } # Heaven's Feel I (2017)
+        - seriesId: fate-zero # Q96500220 — one story across both cours
+          voiceActors:
+            - { staffId: kari-wahlgren, language: en }
 numbered: [fate-zero, fate-strange-fake]

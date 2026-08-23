@@ -146,10 +146,16 @@ curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/GetSerie
 ```
 
 A `Franchise` nests `series`, which nests `seasons`, `movies` and `specials`,
-each carrying `episodes`. Dates are `YYYY-MM-DD` strings; `externalIds`
-cross-maps each node to AniList, AniDB, TMDB, TVDB and Wikidata. Field names in
-the JSON are camelCase (`releaseYear`, `externalIds`, `absoluteNumber`). See
-[Using the dataset](/docs/using-the-dataset) for the full model.
+each carrying `episodes`. Field names in the JSON are camelCase (`releaseYear`,
+`externalIds`, `absoluteNumber`). See [Using the dataset](/docs/using-the-dataset)
+for the full model.
+
+Two things the schema offers that no response currently carries: `releaseDate`
+(a `YYYY-MM-DD` string when set — a release is dated only to `releaseYear` and
+`releaseSeason` today) and `externalIds.tmdbId`. `externalIds` cross-maps to
+AniList, AniDB, TVDB and — for characters and staff — Wikidata. Episodes carry
+numbering only: no title, no date. See [Sources and licensing](/docs/sources-and-licensing)
+for the full list of what the build never fills, and why.
 
 ## Characters and staff
 
@@ -188,10 +194,41 @@ same call returns `"name": "Artoria Pendragon"` on the character and
 `"staffName": "Ayako Kawasumi"` on each voice-actor link. Every other field is
 independent of it, so the graph is fully usable by id either way.
 
-`voiceActors` on the character is the **default cast**; an appearance may carry
-its own `voiceActors` to override it for that series, and a `scope` to narrow it
-to specific seasons, movies or specials. Each link repeats the staff member's
-resolved `staffName`, so rendering a cast list needs no second call.
+`voiceActors` on the character is the cast that **holds throughout** — an
+original-language role is nearly always the same person in every adaptation.
+Cast that varies by series is not there: English dubs are routinely recast, so
+each of those lives on the appearance it was cast in, optionally with a `scope`
+narrowing it to specific seasons, movies or specials.
+
+You never have to combine the two yourself. An appearance's `voiceActors` is
+already **the cast for that appearance** — the constant cast plus whoever is
+specific to it — and `ListCharacters` with a `seriesId` (and the cast embedded
+in `GetSeries`) resolves each character's `voiceActors` the same way. Only an
+unscoped character listing reports the constant cast alone, because no series
+was named to be specific to. Each link repeats the staff member's resolved
+`staffName`, so rendering a cast list needs no second call.
+
+Because those lists are resolved, an actor who voices the character everywhere
+appears in every one of them. `throughout` says so: it marks the credits that
+came from the character rather than from the thing being described. Ignore it
+and you still have the full cast; read it and you can show what a series adds
+— *"Fate/Zero — also Kari Wahlgren"* — without restating Ayako Kawasumi on
+every row. It is set only where a list mixes the two, so an unscoped
+character's own `voiceActors` carries no marks at all.
+
+Saber is the worked example: Ayako Kawasumi voices her in every Fate work and
+sits on the character, while Kate Higgins and Kari Wahlgren sit on the
+appearances they were cast in. Asking for Fate/Zero's cast returns Kawasumi and
+Wahlgren, and never Higgins.
+
+An appearance can be narrower than a whole series. Higgins dubbed the 2006
+*Fate/stay night* only, not the 2014 re-adaptation the same series id also
+holds, so her appearance carries a `scope` naming that season — and Saber holds
+a second appearance, for the other installments, with no English cast. An
+appearance is therefore identified by its `seriesId` **and** its `scope`, and
+each scope entry carries the installment's resolved `title` (plus `number` for a
+season, which usually has no title of its own) so you can label it without a
+second call.
 
 `GetStaff` is the inverse — the characters a person is cast as, with the
 language and the series each casting covers:

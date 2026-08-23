@@ -69,13 +69,11 @@ func (b *Builder) Build(o overrides.Override) (model.Record, *Report, error) {
 	// appearance to its enclosing series. Appearance/VA references are validated
 	// in a second pass (ValidateCharacters), once the full R1 id universe is
 	// known across all files.
-	cast := rec.Cast()
 	home := homeSeries(rec)
-	for i := range cast {
-		c := &cast[i]
+	rec.EachCharacter(func(c *model.Character) {
 		b.fillNames("character "+c.ID, &c.Names, c.ExternalIDs.WikidataID, report)
 		defaultAppearances(c, home)
-	}
+	})
 
 	report.Sort()
 	return rec, report, nil

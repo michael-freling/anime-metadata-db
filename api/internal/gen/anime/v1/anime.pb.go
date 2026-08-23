@@ -1001,7 +1001,19 @@ type VoiceActor struct {
 	// staff_name is the staff member's name resolved for the request's
 	// Accept-Language, denormalized so a client need not call GetStaff. Empty
 	// when the dataset carries no name for them yet.
-	StaffName     string `protobuf:"bytes,3,opt,name=staff_name,json=staffName,proto3" json:"staff_name,omitempty"`
+	StaffName string `protobuf:"bytes,3,opt,name=staff_name,json=staffName,proto3" json:"staff_name,omitempty"`
+	// throughout marks a credit that comes from the character rather than from
+	// the thing being described — Ayako Kawasumi voices Saber in every Fate
+	// work, so she is `throughout` in each of Saber's appearances while the
+	// English dub cast alongside her is not.
+	//
+	// It is set only where a list mixes the two: an appearance's cast, and a
+	// character's cast when the request named a series. Character.voice_actors
+	// asked without a series holds nothing else, so nothing is marked there.
+	// Ignore it and you still have the full cast, which is the point of
+	// resolving the list server-side; read it and you can tell what is specific
+	// to this series without diffing two lists yourself.
+	Throughout    bool `protobuf:"varint,4,opt,name=throughout,proto3" json:"throughout,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1057,13 +1069,27 @@ func (x *VoiceActor) GetStaffName() string {
 	return ""
 }
 
+func (x *VoiceActor) GetThroughout() bool {
+	if x != nil {
+		return x.Throughout
+	}
+	return false
+}
+
 // ScopeRef narrows a CharacterAppearance to one installment of a Series.
-// Exactly one field is set.
+// Exactly one id field is set.
 type ScopeRef struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	SeasonId      string                 `protobuf:"bytes,1,opt,name=season_id,json=seasonId,proto3" json:"season_id,omitempty"`
-	MovieId       string                 `protobuf:"bytes,2,opt,name=movie_id,json=movieId,proto3" json:"movie_id,omitempty"`
-	SpecialId     string                 `protobuf:"bytes,3,opt,name=special_id,json=specialId,proto3" json:"special_id,omitempty"`
+	state     protoimpl.MessageState `protogen:"open.v1"`
+	SeasonId  string                 `protobuf:"bytes,1,opt,name=season_id,json=seasonId,proto3" json:"season_id,omitempty"`
+	MovieId   string                 `protobuf:"bytes,2,opt,name=movie_id,json=movieId,proto3" json:"movie_id,omitempty"`
+	SpecialId string                 `protobuf:"bytes,3,opt,name=special_id,json=specialId,proto3" json:"special_id,omitempty"`
+	// title is that installment's own title resolved for the request's
+	// Accept-Language, denormalized for the same reason series_title is: a client
+	// labelling a scoped appearance should not have to call GetSeries to do it.
+	// A numbered season usually has no title of its own, so number carries its
+	// position for a caller composing a label; it is 0 for a movie or special.
+	Title         string `protobuf:"bytes,4,opt,name=title,proto3" json:"title,omitempty"`
+	Number        int32  `protobuf:"varint,5,opt,name=number,proto3" json:"number,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1119,9 +1145,22 @@ func (x *ScopeRef) GetSpecialId() string {
 	return ""
 }
 
+func (x *ScopeRef) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *ScopeRef) GetNumber() int32 {
+	if x != nil {
+		return x.Number
+	}
+	return 0
+}
+
 // CharacterAppearance is a Character <-> Series edge. series_id is the rollup
-// association; scope optionally narrows it to specific installments; and
-// voice_actors, when set, overrides the character's default cast for it.
+// association and scope optionally narrows it to specific installments.
 type CharacterAppearance struct {
 	state    protoimpl.MessageState `protogen:"open.v1"`
 	SeriesId string                 `protobuf:"bytes,1,opt,name=series_id,json=seriesId,proto3" json:"series_id,omitempty"`
@@ -1129,8 +1168,11 @@ type CharacterAppearance struct {
 	// Accept-Language, denormalized for the same reason VoiceActor carries
 	// staff_name: a client rendering a character's appearances should not have to
 	// call GetSeries once per appearance to label them.
-	SeriesTitle   string        `protobuf:"bytes,5,opt,name=series_title,json=seriesTitle,proto3" json:"series_title,omitempty"`
-	Scope         []*ScopeRef   `protobuf:"bytes,2,rep,name=scope,proto3" json:"scope,omitempty"`
+	SeriesTitle string      `protobuf:"bytes,5,opt,name=series_title,json=seriesTitle,proto3" json:"series_title,omitempty"`
+	Scope       []*ScopeRef `protobuf:"bytes,2,rep,name=scope,proto3" json:"scope,omitempty"`
+	// voice_actors is the cast for this appearance, resolved: it is the
+	// character's constant cast plus whoever is specific to this series. Render
+	// it as-is; there is nothing to merge client-side.
 	VoiceActors   []*VoiceActor `protobuf:"bytes,3,rep,name=voice_actors,json=voiceActors,proto3" json:"voice_actors,omitempty"`
 	ExternalIds   *ExternalIds  `protobuf:"bytes,4,opt,name=external_ids,json=externalIds,proto3" json:"external_ids,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -1212,8 +1254,11 @@ type Character struct {
 	// localized_name carries every language; set only for Accept-Language: *.
 	LocalizedName *LocalizedTitle `protobuf:"bytes,3,opt,name=localized_name,json=localizedName,proto3" json:"localized_name,omitempty"`
 	ExternalIds   *ExternalIds    `protobuf:"bytes,4,opt,name=external_ids,json=externalIds,proto3" json:"external_ids,omitempty"`
-	// voice_actors is the default cast, used for every appearance that does not
-	// override it.
+	// voice_actors is the cast that holds throughout — an original-language role
+	// is nearly always the same person in every adaptation. Cast that varies by
+	// series (English dubs are routinely recast) is not here; it is on the
+	// appearance it belongs to. An appearance's voice_actors already includes
+	// these, so a client showing per-appearance cast never needs this field.
 	VoiceActors []*VoiceActor `protobuf:"bytes,5,rep,name=voice_actors,json=voiceActors,proto3" json:"voice_actors,omitempty"`
 	// appearances is the first page only, capped; appearances_total is the real
 	// count. Use ListAppearances to page the rest.
@@ -2640,7 +2685,10 @@ func (x *GetCharacterResponse) GetCharacter() *Character {
 type ListCharactersRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// series_id restricts the result to that series' cast; empty lists every
-	// character in the dataset.
+	// character in the dataset. It also decides what each character's
+	// voice_actors means: with a series, they are that series' cast (the constant
+	// cast plus anyone cast only there); without one, only the cast that holds
+	// throughout. Series.characters is scoped the same way.
 	SeriesId string `protobuf:"bytes,1,opt,name=series_id,json=seriesId,proto3" json:"series_id,omitempty"`
 	// query matches a character's name in any language, case-insensitively, as a
 	// substring. Empty matches every character. Combined with series_id it
@@ -3987,18 +4035,23 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\n" +
 	"characters\x18\a \x03(\v2\x13.anime.v1.CharacterR\n" +
 	"characters\x12)\n" +
-	"\x10characters_total\x18\v \x01(\x05R\x0fcharactersTotal\"b\n" +
+	"\x10characters_total\x18\v \x01(\x05R\x0fcharactersTotal\"\x82\x01\n" +
 	"\n" +
 	"VoiceActor\x12\x19\n" +
 	"\bstaff_id\x18\x01 \x01(\tR\astaffId\x12\x1a\n" +
 	"\blanguage\x18\x02 \x01(\tR\blanguage\x12\x1d\n" +
 	"\n" +
-	"staff_name\x18\x03 \x01(\tR\tstaffName\"a\n" +
+	"staff_name\x18\x03 \x01(\tR\tstaffName\x12\x1e\n" +
+	"\n" +
+	"throughout\x18\x04 \x01(\bR\n" +
+	"throughout\"\x8f\x01\n" +
 	"\bScopeRef\x12\x1b\n" +
 	"\tseason_id\x18\x01 \x01(\tR\bseasonId\x12\x19\n" +
 	"\bmovie_id\x18\x02 \x01(\tR\amovieId\x12\x1d\n" +
 	"\n" +
-	"special_id\x18\x03 \x01(\tR\tspecialId\"\xf2\x01\n" +
+	"special_id\x18\x03 \x01(\tR\tspecialId\x12\x14\n" +
+	"\x05title\x18\x04 \x01(\tR\x05title\x12\x16\n" +
+	"\x06number\x18\x05 \x01(\x05R\x06number\"\xf2\x01\n" +
 	"\x13CharacterAppearance\x12\x1b\n" +
 	"\tseries_id\x18\x01 \x01(\tR\bseriesId\x12!\n" +
 	"\fseries_title\x18\x05 \x01(\tR\vseriesTitle\x12(\n" +
