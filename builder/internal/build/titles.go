@@ -2,7 +2,6 @@ package build
 
 import (
 	"sort"
-	"strings"
 
 	"github.com/michael-freling/anime-metadata-db/builder/internal/sources/offlinedb"
 	"github.com/michael-freling/anime-metadata-db/internal/model"
@@ -70,7 +69,7 @@ func inferTitle(a offlinedb.Anime) model.Title {
 func romanizationLanguage(t model.Title) string {
 	for _, code := range sortedCodes(t) {
 		if t.Translations[code] != "" && model.IsRomanization(code) {
-			return primaryTag(code)
+			return model.PrimaryTag(code)
 		}
 	}
 	return ""
@@ -90,12 +89,4 @@ func sortedCodes(t model.Title) []string {
 	}
 	sort.Strings(codes)
 	return codes
-}
-
-// primaryTag returns the primary subtag of a BCP-47 tag ("ja-Latn" -> "ja").
-func primaryTag(tag string) string {
-	if i := strings.IndexByte(tag, '-'); i >= 0 {
-		return tag[:i]
-	}
-	return tag
 }

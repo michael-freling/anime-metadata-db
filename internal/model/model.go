@@ -52,6 +52,17 @@ func HasNativeScript(s string) bool {
 	return false
 }
 
+// PrimaryTag returns the primary subtag of a BCP-47 tag: "ja" for "ja-Latn",
+// "en" for "en-us". It sits here with the rest of the tag handling because the
+// builder writes these tags and the API matches on them, from separate
+// modules — the same reason IsRomanization does.
+func PrimaryTag(tag string) string {
+	if i := strings.IndexByte(tag, '-'); i >= 0 {
+		return tag[:i]
+	}
+	return tag
+}
+
 // NativeLanguage names the language a native-script string is written in, and
 // says how sure that is. Kana occurs only in Japanese and Hangul only in
 // Korean, so either settles it. Han characters are shared between Japanese and

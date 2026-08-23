@@ -257,6 +257,18 @@ func TestNativeLanguage(t *testing.T) {
 		}
 	}
 
+	for _, tc := range []struct{ tag, want string }{
+		{"ja-Latn", "ja"},
+		{"ja-Latn-JP", "ja"},
+		{"en-us", "en"},
+		{"en", "en"},
+		{"", ""},
+	} {
+		if got := PrimaryTag(tc.tag); got != tc.want {
+			t.Errorf("PrimaryTag(%q) = %q, want %q", tc.tag, got, tc.want)
+		}
+	}
+
 	if !HasNativeScript("鬼滅の刃") || !HasNativeScript("메탈카드봇W") {
 		t.Error("CJK and Hangul are native script")
 	}

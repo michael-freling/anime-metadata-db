@@ -142,7 +142,11 @@ func fillTitles(entity string, dst *model.Title, a offlinedb.Anime, report *Repo
 	// Japanese, from whatever the source happened to carry — and then be told
 	// by the report to "author the language explicitly", which it had.
 	if authored := romanizationLanguage(*dst); authored != "" {
-		if lang, _ := model.NativeLanguage(inferred.Original); lang != authored {
+		// Only a native-script original makes a claim about language. One
+		// written in Latin script — the Fate/stay night case — claims nothing,
+		// so there is nothing to disagree with, and dropping it would lose a
+		// perfectly good title to a rule about a question it never answered.
+		if lang, _ := model.NativeLanguage(inferred.Original); lang != "" && lang != authored {
 			inferred = model.Title{}
 		}
 	}

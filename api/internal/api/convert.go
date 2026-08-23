@@ -79,7 +79,7 @@ func resolveTitle(t model.Title, lang string) string {
 	if model.IsRomanization(lang) {
 		for _, k := range sortedTranslationKeys(t) {
 			if t.Translations[k] != "" && model.IsRomanization(k) &&
-				strings.EqualFold(primaryTag(k), primaryTag(lang)) {
+				strings.EqualFold(model.PrimaryTag(k), model.PrimaryTag(lang)) {
 				return t.Translations[k]
 			}
 		}
@@ -88,7 +88,7 @@ func resolveTitle(t model.Title, lang string) string {
 	// would answer "give me the Latin form" with native script, which is the
 	// one answer it definitely did not want. It carries on to an English title,
 	// then to the original as a last resort.
-	if p := primaryTag(lang); p != lang && !model.IsRomanization(lang) {
+	if p := model.PrimaryTag(lang); p != lang && !model.IsRomanization(lang) {
 		if v := translation(t, p); v != "" {
 			return v
 		}
@@ -122,14 +122,14 @@ func isOriginalLanguage(t model.Title, lang string) bool {
 	if model.IsRomanization(lang) {
 		return false
 	}
-	p := primaryTag(lang)
+	p := model.PrimaryTag(lang)
 	found := false
 	for _, code := range sortedTranslationKeys(t) {
 		if t.Translations[code] == "" || !model.IsRomanization(code) {
 			continue
 		}
 		found = true
-		if strings.EqualFold(primaryTag(code), p) {
+		if strings.EqualFold(model.PrimaryTag(code), p) {
 			return true
 		}
 	}
@@ -173,7 +173,7 @@ func romanization(t model.Title, lang string) string {
 		if t.Translations[k] == "" || !model.IsRomanization(k) {
 			continue
 		}
-		if strings.EqualFold(primaryTag(k), primaryTag(lang)) {
+		if strings.EqualFold(model.PrimaryTag(k), model.PrimaryTag(lang)) {
 			continue
 		}
 		return t.Translations[k]
@@ -190,14 +190,6 @@ func sortedTranslationKeys(t model.Title) []string {
 	}
 	sort.Strings(keys)
 	return keys
-}
-
-// primaryTag returns the primary subtag of a BCP-47 tag ("en-us" -> "en").
-func primaryTag(tag string) string {
-	if i := strings.IndexByte(tag, '-'); i >= 0 {
-		return tag[:i]
-	}
-	return tag
 }
 
 // firstTranslation returns a translation in deterministic key order, or "".
