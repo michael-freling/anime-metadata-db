@@ -208,6 +208,9 @@ func TestParseDropsWikidataDisambiguators(t *testing.T) {
 		{"Q2", "ja", "花江夏樹"},
 		{"Q2", "en", "Kana Hanazawa"}, // full-width brackets too
 		{"Q3", "ja", "(声優)"},          // nothing but the suffix: keep it
+		{"Q4", "ja", "イアン・シンクレア"},     // brackets that do not match each other
+		{"Q5", "ja", "イアン・シンクレア"},     // an ideographic space after the suffix
+		{"Q6", "ja", "イアン・シンクレア"},     // two of them, stripped by the loop
 	} {
 		e, ok := got.Lookup(tc.qid)
 		if !ok {
