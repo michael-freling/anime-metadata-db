@@ -539,8 +539,8 @@ func TestListStaff(t *testing.T) {
 		wantIDs []string
 	}{
 		{"everyone", &animev1.ListStaffRequest{}, []string{"va-one", "va-two"}},
-		{"by language", &animev1.ListStaffRequest{CreditLanguage: "ja"}, []string{"va-one"}},
-		{"language with no credits", &animev1.ListStaffRequest{CreditLanguage: "fr"}, nil},
+		{"by language", &animev1.ListStaffRequest{Language: "ja"}, []string{"va-one"}},
+		{"language with no credits", &animev1.ListStaffRequest{Language: "fr"}, nil},
 		{"limit", &animev1.ListStaffRequest{Limit: 1}, []string{"va-one"}},
 	}
 	for _, tc := range tests {

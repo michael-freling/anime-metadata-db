@@ -2943,14 +2943,17 @@ func (x *GetStaffResponse) GetCreditsTotal() int32 {
 
 type ListStaffRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// credit_language restricts the result to staff credited in that language
-	// ("ja"); empty lists everyone. It selects *which people* come back, and has
-	// nothing to do with the language their names are written in — that is
-	// Accept-Language, as everywhere else. Asking for credit_language "ja"
-	// without an Accept-Language header returns the Japanese cast with their
-	// names resolved for the default language, which is English; it was called
-	// `language` until that read as a promise about the names.
-	CreditLanguage string `protobuf:"bytes,1,opt,name=credit_language,json=creditLanguage,proto3" json:"credit_language,omitempty"`
+	// language restricts the result to staff credited in that language ("ja");
+	// empty lists everyone. It chooses *which people* come back, not what
+	// language their names are written in — that is Accept-Language, as
+	// everywhere else, and the two are deliberately separate: a Japanese reader
+	// browsing voice actors wants Japanese names and the whole cast, not only
+	// the half credited in Japanese.
+	//
+	// So `{"language": "ja"}` with no Accept-Language header returns the
+	// Japanese-credited cast under their English names, which looks wrong and is
+	// not. Send both to get Japanese names as well.
+	Language string `protobuf:"bytes,1,opt,name=language,proto3" json:"language,omitempty"`
 	// query matches a staff member's name in any language, case-insensitively,
 	// as a substring. Empty matches everyone.
 	Query string `protobuf:"bytes,4,opt,name=query,proto3" json:"query,omitempty"`
@@ -2993,9 +2996,9 @@ func (*ListStaffRequest) Descriptor() ([]byte, []int) {
 	return file_anime_v1_anime_proto_rawDescGZIP(), []int{35}
 }
 
-func (x *ListStaffRequest) GetCreditLanguage() string {
+func (x *ListStaffRequest) GetLanguage() string {
 	if x != nil {
-		return x.CreditLanguage
+		return x.Language
 	}
 	return ""
 }
@@ -4205,9 +4208,9 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\x10GetStaffResponse\x12%\n" +
 	"\x05staff\x18\x01 \x01(\v2\x0f.anime.v1.StaffR\x05staff\x12/\n" +
 	"\acredits\x18\x02 \x03(\v2\x15.anime.v1.StaffCreditR\acredits\x12#\n" +
-	"\rcredits_total\x18\x03 \x01(\x05R\fcreditsTotal\"\x86\x01\n" +
-	"\x10ListStaffRequest\x12'\n" +
-	"\x0fcredit_language\x18\x01 \x01(\tR\x0ecreditLanguage\x12\x14\n" +
+	"\rcredits_total\x18\x03 \x01(\x05R\fcreditsTotal\"y\n" +
+	"\x10ListStaffRequest\x12\x1a\n" +
+	"\blanguage\x18\x01 \x01(\tR\blanguage\x12\x14\n" +
 	"\x05query\x18\x04 \x01(\tR\x05query\x12\x14\n" +
 	"\x05limit\x18\x02 \x01(\x05R\x05limit\x12\x1d\n" +
 	"\n" +

@@ -483,14 +483,17 @@ message GetStaffResponse {
 }
 
 message ListStaffRequest {
-  // credit_language restricts the result to staff credited in that language
-  // ("ja"); empty lists everyone. It selects *which people* come back, and has
-  // nothing to do with the language their names are written in — that is
-  // Accept-Language, as everywhere else. Asking for credit_language "ja"
-  // without an Accept-Language header returns the Japanese cast with their
-  // names resolved for the default language, which is English; it was called
-  // `language` until that read as a promise about the names.
-  string credit_language = 1;
+  // language restricts the result to staff credited in that language ("ja");
+  // empty lists everyone. It chooses *which people* come back, not what
+  // language their names are written in — that is Accept-Language, as
+  // everywhere else, and the two are deliberately separate: a Japanese reader
+  // browsing voice actors wants Japanese names and the whole cast, not only
+  // the half credited in Japanese.
+  //
+  // So `{"language": "ja"}` with no Accept-Language header returns the
+  // Japanese-credited cast under their English names, which looks wrong and is
+  // not. Send both to get Japanese names as well.
+  string language = 1;
   // query matches a staff member's name in any language, case-insensitively,
   // as a substring. Empty matches everyone.
   string query = 4;

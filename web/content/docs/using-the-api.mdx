@@ -245,21 +245,46 @@ each scope entry carries the installment's resolved `title` (plus `number` for a
 season, which usually has no title of its own) so you can label it without a
 second call.
 
-Two different things are called a language here, and they do different jobs.
-**`Accept-Language` chooses how names and titles come back**; a request filter
-called `credit_language` chooses **which people come back**. Asking
-`ListStaff` for `credit_language: "ja"` returns the Japanese cast — with their
-names in English, because that is the default when no `Accept-Language` is
-sent. Send both to get the Japanese cast under their Japanese names:
+**Two different things are called a language here**, and mistaking one for the
+other is the first thing most people do.
+
+`ListStaff`'s `language` field is a **filter**: it picks *which people* come
+back — those credited in that language. `Accept-Language` is **rendering**: it
+picks what language their names are written in. Neither implies the other, and
+`totalSize` is where you can see it: asking for Japanese names returns all 445
+staff, while filtering to the Japanese-credited cast returns 394 of them.
+
+So the filter alone answers with the Japanese cast under their English names,
+because no `Accept-Language` was sent and English is the default:
+
+```sh
+curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/ListStaff \
+  -H 'Content-Type: application/json' -d '{"language": "ja", "limit": 2}'
+```
+
+```json
+{"staff":[{"id":"ayako-kawasumi", "name":"Ayako Kawasumi", "externalIds":{"wikidataId":"Q49566"}}, {"id":"natsuki-hanae", "name":"Natsuki Hanae", "externalIds":{"wikidataId":"Q2596113"}}], "nextPageToken":"bzoy", "totalSize":394}
+```
+
+Send both to get the same people under their Japanese names:
 
 ```sh
 curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/ListStaff \
   -H 'Content-Type: application/json' -H 'Accept-Language: ja' \
-  -d '{"creditLanguage": "ja", "limit": 2}'
+  -d '{"language": "ja", "limit": 2}'
 ```
 
 ```json
-{"staff": [{"id": "ayako-kawasumi", "name": "川澄綾子", "externalIds": {"wikidataId": "Q49566"}}]}
+{"staff":[{"id":"ayako-kawasumi", "name":"川澄綾子", "externalIds":{"wikidataId":"Q49566"}}, {"id":"natsuki-hanae", "name":"花江夏樹", "externalIds":{"wikidataId":"Q2596113"}}], "nextPageToken":"bzoy", "totalSize":394}
+```
+
+Keeping them apart is what lets a Japanese reader browse the *whole* cast in
+Japanese. The header alone does that — English-dub actors included, under the
+names they are credited by, because `アーロン・ロバーツ` is a spelling of his
+name rather than a fact anyone recorded:
+
+```json
+{"staff":[{"id":"aaron-roberts", "name":"Aaron Roberts", "externalIds":{"wikidataId":"Q141031024"}}, {"id":"annie-wild", "name":"Annie Wild", "externalIds":{"wikidataId":"Q134440355"}}], "nextPageToken":"bzoy", "totalSize":445}
 ```
 
 An English-language actor's `name` follows the same rule, so an
