@@ -4,6 +4,15 @@ modules:
 lint:
   use:
     - STANDARD
+  # ENUM_VALUE_PREFIX is not switched off here. It is waived enum by enum, with
+  # a `// buf:lint:ignore ENUM_VALUE_PREFIX` line in anime.proto, so an enum
+  # added later still gets the rule.
+  #
+  # Why any of them are waived: the prefix the rule wants ends up on the wire —
+  # "RELEASE_SEASON_SPRING" for a dataset that stores "SPRING" — and every
+  # client then strips it back off. The rule exists because protobuf scopes
+  # enum values to the package, so values are prefixed only where the bare word
+  # would collide: SpecialFormat and WorkKind both want SPECIAL.
 breaking:
   use:
     - FILE

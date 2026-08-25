@@ -228,15 +228,15 @@ func toExternalIDs(e model.ExternalIDs) *animev1.ExternalIds {
 func toReleaseSeason(s model.ReleaseSeason) animev1.ReleaseSeason {
 	switch s {
 	case model.SeasonWinter:
-		return animev1.ReleaseSeason_RELEASE_SEASON_WINTER
+		return animev1.ReleaseSeason_WINTER
 	case model.SeasonSpring:
-		return animev1.ReleaseSeason_RELEASE_SEASON_SPRING
+		return animev1.ReleaseSeason_SPRING
 	case model.SeasonSummer:
-		return animev1.ReleaseSeason_RELEASE_SEASON_SUMMER
+		return animev1.ReleaseSeason_SUMMER
 	case model.SeasonFall:
-		return animev1.ReleaseSeason_RELEASE_SEASON_FALL
+		return animev1.ReleaseSeason_FALL
 	default:
-		return animev1.ReleaseSeason_RELEASE_SEASON_UNSPECIFIED
+		return animev1.ReleaseSeason_SEASON_UNSPECIFIED
 	}
 }
 
@@ -244,22 +244,22 @@ func toReleaseSeason(s model.ReleaseSeason) animev1.ReleaseSeason {
 func toSpecialFormat(f model.SpecialFormat) animev1.SpecialFormat {
 	switch f {
 	case model.FormatOVA:
-		return animev1.SpecialFormat_SPECIAL_FORMAT_OVA
+		return animev1.SpecialFormat_FORMAT_OVA
 	case model.FormatONA:
-		return animev1.SpecialFormat_SPECIAL_FORMAT_ONA
+		return animev1.SpecialFormat_FORMAT_ONA
 	case model.FormatSpecial:
-		return animev1.SpecialFormat_SPECIAL_FORMAT_SPECIAL
+		return animev1.SpecialFormat_FORMAT_SPECIAL
 	default:
-		return animev1.SpecialFormat_SPECIAL_FORMAT_UNSPECIFIED
+		return animev1.SpecialFormat_FORMAT_UNSPECIFIED
 	}
 }
 
 // toEntryKind maps a store catalog kind to its proto enum.
 func toEntryKind(k EntryKind) animev1.EntryKind {
 	if k == EntryFranchise {
-		return animev1.EntryKind_ENTRY_KIND_FRANCHISE
+		return animev1.EntryKind_FRANCHISE
 	}
-	return animev1.EntryKind_ENTRY_KIND_SERIES
+	return animev1.EntryKind_SERIES
 }
 
 // toInt32Ptr converts an optional int, preserving nil.
@@ -720,13 +720,13 @@ func toWorkSummary(loc localizer, w Work) *animev1.WorkSummary {
 func toWorkKind(k WorkKind) animev1.WorkKind {
 	switch k {
 	case WorkSeason:
-		return animev1.WorkKind_WORK_KIND_SEASON
+		return animev1.WorkKind_WORK_SEASON
 	case WorkMovie:
-		return animev1.WorkKind_WORK_KIND_MOVIE
+		return animev1.WorkKind_WORK_MOVIE
 	case WorkSpecial:
-		return animev1.WorkKind_WORK_KIND_SPECIAL
+		return animev1.WorkKind_WORK_SPECIAL
 	}
-	return animev1.WorkKind_WORK_KIND_UNSPECIFIED
+	return animev1.WorkKind_WORK_UNSPECIFIED
 }
 
 // fromWorkKind maps the wire enum back onto the internal work kind. It returns
@@ -734,11 +734,11 @@ func toWorkKind(k WorkKind) animev1.WorkKind {
 func fromWorkKind(k animev1.WorkKind) *WorkKind {
 	var w WorkKind
 	switch k {
-	case animev1.WorkKind_WORK_KIND_SEASON:
+	case animev1.WorkKind_WORK_SEASON:
 		w = WorkSeason
-	case animev1.WorkKind_WORK_KIND_MOVIE:
+	case animev1.WorkKind_WORK_MOVIE:
 		w = WorkMovie
-	case animev1.WorkKind_WORK_KIND_SPECIAL:
+	case animev1.WorkKind_WORK_SPECIAL:
 		w = WorkSpecial
 	default:
 		return nil
@@ -751,9 +751,9 @@ func fromWorkKind(k animev1.WorkKind) *WorkKind {
 func fromEntryKind(k animev1.EntryKind) *EntryKind {
 	var e EntryKind
 	switch k {
-	case animev1.EntryKind_ENTRY_KIND_FRANCHISE:
+	case animev1.EntryKind_FRANCHISE:
 		e = EntryFranchise
-	case animev1.EntryKind_ENTRY_KIND_SERIES:
+	case animev1.EntryKind_SERIES:
 		e = EntrySeries
 	default:
 		return nil
@@ -765,13 +765,13 @@ func fromEntryKind(k animev1.EntryKind) *EntryKind {
 // UNSPECIFIED becomes the empty season, which matches everything.
 func fromReleaseSeason(s animev1.ReleaseSeason) model.ReleaseSeason {
 	switch s {
-	case animev1.ReleaseSeason_RELEASE_SEASON_WINTER:
+	case animev1.ReleaseSeason_WINTER:
 		return model.SeasonWinter
-	case animev1.ReleaseSeason_RELEASE_SEASON_SPRING:
+	case animev1.ReleaseSeason_SPRING:
 		return model.SeasonSpring
-	case animev1.ReleaseSeason_RELEASE_SEASON_SUMMER:
+	case animev1.ReleaseSeason_SUMMER:
 		return model.SeasonSummer
-	case animev1.ReleaseSeason_RELEASE_SEASON_FALL:
+	case animev1.ReleaseSeason_FALL:
 		return model.SeasonFall
 	}
 	return ""

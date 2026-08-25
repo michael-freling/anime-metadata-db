@@ -38,36 +38,47 @@ message ExternalIds {
 }
 
 // ReleaseSeason is the calendar quarter an installment premiered in.
+//
+// The values are unprefixed so the JSON reads "SPRING" — the same string the
+// dataset stores — rather than "RELEASE_SEASON_SPRING", which every client was
+// left to translate back. Protobuf scopes enum values to the package, so a
+// prefix is added only where the bare word would collide with another enum's
+// (see SpecialFormat and WorkKind, which both want SPECIAL).
+// buf:lint:ignore ENUM_VALUE_PREFIX
 enum ReleaseSeason {
-  RELEASE_SEASON_UNSPECIFIED = 0;
-  RELEASE_SEASON_WINTER = 1;
-  RELEASE_SEASON_SPRING = 2;
-  RELEASE_SEASON_SUMMER = 3;
-  RELEASE_SEASON_FALL = 4;
+  SEASON_UNSPECIFIED = 0;
+  WINTER = 1;
+  SPRING = 2;
+  SUMMER = 3;
+  FALL = 4;
 }
 
-// SpecialFormat is the kind of side content a Special represents.
+// SpecialFormat is the kind of side content a Special represents. Prefixed,
+// because SPECIAL alone would collide with WorkKind's.
+// buf:lint:ignore ENUM_VALUE_PREFIX
 enum SpecialFormat {
-  SPECIAL_FORMAT_UNSPECIFIED = 0;
-  SPECIAL_FORMAT_OVA = 1;
-  SPECIAL_FORMAT_ONA = 2;
-  SPECIAL_FORMAT_SPECIAL = 3;
+  FORMAT_UNSPECIFIED = 0;
+  FORMAT_OVA = 1;
+  FORMAT_ONA = 2;
+  FORMAT_SPECIAL = 3;
 }
 
 // WorkKind distinguishes the three node types that map to a real release. A
 // Franchise or Series is our grouping, not a release, so neither is a work.
+// buf:lint:ignore ENUM_VALUE_PREFIX
 enum WorkKind {
-  WORK_KIND_UNSPECIFIED = 0;
-  WORK_KIND_SEASON = 1;
-  WORK_KIND_MOVIE = 2;
-  WORK_KIND_SPECIAL = 3;
+  WORK_UNSPECIFIED = 0;
+  WORK_SEASON = 1;
+  WORK_MOVIE = 2;
+  WORK_SPECIAL = 3;
 }
 
 // EntryKind distinguishes a top-level catalog entry's type in search results.
+// buf:lint:ignore ENUM_VALUE_PREFIX
 enum EntryKind {
-  ENTRY_KIND_UNSPECIFIED = 0;
-  ENTRY_KIND_FRANCHISE = 1;
-  ENTRY_KIND_SERIES = 2;
+  ENTRY_UNSPECIFIED = 0;
+  FRANCHISE = 1;
+  SERIES = 2;
 }
 
 // Episode is one TV episode. Dates are serialized as YYYY-MM-DD strings.
@@ -473,7 +484,15 @@ message GetStaffResponse {
 
 message ListStaffRequest {
   // language restricts the result to staff credited in that language ("ja");
-  // empty lists everyone.
+  // empty lists everyone. It chooses *which people* come back, not what
+  // language their names are written in — that is Accept-Language, as
+  // everywhere else, and the two are deliberately separate: a Japanese reader
+  // browsing voice actors wants Japanese names and the whole cast, not only
+  // the half credited in Japanese.
+  //
+  // So `{"language": "ja"}` with no Accept-Language header returns the
+  // Japanese-credited cast under their English names, which looks wrong and is
+  // not. Send both to get Japanese names as well.
   string language = 1;
   // query matches a staff member's name in any language, case-insensitively,
   // as a substring. Empty matches everyone.

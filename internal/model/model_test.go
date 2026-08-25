@@ -276,3 +276,26 @@ func TestNativeLanguage(t *testing.T) {
 		t.Error("Latin script is not")
 	}
 }
+
+// IsKatakanaOnly states a fact about script and nothing more — what it implies
+// about a name is the builder's call — so what it must get right is the
+// boundary between katakana and the two scripts a Japanese name uses.
+func TestIsKatakanaOnly(t *testing.T) {
+	for _, tc := range []struct {
+		s    string
+		want bool
+	}{
+		{"ザック・アギラール", true},     // a foreign name written for Japanese readers
+		{"アイミ", true},           // katakana with no separator
+		{"川澄綾子", false},         // kanji
+		{"はなえ", false},          // hiragana
+		{"鬼滅の刃", false},         // kanji and hiragana together
+		{"Zach Aguilar", false}, // Latin script is not katakana
+		{"", false},
+		{"セイバー Alter", true}, // katakana plus Latin is still katakana-only
+	} {
+		if got := IsKatakanaOnly(tc.s); got != tc.want {
+			t.Errorf("IsKatakanaOnly(%q) = %v, want %v", tc.s, got, tc.want)
+		}
+	}
+}

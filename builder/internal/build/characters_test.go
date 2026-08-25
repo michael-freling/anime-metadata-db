@@ -12,7 +12,11 @@ import (
 const charsWikidata = `{"entities":{
   "Q85805158":{"id":"Q85805158","labels":{"en":{"language":"en","value":"Tanjirō Kamado"},"ja":{"language":"ja","value":"竈門炭治郎"}}},
   "Q2596113":{"id":"Q2596113","labels":{"en":{"language":"en","value":"Natsuki Hanae"},"ja":{"language":"ja","value":"花江夏樹"}}},
-  "Q3":{"id":"Q3","labels":{"en":{"language":"en","value":"Only English"}}}
+  "Q3":{"id":"Q3","labels":{"en":{"language":"en","value":"Only English"}}},
+  "Q4":{"id":"Q4","labels":{"en":{"language":"en","value":"Zach Aguilar"},"ja":{"language":"ja","value":"ザック・アギラール"}}},
+  "Q5":{"id":"Q5","labels":{"ja":{"language":"ja","value":"ザック・アギラール"}}},
+  "Q6":{"id":"Q6","labels":{"en":{"language":"en","value":"Aimi"},"ja":{"language":"ja","value":"アイミ"}}},
+  "Q7":{"id":"Q7","labels":{"ja":{"language":"ja","value":"アイミ"}}}
 }}`
 
 func wdSources(t *testing.T) Sources {
@@ -77,7 +81,7 @@ func TestFillNames(t *testing.T) {
 
 	// Authored name wins; ja is still filled.
 	authored := &model.Title{Translations: map[string]string{"en": "Tanjiro"}}
-	b.fillNames("character a", authored, "Q85805158", &Report{})
+	b.fillNames(characterName, "character a", authored, "Q85805158", &Report{})
 	if authored.Translations["en"] != "Tanjiro" || authored.Translations["ja"] != "竈門炭治郎" {
 		t.Errorf("merge wrong: %+v", authored.Translations)
 	}
@@ -85,34 +89,140 @@ func TestFillNames(t *testing.T) {
 	// Missing QID -> note, no fill.
 	r := &Report{}
 	var title model.Title
-	b.fillNames("character x", &title, "", r)
+	b.fillNames(characterName, "character x", &title, "", r)
 	if r.Empty() {
 		t.Error("expected a note for missing wikidataId")
 	}
 
 	// QID not in cache -> note.
 	r = &Report{}
-	b.fillNames("character y", &title, "Q999999", r)
+	b.fillNames(characterName, "character y", &title, "Q999999", r)
 	if r.Empty() {
 		t.Error("expected a note for qid not in cache")
 	}
 
-	// Entity with no Japanese label -> en filled, original empty, note.
+	// No Japanese label: the English one is the only name there is, so it
+	// becomes the original rather than leaving the record with none. This used
+	// to report "original left empty" for every English-language name in the
+	// dataset, which was noise about the commonest correct case.
 	r = &Report{}
 	var t3 model.Title
-	b.fillNames("character z", &t3, "Q3", r)
-	if t3.Translations["en"] != "Only English" || t3.Original != "" {
+	b.fillNames(characterName, "character z", &t3, "Q3", r)
+	if t3.Translations["en"] != "Only English" || t3.Original != "Only English" {
 		t.Errorf("unexpected fill: %+v", t3)
 	}
-	if r.Empty() {
-		t.Error("expected a note for missing Japanese label")
+	if !r.Empty() {
+		t.Errorf("an English-only name is not worth reporting: %v", r.String())
 	}
 
 	// Nil Wikidata source -> no-op, no panic.
 	var t4 model.Title
-	New(Sources{}).fillNames("character w", &t4, "Q1", &Report{})
+	New(Sources{}).fillNames(characterName, "character w", &t4, "Q1", &Report{})
 	if !t4.IsZero() {
 		t.Error("nil source should not fill names")
+	}
+}
+
+// Which label is the name itself, rather than a rendering of it, differs
+// between a person and a character — and getting it wrong recorded 30 of the
+// 51 English voice actors under a katakana spelling of a name written in Latin
+// script.
+func TestFillNamesPicksTheNameOverItsRendering(t *testing.T) {
+	b := New(wdSources(t))
+
+	// A person whose Japanese label is katakana has a foreign name: the
+	// katakana is how Japanese writes it, not what it is.
+	var foreign model.Title
+	b.fillNames(personName, "staff a", &foreign, "Q4", &Report{})
+	if foreign.Original != "Zach Aguilar" {
+		t.Errorf("original = %q, want the name rather than its katakana", foreign.Original)
+	}
+	if foreign.Translations["ja"] != "ザック・アギラール" {
+		t.Errorf("the katakana is still how a Japanese reader sees it: %+v", foreign.Translations)
+	}
+
+	// A person whose Japanese label carries kanji has a Japanese name.
+	var japanese model.Title
+	b.fillNames(personName, "staff b", &japanese, "Q2596113", &Report{})
+	if japanese.Original != "花江夏樹" {
+		t.Errorf("original = %q, want the kanji", japanese.Original)
+	}
+
+	// A character keeps its Japanese name whatever script it is in: セイバー is
+	// what the character is called in the work, not a rendering of "Saber".
+	var character model.Title
+	b.fillNames(characterName, "character c", &character, "Q4", &Report{})
+	if character.Original != "ザック・アギラール" {
+		t.Errorf("a character's original = %q, want the Japanese label as written", character.Original)
+	}
+
+	// The shape most of the English cast has: an English label and nothing
+	// else. The name is the only one there is, and it needs no report.
+	r := &Report{}
+	var englishOnly model.Title
+	b.fillNames(personName, "staff c", &englishOnly, "Q3", r)
+	if englishOnly.Original != "Only English" {
+		t.Errorf("original = %q, want the English label", englishOnly.Original)
+	}
+	if !r.Empty() {
+		t.Errorf("an English-only name is the common correct case: %v", r.String())
+	}
+
+	// Katakana with no English label to prefer: the rendering stands in for a
+	// name we do not otherwise have, and says so.
+	r = &Report{}
+	var noEnglish model.Title
+	b.fillNames(personName, "staff d", &noEnglish, "Q5", r)
+	if noEnglish.Original != "ザック・アギラール" {
+		t.Errorf("original = %q, want the katakana as the only name available", noEnglish.Original)
+	}
+	if r.Empty() {
+		t.Error("a katakana original with nothing behind it should be reported")
+	}
+}
+
+// A Japanese stage name written in katakana is the case the script rule gets
+// wrong, so it has to be reported rather than quietly resolved. It is told
+// apart by the separator a rendered foreign name carries and a one-part stage
+// name does not.
+func TestFillNamesReportsAKatakanaNameThatMayNotBeForeign(t *testing.T) {
+	b := New(wdSources(t))
+
+	// アイミ: katakana, no separator — this may be a Japanese performer, and
+	// the English label may be a romanization rather than her name.
+	r := &Report{}
+	var ambiguous model.Title
+	b.fillNames(personName, "staff e", &ambiguous, "Q6", r)
+	if ambiguous.Original != "Aimi" {
+		t.Errorf("original = %q; the English label is still the better guess", ambiguous.Original)
+	}
+	if !strings.Contains(r.String(), "stage name") {
+		t.Errorf("a katakana name with no separator should be reported: %v", r.String())
+	}
+
+	// ザック・アギラール carries the separator, so it is a foreign name rendered
+	// for Japanese readers and there is nothing to report.
+	quiet := &Report{}
+	var foreign model.Title
+	b.fillNames(personName, "staff f", &foreign, "Q4", quiet)
+	if !quiet.Empty() {
+		t.Errorf("a separated katakana name is unambiguous: %v", quiet.String())
+	}
+
+	// Katakana, no separator, and no English label either: both things are
+	// worth saying, and they are said in one line. Two reports about one name
+	// is noise dressed as thoroughness.
+	both := &Report{}
+	var neither model.Title
+	b.fillNames(personName, "staff g", &neither, "Q7", both)
+	if neither.Original != "アイミ" {
+		t.Errorf("original = %q, want the katakana as the only name available", neither.Original)
+	}
+	if lines := strings.Count(both.String(), "\n"); lines != 1 {
+		t.Errorf("want exactly one report line, got %d:\n%s", lines, both.String())
+	}
+	if !strings.Contains(both.String(), "no English label") || !strings.Contains(both.String(), "stage name") {
+		t.Errorf("the one line should carry both reasons: %v", both.String())
 	}
 }
 

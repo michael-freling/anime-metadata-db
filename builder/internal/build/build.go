@@ -72,7 +72,7 @@ func (b *Builder) Build(o overrides.Override) (model.Record, *Report, error) {
 	// known across all files.
 	home := homeSeries(rec)
 	rec.EachCharacter(func(c *model.Character) {
-		b.fillNames("character "+c.ID, &c.Names, c.ExternalIDs.WikidataID, report)
+		b.fillNames(characterName, "character "+c.ID, &c.Names, c.ExternalIDs.WikidataID, report)
 		defaultAppearances(c, home)
 	})
 

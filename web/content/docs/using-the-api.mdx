@@ -109,7 +109,7 @@ curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/Search \
 ```
 
 ```json
-{"results":[{"kind":"ENTRY_KIND_SERIES","id":"demon-slayer","title":"Demon Slayer"}]}
+{"results":[{"kind":"SERIES","id":"demon-slayer","title":"Demon Slayer"}]}
 ```
 
 Fetch one series — the `id` comes from a search result. Each collection below
@@ -130,7 +130,7 @@ curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/GetSerie
         "id": "demon-slayer-s1",
         "number": 1,
         "releaseYear": 2019,
-        "releaseSeason": "RELEASE_SEASON_SPRING",
+        "releaseSeason": "SPRING",
         "externalIds": {"anilistId": 101922, "anidbId": 14107, "tvdbId": 348545},
         "episodes": [
           {"absoluteNumber": 1, "airedNumber": 1},
@@ -244,6 +244,54 @@ appearance is therefore identified by its `seriesId` **and** its `scope`, and
 each scope entry carries the installment's resolved `title` (plus `number` for a
 season, which usually has no title of its own) so you can label it without a
 second call.
+
+**Two different things are called a language here**, and mistaking one for the
+other is the first thing most people do.
+
+`ListStaff`'s `language` field is a **filter**: it picks *which people* come
+back — those credited in that language. `Accept-Language` is **rendering**: it
+picks what language their names are written in. Neither implies the other, and
+`totalSize` is where you can see it: asking for Japanese names returns all 445
+staff, while filtering to the Japanese-credited cast returns 394 of them.
+
+So the filter alone answers with the Japanese cast under their English names,
+because no `Accept-Language` was sent and English is the default:
+
+```sh
+curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/ListStaff \
+  -H 'Content-Type: application/json' -d '{"language": "ja", "limit": 2}'
+```
+
+```json
+{"staff":[{"id":"ayako-kawasumi", "name":"Ayako Kawasumi", "externalIds":{"wikidataId":"Q49566"}}, {"id":"natsuki-hanae", "name":"Natsuki Hanae", "externalIds":{"wikidataId":"Q2596113"}}], "nextPageToken":"bzoy", "totalSize":394}
+```
+
+Send both to get the same people under their Japanese names:
+
+```sh
+curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/ListStaff \
+  -H 'Content-Type: application/json' -H 'Accept-Language: ja' \
+  -d '{"language": "ja", "limit": 2}'
+```
+
+```json
+{"staff":[{"id":"ayako-kawasumi", "name":"川澄綾子", "externalIds":{"wikidataId":"Q49566"}}, {"id":"natsuki-hanae", "name":"花江夏樹", "externalIds":{"wikidataId":"Q2596113"}}], "nextPageToken":"bzoy", "totalSize":394}
+```
+
+Keeping them apart is what lets a Japanese reader browse the *whole* cast in
+Japanese. The header alone does that — English-dub actors included, under the
+names they are credited by, because `アーロン・ロバーツ` is a spelling of his
+name rather than a fact anyone recorded:
+
+```json
+{"staff":[{"id":"aaron-roberts", "name":"Aaron Roberts", "externalIds":{"wikidataId":"Q141031024"}}, {"id":"annie-wild", "name":"Annie Wild", "externalIds":{"wikidataId":"Q134440355"}}], "nextPageToken":"bzoy", "totalSize":445}
+```
+
+An English-language actor's `name` follows the same rule, so an
+`Accept-Language: ja` request answers `ザック・アギラール` for Zach Aguilar —
+that is how a Japanese reader sees his name. The dataset stores the name
+itself as the `original` and the katakana as the `ja` translation, so reading
+`data/` directly gives you both.
 
 `GetStaff` is the inverse — the characters a person is cast as, with the
 language and the series each casting covers:

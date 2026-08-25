@@ -308,7 +308,7 @@ func TestListCatalogRPC(t *testing.T) {
 
 	t.Run("kind filter", func(t *testing.T) {
 		resp, err := svc.ListCatalog(context.Background(), connect.NewRequest(&animev1.ListCatalogRequest{
-			Kind: animev1.EntryKind_ENTRY_KIND_FRANCHISE,
+			Kind: animev1.EntryKind_FRANCHISE,
 		}))
 		if err != nil {
 			t.Fatalf("ListCatalog: %v", err)
@@ -340,8 +340,8 @@ func TestListWorksRPC(t *testing.T) {
 	t.Run("filters map onto the wire enums", func(t *testing.T) {
 		resp, err := svc.ListWorks(context.Background(), connect.NewRequest(&animev1.ListWorksRequest{
 			ReleaseYear:   2006,
-			ReleaseSeason: animev1.ReleaseSeason_RELEASE_SEASON_WINTER,
-			Kind:          animev1.WorkKind_WORK_KIND_SEASON,
+			ReleaseSeason: animev1.ReleaseSeason_WINTER,
+			Kind:          animev1.WorkKind_WORK_SEASON,
 		}))
 		if err != nil {
 			t.Fatalf("ListWorks: %v", err)
@@ -350,7 +350,7 @@ func TestListWorksRPC(t *testing.T) {
 			t.Fatalf("total = %d, want 1", resp.Msg.GetTotalSize())
 		}
 		w := resp.Msg.GetWorks()[0]
-		if w.GetKind() != animev1.WorkKind_WORK_KIND_SEASON || w.GetSeriesId() != "aaa-main" {
+		if w.GetKind() != animev1.WorkKind_WORK_SEASON || w.GetSeriesId() != "aaa-main" {
 			t.Errorf("work = %+v", w)
 		}
 		if w.GetSeriesTitle() == "" {
@@ -442,11 +442,11 @@ func TestWorkKindMapping(t *testing.T) {
 			t.Errorf("round trip of %v = %v", k, got)
 		}
 	}
-	if got := toWorkKind(WorkKind(99)); got != animev1.WorkKind_WORK_KIND_UNSPECIFIED {
+	if got := toWorkKind(WorkKind(99)); got != animev1.WorkKind_WORK_UNSPECIFIED {
 		t.Errorf("unknown kind = %v", got)
 	}
 	// UNSPECIFIED is the filter's "any kind", so it must map to no filter.
-	if got := fromWorkKind(animev1.WorkKind_WORK_KIND_UNSPECIFIED); got != nil {
+	if got := fromWorkKind(animev1.WorkKind_WORK_UNSPECIFIED); got != nil {
 		t.Errorf("unspecified = %v, want nil", got)
 	}
 }
@@ -456,9 +456,9 @@ func TestEntryKindAndSeasonMapping(t *testing.T) {
 		in   animev1.EntryKind
 		want *EntryKind
 	}{
-		{animev1.EntryKind_ENTRY_KIND_FRANCHISE, ptr(EntryFranchise)},
-		{animev1.EntryKind_ENTRY_KIND_SERIES, ptr(EntrySeries)},
-		{animev1.EntryKind_ENTRY_KIND_UNSPECIFIED, nil},
+		{animev1.EntryKind_FRANCHISE, ptr(EntryFranchise)},
+		{animev1.EntryKind_SERIES, ptr(EntrySeries)},
+		{animev1.EntryKind_ENTRY_UNSPECIFIED, nil},
 	} {
 		got := fromEntryKind(tc.in)
 		switch {
@@ -470,11 +470,11 @@ func TestEntryKindAndSeasonMapping(t *testing.T) {
 	}
 
 	for in, want := range map[animev1.ReleaseSeason]model.ReleaseSeason{
-		animev1.ReleaseSeason_RELEASE_SEASON_WINTER:      model.SeasonWinter,
-		animev1.ReleaseSeason_RELEASE_SEASON_SPRING:      model.SeasonSpring,
-		animev1.ReleaseSeason_RELEASE_SEASON_SUMMER:      model.SeasonSummer,
-		animev1.ReleaseSeason_RELEASE_SEASON_FALL:        model.SeasonFall,
-		animev1.ReleaseSeason_RELEASE_SEASON_UNSPECIFIED: "",
+		animev1.ReleaseSeason_WINTER:             model.SeasonWinter,
+		animev1.ReleaseSeason_SPRING:             model.SeasonSpring,
+		animev1.ReleaseSeason_SUMMER:             model.SeasonSummer,
+		animev1.ReleaseSeason_FALL:               model.SeasonFall,
+		animev1.ReleaseSeason_SEASON_UNSPECIFIED: "",
 	} {
 		if got := fromReleaseSeason(in); got != want {
 			t.Errorf("fromReleaseSeason(%v) = %q, want %q", in, got, want)

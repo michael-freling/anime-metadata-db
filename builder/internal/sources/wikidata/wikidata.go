@@ -13,6 +13,8 @@ import (
 	"os"
 	"sort"
 	"strings"
+	"unicode"
+	"unicode/utf8"
 )
 
 // batchSize is the maximum number of entity ids per wbgetentities request.
@@ -49,6 +51,49 @@ type rawResponse struct {
 	Entities map[string]rawEntity `json:"entities"`
 }
 
+// withoutDisambiguator drops the parenthetical Wikidata appends to a label when
+// it would otherwise collide with another entity's: the Japanese label for Ian
+// Sinclair is "イアン・シンクレア (声優)", where 声優 means "voice actor" and is
+// there to tell him apart from someone else of the same name. It is an
+// artifact of how Wikidata indexes labels, not part of anyone's name, so it is
+// removed here — at the source that produces it — rather than in each consumer
+// that would otherwise have to know about it.
+//
+// Leaving it in did more than store a wrong name: 声優 is kanji, so a label
+// that is otherwise entirely katakana stopped looking like one, and the rule
+// that picks a person's name over its Japanese rendering skipped him in
+// silence.
+func withoutDisambiguator(label string) string {
+	// Brackets are matched by kind rather than by pair, because a label mixing
+	// an ASCII "(" with a full-width "）" is exactly the sort of thing a
+	// hand-edited label does, and leaving that one unstripped would put the
+	// kanji back — reviving the bug this exists to fix, for one entity, in
+	// silence. Whitespace is trimmed with unicode.IsSpace so the ideographic
+	// space U+3000 counts.
+	const (
+		openers = "(（"
+		closers = ")）"
+	)
+	for {
+		trimmed := strings.TrimRightFunc(label, unicode.IsSpace)
+		last, _ := utf8.DecodeLastRuneInString(trimmed)
+		if !strings.ContainsRune(closers, last) {
+			return label
+		}
+		i := strings.LastIndexAny(trimmed, openers)
+		if i <= 0 {
+			return label
+		}
+		name := strings.TrimRightFunc(trimmed[:i], unicode.IsSpace)
+		if name == "" {
+			return label
+		}
+		// Repeat: Wikidata occasionally stacks two of these, and stopping at
+		// the outermost would leave a disambiguator-shaped remnant behind.
+		label = name
+	}
+}
+
 // Entity is a resolved Wikidata entity: its QID and labels by language code.
 type Entity struct {
 	QID    string
@@ -75,7 +120,7 @@ func Parse(r io.Reader) (*Entities, error) {
 		}
 		labels := make(map[string]string, len(re.Labels))
 		for lang, l := range re.Labels {
-			labels[lang] = l.Value
+			labels[lang] = withoutDisambiguator(l.Value)
 		}
 		// A "mul" label stands in for a language that has none of its own.
 		// Wikidata uses it when the value is the same everywhere, which is the

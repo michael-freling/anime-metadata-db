@@ -577,7 +577,7 @@ reita-shiratori	haibara-kun-no-tsuyokute-seishun-new-game.yaml	白鳥怜太|en=R
 tatsuya-nagiura	haibara-kun-no-tsuyokute-seishun-new-game.yaml	凪浦竜也|en=Tatsuya Nagiura|ja=凪浦竜也	33
 uta-sakura	haibara-kun-no-tsuyokute-seishun-new-game.yaml	佐倉詩|en=Uta Sakura|ja=佐倉詩	33
 yuino-nanase	haibara-kun-no-tsuyokute-seishun-new-game.yaml	七瀬唯乃|en=Yuino Nanase|ja=七瀬唯乃	33
-izumi-sano	hanazakari-no-kimitachi-e.yaml	|en=Izumi Sano	34
+izumi-sano	hanazakari-no-kimitachi-e.yaml	Izumi Sano|en=Izumi Sano	34
 mizuki-ashiya	hanazakari-no-kimitachi-e.yaml	芦屋瑞稀|en=Mizuki Ashiya|ja=芦屋瑞稀	34
 shuichi-nakatsu	hanazakari-no-kimitachi-e.yaml	中津秀一|en=Shuichi Nakatsu|ja=中津秀一	34
 allen	hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai.yaml	アレン|en=Allen|ja=アレン	35
@@ -1098,8 +1098,8 @@ richeh	tongari-boushi-no-atelier.yaml	リチェ|en=Richeh|ja=リチェ	134
 tartah	tongari-boushi-no-atelier.yaml	タータ|en=Tartah|ja=タータ	134
 tetia	tongari-boushi-no-atelier.yaml	テティア|en=Tetia|ja=テティア	134
 utowin	tongari-boushi-no-atelier.yaml	ウトウィン|en=Utowin|ja=ウトウィン	134
-knives-millions	trigun-stampede.yaml	|en=Knives Millions	136
-legato-bluesummers	trigun-stampede.yaml	|en=Legato Bluesummers	136
+knives-millions	trigun-stampede.yaml	Knives Millions|en=Knives Millions	136
+legato-bluesummers	trigun-stampede.yaml	Legato Bluesummers|en=Legato Bluesummers	136
 nicholas-d-wolfwood	trigun-stampede.yaml	ニコラス・D・ウルフウッド|en=Nicholas D. Wolfwood|ja=ニコラス・D・ウルフウッド	136
 rem-saverem	trigun-stampede.yaml	レム・セイブレム|en=Rem Saverem|ja=レム・セイブレム	136
 vash-the-stampede	trigun-stampede.yaml	ヴァッシュ・ザ・スタンピード|en=Vash the Stampede|ja=ヴァッシュ・ザ・スタンピード	136
@@ -1184,57 +1184,57 @@ sara-kashiwagi-pendragon	yuusha-no-kuzu.yaml	セーラ・カシワギ・ペン�
 yashiro	yuusha-no-kuzu.yaml	ヤシロ|en=Yashiro|ja=ヤシロ	149
 yukine-indo	yuusha-no-kuzu.yaml	印堂雪音|en=Yukine Indō|ja=印堂雪音	149
 !staff	id	file	names	langs	anilist	anidb	tmdb	tvdb	wikidata
-aaron-roberts	english-voice-actors.yaml	|en=Aaron Roberts	en					Q141031024
-annie-wild	english-voice-actors.yaml	|en=Annie Wild	en					Q134440355
-anthony-bowling	english-voice-actors.yaml	|en=Anthony Bowling	en					Q4772144
-armen-taylor	english-voice-actors.yaml	|en=Armen Taylor	en					Q107465292
-bill-butts	english-voice-actors.yaml	ビル・バッツ|en=Bill Butts|ja=ビル・バッツ	en					Q120292547
-brad-hawkins	english-voice-actors.yaml	ブラッド・ホーキンス|en=Brad Hawkins|ja=ブラッド・ホーキンス	en					Q13576980
-brianna-knickerbocker	english-voice-actors.yaml	ブリアナ・ニッカーボッカー|en=Brianna Knickerbocker|ja=ブリアナ・ニッカーボッカー	en					Q96675501
-brook-chalmers	english-voice-actors.yaml	|en=Brook Chalmers	en					Q115625355
-bryn-apprill	english-voice-actors.yaml	ブライン・アップリル|en=Bryn Apprill|ja=ブライン・アップリル	en					Q20090133
-chaney-moore	english-voice-actors.yaml	|en=Chaney Moore	en					Q109734187
-chris-hackney	english-voice-actors.yaml	|en=Chris Hackney	en					Q134963135
-chris-hutchison	english-voice-actors.yaml	|en=Chris Hutchison	en					Q5106962
-christopher-wehkamp	english-voice-actors.yaml	|en=Christopher Wehkamp	en					Q19665600
-dallas-reid	english-voice-actors.yaml	ダラス・リード|en=Dallas Reid|ja=ダラス・リード	en					Q109051005
-daman-mills	english-voice-actors.yaml	ダマン・ミルズ|en=Daman Mills|ja=ダマン・ミルズ	en					Q108171590
-danielle-mcrae	english-voice-actors.yaml	|en=Danielle McRae	en					Q109051030
-erica-mendez	english-voice-actors.yaml	エリカ・メンデス|en=Erica Mendez|ja=エリカ・メンデス	en					Q5387900
-erika-harlacher	english-voice-actors.yaml	エリカ・ハーラーチャー|en=Erika Harlacher|ja=エリカ・ハーラーチャー	en					Q23879975
-felecia-angelle	english-voice-actors.yaml	|en=Felecia Angelle	en					Q17305620
-ian-sinclair	english-voice-actors.yaml	イアン・シンクレア (声優)|en=Ian Sinclair|ja=イアン・シンクレア (声優)	en					Q5982914
-j-michael-tatum	english-voice-actors.yaml	|en=J. Michael Tatum	en					Q6106552
-jay-hickman	english-voice-actors.yaml	ジェイ・ヒックマン|en=Jay Hickman|ja=ジェイ・ヒックマン	en					Q6166700
-jeannie-tirado	english-voice-actors.yaml	ジーニー・ティラド|en=Jeannie Tirado|ja=ジーニー・ティラド	en					Q80992320
-jenny-yokobori	english-voice-actors.yaml	ジェニー・ヨコボリ|en=Jenny Yokobori|ja=ジェニー・ヨコボリ	en					Q104803374
-jill-harris	english-voice-actors.yaml	ジル・ハリス|en=Jill Harris|ja=ジル・ハリス	en					Q109320298
-joe-zieja	english-voice-actors.yaml	ジョー・ジージャ|en=Joe Zieja|ja=ジョー・ジージャ	en					Q116868160
-justin-briner	english-voice-actors.yaml	|en=Justin Briner	en					Q30610426
-kaiji-tang	english-voice-actors.yaml	カイジ・タン|en=Kaiji Tang|ja=カイジ・タン	en					Q15120664
-kara-edwards	english-voice-actors.yaml	|en=Kara Edwards	en					Q6367509
-kari-wahlgren	english-voice-actors.yaml	カリ・ウォールグレン|en=Kari Wahlgren|ja=カリ・ウォールグレン	en					Q272919
-kate-higgins	english-voice-actors.yaml	ケイト・ヒギンス|en=Kate Higgins|ja=ケイト・ヒギンス	en					Q2330871
-kayli-mills	english-voice-actors.yaml	ケイリー・ミルズ|en=Kayli Mills|ja=ケイリー・ミルズ	en					Q104237996
-laila-berzins	english-voice-actors.yaml	ライラ・バーズィンズ|en=Laila Berzins|ja=ライラ・バーズィンズ	en					Q102427087
-laura-stahl	english-voice-actors.yaml	ラウラ・シュタール|en=Laura Stahl|ja=ラウラ・シュタール	en					Q106141965
-lisa-reimold	english-voice-actors.yaml	リサ・レイモルド|en=Lisa Reimold|ja=リサ・レイモルド	en					Q109319643
-lizzie-freeman	english-voice-actors.yaml	リジー・フリーマン|en=Lizzie Freeman|ja=リジー・フリーマン	en					Q108139170
-luci-christian	english-voice-actors.yaml	ルーシ・クリスチャン|en=Luci Christian|ja=ルーシ・クリスチャン	en					Q4115622
-margaret-mcdonald	english-voice-actors.yaml	マーガレット・マクドナルド|en=Margaret McDonald|ja=マーガレット・マクドナルド	en					Q16232274
-mark-whitten	english-voice-actors.yaml	マーク・ウィッテン|en=Mark Whitten|ja=マーク・ウィッテン	en					Q124217816
-natalie-rial	english-voice-actors.yaml	|en=Natalie Rial	en					Q109734195
-paul-st-peter	english-voice-actors.yaml	ポール・セント・ピーター|en=Paul St. Peter|ja=ポール・セント・ピーター	en					Q7153744
-ray-chase	english-voice-actors.yaml	レイ・チェイス|en=Ray Chase|ja=レイ・チェイス	en					Q28974090
-ray-hurd	english-voice-actors.yaml	|en=Ray Hurd	en					Q141058249
-robert-mccollum	english-voice-actors.yaml	ロバート・マッカラム|en=Robert McCollum|ja=ロバート・マッカラム	en					Q7347478
-ryan-reynolds	english-voice-actors.yaml	|en=Ryan Reynolds	en					Q108205165
-sara-ragsdale	english-voice-actors.yaml	|en=Sara Ragsdale	en					Q89436043
-sarah-roach	english-voice-actors.yaml	|en=Sarah Roach	en					Q141013989
-sean-chiplock	english-voice-actors.yaml	ショーン・チップロック|en=Sean Chiplock|ja=ショーン・チップロック	en					Q56787218
-tyson-rinehart	english-voice-actors.yaml	|en=Tyson Rinehart	en					Q141033441
-xander-mobus	english-voice-actors.yaml	ザンダー・モーブス|en=Xander Mobus|ja=ザンダー・モーブス	en					Q27681028
-zach-aguilar	english-voice-actors.yaml	ザック・アギラール|en=Zach Aguilar|ja=ザック・アギラール	en					Q104760737
+aaron-roberts	english-voice-actors.yaml	Aaron Roberts|en=Aaron Roberts	en					Q141031024
+annie-wild	english-voice-actors.yaml	Annie Wild|en=Annie Wild	en					Q134440355
+anthony-bowling	english-voice-actors.yaml	Anthony Bowling|en=Anthony Bowling	en					Q4772144
+armen-taylor	english-voice-actors.yaml	Armen Taylor|en=Armen Taylor	en					Q107465292
+bill-butts	english-voice-actors.yaml	Bill Butts|en=Bill Butts|ja=ビル・バッツ	en					Q120292547
+brad-hawkins	english-voice-actors.yaml	Brad Hawkins|en=Brad Hawkins|ja=ブラッド・ホーキンス	en					Q13576980
+brianna-knickerbocker	english-voice-actors.yaml	Brianna Knickerbocker|en=Brianna Knickerbocker|ja=ブリアナ・ニッカーボッカー	en					Q96675501
+brook-chalmers	english-voice-actors.yaml	Brook Chalmers|en=Brook Chalmers	en					Q115625355
+bryn-apprill	english-voice-actors.yaml	Bryn Apprill|en=Bryn Apprill|ja=ブライン・アップリル	en					Q20090133
+chaney-moore	english-voice-actors.yaml	Chaney Moore|en=Chaney Moore	en					Q109734187
+chris-hackney	english-voice-actors.yaml	Chris Hackney|en=Chris Hackney	en					Q134963135
+chris-hutchison	english-voice-actors.yaml	Chris Hutchison|en=Chris Hutchison	en					Q5106962
+christopher-wehkamp	english-voice-actors.yaml	Christopher Wehkamp|en=Christopher Wehkamp	en					Q19665600
+dallas-reid	english-voice-actors.yaml	Dallas Reid|en=Dallas Reid|ja=ダラス・リード	en					Q109051005
+daman-mills	english-voice-actors.yaml	Daman Mills|en=Daman Mills|ja=ダマン・ミルズ	en					Q108171590
+danielle-mcrae	english-voice-actors.yaml	Danielle McRae|en=Danielle McRae	en					Q109051030
+erica-mendez	english-voice-actors.yaml	Erica Mendez|en=Erica Mendez|ja=エリカ・メンデス	en					Q5387900
+erika-harlacher	english-voice-actors.yaml	Erika Harlacher|en=Erika Harlacher|ja=エリカ・ハーラーチャー	en					Q23879975
+felecia-angelle	english-voice-actors.yaml	Felecia Angelle|en=Felecia Angelle	en					Q17305620
+ian-sinclair	english-voice-actors.yaml	Ian Sinclair|en=Ian Sinclair|ja=イアン・シンクレア	en					Q5982914
+j-michael-tatum	english-voice-actors.yaml	J. Michael Tatum|en=J. Michael Tatum	en					Q6106552
+jay-hickman	english-voice-actors.yaml	Jay Hickman|en=Jay Hickman|ja=ジェイ・ヒックマン	en					Q6166700
+jeannie-tirado	english-voice-actors.yaml	Jeannie Tirado|en=Jeannie Tirado|ja=ジーニー・ティラド	en					Q80992320
+jenny-yokobori	english-voice-actors.yaml	Jenny Yokobori|en=Jenny Yokobori|ja=ジェニー・ヨコボリ	en					Q104803374
+jill-harris	english-voice-actors.yaml	Jill Harris|en=Jill Harris|ja=ジル・ハリス	en					Q109320298
+joe-zieja	english-voice-actors.yaml	Joe Zieja|en=Joe Zieja|ja=ジョー・ジージャ	en					Q116868160
+justin-briner	english-voice-actors.yaml	Justin Briner|en=Justin Briner	en					Q30610426
+kaiji-tang	english-voice-actors.yaml	Kaiji Tang|en=Kaiji Tang|ja=カイジ・タン	en					Q15120664
+kara-edwards	english-voice-actors.yaml	Kara Edwards|en=Kara Edwards	en					Q6367509
+kari-wahlgren	english-voice-actors.yaml	Kari Wahlgren|en=Kari Wahlgren|ja=カリ・ウォールグレン	en					Q272919
+kate-higgins	english-voice-actors.yaml	Kate Higgins|en=Kate Higgins|ja=ケイト・ヒギンス	en					Q2330871
+kayli-mills	english-voice-actors.yaml	Kayli Mills|en=Kayli Mills|ja=ケイリー・ミルズ	en					Q104237996
+laila-berzins	english-voice-actors.yaml	Laila Berzins|en=Laila Berzins|ja=ライラ・バーズィンズ	en					Q102427087
+laura-stahl	english-voice-actors.yaml	Laura Stahl|en=Laura Stahl|ja=ラウラ・シュタール	en					Q106141965
+lisa-reimold	english-voice-actors.yaml	Lisa Reimold|en=Lisa Reimold|ja=リサ・レイモルド	en					Q109319643
+lizzie-freeman	english-voice-actors.yaml	Lizzie Freeman|en=Lizzie Freeman|ja=リジー・フリーマン	en					Q108139170
+luci-christian	english-voice-actors.yaml	Luci Christian|en=Luci Christian|ja=ルーシ・クリスチャン	en					Q4115622
+margaret-mcdonald	english-voice-actors.yaml	Margaret McDonald|en=Margaret McDonald|ja=マーガレット・マクドナルド	en					Q16232274
+mark-whitten	english-voice-actors.yaml	Mark Whitten|en=Mark Whitten|ja=マーク・ウィッテン	en					Q124217816
+natalie-rial	english-voice-actors.yaml	Natalie Rial|en=Natalie Rial	en					Q109734195
+paul-st-peter	english-voice-actors.yaml	Paul St. Peter|en=Paul St. Peter|ja=ポール・セント・ピーター	en					Q7153744
+ray-chase	english-voice-actors.yaml	Ray Chase|en=Ray Chase|ja=レイ・チェイス	en					Q28974090
+ray-hurd	english-voice-actors.yaml	Ray Hurd|en=Ray Hurd	en					Q141058249
+robert-mccollum	english-voice-actors.yaml	Robert McCollum|en=Robert McCollum|ja=ロバート・マッカラム	en					Q7347478
+ryan-reynolds	english-voice-actors.yaml	Ryan Reynolds|en=Ryan Reynolds	en					Q108205165
+sara-ragsdale	english-voice-actors.yaml	Sara Ragsdale|en=Sara Ragsdale	en					Q89436043
+sarah-roach	english-voice-actors.yaml	Sarah Roach|en=Sarah Roach	en					Q141013989
+sean-chiplock	english-voice-actors.yaml	Sean Chiplock|en=Sean Chiplock|ja=ショーン・チップロック	en					Q56787218
+tyson-rinehart	english-voice-actors.yaml	Tyson Rinehart|en=Tyson Rinehart	en					Q141033441
+xander-mobus	english-voice-actors.yaml	Xander Mobus|en=Xander Mobus|ja=ザンダー・モーブス	en					Q27681028
+zach-aguilar	english-voice-actors.yaml	Zach Aguilar|en=Zach Aguilar|ja=ザック・アギラール	en					Q104760737
 ayako-kawasumi	japanese-voice-actors.yaml	川澄綾子|en=Ayako Kawasumi|ja=川澄綾子	ja					Q49566
 natsuki-hanae	japanese-voice-actors.yaml	花江夏樹|en=Natsuki Hanae|ja=花江夏樹	ja					Q2596113
 ai-kakuma	japanese-voice-actors.yaml	加隈亜衣|en=Ai Kakuma|ja=加隈亜衣	ja					Q498632
@@ -1467,7 +1467,7 @@ nobuhiko-okamoto	japanese-voice-actors.yaml	岡本信彦|en=Nobuhiko Okamoto|ja=
 nobunaga-shimazaki	japanese-voice-actors.yaml	島﨑信長|en=Nobunaga Shimazaki|ja=島﨑信長	ja					Q5968283
 nobuyuki-hiyama	japanese-voice-actors.yaml	檜山修之|en=Nobuyuki Hiyama|ja=檜山修之	ja					Q2273472
 noriko-uemura	japanese-voice-actors.yaml	上村典子|en=Noriko Uemura|ja=上村典子	ja					Q7051287
-rebecca-danae	japanese-voice-actors.yaml	|en=Rebecca Danae	ja					Q139576178
+rebecca-danae	japanese-voice-actors.yaml	Rebecca Danae|en=Rebecca Danae	ja					Q139576178
 reiji-kawashima	japanese-voice-actors.yaml	川島零士|en=Reiji Kawashima|ja=川島零士	ja					Q96716618
 reiko-suzuki	japanese-voice-actors.yaml	鈴木れい子|en=Reiko Suzuki|ja=鈴木れい子	ja					Q1067536
 reina-ueda	japanese-voice-actors.yaml	上田麗奈|en=Reina Ueda|ja=上田麗奈	ja					Q16264425

@@ -52,7 +52,7 @@ func TestListFranchises(t *testing.T) {
 		t.Fatalf("got %d seasons, want 4", len(seasons))
 	}
 	s1 := seasons[0]
-	if s1.GetReleaseSeason() != animev1.ReleaseSeason_RELEASE_SEASON_WINTER {
+	if s1.GetReleaseSeason() != animev1.ReleaseSeason_WINTER {
 		t.Errorf("season1 release season = %v", s1.GetReleaseSeason())
 	}
 	if s1.GetPart() != 1 || s1.GetReleaseDate() != "2006-01-06" {
@@ -72,7 +72,7 @@ func TestListFranchises(t *testing.T) {
 		t.Errorf("episode1 absoluteNumber should be nil, got %v", eps[1].GetAbsoluteNumber())
 	}
 	// Unknown release season maps to UNSPECIFIED.
-	if seasons[3].GetReleaseSeason() != animev1.ReleaseSeason_RELEASE_SEASON_UNSPECIFIED {
+	if seasons[3].GetReleaseSeason() != animev1.ReleaseSeason_SEASON_UNSPECIFIED {
 		t.Errorf("bogus season = %v", seasons[3].GetReleaseSeason())
 	}
 
@@ -83,10 +83,10 @@ func TestListFranchises(t *testing.T) {
 
 	specials := s.GetSpecials()
 	wantFormats := []animev1.SpecialFormat{
-		animev1.SpecialFormat_SPECIAL_FORMAT_OVA,
-		animev1.SpecialFormat_SPECIAL_FORMAT_ONA,
-		animev1.SpecialFormat_SPECIAL_FORMAT_SPECIAL,
-		animev1.SpecialFormat_SPECIAL_FORMAT_UNSPECIFIED,
+		animev1.SpecialFormat_FORMAT_OVA,
+		animev1.SpecialFormat_FORMAT_ONA,
+		animev1.SpecialFormat_FORMAT_SPECIAL,
+		animev1.SpecialFormat_FORMAT_UNSPECIFIED,
 	}
 	if len(specials) != len(wantFormats) {
 		t.Fatalf("got %d specials, want %d", len(specials), len(wantFormats))
@@ -142,7 +142,7 @@ func TestGetSeries(t *testing.T) {
 	if resp.Msg.GetFranchiseId() != "" {
 		t.Errorf("standalone franchise id = %q, want empty", resp.Msg.GetFranchiseId())
 	}
-	if resp.Msg.GetSeries().GetSeasons()[0].GetReleaseSeason() != animev1.ReleaseSeason_RELEASE_SEASON_FALL {
+	if resp.Msg.GetSeries().GetSeasons()[0].GetReleaseSeason() != animev1.ReleaseSeason_FALL {
 		t.Errorf("zzz season = %v", resp.Msg.GetSeries().GetSeasons()[0].GetReleaseSeason())
 	}
 
@@ -185,10 +185,10 @@ func TestSearch(t *testing.T) {
 	if len(results) != 2 {
 		t.Fatalf("got %d results, want 2", len(results))
 	}
-	if results[0].GetKind() != animev1.EntryKind_ENTRY_KIND_FRANCHISE || results[0].GetId() != "aaa" {
+	if results[0].GetKind() != animev1.EntryKind_FRANCHISE || results[0].GetId() != "aaa" {
 		t.Errorf("result0 = %+v", results[0])
 	}
-	if results[1].GetKind() != animev1.EntryKind_ENTRY_KIND_SERIES || results[1].GetFranchiseId() != "aaa" {
+	if results[1].GetKind() != animev1.EntryKind_SERIES || results[1].GetFranchiseId() != "aaa" {
 		t.Errorf("result1 = %+v", results[1])
 	}
 }
