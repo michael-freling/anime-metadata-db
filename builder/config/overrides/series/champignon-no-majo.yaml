@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: champignon-no-majo
-  externalIds: { wikidataId: Q131437080 }  # シャンピニオンの魔女
   titles:
     original: シャンピニオンの魔女
     translations: { ja-Latn: Champignon no Majo }

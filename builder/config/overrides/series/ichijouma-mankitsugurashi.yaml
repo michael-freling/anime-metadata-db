@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: ichijouma-mankitsugurashi
-  externalIds: { wikidataId: Q135244132 }  # 一畳間まんきつ暮らし!
   titles:
     original: "一畳間まんきつ暮らし!"
     translations: { ja-Latn: "Ichijouma Mankitsugurashi!" }

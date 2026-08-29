@@ -19,19 +19,36 @@ import (
 // 葬送のフリーレン holds four English strings and no way to tell the licensed
 // title from three literal glosses), while Wikidata asserts exactly one.
 //
-// An authored title always wins, and a series with no wikidataId is left
-// exactly as it is today — with an `en` absent, the API answers an English
-// request with the romanization, which is the existing behaviour and not a
-// regression.
+// The work is found by resolving the series' own native title against Japanese
+// Wikipedia during `builder init` — a series has no AniList id to join on — and
+// an authored externalIds.wikidataId overrides that resolution where it is
+// wrong. An authored title always wins over both, and a series whose title
+// resolved to nothing is left as it was: with `en` absent, the API answers an
+// English request with the romanization.
 func (b *Builder) fillSeriesTitle(s *model.Series, report *Report) {
-	qid := s.ExternalIDs.WikidataID
-	if qid == "" || b.sources.Wikidata == nil {
-		// A series with no wikidataId is not a guess the builder made, so it
-		// earns no note: the report is for low-confidence decisions, and 149 of
-		// 152 series carrying an identical "not configured" line would bury the
-		// ones that say something. The research script lists the backlog.
+	if b.sources.Wikidata == nil {
 		return
 	}
+	// An authored id wins over the resolution, which is what makes a wrong or
+	// unreachable lookup correctable: the override says which work this is, and
+	// the build stops guessing for that series.
+	qid := s.ExternalIDs.WikidataID
+	if qid == "" {
+		qid = b.sources.Wikidata.QIDForTitle(s.Titles.Original)
+	}
+	if qid == "" {
+		// Nothing resolved and nothing authored. Not a guess the builder made,
+		// so it earns no note here — the report is for low-confidence decisions,
+		// and one identical "not resolved" line per unresolved series would bury
+		// the ones that say something. `builder init` prints the tally, grouped
+		// by why each failed.
+		return
+	}
+	// Record the work on the node, the same way fillExternalIDs records the
+	// AniDB and TVDB ids it cross-maps. The id is a fact about this series that
+	// consumers join on, and leaving it only in the build's memory would mean
+	// resolving it here and then throwing it away.
+	s.ExternalIDs.WikidataID = qid
 	if _, authored := s.Titles.Translations["en"]; authored {
 		return
 	}

@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: hyakki-yakou-shou
-  externalIds: { wikidataId: Q5365522 }  # 百鬼夜行抄
   titles:
     original: 百鬼夜行抄
     translations: { ja-Latn: Hyakki Yakou Shou }

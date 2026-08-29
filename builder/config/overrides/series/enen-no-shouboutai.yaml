@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: enen-no-shouboutai
-  externalIds: { wikidataId: Q24636973 }  # 炎炎ノ消防隊
   titles:
     original: 炎炎ノ消防隊
     translations: { ja-Latn: Enen no Shouboutai }

@@ -87,11 +87,19 @@ which one is the licensed title and three are literal glosses, and nothing
 distinguishes them. So a title auto-filled from *it* is `original` + `ja` +
 `ja-Latn`, never `en`.
 
-The English title comes from Wikidata instead. A **series** names the work it is
-via `externalIds.wikidataId`, and the builder fills `en` from that entity's
-`P1476` title claim — or its English label, where the entity has no claim. This
-is why `sousou-no-frieren` carries `en: Frieren: Beyond Journey's End` rather
-than its romanization.
+The English title comes from Wikidata instead. A **series** is the one node with
+no id to join on — it spans several AniList entries, one per installment — so
+`builder init` finds its work by looking the native `original` up as a Japanese
+Wikipedia article, keeping the match only when the entity says it is a kind of
+work. The builder then fills `en` from that entity's `P1476` title claim, or its
+English label where it has no claim, and records the work as
+`externalIds.wikidataId`. This is why `sousou-no-frieren` carries
+`en: Frieren: Beyond Journey's End` rather than its romanization.
+
+Nothing about that is authored. 61 of the 152 series get an English title from
+`builder init && builder build` and no other step; an `externalIds.wikidataId`
+written into an override exists only to correct a resolution that is wrong, and
+overrides it when present.
 
 Two rules bound that fill. A candidate that turns out to be the title we already
 hold, respelled, is refused rather than stored: `Hyakki Yakōshō` is the `ja-Latn`
@@ -101,9 +109,9 @@ work simply has none, and the API falls back to the romanization. Seasons,
 movies and specials are not filled this way: they have no Wikidata id, only an
 AniList one.
 
-Run `builder propose-qids` to see which series still name no work, with the
-candidate each would take and whether the build would accept it. It prints for
-review and never writes.
+`builder init` prints what did not resolve and why — a title matching no
+article and a title matching a disambiguation page are different problems with
+different fixes, and neither is visible from the dataset afterwards.
 
 Two edges are worth knowing. A title written in Latin script with no
 native-script form is neither an English title nor a romanization — it is the

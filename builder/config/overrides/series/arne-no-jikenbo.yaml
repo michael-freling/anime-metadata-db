@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: arne-no-jikenbo
-  externalIds: { wikidataId: Q113624228 }  # アルネの事件簿
   titles:
     original: アルネの事件簿
     translations: { ja-Latn: Arne no Jikenbo }

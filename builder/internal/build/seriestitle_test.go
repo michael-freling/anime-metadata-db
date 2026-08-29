@@ -8,6 +8,79 @@ import (
 	"github.com/michael-freling/anime-metadata-db/internal/model"
 )
 
+// A series reaches Wikidata by resolving its own native title, not by an
+// authored id — it has no AniList id to join on. The resolved work fills the
+// English title and is recorded on the node, the way fillExternalIDs records
+// the ids it cross-maps.
+func TestFillSeriesTitleFromResolvedTitle(t *testing.T) {
+	ents := wikidataFrom(t, `{"entities":{"Q98642652":{"id":"Q98642652",
+	  "labels":{"en":{"language":"en","value":"Frieren"}},
+	  "titles":{"en":"Frieren: Beyond Journey's End"}}},
+	  "resolvedByTitle":{"葬送のフリーレン":"Q98642652"}}`)
+	b := New(Sources{Wikidata: ents})
+	s := &model.Series{
+		ID: "sousou-no-frieren",
+		Titles: model.Title{
+			Original:     "葬送のフリーレン",
+			Translations: map[string]string{"ja-Latn": "Sousou no Frieren"},
+		},
+	}
+	b.fillSeriesTitle(s, &Report{})
+
+	if got := s.Titles.Translations["en"]; got != "Frieren: Beyond Journey's End" {
+		t.Errorf("en = %q", got)
+	}
+	if got := s.ExternalIDs.WikidataID; got != "Q98642652" {
+		t.Errorf("the resolved work must be recorded on the node, got %q", got)
+	}
+}
+
+// An authored id is how a wrong or unreachable resolution gets corrected, so it
+// has to beat the resolution rather than merely fill in for it.
+func TestFillSeriesTitleAuthoredIDBeatsResolution(t *testing.T) {
+	ents := wikidataFrom(t, `{"entities":{
+	  "Q1":{"id":"Q1","titles":{"en":"The Authored Work"}},
+	  "Q2":{"id":"Q2","titles":{"en":"The Resolved Work"}}},
+	  "resolvedByTitle":{"日本語":"Q2"}}`)
+	b := New(Sources{Wikidata: ents})
+	s := &model.Series{
+		ID:          "x",
+		ExternalIDs: model.ExternalIDs{WikidataID: "Q1"},
+		Titles: model.Title{
+			Original:     "日本語",
+			Translations: map[string]string{"ja-Latn": "Nihongo"},
+		},
+	}
+	b.fillSeriesTitle(s, &Report{})
+
+	if got := s.Titles.Translations["en"]; got != "The Authored Work" {
+		t.Errorf("the authored id must win, got %q", got)
+	}
+}
+
+// A title that resolved to nothing usable — no article, or a disambiguation
+// page — leaves the series exactly as it was, with no en and no note. The
+// tally of what failed and why belongs to `builder init`, which has the reason;
+// one identical line per unresolved series here would bury the notes that say
+// something.
+func TestFillSeriesTitleUnresolvedTitle(t *testing.T) {
+	ents := wikidataFrom(t, `{"entities":{},"resolvedByTitle":{"別のもの":"Q9"}}`)
+	b := New(Sources{Wikidata: ents})
+	s := &model.Series{ID: "mao", Titles: model.Title{Original: "マオ"}}
+	report := &Report{}
+	b.fillSeriesTitle(s, report)
+
+	if _, ok := s.Titles.Translations["en"]; ok {
+		t.Error("an unresolved title must not fill en")
+	}
+	if s.ExternalIDs.WikidataID != "" {
+		t.Errorf("nothing resolved, so nothing to record: %q", s.ExternalIDs.WikidataID)
+	}
+	if !report.Empty() {
+		t.Errorf("an unresolved title is not a low-confidence guess: %v", report.Notes)
+	}
+}
+
 // wikidataFrom builds an Entities index from a wbgetentities-shaped document,
 // so these tests exercise the same parse path a cached fetch goes through.
 func wikidataFrom(t *testing.T, doc string) *wikidata.Entities {

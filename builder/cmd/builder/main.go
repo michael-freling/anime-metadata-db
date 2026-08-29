@@ -83,18 +83,6 @@ func newRootCmd(fetcher builder.Fetcher) *cobra.Command {
 				"since that shape usually means the wrong overrides directory)")
 	}
 
-	var proposeLimit int
-	proposeQIDs := &cobra.Command{
-		Use:   "propose-qids",
-		Short: "Propose a Wikidata work for each series that names none (prints only; never writes)",
-		Args:  cobra.NoArgs,
-		RunE: func(cmd *cobra.Command, _ []string) error {
-			return newApp(cmd).ProposeQIDs(cmd.Context(), proposeLimit)
-		},
-	}
-	proposeQIDs.Flags().IntVar(&proposeLimit, "limit", 0,
-		"stop after this many unresolved series (0 = all)")
-
 	root.AddCommand(
 		&cobra.Command{
 			Use:   "init",
@@ -106,7 +94,6 @@ func newRootCmd(fetcher builder.Fetcher) *cobra.Command {
 		},
 		build,
 		refresh,
-		proposeQIDs,
 	)
 	return root
 }

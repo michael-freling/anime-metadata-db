@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: kami-no-shizuku
-  externalIds: { wikidataId: Q706714 }  # 神の雫
   titles:
     original: 神の雫
     translations: { ja-Latn: Kami no Shizuku }

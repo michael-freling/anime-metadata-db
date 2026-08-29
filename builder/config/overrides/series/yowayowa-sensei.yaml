@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: yowayowa-sensei
-  externalIds: { wikidataId: Q117156949 }  # よわよわ先生
   titles:
     original: よわよわ先生
     translations: { ja-Latn: Yowayowa Sensei }

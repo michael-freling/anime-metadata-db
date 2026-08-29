@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: jujutsu-kaisen
-  externalIds: { wikidataId: Q55522899 }  # 呪術廻戦
   titles:
     original: 呪術廻戦
     translations: { ja-Latn: Jujutsu Kaisen }

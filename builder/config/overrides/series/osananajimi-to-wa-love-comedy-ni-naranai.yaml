@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: osananajimi-to-wa-love-comedy-ni-naranai
-  externalIds: { wikidataId: Q132994694 }  # 幼馴染とはラブコメにならない
   titles:
     original: 幼馴染とはラブコメにならない
     translations: { ja-Latn: Osananajimi to wa Love Comedy ni Naranai }

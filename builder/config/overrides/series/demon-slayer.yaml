@@ -7,7 +7,6 @@
 # dataset (e.g. demon-slayer-s1 rather than ds-s1).
 series:
   id: demon-slayer
-  externalIds: { wikidataId: Q24862683 }  # 鬼滅の刃
   # A Series/Franchise is our own grouping with no entry in the open sources, so
   # its title must be authored (a Season/Movie auto-fills from its source).
   titles: { original: 鬼滅の刃, translations: { en: Demon Slayer } }

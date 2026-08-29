@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: kumarba
-  externalIds: { wikidataId: Q125889089 }  # クマーバ
   titles:
     original: クマーバ
     translations: { ja-Latn: Kumarba }

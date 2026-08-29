@@ -9,7 +9,6 @@ franchise:
   titles: { original: フェイト, translations: { en: Fate } }
   series:
     - id: fate-stay-night
-      externalIds: { wikidataId: Q857823 }  # Fate/stay night
       titles: { original: Fate/stay night }
       seasons:
         - id: fate-stay-night-s1
@@ -24,7 +23,6 @@ franchise:
           titles: { translations: { en: Heaven's Feel I } }
           externalIds: { anilistId: 20791 } # Heaven's Feel I (2017)
     - id: fate-zero
-      externalIds: { wikidataId: Q1141789 }  # Fate/Zero
       titles: { original: Fate/Zero }
       seasons:
         - id: fate-zero-s1
@@ -38,7 +36,6 @@ franchise:
     # A separate continuity (a Fake Holy Grail War in Snowfield), so its own
     # Series under the franchise rather than a season of stay night or Zero.
     - id: fate-strange-fake
-      externalIds: { wikidataId: Q11200035 }  # Fate/strange Fake
       titles: { original: Fate/strange Fake }
       seasons:
         - id: fate-strange-fake-s1

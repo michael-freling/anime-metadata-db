@@ -7,7 +7,6 @@
 # dataset.
 series:
   id: wistoria
-  externalIds: { wikidataId: Q124356871 }  # 杖と剣のウィストリア
   # A Series/Franchise is our own grouping with no entry in the open sources, so
   # its title must be authored (a Season/Movie auto-fills from its source).
   titles:

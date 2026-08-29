@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: yoroi-shin-den-samurai-troopers
-  externalIds: { wikidataId: Q134875991 }  # 鎧真伝サムライトルーパー
   titles:
     original: 鎧真伝サムライトルーパー
     translations: { ja-Latn: Yoroi Shin Den Samurai Troopers }

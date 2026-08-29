@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: ao-no-miburo
-  externalIds: { wikidataId: Q116865404 }  # 青のミブロ
   titles:
     original: 青のミブロ
     translations: { ja-Latn: Ao no Miburo }

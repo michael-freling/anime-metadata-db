@@ -67,7 +67,7 @@ func TestFetchEntities(t *testing.T) {
 		seenIDs = append(seenIDs, url)
 		return []byte(sample), nil
 	}
-	raw, ents, err := FetchEntities(context.Background(), get, "https://www.wikidata.org/w/api.php", []string{"Q2", "Q1", "Q1"}, nil)
+	raw, ents, err := FetchEntities(context.Background(), get, "https://www.wikidata.org/w/api.php", []string{"Q2", "Q1", "Q1"}, nil, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -96,7 +96,7 @@ func TestFetchEntitiesBatches(t *testing.T) {
 	for i := range ids {
 		ids[i] = "Q" + string(rune('A'+i%26)) + string(rune('0'+i/26))
 	}
-	if _, _, err := FetchEntities(context.Background(), get, "https://x/api.php", ids, nil); err != nil {
+	if _, _, err := FetchEntities(context.Background(), get, "https://x/api.php", ids, nil, nil); err != nil {
 		t.Fatal(err)
 	}
 	if calls != 2 {
@@ -109,7 +109,7 @@ func TestFetchEntitiesEmpty(t *testing.T) {
 		t.Fatal("should not fetch for empty qids")
 		return nil, nil
 	}
-	raw, ents, err := FetchEntities(context.Background(), get, "https://x/api.php", nil, nil)
+	raw, ents, err := FetchEntities(context.Background(), get, "https://x/api.php", nil, nil, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -122,17 +122,17 @@ func TestFetchEntitiesErrors(t *testing.T) {
 	ctx := context.Background()
 	// Transport error.
 	failGet := func(_ context.Context, _ string) ([]byte, error) { return nil, errors.New("boom") }
-	if _, _, err := FetchEntities(ctx, failGet, "https://x/api.php", []string{"Q1"}, nil); err == nil {
+	if _, _, err := FetchEntities(ctx, failGet, "https://x/api.php", []string{"Q1"}, nil, nil); err == nil {
 		t.Error("expected fetch error")
 	}
 	// Bad JSON response.
 	badGet := func(_ context.Context, _ string) ([]byte, error) { return []byte("{nope"), nil }
-	if _, _, err := FetchEntities(ctx, badGet, "https://x/api.php", []string{"Q1"}, nil); err == nil {
+	if _, _, err := FetchEntities(ctx, badGet, "https://x/api.php", []string{"Q1"}, nil, nil); err == nil {
 		t.Error("expected decode error")
 	}
 	// Bad api URL.
 	okGet := func(_ context.Context, _ string) ([]byte, error) { return []byte(sample), nil }
-	if _, _, err := FetchEntities(ctx, okGet, "://bad-url", []string{"Q1"}, nil); err == nil {
+	if _, _, err := FetchEntities(ctx, okGet, "://bad-url", []string{"Q1"}, nil, nil); err == nil {
 		t.Error("expected url parse error")
 	}
 }
@@ -271,7 +271,7 @@ func TestParseWithoutTitleClaims(t *testing.T) {
 // build never reads.
 func TestFetchEntitiesReducesClaimsInCache(t *testing.T) {
 	get := func(_ context.Context, _ string) ([]byte, error) { return []byte(claimsSample), nil }
-	raw, ents, err := FetchEntities(context.Background(), get, "https://x/api.php", nil, []string{"Q98642652"})
+	raw, ents, err := FetchEntities(context.Background(), get, "https://x/api.php", nil, []string{"Q98642652"}, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -304,7 +304,7 @@ func TestFetchEntitiesRequestsClaimsOnlyForTitleQIDs(t *testing.T) {
 		return []byte(`{"entities":{}}`), nil
 	}
 	if _, _, err := FetchEntities(context.Background(), get, "https://x/api.php",
-		[]string{"Q1"}, []string{"Q2"}); err != nil {
+		[]string{"Q1"}, []string{"Q2"}, nil); err != nil {
 		t.Fatal(err)
 	}
 	if len(byURL) != 2 {
@@ -329,10 +329,128 @@ func TestFetchEntitiesDeduplicatesAcrossGroups(t *testing.T) {
 		return []byte(`{"entities":{}}`), nil
 	}
 	if _, _, err := FetchEntities(context.Background(), get, "https://x/api.php",
-		[]string{"Q1"}, []string{"Q1"}); err != nil {
+		[]string{"Q1"}, []string{"Q1"}, nil); err != nil {
 		t.Fatal(err)
 	}
 	if calls != 1 {
 		t.Errorf("expected 1 request, got %d", calls)
+	}
+}
+
+// resolveSample is a wbgetentities reply keyed by article title, covering the
+// four outcomes a resolution can have.
+const resolveSample = `{
+  "normalized":{"n":[{"from":"青のミブロ ","to":"青のミブロ"}]},
+  "entities":{
+    "Q98642652":{"sitelinks":{"jawiki":{"title":"葬送のフリーレン"}},
+      "claims":{"P31":[{"mainsnak":{"datavalue":{"value":{"id":"Q21198342"}}}}]}},
+    "Q116865404":{"sitelinks":{"jawiki":{"title":"青のミブロ"}},
+      "claims":{"P31":[{"mainsnak":{"datavalue":{"value":{"id":"Q21198342"}}}}]}},
+    "Q857823":{"sitelinks":{"jawiki":{"title":"Fate/stay night"}},
+      "claims":{"P31":[{"mainsnak":{"datavalue":{"value":{"id":"Q7889"}}}}]}},
+    "Q11339901":{"sitelinks":{"jawiki":{"title":"マオ"}},
+      "claims":{"P31":[{"mainsnak":{"datavalue":{"value":{"id":"Q4167410"}}}}]}},
+    "Q999":{"sitelinks":{"jawiki":{"title":"謎"}},
+      "claims":{"P31":[{"mainsnak":{"datavalue":{"value":{"id":"Q123456789"}}}}]}},
+    "-1":{"sitelinks":{"jawiki":{"title":"負"}}}
+  }}`
+
+// A series has no id to join on, so its native title is resolved against
+// Japanese Wikipedia. The kind of thing it lands on decides whether the answer
+// is usable, and every refusal says why.
+func TestResolveWorks(t *testing.T) {
+	get := func(_ context.Context, _ string) ([]byte, error) { return []byte(resolveSample), nil }
+	titles := []string{"葬送のフリーレン", "青のミブロ ", "Fate/stay night", "マオ", "謎", "ブラッククローバー"}
+	got, err := ResolveWorks(context.Background(), get, "https://x/api.php", titles)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(got) != len(titles) {
+		t.Fatalf("expected one result per title, got %d", len(got))
+	}
+	byTitle := map[string]Resolution{}
+	for _, r := range got {
+		byTitle[r.Title] = r
+	}
+	for _, tc := range []struct {
+		title string
+		qid   string
+		kind  string
+	}{
+		{"葬送のフリーレン", "Q98642652", "manga series"},
+		// MediaWiki normalized the trailing space; the hit must still be found,
+		// not reported as "no article".
+		{"青のミブロ ", "Q116865404", "manga series"},
+		// A visual novel is a real source work for this catalogue.
+		{"Fate/stay night", "Q857823", "video game"},
+		// The most common wrong match, and never a work.
+		{"マオ", "", "a disambiguation page, not a work"},
+		// A kind nobody has ruled on must not become a fact.
+		{"謎", "", "not a recognised kind of work"},
+		{"ブラッククローバー", "", "no Japanese Wikipedia article with this exact title"},
+	} {
+		r := byTitle[tc.title]
+		if r.QID != tc.qid || r.Kind != tc.kind {
+			t.Errorf("%s → %+v, want qid %q kind %q", tc.title, r, tc.qid, tc.kind)
+		}
+		if r.Resolved() != (tc.qid != "") {
+			t.Errorf("%s: Resolved() = %v", tc.title, r.Resolved())
+		}
+	}
+}
+
+func TestResolveWorksBatchesAndErrors(t *testing.T) {
+	var calls int
+	get := func(_ context.Context, _ string) ([]byte, error) {
+		calls++
+		return []byte(`{"entities":{}}`), nil
+	}
+	titles := make([]string, resolveBatchSize+1)
+	for i := range titles {
+		titles[i] = string(rune('あ' + i))
+	}
+	if _, err := ResolveWorks(context.Background(), get, "https://x/api.php", titles); err != nil {
+		t.Fatal(err)
+	}
+	if calls != 2 {
+		t.Errorf("expected 2 batches for %d titles, got %d", len(titles), calls)
+	}
+
+	ctx := context.Background()
+	fail := func(context.Context, string) ([]byte, error) { return nil, errors.New("boom") }
+	if _, err := ResolveWorks(ctx, fail, "https://x/api.php", []string{"x"}); err == nil {
+		t.Error("expected a fetch error")
+	}
+	bad := func(context.Context, string) ([]byte, error) { return []byte("{nope"), nil }
+	if _, err := ResolveWorks(ctx, bad, "https://x/api.php", []string{"x"}); err == nil {
+		t.Error("expected a decode error")
+	}
+	ok := func(context.Context, string) ([]byte, error) { return []byte(resolveSample), nil }
+	if _, err := ResolveWorks(ctx, ok, "://bad-url", []string{"x"}); err == nil {
+		t.Error("expected a url parse error")
+	}
+}
+
+// The resolution has to survive into the cache, or an offline `builder build`
+// could not find the work a series names.
+func TestResolutionRoundTripsThroughCache(t *testing.T) {
+	get := func(_ context.Context, _ string) ([]byte, error) { return []byte(sample), nil }
+	resolved := map[string]string{"葬送のフリーレン": "Q98642652"}
+	raw, ents, err := FetchEntities(context.Background(), get, "https://x/api.php", []string{"Q1"}, nil, resolved)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if got := ents.QIDForTitle("葬送のフリーレン"); got != "Q98642652" {
+		t.Errorf("QIDForTitle = %q", got)
+	}
+	reparsed, err := Parse(strings.NewReader(string(raw)))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if got := reparsed.QIDForTitle("葬送のフリーレン"); got != "Q98642652" {
+		t.Errorf("cache round-trip lost the resolution: %q", got)
+	}
+	if got := reparsed.QIDForTitle("知らない"); got != "" {
+		t.Errorf("unknown title should resolve to nothing, got %q", got)
 	}
 }

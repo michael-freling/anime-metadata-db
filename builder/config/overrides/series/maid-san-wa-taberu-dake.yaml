@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: maid-san-wa-taberu-dake
-  externalIds: { wikidataId: Q109512167 }  # メイドさんは食べるだけ
   titles:
     original: メイドさんは食べるだけ
     translations: { ja-Latn: Maid-san wa Taberu dake }

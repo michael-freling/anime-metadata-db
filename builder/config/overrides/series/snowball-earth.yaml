@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: snowball-earth
-  externalIds: { wikidataId: Q119999598 }  # スノウボールアース
   titles:
     original: スノウボールアース
     translations: { ja-Latn: Snowball Earth }

@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: goumon-baito-kun-no-nichijou
-  externalIds: { wikidataId: Q134443516 }  # 拷問バイトくんの日常
   titles:
     original: 拷問バイトくんの日常
     translations: { ja-Latn: Goumon Baito-kun no Nichijou }

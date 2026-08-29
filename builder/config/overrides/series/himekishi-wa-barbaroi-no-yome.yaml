@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: himekishi-wa-barbaroi-no-yome
-  externalIds: { wikidataId: Q126193087 }  # 姫騎士は蛮族の嫁
   titles:
     original: 姫騎士は蛮族の嫁
     translations: { ja-Latn: Himekishi wa Barbaroi no Yome }

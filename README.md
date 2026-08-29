@@ -32,7 +32,7 @@ AniList is **not** used: its ToS forbids storing or redistributing its content.
 
 - [`anime-offline-database`](https://github.com/manami-project/anime-offline-database) (ODbL + DbCL) — titles, season/year, episode counts, cross-IDs.
 - [`Anime-Lists/anime-lists`](https://github.com/Anime-Lists/anime-lists) (no stated licence; bare ID pairs) — AniDB↔TVDB mapping and movie-set grouping.
-- [Wikidata](https://www.wikidata.org) (CC0) — character & staff **names** (R2) and a series' English **title**, resolved by QID via the wbgetentities API.
+- [Wikidata](https://www.wikidata.org) (CC0) — character & staff **names** (R2) by authored QID, and a series' English **title** via the work its native title resolves to.
 
 The `anilistId` on each node is an identifier parsed out of the cross-reference
 URLs the offline database publishes — a join key into that ODbL source, not

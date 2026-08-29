@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: zombie-no-afureta-sekai-de-ore-dake-ga-osowarenai
-  externalIds: { wikidataId: Q109512224 }  # ゾンビのあふれた世界で俺だけが襲われない
   titles:
     original: ゾンビのあふれた世界で俺だけが襲われない
     translations: { ja-Latn: Zombie no Afureta Sekai de Ore dake ga Osowarenai }

@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: jingai-kyoushitsu-no-ningengirai-kyoushi
-  externalIds: { wikidataId: Q132182370 }  # 人外教室の人間嫌い教師
   titles:
     original: 人外教室の人間嫌い教師
     translations: { ja-Latn: Jingai Kyoushitsu no Ningengirai Kyoushi }

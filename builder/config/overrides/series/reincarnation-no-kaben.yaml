@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: reincarnation-no-kaben
-  externalIds: { wikidataId: Q55539782 }  # リィンカーネーションの花弁
   titles:
     original: リィンカーネーションの花弁
     translations: { ja-Latn: Reincarnation no Kaben }

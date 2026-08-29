@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: kaya-chan-wa-kowakunai
-  externalIds: { wikidataId: Q125307594 }  # カヤちゃんはコワくない
   titles:
     original: カヤちゃんはコワくない
     translations: { ja-Latn: Kaya-chan wa Kowakunai }

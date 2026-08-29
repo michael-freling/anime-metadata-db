@@ -6,9 +6,6 @@ series:
   titles:
     original: 葬送のフリーレン
     translations: { ja-Latn: Sousou no Frieren }
-  # The work in Wikidata, whose P1476 title claim supplies the English title.
-  # The open catalogues carry only the romanization; see docs/using-the-dataset.
-  externalIds: { wikidataId: Q98642652 }  # 葬送のフリーレン
   seasons:
     - id: sousou-no-frieren-s1
       number: 1

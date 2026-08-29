@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: haibara-kun-no-tsuyokute-seishun-new-game
-  externalIds: { wikidataId: Q134050700 }  # 灰原くんの強くて青春ニューゲーム
   titles:
     original: 灰原くんの強くて青春ニューゲーム
     translations: { ja-Latn: Haibara-kun no Tsuyokute Seishun New Game }

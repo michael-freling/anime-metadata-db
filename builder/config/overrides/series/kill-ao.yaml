@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: kill-ao
-  externalIds: { wikidataId: Q122758750 }  # キルアオ
   titles:
     original: キルアオ
     translations: { ja-Latn: Kill Ao }

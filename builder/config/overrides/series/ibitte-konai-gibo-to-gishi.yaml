@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: ibitte-konai-gibo-to-gishi
-  externalIds: { wikidataId: Q125554161 }  # いびってこない義母と義姉
   titles:
     original: いびってこない義母と義姉
     translations: { ja-Latn: Ibitte Konai Gibo to Gishi }

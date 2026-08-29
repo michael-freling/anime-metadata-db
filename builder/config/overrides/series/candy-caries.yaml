@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: candy-caries
-  externalIds: { wikidataId: Q140600982 }  # キャンディーカリエス
   titles:
     original: キャンディーカリエス
     translations: { ja-Latn: Candy Caries }

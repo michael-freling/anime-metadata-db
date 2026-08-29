@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: otonari-no-tenshi-sama-ni-itsunomanika-dame-ningen-ni
-  externalIds: { wikidataId: Q86740055 }  # お隣の天使様にいつの間にか駄目人間にされていた件
   titles:
     original: お隣の天使様にいつの間にか駄目人間にされていた件
     translations: { ja-Latn: Otonari no Tenshi-sama ni Itsunomanika Dame Ningen ni Sareteita Ken }

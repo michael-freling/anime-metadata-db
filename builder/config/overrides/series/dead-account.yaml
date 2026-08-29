@@ -3,7 +3,6 @@
 # into data/. Never hand-edit data/.
 series:
   id: dead-account
-  externalIds: { wikidataId: Q133269593 }  # デッドアカウント
   titles:
     original: デッドアカウント
     translations: { ja-Latn: Dead Account }
