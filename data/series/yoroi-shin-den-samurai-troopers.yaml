@@ -5,6 +5,8 @@ series:
     original: 鎧真伝サムライトルーパー
     translations:
       ja-Latn: Yoroi Shin Den Samurai Troopers
+  externalIds:
+    wikidataId: Q134875991
   seasons:
     - id: yoroi-shin-den-samurai-troopers-s1
       number: 1

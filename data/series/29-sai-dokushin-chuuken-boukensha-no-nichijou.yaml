@@ -4,7 +4,10 @@ series:
   titles:
     original: 29歳独身中堅冒険者の日常
     translations:
+      en: An Adventurer's Daily Grind at Age 29
       ja-Latn: 29-sai Dokushin Chuuken Boukensha no Nichijou
+  externalIds:
+    wikidataId: Q133854807
   seasons:
     - id: 29-sai-dokushin-chuuken-boukensha-no-nichijou-s1
       number: 1

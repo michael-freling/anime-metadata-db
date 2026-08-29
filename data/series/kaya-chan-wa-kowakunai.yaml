@@ -4,7 +4,10 @@ series:
   titles:
     original: カヤちゃんはコワくない
     translations:
+      en: Kaya-chan Isn't Scary
       ja-Latn: Kaya-chan wa Kowakunai
+  externalIds:
+    wikidataId: Q125307594
   seasons:
     - id: kaya-chan-wa-kowakunai-s1
       number: 1

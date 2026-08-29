@@ -4,7 +4,10 @@ series:
   titles:
     original: 異世界の沙汰は社畜次第
     translations:
+      en: The Other World's Books Depend on the Bean Counter
       ja-Latn: Isekai no Sata wa Shachiku Shidai
+  externalIds:
+    wikidataId: Q130748785
   seasons:
     - id: isekai-no-sata-wa-shachiku-shidai-s1
       number: 1

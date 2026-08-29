@@ -4,7 +4,10 @@ series:
   titles:
     original: 愛してるゲームを終わらせたい
     translations:
+      en: I Want to End This Love Game
       ja-Latn: Aishiteru Game wo Owarasetai
+  externalIds:
+    wikidataId: Q119293137
   seasons:
     - id: aishiteru-game-wo-owarasetai-s1
       number: 1

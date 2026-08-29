@@ -4,7 +4,10 @@ series:
   titles:
     original: うるわしの宵の月
     translations:
+      en: In the Clear Moonlit Dusk
       ja-Latn: Uruwashi no Yoi no Tsuki
+  externalIds:
+    wikidataId: Q107007043
   seasons:
     - id: uruwashi-no-yoi-no-tsuki-s1
       number: 1

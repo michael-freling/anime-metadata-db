@@ -4,7 +4,10 @@ series:
   titles:
     original: ゾンビのあふれた世界で俺だけが襲われない
     translations:
+      en: In a World Full of Zombies I'm the Only One Who Doesn't Get Attacked
       ja-Latn: Zombie no Afureta Sekai de Ore dake ga Osowarenai
+  externalIds:
+    wikidataId: Q109512224
   seasons:
     - id: zombie-no-afureta-sekai-de-ore-dake-ga-osowarenai-s1
       number: 1

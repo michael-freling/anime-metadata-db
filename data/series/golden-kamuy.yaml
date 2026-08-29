@@ -5,6 +5,8 @@ series:
     original: ゴールデンカムイ
     translations:
       ja-Latn: Golden Kamuy
+  externalIds:
+    wikidataId: Q19781419
   seasons:
     - id: golden-kamuy-s1
       number: 1

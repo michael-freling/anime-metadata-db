@@ -4,7 +4,10 @@ series:
   titles:
     original: シャンピニオンの魔女
     translations:
+      en: Champignon Witch
       ja-Latn: Champignon no Majo
+  externalIds:
+    wikidataId: Q131437080
   seasons:
     - id: champignon-no-majo-s1
       number: 1

@@ -5,6 +5,8 @@ series:
     original: 日本三國
     translations:
       ja-Latn: Nippon Sangoku
+  externalIds:
+    wikidataId: Q113159338
   seasons:
     - id: nippon-sangoku-s1
       number: 1

@@ -5,6 +5,8 @@ series:
     original: スノウボールアース
     translations:
       ja-Latn: Snowball Earth
+  externalIds:
+    wikidataId: Q119999598
   seasons:
     - id: snowball-earth-s1
       number: 1

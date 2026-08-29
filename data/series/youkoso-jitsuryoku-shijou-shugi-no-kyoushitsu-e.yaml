@@ -4,7 +4,10 @@ series:
   titles:
     original: ようこそ実力至上主義の教室へ
     translations:
+      en: Classroom of the Elite
       ja-Latn: Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e
+  externalIds:
+    wikidataId: Q24874162
   seasons:
     - id: youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-s1
       number: 1

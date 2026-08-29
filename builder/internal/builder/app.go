@@ -103,8 +103,18 @@ func (a *App) Init(ctx context.Context) error {
 }
 
 // ensureWikidata fetches Wikidata labels for every QID referenced by the
-// character overrides into the source cache. It is a no-op when the source is
-// unconfigured or no character override references a QID.
+// overrides into the source cache, and title claims for the works the series
+// name.
+//
+// A series names its work by resolution rather than by an authored id: it has
+// no AniList id to join on — it spans several, one per installment — so its own
+// native title is the only handle it has, and looking that up as a Japanese
+// Wikipedia article is what finds the entity. Doing it here means the dataset
+// stays a product of `init` and `build`, rather than of ids a human pasted into
+// overrides; an authored wikidataId still wins, for the cases the lookup gets
+// wrong or cannot reach.
+//
+// It is a no-op when the source is unconfigured or nothing references a QID.
 func (a *App) ensureWikidata(ctx context.Context, cfg config.Config) error {
 	src, ok := cfg.Sources[config.SourceWikidata]
 	if !ok || src.URL == "" {
@@ -114,11 +124,20 @@ func (a *App) ensureWikidata(ctx context.Context, cfg config.Config) error {
 	if err != nil {
 		return err
 	}
+	resolved, err := a.resolveSeriesWorks(ctx, src.URL, bundle)
+	if err != nil {
+		return err
+	}
 	qids := collectQIDs(bundle)
+	works := collectSeriesQIDs(bundle)
+	for _, qid := range resolved {
+		qids = append(qids, qid)
+		works = append(works, qid)
+	}
 	if len(qids) == 0 {
 		return nil
 	}
-	raw, entities, err := wikidata.FetchLabels(ctx, a.Fetcher.Get, src.URL, qids)
+	raw, entities, err := wikidata.FetchEntities(ctx, a.Fetcher.Get, src.URL, qids, works, resolved)
 	if err != nil {
 		return err
 	}
@@ -129,8 +148,128 @@ func (a *App) ensureWikidata(ctx context.Context, cfg config.Config) error {
 	return nil
 }
 
-// collectQIDs gathers every Wikidata QID referenced by the overrides: character
-// and per-appearance ids in the series files, and staff ids in the staff files.
+// resolveSeriesWorks looks up the Wikidata work each series names, for every
+// series whose override authored no wikidataId, and returns the native title →
+// QID map for those that resolved.
+//
+// What did not resolve is printed rather than swallowed. A silent 0 here would
+// read as "no English titles exist", when the truth is that a title matched no
+// article, or matched a disambiguation page — two different problems with two
+// different fixes, and neither visible from the dataset afterwards.
+func (a *App) resolveSeriesWorks(ctx context.Context, apiURL string, bundle overrides.Bundle) (map[string]string, error) {
+	// Keyed by title, because the title is the handle — so a title two series
+	// share is not a handle at all. Resolving it would give both the same work
+	// and one of them the other's English title, silently and with the tally
+	// still reading as if every series had resolved. Collect the ids behind each
+	// title so that case can be refused by name instead.
+	seriesByTitle := map[string][]string{}
+	var titles []string
+	var needing int
+	for _, o := range bundle.Series {
+		o.EachSeries(func(s *model.Series) {
+			if s.ExternalIDs.WikidataID != "" || s.Titles.Original == "" {
+				return
+			}
+			needing++
+			if _, seen := seriesByTitle[s.Titles.Original]; !seen {
+				titles = append(titles, s.Titles.Original)
+			}
+			seriesByTitle[s.Titles.Original] = append(seriesByTitle[s.Titles.Original], s.ID)
+		})
+	}
+	if len(titles) == 0 {
+		return nil, nil
+	}
+
+	var ambiguous []string
+	lookup := make([]string, 0, len(titles))
+	for _, t := range titles {
+		if len(seriesByTitle[t]) > 1 {
+			ambiguous = append(ambiguous, t)
+			continue
+		}
+		lookup = append(lookup, t)
+	}
+
+	results, err := wikidata.ResolveWorks(ctx, a.Fetcher.Get, apiURL, lookup)
+	if err != nil {
+		return nil, err
+	}
+	resolved := make(map[string]string, len(results))
+	unresolved := map[string]int{}
+	seenKinds := map[string]map[string]bool{}
+	for _, r := range results {
+		if r.Resolved() {
+			resolved[r.Title] = r.QID
+			continue
+		}
+		unresolved[r.Kind]++
+		if len(r.InstanceOf) > 0 {
+			if seenKinds[r.Kind] == nil {
+				seenKinds[r.Kind] = map[string]bool{}
+			}
+			for _, id := range r.InstanceOf {
+				seenKinds[r.Kind][id] = true
+			}
+		}
+	}
+	for _, t := range ambiguous {
+		unresolved[fmt.Sprintf("shared by %d series (%s), so the title cannot name one work; author externalIds.wikidataId",
+			len(seriesByTitle[t]), strings.Join(seriesByTitle[t], ", "))]++
+	}
+
+	// The denominator counts series, not titles. Counting distinct titles would
+	// collapse a collision into one and let the line read as complete while two
+	// series went unresolved — the very thing the collision check exists to
+	// surface.
+	fmt.Fprintf(a.Out, "resolved wikidata works: %d/%d series titles\n", len(resolved), needing)
+	for _, kind := range sortedKeys(unresolved) {
+		fmt.Fprintf(a.Out, "  %d unresolved: %s", unresolved[kind], kind)
+		// Naming the P31 values behind a refusal is what makes the allowlist
+		// extendable from the build output instead of by looking each title up
+		// on Wikidata again.
+		if ids := seenKinds[kind]; len(ids) > 0 {
+			seen := make([]string, 0, len(ids))
+			for id := range ids {
+				seen = append(seen, id)
+			}
+			sort.Strings(seen)
+			fmt.Fprintf(a.Out, " (P31 seen: %s)", strings.Join(seen, ", "))
+		}
+		fmt.Fprintln(a.Out)
+	}
+	return resolved, nil
+}
+
+// sortedKeys returns a map's keys in a fixed order, so two runs over the same
+// inputs print the same lines.
+func sortedKeys(m map[string]int) []string {
+	out := make([]string, 0, len(m))
+	for k := range m {
+		out = append(out, k)
+	}
+	sort.Strings(out)
+	return out
+}
+
+// collectSeriesQIDs gathers the QIDs a series names — the works whose P1476
+// title claim the build reads. They are a separate list because claims are
+// fetched only where they are read; see wikidata.FetchEntities.
+func collectSeriesQIDs(bundle overrides.Bundle) []string {
+	var qids []string
+	for _, o := range bundle.Series {
+		o.EachSeries(func(s *model.Series) {
+			if s.ExternalIDs.WikidataID != "" {
+				qids = append(qids, s.ExternalIDs.WikidataID)
+			}
+		})
+	}
+	return qids
+}
+
+// collectQIDs gathers every Wikidata QID referenced by the overrides: series,
+// character and per-appearance ids in the series files, and staff ids in the
+// staff files.
 func collectQIDs(bundle overrides.Bundle) []string {
 	var qids []string
 	add := func(id string) {
@@ -139,6 +278,7 @@ func collectQIDs(bundle overrides.Bundle) []string {
 		}
 	}
 	for _, o := range bundle.Series {
+		o.EachSeries(func(s *model.Series) { add(s.ExternalIDs.WikidataID) })
 		for _, c := range o.Cast() {
 			add(c.ExternalIDs.WikidataID)
 			for _, ap := range c.Appearances {

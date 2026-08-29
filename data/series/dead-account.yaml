@@ -5,6 +5,8 @@ series:
     original: デッドアカウント
     translations:
       ja-Latn: Dead Account
+  externalIds:
+    wikidataId: Q133269593
   seasons:
     - id: dead-account-s1
       number: 1

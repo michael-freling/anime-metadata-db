@@ -4,7 +4,10 @@ series:
   titles:
     original: 青のミブロ
     translations:
+      en: The Blue Wolves of Mibu
       ja-Latn: Ao no Miburo
+  externalIds:
+    wikidataId: Q116865404
   seasons:
     - id: ao-no-miburo-s1
       number: 1

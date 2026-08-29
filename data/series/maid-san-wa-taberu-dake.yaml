@@ -4,7 +4,10 @@ series:
   titles:
     original: メイドさんは食べるだけ
     translations:
+      en: The Food Diary of Miss Maid
       ja-Latn: Maid-san wa Taberu dake
+  externalIds:
+    wikidataId: Q109512167
   seasons:
     - id: maid-san-wa-taberu-dake-s1
       number: 1

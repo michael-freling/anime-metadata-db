@@ -4,7 +4,10 @@ series:
   titles:
     original: 氷の城壁
     translations:
+      en: The Ramparts of Ice
       ja-Latn: Koori no Jouheki
+  externalIds:
+    wikidataId: Q124048215
   seasons:
     - id: koori-no-jouheki-s1
       number: 1

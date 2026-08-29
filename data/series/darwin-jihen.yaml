@@ -4,7 +4,10 @@ series:
   titles:
     original: ダーウィン事変
     translations:
+      en: The Darwin Incident
       ja-Latn: Darwin Jihen
+  externalIds:
+    wikidataId: Q110128384
   seasons:
     - id: darwin-jihen-s1
       number: 1

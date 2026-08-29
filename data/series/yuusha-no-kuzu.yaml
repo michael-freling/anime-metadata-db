@@ -4,7 +4,10 @@ series:
   titles:
     original: 勇者のクズ
     translations:
+      en: Scum of the Brave
       ja-Latn: Yuusha no Kuzu
+  externalIds:
+    wikidataId: Q132409102
   seasons:
     - id: yuusha-no-kuzu-s1
       number: 1

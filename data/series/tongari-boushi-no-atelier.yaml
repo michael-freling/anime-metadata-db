@@ -4,7 +4,10 @@ series:
   titles:
     original: とんがり帽子のアトリエ
     translations:
+      en: Witch Hat Atelier
       ja-Latn: Tongari Boushi no Atelier
+  externalIds:
+    wikidataId: Q56346242
   seasons:
     - id: tongari-boushi-no-atelier-s1
       number: 1

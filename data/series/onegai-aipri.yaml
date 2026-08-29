@@ -5,6 +5,8 @@ series:
     original: おねがいアイプリ
     translations:
       ja-Latn: Onegai AiPri
+  externalIds:
+    wikidataId: Q138479505
   seasons:
     - id: onegai-aipri-s1
       number: 1

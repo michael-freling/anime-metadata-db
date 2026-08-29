@@ -5,6 +5,8 @@ series:
     original: クラスで2番目に可愛い女の子と友だちになった
     translations:
       en: I Made Friends with the Second Prettiest Girl in My Class
+  externalIds:
+    wikidataId: Q118218345
   seasons:
     - id: second-prettiest-girl-in-class-s1
       number: 1

@@ -9,6 +9,8 @@ franchise:
     - id: fate-stay-night
       titles:
         original: Fate/stay night
+      externalIds:
+        wikidataId: Q857823
       seasons:
         - id: fate-stay-night-s1
           number: 1
@@ -84,6 +86,8 @@ franchise:
     - id: fate-zero
       titles:
         original: Fate/Zero
+      externalIds:
+        wikidataId: Q1141789
       seasons:
         - id: fate-zero-s1
           number: 1
@@ -158,6 +162,8 @@ franchise:
     - id: fate-strange-fake
       titles:
         original: Fate/strange Fake
+      externalIds:
+        wikidataId: Q11200035
       seasons:
         - id: fate-strange-fake-s1
           number: 1

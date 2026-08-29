@@ -4,7 +4,10 @@ series:
   titles:
     original: FX戦士くるみちゃん
     translations:
+      en: FX Fighter Kurumi-chan
       ja-Latn: FX Senshi Kurumi-chan
+  externalIds:
+    wikidataId: Q111233765
   seasons:
     - id: fx-senshi-kurumi-chan-s1
       number: 1

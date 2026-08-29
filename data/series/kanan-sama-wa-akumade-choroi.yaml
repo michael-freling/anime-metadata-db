@@ -4,7 +4,10 @@ series:
   titles:
     original: カナン様はあくまでチョロい
     translations:
+      en: Mistress Kanan Is Devilishly Easy
       ja-Latn: Kanan-sama wa Akumade Choroi
+  externalIds:
+    wikidataId: Q124496871
   seasons:
     - id: kanan-sama-wa-akumade-choroi-s1
       number: 1

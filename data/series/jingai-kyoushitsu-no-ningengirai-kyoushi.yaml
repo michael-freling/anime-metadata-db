@@ -4,7 +4,10 @@ series:
   titles:
     original: 人外教室の人間嫌い教師
     translations:
+      en: A Misanthrope Teaches a Class for Demi-Humans
       ja-Latn: Jingai Kyoushitsu no Ningengirai Kyoushi
+  externalIds:
+    wikidataId: Q132182370
   seasons:
     - id: jingai-kyoushitsu-no-ningengirai-kyoushi-s1
       number: 1

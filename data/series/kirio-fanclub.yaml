@@ -5,6 +5,8 @@ series:
     original: 霧尾ファンクラブ
     translations:
       ja-Latn: Kirio Fanclub
+  externalIds:
+    wikidataId: Q130303268
   seasons:
     - id: kirio-fanclub-s1
       number: 1

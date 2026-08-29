@@ -74,12 +74,44 @@ Each node stores a `titles` block: the native-script `original` plus
 request; when reading the YAML directly you get every language.
 
 `en` means an English **title** and `ja-Latn` means the Japanese one
-*romanized*. They are different facts and are kept apart: `kami-no-shizuku` is
-`神の雫` with `ja-Latn: Kami no Shizuku` and no `en` at all, while `demon-slayer`
-is `鬼滅の刃` with both `ja-Latn: Kimetsu no Yaiba` and `en: Demon Slayer`. Only 5
-of the 152 series carry an English title, because that is a fact a human has to
-supply — the open catalogues carry the romanization, and an auto-filled title is
-therefore `original` + `ja` + `ja-Latn`, never `en`.
+*romanized*. They are different facts and are kept apart: `jujutsu-kaisen` is
+`呪術廻戦` with `ja-Latn: Jujutsu Kaisen` and no `en` at all — nobody translated
+that title, they transliterated it — while `demon-slayer` is `鬼滅の刃` with both
+`ja-Latn: Kimetsu no Yaiba` and `en: Demon Slayer`. 61 of the 152 series carry
+an English title.
+
+The open anime catalogues do not record that fact. anime-offline-database has
+one title field, which holds the romanization, and a `synonyms` bag with no
+language tags at all — for `葬送のフリーレン` it carries four English strings, of
+which one is the licensed title and three are literal glosses, and nothing
+distinguishes them. So a title auto-filled from *it* is `original` + `ja` +
+`ja-Latn`, never `en`.
+
+The English title comes from Wikidata instead. A **series** is the one node with
+no id to join on — it spans several AniList entries, one per installment — so
+`builder init` finds its work by looking the native `original` up as a Japanese
+Wikipedia article, keeping the match only when the entity says it is a kind of
+work. The builder then fills `en` from that entity's `P1476` title claim, or its
+English label where it has no claim, and records the work as
+`externalIds.wikidataId`. This is why `sousou-no-frieren` carries
+`en: Frieren: Beyond Journey's End` rather than its romanization.
+
+Nothing about that is authored. 61 of the 152 series get an English title from
+`builder init && builder build` and no other step; an `externalIds.wikidataId`
+written into an override exists only to correct a resolution that is wrong, and
+overrides it when present.
+
+Two rules bound that fill. A candidate that turns out to be the title we already
+hold, respelled, is refused rather than stored: `Hyakki Yakōshō` is the `ja-Latn`
+`Hyakki Yakou Shou` with macrons, and `Golden Kamuy` is a Latin-script original
+the label merely repeats. And an authored `en` always wins. A series naming no
+work simply has none, and the API falls back to the romanization. Seasons,
+movies and specials are not filled this way: they have no Wikidata id, only an
+AniList one.
+
+`builder init` prints what did not resolve and why — a title matching no
+article and a title matching a disambiguation page are different problems with
+different fixes, and neither is visible from the dataset afterwards.
 
 Two edges are worth knowing. A title written in Latin script with no
 native-script form is neither an English title nor a romanization — it is the

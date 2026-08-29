@@ -4,7 +4,10 @@ series:
   titles:
     original: クジマ歌えば家ほろろ
     translations:
+      en: 'Kujima: Why Sing, When You Can Warble?'
       ja-Latn: Kujima Utaeba Ie Hororo
+  externalIds:
+    wikidataId: Q123052418
   seasons:
     - id: kujima-utaeba-ie-hororo-s1
       number: 1

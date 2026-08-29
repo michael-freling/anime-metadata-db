@@ -5,6 +5,8 @@ series:
     original: 一畳間まんきつ暮らし!
     translations:
       ja-Latn: Ichijouma Mankitsugurashi!
+  externalIds:
+    wikidataId: Q135244132
   seasons:
     - id: ichijouma-mankitsugurashi-s1
       number: 1

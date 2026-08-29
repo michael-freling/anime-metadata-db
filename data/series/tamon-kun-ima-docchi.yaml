@@ -4,7 +4,10 @@ series:
   titles:
     original: 多聞くん今どっち!?
     translations:
+      en: Tamon's B-Side
       ja-Latn: Tamon-kun Ima Docchi!?
+  externalIds:
+    wikidataId: Q116825658
   seasons:
     - id: tamon-kun-ima-docchi-s1
       number: 1

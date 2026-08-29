@@ -4,7 +4,10 @@ series:
   titles:
     original: ニワトリ・ファイター
     translations:
+      en: Rooster Fighter
       ja-Latn: Niwatori Fighter
+  externalIds:
+    wikidataId: Q106647301
   seasons:
     - id: niwatori-fighter-s1
       number: 1

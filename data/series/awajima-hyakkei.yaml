@@ -4,7 +4,10 @@ series:
   titles:
     original: 淡島百景
     translations:
+      en: Scenes From Awajima
       ja-Latn: Awajima Hyakkei
+  externalIds:
+    wikidataId: Q106839534
   seasons:
     - id: awajima-hyakkei-s1
       number: 1

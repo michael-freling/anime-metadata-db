@@ -4,7 +4,10 @@ series:
   titles:
     original: 神の庭付き楠木邸
     translations:
+      en: Kusunoki's Garden of Gods
       ja-Latn: Kami no Niwatsuki Kusunoki-tei
+  externalIds:
+    wikidataId: Q132631899
   seasons:
     - id: kami-no-niwatsuki-kusunoki-tei-s1
       number: 1

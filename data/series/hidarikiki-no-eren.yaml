@@ -4,7 +4,10 @@ series:
   titles:
     original: 左ききのエレン
     translations:
+      en: Eren the Southpaw
       ja-Latn: Hidarikiki no Eren
+  externalIds:
+    wikidataId: Q48756019
   seasons:
     - id: hidarikiki-no-eren-s1
       number: 1

@@ -5,6 +5,8 @@ series:
     original: 杖と剣のウィストリア
     translations:
       en: 'Wistoria: Wand and Sword'
+  externalIds:
+    wikidataId: Q124356871
   seasons:
     - id: wistoria-s1
       number: 1

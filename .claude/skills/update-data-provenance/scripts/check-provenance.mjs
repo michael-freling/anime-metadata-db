@@ -132,7 +132,12 @@ function schemaFields() {
     // Defs that appear under many kinds of node where what fills them differs
     // by node — always name the parent, even in a schema file where there
     // happens to be only one, so the paths mean the same thing across files.
-    const ALWAYS_QUALIFY = new Set(['externalIds'])
+    //
+    // seriesExternalIds has a single parent and would otherwise be reported as
+    // a bare `externalIds.*`, colliding with the shared def's paths and letting
+    // a row written for one vouch for the other. It is the narrowed shape a
+    // series gets, admitting only wikidataId.
+    const ALWAYS_QUALIFY = new Set(['externalIds', 'seriesExternalIds'])
 
     const labelsFor = (def) => {
       // An opaque parent is documented as a single row, so it contributes no

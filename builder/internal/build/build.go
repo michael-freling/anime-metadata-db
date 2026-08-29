@@ -80,9 +80,10 @@ func (b *Builder) Build(o overrides.Override) (model.Record, *Report, error) {
 	return rec, report, nil
 }
 
-// buildSeries fills facts for every node of a series and, when numbered,
-// assigns a continuous absoluteNumber.
+// buildSeries fills the series' own title, then facts for every node under it,
+// and when numbered assigns a continuous absoluteNumber.
 func (b *Builder) buildSeries(s *model.Series, numbered bool, report *Report) error {
+	b.fillSeriesTitle(s, report)
 	for i := range s.Seasons {
 		if err := b.fillSeason(&s.Seasons[i], report); err != nil {
 			return err

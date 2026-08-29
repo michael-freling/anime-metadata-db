@@ -5,6 +5,8 @@ series:
     original: 鬼滅の刃
     translations:
       en: Demon Slayer
+  externalIds:
+    wikidataId: Q24862683
   seasons:
     - id: demon-slayer-s1
       number: 1

@@ -4,7 +4,10 @@ series:
   titles:
     original: リィンカーネーションの花弁
     translations:
+      en: Petals of Reincarnation
       ja-Latn: Reincarnation no Kaben
+  externalIds:
+    wikidataId: Q55539782
   seasons:
     - id: reincarnation-no-kaben-s1
       number: 1

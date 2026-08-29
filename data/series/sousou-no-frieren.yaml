@@ -4,7 +4,10 @@ series:
   titles:
     original: 葬送のフリーレン
     translations:
+      en: 'Frieren: Beyond Journey''s End'
       ja-Latn: Sousou no Frieren
+  externalIds:
+    wikidataId: Q98642652
   seasons:
     - id: sousou-no-frieren-s1
       number: 1

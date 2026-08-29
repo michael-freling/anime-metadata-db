@@ -5,6 +5,8 @@ series:
     original: 呪術廻戦
     translations:
       ja-Latn: Jujutsu Kaisen
+  externalIds:
+    wikidataId: Q55522899
   seasons:
     - id: jujutsu-kaisen-s1
       number: 1

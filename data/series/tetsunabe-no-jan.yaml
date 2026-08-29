@@ -4,7 +4,10 @@ series:
   titles:
     original: 鉄鍋のジャン!
     translations:
+      en: Iron Wok Jan
       ja-Latn: Tetsunabe no Jan!
+  externalIds:
+    wikidataId: Q3119601
   seasons:
     - id: tetsunabe-no-jan-s1
       number: 1

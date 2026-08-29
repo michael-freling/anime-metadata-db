@@ -27,8 +27,8 @@ Attribution for the upstream sources lives in
 |---|---|---|
 | [anime-offline-database](https://github.com/manami-project/anime-offline-database) | **ODbL + DbCL** | titles, release year and season, episode counts, cross-provider ids |
 | [Anime-Lists](https://github.com/Anime-Lists/anime-lists) | *none stated* | the AniDB→TVDB id mapping (`tvdbId`), movie-set grouping hints |
-| [Wikidata](https://www.wikidata.org) | **CC0** | character and staff names — and nothing else; the cast structure around them is authored |
-| This project | ODbL (as published here) | franchise and series grouping, ids, season and part numbers, `absoluteNumber`, watch orders |
+| [Wikidata](https://www.wikidata.org) | **CC0** | character and staff names, and the English title of a series; the cast structure around them is authored |
+| This project | ODbL (as published here) | franchise and series grouping, ids, season and part numbers, `absoluteNumber`, watch orders, and every native-script title |
 
 The last row is the part with no upstream at all. Deciding that Fate/Zero and
 Fate/stay night are two series of one franchise, that Golden Kamuy's five
@@ -51,8 +51,9 @@ override supplied one.
 | Field | Filled from | Licence |
 |---|---|---|
 | `franchise.id`, `series.id`, `seasons[].id`, `movies[].id`, `specials[].id`, `*.characters[].id`, `staff[].id` | this project — authored slugs | ODbL |
-| `franchise.titles`, `series.titles` | this project — a franchise or series grouping has no upstream entry, so its title must be authored | ODbL |
-| `seasons[].titles`, `movies[].titles`, `specials[].titles` | anime-offline-database — `original` and `ja` from the native-script title (or the first native-script synonym), `en` from the Latin main title | ODbL + DbCL |
+| `franchise.titles` | this project — a franchise grouping has no upstream entry, so its title must be authored | ODbL |
+| `series.titles` | mixed, and the one row in this table whose licence differs *by key*. `original` and the romanization are this project's — a series spans several upstream entries and matches none of them, so nothing upstream can supply them, and the `original` is also the handle the work is found by. `translations.en` is Wikidata's: the `P1476` title claim of the resolved work, falling back to its `en` label, and refused where the candidate turns out to be the romanization respelled or where no romanization exists to check it against | ODbL, except `en` which is **CC0** |
+| `seasons[].titles`, `movies[].titles`, `specials[].titles` | anime-offline-database — `original` and `ja` from the native-script title (or the first native-script synonym), `ja-Latn` from the Latin main title. Never `en`: the Latin form upstream carries is a romanization, and its `synonyms` bag mixes every language untagged | ODbL + DbCL |
 | `seasons[].number`, `seasons[].part` | this project — editorial | ODbL |
 | `seasons[].releaseYear`, `seasons[].releaseSeason`, `movies[].releaseYear`, `specials[].releaseYear` | anime-offline-database — its `animeSeason` block | ODbL + DbCL |
 | `*.episodes[].airedNumber` | anime-offline-database — the episode *count*, expanded to 1…n; the same on a season and on a special | ODbL + DbCL |
@@ -60,7 +61,8 @@ override supplied one.
 | `*.externalIds.anilistId` | this project — the authored join key on whichever node carries it, cross-checked against anime-offline-database's `sources` array (see below) | ODbL |
 | `seasons[].externalIds.anidbId`, `movies[].externalIds.anidbId`, `specials[].externalIds.anidbId` | anime-offline-database — parsed from its `sources` array. Only these three node kinds are resolved against it | ODbL + DbCL |
 | `seasons[].externalIds.tvdbId`, `movies[].externalIds.tvdbId`, `specials[].externalIds.tvdbId` | Anime-Lists — the AniDB→TVDB map, keyed by the `anidbId` above | *none stated* |
-| `*.externalIds.wikidataId` | this project — the authored QID join key; in practice only cast nodes carry one | ODbL |
+| `*.characters[].externalIds.wikidataId`, `staff[].externalIds.wikidataId` | this project — the authored QID join key | ODbL |
+| `series.externalIds.wikidataId` | Wikidata — resolved at build time by looking the series' native title up as a Japanese Wikipedia article, and kept only when the entity's `P31` names a kind of work. An authored id overrides the resolution | **CC0** |
 | `*.characters[].names`, `staff[].names` | Wikidata — the `ja` label becomes `original` and `ja`, the `en` label becomes `en` | **CC0** |
 | `*.characters[].voiceActors[]`, `*.characters[].appearances[]` | this project — the cast structure is authored by hand in `builder/config/overrides/`, with Wikidata used as a research aid rather than extracted from | ODbL |
 | `movies[].alternateCutOf` | this project — Anime-Lists movie sets only *report* a grouping hint during a build; nothing from them is written to `data/` | ODbL |
@@ -77,6 +79,15 @@ authored, and the row above that names its source does not apply to it.
   `staff[].externalIds.anidbId`, `staff[].externalIds.tvdbId` — a cast node is
   resolved by QID against Wikidata, never against anime-offline-database or
   Anime-Lists, so the two rows above cover season, movie and special only.
+- `seasons[].externalIds.wikidataId`, `movies[].externalIds.wikidataId`,
+  `specials[].externalIds.wikidataId` — an installment is joined to Wikidata
+  through the series it belongs to, never on its own, so nothing fills these.
+A series is the exception to the paragraph below: it does *not* share the general
+`externalIds` shape. It spans several upstream entries and equals none of them,
+so it has no AniList, AniDB or TVDB id at all, and its schema (`seriesExternalIds`)
+admits only `wikidataId` — Wikidata being the one source that models the *work*
+rather than each broadcast run. An `anilistId` meant for a season is rejected
+there rather than accepted and dropped.
 - `specials[].absoluteNumber` and `specials[].episodes[].absoluteNumber` — the
   numbering pass builds its run from seasons and movies, so nothing under a
   special is ever numbered.
