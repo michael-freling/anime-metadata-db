@@ -63,6 +63,17 @@ upstream's own links move:
   wrong installment of the *right* show, which the first check cannot see
   because both entries are genuine siblings
 
+The build then says how much of that surface it could actually see:
+
+```
+anilistId corroboration: 112/225 checked against a sibling installment
+  113 unverifiable: the only installment of their series, so nothing to check against
+```
+
+A series with one installment has no sibling to be checked against, so its id is
+reported neither good nor bad — the honest output is silence, and the count is
+what stops that silence from reading as a pass.
+
 ## Adding an entry
 
 Create `builder/config/overrides/series/<id>.yaml` describing the structure, then run

@@ -213,3 +213,72 @@ func TestCheckSameWorkWithoutOfflineDatabase(t *testing.T) {
 		t.Errorf("no source means no check: %v", report.Notes)
 	}
 }
+
+// The counts are what tell a reader whether an empty report means "clean" or
+// "nothing was looked at", so they have to agree with the notes beside them: an
+// id that was checked and failed is neither corroborated nor unverifiable.
+func TestCheckSameWorkCoverageCounts(t *testing.T) {
+	b := New(Sources{Offline: offlineFrom(t, chainDB)})
+
+	linked := &Report{}
+	b.checkSameWork(&model.Series{ID: "chain", Seasons: []model.Season{
+		season("chain-s1", 1, 1, 2020, model.SeasonFall),
+		season("chain-s2", 2, 2, 2022, model.SeasonSpring),
+	}}, linked)
+	if got := linked.Coverage; got.Corroborated != 2 || got.Alone != 0 {
+		t.Errorf("both linked: %+v", got)
+	}
+
+	alone := &Report{}
+	b.checkSameWork(&model.Series{ID: "solo", Seasons: []model.Season{
+		season("solo-s1", 1, 99, 1999, model.SeasonFall),
+	}}, alone)
+	if got := alone.Coverage; got.Alone != 1 || got.Corroborated != 0 {
+		t.Errorf("lone installment: %+v", got)
+	}
+
+	// One good, one from another show: the good one counts, the bad one is
+	// reported rather than counted, so the summary cannot claim it passed.
+	mixed := &Report{}
+	b.checkSameWork(&model.Series{ID: "chain", Seasons: []model.Season{
+		season("chain-s1", 1, 1, 2020, model.SeasonFall),
+		season("chain-s2", 2, 2, 2022, model.SeasonSpring),
+		season("chain-s3", 3, 99, 1999, model.SeasonFall),
+	}}, mixed)
+	if got := mixed.Coverage; got.Corroborated != 2 || got.Alone != 0 {
+		t.Errorf("a failing id must not be counted as checked: %+v", got)
+	}
+	if got := mixed.Coverage.Total(); got != 2 {
+		t.Errorf("Total = %d, want only what was actually accounted for", got)
+	}
+	if len(mixed.Notes) != 1 {
+		t.Errorf("the failing id must still be reported: %v", mixed.Notes)
+	}
+}
+
+// Reports are merged per record before the build sums them, so the counts have
+// to survive a merge or the total silently under-reports.
+func TestReportMergeSumsCoverage(t *testing.T) {
+	a := &Report{Coverage: Coverage{Corroborated: 2, Alone: 1}}
+	a.Merge(&Report{Coverage: Coverage{Corroborated: 3, Alone: 4}})
+	if a.Coverage.Corroborated != 5 || a.Coverage.Alone != 5 {
+		t.Errorf("merge lost counts: %+v", a.Coverage)
+	}
+	if a.Coverage.Total() != 10 {
+		t.Errorf("Total = %d, want 10", a.Coverage.Total())
+	}
+	// A nil merge is a no-op elsewhere in Report and must stay one here.
+	a.Merge(nil)
+	if a.Coverage.Total() != 10 {
+		t.Errorf("nil merge changed the counts: %+v", a.Coverage)
+	}
+}
+
+// Coverage must not make a findings-free report look non-empty, or every clean
+// build would print a report block.
+func TestCoverageDoesNotMakeAReportNonEmpty(t *testing.T) {
+	r := &Report{Coverage: Coverage{Corroborated: 9}}
+	if !r.Empty() {
+		t.Error("counts alone are not findings")
+	}
+}

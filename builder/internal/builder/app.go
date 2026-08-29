@@ -479,6 +479,7 @@ func (a *App) build(cfg config.Config, ids []string) error {
 	// Validate every cast against the full id universe, then write what matches.
 	ctx := build.CharacterContext{R1: idx, Staff: staffIDs}
 	updated := 0
+	var coverage build.Coverage
 	for _, s := range seriesOut {
 		if err := build.ValidateCharacters(s.rec.Cast(), ctx); err != nil {
 			return fmt.Errorf("build %s: %w", s.o.ID(), err)
@@ -488,6 +489,7 @@ func (a *App) build(cfg config.Config, ids []string) error {
 			if err != nil {
 				return err
 			}
+			coverage.Add(s.report.Coverage)
 			updated += a.reportBuilt(wrote, s.o.Path, s.o.ID(), s.report)
 		}
 	}
@@ -524,8 +526,27 @@ func (a *App) build(cfg config.Config, ids []string) error {
 		updated += len(removed)
 	}
 
+	a.reportCoverage(coverage)
 	fmt.Fprintf(a.Out, "build complete: %d file(s) updated\n", updated)
 	return nil
+}
+
+// reportCoverage prints how much of the authored anilistId surface the checks
+// could actually see.
+//
+// A build whose report is empty is either clean or blind, and from the notes
+// alone the two are indistinguishable — the honest output for an id nothing can
+// corroborate is silence. This says which it was, so "no findings" can be read
+// as a result rather than an absence.
+func (a *App) reportCoverage(c build.Coverage) {
+	if c.Total() == 0 {
+		return
+	}
+	fmt.Fprintf(a.Out, "anilistId corroboration: %d/%d checked against a sibling installment\n",
+		c.Corroborated, c.Total())
+	if c.Alone > 0 {
+		fmt.Fprintf(a.Out, "  %d unverifiable: the only installment of their series, so nothing to check against\n", c.Alone)
+	}
 }
 
 // reportBuilt prints the built/report lines for one record and returns 1 if it

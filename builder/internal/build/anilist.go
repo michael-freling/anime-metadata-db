@@ -60,13 +60,19 @@ func (b *Builder) checkSameWork(s *model.Series, report *Report) {
 		// A lone installment has no sibling to be consistent with. Silent
 		// rather than noted: most of the catalogue's series have exactly one,
 		// and a line each saying "not checked" would drown the ones that found
-		// something.
+		// something. It is counted instead, so the build can say how much of
+		// the join-key surface went unchecked rather than implying it passed.
+		report.Coverage.Alone += len(ids)
 		return
 	}
 	for _, id := range sortedIntKeys(ids) {
 		if b.reachesSibling(id, ids) {
+			report.Coverage.Corroborated++
 			continue
 		}
+		// Not counted as corroborated: it was checked and failed, which the
+		// note says. Counting it either way would make the summary disagree
+		// with the line above it.
 		report.add(ids[id], "externalIds", fmt.Sprintf(
 			"anilistId %d is not linked to any other installment of %s in the offline database's relatedAnime graph; check it names the right entry",
 			id, s.ID))
