@@ -1,7 +1,7 @@
-// Package wikidata loads character/staff labels (names) from Wikidata, the one
-// CC0 source the build may redistribute. It resolves QIDs to their multilingual
-// labels via the wbgetentities API and caches the merged result for offline
-// builds.
+// Package wikidata loads names and titles from Wikidata, the one CC0 source the
+// build may redistribute. It resolves QIDs to their multilingual labels — and,
+// for the works a series names, to their P1476 title claims — via the
+// wbgetentities API, caching the merged result for offline builds.
 package wikidata
 
 import (
@@ -32,18 +32,95 @@ const languages = "en|ja|mul"
 // language.
 const multilingual = "mul"
 
+// titleProperty is P1476 ("title"), the language-tagged title of a work.
+//
+// It is read in preference to the English label because the two answer
+// different questions. A label names the *item* and follows Wikipedia's
+// shortest-unambiguous-name convention, so 葬送のフリーレン is labelled
+// "Frieren"; P1476 records the work's title, "Frieren: Beyond Journey's End".
+// Only about a quarter of the works we reference carry P1476, so the label
+// remains the fallback — but where both exist the claim is the better answer.
+const titleProperty = "P1476"
+
 // label is one localized label value.
 type label struct {
 	Language string `json:"language"`
 	Value    string `json:"value"`
 }
 
+// monolingualText is the datavalue of a monolingual-text claim such as P1476:
+// one string plus the language it is written in.
+type monolingualText struct {
+	Language string `json:"language"`
+	Text     string `json:"text"`
+}
+
+// statement is the part of a wbgetentities claim we read: the main snak's
+// monolingual-text value. Ranks, qualifiers and references are ignored.
+type statement struct {
+	MainSnak struct {
+		DataValue struct {
+			Value monolingualText `json:"value"`
+		} `json:"datavalue"`
+	} `json:"mainsnak"`
+}
+
+// claims holds every property unparsed, because a datavalue's shape depends on
+// its property: P1476 is a monolingual-text object, an external identifier is a
+// bare string, a date is another object again. Decoding the map into a single
+// Go type asserts they all look alike, and the first entity carrying an
+// identifier alongside its title fails the whole build. Only titleProperty is
+// ever decoded, and only into the type that property actually has.
+type claims map[string]json.RawMessage
+
 // rawEntity is the wbgetentities shape of a single entity. Missing is present
 // (as an empty string) when the entity id does not exist.
+//
+// Claims is what the API returns; Titles is the reduced form we cache. A full
+// claims block is ~75x the size of a labels one and almost all of it is
+// properties this build never reads, so FetchEntities distils Claims down to
+// the P1476 values and drops the rest before the cache is written. Parse
+// accepts either, so a cache written by an older builder still loads.
 type rawEntity struct {
-	ID      string           `json:"id"`
-	Labels  map[string]label `json:"labels,omitempty"`
-	Missing *string          `json:"missing,omitempty"`
+	ID      string            `json:"id"`
+	Labels  map[string]label  `json:"labels,omitempty"`
+	Claims  claims            `json:"claims,omitempty"`
+	Titles  map[string]string `json:"titles,omitempty"`
+	Missing *string           `json:"missing,omitempty"`
+}
+
+// titles reduces an entity's P1476 claims to a language-keyed map. A language
+// claimed twice keeps the first value, wbgetentities returning statements in
+// the order Wikidata ranks them.
+func (r rawEntity) titles() map[string]string {
+	if len(r.Titles) > 0 {
+		return r.Titles
+	}
+	raw, ok := r.Claims[titleProperty]
+	if !ok {
+		return nil
+	}
+	var statements []statement
+	if err := json.Unmarshal(raw, &statements); err != nil {
+		// A shape we do not recognise is not worth failing a build over: the
+		// English label still answers, and the report says the fill came from
+		// it.
+		return nil
+	}
+	out := make(map[string]string, len(statements))
+	for _, st := range statements {
+		v := st.MainSnak.DataValue.Value
+		if v.Language == "" || v.Text == "" {
+			continue
+		}
+		if _, seen := out[v.Language]; !seen {
+			out[v.Language] = v.Text
+		}
+	}
+	if len(out) == 0 {
+		return nil
+	}
+	return out
 }
 
 // rawResponse is the wbgetentities response (and our cache file) shape.
@@ -94,10 +171,12 @@ func withoutDisambiguator(label string) string {
 	}
 }
 
-// Entity is a resolved Wikidata entity: its QID and labels by language code.
+// Entity is a resolved Wikidata entity: its QID, labels by language code, and
+// (for a work) its P1476 titles by language code.
 type Entity struct {
 	QID    string
 	Labels map[string]string
+	Titles map[string]string
 }
 
 // Entities is an indexed set of resolved entities.
@@ -107,7 +186,8 @@ type Entities struct {
 
 // Parse reads a wbgetentities-shaped JSON document (a single
 // {"entities": {...}} object) and indexes it by QID. Entities flagged
-// "missing" are skipped.
+// "missing" are skipped. Titles are read from either the raw "claims" the API
+// returns or the reduced "titles" the cache stores.
 func Parse(r io.Reader) (*Entities, error) {
 	var raw rawResponse
 	if err := json.NewDecoder(r).Decode(&raw); err != nil {
@@ -138,7 +218,7 @@ func Parse(r io.Reader) (*Entities, error) {
 			}
 			delete(labels, multilingual)
 		}
-		e.byQID[qid] = Entity{QID: qid, Labels: labels}
+		e.byQID[qid] = Entity{QID: qid, Labels: labels, Titles: re.titles()}
 	}
 	return e, nil
 }
@@ -165,27 +245,55 @@ func (e *Entities) Len() int { return len(e.byQID) }
 // Getter fetches the body of a URL.
 type Getter func(ctx context.Context, url string) ([]byte, error)
 
-// FetchLabels resolves the given QIDs to their labels via the wbgetentities API
-// (batched), and returns the merged cache bytes plus the parsed Entities. QIDs
-// are de-duplicated and sorted for deterministic output.
-func FetchLabels(ctx context.Context, get Getter, apiURL string, qids []string) ([]byte, *Entities, error) {
-	unique := dedupeSorted(qids)
-	merged := make(map[string]rawEntity, len(unique))
-	for _, batch := range chunk(unique, batchSize) {
-		reqURL, err := buildURL(apiURL, batch)
-		if err != nil {
-			return nil, nil, err
+// FetchEntities resolves QIDs via the wbgetentities API (batched), returning
+// the merged cache bytes plus the parsed Entities. QIDs are de-duplicated and
+// sorted for deterministic output.
+//
+// titleQIDs are the works whose P1476 title claims are wanted as well as their
+// labels; they need not be a subset of qids. The two are requested separately
+// because claims cannot be filtered by property server-side: a claims response
+// is ~75x the size of a labels one, and only the works — a tenth of the QIDs
+// this fetches, the rest being characters and staff — carry a title to read.
+// Everything not in titleQIDs is fetched exactly as before.
+func FetchEntities(ctx context.Context, get Getter, apiURL string, qids, titleQIDs []string) ([]byte, *Entities, error) {
+	wantTitles := make(map[string]bool, len(titleQIDs))
+	for _, id := range titleQIDs {
+		wantTitles[id] = true
+	}
+	var labelsOnly, withTitles []string
+	for _, id := range dedupeSorted(append(append([]string{}, qids...), titleQIDs...)) {
+		if wantTitles[id] {
+			withTitles = append(withTitles, id)
+		} else {
+			labelsOnly = append(labelsOnly, id)
 		}
-		body, err := get(ctx, reqURL)
-		if err != nil {
-			return nil, nil, fmt.Errorf("fetch wikidata labels: %w", err)
-		}
-		var raw rawResponse
-		if err := json.Unmarshal(body, &raw); err != nil {
-			return nil, nil, fmt.Errorf("decode wikidata response: %w", err)
-		}
-		for qid, re := range raw.Entities {
-			merged[qid] = re
+	}
+
+	merged := make(map[string]rawEntity, len(labelsOnly)+len(withTitles))
+	for _, group := range []struct {
+		ids    []string
+		claims bool
+	}{{labelsOnly, false}, {withTitles, true}} {
+		for _, batch := range chunk(group.ids, batchSize) {
+			reqURL, err := buildURL(apiURL, batch, group.claims)
+			if err != nil {
+				return nil, nil, err
+			}
+			body, err := get(ctx, reqURL)
+			if err != nil {
+				return nil, nil, fmt.Errorf("fetch wikidata entities: %w", err)
+			}
+			var raw rawResponse
+			if err := json.Unmarshal(body, &raw); err != nil {
+				return nil, nil, fmt.Errorf("decode wikidata response: %w", err)
+			}
+			for qid, re := range raw.Entities {
+				// Distil the claims to the one property we read, so the cache
+				// holds a title rather than every statement Wikidata has about
+				// the work.
+				re.Titles, re.Claims = re.titles(), nil
+				merged[qid] = re
+			}
 		}
 	}
 	out, err := json.MarshalIndent(rawResponse{Entities: merged}, "", "  ")
@@ -199,15 +307,20 @@ func FetchLabels(ctx context.Context, get Getter, apiURL string, qids []string) 
 	return out, entities, nil
 }
 
-// buildURL constructs a wbgetentities request URL for a batch of QIDs.
-func buildURL(apiURL string, ids []string) (string, error) {
+// buildURL constructs a wbgetentities request URL for a batch of QIDs, asking
+// for claims as well as labels when the batch holds works we want titles for.
+func buildURL(apiURL string, ids []string, claims bool) (string, error) {
 	u, err := url.Parse(apiURL)
 	if err != nil {
 		return "", fmt.Errorf("parse wikidata api url: %w", err)
 	}
 	q := u.Query()
 	q.Set("action", "wbgetentities")
-	q.Set("props", "labels")
+	props := "labels"
+	if claims {
+		props = "labels|claims"
+	}
+	q.Set("props", props)
 	q.Set("languages", languages)
 	q.Set("format", "json")
 	q.Set("ids", strings.Join(ids, "|"))

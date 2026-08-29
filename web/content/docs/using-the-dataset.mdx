@@ -76,10 +76,23 @@ request; when reading the YAML directly you get every language.
 `en` means an English **title** and `ja-Latn` means the Japanese one
 *romanized*. They are different facts and are kept apart: `kami-no-shizuku` is
 `神の雫` with `ja-Latn: Kami no Shizuku` and no `en` at all, while `demon-slayer`
-is `鬼滅の刃` with both `ja-Latn: Kimetsu no Yaiba` and `en: Demon Slayer`. Only 5
-of the 152 series carry an English title, because that is a fact a human has to
-supply — the open catalogues carry the romanization, and an auto-filled title is
-therefore `original` + `ja` + `ja-Latn`, never `en`.
+is `鬼滅の刃` with both `ja-Latn: Kimetsu no Yaiba` and `en: Demon Slayer`. Four
+of the 152 series carry an English title today.
+
+That number is low because the open anime catalogues do not record the fact.
+anime-offline-database has one title field, which holds the romanization, and a
+`synonyms` bag with no language tags at all — for `葬送のフリーレン` it carries
+four English strings, of which one is the licensed title and three are literal
+glosses, and nothing distinguishes them. So a title auto-filled from it is
+`original` + `ja` + `ja-Latn`, never `en`.
+
+A **series** can name the work it is in Wikidata, via
+`externalIds.wikidataId`, and the builder then fills `en` from that entity's
+`P1476` title claim — or its English label, where the entity has no claim. This
+is why `sousou-no-frieren` carries `en: Frieren: Beyond Journey's End` and not
+its romanization. A series that names no work simply has no `en`, and an
+authored one always wins. Seasons, movies and specials are not filled this way:
+they have no Wikidata id, only an AniList one.
 
 Two edges are worth knowing. A title written in Latin script with no
 native-script form is neither an English title nor a romanization — it is the

@@ -33,14 +33,17 @@ dataset should reach their own view on that.
 Wikidata — https://www.wikidata.org
 Dedicated to the public domain under CC0 1.0.
 
-Contributes the character and staff names in data/, resolved from the entity
-named by each node's wikidataId: the Japanese label becomes the original name,
-the English label the en translation.
+Contributes two things, both resolved from the entity named by a node's
+wikidataId. The character and staff names in data/: the Japanese label becomes
+the original name, the English label the en translation. And the English title
+of a series: its P1476 ("title") claim in English, or the entity's English
+label where it carries no such claim.
 
 That is all it contributes. The cast structure — which character appears in
-which series, and who voices them — is not extracted from Wikidata. It is
-authored by hand in config/overrides/, with Wikidata used as a research aid.
-Wikidata is credited for the names it supplies, not for that structure.
+which series, and who voices them — is not extracted from Wikidata. Neither is
+any series' native title or romanization. Both are authored by hand in
+config/overrides/, with Wikidata used as a research aid. Wikidata is credited
+for the names and titles it supplies, not for that structure.
 
 CC0 imposes no conditions. Wikidata is credited here because saying where facts
 came from is worth doing, not because it is required.

@@ -32,6 +32,10 @@ init: ## Download the pinned open-data sources into the cache
 build-data: ## Rebuild data/ from the sources and the builder's overrides
 	cd builder && go run ./cmd/builder build
 
+.PHONY: propose-qids
+propose-qids: ## Propose a Wikidata QID for each series that has none (review every row; never writes)
+	cd builder && go run ./cmd/proposeqids
+
 .PHONY: index
 index: ## Regenerate data/index.tsv from data/ (run after any dataset change)
 	cd api && go run ./cmd/index -root ..

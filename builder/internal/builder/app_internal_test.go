@@ -3,10 +3,13 @@ package builder
 import (
 	"os"
 	"path/filepath"
+	"slices"
 	"testing"
 
 	"github.com/michael-freling/anime-metadata-db/builder/internal/config"
+	"github.com/michael-freling/anime-metadata-db/builder/internal/overrides"
 	"github.com/michael-freling/anime-metadata-db/builder/internal/testsupport"
+	"github.com/michael-freling/anime-metadata-db/internal/model"
 )
 
 func TestWriteFileError(t *testing.T) {
@@ -58,5 +61,41 @@ func write(t *testing.T, path, content string) {
 	t.Helper()
 	if err := os.WriteFile(path, []byte(content), 0o644); err != nil {
 		t.Fatal(err)
+	}
+}
+
+// A series names a work in Wikidata, so its QID must reach both the fetch (or
+// the entity is never downloaded) and the claims group (or it is downloaded
+// without the title claim the build reads). A franchise file nests its series
+// one level deeper, which is exactly where an id gets missed.
+func TestCollectQIDsIncludesSeries(t *testing.T) {
+	bundle := overrides.Bundle{Series: []overrides.Override{
+		{Series: &model.Series{
+			ID:          "sousou-no-frieren",
+			ExternalIDs: model.ExternalIDs{WikidataID: "Q98642652"},
+			Characters: []model.Character{{
+				ID:          "aura",
+				ExternalIDs: model.ExternalIDs{WikidataID: "Q123029593"},
+			}},
+		}},
+		{Franchise: &model.Franchise{
+			ID: "fate",
+			Series: []model.Series{
+				{ID: "fate-zero", ExternalIDs: model.ExternalIDs{WikidataID: "Q1"}},
+				{ID: "fate-stay-night"}, // no id: contributes nothing, breaks nothing
+			},
+		}},
+	}}
+
+	all := collectQIDs(bundle)
+	for _, want := range []string{"Q98642652", "Q123029593", "Q1"} {
+		if !slices.Contains(all, want) {
+			t.Errorf("collectQIDs missing %s: %v", want, all)
+		}
+	}
+
+	series := collectSeriesQIDs(bundle)
+	if !slices.Equal(series, []string{"Q98642652", "Q1"}) {
+		t.Errorf("collectSeriesQIDs = %v, want the series ids only", series)
 	}
 }

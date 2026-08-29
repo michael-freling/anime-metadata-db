@@ -103,8 +103,9 @@ func (a *App) Init(ctx context.Context) error {
 }
 
 // ensureWikidata fetches Wikidata labels for every QID referenced by the
-// character overrides into the source cache. It is a no-op when the source is
-// unconfigured or no character override references a QID.
+// overrides into the source cache, and title claims for the works the series
+// name. It is a no-op when the source is unconfigured or no override
+// references a QID.
 func (a *App) ensureWikidata(ctx context.Context, cfg config.Config) error {
 	src, ok := cfg.Sources[config.SourceWikidata]
 	if !ok || src.URL == "" {
@@ -118,7 +119,7 @@ func (a *App) ensureWikidata(ctx context.Context, cfg config.Config) error {
 	if len(qids) == 0 {
 		return nil
 	}
-	raw, entities, err := wikidata.FetchLabels(ctx, a.Fetcher.Get, src.URL, qids)
+	raw, entities, err := wikidata.FetchEntities(ctx, a.Fetcher.Get, src.URL, qids, collectSeriesQIDs(bundle))
 	if err != nil {
 		return err
 	}
@@ -129,8 +130,24 @@ func (a *App) ensureWikidata(ctx context.Context, cfg config.Config) error {
 	return nil
 }
 
-// collectQIDs gathers every Wikidata QID referenced by the overrides: character
-// and per-appearance ids in the series files, and staff ids in the staff files.
+// collectSeriesQIDs gathers the QIDs a series names — the works whose P1476
+// title claim the build reads. They are a separate list because claims are
+// fetched only where they are read; see wikidata.FetchEntities.
+func collectSeriesQIDs(bundle overrides.Bundle) []string {
+	var qids []string
+	for _, o := range bundle.Series {
+		o.EachSeries(func(s *model.Series) {
+			if s.ExternalIDs.WikidataID != "" {
+				qids = append(qids, s.ExternalIDs.WikidataID)
+			}
+		})
+	}
+	return qids
+}
+
+// collectQIDs gathers every Wikidata QID referenced by the overrides: series,
+// character and per-appearance ids in the series files, and staff ids in the
+// staff files.
 func collectQIDs(bundle overrides.Bundle) []string {
 	var qids []string
 	add := func(id string) {
@@ -139,6 +156,7 @@ func collectQIDs(bundle overrides.Bundle) []string {
 		}
 	}
 	for _, o := range bundle.Series {
+		o.EachSeries(func(s *model.Series) { add(s.ExternalIDs.WikidataID) })
 		for _, c := range o.Cast() {
 			add(c.ExternalIDs.WikidataID)
 			for _, ap := range c.Appearances {

@@ -34,6 +34,21 @@ type Override struct {
 	Numbered []string `yaml:"numbered,omitempty"`
 }
 
+// EachSeries calls fn for every Series the override authors, at either level:
+// the standalone series, or each series of the franchise. It mirrors
+// model.Record.EachSeries, so a node reachable at build time is reachable when
+// the overrides are read for the ids they reference.
+func (o Override) EachSeries(fn func(*model.Series)) {
+	switch {
+	case o.Series != nil:
+		fn(o.Series)
+	case o.Franchise != nil:
+		for i := range o.Franchise.Series {
+			fn(&o.Franchise.Series[i])
+		}
+	}
+}
+
 // Cast returns every character the override authors, at either level: nested
 // under the franchise (one spanning its series) and under each series it holds.
 // It mirrors model.Record.Cast, and for the same reason — the ids it misses are

@@ -144,6 +144,7 @@
       "properties": {
         "id": { "$ref": "#/$defs/id" },
         "titles": { "$ref": "#/$defs/title" },
+        "externalIds": { "$ref": "#/$defs/externalIds" },
         "seasons": { "type": "array", "items": { "$ref": "#/$defs/season" } },
         "movies": { "type": "array", "items": { "$ref": "#/$defs/movie" } },
         "specials": { "type": "array", "items": { "$ref": "#/$defs/special" } },

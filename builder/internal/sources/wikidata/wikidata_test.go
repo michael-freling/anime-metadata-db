@@ -58,7 +58,7 @@ func TestLoad(t *testing.T) {
 	}
 }
 
-func TestFetchLabels(t *testing.T) {
+func TestFetchEntities(t *testing.T) {
 	var calls int
 	var seenIDs []string
 	get := func(_ context.Context, url string) ([]byte, error) {
@@ -67,7 +67,7 @@ func TestFetchLabels(t *testing.T) {
 		seenIDs = append(seenIDs, url)
 		return []byte(sample), nil
 	}
-	raw, ents, err := FetchLabels(context.Background(), get, "https://www.wikidata.org/w/api.php", []string{"Q2", "Q1", "Q1"})
+	raw, ents, err := FetchEntities(context.Background(), get, "https://www.wikidata.org/w/api.php", []string{"Q2", "Q1", "Q1"}, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -86,7 +86,7 @@ func TestFetchLabels(t *testing.T) {
 	}
 }
 
-func TestFetchLabelsBatches(t *testing.T) {
+func TestFetchEntitiesBatches(t *testing.T) {
 	var calls int
 	get := func(_ context.Context, _ string) ([]byte, error) {
 		calls++
@@ -96,7 +96,7 @@ func TestFetchLabelsBatches(t *testing.T) {
 	for i := range ids {
 		ids[i] = "Q" + string(rune('A'+i%26)) + string(rune('0'+i/26))
 	}
-	if _, _, err := FetchLabels(context.Background(), get, "https://x/api.php", ids); err != nil {
+	if _, _, err := FetchEntities(context.Background(), get, "https://x/api.php", ids, nil); err != nil {
 		t.Fatal(err)
 	}
 	if calls != 2 {
@@ -104,12 +104,12 @@ func TestFetchLabelsBatches(t *testing.T) {
 	}
 }
 
-func TestFetchLabelsEmpty(t *testing.T) {
+func TestFetchEntitiesEmpty(t *testing.T) {
 	get := func(_ context.Context, _ string) ([]byte, error) {
 		t.Fatal("should not fetch for empty qids")
 		return nil, nil
 	}
-	raw, ents, err := FetchLabels(context.Background(), get, "https://x/api.php", nil)
+	raw, ents, err := FetchEntities(context.Background(), get, "https://x/api.php", nil, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -118,21 +118,21 @@ func TestFetchLabelsEmpty(t *testing.T) {
 	}
 }
 
-func TestFetchLabelsErrors(t *testing.T) {
+func TestFetchEntitiesErrors(t *testing.T) {
 	ctx := context.Background()
 	// Transport error.
 	failGet := func(_ context.Context, _ string) ([]byte, error) { return nil, errors.New("boom") }
-	if _, _, err := FetchLabels(ctx, failGet, "https://x/api.php", []string{"Q1"}); err == nil {
+	if _, _, err := FetchEntities(ctx, failGet, "https://x/api.php", []string{"Q1"}, nil); err == nil {
 		t.Error("expected fetch error")
 	}
 	// Bad JSON response.
 	badGet := func(_ context.Context, _ string) ([]byte, error) { return []byte("{nope"), nil }
-	if _, _, err := FetchLabels(ctx, badGet, "https://x/api.php", []string{"Q1"}); err == nil {
+	if _, _, err := FetchEntities(ctx, badGet, "https://x/api.php", []string{"Q1"}, nil); err == nil {
 		t.Error("expected decode error")
 	}
 	// Bad api URL.
 	okGet := func(_ context.Context, _ string) ([]byte, error) { return []byte(sample), nil }
-	if _, _, err := FetchLabels(ctx, okGet, "://bad-url", []string{"Q1"}); err == nil {
+	if _, _, err := FetchEntities(ctx, okGet, "://bad-url", []string{"Q1"}, nil); err == nil {
 		t.Error("expected url parse error")
 	}
 }
@@ -219,5 +219,120 @@ func TestParseDropsWikidataDisambiguators(t *testing.T) {
 		if e.Labels[tc.lang] != tc.want {
 			t.Errorf("%s %s = %q, want %q", tc.qid, tc.lang, e.Labels[tc.lang], tc.want)
 		}
+	}
+}
+
+// claimsSample is a wbgetentities response carrying P1476 the way the API
+// returns it: a monolingual-text value per language, wrapped in a statement.
+const claimsSample = `{"entities":{"Q98642652":{"id":"Q98642652",
+  "labels":{"en":{"language":"en","value":"Frieren"},"ja":{"language":"ja","value":"葬送のフリーレン"}},
+  "claims":{"P1476":[
+    {"mainsnak":{"datavalue":{"value":{"text":"葬送のフリーレン","language":"ja"}}}},
+    {"mainsnak":{"datavalue":{"value":{"text":"Frieren: Beyond Journey's End","language":"en"}}}}],
+   "P31":[{"mainsnak":{"datavalue":{"value":{"text":"ignored","language":"en"}}}}]}}}}`
+
+// A work's title claim is read alongside its label, and the two stay distinct:
+// the label is the item's name, the claim is the work's title.
+func TestParseTitleClaims(t *testing.T) {
+	e, err := Parse(strings.NewReader(claimsSample))
+	if err != nil {
+		t.Fatal(err)
+	}
+	ent, ok := e.Lookup("Q98642652")
+	if !ok {
+		t.Fatal("entity not indexed")
+	}
+	if got := ent.Titles["en"]; got != "Frieren: Beyond Journey's End" {
+		t.Errorf("en title = %q", got)
+	}
+	if got := ent.Titles["ja"]; got != "葬送のフリーレン" {
+		t.Errorf("ja title = %q", got)
+	}
+	if got := ent.Labels["en"]; got != "Frieren" {
+		t.Errorf("label must not be replaced by the claim: %q", got)
+	}
+}
+
+// An entity with no P1476 has no titles, rather than an empty map that would
+// read as "looked up and found nothing".
+func TestParseWithoutTitleClaims(t *testing.T) {
+	e, err := Parse(strings.NewReader(sample))
+	if err != nil {
+		t.Fatal(err)
+	}
+	ent, _ := e.Lookup("Q1")
+	if ent.Titles != nil {
+		t.Errorf("expected no titles, got %v", ent.Titles)
+	}
+}
+
+// The cache stores the distilled titles, not the claims block it came from: a
+// full claims response is ~75x a labels one, nearly all of it properties this
+// build never reads.
+func TestFetchEntitiesReducesClaimsInCache(t *testing.T) {
+	get := func(_ context.Context, _ string) ([]byte, error) { return []byte(claimsSample), nil }
+	raw, ents, err := FetchEntities(context.Background(), get, "https://x/api.php", nil, []string{"Q98642652"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if strings.Contains(string(raw), "mainsnak") || strings.Contains(string(raw), "P31") {
+		t.Errorf("cache kept the raw claims block:\n%s", raw)
+	}
+	if !strings.Contains(string(raw), "Beyond Journey") {
+		t.Errorf("cache lost the title: %s", raw)
+	}
+	// The reduced cache must parse back to the same entity, so a build reading
+	// a cache and one reading a fresh response agree.
+	reparsed, err := Parse(strings.NewReader(string(raw)))
+	if err != nil {
+		t.Fatal(err)
+	}
+	a, _ := ents.Lookup("Q98642652")
+	b, _ := reparsed.Lookup("Q98642652")
+	if a.Titles["en"] != b.Titles["en"] {
+		t.Errorf("cache round-trip changed the title: %q vs %q", a.Titles["en"], b.Titles["en"])
+	}
+}
+
+// Claims are requested only for the works whose titles are read. Asking for
+// them over every character and staff entity would multiply the download for a
+// field those entities do not have.
+func TestFetchEntitiesRequestsClaimsOnlyForTitleQIDs(t *testing.T) {
+	byURL := map[string]bool{}
+	get := func(_ context.Context, url string) ([]byte, error) {
+		byURL[url] = true
+		return []byte(`{"entities":{}}`), nil
+	}
+	if _, _, err := FetchEntities(context.Background(), get, "https://x/api.php",
+		[]string{"Q1"}, []string{"Q2"}); err != nil {
+		t.Fatal(err)
+	}
+	if len(byURL) != 2 {
+		t.Fatalf("expected a labels batch and a claims batch, got %d requests", len(byURL))
+	}
+	for url := range byURL {
+		wantClaims := strings.Contains(url, "Q2")
+		if got := strings.Contains(url, "claims"); got != wantClaims {
+			t.Errorf("url %s: claims=%v, want %v", url, got, wantClaims)
+		}
+	}
+}
+
+// A QID named as both a plain id and a title id is fetched once, with claims.
+func TestFetchEntitiesDeduplicatesAcrossGroups(t *testing.T) {
+	var calls int
+	get := func(_ context.Context, url string) ([]byte, error) {
+		calls++
+		if !strings.Contains(url, "claims") {
+			t.Errorf("the shared id must be fetched with claims: %s", url)
+		}
+		return []byte(`{"entities":{}}`), nil
+	}
+	if _, _, err := FetchEntities(context.Background(), get, "https://x/api.php",
+		[]string{"Q1"}, []string{"Q1"}); err != nil {
+		t.Fatal(err)
+	}
+	if calls != 1 {
+		t.Errorf("expected 1 request, got %d", calls)
 	}
 }

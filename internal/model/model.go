@@ -202,7 +202,7 @@ func (t Title) IsZero() bool {
 
 // ExternalIDs cross-maps a node to external databases. AnilistID is the primary
 // join key for media and R2 nodes; WikidataID (a QID) is the build-time key for
-// characters and staff. All are optional.
+// characters, staff and series. All are optional.
 type ExternalIDs struct {
 	AnilistID  int    `yaml:"anilistId,omitempty"`
 	AnidbID    int    `yaml:"anidbId,omitempty"`
@@ -334,11 +334,17 @@ type Special struct {
 
 // Series is the base unit: one storyline / continuity.
 type Series struct {
-	ID       string    `yaml:"id"`
-	Titles   Title     `yaml:"titles,omitempty"`
-	Seasons  []Season  `yaml:"seasons,omitempty"`
-	Movies   []Movie   `yaml:"movies,omitempty"`
-	Specials []Special `yaml:"specials,omitempty"`
+	ID     string `yaml:"id"`
+	Titles Title  `yaml:"titles,omitempty"`
+	// ExternalIDs names the work this series is, so the build can fill facts a
+	// grouping node has no other way to reach. Only WikidataID is read: a
+	// series spans several AniList entries (one per installment) and so has no
+	// AniList id of its own, but it is one work in Wikidata, and that entity
+	// carries the English title no open catalogue records in a usable form.
+	ExternalIDs ExternalIDs `yaml:"externalIds,omitempty"`
+	Seasons     []Season    `yaml:"seasons,omitempty"`
+	Movies      []Movie     `yaml:"movies,omitempty"`
+	Specials    []Special   `yaml:"specials,omitempty"`
 	// Characters is the cast nested under this standalone series (R2).
 	Characters []Character `yaml:"characters,omitempty"`
 }
