@@ -122,8 +122,11 @@ func TestProposeQIDsRows(t *testing.T) {
 	if strings.Contains(got, "already-known") {
 		t.Errorf("re-proposed a series that already names a work:\n%s", got)
 	}
-	if !strings.Contains(got, "5/6 series matched") {
-		t.Errorf("summary should count matches:\n%s", got)
+	// 5 of the 6 resolved to an entity, but only 3 to a work: the
+	// disambiguation page and the unrecognised kind are counted separately
+	// rather than inflating the figure a reviewer skims.
+	if !strings.Contains(got, "3/6 series matched a Wikidata work (2 more resolved to something that is not one)") {
+		t.Errorf("summary should count works, not entities:\n%s", got)
 	}
 }
 
@@ -236,7 +239,7 @@ func TestLookupWorksIgnoresNonEnglishTitleClaims(t *testing.T) {
 	  "labels":{"en":{"value":"Fallback"}},
 	  "claims":{"P1476":[{"mainsnak":{"datavalue":{"value":{"text":"日本語","language":"ja"}}}}]}}}}`
 	app := New(t.TempDir(), &stubFetcher{body: jaOnly}, &bytes.Buffer{})
-	got, err := app.lookupWorks(context.Background(), "https://x/api.php", []string{"x"})
+	got, _, err := app.lookupWorks(context.Background(), "https://x/api.php", []string{"x"})
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -245,6 +248,46 @@ func TestLookupWorksIgnoresNonEnglishTitleClaims(t *testing.T) {
 	}
 	if got[0].title != "" || got[0].candidate() != "Fallback" {
 		t.Errorf("a ja claim must not answer as English: %+v", got[0])
+	}
+}
+
+// MediaWiki can answer a requested title under a normalized form of it. The
+// sitelink then carries the normalized string, and keying only on that would
+// report a found entity as "no article" — a real hit hidden behind a line
+// saying we looked and found nothing.
+func TestProposeQIDsFollowsTitleNormalization(t *testing.T) {
+	const normalizedResponse = `{
+	  "normalized":{"n":[{"from":"青のミブロ ","to":"青のミブロ"}]},
+	  "entities":{"Q116865404":{
+	    "sitelinks":{"jawiki":{"title":"青のミブロ"}},
+	    "labels":{"en":{"value":"The Blue Wolves of Mibu"}},
+	    "claims":{"P31":[{"mainsnak":{"datavalue":{"value":{"id":"Q21198342"}}}}]}}}}`
+	dir := proposalRepo(t, "series:\n  id: ao-no-miburo\n  titles: { original: \"青のミブロ \" }\n")
+	var out bytes.Buffer
+	if err := New(dir, &stubFetcher{body: normalizedResponse}, &out).ProposeQIDs(context.Background(), 0); err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(out.String(), "Q116865404") {
+		t.Errorf("a normalized match was reported as unmatched:\n%s", out.String())
+	}
+}
+
+// The tally counts works, not entities: a disambiguation page came back, but
+// it is not something a series can take a title from.
+func TestProposeQIDsCountsWorksNotEntities(t *testing.T) {
+	dir := proposalRepo(t, `series:
+  id: mao
+  titles: { original: マオ }
+`)
+	var out bytes.Buffer
+	if err := New(dir, &stubFetcher{body: wikidataProposalResponse}, &out).ProposeQIDs(context.Background(), 0); err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(out.String(), "0/1 series matched a Wikidata work") {
+		t.Errorf("a disambiguation page must not count as a matched work:\n%s", out.String())
+	}
+	if !strings.Contains(out.String(), "1 more resolved to something that is not one") {
+		t.Errorf("the rejected entity should still be accounted for:\n%s", out.String())
 	}
 }
 

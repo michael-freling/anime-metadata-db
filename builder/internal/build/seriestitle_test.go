@@ -125,6 +125,53 @@ func TestFillSeriesTitleRefusesRomanization(t *testing.T) {
 	}
 }
 
+// The guard compares a candidate against a Latin-script form the title already
+// holds. A native-script original with no romanization gives it nothing to
+// compare, and "Ao no Miburo" is then indistinguishable from "The Blue Wolves
+// of Mibu" — so nothing is filled, rather than a romanization being asserted as
+// a translation on no evidence.
+func TestFillSeriesTitleWithNothingToCheckAgainst(t *testing.T) {
+	ents := wikidataFrom(t, `{"entities":{"Q1":{"id":"Q1",
+	  "labels":{"en":{"language":"en","value":"Ao no Miburo"}}}}}`)
+	b := New(Sources{Wikidata: ents})
+	s := &model.Series{
+		ID:          "ao-no-miburo",
+		ExternalIDs: model.ExternalIDs{WikidataID: "Q1"},
+		Titles:      model.Title{Original: "青のミブロ"}, // no romanization authored yet
+	}
+	report := &Report{}
+	b.fillSeriesTitle(s, report)
+
+	if got, ok := s.Titles.Translations["en"]; ok {
+		t.Errorf("filled an unverifiable candidate as English: %q", got)
+	}
+	if !strings.Contains(report.String(), "no romanization to check it against") {
+		t.Errorf("the refusal must say why it could not check: %v", report.Notes)
+	}
+}
+
+// The same title with a romanization present is checkable again, and a real
+// translation goes in. Without this the fix above would read as "never fill a
+// native-script series", which is not what it does.
+func TestFillSeriesTitleCheckableOnceRomanized(t *testing.T) {
+	ents := wikidataFrom(t, `{"entities":{"Q1":{"id":"Q1",
+	  "labels":{"en":{"language":"en","value":"The Blue Wolves of Mibu"}}}}}`)
+	b := New(Sources{Wikidata: ents})
+	s := &model.Series{
+		ID:          "ao-no-miburo",
+		ExternalIDs: model.ExternalIDs{WikidataID: "Q1"},
+		Titles: model.Title{
+			Original:     "青のミブロ",
+			Translations: map[string]string{"ja-Latn": "Ao no Miburo"},
+		},
+	}
+	b.fillSeriesTitle(s, &Report{})
+
+	if got := s.Titles.Translations["en"]; got != "The Blue Wolves of Mibu" {
+		t.Errorf("en = %q", got)
+	}
+}
+
 // An authored title is the author saying what the English title is, and no
 // source overrides it. Without this a rebuild would be non-idempotent for any
 // series whose Wikidata entry disagrees with the override.

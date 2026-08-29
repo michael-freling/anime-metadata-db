@@ -106,29 +106,48 @@ func (a *App) ProposeQIDs(ctx context.Context, limit int) error {
 		for _, t := range targets[i:end] {
 			titles = append(titles, t.original)
 		}
-		found, err := a.lookupWorks(ctx, src.URL, titles)
+		found, normalized, err := a.lookupWorks(ctx, src.URL, titles)
 		if err != nil {
 			return err
 		}
 		for _, p := range found {
 			byTitle[p.jaWikiTitle] = p
 		}
+		// MediaWiki may answer a requested title under a normalized form of it,
+		// and the sitelink then carries the normalized string. Keying only on
+		// what came back would report a found entity as "no article", hiding a
+		// real hit behind a wording that says we looked and there was nothing.
+		for from, to := range normalized {
+			if p, ok := byTitle[to]; ok {
+				byTitle[from] = p
+			}
+		}
 	}
 
 	fmt.Fprintln(a.Out, "series\tqid\tmatched_ja_title\ten_candidate\tsource\tverdict")
-	var matched int
+	var works, rejected int
 	for _, t := range targets {
 		p, ok := byTitle[t.original]
 		if !ok {
 			fmt.Fprintf(a.Out, "%s\t-\t%s\t-\t-\tno jawiki article with this exact title; look it up by hand\n", t.id, t.original)
 			continue
 		}
-		matched++
+		// Counted by what it resolved to, not by whether anything came back: a
+		// disambiguation page is an entity, and calling it a matched work would
+		// overstate the tally in the one direction a reviewer skims for.
+		if p.isWork() {
+			works++
+		} else {
+			rejected++
+		}
 		fmt.Fprintf(a.Out, "%s\t%s\t%s\t%s\t%s\t%s\n",
 			t.id, p.qid, t.original, orElse(p.candidate(), "-"), p.source(), p.verdict())
 	}
-	fmt.Fprintf(a.Out, "\n%d/%d series matched a Wikidata work. Review every row before pasting a qid into an override.\n",
-		matched, len(targets))
+	fmt.Fprintf(a.Out, "\n%d/%d series matched a Wikidata work", works, len(targets))
+	if rejected > 0 {
+		fmt.Fprintf(a.Out, " (%d more resolved to something that is not one)", rejected)
+	}
+	fmt.Fprintln(a.Out, ". Review every row before pasting a qid into an override.")
 	return nil
 }
 
@@ -156,6 +175,20 @@ func (p proposal) source() string {
 	return "-"
 }
 
+// isWork reports whether the entity is a kind of work this catalogue can take
+// a title from. A disambiguation page never is.
+func (p proposal) isWork() bool {
+	for _, of := range p.instanceOf {
+		if of == disambiguationPage {
+			return false
+		}
+		if _, ok := workTypes[of]; ok {
+			return true
+		}
+	}
+	return false
+}
+
 // verdict states what the build would do with this match, so the reviewer reads
 // a conclusion rather than re-deriving one per row.
 func (p proposal) verdict() string {
@@ -179,7 +212,7 @@ func (p proposal) verdict() string {
 
 // lookupWorks resolves Japanese Wikipedia article titles to their Wikidata
 // entities, asking for the labels, title claims and P31 the verdict needs.
-func (a *App) lookupWorks(ctx context.Context, apiURL string, titles []string) ([]proposal, error) {
+func (a *App) lookupWorks(ctx context.Context, apiURL string, titles []string) ([]proposal, map[string]string, error) {
 	q := url.Values{}
 	q.Set("action", "wbgetentities")
 	q.Set("sites", "jawiki")
@@ -191,9 +224,12 @@ func (a *App) lookupWorks(ctx context.Context, apiURL string, titles []string) (
 
 	body, err := a.Fetcher.Get(ctx, apiURL+"?"+q.Encode())
 	if err != nil {
-		return nil, fmt.Errorf("wikidata lookup: %w", err)
+		return nil, nil, fmt.Errorf("wikidata lookup: %w", err)
 	}
 	var raw struct {
+		Normalized struct {
+			N []struct{ From, To string } `json:"n"`
+		} `json:"normalized"`
 		Entities map[string]struct {
 			Missing  *string                           `json:"missing"`
 			Labels   map[string]struct{ Value string } `json:"labels"`
@@ -208,7 +244,11 @@ func (a *App) lookupWorks(ctx context.Context, apiURL string, titles []string) (
 		} `json:"entities"`
 	}
 	if err := json.Unmarshal(body, &raw); err != nil {
-		return nil, fmt.Errorf("decode wikidata response: %w", err)
+		return nil, nil, fmt.Errorf("decode wikidata response: %w", err)
+	}
+	normalized := make(map[string]string, len(raw.Normalized.N))
+	for _, n := range raw.Normalized.N {
+		normalized[n.From] = n.To
 	}
 
 	var out []proposal
@@ -235,7 +275,7 @@ func (a *App) lookupWorks(ctx context.Context, apiURL string, titles []string) (
 			out = append(out, p)
 		}
 	}
-	return out, nil
+	return out, normalized, nil
 }
 
 // orElse returns a, or b when a is empty.

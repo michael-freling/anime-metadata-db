@@ -52,6 +52,18 @@ func (b *Builder) fillSeriesTitle(s *model.Series, report *Report) {
 		report.add(entity, "titles", fmt.Sprintf("Wikidata %s has no English title or label; en left unset", qid))
 		return
 	}
+	// The guard works by comparing the candidate against a Latin-script form we
+	// already hold. With none — a native-script original and no romanization —
+	// there is nothing to compare against, and "Ao no Miburo" and "The Blue
+	// Wolves of Mibu" are indistinguishable to it. Filling anyway would assert
+	// a translation on no evidence, which is the fact this whole split exists
+	// to keep honest, so it reports instead and leaves en to a human.
+	if len(latinForms(s.Titles)) == 0 {
+		report.add(entity, "titles", fmt.Sprintf(
+			"Wikidata %s offers %q as English, but this title carries no romanization to check it against, so a translation cannot be told from one; en left unset — author a romanization, or the English title itself",
+			qid, en))
+		return
+	}
 	if existing, isRendering := isRomanizationOf(en, s.Titles); isRendering {
 		report.add(entity, "titles", fmt.Sprintf(
 			"Wikidata %s offers %q as English, but it is a rendering of %q rather than a translation of it; en left unset",
@@ -97,22 +109,27 @@ func isRomanizationOf(candidate string, t model.Title) (string, bool) {
 	if want == "" {
 		return "", false
 	}
-	for _, existing := range append([]string{t.Original}, romanizations(t)...) {
-		if existing != "" && foldRomanization(existing) == want {
+	for _, existing := range latinForms(t) {
+		if foldRomanization(existing) == want {
 			return existing, true
 		}
 	}
 	return "", false
 }
 
-// romanizations returns every Latin-script rendering the title carries, in a
-// fixed order.
-func romanizations(t model.Title) []string {
+// latinForms returns every Latin-script rendering of the title already stored,
+// in a fixed order: its romanizations, plus the original when the original is
+// itself written in Latin script. These are what a candidate is checked
+// against, and a title with none of them cannot be checked at all.
+func latinForms(t model.Title) []string {
 	var out []string
 	for _, code := range sortedCodes(t) {
 		if t.Translations[code] != "" && model.IsRomanization(code) {
 			out = append(out, t.Translations[code])
 		}
+	}
+	if foldRomanization(t.Original) != "" {
+		out = append(out, t.Original)
 	}
 	return out
 }
