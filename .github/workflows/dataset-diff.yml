@@ -1,0 +1,92 @@
+name: Dataset diff
+
+# What a change to the builder does to the dataset, computed rather than
+# claimed. Both sides are rebuilt from their own overrides with their own
+# builder, so a code change that alters the output shows up even when data/ was
+# never recommitted — which a diff of the committed files cannot see.
+on:
+  pull_request:
+    paths:
+      - 'builder/**'
+      - 'internal/**'
+      - 'data/**'
+      - '.github/workflows/dataset-diff.yml'
+
+# One comment, edited in place. Without this a busy pull request accumulates a
+# diff per push and the newest is the hardest to find.
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: dataset-diff-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  diff:
+    name: What this changes in data/
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the pull request
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Fetch the sources
+        run: make init
+
+      - name: Build the dataset as this branch produces it
+        run: make build-data
+
+      # The base is built in a worktree so it gets its own overrides *and* its
+      # own builder. Rebuilding the base with this branch's builder would
+      # compare the overrides only, and miss the case this exists for.
+      #
+      # .sources is symlinked rather than re-fetched: it is gitignored, so the
+      # worktree has none, and downloading 60MB twice to compare against itself
+      # is the same inputs at twice the cost.
+      - name: Build the dataset as the base branch produces it
+        run: |
+          set -euo pipefail
+          git worktree add /tmp/base "origin/${{ github.base_ref }}"
+          ln -s "$PWD/.sources" /tmp/base/.sources
+          make -C /tmp/base build-data
+
+      - name: Compare
+        run: |
+          set -euo pipefail
+          {
+            echo '<!-- dataset-diff -->'
+            echo '### Dataset diff'
+            echo
+            echo 'Both sides rebuilt from their own overrides with their own builder.'
+            echo
+            echo '```'
+            (cd builder && go run ./cmd/builder diff --base /tmp/base/data)
+            echo '```'
+          } > /tmp/diff.md
+          cat /tmp/diff.md
+
+      - name: Post it on the pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          # Find this job's own previous comment by its marker rather than by
+          # author: the token posts as github-actions, which other workflows
+          # also use, and editing one of theirs would destroy it.
+          existing=$(gh api "repos/${{ github.repository }}/issues/$PR/comments" \
+            --jq 'map(select(.body | contains("<!-- dataset-diff -->"))) | .[0].id // empty')
+          if [ -n "$existing" ]; then
+            gh api -X PATCH "repos/${{ github.repository }}/issues/comments/$existing" \
+              -F body=@/tmp/diff.md > /dev/null
+            echo "updated comment $existing"
+          else
+            gh pr comment "$PR" --body-file /tmp/diff.md
+          fi

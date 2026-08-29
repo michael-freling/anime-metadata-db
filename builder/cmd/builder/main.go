@@ -83,6 +83,25 @@ func newRootCmd(fetcher builder.Fetcher) *cobra.Command {
 				"since that shape usually means the wrong overrides directory)")
 	}
 
+	var diffBase string
+	diff := &cobra.Command{
+		Use:   "diff",
+		Short: "Compare the built dataset against another built copy of it",
+		Long: "Compare the built dataset against another built copy of it.\n\n" +
+			"--base names a data directory built from the branch being compared to, " +
+			"not a git ref: the comparison is over built output, so what the overrides " +
+			"and the builder would produce is what is compared, rather than whatever " +
+			"happens to be committed.",
+		Args: cobra.NoArgs,
+		RunE: func(cmd *cobra.Command, _ []string) error {
+			if diffBase == "" {
+				return fmt.Errorf("--base is required: the data directory to compare against")
+			}
+			return newApp(cmd).Diff(diffBase)
+		},
+	}
+	diff.Flags().StringVar(&diffBase, "base", "", "data directory built from the base branch")
+
 	root.AddCommand(
 		&cobra.Command{
 			Use:   "init",
@@ -94,6 +113,7 @@ func newRootCmd(fetcher builder.Fetcher) *cobra.Command {
 		},
 		build,
 		refresh,
+		diff,
 	)
 	return root
 }
