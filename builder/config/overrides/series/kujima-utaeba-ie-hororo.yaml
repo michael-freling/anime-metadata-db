@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: kujima-utaeba-ie-hororo
+  externalIds: { wikidataId: Q123052418 }  # クジマ歌えば家ほろろ
   titles:
     original: クジマ歌えば家ほろろ
     translations: { ja-Latn: Kujima Utaeba Ie Hororo }

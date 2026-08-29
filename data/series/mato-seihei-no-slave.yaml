@@ -4,7 +4,10 @@ series:
   titles:
     original: 魔都精兵のスレイブ
     translations:
+      en: Chained Soldier
       ja-Latn: Mato Seihei no Slave
+  externalIds:
+    wikidataId: Q85337200
   seasons:
     - id: mato-seihei-no-slave-s1
       number: 1

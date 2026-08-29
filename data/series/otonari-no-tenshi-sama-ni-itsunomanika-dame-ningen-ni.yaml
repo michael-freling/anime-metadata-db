@@ -4,7 +4,10 @@ series:
   titles:
     original: お隣の天使様にいつの間にか駄目人間にされていた件
     translations:
+      en: The Angel Next Door Spoils Me Rotten
       ja-Latn: Otonari no Tenshi-sama ni Itsunomanika Dame Ningen ni Sareteita Ken
+  externalIds:
+    wikidataId: Q86740055
   seasons:
     - id: otonari-no-tenshi-sama-ni-itsunomanika-dame-ningen-ni-s1
       number: 1

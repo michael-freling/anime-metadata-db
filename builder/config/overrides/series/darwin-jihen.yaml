@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: darwin-jihen
+  externalIds: { wikidataId: Q110128384 }  # ダーウィン事変
   titles:
     original: ダーウィン事変
     translations: { ja-Latn: Darwin Jihen }

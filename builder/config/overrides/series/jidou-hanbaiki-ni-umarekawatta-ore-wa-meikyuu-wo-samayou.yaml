@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: jidou-hanbaiki-ni-umarekawatta-ore-wa-meikyuu-wo-samayou
+  externalIds: { wikidataId: Q65075065 }  # 自動販売機に生まれ変わった俺は迷宮を彷徨う
   titles:
     original: 自動販売機に生まれ変わった俺は迷宮を彷徨う
     translations: { ja-Latn: Jidou Hanbaiki ni Umarekawatta Ore wa Meikyuu wo Samayou }

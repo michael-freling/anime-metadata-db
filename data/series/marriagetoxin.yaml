@@ -5,6 +5,8 @@ series:
     original: マリッジトキシン
     translations:
       ja-Latn: Marriagetoxin
+  externalIds:
+    wikidataId: Q112114773
   seasons:
     - id: marriagetoxin-s1
       number: 1

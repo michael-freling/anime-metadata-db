@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: eris-no-seihai
+  externalIds: { wikidataId: Q109258540 }  # エリスの聖杯
   titles:
     original: エリスの聖杯
     translations: { ja-Latn: Eris no Seihai }

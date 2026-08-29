@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: ponkotsu-fuuki-iin-to-skirt-take-ga-futekisetsu-na-jk-no
+  externalIds: { wikidataId: Q133836658 }  # ポンコツ風紀委員とスカート丈が不適切なJKの話
   titles:
     original: ポンコツ風紀委員とスカート丈が不適切なJKの話
     translations: { ja-Latn: Ponkotsu Fuuki Iin to Skirt-take ga Futekisetsu na JK no Hanashi }

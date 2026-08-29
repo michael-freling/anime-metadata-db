@@ -4,7 +4,10 @@ series:
   titles:
     original: 姫騎士は蛮族の嫁
     translations:
+      en: The Barbarian's Bride
       ja-Latn: Himekishi wa Barbaroi no Yome
+  externalIds:
+    wikidataId: Q126193087
   seasons:
     - id: himekishi-wa-barbaroi-no-yome-s1
       number: 1

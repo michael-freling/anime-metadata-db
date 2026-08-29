@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: golden-kamuy
+  externalIds: { wikidataId: Q19781419 }  # ゴールデンカムイ
   titles:
     original: ゴールデンカムイ
     translations: { ja-Latn: Golden Kamuy }

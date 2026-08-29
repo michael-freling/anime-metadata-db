@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e
+  externalIds: { wikidataId: Q24874162 }  # ようこそ実力至上主義の教室へ
   titles:
     original: ようこそ実力至上主義の教室へ
     translations: { ja-Latn: Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e }

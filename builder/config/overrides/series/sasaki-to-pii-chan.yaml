@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: sasaki-to-pii-chan
+  externalIds: { wikidataId: Q110157755 }  # 佐々木とピーちゃん
   titles:
     original: 佐々木とピーちゃん
     translations: { ja-Latn: Sasaki to Pii-chan }

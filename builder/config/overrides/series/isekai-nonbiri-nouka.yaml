@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: isekai-nonbiri-nouka
+  externalIds: { wikidataId: Q56421316 }  # 異世界のんびり農家
   titles:
     original: 異世界のんびり農家
     translations: { ja-Latn: Isekai Nonbiri Nouka }

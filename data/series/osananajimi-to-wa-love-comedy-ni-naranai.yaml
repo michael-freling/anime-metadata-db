@@ -4,7 +4,10 @@ series:
   titles:
     original: 幼馴染とはラブコメにならない
     translations:
+      en: You Can't Be in a Rom-Com with Your Childhood Friends!
       ja-Latn: Osananajimi to wa Love Comedy ni Naranai
+  externalIds:
+    wikidataId: Q132994694
   seasons:
     - id: osananajimi-to-wa-love-comedy-ni-naranai-s1
       number: 1

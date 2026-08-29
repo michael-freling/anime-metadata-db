@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: niwatori-fighter
+  externalIds: { wikidataId: Q106647301 }  # ニワトリ・ファイター
   titles:
     original: ニワトリ・ファイター
     translations: { ja-Latn: Niwatori Fighter }

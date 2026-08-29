@@ -4,7 +4,10 @@ series:
   titles:
     original: 魔法の姉妹ルルットリリィ
     translations:
+      en: Magical Sisters LuluttoLilly
       ja-Latn: Mahou no Shimai Lulutto Lilly
+  externalIds:
+    wikidataId: Q126936172
   seasons:
     - id: mahou-no-shimai-lulutto-lilly-s1
       number: 1

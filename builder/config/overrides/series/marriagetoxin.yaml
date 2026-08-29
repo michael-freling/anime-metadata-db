@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: marriagetoxin
+  externalIds: { wikidataId: Q112114773 }  # マリッジトキシン
   titles:
     original: マリッジトキシン
     translations: { ja-Latn: Marriagetoxin }

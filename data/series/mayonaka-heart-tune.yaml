@@ -4,7 +4,10 @@ series:
   titles:
     original: 真夜中ハートチューン
     translations:
+      en: Tune In to the Midnight Heart
       ja-Latn: Mayonaka Heart Tune
+  externalIds:
+    wikidataId: Q124496857
   seasons:
     - id: mayonaka-heart-tune-s1
       number: 1

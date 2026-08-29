@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: yozakura-san-chi-no-daisakusen
+  externalIds: { wikidataId: Q85878632 }  # 夜桜さんちの大作戦
   titles:
     original: 夜桜さんちの大作戦
     translations: { ja-Latn: Yozakura-san Chi no Daisakusen }

@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: skip-to-loafer
+  externalIds: { wikidataId: Q65239988 }  # スキップとローファー
   titles:
     original: スキップとローファー
     translations: { ja-Latn: Skip to Loafer }

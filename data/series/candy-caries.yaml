@@ -5,6 +5,8 @@ series:
     original: キャンディーカリエス
     translations:
       ja-Latn: Candy Caries
+  externalIds:
+    wikidataId: Q140600982
   seasons:
     - id: candy-caries-s1
       number: 1

@@ -4,7 +4,10 @@ series:
   titles:
     original: 佐々木とピーちゃん
     translations:
+      en: Sasaki and Peeps
       ja-Latn: Sasaki to Pii-chan
+  externalIds:
+    wikidataId: Q110157755
   seasons:
     - id: sasaki-to-pii-chan-s1
       number: 1

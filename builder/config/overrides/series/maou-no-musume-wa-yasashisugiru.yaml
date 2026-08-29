@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: maou-no-musume-wa-yasashisugiru
+  externalIds: { wikidataId: Q134711807 }  # 魔王の娘は優しすぎる!!
   titles:
     original: "魔王の娘は優しすぎる!!"
     translations: { ja-Latn: "Maou no Musume wa Yasashisugiru!!" }

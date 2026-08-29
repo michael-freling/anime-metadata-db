@@ -4,7 +4,10 @@ series:
   titles:
     original: 魔王の娘は優しすぎる!!
     translations:
+      en: The Daughter of the Demon Lord Is Too Kind!
       ja-Latn: Maou no Musume wa Yasashisugiru!!
+  externalIds:
+    wikidataId: Q134711807
   seasons:
     - id: maou-no-musume-wa-yasashisugiru-s1
       number: 1

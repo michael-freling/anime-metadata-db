@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: mato-seihei-no-slave
+  externalIds: { wikidataId: Q85337200 }  # 魔都精兵のスレイブ
   titles:
     original: 魔都精兵のスレイブ
     translations: { ja-Latn: Mato Seihei no Slave }

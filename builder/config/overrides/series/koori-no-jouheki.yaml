@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: koori-no-jouheki
+  externalIds: { wikidataId: Q124048215 }  # 氷の城壁
   titles:
     original: 氷の城壁
     translations: { ja-Latn: Koori no Jouheki }

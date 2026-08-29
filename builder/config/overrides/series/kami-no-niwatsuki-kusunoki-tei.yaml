@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: kami-no-niwatsuki-kusunoki-tei
+  externalIds: { wikidataId: Q132631899 }  # 神の庭付き楠木邸
   titles:
     original: 神の庭付き楠木邸
     translations: { ja-Latn: Kami no Niwatsuki Kusunoki-tei }

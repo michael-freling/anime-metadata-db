@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: tensei-shitara-slime-datta-ken
+  externalIds: { wikidataId: Q22100530 }  # 転生したらスライムだった件
   titles:
     original: 転生したらスライムだった件
     translations: { ja-Latn: Tensei shitara Slime Datta Ken }

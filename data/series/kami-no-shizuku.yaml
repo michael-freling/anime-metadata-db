@@ -4,7 +4,10 @@ series:
   titles:
     original: 神の雫
     translations:
+      en: The Drops of God
       ja-Latn: Kami no Shizuku
+  externalIds:
+    wikidataId: Q706714
   seasons:
     - id: kami-no-shizuku-s1
       number: 1

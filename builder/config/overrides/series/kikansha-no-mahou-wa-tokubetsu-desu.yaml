@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: kikansha-no-mahou-wa-tokubetsu-desu
+  externalIds: { wikidataId: Q117314464 }  # 帰還者の魔法は特別です
   titles:
     original: 帰還者の魔法は特別です
     translations: { ja-Latn: Kikansha no Mahou wa Tokubetsu desu }

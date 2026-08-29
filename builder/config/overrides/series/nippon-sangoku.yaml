@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: nippon-sangoku
+  externalIds: { wikidataId: Q113159338 }  # 日本三國
   titles:
     original: 日本三國
     translations: { ja-Latn: Nippon Sangoku }

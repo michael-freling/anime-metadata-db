@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: otaku-ni-yasashii-gal-wa-inai
+  externalIds: { wikidataId: Q131827286 }  # オタクに優しいギャルはいない!?
   titles:
     original: "オタクに優しいギャルはいない!?"
     translations: { ja-Latn: "Otaku ni Yasashii Gal wa Inai!?" }

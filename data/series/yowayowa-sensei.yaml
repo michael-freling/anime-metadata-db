@@ -5,6 +5,8 @@ series:
     original: よわよわ先生
     translations:
       ja-Latn: Yowayowa Sensei
+  externalIds:
+    wikidataId: Q117156949
   seasons:
     - id: yowayowa-sensei-s1
       number: 1

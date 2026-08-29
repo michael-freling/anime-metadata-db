@@ -4,7 +4,10 @@ series:
   titles:
     original: エリスの聖杯
     translations:
+      en: The Holy Grail of Eris
       ja-Latn: Eris no Seihai
+  externalIds:
+    wikidataId: Q109258540
   seasons:
     - id: eris-no-seihai-s1
       number: 1

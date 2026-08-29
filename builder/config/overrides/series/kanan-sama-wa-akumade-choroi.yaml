@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: kanan-sama-wa-akumade-choroi
+  externalIds: { wikidataId: Q124496871 }  # カナン様はあくまでチョロい
   titles:
     original: カナン様はあくまでチョロい
     translations: { ja-Latn: Kanan-sama wa Akumade Choroi }

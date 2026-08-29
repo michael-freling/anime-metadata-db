@@ -4,7 +4,10 @@ series:
   titles:
     original: キルアオ
     translations:
+      en: Kill Blue
       ja-Latn: Kill Ao
+  externalIds:
+    wikidataId: Q122758750
   seasons:
     - id: kill-ao-s1
       number: 1

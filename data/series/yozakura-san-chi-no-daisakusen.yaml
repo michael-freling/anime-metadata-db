@@ -4,7 +4,10 @@ series:
   titles:
     original: 夜桜さんちの大作戦
     translations:
+      en: 'Mission: Yozakura Family'
       ja-Latn: Yozakura-san Chi no Daisakusen
+  externalIds:
+    wikidataId: Q85878632
   seasons:
     - id: yozakura-san-chi-no-daisakusen-s1
       number: 1

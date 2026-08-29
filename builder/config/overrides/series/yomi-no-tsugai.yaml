@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: yomi-no-tsugai
+  externalIds: { wikidataId: Q111944796 }  # 黄泉のツガイ
   titles:
     original: 黄泉のツガイ
     translations: { ja-Latn: Yomi no Tsugai }

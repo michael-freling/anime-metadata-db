@@ -4,7 +4,10 @@ series:
   titles:
     original: 黄泉のツガイ
     translations:
+      en: Daemons of the Shadow Realm
       ja-Latn: Yomi no Tsugai
+  externalIds:
+    wikidataId: Q111944796
   seasons:
     - id: yomi-no-tsugai-s1
       number: 1

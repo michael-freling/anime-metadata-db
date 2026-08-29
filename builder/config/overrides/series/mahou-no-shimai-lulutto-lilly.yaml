@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: mahou-no-shimai-lulutto-lilly
+  externalIds: { wikidataId: Q126936172 }  # 魔法の姉妹ルルットリリィ
   titles:
     original: 魔法の姉妹ルルットリリィ
     translations: { ja-Latn: Mahou no Shimai Lulutto Lilly }

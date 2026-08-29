@@ -5,6 +5,8 @@ series:
     original: クマーバ
     translations:
       ja-Latn: Kumarba
+  externalIds:
+    wikidataId: Q125889089
   seasons:
     - id: kumarba-s1
       number: 1

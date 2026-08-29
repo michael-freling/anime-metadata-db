@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: mayonaka-heart-tune
+  externalIds: { wikidataId: Q124496857 }  # 真夜中ハートチューン
   titles:
     original: 真夜中ハートチューン
     translations: { ja-Latn: Mayonaka Heart Tune }

@@ -4,7 +4,10 @@ series:
   titles:
     original: 黒猫と魔女の教室
     translations:
+      en: The Classroom of a Black Cat and a Witch
       ja-Latn: Kuroneko to Majo no Kyoushitsu
+  externalIds:
+    wikidataId: Q113507864
   seasons:
     - id: kuroneko-to-majo-no-kyoushitsu-s1
       number: 1

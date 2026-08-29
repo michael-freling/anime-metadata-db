@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: onegai-aipri
+  externalIds: { wikidataId: Q138479505 }  # おねがいアイプリ
   titles:
     original: おねがいアイプリ
     translations: { ja-Latn: Onegai AiPri }

@@ -8,6 +8,7 @@
 # dataset.
 series:
   id: second-prettiest-girl-in-class
+  externalIds: { wikidataId: Q118218345 }  # クラスで2番目に可愛い女の子と友だちになった
   # A Series/Franchise is our own grouping with no entry in the open sources, so
   # its title must be authored (a Season/Movie auto-fills from its source).
   # Abbreviated クラにか (Kuranika) in Japanese.

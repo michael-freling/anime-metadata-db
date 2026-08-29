@@ -4,7 +4,10 @@ series:
   titles:
     original: 帰還者の魔法は特別です
     translations:
+      en: A Returner's Magic Should Be Special
       ja-Latn: Kikansha no Mahou wa Tokubetsu desu
+  externalIds:
+    wikidataId: Q117314464
   seasons:
     - id: kikansha-no-mahou-wa-tokubetsu-desu-s1
       number: 1

@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: marika-chan-no-koukando-wa-bukkowareteiru
+  externalIds: { wikidataId: Q136564901 }  # 茉莉花ちゃんの好感度はぶっ壊れている
   titles:
     original: 茉莉花ちゃんの好感度はぶっ壊れている
     translations: { ja-Latn: Marika-chan no Koukando wa Bukkowareteiru }

@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: isekai-no-sata-wa-shachiku-shidai
+  externalIds: { wikidataId: Q130748785 }  # 異世界の沙汰は社畜次第
   titles:
     original: 異世界の沙汰は社畜次第
     translations: { ja-Latn: Isekai no Sata wa Shachiku Shidai }

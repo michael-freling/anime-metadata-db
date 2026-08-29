@@ -4,7 +4,10 @@ series:
   titles:
     original: アルネの事件簿
     translations:
+      en: The Case Book of Arne
       ja-Latn: Arne no Jikenbo
+  externalIds:
+    wikidataId: Q113624228
   seasons:
     - id: arne-no-jikenbo-s1
       number: 1

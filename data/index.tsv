@@ -3,94 +3,94 @@
 !franchises	id	file	titles
 fate	fate.yaml	フェイト|en=Fate
 !series	id	file	franchise	titles
-29-sai-dokushin-chuuken-boukensha-no-nichijou	29-sai-dokushin-chuuken-boukensha-no-nichijou.yaml		29歳独身中堅冒険者の日常|ja-Latn=29-sai Dokushin Chuuken Boukensha no Nichijou
-aishiteru-game-wo-owarasetai	aishiteru-game-wo-owarasetai.yaml		愛してるゲームを終わらせたい|ja-Latn=Aishiteru Game wo Owarasetai
+29-sai-dokushin-chuuken-boukensha-no-nichijou	29-sai-dokushin-chuuken-boukensha-no-nichijou.yaml		29歳独身中堅冒険者の日常|en=An Adventurer's Daily Grind at Age 29|ja-Latn=29-sai Dokushin Chuuken Boukensha no Nichijou
+aishiteru-game-wo-owarasetai	aishiteru-game-wo-owarasetai.yaml		愛してるゲームを終わらせたい|en=I Want to End This Love Game|ja-Latn=Aishiteru Game wo Owarasetai
 akane-banashi	akane-banashi.yaml		あかね噺|ja-Latn=Akane-banashi
-akuyaku-reijou-wa-ringoku-no-outaishi-ni-dekiai-sareru	akuyaku-reijou-wa-ringoku-no-outaishi-ni-dekiai-sareru.yaml		悪役令嬢は隣国の王太子に溺愛される|ja-Latn=Akuyaku Reijou wa Ringoku no Outaishi ni Dekiai sareru
-ao-no-miburo	ao-no-miburo.yaml		青のミブロ|ja-Latn=Ao no Miburo
-arne-no-jikenbo	arne-no-jikenbo.yaml		アルネの事件簿|ja-Latn=Arne no Jikenbo
-awajima-hyakkei	awajima-hyakkei.yaml		淡島百景|ja-Latn=Awajima Hyakkei
+akuyaku-reijou-wa-ringoku-no-outaishi-ni-dekiai-sareru	akuyaku-reijou-wa-ringoku-no-outaishi-ni-dekiai-sareru.yaml		悪役令嬢は隣国の王太子に溺愛される|en=The Villainess Is Adored by the Prince of the Neighbor Kingdom|ja-Latn=Akuyaku Reijou wa Ringoku no Outaishi ni Dekiai sareru
+ao-no-miburo	ao-no-miburo.yaml		青のミブロ|en=The Blue Wolves of Mibu|ja-Latn=Ao no Miburo
+arne-no-jikenbo	arne-no-jikenbo.yaml		アルネの事件簿|en=The Case Book of Arne|ja-Latn=Arne no Jikenbo
+awajima-hyakkei	awajima-hyakkei.yaml		淡島百景|en=Scenes From Awajima|ja-Latn=Awajima Hyakkei
 black-clover	black-clover.yaml		ブラッククローバー (2017)|ja-Latn=Black Clover
 bungou-stray-dogs-wan	bungou-stray-dogs-wan.yaml		文豪ストレイドッグス わん!|ja-Latn=Bungou Stray Dogs Wan!
 candy-caries	candy-caries.yaml		キャンディーカリエス|ja-Latn=Candy Caries
 cardfight-vanguard-divinez-genma-seisen-hen	cardfight-vanguard-divinez-genma-seisen-hen.yaml		カードファイト!! ヴァンガード DivineZ 幻真星戦編|ja-Latn=Cardfight!! Vanguard: Divinez Genma Seisen-hen
-champignon-no-majo	champignon-no-majo.yaml		シャンピニオンの魔女|ja-Latn=Champignon no Majo
+champignon-no-majo	champignon-no-majo.yaml		シャンピニオンの魔女|en=Champignon Witch|ja-Latn=Champignon no Majo
 dark-machine-the-animation	dark-machine-the-animation.yaml		Dark Machine: The Animation
 dark-moon-tsuki-no-saidan	dark-moon-tsuki-no-saidan.yaml		DARK MOON　-黒の月: 月の祭壇- Original By DARK MOON : THE BLOOD ALTAR WITH ENHYPEN|ja-Latn=Dark Moon: Tsuki no Saidan
-darwin-jihen	darwin-jihen.yaml		ダーウィン事変|ja-Latn=Darwin Jihen
+darwin-jihen	darwin-jihen.yaml		ダーウィン事変|en=The Darwin Incident|ja-Latn=Darwin Jihen
 dead-account	dead-account.yaml		デッドアカウント|ja-Latn=Dead Account
 demon-slayer	demon-slayer.yaml		鬼滅の刃|en=Demon Slayer
 diamond-no-ace	diamond-no-ace.yaml		ダイヤのA[エース]|ja-Latn=Diamond no Ace
 douse-koishite-shimaunda	douse-koishite-shimaunda.yaml		どうせ, 恋してしまうんだ.|ja-Latn=Douse, Koishite Shimaunda.
 dr-stone-science-future	dr-stone-science-future.yaml		ドクターストーン SCIENCE FUTURE|ja-Latn=Dr. Stone: Science Future
 eleceed	eleceed.yaml		エレキシード / 일렉시드|ja-Latn=Eleceed
-enen-no-shouboutai	enen-no-shouboutai.yaml		炎炎ノ消防隊|ja-Latn=Enen no Shouboutai
-eris-no-seihai	eris-no-seihai.yaml		エリスの聖杯|ja-Latn=Eris no Seihai
+enen-no-shouboutai	enen-no-shouboutai.yaml		炎炎ノ消防隊|en=Fire Force|ja-Latn=Enen no Shouboutai
+eris-no-seihai	eris-no-seihai.yaml		エリスの聖杯|en=The Holy Grail of Eris|ja-Latn=Eris no Seihai
 fate-stay-night	fate.yaml	1	Fate/stay night
 fate-zero	fate.yaml	1	Fate/Zero
 fate-strange-fake	fate.yaml	1	Fate/strange Fake
-fx-senshi-kurumi-chan	fx-senshi-kurumi-chan.yaml		FX戦士くるみちゃん|ja-Latn=FX Senshi Kurumi-chan
+fx-senshi-kurumi-chan	fx-senshi-kurumi-chan.yaml		FX戦士くるみちゃん|en=FX Fighter Kurumi-chan|ja-Latn=FX Senshi Kurumi-chan
 ganbare-nakamura-kun	ganbare-nakamura-kun.yaml		ガンバレ! 中村くん!!|ja-Latn=Ganbare! Nakamura-kun!!
 gelpiyo	gelpiyo.yaml		ゲルぴよ|ja-Latn=Gelpiyo
 ghost-concert-missing-songs	ghost-concert-missing-songs.yaml		ゴーストコンサート : missing Songs|ja-Latn=Ghost Concert: Missing Songs
 golden-kamuy	golden-kamuy.yaml		ゴールデンカムイ|ja-Latn=Golden Kamuy
-goumon-baito-kun-no-nichijou	goumon-baito-kun-no-nichijou.yaml		拷問バイトくんの日常|ja-Latn=Goumon Baito-kun no Nichijou
-haibara-kun-no-tsuyokute-seishun-new-game	haibara-kun-no-tsuyokute-seishun-new-game.yaml		灰原くんの強くて青春ニューゲーム|ja-Latn=Haibara-kun no Tsuyokute Seishun New Game
+goumon-baito-kun-no-nichijou	goumon-baito-kun-no-nichijou.yaml		拷問バイトくんの日常|en=The Daily Life of a Part-time Torturer|ja-Latn=Goumon Baito-kun no Nichijou
+haibara-kun-no-tsuyokute-seishun-new-game	haibara-kun-no-tsuyokute-seishun-new-game.yaml		灰原くんの強くて青春ニューゲーム|en=Haibara's Teenage New Game+|ja-Latn=Haibara-kun no Tsuyokute Seishun New Game
 hanazakari-no-kimitachi-e	hanazakari-no-kimitachi-e.yaml		花さかりの君たちへ|ja-Latn=Hanazakari no Kimitachi e
 hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai	hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai.yaml		ヘルモード ~やり込み好きのゲーマーは廃設定の異世界で無双する~ はじまりの召喚士|ja-Latn=Hell Mode: Yarikomizuki no Gamer wa Hai Settei no Isekai de Musou suru
-hidarikiki-no-eren	hidarikiki-no-eren.yaml		左ききのエレン|ja-Latn=Hidarikiki no Eren
+hidarikiki-no-eren	hidarikiki-no-eren.yaml		左ききのエレン|en=Eren the Southpaw|ja-Latn=Hidarikiki no Eren
 higeki-no-genkyou-to-naru-saikyou-gedou-last-boss-joou-wa	higeki-no-genkyou-to-naru-saikyou-gedou-last-boss-joou-wa.yaml		悲劇の元凶となる最強外道ラスボス女王は民の為に尽くします.|ja-Latn=Higeki no Genkyou to Naru Saikyou Gedou Last Boss Joou wa Tami no Tame ni Tsukushimasu.
 high-school-kimengumi-2026	high-school-kimengumi-2026.yaml		ハイスクール! 奇面組 (2026)|ja-Latn=High School! Kimengumi (2026)
 hikuidori-ushuu-boro-tobi-gumi	hikuidori-ushuu-boro-tobi-gumi.yaml		火喰鳥 羽州ぼろ鳶組|ja-Latn=Hikuidori: Ushuu Boro Tobi-gumi
-himekishi-wa-barbaroi-no-yome	himekishi-wa-barbaroi-no-yome.yaml		姫騎士は蛮族の嫁|ja-Latn=Himekishi wa Barbaroi no Yome
+himekishi-wa-barbaroi-no-yome	himekishi-wa-barbaroi-no-yome.yaml		姫騎士は蛮族の嫁|en=The Barbarian's Bride|ja-Latn=Himekishi wa Barbaroi no Yome
 himesama-goumon-no-jikan-desu	himesama-goumon-no-jikan-desu.yaml		姫様"拷問"の時間です|ja-Latn=Himesama "Goumon" no Jikan desu
 hokuto-no-ken-fist-of-the-north-star	hokuto-no-ken-fist-of-the-north-star.yaml		北斗の拳 -FIST OF THE NORTH STAR-|ja-Latn=Hokuto no Ken: Fist of the North Star
 hokuto-no-ken-kenougun-zako-tachi-no-banka	hokuto-no-ken-kenougun-zako-tachi-no-banka.yaml		Animatica「北斗の拳 拳王軍ザコたちの挽歌」|ja-Latn=Hokuto no Ken: Kenougun Zako-tachi no Banka
 honzuki-no-gekokujou	honzuki-no-gekokujou.yaml		本好きの下剋上 ～司書になるためには手段を選んでいられません～|ja-Latn=Honzuki no Gekokujou: Shisho ni Naru Tame ni wa Shudan wo Erandeiraremasen
 hoppe-chan-sun-oukoku-to-kuro-hoppe-dan-no-himitsu	hoppe-chan-sun-oukoku-to-kuro-hoppe-dan-no-himitsu.yaml		ほっぺちゃん ~サン王国と黒ほっぺ団の秘密~|ja-Latn=Hoppe-chan: Sun Oukoku to Kuro Hoppe-dan no Himitsu
 hyakki-yakou-shou	hyakki-yakou-shou.yaml		百鬼夜行抄|ja-Latn=Hyakki Yakou Shou
-ibitte-konai-gibo-to-gishi	ibitte-konai-gibo-to-gishi.yaml		いびってこない義母と義姉|ja-Latn=Ibitte Konai Gibo to Gishi
+ibitte-konai-gibo-to-gishi	ibitte-konai-gibo-to-gishi.yaml		いびってこない義母と義姉|en=My Stepmother and Stepsisters Aren't Wicked|ja-Latn=Ibitte Konai Gibo to Gishi
 ichijouma-mankitsugurashi	ichijouma-mankitsugurashi.yaml		一畳間まんきつ暮らし!|ja-Latn=Ichijouma Mankitsugurashi!
 ikoku-nikki	ikoku-nikki.yaml		異國日記|ja-Latn=Ikoku Nikki
 ingoku-danchi	ingoku-danchi.yaml		インゴクダンチ|ja-Latn=Ingoku Danchi
-isekai-no-sata-wa-shachiku-shidai	isekai-no-sata-wa-shachiku-shidai.yaml		異世界の沙汰は社畜次第|ja-Latn=Isekai no Sata wa Shachiku Shidai
-isekai-nonbiri-nouka	isekai-nonbiri-nouka.yaml		異世界のんびり農家|ja-Latn=Isekai Nonbiri Nouka
-jidou-hanbaiki-ni-umarekawatta-ore-wa-meikyuu-wo-samayou	jidou-hanbaiki-ni-umarekawatta-ore-wa-meikyuu-wo-samayou.yaml		自動販売機に生まれ変わった俺は迷宮を彷徨う|ja-Latn=Jidou Hanbaiki ni Umarekawatta Ore wa Meikyuu wo Samayou
+isekai-no-sata-wa-shachiku-shidai	isekai-no-sata-wa-shachiku-shidai.yaml		異世界の沙汰は社畜次第|en=The Other World's Books Depend on the Bean Counter|ja-Latn=Isekai no Sata wa Shachiku Shidai
+isekai-nonbiri-nouka	isekai-nonbiri-nouka.yaml		異世界のんびり農家|en=Farming Life in Another World|ja-Latn=Isekai Nonbiri Nouka
+jidou-hanbaiki-ni-umarekawatta-ore-wa-meikyuu-wo-samayou	jidou-hanbaiki-ni-umarekawatta-ore-wa-meikyuu-wo-samayou.yaml		自動販売機に生まれ変わった俺は迷宮を彷徨う|en=Reborn as a Vending Machine, I Now Wander the Dungeon|ja-Latn=Jidou Hanbaiki ni Umarekawatta Ore wa Meikyuu wo Samayou
 jigoku-sensei-nube-2025	jigoku-sensei-nube-2025.yaml		地獄先生ぬ～べ～ (2025) 第2クール|ja-Latn=Jigoku Sensei Nube (2025)
 jigokuraku	jigokuraku.yaml		地狱乐|ja-Latn=Jigokuraku
-jingai-kyoushitsu-no-ningengirai-kyoushi	jingai-kyoushitsu-no-ningengirai-kyoushi.yaml		人外教室の人間嫌い教師|ja-Latn=Jingai Kyoushitsu no Ningengirai Kyoushi
+jingai-kyoushitsu-no-ningengirai-kyoushi	jingai-kyoushitsu-no-ningengirai-kyoushi.yaml		人外教室の人間嫌い教師|en=A Misanthrope Teaches a Class for Demi-Humans|ja-Latn=Jingai Kyoushitsu no Ningengirai Kyoushi
 jirai-nan-desu-ka-chihara-san	jirai-nan-desu-ka-chihara-san.yaml		地雷なんですか? 地原さん|ja-Latn=Jirai nan desu ka? Chihara-san
 jishou-akuyaku-reijou-na-konyakusha-no-kansatsu-kiroku	jishou-akuyaku-reijou-na-konyakusha-no-kansatsu-kiroku.yaml		自称悪役令嬢な婚約者の観察記録.|ja-Latn=Jishou Akuyaku Reijou na Konyakusha no Kansatsu Kiroku.
 jujutsu-kaisen	jujutsu-kaisen.yaml		呪術廻戦|ja-Latn=Jujutsu Kaisen
-kami-no-niwatsuki-kusunoki-tei	kami-no-niwatsuki-kusunoki-tei.yaml		神の庭付き楠木邸|ja-Latn=Kami no Niwatsuki Kusunoki-tei
-kami-no-shizuku	kami-no-shizuku.yaml		神の雫|ja-Latn=Kami no Shizuku
+kami-no-niwatsuki-kusunoki-tei	kami-no-niwatsuki-kusunoki-tei.yaml		神の庭付き楠木邸|en=Kusunoki's Garden of Gods|ja-Latn=Kami no Niwatsuki Kusunoki-tei
+kami-no-shizuku	kami-no-shizuku.yaml		神の雫|en=The Drops of God|ja-Latn=Kami no Shizuku
 kamiina-botan-yoeru-sugata-wa-yuri-no-hana	kamiina-botan-yoeru-sugata-wa-yuri-no-hana.yaml		上伊那ぼたん, 酔へる姿は百合の花|ja-Latn=Kamiina Botan, Yoeru Sugata wa Yuri no Hana
 kanagawa-ni-sunderu-elf	kanagawa-ni-sunderu-elf.yaml		#神奈川に住んでるエルフ|ja-Latn=#Kanagawa ni Sunderu Elf
-kanan-sama-wa-akumade-choroi	kanan-sama-wa-akumade-choroi.yaml		カナン様はあくまでチョロい|ja-Latn=Kanan-sama wa Akumade Choroi
+kanan-sama-wa-akumade-choroi	kanan-sama-wa-akumade-choroi.yaml		カナン様はあくまでチョロい|en=Mistress Kanan Is Devilishly Easy|ja-Latn=Kanan-sama wa Akumade Choroi
 kanojo-okarishimasu	kanojo-okarishimasu.yaml		彼女, お借りします|ja-Latn=Kanojo, Okarishimasu
-kaya-chan-wa-kowakunai	kaya-chan-wa-kowakunai.yaml		カヤちゃんはコワくない|ja-Latn=Kaya-chan wa Kowakunai
-kikansha-no-mahou-wa-tokubetsu-desu	kikansha-no-mahou-wa-tokubetsu-desu.yaml		帰還者の魔法は特別です|ja-Latn=Kikansha no Mahou wa Tokubetsu desu
-kill-ao	kill-ao.yaml		キルアオ|ja-Latn=Kill Ao
+kaya-chan-wa-kowakunai	kaya-chan-wa-kowakunai.yaml		カヤちゃんはコワくない|en=Kaya-chan Isn't Scary|ja-Latn=Kaya-chan wa Kowakunai
+kikansha-no-mahou-wa-tokubetsu-desu	kikansha-no-mahou-wa-tokubetsu-desu.yaml		帰還者の魔法は特別です|en=A Returner's Magic Should Be Special|ja-Latn=Kikansha no Mahou wa Tokubetsu desu
+kill-ao	kill-ao.yaml		キルアオ|en=Kill Blue|ja-Latn=Kill Ao
 kirei-ni-shitemoraemasu-ka	kirei-ni-shitemoraemasu-ka.yaml		綺麗にしてもらえますか.|ja-Latn=Kirei ni Shitemoraemasu ka.
 kirio-fanclub	kirio-fanclub.yaml		霧尾ファンクラブ|ja-Latn=Kirio Fanclub
 kizoku-tensei-megumareta-umare-kara-saikyou-no-chikara-wo	kizoku-tensei-megumareta-umare-kara-saikyou-no-chikara-wo.yaml		貴族転生 ~恵まれた生まれから最強の力を得る~|ja-Latn=Kizoku Tensei: Megumareta Umare kara Saikyou no Chikara wo Eru
 komekami-girls	komekami-girls.yaml		こめかみっ！ Girls|ja-Latn=Komekami! Girls
-koori-no-jouheki	koori-no-jouheki.yaml		氷の城壁|ja-Latn=Koori no Jouheki
-kujima-utaeba-ie-hororo	kujima-utaeba-ie-hororo.yaml		クジマ歌えば家ほろろ|ja-Latn=Kujima Utaeba Ie Hororo
+koori-no-jouheki	koori-no-jouheki.yaml		氷の城壁|en=The Ramparts of Ice|ja-Latn=Koori no Jouheki
+kujima-utaeba-ie-hororo	kujima-utaeba-ie-hororo.yaml		クジマ歌えば家ほろろ|en=Kujima: Why Sing, When You Can Warble?|ja-Latn=Kujima Utaeba Ie Hororo
 kumarba	kumarba.yaml		クマーバ|ja-Latn=Kumarba
-kuroneko-to-majo-no-kyoushitsu	kuroneko-to-majo-no-kyoushitsu.yaml		黒猫と魔女の教室|ja-Latn=Kuroneko to Majo no Kyoushitsu
+kuroneko-to-majo-no-kyoushitsu	kuroneko-to-majo-no-kyoushitsu.yaml		黒猫と魔女の教室|en=The Classroom of a Black Cat and a Witch|ja-Latn=Kuroneko to Majo no Kyoushitsu
 liar-game	liar-game.yaml		LIAR GAME -ライアーゲーム-|ja-Latn=Liar Game
-mahou-no-shimai-lulutto-lilly	mahou-no-shimai-lulutto-lilly.yaml		魔法の姉妹ルルットリリィ|ja-Latn=Mahou no Shimai Lulutto Lilly
-maid-san-wa-taberu-dake	maid-san-wa-taberu-dake.yaml		メイドさんは食べるだけ|ja-Latn=Maid-san wa Taberu dake
+mahou-no-shimai-lulutto-lilly	mahou-no-shimai-lulutto-lilly.yaml		魔法の姉妹ルルットリリィ|en=Magical Sisters LuluttoLilly|ja-Latn=Mahou no Shimai Lulutto Lilly
+maid-san-wa-taberu-dake	maid-san-wa-taberu-dake.yaml		メイドさんは食べるだけ|en=The Food Diary of Miss Maid|ja-Latn=Maid-san wa Taberu dake
 mairimashita-iruma-kun	mairimashita-iruma-kun.yaml		魔入りました! 入間くん|ja-Latn=Mairimashita! Iruma-kun
-majutsushi-kunon-wa-mieteiru	majutsushi-kunon-wa-mieteiru.yaml		魔術師クノンは見えている|ja-Latn=Majutsushi Kunon wa Mieteiru
+majutsushi-kunon-wa-mieteiru	majutsushi-kunon-wa-mieteiru.yaml		魔術師クノンは見えている|en=Kunon the Sorcerer Can See|ja-Latn=Majutsushi Kunon wa Mieteiru
 mao	mao.yaml		マオ|ja-Latn=Mao
-maou-no-musume-wa-yasashisugiru	maou-no-musume-wa-yasashisugiru.yaml		魔王の娘は優しすぎる!!|ja-Latn=Maou no Musume wa Yasashisugiru!!
-marika-chan-no-koukando-wa-bukkowareteiru	marika-chan-no-koukando-wa-bukkowareteiru.yaml		茉莉花ちゃんの好感度はぶっ壊れている|ja-Latn=Marika-chan no Koukando wa Bukkowareteiru
+maou-no-musume-wa-yasashisugiru	maou-no-musume-wa-yasashisugiru.yaml		魔王の娘は優しすぎる!!|en=The Daughter of the Demon Lord Is Too Kind!|ja-Latn=Maou no Musume wa Yasashisugiru!!
+marika-chan-no-koukando-wa-bukkowareteiru	marika-chan-no-koukando-wa-bukkowareteiru.yaml		茉莉花ちゃんの好感度はぶっ壊れている|en=Marika's Love Meter Malfunction|ja-Latn=Marika-chan no Koukando wa Bukkowareteiru
 marriagetoxin	marriagetoxin.yaml		マリッジトキシン|ja-Latn=Marriagetoxin
 mata-korosarete-shimatta-no-desu-ne-tantei-sama	mata-korosarete-shimatta-no-desu-ne-tantei-sama.yaml		また殺されてしまったのですね, 探偵様|ja-Latn=Mata Korosarete Shimatta no desu ne, Tantei-sama
-mato-seihei-no-slave	mato-seihei-no-slave.yaml		魔都精兵のスレイブ|ja-Latn=Mato Seihei no Slave
-mayonaka-heart-tune	mayonaka-heart-tune.yaml		真夜中ハートチューン|ja-Latn=Mayonaka Heart Tune
+mato-seihei-no-slave	mato-seihei-no-slave.yaml		魔都精兵のスレイブ|en=Chained Soldier|ja-Latn=Mato Seihei no Slave
+mayonaka-heart-tune	mayonaka-heart-tune.yaml		真夜中ハートチューン|en=Tune In to the Midnight Heart|ja-Latn=Mayonaka Heart Tune
 medalist	medalist.yaml		メダリスト|ja-Latn=Medalist
 megami-isekai-tensei-nani-ni-naritai-desu-ka-ore-yuusha	megami-isekai-tensei-nani-ni-naritai-desu-ka-ore-yuusha.yaml		女神「異世界転生先は何になりたいですか」 俺「勇者の肋骨で」|ja-Latn=Megami "Isekai Tensei Nani ni Naritai desu ka" Ore "Yuusha no Rokkotsu de"
 meitantei-precure	meitantei-precure.yaml		TanPre (たんプリ)|ja-Latn=Meitantei Precure!
@@ -99,9 +99,9 @@ mf-ghost	mf-ghost.yaml		エムエフゴースト|ja-Latn=MF Ghost
 naruto-shinsaku-anime	naruto-shinsaku-anime.yaml		NARUTO -ナルト- (新作アニメ)|ja-Latn=Naruto (Shinsaku Anime)
 needy-girl-overdose	needy-girl-overdose.yaml		ニーディガール オーバードーズ|ja-Latn=Needy Girl Overdose
 nezumi-kun-no-chokki-tv	nezumi-kun-no-chokki-tv.yaml		ねずみくんのチョッキ (TV)|ja-Latn=Nezumi-kun no Chokki (TV)
-nigashita-sakana-wa-ookikatta-ga-tsuriageta-sakana-ga	nigashita-sakana-wa-ookikatta-ga-tsuriageta-sakana-ga.yaml		逃がした魚は大きかったが釣りあげた魚が大きすぎた件|ja-Latn=Nigashita Sakana wa Ookikatta ga Tsuriageta Sakana ga Ookisugita Ken
+nigashita-sakana-wa-ookikatta-ga-tsuriageta-sakana-ga	nigashita-sakana-wa-ookikatta-ga-tsuriageta-sakana-ga.yaml		逃がした魚は大きかったが釣りあげた魚が大きすぎた件|en=Always a Catch!|ja-Latn=Nigashita Sakana wa Ookikatta ga Tsuriageta Sakana ga Ookisugita Ken
 nippon-sangoku	nippon-sangoku.yaml		日本三國|ja-Latn=Nippon Sangoku
-niwatori-fighter	niwatori-fighter.yaml		ニワトリ・ファイター|ja-Latn=Niwatori Fighter
+niwatori-fighter	niwatori-fighter.yaml		ニワトリ・ファイター|en=Rooster Fighter|ja-Latn=Niwatori Fighter
 odayaka-kizoku-no-kyuuka-no-susume	odayaka-kizoku-no-kyuuka-no-susume.yaml		穏やか貴族の休暇のすすめ.|ja-Latn=Odayaka Kizoku no Kyuuka no Susume.
 odekake-kozame	odekake-kozame.yaml		おでかけ子ザメ シーズン2|ja-Latn=Odekake Kozame
 ojisan-wa-kawaii-mono-ga-osuki	ojisan-wa-kawaii-mono-ga-osuki.yaml		おじさんはカワイイものがお好き.|ja-Latn=Ojisan wa Kawaii Mono ga Osuki.
@@ -109,52 +109,52 @@ okiraku-ryoushu-no-tanoshii-ryouchi-bouei-seisankei	okiraku-ryoushu-no-tanoshii-
 omae-gotoki-ga-maou-ni-kateru-to-omouna-to-yuusha-party	omae-gotoki-ga-maou-ni-kateru-to-omouna-to-yuusha-party.yaml		「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので, 王都で気ままに暮らしたい|ja-Latn="Omae Gotoki ga Maou ni Kateru to Omouna" to Yuusha Party wo Tsuihou sareta node, Outo de Kimama ni Kurashitai
 omae-wa-mada-gunma-wo-shiranai-reiwa-ban	omae-wa-mada-gunma-wo-shiranai-reiwa-ban.yaml		お前はまだグンマを知らない~令和版~|ja-Latn=Omae wa Mada Gunma wo Shiranai: Reiwa-ban
 onegai-aipri	onegai-aipri.yaml		おねがいアイプリ|ja-Latn=Onegai AiPri
-osananajimi-to-wa-love-comedy-ni-naranai	osananajimi-to-wa-love-comedy-ni-naranai.yaml		幼馴染とはラブコメにならない|ja-Latn=Osananajimi to wa Love Comedy ni Naranai
+osananajimi-to-wa-love-comedy-ni-naranai	osananajimi-to-wa-love-comedy-ni-naranai.yaml		幼馴染とはラブコメにならない|en=You Can't Be in a Rom-Com with Your Childhood Friends!|ja-Latn=Osananajimi to wa Love Comedy ni Naranai
 oshi-no-ko	oshi-no-ko.yaml		【推しの子】Mother and Children|ja-Latn=[Oshi no Ko]
 oshiri-dandy-the-young	oshiri-dandy-the-young.yaml		おしりダンディ ザ・ヤング|ja-Latn=Oshiri Dandy the Young
-otaku-ni-yasashii-gal-wa-inai	otaku-ni-yasashii-gal-wa-inai.yaml		オタクに優しいギャルはいない!?|ja-Latn=Otaku ni Yasashii Gal wa Inai!?
+otaku-ni-yasashii-gal-wa-inai	otaku-ni-yasashii-gal-wa-inai.yaml		オタクに優しいギャルはいない!?|en=Gals Can't Be Kind to Otaku!?|ja-Latn=Otaku ni Yasashii Gal wa Inai!?
 otome-game-sekai-wa-mob-ni-kibishii-sekai-desu	otome-game-sekai-wa-mob-ni-kibishii-sekai-desu.yaml		乙女ゲー世界はモブに厳しい世界です|ja-Latn=Otome Game Sekai wa Mob ni Kibishii Sekai desu
-otonari-no-tenshi-sama-ni-itsunomanika-dame-ningen-ni	otonari-no-tenshi-sama-ni-itsunomanika-dame-ningen-ni.yaml		お隣の天使様にいつの間にか駄目人間にされていた件|ja-Latn=Otonari no Tenshi-sama ni Itsunomanika Dame Ningen ni Sareteita Ken
-ponkotsu-fuuki-iin-to-skirt-take-ga-futekisetsu-na-jk-no	ponkotsu-fuuki-iin-to-skirt-take-ga-futekisetsu-na-jk-no.yaml		ポンコツ風紀委員とスカート丈が不適切なJKの話|ja-Latn=Ponkotsu Fuuki Iin to Skirt-take ga Futekisetsu na JK no Hanashi
+otonari-no-tenshi-sama-ni-itsunomanika-dame-ningen-ni	otonari-no-tenshi-sama-ni-itsunomanika-dame-ningen-ni.yaml		お隣の天使様にいつの間にか駄目人間にされていた件|en=The Angel Next Door Spoils Me Rotten|ja-Latn=Otonari no Tenshi-sama ni Itsunomanika Dame Ningen ni Sareteita Ken
+ponkotsu-fuuki-iin-to-skirt-take-ga-futekisetsu-na-jk-no	ponkotsu-fuuki-iin-to-skirt-take-ga-futekisetsu-na-jk-no.yaml		ポンコツ風紀委員とスカート丈が不適切なJKの話|en=The Klutzy Class Monitor and the Girl with the Short Skirt|ja-Latn=Ponkotsu Fuuki Iin to Skirt-take ga Futekisetsu na JK no Hanashi
 re-zero-kara-hajimeru-isekai-seikatsu	re-zero-kara-hajimeru-isekai-seikatsu.yaml		Re:ゼロから始める異世界生活 新編集版|ja-Latn=Re:Zero kara Hajimeru Isekai Seikatsu
-reincarnation-no-kaben	reincarnation-no-kaben.yaml		リィンカーネーションの花弁|ja-Latn=Reincarnation no Kaben
+reincarnation-no-kaben	reincarnation-no-kaben.yaml		リィンカーネーションの花弁|en=Petals of Reincarnation|ja-Latn=Reincarnation no Kaben
 replica-datte-koi-wo-suru	replica-datte-koi-wo-suru.yaml		レプリカだって, 恋をする.|ja-Latn=Replica datte, Koi wo Suru.
 rilakkuma	rilakkuma.yaml		リラックマ ～ごゆるり夢の旅～|ja-Latn=Rilakkuma
 romelia-senki	romelia-senki.yaml		Romelia Senki: Maou wo Taoshita Nochi mo Jinrui Yaba Souda kara Guntai Soshiki Shita (ロメリア戦記 ～魔王を倒した後も人類やばそうだから軍隊組織した～)|ja-Latn=Romelia Senki
 saikyou-no-ousama-nidome-no-jinsei-wa-nani-wo-suru	saikyou-no-ousama-nidome-no-jinsei-wa-nani-wo-suru.yaml		最強の王様, 二度目の人生は何をする?|ja-Latn=Saikyou no Ousama, Nidome no Jinsei wa Nani wo Suru?
-sasaki-to-pii-chan	sasaki-to-pii-chan.yaml		佐々木とピーちゃん|ja-Latn=Sasaki to Pii-chan
+sasaki-to-pii-chan	sasaki-to-pii-chan.yaml		佐々木とピーちゃん|en=Sasaki and Peeps|ja-Latn=Sasaki to Pii-chan
 second-prettiest-girl-in-class	second-prettiest-girl-in-class.yaml		クラスで2番目に可愛い女の子と友だちになった|en=I Made Friends with the Second Prettiest Girl in My Class
-seihantai-na-kimi-to-boku	seihantai-na-kimi-to-boku.yaml		正反対な君と僕|ja-Latn=Seihantai na Kimi to Boku
+seihantai-na-kimi-to-boku	seihantai-na-kimi-to-boku.yaml		正反対な君と僕|en=You and I Are Polar Opposites|ja-Latn=Seihantai na Kimi to Boku
 shibou-yuugi-de-meshi-wo-kuu	shibou-yuugi-de-meshi-wo-kuu.yaml		死亡遊戯で飯を食う.|ja-Latn=Shibou Yuugi de Meshi wo Kuu.
 shou-3-ashibe-qq-goma-chan	shou-3-ashibe-qq-goma-chan.yaml		小3アシベ QQゴマちゃん|ja-Latn=Shou 3 Ashibe QQ Goma-chan
 shunkashuutou-daikousha-haru-no-mai	shunkashuutou-daikousha-haru-no-mai.yaml		春夏秋冬代行者 春の舞|ja-Latn=Shunkashuutou Daikousha: Haru no Mai
-skip-to-loafer	skip-to-loafer.yaml		スキップとローファー|ja-Latn=Skip to Loafer
+skip-to-loafer	skip-to-loafer.yaml		スキップとローファー|en=Skip and Loafer|ja-Latn=Skip to Loafer
 snowball-earth	snowball-earth.yaml		スノウボールアース|ja-Latn=Snowball Earth
 sousou-no-frieren	sousou-no-frieren.yaml		葬送のフリーレン|en=Frieren: Beyond Journey's End|ja-Latn=Sousou no Frieren
 tadaima-ojamasaremasu	tadaima-ojamasaremasu.yaml		ただいま, おじゃまされます!|ja-Latn=Tadaima, Ojamasaremasu!
-tamon-kun-ima-docchi	tamon-kun-ima-docchi.yaml		多聞くん今どっち!?|ja-Latn=Tamon-kun Ima Docchi!?
+tamon-kun-ima-docchi	tamon-kun-ima-docchi.yaml		多聞くん今どっち!?|en=Tamon's B-Side|ja-Latn=Tamon-kun Ima Docchi!?
 tensei-shitara-dragon-no-tamago-datta	tensei-shitara-dragon-no-tamago-datta.yaml		転生したらドラゴンの卵だった ～最強以外目指さねぇ～|ja-Latn=Tensei shitara Dragon no Tamago datta
-tensei-shitara-slime-datta-ken	tensei-shitara-slime-datta-ken.yaml		転生したらスライムだった件|ja-Latn=Tensei shitara Slime Datta Ken
-tetsunabe-no-jan	tetsunabe-no-jan.yaml		鉄鍋のジャン!|ja-Latn=Tetsunabe no Jan!
-tongari-boushi-no-atelier	tongari-boushi-no-atelier.yaml		とんがり帽子のアトリエ|ja-Latn=Tongari Boushi no Atelier
+tensei-shitara-slime-datta-ken	tensei-shitara-slime-datta-ken.yaml		転生したらスライムだった件|en=That Time I Got Reincarnated as a Slime|ja-Latn=Tensei shitara Slime Datta Ken
+tetsunabe-no-jan	tetsunabe-no-jan.yaml		鉄鍋のジャン!|en=Iron Wok Jan|ja-Latn=Tetsunabe no Jan!
+tongari-boushi-no-atelier	tongari-boushi-no-atelier.yaml		とんがり帽子のアトリエ|en=Witch Hat Atelier|ja-Latn=Tongari Boushi no Atelier
 toumei-otoko-to-ningen-onna-sonouchi-fuufu-ni-naru-futari	toumei-otoko-to-ningen-onna-sonouchi-fuufu-ni-naru-futari.yaml		透明男と人間女~そのうち夫婦になるふたり~|ja-Latn=Toumei Otoko to Ningen Onna: Sonouchi Fuufu ni Naru Futari
 trigun-stampede	trigun-stampede.yaml		トライガン スタンピード|ja-Latn=Trigun Stampede
-uruwashi-no-yoi-no-tsuki	uruwashi-no-yoi-no-tsuki.yaml		うるわしの宵の月|ja-Latn=Uruwashi no Yoi no Tsuki
+uruwashi-no-yoi-no-tsuki	uruwashi-no-yoi-no-tsuki.yaml		うるわしの宵の月|en=In the Clear Moonlit Dusk|ja-Latn=Uruwashi no Yoi no Tsuki
 vigilante-boku-no-hero-academia-illegals	vigilante-boku-no-hero-academia-illegals.yaml		ヴィジランテ -僕のヒーローアカデミア ILLEGALS-|ja-Latn=Vigilante: Boku no Hero Academia Illegals
 watashi-ga-koibito-ni-nareru-wake-naijan-murimuri-muri-ja	watashi-ga-koibito-ni-nareru-wake-naijan-murimuri-muri-ja.yaml		わたしが恋人になれるわけないじゃん、ムリムリ! (※ムリじゃなかった!?) ~Next Shine~|ja-Latn=Watashi ga Koibito ni Nareru Wake Naijan, Murimuri! (※Muri ja Nakatta!?): Next Shine!
 wistoria	wistoria.yaml		杖と剣のウィストリア|en=Wistoria: Wand and Sword
 xi-yangyang-yu-hui-tailang-gu-guguai-jie-you-guguai	xi-yangyang-yu-hui-tailang-gu-guguai-jie-you-guguai.yaml		喜羊羊与灰太狼之古古怪界有古怪|zh-Latn=Xi Yangyang Yu Hui Tailang: Gu Guguai Jie You Guguai
 yami-shibai-16	yami-shibai-16.yaml		暗芝居 第十六季|ja-Latn=Yami Shibai 16
-yomi-no-tsugai	yomi-no-tsugai.yaml		黄泉のツガイ|ja-Latn=Yomi no Tsugai
+yomi-no-tsugai	yomi-no-tsugai.yaml		黄泉のツガイ|en=Daemons of the Shadow Realm|ja-Latn=Yomi no Tsugai
 yoroi-shin-den-samurai-troopers	yoroi-shin-den-samurai-troopers.yaml		鎧真伝サムライトルーパー|ja-Latn=Yoroi Shin Den Samurai Troopers
-youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e	youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e.yaml		ようこそ実力至上主義の教室へ|ja-Latn=Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e
+youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e	youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e.yaml		ようこそ実力至上主義の教室へ|en=Classroom of the Elite|ja-Latn=Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e
 yowayowa-sensei	yowayowa-sensei.yaml		よわよわ先生|ja-Latn=Yowayowa Sensei
-yozakura-san-chi-no-daisakusen	yozakura-san-chi-no-daisakusen.yaml		夜桜さんちの大作戦|ja-Latn=Yozakura-san Chi no Daisakusen
-yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku	yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku.yaml		勇者刑に処す 懲罰勇者9004隊刑務記録|ja-Latn=Yuusha-kei ni Shosu: Choubatsu Yuusha 9004-tai Keimu Kiroku
-yuusha-no-kuzu	yuusha-no-kuzu.yaml		勇者のクズ|ja-Latn=Yuusha no Kuzu
+yozakura-san-chi-no-daisakusen	yozakura-san-chi-no-daisakusen.yaml		夜桜さんちの大作戦|en=Mission: Yozakura Family|ja-Latn=Yozakura-san Chi no Daisakusen
+yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku	yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku.yaml		勇者刑に処す 懲罰勇者9004隊刑務記録|en=Sentenced to Be a Hero|ja-Latn=Yuusha-kei ni Shosu: Choubatsu Yuusha 9004-tai Keimu Kiroku
+yuusha-no-kuzu	yuusha-no-kuzu.yaml		勇者のクズ|en=Scum of the Brave|ja-Latn=Yuusha no Kuzu
 yuusha-party-ni-kawaii-ko-ga-ita-node-kokuhaku-shitemita	yuusha-party-ni-kawaii-ko-ga-ita-node-kokuhaku-shitemita.yaml		勇者パーティーにかわいい子がいたので, 告白してみた.|ja-Latn=Yuusha Party ni Kawaii Ko ga Ita node, Kokuhaku shitemita.
 yuusha-party-wo-oidasareta-kiyoubinbou	yuusha-party-wo-oidasareta-kiyoubinbou.yaml		勇者パーティを追い出された器用貧乏|ja-Latn=Yuusha Party wo Oidasareta Kiyoubinbou
-zombie-no-afureta-sekai-de-ore-dake-ga-osowarenai	zombie-no-afureta-sekai-de-ore-dake-ga-osowarenai.yaml		ゾンビのあふれた世界で俺だけが襲われない|ja-Latn=Zombie no Afureta Sekai de Ore dake ga Osowarenai
+zombie-no-afureta-sekai-de-ore-dake-ga-osowarenai	zombie-no-afureta-sekai-de-ore-dake-ga-osowarenai.yaml		ゾンビのあふれた世界で俺だけが襲われない|en=In a World Full of Zombies I'm the Only One Who Doesn't Get Attacked|ja-Latn=Zombie no Afureta Sekai de Ore dake ga Osowarenai
 !entries	kind	row	first_year	latest_year	works	episodes
 series	1	2026	2026	1	12
 series	2	2026	2026	1	12

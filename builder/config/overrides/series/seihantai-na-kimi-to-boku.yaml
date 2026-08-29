@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: seihantai-na-kimi-to-boku
+  externalIds: { wikidataId: Q113450307 }  # 正反対な君と僕
   titles:
     original: 正反対な君と僕
     translations: { ja-Latn: Seihantai na Kimi to Boku }

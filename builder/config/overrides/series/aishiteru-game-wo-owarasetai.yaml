@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: aishiteru-game-wo-owarasetai
+  externalIds: { wikidataId: Q119293137 }  # 愛してるゲームを終わらせたい
   titles:
     original: 愛してるゲームを終わらせたい
     translations: { ja-Latn: Aishiteru Game wo Owarasetai }

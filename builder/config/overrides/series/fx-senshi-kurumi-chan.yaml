@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: fx-senshi-kurumi-chan
+  externalIds: { wikidataId: Q111233765 }  # FX戦士くるみちゃん
   titles:
     original: FX戦士くるみちゃん
     translations: { ja-Latn: FX Senshi Kurumi-chan }

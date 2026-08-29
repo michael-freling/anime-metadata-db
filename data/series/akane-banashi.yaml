@@ -5,6 +5,8 @@ series:
     original: あかね噺
     translations:
       ja-Latn: Akane-banashi
+  externalIds:
+    wikidataId: Q111437353
   seasons:
     - id: akane-banashi-s1
       number: 1

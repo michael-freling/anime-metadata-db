@@ -4,7 +4,10 @@ series:
   titles:
     original: 魔術師クノンは見えている
     translations:
+      en: Kunon the Sorcerer Can See
       ja-Latn: Majutsushi Kunon wa Mieteiru
+  externalIds:
+    wikidataId: Q119131414
   seasons:
     - id: majutsushi-kunon-wa-mieteiru-s1
       number: 1

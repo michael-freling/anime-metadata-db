@@ -4,7 +4,10 @@ series:
   titles:
     original: スキップとローファー
     translations:
+      en: Skip and Loafer
       ja-Latn: Skip to Loafer
+  externalIds:
+    wikidataId: Q65239988
   seasons:
     - id: skip-to-loafer-s1
       number: 1

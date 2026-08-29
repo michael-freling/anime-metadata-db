@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: kirio-fanclub
+  externalIds: { wikidataId: Q130303268 }  # 霧尾ファンクラブ
   titles:
     original: 霧尾ファンクラブ
     translations: { ja-Latn: Kirio Fanclub }

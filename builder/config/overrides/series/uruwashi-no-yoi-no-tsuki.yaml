@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: uruwashi-no-yoi-no-tsuki
+  externalIds: { wikidataId: Q107007043 }  # うるわしの宵の月
   titles:
     original: うるわしの宵の月
     translations: { ja-Latn: Uruwashi no Yoi no Tsuki }

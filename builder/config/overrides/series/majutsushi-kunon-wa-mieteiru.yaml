@@ -3,6 +3,7 @@
 # into data/. Never hand-edit data/.
 series:
   id: majutsushi-kunon-wa-mieteiru
+  externalIds: { wikidataId: Q119131414 }  # 魔術師クノンは見えている
   titles:
     original: 魔術師クノンは見えている
     translations: { ja-Latn: Majutsushi Kunon wa Mieteiru }
