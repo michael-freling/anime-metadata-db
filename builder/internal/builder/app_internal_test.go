@@ -192,3 +192,56 @@ func TestEnsureWikidataResolvesSeriesWorks(t *testing.T) {
 		t.Errorf("a disambiguation page must not be cached as a work: %q", qid)
 	}
 }
+
+// Two series sharing a native title mean the title identifies neither, so
+// neither is resolved. Resolving would hand both the same work and one of them
+// the other's English title, with the tally still reading as if all had
+// resolved — the failure mode worth refusing outright.
+func TestResolveSeriesWorksRefusesSharedTitles(t *testing.T) {
+	dir := t.TempDir()
+	seriesDir := filepath.Join(dir, "config", "overrides", "series")
+	if err := os.MkdirAll(seriesDir, 0o755); err != nil {
+		t.Fatal(err)
+	}
+	write(t, filepath.Join(seriesDir, "a.yaml"), "series:\n  id: remake\n  titles: { original: 同じ題 }\n")
+	write(t, filepath.Join(seriesDir, "b.yaml"), "series:\n  id: original-run\n  titles: { original: 同じ題 }\n")
+	write(t, filepath.Join(seriesDir, "c.yaml"), "series:\n  id: unique\n  titles: { original: 葬送のフリーレン }\n")
+
+	fetcher := resolvingFetcher{
+		resolve: `{"entities":{"Q98642652":{"sitelinks":{"jawiki":{"title":"葬送のフリーレン"}},
+		  "claims":{"P31":[{"mainsnak":{"datavalue":{"value":{"id":"Q21198342"}}}}]}},
+		  "Q5":{"sitelinks":{"jawiki":{"title":"同じ題"}},
+		  "claims":{"P31":[{"mainsnak":{"datavalue":{"value":{"id":"Q21198342"}}}}]}}}}`,
+		entities: `{"entities":{}}`,
+	}
+	var out bytes.Buffer
+	a := &App{Dir: dir, Fetcher: fetcher, Out: &out}
+	resolved, err := a.resolveSeriesWorks(context.Background(), "https://x/api.php", mustLoadOverrides(t, dir))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if _, ok := resolved["同じ題"]; ok {
+		t.Error("a shared title must not resolve, even though the lookup would have answered")
+	}
+	if resolved["葬送のフリーレン"] != "Q98642652" {
+		t.Errorf("the unique title must still resolve: %v", resolved)
+	}
+	got := out.String()
+	// Counted against all three, so the figure cannot read as complete.
+	if !strings.Contains(got, "resolved wikidata works: 1/3 series titles") {
+		t.Errorf("tally must count the skipped titles:\n%s", got)
+	}
+	if !strings.Contains(got, "shared by 2 series (remake, original-run)") {
+		t.Errorf("the refusal must name the colliding series:\n%s", got)
+	}
+}
+
+// mustLoadOverrides reads the overrides a test just wrote.
+func mustLoadOverrides(t *testing.T, dir string) overrides.Bundle {
+	t.Helper()
+	b, err := overrides.LoadDir(filepath.Join(dir, "config", "overrides"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	return b
+}

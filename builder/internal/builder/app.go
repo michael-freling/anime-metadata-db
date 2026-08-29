@@ -157,33 +157,86 @@ func (a *App) ensureWikidata(ctx context.Context, cfg config.Config) error {
 // article, or matched a disambiguation page — two different problems with two
 // different fixes, and neither visible from the dataset afterwards.
 func (a *App) resolveSeriesWorks(ctx context.Context, apiURL string, bundle overrides.Bundle) (map[string]string, error) {
+	// Keyed by title, because the title is the handle — so a title two series
+	// share is not a handle at all. Resolving it would give both the same work
+	// and one of them the other's English title, silently and with the tally
+	// still reading as if every series had resolved. Collect the ids behind each
+	// title so that case can be refused by name instead.
+	seriesByTitle := map[string][]string{}
 	var titles []string
+	var needing int
 	for _, o := range bundle.Series {
 		o.EachSeries(func(s *model.Series) {
-			if s.ExternalIDs.WikidataID == "" && s.Titles.Original != "" {
+			if s.ExternalIDs.WikidataID != "" || s.Titles.Original == "" {
+				return
+			}
+			needing++
+			if _, seen := seriesByTitle[s.Titles.Original]; !seen {
 				titles = append(titles, s.Titles.Original)
 			}
+			seriesByTitle[s.Titles.Original] = append(seriesByTitle[s.Titles.Original], s.ID)
 		})
 	}
 	if len(titles) == 0 {
 		return nil, nil
 	}
-	results, err := wikidata.ResolveWorks(ctx, a.Fetcher.Get, apiURL, titles)
+
+	var ambiguous []string
+	lookup := make([]string, 0, len(titles))
+	for _, t := range titles {
+		if len(seriesByTitle[t]) > 1 {
+			ambiguous = append(ambiguous, t)
+			continue
+		}
+		lookup = append(lookup, t)
+	}
+
+	results, err := wikidata.ResolveWorks(ctx, a.Fetcher.Get, apiURL, lookup)
 	if err != nil {
 		return nil, err
 	}
 	resolved := make(map[string]string, len(results))
 	unresolved := map[string]int{}
+	seenKinds := map[string]map[string]bool{}
 	for _, r := range results {
 		if r.Resolved() {
 			resolved[r.Title] = r.QID
 			continue
 		}
 		unresolved[r.Kind]++
+		if len(r.InstanceOf) > 0 {
+			if seenKinds[r.Kind] == nil {
+				seenKinds[r.Kind] = map[string]bool{}
+			}
+			for _, id := range r.InstanceOf {
+				seenKinds[r.Kind][id] = true
+			}
+		}
 	}
-	fmt.Fprintf(a.Out, "resolved wikidata works: %d/%d series titles\n", len(resolved), len(titles))
+	for _, t := range ambiguous {
+		unresolved[fmt.Sprintf("shared by %d series (%s), so the title cannot name one work; author externalIds.wikidataId",
+			len(seriesByTitle[t]), strings.Join(seriesByTitle[t], ", "))]++
+	}
+
+	// The denominator counts series, not titles. Counting distinct titles would
+	// collapse a collision into one and let the line read as complete while two
+	// series went unresolved — the very thing the collision check exists to
+	// surface.
+	fmt.Fprintf(a.Out, "resolved wikidata works: %d/%d series titles\n", len(resolved), needing)
 	for _, kind := range sortedKeys(unresolved) {
-		fmt.Fprintf(a.Out, "  %d unresolved: %s\n", unresolved[kind], kind)
+		fmt.Fprintf(a.Out, "  %d unresolved: %s", unresolved[kind], kind)
+		// Naming the P31 values behind a refusal is what makes the allowlist
+		// extendable from the build output instead of by looking each title up
+		// on Wikidata again.
+		if ids := seenKinds[kind]; len(ids) > 0 {
+			seen := make([]string, 0, len(ids))
+			for id := range ids {
+				seen = append(seen, id)
+			}
+			sort.Strings(seen)
+			fmt.Fprintf(a.Out, " (P31 seen: %s)", strings.Join(seen, ", "))
+		}
+		fmt.Fprintln(a.Out)
 	}
 	return resolved, nil
 }

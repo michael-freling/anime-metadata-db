@@ -454,3 +454,71 @@ func TestResolutionRoundTripsThroughCache(t *testing.T) {
 		t.Errorf("unknown title should resolve to nothing, got %q", got)
 	}
 }
+
+// A P1476 the shape of which we do not recognise — a bare object where an array
+// belongs, a "novalue" snak — degrades to the English label rather than failing
+// the build. A datavalue's shape is decided by its property, and Wikidata is
+// edited by hand, so an unreadable one is a thing that happens.
+func TestParseUnexpectedTitleClaimShape(t *testing.T) {
+	const malformed = `{"entities":{"Q1":{"id":"Q1",
+	  "labels":{"en":{"language":"en","value":"Fallback Label"}},
+	  "claims":{"P1476":{"not":"an array"}}}}}`
+	e, err := Parse(strings.NewReader(malformed))
+	if err != nil {
+		t.Fatalf("an unreadable claim must not fail the parse: %v", err)
+	}
+	ent, ok := e.Lookup("Q1")
+	if !ok {
+		t.Fatal("entity not indexed")
+	}
+	if ent.Titles != nil {
+		t.Errorf("expected no titles from an unreadable claim, got %v", ent.Titles)
+	}
+	if ent.Labels["en"] != "Fallback Label" {
+		t.Errorf("the label must still answer: %q", ent.Labels["en"])
+	}
+}
+
+// A disambiguation page refuses the entity wherever it sits in the P31 list.
+// Returning on the first recognised kind instead would make the answer depend
+// on the order Wikidata happened to return the claims in.
+func TestClassifyDisambiguationWinsAtAnyPosition(t *testing.T) {
+	const bothOrders = `{"entities":{
+	  "Q1":{"sitelinks":{"jawiki":{"title":"first"}},
+	    "claims":{"P31":[{"mainsnak":{"datavalue":{"value":{"id":"Q4167410"}}}},
+	                     {"mainsnak":{"datavalue":{"value":{"id":"Q21198342"}}}}]}},
+	  "Q2":{"sitelinks":{"jawiki":{"title":"second"}},
+	    "claims":{"P31":[{"mainsnak":{"datavalue":{"value":{"id":"Q21198342"}}}},
+	                     {"mainsnak":{"datavalue":{"value":{"id":"Q4167410"}}}}]}}}}`
+	get := func(_ context.Context, _ string) ([]byte, error) { return []byte(bothOrders), nil }
+	got, err := ResolveWorks(context.Background(), get, "https://x/api.php", []string{"first", "second"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, r := range got {
+		if r.Resolved() {
+			t.Errorf("%s resolved to %s despite a disambiguation P31", r.Title, r.QID)
+		}
+		if r.Kind != "a disambiguation page, not a work" {
+			t.Errorf("%s: kind = %q", r.Title, r.Kind)
+		}
+	}
+}
+
+// A refusal carries the P31 values behind it, so widening workTypes is a matter
+// of reading the build output rather than looking each title up again.
+func TestResolveWorksReportsWhatItSaw(t *testing.T) {
+	const unknown = `{"entities":{"Q1":{"sitelinks":{"jawiki":{"title":"謎"}},
+	  "claims":{"P31":[{"mainsnak":{"datavalue":{"value":{"id":"Q64806863"}}}}]}}}}`
+	get := func(_ context.Context, _ string) ([]byte, error) { return []byte(unknown), nil }
+	got, err := ResolveWorks(context.Background(), get, "https://x/api.php", []string{"謎"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if got[0].Resolved() {
+		t.Fatal("an unrecognised kind must not resolve")
+	}
+	if len(got[0].InstanceOf) != 1 || got[0].InstanceOf[0] != "Q64806863" {
+		t.Errorf("InstanceOf = %v, want the P31 it refused", got[0].InstanceOf)
+	}
+}

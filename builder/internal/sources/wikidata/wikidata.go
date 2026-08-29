@@ -11,6 +11,7 @@ import (
 	"io"
 	"net/url"
 	"os"
+	"slices"
 	"sort"
 	"strings"
 	"unicode"
@@ -429,6 +430,11 @@ type Resolution struct {
 	Title string // the native title asked about
 	QID   string // "" when nothing usable was found
 	Kind  string // the work kind that matched, or why it was refused
+	// InstanceOf carries the P31 values behind a refusal, so a reader of the
+	// build output can see what the title actually pointed at. Without it every
+	// unrecognised kind funnels into one line and widening workTypes means
+	// looking each title up on Wikidata by hand.
+	InstanceOf []string
 }
 
 // Resolved reports whether the title resolved to a usable work.
@@ -514,26 +520,35 @@ func ResolveWorks(ctx context.Context, get Getter, apiURL string, titles []strin
 
 // classify decides whether an entity is a work this catalogue may take a title
 // from, and names the reason either way.
+//
+// The whole P31 list is read before anything is accepted, so a disambiguation
+// page refuses the entity wherever it sits in the list. Returning on the first
+// recognised kind instead would make the answer depend on the order Wikidata
+// happened to return the claims in.
 func classify(qid string, c claims) Resolution {
-	var kinds []string
+	var kinds, seen []string
 	if raw, ok := c["P31"]; ok {
 		var statements []statement
 		if json.Unmarshal(raw, &statements) == nil {
 			for _, st := range statements {
 				id := st.MainSnak.DataValue.Value.ID
-				if id == disambiguationPage {
-					return Resolution{Kind: "a disambiguation page, not a work"}
+				if id == "" {
+					continue
 				}
+				seen = append(seen, id)
 				if name, ok := workTypes[id]; ok {
 					kinds = append(kinds, name)
 				}
 			}
 		}
 	}
-	if len(kinds) == 0 {
-		return Resolution{Kind: "not a recognised kind of work"}
+	if slices.Contains(seen, disambiguationPage) {
+		return Resolution{Kind: "a disambiguation page, not a work", InstanceOf: seen}
 	}
-	return Resolution{QID: qid, Kind: kinds[0]}
+	if len(kinds) == 0 {
+		return Resolution{Kind: "not a recognised kind of work", InstanceOf: seen}
+	}
+	return Resolution{QID: qid, Kind: kinds[0], InstanceOf: seen}
 }
 
 // buildResolveURL constructs a wbgetentities request keyed by article title.

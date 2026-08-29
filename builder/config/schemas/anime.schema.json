@@ -137,6 +137,14 @@
         }
       }
     },
+    "seriesExternalIds": {
+      "comment": "A series spans several upstream entries and equals none of them, so it has no id in AniList, AniDB or TVDB. Only Wikidata models the work itself. Sharing the general externalIds shape here would let an anilistId meant for a season sit on the series and be silently dropped, since nothing reads one there.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "wikidataId": { "type": "string", "pattern": "^Q[0-9]+$" }
+      }
+    },
     "series": {
       "type": "object",
       "additionalProperties": false,
@@ -144,7 +152,7 @@
       "properties": {
         "id": { "$ref": "#/$defs/id" },
         "titles": { "$ref": "#/$defs/title" },
-        "externalIds": { "$ref": "#/$defs/externalIds" },
+        "externalIds": { "$ref": "#/$defs/seriesExternalIds" },
         "seasons": { "type": "array", "items": { "$ref": "#/$defs/season" } },
         "movies": { "type": "array", "items": { "$ref": "#/$defs/movie" } },
         "specials": { "type": "array", "items": { "$ref": "#/$defs/special" } },

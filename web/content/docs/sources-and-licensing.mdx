@@ -82,12 +82,12 @@ authored, and the row above that names its source does not apply to it.
 - `seasons[].externalIds.wikidataId`, `movies[].externalIds.wikidataId`,
   `specials[].externalIds.wikidataId` — an installment is joined to Wikidata
   through the series it belongs to, never on its own, so nothing fills these.
-- `series.externalIds.anidbId`, `series.externalIds.tvdbId`,
-  `series.externalIds.anilistId` — a series is a grouping that spans several
-  upstream entries and equals none of them, so it has no id in any of the three
-  catalogues. Only `wikidataId` is filled on a series, because Wikidata is the
-  one source that models the *work* rather than each broadcast run — and it is
-  reached by title rather than by an id, since there is no id to join on.
+A series is the exception to the paragraph below: it does *not* share the general
+`externalIds` shape. It spans several upstream entries and equals none of them,
+so it has no AniList, AniDB or TVDB id at all, and its schema (`seriesExternalIds`)
+admits only `wikidataId` — Wikidata being the one source that models the *work*
+rather than each broadcast run. An `anilistId` meant for a season is rejected
+there rather than accepted and dropped.
 - `specials[].absoluteNumber` and `specials[].episodes[].absoluteNumber` — the
   numbering pass builds its run from seasons and movies, so nothing under a
   special is ever numbered.
