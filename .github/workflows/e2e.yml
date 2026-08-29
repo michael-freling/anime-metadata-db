@@ -115,6 +115,54 @@ jobs:
           echo "series records after the rebuild: $count"
           test "$count" -gt 0 || { echo "::error::the rebuild left data/series empty"; exit 1; }
 
+      # The anilistId checks report rather than fail the build, because which
+      # installments make up a series is editorial and upstream's links move.
+      # That makes CI the place they are enforced: without this the notes go to
+      # a log nobody reads, and a wrong id lands as silently as before.
+      - name: No authored anilistId looks misplaced
+        run: |
+          set -euo pipefail
+          # The coverage line proves the checks ran at all. Asserting only the
+          # absence of findings would pass just as happily if they never
+          # executed, which is the failure this pair exists to tell apart.
+          grep -qE '^anilistId corroboration: ' /tmp/build.log || {
+            echo "::error::the build printed no anilistId coverage line, so the checks did not run"
+            exit 1
+          }
+          grep -E '^anilistId corroboration: ' /tmp/build.log
+          if grep -nE 'anilistId [0-9]+ is not linked|names the right installment' /tmp/build.log; then
+            echo "::error::an authored anilistId does not look like it belongs where it sits — see the lines above"
+            exit 1
+          fi
+
+      # A check that is silent on a clean catalogue is indistinguishable from a
+      # check that does not work. The unit tests exercise the algorithm against
+      # a four-entry fixture; this exercises it against the real offline
+      # database, which is the thing it has to hold up against.
+      - name: ...and a planted one is caught
+        run: |
+          set -euo pipefail
+          override=builder/config/overrides/series/sousou-no-frieren.yaml
+          # Fail loudly if the id moved, rather than editing nothing and
+          # "passing" because a build with no planted error reports no error.
+          grep -q 'anilistId: 182255' "$override" || {
+            echo "::error::the planted-error fixture is stale: expected anilistId 182255 in $override"
+            exit 1
+          }
+          # 21 is One Piece: a real entry, so `lookup` still succeeds and only
+          # these checks can object to it.
+          sed -i 's/anilistId: 182255 }/anilistId: 21 }/' "$override"
+          make build-data 2>&1 | tee /tmp/planted.log || true
+          git checkout -- builder/config/overrides/ data/
+
+          fail=0
+          grep -q 'anilistId 21 is not linked' /tmp/planted.log || {
+            echo "::error::the relatedAnime check did not catch an id from another series"; fail=1; }
+          grep -q 'names the right installment' /tmp/planted.log || {
+            echo "::error::the chronology check did not catch a season that predates the one before it"; fail=1; }
+          test "$fail" -eq 0
+          echo "both checks caught the planted id"
+
       # Informational: upstream moved, so this is expected to be non-empty and
       # is what a dataset refresh would commit. It is printed rather than
       # asserted for the reason above.
