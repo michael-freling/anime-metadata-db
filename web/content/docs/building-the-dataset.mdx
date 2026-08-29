@@ -50,6 +50,19 @@ successful build is always a valid dataset. Where it makes a low-confidence gues
 (chiefly title-language tagging) it prints a report — pin those cases with an
 override.
 
+The report also carries what the build could not verify. An `anilistId` is the
+key every other fact about an installment is read from, so an id naming the
+wrong entry does not fail the build: it fills the record with another show's
+titles and episode count. Two checks look for that, and both report rather than
+fail, because which installments make up a series is your editorial call and
+upstream's own links move:
+
+- an installment upstream does not connect to any of its siblings, found by
+  walking anime-offline-database's `relatedAnime` — an id from the wrong show
+- a season that aired before the one numbered ahead of it — an id from the
+  wrong installment of the *right* show, which the first check cannot see
+  because both entries are genuine siblings
+
 ## Adding an entry
 
 Create `builder/config/overrides/series/<id>.yaml` describing the structure, then run

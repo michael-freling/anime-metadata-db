@@ -102,6 +102,10 @@ func (b *Builder) buildSeries(s *model.Series, numbered bool, report *Report) er
 	if numbered {
 		assignAbsoluteNumbers(s)
 	}
+	// After the fills, so the chronology check reads the release year and
+	// season the authored ids actually produced rather than what the override
+	// happened to state.
+	b.checkAnilistIDs(s, report)
 	return nil
 }
 

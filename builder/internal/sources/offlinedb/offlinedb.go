@@ -106,6 +106,30 @@ func (a Anime) MyAnimeListID() int { return providerID(a.Sources, hostMyAL) }
 // KitsuID returns the entry's Kitsu id, or 0 if it has none.
 func (a Anime) KitsuID() int { return providerID(a.Sources, hostKitsu) }
 
+// RelatedAnilistIDs returns the AniList ids of the entries upstream links this
+// one to — the other installments of the same work, plus its spin-offs and
+// adaptations. Entries related only through a provider this dataset does not
+// join on are skipped, since there is nothing to compare them against.
+//
+// Unlike the single-id accessors this returns every match rather than the
+// first: the point of relatedAnime is the whole set.
+func (a Anime) RelatedAnilistIDs() []int {
+	out := make([]int, 0, len(a.RelatedAnime))
+	for _, url := range a.RelatedAnime {
+		if !containsHost(url, hostAnilist) {
+			continue
+		}
+		m := idPattern.FindStringSubmatch(url)
+		if m == nil {
+			continue
+		}
+		if id, err := strconv.Atoi(m[1]); err == nil {
+			out = append(out, id)
+		}
+	}
+	return out
+}
+
 // Parse reads an offline database from r and indexes it by AniList id. Entries
 // without an AniList id are skipped (they cannot be referenced by overrides).
 func Parse(r io.Reader) (*Database, error) {
