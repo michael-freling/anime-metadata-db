@@ -23,6 +23,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"io"
 	"net/http"
 	"net/url"
 	"os"
@@ -33,6 +34,11 @@ import (
 	"github.com/michael-freling/anime-metadata-db/builder/internal/overrides"
 	"github.com/michael-freling/anime-metadata-db/internal/model"
 )
+
+// getter fetches the body of a URL. The real one is a fetch.Client, which
+// sends the descriptive User-Agent Wikimedia requires; a test injects a fake so
+// the tool's logic is exercised without reaching the network.
+type getter func(ctx context.Context, url string) ([]byte, error)
 
 // apiURL is the Wikidata action API. It is hardcoded rather than read from
 // config.yaml because this tool is not part of a build: config.yaml pins the
@@ -53,13 +59,14 @@ func main() {
 	limit := flag.Int("limit", 0, "stop after this many unresolved series (0 = all)")
 	flag.Parse()
 
-	if err := run(*dir, *limit); err != nil {
+	client := &fetch.Client{HTTP: &http.Client{Timeout: 60 * time.Second}}
+	if err := run(os.Stdout, os.Stderr, client.Get, *dir, *limit); err != nil {
 		fmt.Fprintln(os.Stderr, "proposeqids:", err)
 		os.Exit(1)
 	}
 }
 
-func run(dir string, limit int) error {
+func run(out, logOut io.Writer, get getter, dir string, limit int) error {
 	bundle, err := overrides.LoadDir(dir)
 	if err != nil {
 		return err
@@ -79,11 +86,9 @@ func run(dir string, limit int) error {
 		targets = targets[:limit]
 	}
 	if len(targets) == 0 {
-		fmt.Fprintln(os.Stderr, "every series already names a Wikidata work")
+		fmt.Fprintln(logOut, "every series already names a Wikidata work")
 		return nil
 	}
-
-	client := &fetch.Client{HTTP: &http.Client{Timeout: 60 * time.Second}}
 	ctx := context.Background()
 
 	// Resolve by Japanese Wikipedia article title. The article title usually is
@@ -96,7 +101,7 @@ func run(dir string, limit int) error {
 		for i, t := range batch {
 			titles[i] = t.original
 		}
-		ents, err := lookup(ctx, client, titles)
+		ents, err := lookup(ctx, get, titles)
 		if err != nil {
 			return err
 		}
@@ -105,18 +110,18 @@ func run(dir string, limit int) error {
 		}
 	}
 
-	fmt.Println("series\tqid\tmatched_ja_title\ten_candidate\tsource\tverdict")
+	fmt.Fprintln(out, "series\tqid\tmatched_ja_title\ten_candidate\tsource\tverdict")
 	var matched int
 	for _, t := range targets {
 		e, ok := byTitle[t.original]
 		if !ok {
-			fmt.Printf("%s\t-\t%s\t-\t-\tno jawiki article with this exact title; look it up by hand\n", t.id, t.original)
+			fmt.Fprintf(out, "%s\t-\t%s\t-\t-\tno jawiki article with this exact title; look it up by hand\n", t.id, t.original)
 			continue
 		}
 		matched++
-		fmt.Printf("%s\t%s\t%s\t%s\t%s\t%s\n", t.id, e.qid, t.original, or(e.candidate(), "-"), e.source(), e.verdict())
+		fmt.Fprintf(out, "%s\t%s\t%s\t%s\t%s\t%s\n", t.id, e.qid, t.original, or(e.candidate(), "-"), e.source(), e.verdict())
 	}
-	fmt.Fprintf(os.Stderr, "\n%d/%d series matched a Wikidata work. Review every row before pasting a qid into an override.\n",
+	fmt.Fprintf(logOut, "\n%d/%d series matched a Wikidata work. Review every row before pasting a qid into an override.\n",
 		matched, len(targets))
 	return nil
 }
@@ -160,7 +165,7 @@ func (e entity) verdict() string {
 
 // lookup resolves Japanese Wikipedia article titles to their Wikidata entities,
 // asking for the labels, title claims and P31 the verdict needs.
-func lookup(ctx context.Context, client *fetch.Client, titles []string) ([]entity, error) {
+func lookup(ctx context.Context, get getter, titles []string) ([]entity, error) {
 	q := url.Values{}
 	q.Set("action", "wbgetentities")
 	q.Set("sites", "jawiki")
@@ -170,7 +175,7 @@ func lookup(ctx context.Context, client *fetch.Client, titles []string) ([]entit
 	q.Set("sitefilter", "jawiki")
 	q.Set("format", "json")
 
-	body, err := client.Get(ctx, apiURL+"?"+q.Encode())
+	body, err := get(ctx, apiURL+"?"+q.Encode())
 	if err != nil {
 		return nil, fmt.Errorf("wikidata lookup: %w", err)
 	}
