@@ -90,9 +90,10 @@ series:
         - seriesId: trigun-stampede
     - id: legato-bluesummers
       names:
-        original: Legato Bluesummers
+        original: レガート・ブルーサマーズ
         translations:
           en: Legato Bluesummers
+          ja: レガート・ブルーサマーズ
       externalIds:
         wikidataId: Q2589453
       appearances:
