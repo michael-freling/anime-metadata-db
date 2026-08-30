@@ -9,9 +9,7 @@ series:
   seasons:
     - id: sasaki-to-pii-chan-s1
       number: 1
-      externalIds: { anilistId: 152682 } # Sasaki to Pii-chan (Winter 2024)
     - id: sasaki-to-pii-chan-s2
       number: 2
-      externalIds: { anilistId: 176314 } # Sasaki to Pii-chan Season 2 (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [sasaki-to-pii-chan]

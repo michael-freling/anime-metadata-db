@@ -17,7 +17,6 @@ series:
   seasons:
     - id: second-prettiest-girl-in-class-s1
       number: 1
-      externalIds: { anilistId: 169580 } # Class de 2-banme ni Kawaii Onnanoko to Tomodachi ni Natta (2026)
   # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
   # the builder fills every name from the QID at build time.
   characters:

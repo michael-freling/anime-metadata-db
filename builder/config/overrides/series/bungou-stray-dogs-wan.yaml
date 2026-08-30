@@ -9,6 +9,8 @@ series:
   seasons:
     - id: bungou-stray-dogs-wan-s1
       number: 1
+      # Authored: upstream does not list this under the series' own title, so
+      # the build cannot resolve it. Everywhere else the id is resolved.
       externalIds: { anilistId: 120150 } # Bungou Stray Dogs Wan! (Winter 2021)
     - id: bungou-stray-dogs-wan-s2
       number: 2

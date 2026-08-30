@@ -9,6 +9,8 @@ series:
   seasons:
     - id: ao-no-miburo-s1
       number: 1
+      # Authored: upstream does not list this under the series' own title, so
+      # the build cannot resolve it. Everywhere else the id is resolved.
       externalIds: { anilistId: 169258 } # Ao no Miburo (Fall 2024)
     - id: ao-no-miburo-s2
       titles: { translations: { ja-Latn: Serizawa Ansatsu-hen } }

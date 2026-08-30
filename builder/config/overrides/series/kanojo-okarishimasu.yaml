@@ -8,20 +8,22 @@ series:
     translations: { ja-Latn: "Kanojo, Okarishimasu" }
   seasons:
     - id: kanojo-okarishimasu-s1
+      # Authored: upstream stopped listing these under the series' own title,
+      # so the build can no longer resolve them.
+      externalIds: { anilistId: 113813 }
       number: 1
-      externalIds: { anilistId: 113813 } # Kanojo, Okarishimasu (Summer 2020)
     - id: kanojo-okarishimasu-s2
+      externalIds: { anilistId: 124410 }
       number: 2
-      externalIds: { anilistId: 124410 } # Kanojo, Okarishimasu 2nd Season (Summer 2022)
     - id: kanojo-okarishimasu-s3
+      externalIds: { anilistId: 154745 }
       number: 3
-      externalIds: { anilistId: 154745 } # Kanojo, Okarishimasu 3rd Season (Summer 2023)
     - id: kanojo-okarishimasu-s4
+      externalIds: { anilistId: 179344 }
       number: 4
-      externalIds: { anilistId: 179344 } # Kanojo, Okarishimasu 4th Season (Summer 2025)
     - id: kanojo-okarishimasu-s5
+      externalIds: { anilistId: 199029 }
       number: 5
-      externalIds: { anilistId: 199029 } # Kanojo, Okarishimasu 5th Season (Spring 2026)
   # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
   # the builder fills every name from the QID at build time.
   characters:

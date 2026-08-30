@@ -9,6 +9,5 @@ series:
   seasons:
     - id: ghost-concert-missing-songs-s1
       number: 1
-      externalIds: { anilistId: 201090 } # Ghost Concert: Missing Songs (Spring 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [ghost-concert-missing-songs]

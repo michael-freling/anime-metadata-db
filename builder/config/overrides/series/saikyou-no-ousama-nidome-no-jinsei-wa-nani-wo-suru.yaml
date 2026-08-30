@@ -9,6 +9,8 @@ series:
   seasons:
     - id: saikyou-no-ousama-nidome-no-jinsei-wa-nani-wo-suru-s1
       number: 1
+      # Authored: upstream does not list this under the series' own title, so
+      # the build cannot resolve it. Everywhere else the id is resolved.
       externalIds: { anilistId: 183161 } # Saikyou no Ousama, Nidome no Jinsei wa Nani wo Suru? (Spring 2025)
     - id: saikyou-no-ousama-nidome-no-jinsei-wa-nani-wo-suru-s2
       number: 2

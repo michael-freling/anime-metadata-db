@@ -9,6 +9,5 @@ series:
   seasons:
     - id: shou-3-ashibe-qq-goma-chan-s1
       number: 1
-      externalIds: { anilistId: 202386 } # Shou 3 Ashibe QQ Goma-chan (Spring 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [shou-3-ashibe-qq-goma-chan]

@@ -9,6 +9,5 @@ series:
   seasons:
     - id: omae-gotoki-ga-maou-ni-kateru-to-omouna-to-yuusha-party-s1
       number: 1
-      externalIds: { anilistId: 191718 } # "Omae Gotoki ga Maou ni Kateru to Omouna" to Yuusha Party wo Tsuihou sareta node, Outo de Kimama ni Kurashitai (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [omae-gotoki-ga-maou-ni-kateru-to-omouna-to-yuusha-party]

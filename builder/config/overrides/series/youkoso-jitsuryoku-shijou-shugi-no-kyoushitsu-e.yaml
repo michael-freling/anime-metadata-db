@@ -9,6 +9,8 @@ series:
   seasons:
     - id: youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-s1
       number: 1
+      # Authored: upstream does not list this under the series' own title, so
+      # the build cannot resolve it. Everywhere else the id is resolved.
       externalIds: { anilistId: 98659 } # Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e (Summer 2017)
     - id: youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-s2
       number: 2

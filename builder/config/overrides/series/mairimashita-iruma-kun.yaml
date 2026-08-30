@@ -9,16 +9,12 @@ series:
   seasons:
     - id: mairimashita-iruma-kun-s1
       number: 1
-      externalIds: { anilistId: 107693 } # Mairimashita! Iruma-kun (Fall 2019)
     - id: mairimashita-iruma-kun-s2
       number: 2
-      externalIds: { anilistId: 116338 } # Mairimashita! Iruma-kun 2nd Season (Spring 2021)
     - id: mairimashita-iruma-kun-s3
       number: 3
-      externalIds: { anilistId: 139092 } # Mairimashita! Iruma-kun 3rd Season (Fall 2022)
     - id: mairimashita-iruma-kun-s4
       number: 4
-      externalIds: { anilistId: 184492 } # Mairimashita! Iruma-kun 4th Season (Spring 2026)
   # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
   # the builder fills every name from the QID at build time.
   characters:

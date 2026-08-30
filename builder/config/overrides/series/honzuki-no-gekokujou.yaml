@@ -9,6 +9,8 @@ series:
   seasons:
     - id: honzuki-no-gekokujou-s1
       number: 1
+      # Authored: upstream does not list this under the series' own title, so
+      # the build cannot resolve it. Everywhere else the id is resolved.
       externalIds: { anilistId: 108268 } # Honzuki no Gekokujou: Shisho ni Naru Tame ni wa Shudan wo Erandeiraremasen (Fall 2019)
     - id: honzuki-no-gekokujou-s2
       number: 2

@@ -9,9 +9,7 @@ series:
   seasons:
     - id: skip-to-loafer-s1
       number: 1
-      externalIds: { anilistId: 141911 } # Skip to Loafer (Spring 2023)
     - id: skip-to-loafer-s2
       number: 2
-      externalIds: { anilistId: 185657 } # Skip to Loafer 2nd Season (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [skip-to-loafer]

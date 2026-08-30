@@ -9,7 +9,6 @@ series:
   seasons:
     - id: kamiina-botan-yoeru-sugata-wa-yuri-no-hana-s1
       number: 1
-      externalIds: { anilistId: 187869 } # Kamiina Botan, Yoeru Sugata wa Yuri no Hana (Spring 2026)
   # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
   # the builder fills every name from the QID at build time.
   characters:

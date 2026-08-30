@@ -18,6 +18,7 @@ import (
 	"github.com/michael-freling/anime-metadata-db/builder/internal/build"
 	"github.com/michael-freling/anime-metadata-db/builder/internal/config"
 	"github.com/michael-freling/anime-metadata-db/builder/internal/fetch"
+	"github.com/michael-freling/anime-metadata-db/builder/internal/mapkeys"
 	"github.com/michael-freling/anime-metadata-db/builder/internal/overrides"
 	"github.com/michael-freling/anime-metadata-db/builder/internal/sources/animelists"
 	"github.com/michael-freling/anime-metadata-db/builder/internal/sources/offlinedb"
@@ -223,7 +224,7 @@ func (a *App) resolveSeriesWorks(ctx context.Context, apiURL string, bundle over
 	// series went unresolved — the very thing the collision check exists to
 	// surface.
 	fmt.Fprintf(a.Out, "resolved wikidata works: %d/%d series titles\n", len(resolved), needing)
-	for _, kind := range sortedKeys(unresolved) {
+	for _, kind := range mapkeys.Sorted(unresolved) {
 		fmt.Fprintf(a.Out, "  %d unresolved: %s", unresolved[kind], kind)
 		// Naming the P31 values behind a refusal is what makes the allowlist
 		// extendable from the build output instead of by looking each title up
@@ -239,17 +240,6 @@ func (a *App) resolveSeriesWorks(ctx context.Context, apiURL string, bundle over
 		fmt.Fprintln(a.Out)
 	}
 	return resolved, nil
-}
-
-// sortedKeys returns a map's keys in a fixed order, so two runs over the same
-// inputs print the same lines.
-func sortedKeys(m map[string]int) []string {
-	out := make([]string, 0, len(m))
-	for k := range m {
-		out = append(out, k)
-	}
-	sort.Strings(out)
-	return out
 }
 
 // collectSeriesQIDs gathers the QIDs a series names — the works whose P1476
@@ -479,6 +469,11 @@ func (a *App) build(cfg config.Config, ids []string) error {
 	// Validate every cast against the full id universe, then write what matches.
 	ctx := build.CharacterContext{R1: idx, Staff: staffIDs}
 	updated := 0
+	var coverage build.Coverage
+	// Collected over the same records the coverage is, so a filtered build
+	// reports the findings for what it actually built rather than for the
+	// whole catalogue it happened to load.
+	var findings build.Report
 	for _, s := range seriesOut {
 		if err := build.ValidateCharacters(s.rec.Cast(), ctx); err != nil {
 			return fmt.Errorf("build %s: %w", s.o.ID(), err)
@@ -488,6 +483,8 @@ func (a *App) build(cfg config.Config, ids []string) error {
 			if err != nil {
 				return err
 			}
+			coverage.Add(s.report.Coverage)
+			findings.Notes = append(findings.Notes, s.report.Notes...)
 			updated += a.reportBuilt(wrote, s.o.Path, s.o.ID(), s.report)
 		}
 	}
@@ -524,8 +521,70 @@ func (a *App) build(cfg config.Config, ids []string) error {
 		updated += len(removed)
 	}
 
+	a.reportCoverage(coverage)
+	a.reportFindings(&findings)
 	fmt.Fprintf(a.Out, "build complete: %d file(s) updated\n", updated)
 	return nil
+}
+
+// reportFindings prints one line naming how many findings CI fails on, and
+// which kinds the build raised.
+//
+// It exists so the gate can assert something positive. Grepping the notes for
+// the message text meant a pattern that matched nothing was indistinguishable
+// from a catalogue with nothing wrong, so a rewording silently retired the
+// gate — which happened twice while this feature was being built. Asserting
+// "gating findings: 0" fails loudly instead: if the line ever stops being
+// printed in that shape, CI goes red rather than quietly stopping.
+//
+// The codes are listed beside the count so the planted-error test can say
+// which check fired without matching on prose either.
+func (a *App) reportFindings(report *build.Report) {
+	gating := report.Gating()
+	fmt.Fprintf(a.Out, "gating findings: %d\n", len(gating))
+	if codes := report.Codes(); len(codes) > 0 {
+		strs := make([]string, len(codes))
+		for i, c := range codes {
+			strs[i] = string(c)
+		}
+		fmt.Fprintf(a.Out, "finding codes: %s\n", strings.Join(strs, " "))
+	}
+}
+
+// reportCoverage prints how many anilistIds the build computed rather than
+// read, and how much of the result the checks could actually see.
+//
+// A build whose report is empty is either clean or blind, and from the notes
+// alone the two are indistinguishable — the honest output for an id nothing can
+// corroborate is silence. This says which it was, so "no findings" can be read
+// as a result rather than an absence.
+//
+// The derived/authored split leads, because it is the number this project is
+// actually trying to move: an authored id is a fact typed by hand into a
+// dataset whose whole premise is that facts come from open sources. Printing it
+// every build makes the remaining hand-authored surface impossible to ignore,
+// and makes it obvious when a change grows it.
+func (a *App) reportCoverage(c build.Coverage) {
+	if c.Total() == 0 {
+		return
+	}
+	// Every figure is a fraction of the same denominator — the ids the checks
+	// were given. They come from independent mechanisms, so sharing one
+	// numerator's denominator with another would compare counts that do not
+	// measure the same population.
+	fmt.Fprintf(a.Out, "anilistId provenance: %d ids\n", c.Total())
+	fmt.Fprintf(a.Out, "  %d/%d resolved from the series' own title\n", c.Derived, c.Total())
+	fmt.Fprintf(a.Out, "  %d/%d read from an override\n", c.Authored(), c.Total())
+	if c.Agreed > 0 {
+		// Only when it happens: an override naming an id the build would have
+		// derived anyway is redundant, not an error, and a permanent "0" would
+		// read as a check that keeps failing.
+		fmt.Fprintf(a.Out, "  %d/%d authored and independently reproduced from the title\n", c.Agreed, c.Total())
+	}
+	fmt.Fprintf(a.Out, "  %d/%d linked to a sibling installment\n", c.Corroborated, c.Total())
+	if c.Alone > 0 {
+		fmt.Fprintf(a.Out, "  %d/%d unverifiable: the only installment of their series, so nothing to check against\n", c.Alone, c.Total())
+	}
 }
 
 // reportBuilt prints the built/report lines for one record and returns 1 if it

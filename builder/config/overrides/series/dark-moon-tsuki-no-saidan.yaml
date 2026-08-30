@@ -9,6 +9,5 @@ series:
   seasons:
     - id: dark-moon-tsuki-no-saidan-s1
       number: 1
-      externalIds: { anilistId: 181443 } # Dark Moon: Tsuki no Saidan (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [dark-moon-tsuki-no-saidan]

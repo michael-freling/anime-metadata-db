@@ -9,6 +9,7 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/michael-freling/anime-metadata-db/builder/internal/build"
 	"github.com/michael-freling/anime-metadata-db/builder/internal/config"
 	"github.com/michael-freling/anime-metadata-db/builder/internal/overrides"
 	"github.com/michael-freling/anime-metadata-db/builder/internal/sources/wikidata"
@@ -244,4 +245,108 @@ func mustLoadOverrides(t *testing.T, dir string) overrides.Bundle {
 		t.Fatal(err)
 	}
 	return b
+}
+
+// The coverage line is the only thing that tells a reader whether an empty
+// report means "clean" or "nothing was looked at", and nothing asserted its
+// wording — the e2e gate greps for a prefix, which a rename silently breaks.
+func TestReportCoverage(t *testing.T) {
+	render := func(c build.Coverage) string {
+		var out bytes.Buffer
+		(&App{Out: &out}).reportCoverage(c)
+		return out.String()
+	}
+
+	// Nothing considered: no line at all, rather than "0/0", which reads as a
+	// result when it is an absence.
+	if got := render(build.Coverage{}); got != "" {
+		t.Errorf("no ids means no line, got %q", got)
+	}
+
+	got := render(build.Coverage{Considered: 10, Derived: 6, Corroborated: 4, Alone: 5, Agreed: 7})
+	for _, want := range []string{
+		"anilistId provenance: 10 ids",
+		"6/10 resolved from the series' own title",
+		"4/10 read from an override",
+		"7/10 authored and independently reproduced from the title",
+		"4/10 linked to a sibling installment",
+		"5/10 unverifiable: the only installment of their series",
+	} {
+		if !strings.Contains(got, want) {
+			t.Errorf("missing %q in:\n%s", want, got)
+		}
+	}
+	// Every fraction shares the denominator, so independent checks are not
+	// reported as if one were a subset of the other.
+	if strings.Contains(got, "/9") || strings.Contains(got, "/7") || strings.Contains(got, "/6") {
+		t.Errorf("a figure used a denominator of its own:\n%s", got)
+	}
+
+	// Authored is Considered minus Derived rather than a counter of its own, so
+	// the two lines always account for every id exactly once. A separate
+	// counter could drift from the total and report 6 derived and 5 authored
+	// out of 10, which no reader could reconcile.
+	if c := (build.Coverage{Considered: 10, Derived: 6}); c.Authored() != 4 {
+		t.Errorf("authored = considered - derived, got %d", c.Authored())
+	}
+
+	// The agreement line appears only when an override named an id the build
+	// would have derived anyway. That is redundant rather than wrong, and now
+	// that the ids are derived by default it is normally zero — a permanent
+	// "0/N agree" would read as a check that keeps failing.
+	none := render(build.Coverage{Considered: 3, Derived: 3})
+	if strings.Contains(none, "independently reproduced") {
+		t.Errorf("nothing was authored, so no agreement line:\n%s", none)
+	}
+	if !strings.Contains(none, "0/3 read from an override") {
+		t.Errorf("a fully derived catalogue still reports its authored count:\n%s", none)
+	}
+	// Unlike the others, the alone line is suppressed at zero: every series
+	// having a sibling is the good case, not a missing measurement.
+	if strings.Contains(none, "unverifiable") {
+		t.Errorf("nothing was alone, so no line:\n%s", none)
+	}
+}
+
+// The gate asserts this line positively — "gating findings: 0" must be present
+// — so its wording is load-bearing in a way the notes' wording no longer is.
+// Nothing else pins it, and the whole point of the line is that a silent change
+// cannot retire the gate.
+func TestReportFindings(t *testing.T) {
+	render := func(r *build.Report) string {
+		var out bytes.Buffer
+		(&App{Out: &out}).reportFindings(r)
+		return out.String()
+	}
+
+	// A clean build must still print the count. Printing nothing would put the
+	// gate back where it started: unable to tell "no findings" from "the check
+	// never ran".
+	clean := render(&build.Report{})
+	if !strings.Contains(clean, "gating findings: 0") {
+		t.Errorf("a clean build still reports the count:\n%s", clean)
+	}
+	if strings.Contains(clean, "finding codes:") {
+		t.Errorf("no findings means no code list:\n%s", clean)
+	}
+
+	r := &build.Report{Notes: []build.Note{
+		{Code: build.CodeUnlinked, Entity: "season a-s1", Message: "x"},
+		{Code: build.CodeUnlinked, Entity: "season a-s2", Message: "y"},
+		{Code: build.CodeTitleDisagrees, Entity: "season a-s2", Message: "z"},
+		{Entity: "series a", Message: "an uncoded note"},
+	}}
+	got := render(r)
+	// Two gate; the title disagreement does not, because it moves with
+	// upstream's synonyms rather than with the authored data.
+	if !strings.Contains(got, "gating findings: 2") {
+		t.Errorf("both unlinked ids gate:\n%s", got)
+	}
+	// Every kind is named, gating or not, so the planted-error test can assert
+	// which check fired without matching on the message.
+	for _, want := range []string{"anilist-unlinked", "anilist-title-disagrees"} {
+		if !strings.Contains(got, want) {
+			t.Errorf("missing code %q in:\n%s", want, got)
+		}
+	}
 }

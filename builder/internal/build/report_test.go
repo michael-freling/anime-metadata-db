@@ -55,3 +55,58 @@ func TestReportSortAndString(t *testing.T) {
 		t.Error("empty report should render empty string")
 	}
 }
+
+// The CI gate reads these two, so what they return is an interface rather than
+// an implementation detail: a change here retires or fires a gate.
+func TestGatingAndCodes(t *testing.T) {
+	r := &Report{}
+	r.add("series x", "titles", "a note with no code at all")
+	r.addCoded(CodeWalkCapped, "season x-s1", "externalIds", "inconclusive")
+	r.addCoded(CodeUnlinked, "season x-s2", "externalIds", "not linked")
+	r.addCoded(CodeTitleDisagrees, "season x-s2", "externalIds", "disagrees")
+	r.addCoded(CodeDuplicate, "series x", "externalIds", "twice")
+
+	gating := r.Gating()
+	if len(gating) != 2 {
+		t.Fatalf("two of the five gate, got %d: %+v", len(gating), gating)
+	}
+	for _, n := range gating {
+		if n.Code != CodeUnlinked && n.Code != CodeDuplicate {
+			t.Errorf("%s must not gate", n.Code)
+		}
+	}
+	// Named individually rather than counted, because excluding these two is a
+	// deliberate decision with a reason recorded beside `gating`, and a count
+	// alone would still pass if the wrong two had been excluded.
+	for _, c := range []Code{CodeWalkCapped, CodeTitleDisagrees} {
+		for _, n := range gating {
+			if n.Code == c {
+				t.Errorf("%s gates on upstream's own drift, so it must not fail CI", c)
+			}
+		}
+	}
+
+	// Codes reports every kind raised, gating or not, so the planted-error test
+	// can name which check fired — sorted, and each one once.
+	want := []Code{CodeDuplicate, CodeTitleDisagrees, CodeUnlinked, CodeWalkCapped}
+	got := r.Codes()
+	if len(got) != len(want) {
+		t.Fatalf("codes: got %v, want %v", got, want)
+	}
+	for i := range want {
+		if got[i] != want[i] {
+			t.Fatalf("codes must be sorted and distinct: got %v, want %v", got, want)
+		}
+	}
+
+	// An uncoded note is not a finding, so a report of nothing but those gates
+	// on nothing and names nothing.
+	plain := &Report{}
+	plain.add("series y", "titles", "guessed a language")
+	if g := plain.Gating(); len(g) != 0 {
+		t.Errorf("uncoded notes do not gate, got %+v", g)
+	}
+	if c := plain.Codes(); len(c) != 0 {
+		t.Errorf("uncoded notes name no codes, got %v", c)
+	}
+}

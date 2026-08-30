@@ -50,6 +50,78 @@ successful build is always a valid dataset. Where it makes a low-confidence gues
 (chiefly title-language tagging) it prints a report — pin those cases with an
 override.
 
+The build works out which upstream entry each installment *is*, from the series'
+own title: upstream lists that title among the synonyms of each entry belonging
+to the series, so finding those entries enumerates the family and the airing
+dates order it. **You do not author `anilistId`** — the build resolves it.
+
+That covers 150 of the catalogue's 225 ids, and it is safe to rely on because it
+was measured rather than assumed: deleting every authored id and rebuilding
+produces a byte-identical `data/`, so across the whole catalogue the resolution
+never once named a different entry from the editor who had typed it.
+
+The remaining 75 sit in 24 series that upstream does not list under their own
+title. Those stay authored, and every build prints the split:
+
+```
+anilistId provenance: 225 ids
+  150/225 resolved from the series' own title
+  75/225 read from an override
+```
+
+If you do author an id, the resolution still runs against it and reports a
+disagreement, so authoring one is checked rather than trusted.
+
+The trade is that a required field now comes from a rolling source. When
+upstream stops listing a series under its own title, the build stops with a
+message naming the installment and telling you to author its id.
+
+That is not hypothetical. Between the pinned database and the one upstream
+published today, *Kanojo, Okarishimasu*'s five seasons and *Fate/strange Fake*
+stopped resolving; their six ids are authored for exactly that reason. Expect a
+couple more per upstream release, each one a line to add. Six ids to author is
+the price of not hand-authoring 150, and a build that stops is the right
+response to a join key that can no longer be computed: the alternative is a
+dataset that quietly re-points at whatever upstream now offers.
+
+The report also carries what the build could not verify. An `anilistId` is the
+key every other fact about an installment is read from, so an id naming the
+wrong entry does not fail the build: it fills the record with another show's
+titles and episode count. Three checks look for that, and all report rather than
+fail, because which installments make up a series is your editorial call and
+upstream's own links move:
+
+| code | what it catches |
+|---|---|
+| `anilist-unlinked` | an installment upstream does not connect to any of its siblings, found by walking anime-offline-database's `relatedAnime` — an id from the wrong show |
+| `anilist-out-of-order` | a season that aired before the one numbered ahead of it — an id from the wrong installment of the *right* show, which the first check cannot see because both entries are genuine siblings |
+| `anilist-duplicate` | one id on two installments — the one mistake neither of the others can see, since a duplicate is trivially linked to, and in order with, itself |
+
+Two more are raised but do not fail CI: `anilist-walk-capped`, which says a
+search was inconclusive rather than that an id is wrong, and
+`anilist-title-disagrees`, which moves with how completely upstream fills in
+synonyms rather than with your data.
+
+The codes exist so CI can act on a finding without matching its wording. Which
+ones gate is decided in `builder/internal/build/report.go`, beside the checks
+that raise them.
+
+The build then says how much of that surface it could actually see, and how much
+of what it found must not merge:
+
+```
+anilistId provenance: 225 ids
+  150/225 resolved from the series' own title
+  75/225 read from an override
+  112/225 linked to a sibling installment
+  113/225 unverifiable: the only installment of their series, so nothing to check against
+gating findings: 0
+```
+
+A series with one installment has no sibling to be checked against, so its id is
+reported neither good nor bad — the honest output is silence, and the count is
+what stops that silence from reading as a pass.
+
 ## Adding an entry
 
 Create `builder/config/overrides/series/<id>.yaml` describing the structure, then run

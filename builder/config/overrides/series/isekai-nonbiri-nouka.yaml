@@ -9,6 +9,8 @@ series:
   seasons:
     - id: isekai-nonbiri-nouka-s1
       number: 1
+      # Authored: upstream does not list this under the series' own title, so
+      # the build cannot resolve it. Everywhere else the id is resolved.
       externalIds: { anilistId: 146850 } # Isekai Nonbiri Nouka (Winter 2023)
     - id: isekai-nonbiri-nouka-s2
       number: 2

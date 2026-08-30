@@ -58,7 +58,7 @@ override supplied one.
 | `seasons[].releaseYear`, `seasons[].releaseSeason`, `movies[].releaseYear`, `specials[].releaseYear` | anime-offline-database — its `animeSeason` block | ODbL + DbCL |
 | `*.episodes[].airedNumber` | anime-offline-database — the episode *count*, expanded to 1…n; the same on a season and on a special | ODbL + DbCL |
 | `seasons[].episodes[].absoluteNumber`, `movies[].absoluteNumber` | this project — `assignAbsoluteNumbers` interleaves season episodes and original movies by release order; an alternate cut takes no number of its own | ODbL |
-| `*.externalIds.anilistId` | this project — the authored join key on whichever node carries it, cross-checked against anime-offline-database's `sources` array (see below) | ODbL |
+| `*.externalIds.anilistId` | anime-offline-database — resolved, not authored: the build finds the entries carrying the series' own native title and orders them by airing date, filling each installment's join key. 150 of 225 come this way; the 75 upstream does not list under the series title stay authored, and the resolution still checks any id an override names | ODbL + DbCL |
 | `seasons[].externalIds.anidbId`, `movies[].externalIds.anidbId`, `specials[].externalIds.anidbId` | anime-offline-database — parsed from its `sources` array. Only these three node kinds are resolved against it | ODbL + DbCL |
 | `seasons[].externalIds.tvdbId`, `movies[].externalIds.tvdbId`, `specials[].externalIds.tvdbId` | Anime-Lists — the AniDB→TVDB map, keyed by the `anidbId` above | *none stated* |
 | `*.characters[].externalIds.wikidataId`, `staff[].externalIds.wikidataId` | this project — the authored QID join key | ODbL |

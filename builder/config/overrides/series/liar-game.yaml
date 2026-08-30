@@ -9,6 +9,5 @@ series:
   seasons:
     - id: liar-game-s1
       number: 1
-      externalIds: { anilistId: 197754 } # Liar Game (Spring 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [liar-game]

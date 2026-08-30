@@ -36,7 +36,23 @@ AniList is **not** used: its ToS forbids storing or redistributing its content.
 
 The `anilistId` on each node is an identifier parsed out of the cross-reference
 URLs the offline database publishes — a join key into that ODbL source, not
-AniList data. See [`NOTICE`](NOTICE) and the
+AniList data. It is **resolved, not authored**: the build finds the upstream
+entries carrying the series' own native title, orders them by airing date, and
+fills each installment's id. Where an override does name one, the resolution
+still runs and reports a disagreement.
+
+Every build prints the split, so the hand-authored surface is never a guess:
+
+```
+anilistId provenance: 225 ids
+  150/225 resolved from the series' own title
+  75/225 read from an override
+```
+
+The remaining 75 sit in 24 series that upstream does not list under their own
+title, so nothing can compute them. That number is meant to fall, and CI checks
+it against the overrides so it cannot drift upward unnoticed. See
+[`NOTICE`](NOTICE) and the
 [Sources and licensing](https://anime-metadata-db.vercel.app/docs/sources-and-licensing)
 guide.
 

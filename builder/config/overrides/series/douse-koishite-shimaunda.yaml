@@ -9,6 +9,8 @@ series:
   seasons:
     - id: douse-koishite-shimaunda-s1
       number: 1
+      # Authored: upstream does not list this under the series' own title, so
+      # the build cannot resolve it. Everywhere else the id is resolved.
       externalIds: { anilistId: 175409 } # Douse, Koishite Shimaunda. (Winter 2025)
     - id: douse-koishite-shimaunda-s2
       number: 2

@@ -84,6 +84,9 @@ func (b *Builder) Build(o overrides.Override) (model.Record, *Report, error) {
 // and when numbered assigns a continuous absoluteNumber.
 func (b *Builder) buildSeries(s *model.Series, numbered bool, report *Report) error {
 	b.fillSeriesTitle(s, report)
+	// Before the fills: every one of them reads the entry the anilistId names,
+	// so the id has to exist first.
+	b.resolveAnilistIDs(s, report)
 	for i := range s.Seasons {
 		if err := b.fillSeason(&s.Seasons[i], report); err != nil {
 			return err
@@ -102,14 +105,29 @@ func (b *Builder) buildSeries(s *model.Series, numbered bool, report *Report) er
 	if numbered {
 		assignAbsoluteNumbers(s)
 	}
+	// After the fills, so the chronology check reads the release year and
+	// season the authored ids actually produced rather than what the override
+	// happened to state.
+	b.checkAnilistIDs(s, report)
 	return nil
 }
 
 // lookup resolves an AniList id against the offline database, failing on an
 // unknown id (design Part 4, step 2).
+//
+// A zero id here means the resolution could not name an entry and no override
+// did either, which is the one way deriving these ids can break a build: the
+// offline database is a rolling source, so a series it stops listing under its
+// own title loses an id that worked yesterday. The message says that, because
+// the fix is not obvious from "missing" alone — the field was never absent from
+// anyone's override, it was computed until it could not be.
 func (b *Builder) lookup(entity string, anilistID int) (offlinedb.Anime, error) {
 	if anilistID == 0 {
-		return offlinedb.Anime{}, fmt.Errorf("%s: missing externalIds.anilistId", entity)
+		return offlinedb.Anime{}, fmt.Errorf(
+			"%s: no externalIds.anilistId, and none could be resolved from the series' title. "+
+				"Upstream may have stopped listing this installment under it. "+
+				"Find the entry on anilist.co and author `externalIds: { anilistId: N }` on this installment",
+			entity)
 	}
 	a, ok := b.sources.Offline.Lookup(anilistID)
 	if !ok {
@@ -366,13 +384,26 @@ func partOf(p *int) int {
 	return *p
 }
 
-// seasonStartMonth maps an airing quarter to the month its cours typically
-// begin, used to derive an ordering key when only year+season are known.
-var seasonStartMonth = map[model.ReleaseSeason]time.Month{
-	model.SeasonWinter: time.January,
-	model.SeasonSpring: time.April,
-	model.SeasonSummer: time.July,
-	model.SeasonFall:   time.October,
+// quarterOrder lists the airing quarters in the order they fall within a year,
+// and is the one place that order is written down. quarterIndex reads a
+// position out of it and seasonStartMonth reads the month each position begins,
+// so a change to how an airing quarter sorts cannot reach one of them and miss
+// the other — which is how the season-chronology check and the resolver could
+// have come to disagree about installment order for the same upstream data.
+var quarterOrder = []model.ReleaseSeason{
+	model.SeasonWinter, model.SeasonSpring, model.SeasonSummer, model.SeasonFall,
+}
+
+// seasonStartMonth returns the month an airing quarter's cours typically begin,
+// used to derive an ordering key when only year+season are known. Quarters are
+// three months long and the year starts on one, so the position in
+// quarterOrder is the month.
+func seasonStartMonth(s model.ReleaseSeason) (time.Month, bool) {
+	i := quarterIndex(s)
+	if i < 0 {
+		return 0, false
+	}
+	return time.Month(1 + 3*i), true
 }
 
 // orderKey produces a sortable release key: the explicit date if present, else
@@ -382,7 +413,7 @@ func orderKey(date *model.Date, year int, season model.ReleaseSeason) time.Time 
 		return date.Time
 	}
 	month := time.January
-	if m, ok := seasonStartMonth[season]; ok {
+	if m, ok := seasonStartMonth(season); ok {
 		month = m
 	}
 	return time.Date(year, month, 1, 0, 0, 0, 0, time.UTC)
