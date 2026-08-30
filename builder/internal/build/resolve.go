@@ -2,6 +2,7 @@ package build
 
 import (
 	"fmt"
+	"math"
 	"sort"
 
 	"github.com/michael-freling/anime-metadata-db/builder/internal/sources/offlinedb"
@@ -26,6 +27,13 @@ import (
 // way precisely because it is optional: a series that stops resolving loses its
 // English title and the build carries on. This one is load-bearing, so the
 // authored id stays and the resolution checks it.
+//
+// A disagreement is reported but not enforced, because it can be upstream's
+// rather than the author's: MF Ghost's third season is not listed under the
+// series title while its announced fourth is, so the pool and the overrides
+// agree on count and differ by a member, and position three compares wrong
+// against a perfectly good id. The relatedAnime and chronology checks held
+// across an upstream version change where this one did not.
 //
 // Nothing here reaches the network: the offline database is already loaded.
 func (b *Builder) resolveAnilistIDs(s *model.Series, report *Report) {
@@ -159,18 +167,18 @@ func resolveKind(s *model.Series, kind installmentKind, pool map[int]offlinedb.A
 
 	for i, e := range ids {
 		want := matching[i].AnilistID()
-		switch {
-		case e.AnilistID == 0:
+		switch e.AnilistID {
+		case 0:
 			// Nothing authored, so the resolution is the only answer there is.
 			// A series may omit its ids and take these, accepting that a title
 			// upstream stops carrying takes the build with it.
 			e.AnilistID = want
 			report.Coverage.Derived++
-		case e.AnilistID == want:
+		case want:
 			report.Coverage.Agreed++
 		default:
 			report.add("series "+s.ID, "externalIds", fmt.Sprintf(
-				"%s %d of this series resolves to anilistId %d from the title, but %d is authored; one of them names the wrong entry",
+				"%s %d of this series resolves to anilistId %d from the title, but %d is authored; check which names the right entry, or upstream may simply not carry this title on both",
 				kind.name, i+1, want, e.AnilistID))
 		}
 	}
@@ -179,13 +187,28 @@ func resolveKind(s *model.Series, kind installmentKind, pool map[int]offlinedb.A
 // airedEarlier orders two upstream entries by airing window, falling back to
 // the id so entries sharing a window keep a fixed order between runs.
 func airedEarlier(a, b offlinedb.Anime) bool {
-	if a.AnimeSeason.Year != b.AnimeSeason.Year {
-		return a.AnimeSeason.Year < b.AnimeSeason.Year
+	if ya, yb := airedYear(a), airedYear(b); ya != yb {
+		return ya < yb
 	}
 	if qa, qb := quarterOf(a), quarterOf(b); qa != qb {
 		return qa < qb
 	}
 	return a.AnilistID() < b.AnilistID()
+}
+
+// airedYear is an entry's airing year, with an unknown one sorted last rather
+// than first.
+//
+// Upstream carries an announced-but-unscheduled installment with no
+// animeSeason, and a zero year would place it before everything — which is how
+// "MF Ghost Final Season" appearing upstream shifted that series' three real
+// seasons by one and made every id look wrong. An installment with no date yet
+// is the newest thing there is, not the oldest.
+func airedYear(a offlinedb.Anime) int {
+	if a.AnimeSeason.Year == 0 {
+		return math.MaxInt
+	}
+	return a.AnimeSeason.Year
 }
 
 // quarterOf orders an upstream airing quarter within its year.
