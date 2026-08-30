@@ -134,3 +134,16 @@ func TestRunAllowPruneFlag(t *testing.T) {
 		})
 	}
 }
+
+// diff compares two built trees, so it cannot guess the other one. Failing with
+// a message beats defaulting to something: a diff against the wrong tree reads
+// as a real result.
+func TestRunDiffRequiresBase(t *testing.T) {
+	code, _, errBuf := runCmd("--dir", repoDir(t), "diff")
+	if code == 0 {
+		t.Fatal("expected a non-zero exit without --base")
+	}
+	if !strings.Contains(errBuf, "--base is required") {
+		t.Errorf("stderr = %q", errBuf)
+	}
+}

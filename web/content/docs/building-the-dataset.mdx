@@ -35,7 +35,15 @@ cd builder && go build ./cmd/builder
 ./builder build                # (re)build data/ for all overrides
 ./builder build demon-slayer   # build/rebuild just one franchise or series
 ./builder refresh              # update sources to latest, bump pins, rebuild all
+./builder diff --base DIR      # compare data/ against another built copy of it
 ```
+
+`diff` compares **built output**, not committed files: a change to the builder
+alters what the overrides would produce, which a diff of what happens to be
+committed cannot see. Each pull request that touches the builder gets this
+posted as a comment, with both sides rebuilt from their own overrides and their
+own builder — so "the dataset is unchanged" and "the dataset changed in exactly
+this way" are computed rather than claimed.
 
 The build fails on any unknown id, dangling reference or schema violation, so a
 successful build is always a valid dataset. Where it makes a low-confidence guess
