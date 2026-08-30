@@ -15,3 +15,24 @@ plugins:
   - local: ../web/node_modules/.bin/protoc-gen-es
     out: ../web/src/lib/gen
     opt: target=ts
+  # The API reference the docs site renders, generated from this same schema so
+  # the method list, every field and every description come from the proto
+  # rather than from a table someone remembers to update. Connect speaks plain
+  # HTTP POST + JSON, which is what OpenAPI can describe, so the spec is a true
+  # account of the wire format and not an approximation.
+  #
+  # A remote plugin, deliberately. It is a build-time tool this module does not
+  # import, and installing it from api/ the way protoc-gen-go is installed would
+  # put it in go.mod and drag its dependency graph — a protobuf bump, in
+  # practice — into the committed Go server. The `base` and `override` options
+  # do not work remotely, which costs nothing here: the only thing a base file
+  # would add is `servers`, and that URL already exists in the web app (see
+  # lib/shared.ts), where duplicating it would be the thing that goes stale.
+  # JSON rather than YAML so the docs site can read the spec with JSON.parse.
+  # The server URL is not in the schema and has to be added at load time (see
+  # web/src/lib/openapi.ts); parsing YAML to do that would mean a parser
+  # dependency in the web app purely to reach one field.
+  - remote: buf.build/community/sudorandom-connect-openapi:v0.19.1
+    out: ../web/openapi
+    opt:
+      - format=json

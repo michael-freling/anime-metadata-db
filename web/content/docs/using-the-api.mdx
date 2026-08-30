@@ -36,30 +36,26 @@ own, start the server locally (`cd api && go run ./cmd/api`, see
 
 ## Methods
 
-| Method | Body | Returns |
-|---|---|---|
-| `GetHealth` | `{}` | liveness, build version, dataset stats |
-| `ListCatalog` | `{"limit": 20}` | every top-level entry as a flat summary |
-| `Search` | `{"query": "...", "limit": 10}` | matching franchises and series |
-| `ListWorks` | `{"releaseYear": 2026, "limit": 20}` | individual releases, by year, quarter, kind or series |
-| `ListFranchises` | `{"limit": 10}` | multi-series franchises, nested |
-| `GetFranchise` | `{"id": "..."}` | one franchise |
-| `ListSeries` | `{"franchiseId": "...", "limit": 10}` | one franchise's series |
-| `GetSeries` | `{"id": "..."}` | one series (standalone or under a franchise) |
-| `ListEpisodes` | `{"seasonId": "...", "limit": 20}` | the episodes of one season or special |
-| `GetCharacter` | `{"id": "..."}` | one character with its cast |
-| `ListCharacters` | `{"seriesId": "...", "limit": 10}` | the cast of one series, or of everything |
-| `ListAppearances` | `{"characterId": "...", "limit": 10}` | the series one character appears in |
-| `GetStaff` | `{"id": "..."}` | one staff member |
-| `ListStaff` | `{"language": "ja", "limit": 10}` | staff, optionally by credited language |
-| `ListCredits` | `{"staffId": "...", "limit": 10}` | the roles one staff member is cast in |
+The **[API reference](/docs/api)** documents every method: its request and
+response fields, their types, and the descriptions from the schema — with a
+playground on each page that sends a real request to the deployed service and
+shows you what comes back.
 
-`ListFranchises` returns only multi-series **franchises**; a standalone series is
-reachable through `Search` and `GetSeries`. `ListCatalog` is the cheaper way to
-ask what the dataset contains, because it does not nest the structure. For
-`Search`, a blank `query` matches nothing. An unknown `seriesId` is a
-`not_found` error rather than an empty list, so a typo is not mistaken for a
-series with no cast.
+It is generated from
+[`anime.proto`](https://github.com/michael-freling/anime-metadata-db/blob/main/api/proto/anime/v1/anime.proto),
+the same schema the server and this site's own client are built from, so it
+cannot drift from the API it describes. There is no separate list to keep in
+step: a method added to the service appears there, and a field renamed there
+cannot be described by the old name here.
+
+Some behaviour is worth knowing before you start.
+
+`ListCatalog` is the browse entry point and the cheapest way to ask what the
+dataset contains, because it does not nest the structure. `ListFranchises`
+returns only multi-series **franchises**; a standalone series is reachable
+through `Search` and `GetSeries`. For `Search`, a blank `query` matches nothing.
+An unknown `seriesId` is a `not_found` error rather than an empty list, so a
+typo is not mistaken for a series with no cast.
 
 ## Nothing comes back unbounded
 

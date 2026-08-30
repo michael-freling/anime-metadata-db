@@ -2,6 +2,7 @@
   "pages": [
     "index",
     "using-the-api",
+    "api",
     "using-the-dataset",
     "building-the-dataset",
     "coverage",

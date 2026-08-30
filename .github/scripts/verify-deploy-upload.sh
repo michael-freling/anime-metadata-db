@@ -44,6 +44,11 @@ fail=0
 # projects build from this repository, so both are covered:
 #
 #   web/**       the app the web project builds, including the MDX it renders
+#   web/openapi  the OpenAPI spec the API reference pages are rendered from.
+#                It is imported by src/lib/openapi.ts, so the web build fails
+#                without it — and note api/proto/ IS excluded below: the spec is
+#                generated from the proto, which is why the generated artefact
+#                has to ship even though its source does not.
 #   api/, internal/, go.mod, go.sum, dataset.go
 #                what Vercel's Go builder compiles. The API builds from api/
 #                with Root Directory set there, but it depends on the root
@@ -61,7 +66,7 @@ fail=0
 #                excluded only this one file would leave the rest of data/
 #                matching and the check passing.
 for required in \
-  'web/package.json' 'web/content/docs' 'web/src' \
+  'web/package.json' 'web/content/docs' 'web/src' 'web/openapi' \
   'api/cmd' 'api/internal' 'api/go.mod' 'api/go.sum' \
   'internal' 'go.mod' 'go.sum' 'dataset.go' \
   'data' 'data/index.tsv'; do

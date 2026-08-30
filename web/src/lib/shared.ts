@@ -43,17 +43,43 @@ const SITE_ORIGIN = 'https://anime-metadata-web.vercel.app';
 // partial environment without having to satisfy all of NodeJS.ProcessEnv.
 type DeployEnv = Partial<Record<'API_BASE_URL' | 'NODE_ENV' | 'VERCEL_ENV' | 'VERCEL_URL', string>>;
 
-export function resolveApiBaseUrl(env: DeployEnv = process.env): string {
+// The API the app talks to, and what to call it.
+//
+// Both come out of one decision on purpose. The API reference labels its
+// playground server with this, and a label chosen by a second function reading
+// the same environment is free to disagree with the URL — telling a contributor
+// running against `make api` that they are calling the deployed service. There
+// is only one branch here, so there is nothing to keep in step.
+export interface ApiServer {
+  url: string;
+  /** Human label for the URL, shown beside it in the API reference. */
+  label: string;
+}
+
+export function resolveApiServer(env: DeployEnv = process.env): ApiServer {
   // Deliberately a truthy check, not `??`: an empty API_BASE_URL — from a shell
   // exporting an unset variable, or an env-file substitution that resolved to
   // nothing — is not a usable base URL, and treating it as one would point
   // every request at the app's own origin. Falling back to the default is the
   // only sensible reading, so it is pinned by a test.
-  if (env.API_BASE_URL) return env.API_BASE_URL;
-  return env.NODE_ENV === 'development' ? 'http://localhost:8080' : API_ORIGIN;
+  if (env.API_BASE_URL) {
+    // Named rather than described, because this branch is a test hook and the
+    // URL could be anything; claiming it is "local" or "deployed" would be a
+    // guess. Saying where it came from is the one thing that is certainly true.
+    return { url: env.API_BASE_URL, label: 'Set by API_BASE_URL' };
+  }
+  if (env.NODE_ENV === 'development') {
+    return { url: 'http://localhost:8080', label: 'Local API (cd api && go run ./cmd/api)' };
+  }
+  return { url: API_ORIGIN, label: 'Deployed API' };
 }
 
-export const apiBaseUrl = resolveApiBaseUrl();
+export function resolveApiBaseUrl(env: DeployEnv = process.env): string {
+  return resolveApiServer(env).url;
+}
+
+export const apiServer = resolveApiServer();
+export const apiBaseUrl = apiServer.url;
 
 // A preview deployment describes itself with the URL Vercel assigns it, which
 // the platform injects automatically. Production and local both use the

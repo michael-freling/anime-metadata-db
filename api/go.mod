@@ -11,6 +11,8 @@ require (
 	gopkg.in/yaml.v3 v3.0.1
 )
 
+require connectrpc.com/cors v0.1.0
+
 // The dataset lives beside this module in the same repository; it is never
 // consumed from a proxy, so it is always resolved from the working tree.
 replace github.com/michael-freling/anime-metadata-db => ../
