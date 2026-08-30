@@ -1,5 +1,5 @@
 import { createOpenAPI } from 'fumadocs-openapi/server';
-import { apiBaseUrl, appName } from './shared';
+import { apiServer, appName } from './shared';
 import spec from '../../openapi/anime/v1/anime.openapi.json';
 import type { OpenAPIV3_2 } from 'fumadocs-openapi';
 
@@ -44,10 +44,14 @@ function describe(document: Document): Document {
     // never point at different deployments; `next dev` therefore aims it at a
     // local `make api` automatically, exactly like every other request here.
     //
+    // The label comes from the same decision as the URL rather than being
+    // written here, so a contributor running against a local API is not shown
+    // a playground captioned "Deployed API" while it calls localhost.
+    //
     // This is read at build time, which is what makes it safe to use a value
     // with no NEXT_PUBLIC prefix: the resolved string is baked into the
     // rendered page, and process.env is never reached from the browser.
-    servers: [{ url: apiBaseUrl, description: 'Deployed API' }],
+    servers: [{ url: apiServer.url, description: apiServer.label }],
   };
 }
 
