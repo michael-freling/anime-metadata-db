@@ -155,20 +155,21 @@ jobs:
             echo "::error::the build reports $reported authored anilistIds but the overrides hold $actual"
             exit 1
           }
-          # Deliberately not the title-resolution disagreement. That check
-          # depends on how completely upstream lists a series' title among each
-          # entry's synonyms, which drifts: MF Ghost's third season does not
-          # carry it while its announced fourth does, so the two line up by
-          # count and compare wrong through no fault of the authored ids. The
-          # two below held across an upstream version change; that one did not,
-          # and a gate on a rolling source is a gate that fails on someone
-          # else's edit.
-          # A duplicate id is unambiguous and upstream-independent — two
-          # installments are two works — so it gates alongside the other two.
-          # The walk-limit note deliberately does not: it says the walk was
-          # inconclusive, which is not a finding about the id.
-          if grep -nE 'anilistId [0-9]+ is not linked|names the wrong installment|is authored on more than one installment' /tmp/build.log; then
-            echo "::error::an authored anilistId does not look like it belongs where it sits — see the lines above"
+          # Which findings are worth failing a merge for is decided in Go, next
+          # to the checks that raise them (see `gating` in build/report.go), and
+          # the builder counts them. This asserts that count is zero.
+          #
+          # Asserting something positive is the point. The gate used to grep the
+          # notes for three English fragments, and a pattern that matches
+          # nothing is indistinguishable from a catalogue with nothing wrong —
+          # so a rewording silently retired it, twice, while this feature was
+          # being built. If the line below ever stops being printed in this
+          # shape, this step goes red instead of quietly passing forever.
+          if ! grep -qx 'gating findings: 0' /tmp/build.log; then
+            echo "::error::the build raised findings that must not merge:"
+            grep -x 'gating findings: [0-9]*' /tmp/build.log || true
+            grep -x 'finding codes: .*' /tmp/build.log || true
+            grep -nE 'anilistId' /tmp/build.log | grep -E 'externalIds' || true
             exit 1
           fi
 
@@ -208,13 +209,21 @@ jobs:
           make build-data 2>&1 | tee /tmp/planted.log || true
           git checkout -- builder/config/overrides/ data/
 
+          # By code rather than by message: these are the same three checks as
+          # before, but a rewording of what they say can no longer make this
+          # step pass by matching nothing.
           fail=0
-          grep -q 'anilistId 21 is not linked' /tmp/planted.log || {
+          grep -q 'anilist-unlinked' /tmp/planted.log || {
             echo "::error::the relatedAnime check did not catch an id from another series"; fail=1; }
-          grep -q 'names the wrong installment' /tmp/planted.log || {
+          grep -q 'anilist-out-of-order' /tmp/planted.log || {
             echo "::error::the chronology check did not catch a season that predates the one before it"; fail=1; }
-          grep -q "resolves to anilistId 182255 from the series' title, but 21 is authored" /tmp/planted.log || {
+          grep -q 'anilist-title-disagrees' /tmp/planted.log || {
             echo "::error::the title resolution did not disagree with the planted id"; fail=1; }
+          # And the gate must actually trip, rather than the codes merely being
+          # printed somewhere: this is the assertion the clean build's
+          # "gating findings: 0" is the other half of.
+          grep -qx 'gating findings: 0' /tmp/planted.log && {
+            echo "::error::a planted id did not raise a gating finding"; fail=1; }
           # The planted id is authored, so it must move the provenance split by
           # exactly one in each direction. This is what proves the two figures
           # describe the tree rather than a constant printed beside it.
@@ -224,6 +233,43 @@ jobs:
             echo "::error::planting an id did not raise the authored count by one"; fail=1; }
           test "$fail" -eq 0
           echo "all three checks caught the planted id, and the provenance split moved with it"
+
+      # The duplicate check gates but nothing exercised it end to end: a review
+      # found it silently mis-counting a duplicate as "nothing to check
+      # against", which unit tests caught only after the fact. It is also the
+      # one check the other two cannot stand in for — a duplicated id is
+      # trivially linked to, and in order with, itself.
+      - name: ...and so is a duplicated one
+        run: |
+          set -euo pipefail
+          override=builder/config/overrides/series/sousou-no-frieren.yaml
+          # Re-read from the clean build: each step is its own shell, so a
+          # variable set in the previous one would be empty here and the
+          # comparison below would silently degrade into matching nothing.
+          total=$(sed -n 's|^anilistId provenance: \([0-9]*\) ids$|\1|p' /tmp/build.log)
+          test -n "$total" || { echo "::error::could not read the id count from the clean build"; exit 1; }
+          # The same id on both seasons. 21 is a real entry, so `lookup`
+          # succeeds and only the duplicate check can object to the pairing.
+          sed -i '/- id: sousou-no-frieren-s[12]/{n;a\      externalIds: { anilistId: 21 }
+          }' "$override"
+          test "$(grep -c 'anilistId: 21' "$override")" -eq 2 || {
+            echo "::error::planting the duplicate did not edit both seasons of $override"
+            exit 1
+          }
+          make build-data 2>&1 | tee /tmp/dup.log || true
+          git checkout -- builder/config/overrides/ data/
+
+          fail=0
+          grep -q 'anilist-duplicate' /tmp/dup.log || {
+            echo "::error::the duplicate check did not catch one id on two installments"; fail=1; }
+          grep -qx 'gating findings: 0' /tmp/dup.log && {
+            echo "::error::a duplicated id did not raise a gating finding"; fail=1; }
+          # Both installments stay in the denominator and neither is filed as
+          # unverifiable: the series has two, and they were checked and failed.
+          grep -q "^anilistId provenance: $total ids$" /tmp/dup.log || {
+            echo "::error::a duplicate changed how many ids were considered"; fail=1; }
+          test "$fail" -eq 0
+          echo "the duplicate check caught one id on two installments"
 
       # Informational: upstream moved, so this is expected to be non-empty and
       # is what a dataset refresh would commit. It is printed rather than

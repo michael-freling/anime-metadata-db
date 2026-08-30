@@ -138,3 +138,54 @@ func TestRelatedAnilistIDsWithoutRelatedAnime(t *testing.T) {
 		t.Errorf("got %v, want none", got)
 	}
 }
+
+// Titled used to sort its result by AniList id and promise that order. It no
+// longer does — the only caller merges several calls into a set and re-orders
+// the survivors by airing date — so what it does promise is worth pinning:
+// every entry carrying the name, in upstream's own order, which is fixed for a
+// given database and therefore still reproducible.
+func TestTitledReturnsEveryMatchInUpstreamOrder(t *testing.T) {
+	const db = `{"data":[
+	  {"sources":["https://anilist.co/anime/900"],"title":"Later Season","synonyms":["Shared Name"]},
+	  {"sources":["https://anilist.co/anime/100"],"title":"Shared Name","synonyms":[]},
+	  {"sources":["https://anilist.co/anime/500"],"title":"Other","synonyms":["Shared Name","Alias"]},
+	  {"sources":["https://anidb.net/anime/7"],"title":"No AniList Id","synonyms":["Shared Name"]}
+	]}`
+	d, err := Parse(strings.NewReader(db))
+	if err != nil {
+		t.Fatalf("parse: %v", err)
+	}
+
+	// 900 first, then 100, then 500: the file's order, not ascending id. An
+	// ascending sort would put 100 first, so this fails if the sort returns.
+	got := d.Titled("Shared Name")
+	want := []int{900, 100, 500}
+	if len(got) != len(want) {
+		t.Fatalf("got %d entries, want %d", len(got), len(want))
+	}
+	for i, id := range want {
+		if got[i].AnilistID() != id {
+			t.Fatalf("entry %d: got id %d, want %d", i, got[i].AnilistID(), id)
+		}
+	}
+	// Indexing by id must still return the whole entry, not an id-shaped hole.
+	if got[2].Title != "Other" {
+		t.Errorf("the entry itself comes back, got title %q", got[2].Title)
+	}
+
+	// An entry with no AniList id is not indexed at all, so it cannot be found
+	// by a name it happens to share — there would be no id to join it on.
+	for _, a := range got {
+		if a.Title == "No AniList Id" {
+			t.Error("an entry with no AniList id must not be indexed by title")
+		}
+	}
+
+	// A title is indexed as well as the synonyms.
+	if byTitle := d.Titled("Other"); len(byTitle) != 1 || byTitle[0].AnilistID() != 500 {
+		t.Errorf("an entry is findable by its own title, got %+v", byTitle)
+	}
+	if none := d.Titled("Not A Title Anywhere"); none != nil {
+		t.Errorf("an unknown name finds nothing, got %+v", none)
+	}
+}

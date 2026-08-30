@@ -5,6 +5,7 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/michael-freling/anime-metadata-db/builder/internal/mapkeys"
 	"github.com/michael-freling/anime-metadata-db/internal/model"
 )
 
@@ -71,8 +72,8 @@ func (b *Builder) checkSameWork(s *model.Series, report *Report) {
 	// series whose only two installments share an id has one distinct id, and
 	// would otherwise leave here counted as unverifiable and unmentioned.
 	dupes := duplicates(ids)
-	for _, id := range sortedKeysOf(dupes) {
-		report.add("series "+s.ID, "externalIds", fmt.Sprintf(
+	for _, id := range mapkeys.Sorted(dupes) {
+		report.addCoded(CodeDuplicate, "series "+s.ID, "externalIds", fmt.Sprintf(
 			"anilistId %d is authored on more than one installment (%s); two installments are two different works, so one of them is wrong",
 			id, strings.Join(dupes[id], ", ")))
 	}
@@ -89,10 +90,18 @@ func (b *Builder) checkSameWork(s *model.Series, report *Report) {
 		// the join-key surface went unchecked rather than implying it passed.
 		// Counted per installment, not per distinct id, so a duplicate does not
 		// shrink the total the coverage line is a fraction of.
-		report.Coverage.Alone += len(ids)
+		//
+		// Unless a duplicate is why there is only one distinct id. Then these
+		// installments were checked and just failed, which is the opposite of
+		// unverifiable — counting them here would file a series with a reported
+		// defect under "nothing to check against", and the provenance line
+		// would read as if the checks had found nothing to say.
+		if len(dupes) == 0 {
+			report.Coverage.Alone += len(ids)
+		}
 		return
 	}
-	for _, id := range sortedKeysOf(distinct) {
+	for _, id := range mapkeys.Sorted(distinct) {
 		reached, capped := b.reachesSibling(id, distinct)
 		if reached {
 			report.Coverage.Corroborated++
@@ -101,11 +110,11 @@ func (b *Builder) checkSameWork(s *model.Series, report *Report) {
 		// Not counted as corroborated: it was checked and failed, which the
 		// note says. Counting it either way would make the summary disagree
 		// with the line above it.
-		why := "is not linked to any other installment of %s in the offline database's relatedAnime graph; check it names the right entry"
+		code, why := CodeUnlinked, "is not linked to any other installment of %s in the offline database's relatedAnime graph; check it names the right entry"
 		if capped {
-			why = "could not be linked to another installment of %s within the walk limit, so this is inconclusive rather than wrong"
+			code, why = CodeWalkCapped, "could not be linked to another installment of %s within the walk limit, so this is inconclusive rather than wrong"
 		}
-		report.add(distinct[id], "externalIds", fmt.Sprintf("anilistId %d "+why, id, s.ID))
+		report.addCoded(code, distinct[id], "externalIds", fmt.Sprintf("anilistId %d "+why, id, s.ID))
 	}
 }
 
@@ -193,7 +202,7 @@ func checkSeasonChronology(s *model.Series, report *Report) {
 			// which of the two carries the wrong id is not something this can
 			// tell — the branch's own test puts season 3's id on season 1 and
 			// the older wording blamed season 2 for it.
-			report.add("series "+s.ID, "externalIds", fmt.Sprintf(
+			report.addCoded(CodeOutOfOrder, "series "+s.ID, "externalIds", fmt.Sprintf(
 				"season %d (anilistId %d) aired %s %d, before season %d (anilistId %d) aired %s %d; one of the two names the wrong installment",
 				cur.number, cur.anilistID, quarterName(cur.season), cur.year,
 				prev.number, prev.anilistID, quarterName(prev.season), prev.year))
@@ -218,23 +227,20 @@ func (d datedSeason) airedBefore(other datedSeason) bool {
 	return quarterIndex(d.season) < quarterIndex(other.season)
 }
 
-// quarterIndex orders the airing quarters within a year. An unset season sorts
-// first, which cannot produce a false report on its own: a year that is equal
-// and a quarter that is missing on the later season is the one case this would
-// flag, and it is a real gap worth seeing.
+// quarterIndex orders the airing quarters within a year, reading the position
+// out of quarterOrder so this and the month mapping in build.go cannot come to
+// disagree about which quarter follows which.
+//
+// An unset season sorts first, which cannot produce a false report on its own:
+// a year that is equal and a quarter that is missing on the later season is the
+// one case this would flag, and it is a real gap worth seeing.
 func quarterIndex(s model.ReleaseSeason) int {
-	switch s {
-	case model.SeasonWinter:
-		return 0
-	case model.SeasonSpring:
-		return 1
-	case model.SeasonSummer:
-		return 2
-	case model.SeasonFall:
-		return 3
-	default:
-		return -1
+	for i, q := range quarterOrder {
+		if q == s {
+			return i
+		}
 	}
+	return -1
 }
 
 // quarterName renders a release season for a report line, naming an unset one
@@ -303,15 +309,4 @@ func duplicates(ids []installment) map[int][]string {
 		}
 	}
 	return byID
-}
-
-// sortedKeysOf returns a map's integer keys in ascending order, so a report
-// lists its findings the same way on every run over the same inputs.
-func sortedKeysOf[V any](m map[int]V) []int {
-	out := make([]int, 0, len(m))
-	for k := range m {
-		out = append(out, k)
-	}
-	sort.Ints(out)
-	return out
 }

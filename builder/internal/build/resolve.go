@@ -218,7 +218,7 @@ func resolveKind(s *model.Series, kind installmentKind, pool map[int]offlinedb.A
 			// cour sits in the third slot while its own number is 2, and
 			// "season 3" would send a reader looking for a season that is not
 			// there.
-			report.add(sl.name, "externalIds", fmt.Sprintf(
+			report.addCoded(CodeTitleDisagrees, sl.name, "externalIds", fmt.Sprintf(
 				"resolves to anilistId %d from the series' title, but %d is authored; check which names the right entry, or upstream may simply not carry this title on both",
 				want, sl.ids.AnilistID))
 		}

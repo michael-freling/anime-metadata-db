@@ -307,3 +307,46 @@ func TestReportCoverage(t *testing.T) {
 		t.Errorf("nothing was alone, so no line:\n%s", none)
 	}
 }
+
+// The gate asserts this line positively — "gating findings: 0" must be present
+// — so its wording is load-bearing in a way the notes' wording no longer is.
+// Nothing else pins it, and the whole point of the line is that a silent change
+// cannot retire the gate.
+func TestReportFindings(t *testing.T) {
+	render := func(r *build.Report) string {
+		var out bytes.Buffer
+		(&App{Out: &out}).reportFindings(r)
+		return out.String()
+	}
+
+	// A clean build must still print the count. Printing nothing would put the
+	// gate back where it started: unable to tell "no findings" from "the check
+	// never ran".
+	clean := render(&build.Report{})
+	if !strings.Contains(clean, "gating findings: 0") {
+		t.Errorf("a clean build still reports the count:\n%s", clean)
+	}
+	if strings.Contains(clean, "finding codes:") {
+		t.Errorf("no findings means no code list:\n%s", clean)
+	}
+
+	r := &build.Report{Notes: []build.Note{
+		{Code: build.CodeUnlinked, Entity: "season a-s1", Message: "x"},
+		{Code: build.CodeUnlinked, Entity: "season a-s2", Message: "y"},
+		{Code: build.CodeTitleDisagrees, Entity: "season a-s2", Message: "z"},
+		{Entity: "series a", Message: "an uncoded note"},
+	}}
+	got := render(r)
+	// Two gate; the title disagreement does not, because it moves with
+	// upstream's synonyms rather than with the authored data.
+	if !strings.Contains(got, "gating findings: 2") {
+		t.Errorf("both unlinked ids gate:\n%s", got)
+	}
+	// Every kind is named, gating or not, so the planted-error test can assert
+	// which check fired without matching on the message.
+	for _, want := range []string{"anilist-unlinked", "anilist-title-disagrees"} {
+		if !strings.Contains(got, want) {
+			t.Errorf("missing code %q in:\n%s", want, got)
+		}
+	}
+}

@@ -314,6 +314,18 @@ func TestCheckSameWorkReportsADuplicateID(t *testing.T) {
 			t.Errorf("every node carrying it must be named (%s):\n%s", name, got)
 		}
 	}
+	// The duplicate is a finding, so it must not also be filed as "nothing to
+	// check against". Counting it under Alone put a series with a reported
+	// defect into the unverifiable bucket, and the provenance line then read as
+	// if the checks had had nothing to say about it.
+	if c := report.Coverage; c.Alone != 0 || c.Corroborated != 0 {
+		t.Errorf("a duplicate was checked and failed, so it is neither alone nor corroborated: %+v", c)
+	}
+	// It gates: two installments are two different works whatever upstream
+	// says, so this one is safe to fail CI on.
+	if g := report.Gating(); len(g) != 1 || g[0].Code != CodeDuplicate {
+		t.Errorf("the duplicate must be a gating finding, got %+v", g)
+	}
 	// Both are still counted, or the coverage line would say one id where the
 	// override carries two.
 	if got := report.Coverage.Considered; got != 2 {

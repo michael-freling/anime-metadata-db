@@ -6,9 +6,45 @@ import (
 	"strings"
 )
 
+// Code identifies a kind of finding for machinery that has to act on one —
+// the CI gate, chiefly — so that nothing has to match on Message.
+//
+// Message is prose: it gets reworded, and twice in this feature's history a
+// rewording silently disabled the gate that was grepping for it, because a
+// pattern that matches nothing looks exactly like a catalogue with nothing
+// wrong. A code is an interface, renamed deliberately or not at all.
+type Code string
+
+// The finding kinds the anilistId checks produce. Notes that predate this
+// carry no code, which is why Code is omitempty rather than required.
+const (
+	CodeUnlinked       Code = "anilist-unlinked"
+	CodeWalkCapped     Code = "anilist-walk-capped"
+	CodeOutOfOrder     Code = "anilist-out-of-order"
+	CodeDuplicate      Code = "anilist-duplicate"
+	CodeTitleDisagrees Code = "anilist-title-disagrees"
+)
+
+// gating lists the codes CI fails on. It lives here, beside the checks that
+// raise them, rather than in the workflow: which findings are worth stopping a
+// merge for is a property of the check, and splitting it across two files is
+// how the two drift apart.
+//
+// CodeWalkCapped is excluded because it says the walk was inconclusive, which
+// is not a finding about the id. CodeTitleDisagrees is excluded because it
+// depends on how completely upstream lists a series' title among each entry's
+// synonyms, which drifts — a gate on that is a gate that fails on someone
+// else's edit.
+var gating = map[Code]bool{
+	CodeUnlinked:   true,
+	CodeOutOfOrder: true,
+	CodeDuplicate:  true,
+}
+
 // Note is one low-confidence decision the builder made (chiefly title-language
 // tagging) that a maintainer may want to review and pin with an override.
 type Note struct {
+	Code    Code   `yaml:"code,omitempty"`
 	Entity  string `yaml:"entity"`
 	Field   string `yaml:"field,omitempty"`
 	Message string `yaml:"message"`
@@ -85,6 +121,37 @@ func (c *Coverage) Add(other Coverage) {
 // add appends a note to the report.
 func (r *Report) add(entity, field, message string) {
 	r.Notes = append(r.Notes, Note{Entity: entity, Field: field, Message: message})
+}
+
+// addCoded appends a note that machinery can recognise without reading it.
+func (r *Report) addCoded(code Code, entity, field, message string) {
+	r.Notes = append(r.Notes, Note{Code: code, Entity: entity, Field: field, Message: message})
+}
+
+// Gating returns the notes CI fails on, in report order.
+func (r *Report) Gating() []Note {
+	var out []Note
+	for _, n := range r.Notes {
+		if gating[n.Code] {
+			out = append(out, n)
+		}
+	}
+	return out
+}
+
+// Codes returns the distinct codes the report carries, in ascending order, so
+// a summary line naming them is the same on every run over the same inputs.
+func (r *Report) Codes() []Code {
+	seen := map[Code]bool{}
+	var out []Code
+	for _, n := range r.Notes {
+		if n.Code != "" && !seen[n.Code] {
+			seen[n.Code] = true
+			out = append(out, n.Code)
+		}
+	}
+	sort.Slice(out, func(i, j int) bool { return out[i] < out[j] })
+	return out
 }
 
 // Empty reports whether the report has no notes. Coverage is deliberately not

@@ -9,7 +9,6 @@ import (
 	"io"
 	"os"
 	"regexp"
-	"sort"
 	"strconv"
 )
 
@@ -51,7 +50,13 @@ type Database struct {
 	// a work can be found by a name rather than by an id. A series has no
 	// AniList id of its own — it spans several — so its own native title is the
 	// only handle it has on the entries that make it up.
-	byTitle map[string][]Anime
+	//
+	// Ids rather than entries: upstream carries tens of thousands of entries
+	// with five to twenty synonyms each, so storing the struct in every bucket
+	// would hold several hundred thousand copies of it live for as long as the
+	// database is loaded. The id costs eight bytes and byAnilist already has
+	// the entry.
+	byTitle map[string][]int
 }
 
 // rawDatabase is the on-disk JSON shape.
@@ -141,14 +146,14 @@ func Parse(r io.Reader) (*Database, error) {
 	}
 	db := &Database{
 		byAnilist: make(map[int]Anime, len(raw.Data)),
-		byTitle:   make(map[string][]Anime, len(raw.Data)*4),
+		byTitle:   make(map[string][]int, len(raw.Data)*4),
 	}
 	for _, a := range raw.Data {
 		if id := a.AnilistID(); id != 0 {
 			db.byAnilist[id] = a
 			for _, name := range append([]string{a.Title}, a.Synonyms...) {
 				if name != "" {
-					db.byTitle[name] = append(db.byTitle[name], a)
+					db.byTitle[name] = append(db.byTitle[name], id)
 				}
 			}
 		}
@@ -173,20 +178,27 @@ func (d *Database) Lookup(anilistID int) (Anime, bool) {
 }
 
 // Titled returns every entry carrying name as its title or one of its
-// synonyms, in AniList id order so two runs over the same database agree.
+// synonyms, in the order upstream lists them.
+//
+// That order is upstream's file order, which is fixed for a given database, so
+// two runs agree — but it carries no meaning, and a caller that needs the
+// entries ranked must sort them itself. Sorting here instead would be wasted
+// work: the only caller merges several of these into a set keyed by id and then
+// orders the survivors by airing date, discarding whatever order it was given.
 //
 // An exact match rather than a prefix or a fold: upstream's synonym lists are
 // long and multilingual, and anything looser turns "find this work" into "find
 // works whose names look a bit like this", which is how a season of one show
 // gets an id belonging to another.
 func (d *Database) Titled(name string) []Anime {
-	found := d.byTitle[name]
-	if len(found) == 0 {
+	ids := d.byTitle[name]
+	if len(ids) == 0 {
 		return nil
 	}
-	out := make([]Anime, len(found))
-	copy(out, found)
-	sort.Slice(out, func(i, j int) bool { return out[i].AnilistID() < out[j].AnilistID() })
+	out := make([]Anime, 0, len(ids))
+	for _, id := range ids {
+		out = append(out, d.byAnilist[id])
+	}
 	return out
 }
 
