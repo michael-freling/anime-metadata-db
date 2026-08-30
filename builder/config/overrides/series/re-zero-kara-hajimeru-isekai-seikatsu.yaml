@@ -9,6 +9,8 @@ series:
   seasons:
     - id: re-zero-kara-hajimeru-isekai-seikatsu-s1
       number: 1
+      # Authored: upstream does not list this under the series' own title, so
+      # the build cannot resolve it. Everywhere else the id is resolved.
       externalIds: { anilistId: 21355 } # Re:Zero kara Hajimeru Isekai Seikatsu (Spring 2016)
     - id: re-zero-kara-hajimeru-isekai-seikatsu-s2p1
       number: 2

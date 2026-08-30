@@ -9,6 +9,8 @@ series:
   seasons:
     - id: jujutsu-kaisen-s1
       number: 1
+      # Authored: upstream does not list this under the series' own title, so
+      # the build cannot resolve it. Everywhere else the id is resolved.
       externalIds: { anilistId: 113415 } # Jujutsu Kaisen (Fall 2020)
     - id: jujutsu-kaisen-s2
       number: 2

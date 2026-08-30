@@ -9,6 +9,8 @@ series:
   seasons:
     - id: jigokuraku-s1
       number: 1
+      # Authored: upstream does not list this under the series' own title, so
+      # the build cannot resolve it. Everywhere else the id is resolved.
       externalIds: { anilistId: 128893 } # Jigokuraku (Spring 2023)
     - id: jigokuraku-s2
       number: 2

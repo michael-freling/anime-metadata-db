@@ -10,6 +10,8 @@ series:
   seasons:
     - id: diamond-no-ace-s1
       number: 1
+      # Authored: upstream does not list this under the series' own title, so
+      # the build cannot resolve it. Everywhere else the id is resolved.
       externalIds: { anilistId: 18689 } # Diamond no Ace (Fall 2013)
     - id: diamond-no-ace-s2
       number: 2

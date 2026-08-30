@@ -9,6 +9,8 @@ series:
   seasons:
     - id: otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-s1
       number: 1
+      # Authored: upstream does not list this under the series' own title, so
+      # the build cannot resolve it. Everywhere else the id is resolved.
       externalIds: { anilistId: 142074 } # Otome Game Sekai wa Mob ni Kibishii Sekai desu (Spring 2022)
     - id: otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-s2
       number: 2

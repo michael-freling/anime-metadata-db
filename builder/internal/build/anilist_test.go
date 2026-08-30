@@ -232,7 +232,7 @@ func TestCheckSameWorkCoverageCounts(t *testing.T) {
 		season("chain-s1", 1, 1, 2020, model.SeasonFall),
 		season("chain-s2", 2, 2, 2022, model.SeasonSpring),
 	}}, linked)
-	if got := linked.Coverage; got.Corroborated != 2 || got.Alone != 0 || got.Authored != 2 {
+	if got := linked.Coverage; got.Corroborated != 2 || got.Alone != 0 || got.Considered != 2 {
 		t.Errorf("both linked: %+v", got)
 	}
 
@@ -240,7 +240,7 @@ func TestCheckSameWorkCoverageCounts(t *testing.T) {
 	b.checkSameWork(&model.Series{ID: "solo", Seasons: []model.Season{
 		season("solo-s1", 1, 99, 1999, model.SeasonFall),
 	}}, alone)
-	if got := alone.Coverage; got.Alone != 1 || got.Corroborated != 0 || got.Authored != 1 {
+	if got := alone.Coverage; got.Alone != 1 || got.Corroborated != 0 || got.Considered != 1 {
 		t.Errorf("lone installment: %+v", got)
 	}
 
@@ -269,8 +269,8 @@ func TestCheckSameWorkCoverageCounts(t *testing.T) {
 // Reports are merged per record before the build sums them, so the counts have
 // to survive a merge or the total silently under-reports.
 func TestReportMergeSumsCoverage(t *testing.T) {
-	a := &Report{Coverage: Coverage{Authored: 3, Corroborated: 2, Alone: 1}}
-	a.Merge(&Report{Coverage: Coverage{Authored: 7, Corroborated: 3, Alone: 4}})
+	a := &Report{Coverage: Coverage{Considered: 3, Corroborated: 2, Alone: 1}}
+	a.Merge(&Report{Coverage: Coverage{Considered: 7, Corroborated: 3, Alone: 4}})
 	if a.Coverage.Corroborated != 5 || a.Coverage.Alone != 5 {
 		t.Errorf("merge lost counts: %+v", a.Coverage)
 	}
@@ -287,7 +287,7 @@ func TestReportMergeSumsCoverage(t *testing.T) {
 // Coverage must not make a findings-free report look non-empty, or every clean
 // build would print a report block.
 func TestCoverageDoesNotMakeAReportNonEmpty(t *testing.T) {
-	r := &Report{Coverage: Coverage{Authored: 9, Corroborated: 9}}
+	r := &Report{Coverage: Coverage{Considered: 9, Corroborated: 9}}
 	if !r.Empty() {
 		t.Error("counts alone are not findings")
 	}
@@ -316,7 +316,7 @@ func TestCheckSameWorkReportsADuplicateID(t *testing.T) {
 	}
 	// Both are still counted, or the coverage line would say one id where the
 	// override carries two.
-	if got := report.Coverage.Authored; got != 2 {
+	if got := report.Coverage.Considered; got != 2 {
 		t.Errorf("Authored = %d, want 2", got)
 	}
 }

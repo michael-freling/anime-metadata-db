@@ -13,6 +13,8 @@ franchise:
       seasons:
         - id: fate-stay-night-s1
           number: 1
+          # Authored: upstream does not list this under the series' own title, so
+          # the build cannot resolve it. Everywhere else the id is resolved.
           externalIds: { anilistId: 356 } # Fate/stay night (2006)
         - id: fate-stay-night-s2
           titles: { translations: { en: Unlimited Blade Works } }
@@ -28,19 +30,19 @@ franchise:
         - id: fate-zero-s1
           number: 1
           part: 1
-          externalIds: { anilistId: 10087 } # Fate/Zero (2011)
         - id: fate-zero-s2
           number: 1
           part: 2
-          externalIds: { anilistId: 11741 } # Fate/Zero 2nd Season (2012)
     # A separate continuity (a Fake Holy Grail War in Snowfield), so its own
     # Series under the franchise rather than a season of stay night or Zero.
     - id: fate-strange-fake
       titles: { original: Fate/strange Fake }
       seasons:
         - id: fate-strange-fake-s1
+          # Authored: upstream stopped listing these under the series' own title,
+          # so the build can no longer resolve them.
+          externalIds: { anilistId: 166617 }
           number: 1
-          externalIds: { anilistId: 166617 } # Fate/strange Fake (Winter 2026)
   # Release order is the default (derived from release dates); only the curated
   # in-universe order is stored.
   watchOrders:

@@ -13,6 +13,8 @@ series:
   seasons:
     - id: demon-slayer-s1
       number: 1
+      # Authored: upstream does not list this under the series' own title, so
+      # the build cannot resolve it. Everywhere else the id is resolved.
       externalIds: { anilistId: 101922 } # Kimetsu no Yaiba (2019)
     - id: demon-slayer-s2
       titles: { translations: { en: Mugen Train Arc } }

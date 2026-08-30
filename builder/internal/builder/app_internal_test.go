@@ -263,29 +263,47 @@ func TestReportCoverage(t *testing.T) {
 		t.Errorf("no ids means no line, got %q", got)
 	}
 
-	got := render(build.Coverage{Authored: 10, Corroborated: 4, Alone: 5, Agreed: 7})
+	got := render(build.Coverage{Considered: 10, Derived: 6, Corroborated: 4, Alone: 5, Agreed: 7})
 	for _, want := range []string{
-		"anilistId corroboration: 10 authored",
-		"7/10 agree with the entry the series' title resolves to",
+		"anilistId provenance: 10 ids",
+		"6/10 resolved from the series' own title",
+		"4/10 read from an override",
+		"7/10 authored and independently reproduced from the title",
 		"4/10 linked to a sibling installment",
-		"5 unverifiable: the only installment of their series",
+		"5/10 unverifiable: the only installment of their series",
 	} {
 		if !strings.Contains(got, want) {
 			t.Errorf("missing %q in:\n%s", want, got)
 		}
 	}
-	// Every fraction shares the denominator, so two independent checks are not
+	// Every fraction shares the denominator, so independent checks are not
 	// reported as if one were a subset of the other.
-	if strings.Contains(got, "/9") || strings.Contains(got, "/7") {
+	if strings.Contains(got, "/9") || strings.Contains(got, "/7") || strings.Contains(got, "/6") {
 		t.Errorf("a figure used a denominator of its own:\n%s", got)
 	}
 
-	// The derived line appears only when something was derived: on a catalogue
-	// that authors every id it would otherwise print a permanent "0 resolved".
-	if strings.Contains(got, "resolved from the title") {
-		t.Errorf("nothing was derived, so no line:\n%s", got)
+	// Authored is Considered minus Derived rather than a counter of its own, so
+	// the two lines always account for every id exactly once. A separate
+	// counter could drift from the total and report 6 derived and 5 authored
+	// out of 10, which no reader could reconcile.
+	if c := (build.Coverage{Considered: 10, Derived: 6}); c.Authored() != 4 {
+		t.Errorf("authored = considered - derived, got %d", c.Authored())
 	}
-	if d := render(build.Coverage{Authored: 3, Derived: 3}); !strings.Contains(d, "3 resolved from the title") {
-		t.Errorf("a derived id must be reported:\n%s", d)
+
+	// The agreement line appears only when an override named an id the build
+	// would have derived anyway. That is redundant rather than wrong, and now
+	// that the ids are derived by default it is normally zero — a permanent
+	// "0/N agree" would read as a check that keeps failing.
+	none := render(build.Coverage{Considered: 3, Derived: 3})
+	if strings.Contains(none, "independently reproduced") {
+		t.Errorf("nothing was authored, so no agreement line:\n%s", none)
+	}
+	if !strings.Contains(none, "0/3 read from an override") {
+		t.Errorf("a fully derived catalogue still reports its authored count:\n%s", none)
+	}
+	// Unlike the others, the alone line is suppressed at zero: every series
+	// having a sibling is the good case, not a missing measurement.
+	if strings.Contains(none, "unverifiable") {
+		t.Errorf("nothing was alone, so no line:\n%s", none)
 	}
 }

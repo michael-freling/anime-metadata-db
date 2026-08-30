@@ -9,12 +9,9 @@ series:
   seasons:
     - id: jidou-hanbaiki-ni-umarekawatta-ore-wa-meikyuu-wo-samayou-s1
       number: 1
-      externalIds: { anilistId: 153360 } # Jidou Hanbaiki ni Umarekawatta Ore wa Meikyuu wo Samayou (Summer 2023)
     - id: jidou-hanbaiki-ni-umarekawatta-ore-wa-meikyuu-wo-samayou-s2
       number: 2
-      externalIds: { anilistId: 169440 } # Jidou Hanbaiki ni Umarekawatta Ore wa Meikyuu wo Samayou 2nd Season (Summer 2025)
     - id: jidou-hanbaiki-ni-umarekawatta-ore-wa-meikyuu-wo-samayou-s3
       number: 3
-      externalIds: { anilistId: 198939 } # Jidou Hanbaiki ni Umarekawatta Ore wa Meikyuu wo Samayou 3rd Season (Spring 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [jidou-hanbaiki-ni-umarekawatta-ore-wa-meikyuu-wo-samayou]

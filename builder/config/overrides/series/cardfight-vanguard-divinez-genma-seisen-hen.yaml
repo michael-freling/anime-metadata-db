@@ -9,6 +9,5 @@ series:
   seasons:
     - id: cardfight-vanguard-divinez-genma-seisen-hen-s1
       number: 1
-      externalIds: { anilistId: 203296 } # Cardfight!! Vanguard: Divinez Genma Seisen-hen (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [cardfight-vanguard-divinez-genma-seisen-hen]

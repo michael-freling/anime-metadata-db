@@ -9,6 +9,5 @@ series:
   seasons:
     - id: xi-yangyang-yu-hui-tailang-gu-guguai-jie-you-guguai-s1
       number: 1
-      externalIds: { anilistId: 207363 } # Xi Yangyang Yu Hui Tailang: Gu Guguai Jie You Guguai (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [xi-yangyang-yu-hui-tailang-gu-guguai-jie-you-guguai]

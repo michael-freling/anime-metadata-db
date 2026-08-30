@@ -9,6 +9,5 @@ series:
   seasons:
     - id: jirai-nan-desu-ka-chihara-san-s1
       number: 1
-      externalIds: { anilistId: 204579 } # Jirai nan desu ka? Chihara-san (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [jirai-nan-desu-ka-chihara-san]

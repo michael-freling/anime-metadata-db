@@ -9,6 +9,5 @@ series:
   seasons:
     - id: metal-cardbot-w-s1
       number: 1
-      externalIds: { anilistId: 204626 } # Metal Cardbot W (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [metal-cardbot-w]

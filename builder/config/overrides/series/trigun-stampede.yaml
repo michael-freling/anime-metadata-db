@@ -10,6 +10,8 @@ series:
   seasons:
     - id: trigun-stampede-s1
       number: 1
+      # Authored: upstream does not list this under the series' own title, so
+      # the build cannot resolve it. Everywhere else the id is resolved.
       externalIds: { anilistId: 151040 } # Trigun Stampede (Winter 2023)
     - id: trigun-stampede-s2
       titles: { translations: { en: Trigun Stargaze } }

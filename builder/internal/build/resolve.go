@@ -10,30 +10,47 @@ import (
 )
 
 // resolveAnilistIDs works out which upstream entry each installment is, from the
-// series' own title, and checks that against what the override says.
+// series' own title, filling the id where no override names one and checking it
+// where an override does.
 //
 // A series has no AniList id — it spans several, one per installment — so there
 // is no id to look the installments up by. There is a name: upstream lists the
 // series' native title among the synonyms of each entry belonging to it, so
 // finding those entries enumerates the family and the airing dates order it.
-// Over the catalogue that reproduces the authored id for 123 of 152 series and
-// never picks a different one, so a disagreement is worth reporting.
 //
-// It corroborates rather than replaces, which was not the first plan. The ids
-// were briefly derived and deleted from the overrides — and upstream moved two
-// days later, two series stopped resolving, and the build failed outright,
-// because every other fact about an installment is read through this id and a
-// missing one has nothing to fall back on. wikidataId can be derived the same
-// way precisely because it is optional: a series that stops resolving loses its
-// English title and the build carries on. This one is load-bearing, so the
-// authored id stays and the resolution checks it.
+// This supplies 150 of the catalogue's 225 ids, and the dataset it produces is
+// byte-identical to the one the authored ids produced: over the whole
+// catalogue the resolution never once named a different entry from the editor.
+// That is what makes deriving them safe rather than merely convenient — the
+// measurement is a build with every id deleted, compared against the committed
+// tree, not an argument that the matching looks sound.
 //
-// A disagreement is reported but not enforced, because it can be upstream's
-// rather than the author's: MF Ghost's third season is not listed under the
-// series title while its announced fourth is, so the pool and the overrides
-// agree on count and differ by a member, and position three compares wrong
-// against a perfectly good id. The relatedAnime and chronology checks held
-// across an upstream version change where this one did not.
+// The remaining 75 sit in 24 series and stay authored, because upstream does
+// not list them under the series title at all. They are the residue this cannot
+// reach, not a second opinion about ids it can.
+//
+// The cost is that a required field now comes from a rolling source. When
+// upstream stops listing a series under its own title the build fails outright,
+// because every other fact about an installment is read through this id — see
+// lookup, which says so and names the id to author.
+//
+// That is not hypothetical: between the pinned database and the one upstream
+// published today, Kanojo, Okarishimasu's five seasons and Fate/strange Fake
+// stopped resolving. Their six ids are authored for exactly that reason, and
+// under the pinned database the resolution still reproduces them, which is what
+// the "authored and independently reproduced" count reports. Expect a couple
+// more per upstream release, each one a line to add.
+//
+// Six ids to author is the price of not hand-authoring 150, and a build that
+// stops is the right response to a join key that can no longer be computed: the
+// alternative is a dataset that quietly re-points at whatever upstream now
+// offers.
+//
+// A disagreement with an authored id is reported but not enforced, because it
+// can be upstream's mistake rather than the author's: MF Ghost's third season
+// is not listed under the series title while its announced fourth is, so the
+// pool and the overrides agree on count and differ by a member, and position
+// three compares wrong against a perfectly good id.
 //
 // Nothing here reaches the network: the offline database is already loaded.
 func (b *Builder) resolveAnilistIDs(s *model.Series, report *Report) {

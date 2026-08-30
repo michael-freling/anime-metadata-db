@@ -18,12 +18,18 @@ const relatedWalkCap = 500
 // checkAnilistIDs reports an authored anilistId that does not look like it
 // belongs where it sits.
 //
-// Every installment's id is authored by hand and nothing has ever checked one.
-// It is the join key the whole build hangs off — titles, release season,
+// The id is the join key the whole build hangs off — titles, release season,
 // episode counts and the AniDB/TVDB cross-map all come from the entry it names
 // — so an id naming the wrong entry does not fail, it silently fills a series
 // with another show's facts. `lookup` catches an id that exists nowhere; these
 // catch an id that exists and is wrong.
+//
+// They run over derived and authored ids alike. A derived id is not exempt: the
+// resolution pairs installments with entries by airing order, so an upstream
+// catalogue that gains or loses an entry under a series title can shift the
+// pairing without anything else looking wrong. These two checks read the graph
+// and the dates instead, which is why they caught that shift when the title
+// resolution did not.
 //
 // Two independent checks, because they catch different mistakes. The graph one
 // asks "is this the right work?" and cannot see a season pointed at its own
@@ -34,6 +40,8 @@ const relatedWalkCap = 500
 // project's editorial judgement — the thing it exists to provide — and upstream
 // relatedAnime is a rolling source that moves under a pinned build. A hard
 // error would let either overrule the author; a note puts it in front of them.
+// The missing id in lookup does fail, and the difference is that one has no
+// answer to fall back on while these have a defensible one they merely doubt.
 func (b *Builder) checkAnilistIDs(s *model.Series, report *Report) {
 	b.checkSameWork(s, report)
 	checkSeasonChronology(s, report)
@@ -57,7 +65,7 @@ func (b *Builder) checkSameWork(s *model.Series, report *Report) {
 		return
 	}
 	ids := anilistIDs(s)
-	report.Coverage.Authored += len(ids)
+	report.Coverage.Considered += len(ids)
 
 	// Reported before anything else, and before the lone-installment exit: a
 	// series whose only two installments share an id has one distinct id, and

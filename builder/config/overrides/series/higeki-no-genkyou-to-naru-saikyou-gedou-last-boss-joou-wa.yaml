@@ -9,6 +9,8 @@ series:
   seasons:
     - id: higeki-no-genkyou-to-naru-saikyou-gedou-last-boss-joou-wa-s1
       number: 1
+      # Authored: upstream does not list this under the series' own title, so
+      # the build cannot resolve it. Everywhere else the id is resolved.
       externalIds: { anilistId: 156040 } # Higeki no Genkyou to Naru Saikyou Gedou Last Boss Joou wa Tami no Tame ni Tsukushimasu. (Summer 2023)
     - id: higeki-no-genkyou-to-naru-saikyou-gedou-last-boss-joou-wa-s2
       number: 2

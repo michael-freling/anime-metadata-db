@@ -9,7 +9,6 @@ series:
   seasons:
     - id: hell-mode-yarikomizuki-no-gamer-wa-hai-settei-no-isekai-s1
       number: 1
-      externalIds: { anilistId: 185262 } # Hell Mode: Yarikomizuki no Gamer wa Hai Settei no Isekai de Musou suru (Winter 2026)
 # Scope stops at Spring 2026: a later announced season is left out until it airs.
   # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
   # the builder fills every name from the QID at build time.

@@ -9,6 +9,5 @@ series:
   seasons:
     - id: niwatori-fighter-s1
       number: 1
-      externalIds: { anilistId: 179813 } # Niwatori Fighter (Spring 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [niwatori-fighter]

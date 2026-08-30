@@ -9,6 +9,8 @@ series:
   seasons:
     - id: kumarba-s1
       number: 1
+      # Authored: upstream does not list this under the series' own title, so
+      # the build cannot resolve it. Everywhere else the id is resolved.
       externalIds: { anilistId: 173249 } # Kumarba (Spring 2024)
     - id: kumarba-s2
       number: 2

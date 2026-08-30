@@ -9,6 +9,5 @@ series:
   seasons:
     - id: kaya-chan-wa-kowakunai-s1
       number: 1
-      externalIds: { anilistId: 183660 } # Kaya-chan wa Kowakunai (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [kaya-chan-wa-kowakunai]

@@ -9,6 +9,8 @@ series:
   seasons:
     - id: oshi-no-ko-s1
       number: 1
+      # Authored: upstream does not list this under the series' own title, so
+      # the build cannot resolve it. Everywhere else the id is resolved.
       externalIds: { anilistId: 150672 } # [Oshi no Ko] (Spring 2023)
     - id: oshi-no-ko-s2
       number: 2

@@ -114,9 +114,20 @@ func (b *Builder) buildSeries(s *model.Series, numbered bool, report *Report) er
 
 // lookup resolves an AniList id against the offline database, failing on an
 // unknown id (design Part 4, step 2).
+//
+// A zero id here means the resolution could not name an entry and no override
+// did either, which is the one way deriving these ids can break a build: the
+// offline database is a rolling source, so a series it stops listing under its
+// own title loses an id that worked yesterday. The message says that, because
+// the fix is not obvious from "missing" alone — the field was never absent from
+// anyone's override, it was computed until it could not be.
 func (b *Builder) lookup(entity string, anilistID int) (offlinedb.Anime, error) {
 	if anilistID == 0 {
-		return offlinedb.Anime{}, fmt.Errorf("%s: missing externalIds.anilistId", entity)
+		return offlinedb.Anime{}, fmt.Errorf(
+			"%s: no externalIds.anilistId, and none could be resolved from the series' title. "+
+				"Upstream may have stopped listing this installment under it. "+
+				"Find the entry on anilist.co and author `externalIds: { anilistId: N }` on this installment",
+			entity)
 	}
 	a, ok := b.sources.Offline.Lookup(anilistID)
 	if !ok {

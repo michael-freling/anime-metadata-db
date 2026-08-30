@@ -119,17 +119,42 @@ jobs:
       # installments make up a series is editorial and upstream's links move.
       # That makes CI the place they are enforced: without this the notes go to
       # a log nobody reads, and a wrong id lands as silently as before.
-      - name: No authored anilistId looks misplaced
+      - name: No anilistId looks misplaced
         run: |
           set -euo pipefail
-          # The coverage line proves the checks ran at all. Asserting only the
+          # The provenance line proves the checks ran at all. Asserting only the
           # absence of findings would pass just as happily if they never
           # executed, which is the failure this pair exists to tell apart.
-          grep -qE '^anilistId corroboration: ' /tmp/build.log || {
-            echo "::error::the build printed no anilistId coverage line, so the checks did not run"
+          grep -qE '^anilistId provenance: ' /tmp/build.log || {
+            echo "::error::the build printed no anilistId provenance line, so the checks did not run"
             exit 1
           }
-          grep -E '^anilistId corroboration: ' /tmp/build.log
+          grep -A5 -E '^anilistId provenance: ' /tmp/build.log
+
+          # Most ids are resolved from the series' own title rather than read
+          # from an override. Asserting that something was resolved keeps the
+          # resolution from silently degrading into a pass-through: if upstream
+          # changed such that nothing resolved, every id would fall back to an
+          # override that no longer exists and the build would fail — but if it
+          # were ever made non-fatal, this is what would notice.
+          derived=$(sed -n "s|^  \([0-9]*\)/[0-9]* resolved from the series' own title$|\1|p" /tmp/build.log)
+          echo "ids resolved from the series' own title: ${derived:-0}"
+          test "${derived:-0}" -gt 0 || {
+            echo "::error::no anilistId was resolved from a series title; the resolution has stopped working"
+            exit 1
+          }
+
+          # The report's own count of hand-authored ids must equal what is
+          # actually in the overrides. They are counted by different code over
+          # different inputs, so agreement means the figure the project steers
+          # by is measuring the tree rather than restating itself.
+          reported=$(sed -n 's|^  \([0-9]*\)/[0-9]* read from an override$|\1|p' /tmp/build.log)
+          actual=$(grep -rho 'anilistId' builder/config/overrides/ | wc -l)
+          echo "authored ids: $reported reported, $actual in the overrides"
+          test "$reported" = "$actual" || {
+            echo "::error::the build reports $reported authored anilistIds but the overrides hold $actual"
+            exit 1
+          }
           # Deliberately not the title-resolution disagreement. That check
           # depends on how completely upstream lists a series' title among each
           # entry's synonyms, which drifts: MF Ghost's third season does not
@@ -155,15 +180,31 @@ jobs:
         run: |
           set -euo pipefail
           override=builder/config/overrides/series/sousou-no-frieren.yaml
-          # Fail loudly if the id moved, rather than editing nothing and
-          # "passing" because a build with no planted error reports no error.
-          grep -q 'anilistId: 182255' "$override" || {
-            echo "::error::the planted-error fixture is stale: expected anilistId 182255 in $override"
+          # Both of Frieren's ids are resolved, not authored, which is the point
+          # of planting here: it tests the one surface still open to a typo.
+          # Fail loudly if that stops being true, rather than planting an id
+          # beside an existing one and "catching" a duplicate instead.
+          if grep -q 'anilistId' "$override"; then
+            echo "::error::the planted-error fixture is stale: $override now authors an anilistId"
             exit 1
-          }
+          fi
+          # Read the clean build's split first, so the planted run is compared
+          # against what this catalogue actually produced rather than a number
+          # baked into the workflow that drifts as series are added.
+          total=$(sed -n 's|^anilistId provenance: \([0-9]*\) ids$|\1|p' /tmp/build.log)
+          derived=$(sed -n "s|^  \([0-9]*\)/[0-9]* resolved from the series' own title$|\1|p" /tmp/build.log)
+          authored=$(sed -n 's|^  \([0-9]*\)/[0-9]* read from an override$|\1|p' /tmp/build.log)
+          test -n "$total" && test -n "$derived" && test -n "$authored" || {
+            echo "::error::could not read the provenance split from the clean build"; exit 1; }
+
           # 21 is One Piece: a real entry, so `lookup` still succeeds and only
           # these checks can object to it.
-          sed -i 's/anilistId: 182255 }/anilistId: 21 }/' "$override"
+          sed -i '/- id: sousou-no-frieren-s2/{n;a\      externalIds: { anilistId: 21 }
+          }' "$override"
+          grep -q 'anilistId: 21' "$override" || {
+            echo "::error::planting the id did not edit $override"
+            exit 1
+          }
           make build-data 2>&1 | tee /tmp/planted.log || true
           git checkout -- builder/config/overrides/ data/
 
@@ -174,8 +215,15 @@ jobs:
             echo "::error::the chronology check did not catch a season that predates the one before it"; fail=1; }
           grep -q "resolves to anilistId 182255 from the series' title, but 21 is authored" /tmp/planted.log || {
             echo "::error::the title resolution did not disagree with the planted id"; fail=1; }
+          # The planted id is authored, so it must move the provenance split by
+          # exactly one in each direction. This is what proves the two figures
+          # describe the tree rather than a constant printed beside it.
+          grep -q "$((derived - 1))/$total resolved from the series' own title" /tmp/planted.log || {
+            echo "::error::planting an id did not reduce the resolved count by one"; fail=1; }
+          grep -q "$((authored + 1))/$total read from an override" /tmp/planted.log || {
+            echo "::error::planting an id did not raise the authored count by one"; fail=1; }
           test "$fail" -eq 0
-          echo "both checks caught the planted id"
+          echo "all three checks caught the planted id, and the provenance split moved with it"
 
       # Informational: upstream moved, so this is expected to be non-empty and
       # is what a dataset refresh would commit. It is printed rather than

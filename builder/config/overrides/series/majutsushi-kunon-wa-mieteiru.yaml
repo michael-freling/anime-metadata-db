@@ -9,6 +9,5 @@ series:
   seasons:
     - id: majutsushi-kunon-wa-mieteiru-s1
       number: 1
-      externalIds: { anilistId: 186333 } # Majutsushi Kunon wa Mieteiru (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [majutsushi-kunon-wa-mieteiru]

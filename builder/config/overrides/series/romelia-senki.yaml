@@ -9,6 +9,5 @@ series:
   seasons:
     - id: romelia-senki-s1
       number: 1
-      externalIds: { anilistId: 180894 } # Romelia Senki (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [romelia-senki]

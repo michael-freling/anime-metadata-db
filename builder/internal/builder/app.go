@@ -531,31 +531,39 @@ func (a *App) build(cfg config.Config, ids []string) error {
 	return nil
 }
 
-// reportCoverage prints how many anilistIds the build resolved rather than
+// reportCoverage prints how many anilistIds the build computed rather than
 // read, and how much of the result the checks could actually see.
 //
 // A build whose report is empty is either clean or blind, and from the notes
 // alone the two are indistinguishable — the honest output for an id nothing can
 // corroborate is silence. This says which it was, so "no findings" can be read
-// as a result rather than an absence. The derived count sits beside it because
-// the two answer one question between them: how much of this was computed, and
-// how much of that was checked.
+// as a result rather than an absence.
+//
+// The derived/authored split leads, because it is the number this project is
+// actually trying to move: an authored id is a fact typed by hand into a
+// dataset whose whole premise is that facts come from open sources. Printing it
+// every build makes the remaining hand-authored surface impossible to ignore,
+// and makes it obvious when a change grows it.
 func (a *App) reportCoverage(c build.Coverage) {
 	if c.Total() == 0 {
 		return
 	}
 	// Every figure is a fraction of the same denominator — the ids the checks
-	// were given. They come from two independent mechanisms, so sharing one
-	// numerator's denominator with the other would compare counts that do not
+	// were given. They come from independent mechanisms, so sharing one
+	// numerator's denominator with another would compare counts that do not
 	// measure the same population.
-	fmt.Fprintf(a.Out, "anilistId corroboration: %d authored\n", c.Total())
-	fmt.Fprintf(a.Out, "  %d/%d agree with the entry the series' title resolves to\n", c.Agreed, c.Total())
-	fmt.Fprintf(a.Out, "  %d/%d linked to a sibling installment\n", c.Corroborated, c.Total())
-	if c.Derived > 0 {
-		fmt.Fprintf(a.Out, "  %d resolved from the title because no override named one\n", c.Derived)
+	fmt.Fprintf(a.Out, "anilistId provenance: %d ids\n", c.Total())
+	fmt.Fprintf(a.Out, "  %d/%d resolved from the series' own title\n", c.Derived, c.Total())
+	fmt.Fprintf(a.Out, "  %d/%d read from an override\n", c.Authored(), c.Total())
+	if c.Agreed > 0 {
+		// Only when it happens: an override naming an id the build would have
+		// derived anyway is redundant, not an error, and a permanent "0" would
+		// read as a check that keeps failing.
+		fmt.Fprintf(a.Out, "  %d/%d authored and independently reproduced from the title\n", c.Agreed, c.Total())
 	}
+	fmt.Fprintf(a.Out, "  %d/%d linked to a sibling installment\n", c.Corroborated, c.Total())
 	if c.Alone > 0 {
-		fmt.Fprintf(a.Out, "  %d unverifiable: the only installment of their series, so nothing to check against\n", c.Alone)
+		fmt.Fprintf(a.Out, "  %d/%d unverifiable: the only installment of their series, so nothing to check against\n", c.Alone, c.Total())
 	}
 }
 

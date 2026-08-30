@@ -9,6 +9,5 @@ series:
   seasons:
     - id: mayonaka-heart-tune-s1
       number: 1
-      externalIds: { anilistId: 187942 } # Mayonaka Heart Tune (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [mayonaka-heart-tune]

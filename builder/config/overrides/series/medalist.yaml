@@ -9,10 +9,8 @@ series:
   seasons:
     - id: medalist-s1
       number: 1
-      externalIds: { anilistId: 165171 } # Medalist (Winter 2025)
     - id: medalist-s2
       number: 2
-      externalIds: { anilistId: 189275 } # Medalist 2nd Season (Winter 2026)
   # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
   # the builder fills every name from the QID at build time.
   characters:

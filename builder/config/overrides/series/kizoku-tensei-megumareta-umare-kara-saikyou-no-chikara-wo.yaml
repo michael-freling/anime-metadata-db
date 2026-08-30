@@ -9,6 +9,5 @@ series:
   seasons:
     - id: kizoku-tensei-megumareta-umare-kara-saikyou-no-chikara-wo-s1
       number: 1
-      externalIds: { anilistId: 185993 } # Kizoku Tensei: Megumareta Umare kara Saikyou no Chikara wo Eru (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [kizoku-tensei-megumareta-umare-kara-saikyou-no-chikara-wo]

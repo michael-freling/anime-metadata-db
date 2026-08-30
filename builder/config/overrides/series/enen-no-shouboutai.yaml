@@ -9,6 +9,8 @@ series:
   seasons:
     - id: enen-no-shouboutai-s1
       number: 1
+      # Authored: upstream does not list this under the series' own title, so
+      # the build cannot resolve it. Everywhere else the id is resolved.
       externalIds: { anilistId: 105310 } # Enen no Shouboutai (Summer 2019)
     - id: enen-no-shouboutai-s2
       number: 2

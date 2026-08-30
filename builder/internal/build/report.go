@@ -25,31 +25,44 @@ type Report struct {
 
 // Coverage counts how far the anilistId checks reached.
 //
-// Every installment's id is authored by hand, and the graph check can only
-// corroborate one against its siblings — so a series with a single installment
-// has an id nothing verifies. Counting that is the difference between "no
-// problems found" and "nothing was looked at", which the notes cannot express
-// because the honest output for an unverifiable id is silence.
+// Most ids are resolved from the series' own title rather than authored, and
+// the graph check can only corroborate one against its siblings — so a series
+// with a single installment has an id nothing verifies. Counting that is the
+// difference between "no problems found" and "nothing was looked at", which the
+// notes cannot express because the honest output for an unverifiable id is
+// silence.
+//
+// The split between derived and authored is worth reporting on its own. An
+// authored id is the residue: the cases upstream does not describe well enough
+// to compute, which is where a hand-typed mistake can still enter.
 type Coverage struct {
-	// Authored is every anilistId the checks considered, whether or not any of
-	// them could say anything about it. It is the denominator each of the
-	// others is a fraction of; without it the counts below divide by whichever
-	// check happened to see the id, which is a different number per check.
-	Authored int `yaml:"authored"`
-	// Corroborated is the number of authored anilistIds reached from another
-	// installment of the same series.
+	// Considered is every anilistId the checks saw, derived and authored alike,
+	// counted after the resolution has filled what it can. It is the
+	// denominator each of the others is a fraction of; without it the counts
+	// below divide by whichever check happened to see the id, which is a
+	// different number per check.
+	Considered int `yaml:"considered"`
+	// Corroborated is the number of anilistIds reached from another installment
+	// of the same series.
 	Corroborated int `yaml:"corroborated"`
 	// Alone is the number whose series has no other installment, leaving
 	// nothing to check them against.
 	Alone int `yaml:"alone"`
 	// Derived is the number the build resolved from the series' own title
-	// because no override named one.
+	// because no override named one. Considered minus Derived is what remains
+	// hand-authored.
 	Derived int `yaml:"derived"`
-	// Agreed is the number an authored id and the title resolution both name,
-	// which is the strongest corroboration available: two independent routes to
-	// the same entry.
+	// Agreed is the number an override named and the title resolution
+	// independently reproduced, which is the strongest corroboration available:
+	// two routes to the same entry. Authoring an id the build could have
+	// derived is redundant rather than wrong, and this counts those.
 	Agreed int `yaml:"agreed"`
 }
+
+// Authored is the number of ids no resolution could supply, so an editor typed
+// them. Derived subtracts cleanly because every considered id is one or the
+// other: the resolution either filled an empty slot or found one already full.
+func (c Coverage) Authored() int { return c.Considered - c.Derived }
 
 // Total is every id the checks considered.
 //
@@ -58,11 +71,11 @@ type Coverage struct {
 // alone, so adding those two lost exactly the ids most worth counting, and the
 // coverage line quietly divided by a denominator that shrank whenever something
 // was found.
-func (c Coverage) Total() int { return c.Authored }
+func (c Coverage) Total() int { return c.Considered }
 
 // Add folds another coverage count into this one.
 func (c *Coverage) Add(other Coverage) {
-	c.Authored += other.Authored
+	c.Considered += other.Considered
 	c.Corroborated += other.Corroborated
 	c.Alone += other.Alone
 	c.Derived += other.Derived

@@ -50,20 +50,39 @@ successful build is always a valid dataset. Where it makes a low-confidence gues
 (chiefly title-language tagging) it prints a report — pin those cases with an
 override.
 
-The build also works out which upstream entry each installment *should* be, from
-the series' own title: upstream lists that title among the synonyms of each
-entry belonging to the series, so finding those entries enumerates the family
-and the airing dates order it. Where that agrees with the authored `anilistId`
-the id has been reached two independent ways, and where it disagrees you get a
-note naming both.
+The build works out which upstream entry each installment *is*, from the series'
+own title: upstream lists that title among the synonyms of each entry belonging
+to the series, so finding those entries enumerates the family and the airing
+dates order it. **You do not author `anilistId`** — the build resolves it.
 
-It corroborates rather than replaces. The ids were briefly derived and deleted
-from the overrides, and upstream moved two days later: two series stopped
-resolving and the build failed outright, because every other fact about an
-installment is read through this id and a missing one has nothing to fall back
-on. `wikidataId` can be derived exactly because it is optional — a series that
-stops resolving loses its English title and the build carries on. A new series
-may still omit its ids and take the resolution, accepting that trade knowingly.
+That covers 150 of the catalogue's 225 ids, and it is safe to rely on because it
+was measured rather than assumed: deleting every authored id and rebuilding
+produces a byte-identical `data/`, so across the whole catalogue the resolution
+never once named a different entry from the editor who had typed it.
+
+The remaining 75 sit in 24 series that upstream does not list under their own
+title. Those stay authored, and every build prints the split:
+
+```
+anilistId provenance: 225 ids
+  150/225 resolved from the series' own title
+  75/225 read from an override
+```
+
+If you do author an id, the resolution still runs against it and reports a
+disagreement, so authoring one is checked rather than trusted.
+
+The trade is that a required field now comes from a rolling source. When
+upstream stops listing a series under its own title, the build stops with a
+message naming the installment and telling you to author its id.
+
+That is not hypothetical. Between the pinned database and the one upstream
+published today, *Kanojo, Okarishimasu*'s five seasons and *Fate/strange Fake*
+stopped resolving; their six ids are authored for exactly that reason. Expect a
+couple more per upstream release, each one a line to add. Six ids to author is
+the price of not hand-authoring 150, and a build that stops is the right
+response to a join key that can no longer be computed: the alternative is a
+dataset that quietly re-points at whatever upstream now offers.
 
 The report also carries what the build could not verify. An `anilistId` is the
 key every other fact about an installment is read from, so an id naming the
@@ -81,8 +100,11 @@ upstream's own links move:
 The build then says how much of that surface it could actually see:
 
 ```
-anilistId corroboration: 112/225 checked against a sibling installment
-  113 unverifiable: the only installment of their series, so nothing to check against
+anilistId provenance: 225 ids
+  150/225 resolved from the series' own title
+  75/225 read from an override
+  112/225 linked to a sibling installment
+  113/225 unverifiable: the only installment of their series, so nothing to check against
 ```
 
 A series with one installment has no sibling to be checked against, so its id is

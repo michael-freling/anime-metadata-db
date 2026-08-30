@@ -9,6 +9,5 @@ series:
   seasons:
     - id: watashi-ga-koibito-ni-nareru-wake-naijan-murimuri-muri-ja-s1
       number: 1
-      externalIds: { anilistId: 199112 } # Watashi ga Koibito ni Nareru Wake Naijan, Murimuri! (※Muri ja Nakatta!?): Next Shine! (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [watashi-ga-koibito-ni-nareru-wake-naijan-murimuri-muri-ja]

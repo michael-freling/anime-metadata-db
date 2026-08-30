@@ -9,6 +9,5 @@ series:
   seasons:
     - id: toumei-otoko-to-ningen-onna-sonouchi-fuufu-ni-naru-futari-s1
       number: 1
-      externalIds: { anilistId: 185039 } # Toumei Otoko to Ningen Onna: Sonouchi Fuufu ni Naru Futari (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [toumei-otoko-to-ningen-onna-sonouchi-fuufu-ni-naru-futari]
