@@ -93,3 +93,48 @@ func TestLoadMissing(t *testing.T) {
 		t.Error("expected error for missing file")
 	}
 }
+
+// relatedAnime mixes providers, and only AniList ids can be compared against
+// this dataset's own. A url for another provider, or one with no numeric tail,
+// is skipped rather than parsed into a wrong id.
+func TestRelatedAnilistIDsSkipsOtherProviders(t *testing.T) {
+	const mixed = `{"data":[{"sources":["https://anilist.co/anime/1"],"title":"x","type":"TV","episodes":1,
+	  "relatedAnime":[
+	    "https://anidb.net/anime/18886",
+	    "https://anilist.co/anime/182255",
+	    "https://myanimelist.net/anime/52991",
+	    "https://anime-planet.com/anime/frieren-beyond-journeys-end",
+	    "https://anilist.co/anime/169811"
+	  ]}]}`
+	db, err := Parse(strings.NewReader(mixed))
+	if err != nil {
+		t.Fatal(err)
+	}
+	a, ok := db.Lookup(1)
+	if !ok {
+		t.Fatal("entry not indexed")
+	}
+	got := a.RelatedAnilistIDs()
+	want := []int{182255, 169811}
+	if len(got) != len(want) {
+		t.Fatalf("got %v, want only the AniList ids %v", got, want)
+	}
+	for i := range want {
+		if got[i] != want[i] {
+			t.Errorf("got %v, want %v (in url order)", got, want)
+		}
+	}
+}
+
+// An entry upstream links to nothing has no related ids, and must not produce
+// an empty-but-non-nil slice that reads as "looked and found none" downstream.
+func TestRelatedAnilistIDsWithoutRelatedAnime(t *testing.T) {
+	db, err := Parse(strings.NewReader(`{"data":[{"sources":["https://anilist.co/anime/1"],"title":"x","type":"TV","episodes":1}]}`))
+	if err != nil {
+		t.Fatal(err)
+	}
+	a, _ := db.Lookup(1)
+	if got := a.RelatedAnilistIDs(); len(got) != 0 {
+		t.Errorf("got %v, want none", got)
+	}
+}

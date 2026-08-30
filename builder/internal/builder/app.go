@@ -544,8 +544,13 @@ func (a *App) reportCoverage(c build.Coverage) {
 	if c.Total() == 0 {
 		return
 	}
-	fmt.Fprintf(a.Out, "anilistId corroboration: %d/%d agree with the entry the series' title resolves to, %d checked against a sibling installment\n",
-		c.Agreed, c.Total(), c.Corroborated)
+	// Every figure is a fraction of the same denominator — the ids the checks
+	// were given. They come from two independent mechanisms, so sharing one
+	// numerator's denominator with the other would compare counts that do not
+	// measure the same population.
+	fmt.Fprintf(a.Out, "anilistId corroboration: %d authored\n", c.Total())
+	fmt.Fprintf(a.Out, "  %d/%d agree with the entry the series' title resolves to\n", c.Agreed, c.Total())
+	fmt.Fprintf(a.Out, "  %d/%d linked to a sibling installment\n", c.Corroborated, c.Total())
 	if c.Derived > 0 {
 		fmt.Fprintf(a.Out, "  %d resolved from the title because no override named one\n", c.Derived)
 	}

@@ -31,6 +31,11 @@ type Report struct {
 // problems found" and "nothing was looked at", which the notes cannot express
 // because the honest output for an unverifiable id is silence.
 type Coverage struct {
+	// Authored is every anilistId the checks considered, whether or not any of
+	// them could say anything about it. It is the denominator each of the
+	// others is a fraction of; without it the counts below divide by whichever
+	// check happened to see the id, which is a different number per check.
+	Authored int `yaml:"authored"`
 	// Corroborated is the number of authored anilistIds reached from another
 	// installment of the same series.
 	Corroborated int `yaml:"corroborated"`
@@ -46,11 +51,18 @@ type Coverage struct {
 	Agreed int `yaml:"agreed"`
 }
 
-// Total is every authored id the checks considered.
-func (c Coverage) Total() int { return c.Corroborated + c.Alone }
+// Total is every id the checks considered.
+//
+// Counted where the ids are collected rather than summed from the outcomes
+// below: an id the graph check reports as unlinked is neither corroborated nor
+// alone, so adding those two lost exactly the ids most worth counting, and the
+// coverage line quietly divided by a denominator that shrank whenever something
+// was found.
+func (c Coverage) Total() int { return c.Authored }
 
 // Add folds another coverage count into this one.
 func (c *Coverage) Add(other Coverage) {
+	c.Authored += other.Authored
 	c.Corroborated += other.Corroborated
 	c.Alone += other.Alone
 	c.Derived += other.Derived

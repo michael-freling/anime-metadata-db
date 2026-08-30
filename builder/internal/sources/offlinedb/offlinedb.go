@@ -74,6 +74,18 @@ const (
 // providerID returns the numeric id for the given provider host within the
 // entry's sources, or 0 if absent.
 func providerID(sources []string, host string) int {
+	if ids := providerIDs(sources, host); len(ids) > 0 {
+		return ids[0]
+	}
+	return 0
+}
+
+// providerIDs returns every numeric id for the given provider host, in the
+// order the urls are listed. A url for another provider, or one whose tail is
+// not a number, is skipped: upstream mixes providers in both sources and
+// relatedAnime, and only the ones this dataset joins on can be compared.
+func providerIDs(sources []string, host string) []int {
+	var out []int
 	for _, s := range sources {
 		if !containsHost(s, host) {
 			continue
@@ -82,12 +94,11 @@ func providerID(sources []string, host string) int {
 		if m == nil {
 			continue
 		}
-		id, err := strconv.Atoi(m[1])
-		if err == nil {
-			return id
+		if id, err := strconv.Atoi(m[1]); err == nil {
+			out = append(out, id)
 		}
 	}
-	return 0
+	return out
 }
 
 // containsHost reports whether url contains the host substring.
@@ -119,22 +130,7 @@ func (a Anime) KitsuID() int { return providerID(a.Sources, hostKitsu) }
 //
 // Unlike the single-id accessors this returns every match rather than the
 // first: the point of relatedAnime is the whole set.
-func (a Anime) RelatedAnilistIDs() []int {
-	out := make([]int, 0, len(a.RelatedAnime))
-	for _, url := range a.RelatedAnime {
-		if !containsHost(url, hostAnilist) {
-			continue
-		}
-		m := idPattern.FindStringSubmatch(url)
-		if m == nil {
-			continue
-		}
-		if id, err := strconv.Atoi(m[1]); err == nil {
-			out = append(out, id)
-		}
-	}
-	return out
-}
+func (a Anime) RelatedAnilistIDs() []int { return providerIDs(a.RelatedAnime, hostAnilist) }
 
 // Parse reads an offline database from r and indexes it by AniList id. Entries
 // without an AniList id are skipped (they cannot be referenced by overrides).

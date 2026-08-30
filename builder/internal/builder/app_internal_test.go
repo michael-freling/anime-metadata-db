@@ -9,6 +9,7 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/michael-freling/anime-metadata-db/builder/internal/build"
 	"github.com/michael-freling/anime-metadata-db/builder/internal/config"
 	"github.com/michael-freling/anime-metadata-db/builder/internal/overrides"
 	"github.com/michael-freling/anime-metadata-db/builder/internal/sources/wikidata"
@@ -244,4 +245,47 @@ func mustLoadOverrides(t *testing.T, dir string) overrides.Bundle {
 		t.Fatal(err)
 	}
 	return b
+}
+
+// The coverage line is the only thing that tells a reader whether an empty
+// report means "clean" or "nothing was looked at", and nothing asserted its
+// wording — the e2e gate greps for a prefix, which a rename silently breaks.
+func TestReportCoverage(t *testing.T) {
+	render := func(c build.Coverage) string {
+		var out bytes.Buffer
+		(&App{Out: &out}).reportCoverage(c)
+		return out.String()
+	}
+
+	// Nothing considered: no line at all, rather than "0/0", which reads as a
+	// result when it is an absence.
+	if got := render(build.Coverage{}); got != "" {
+		t.Errorf("no ids means no line, got %q", got)
+	}
+
+	got := render(build.Coverage{Authored: 10, Corroborated: 4, Alone: 5, Agreed: 7})
+	for _, want := range []string{
+		"anilistId corroboration: 10 authored",
+		"7/10 agree with the entry the series' title resolves to",
+		"4/10 linked to a sibling installment",
+		"5 unverifiable: the only installment of their series",
+	} {
+		if !strings.Contains(got, want) {
+			t.Errorf("missing %q in:\n%s", want, got)
+		}
+	}
+	// Every fraction shares the denominator, so two independent checks are not
+	// reported as if one were a subset of the other.
+	if strings.Contains(got, "/9") || strings.Contains(got, "/7") {
+		t.Errorf("a figure used a denominator of its own:\n%s", got)
+	}
+
+	// The derived line appears only when something was derived: on a catalogue
+	// that authors every id it would otherwise print a permanent "0 resolved".
+	if strings.Contains(got, "resolved from the title") {
+		t.Errorf("nothing was derived, so no line:\n%s", got)
+	}
+	if d := render(build.Coverage{Authored: 3, Derived: 3}); !strings.Contains(d, "3 resolved from the title") {
+		t.Errorf("a derived id must be reported:\n%s", d)
+	}
 }

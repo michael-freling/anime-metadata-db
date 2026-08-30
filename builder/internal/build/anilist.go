@@ -3,6 +3,7 @@ package build
 import (
 	"fmt"
 	"sort"
+	"strings"
 
 	"github.com/michael-freling/anime-metadata-db/internal/model"
 )
@@ -56,36 +57,66 @@ func (b *Builder) checkSameWork(s *model.Series, report *Report) {
 		return
 	}
 	ids := anilistIDs(s)
-	if len(ids) < 2 {
+	report.Coverage.Authored += len(ids)
+
+	// Reported before anything else, and before the lone-installment exit: a
+	// series whose only two installments share an id has one distinct id, and
+	// would otherwise leave here counted as unverifiable and unmentioned.
+	dupes := duplicates(ids)
+	for _, id := range sortedKeysOf(dupes) {
+		report.add("series "+s.ID, "externalIds", fmt.Sprintf(
+			"anilistId %d is authored on more than one installment (%s); two installments are two different works, so one of them is wrong",
+			id, strings.Join(dupes[id], ", ")))
+	}
+
+	distinct := map[int]string{}
+	for _, x := range ids {
+		distinct[x.id] = x.entity
+	}
+	if len(distinct) < 2 {
 		// A lone installment has no sibling to be consistent with. Silent
 		// rather than noted: most of the catalogue's series have exactly one,
 		// and a line each saying "not checked" would drown the ones that found
 		// something. It is counted instead, so the build can say how much of
 		// the join-key surface went unchecked rather than implying it passed.
+		// Counted per installment, not per distinct id, so a duplicate does not
+		// shrink the total the coverage line is a fraction of.
 		report.Coverage.Alone += len(ids)
 		return
 	}
-	for _, id := range sortedIntKeys(ids) {
-		if b.reachesSibling(id, ids) {
+	for _, id := range sortedKeysOf(distinct) {
+		reached, capped := b.reachesSibling(id, distinct)
+		if reached {
 			report.Coverage.Corroborated++
 			continue
 		}
 		// Not counted as corroborated: it was checked and failed, which the
 		// note says. Counting it either way would make the summary disagree
 		// with the line above it.
-		report.add(ids[id], "externalIds", fmt.Sprintf(
-			"anilistId %d is not linked to any other installment of %s in the offline database's relatedAnime graph; check it names the right entry",
-			id, s.ID))
+		why := "is not linked to any other installment of %s in the offline database's relatedAnime graph; check it names the right entry"
+		if capped {
+			why = "could not be linked to another installment of %s within the walk limit, so this is inconclusive rather than wrong"
+		}
+		report.add(distinct[id], "externalIds", fmt.Sprintf("anilistId %d "+why, id, s.ID))
 	}
 }
 
 // reachesSibling reports whether id reaches any other of the series' ids by
-// walking relatedAnime. The walk stops the moment one is found, which for
+// walking relatedAnime, and whether the walk stopped at the cap rather than
+// running out of graph. The walk ends the moment a sibling is found, which for
 // correct data is almost always the first hop.
-func (b *Builder) reachesSibling(id int, ids map[int]string) bool {
+//
+// The second return is what keeps the cap honest. Without it a truncated walk
+// is indistinguishable from an exhausted one, and a series in some enormous
+// franchise component would be reported as "not linked — check it names the
+// right entry" when the truth is that nobody looked far enough.
+func (b *Builder) reachesSibling(id int, ids map[int]string) (reached, capped bool) {
 	seen := map[int]bool{id: true}
 	queue := []int{id}
-	for len(queue) > 0 && len(seen) < relatedWalkCap {
+	for len(queue) > 0 {
+		if len(seen) >= relatedWalkCap {
+			return false, true
+		}
 		cur := queue[0]
 		queue = queue[1:]
 		entry, ok := b.sources.Offline.Lookup(cur)
@@ -97,13 +128,13 @@ func (b *Builder) reachesSibling(id int, ids map[int]string) bool {
 				continue
 			}
 			if _, sibling := ids[next]; sibling {
-				return true
+				return true, false
 			}
 			seen[next] = true
 			queue = append(queue, next)
 		}
 	}
-	return false
+	return false, false
 }
 
 // checkSeasonChronology reports a season that aired before the one numbered
@@ -120,31 +151,55 @@ func checkSeasonChronology(s *model.Series, report *Report) {
 		if season.ReleaseYear == 0 || season.ExternalIDs.AnilistID == 0 {
 			continue
 		}
-		seasons = append(seasons, datedSeason{season.Number, season.ReleaseYear, season.ReleaseSeason, season.ID})
+		seasons = append(seasons, datedSeason{
+			season.Number, season.ReleaseYear, season.ReleaseSeason,
+			season.ID, season.ExternalIDs.AnilistID,
+		})
 	}
-	sort.Slice(seasons, func(i, j int) bool { return seasons[i].number < seasons[j].number })
+	// Ordered by number and then by id, never by number alone. Split cours
+	// share a number, and an unstable sort would leave which of them sits
+	// beside the neighbouring season up to the sort's internals — so the same
+	// override could compare different pairs between runs, and report a finding
+	// on one run and not the next.
+	sort.Slice(seasons, func(i, j int) bool {
+		if seasons[i].number != seasons[j].number {
+			return seasons[i].number < seasons[j].number
+		}
+		return seasons[i].id < seasons[j].id
+	})
 
 	for i := 1; i < len(seasons); i++ {
 		prev, cur := seasons[i-1], seasons[i]
 		if cur.number == prev.number {
 			continue // split cours of one season share a number and a year
 		}
+		// A year both share tells us nothing when either quarter is unknown:
+		// upstream leaves animeSeason.season blank while carrying the year, and
+		// reading blank as "earliest" turned that into a finding against a
+		// season that may well have aired later.
+		if cur.year == prev.year && (cur.season == "" || prev.season == "") {
+			continue
+		}
 		if cur.airedBefore(prev) {
-			report.add("season "+cur.id, "externalIds", fmt.Sprintf(
-				"season %d aired %s %d, before season %d's %s %d; check anilistId %d names the right installment",
-				cur.number, quarterName(cur.season), cur.year,
-				prev.number, quarterName(prev.season), prev.year,
-				anilistIDOf(s, cur.id)))
+			// Both are named, and neither is accused. The pair is out of order;
+			// which of the two carries the wrong id is not something this can
+			// tell — the branch's own test puts season 3's id on season 1 and
+			// the older wording blamed season 2 for it.
+			report.add("series "+s.ID, "externalIds", fmt.Sprintf(
+				"season %d (anilistId %d) aired %s %d, before season %d (anilistId %d) aired %s %d; one of the two names the wrong installment",
+				cur.number, cur.anilistID, quarterName(cur.season), cur.year,
+				prev.number, prev.anilistID, quarterName(prev.season), prev.year))
 		}
 	}
 }
 
 // datedSeason is a season reduced to what the chronology check compares.
 type datedSeason struct {
-	number int
-	year   int
-	season model.ReleaseSeason
-	id     string
+	number    int
+	year      int
+	season    model.ReleaseSeason
+	id        string
+	anilistID int
 }
 
 // airedBefore compares two releases by year, then by quarter within it.
@@ -183,40 +238,68 @@ func quarterName(s model.ReleaseSeason) string {
 	return string(s)
 }
 
-// anilistIDOf returns the id authored on the named season, for the report.
-func anilistIDOf(s *model.Series, seasonID string) int {
-	for _, season := range s.Seasons {
-		if season.ID == seasonID {
-			return season.ExternalIDs.AnilistID
-		}
-	}
-	return 0
+// installment is one node carrying an AniList id, with the name a report line
+// would use for it.
+type installment struct {
+	id     int
+	entity string
 }
 
-// anilistIDs collects every AniList id under a series, mapped to the entity
-// name a report line would use.
-func anilistIDs(s *model.Series) map[int]string {
-	out := map[int]string{}
+// anilistIDs collects every installment of a series that carries an AniList id,
+// in a fixed order.
+//
+// A slice rather than a map keyed by id, because two nodes can carry the same
+// one. A map silently merged them, and a series whose two seasons were given
+// the same id by a copy-paste then looked like a single installment: the
+// duplicate disappeared, the checks skipped the series as having nothing to
+// compare, and the coverage line counted one unverifiable id where there were
+// two.
+func anilistIDs(s *model.Series) []installment {
+	var out []installment
 	for _, x := range s.Seasons {
 		if x.ExternalIDs.AnilistID != 0 {
-			out[x.ExternalIDs.AnilistID] = "season " + x.ID
+			out = append(out, installment{x.ExternalIDs.AnilistID, "season " + x.ID})
 		}
 	}
 	for _, x := range s.Movies {
 		if x.ExternalIDs.AnilistID != 0 {
-			out[x.ExternalIDs.AnilistID] = "movie " + x.ID
+			out = append(out, installment{x.ExternalIDs.AnilistID, "movie " + x.ID})
 		}
 	}
 	for _, x := range s.Specials {
 		if x.ExternalIDs.AnilistID != 0 {
-			out[x.ExternalIDs.AnilistID] = "special " + x.ID
+			out = append(out, installment{x.ExternalIDs.AnilistID, "special " + x.ID})
 		}
 	}
+	sort.Slice(out, func(i, j int) bool {
+		if out[i].id != out[j].id {
+			return out[i].id < out[j].id
+		}
+		return out[i].entity < out[j].entity
+	})
 	return out
 }
 
-// sortedIntKeys returns a map's keys in ascending order.
-func sortedIntKeys(m map[int]string) []int {
+// duplicates reports the ids carried by more than one installment, naming every
+// node that carries each. Two installments are two different works, so one id
+// on both is always a mistake — and the one mistake the other checks cannot
+// see, since a duplicate is trivially "linked to" and "in order with" itself.
+func duplicates(ids []installment) map[int][]string {
+	byID := map[int][]string{}
+	for _, x := range ids {
+		byID[x.id] = append(byID[x.id], x.entity)
+	}
+	for id, names := range byID {
+		if len(names) < 2 {
+			delete(byID, id)
+		}
+	}
+	return byID
+}
+
+// sortedKeysOf returns a map's integer keys in ascending order, so a report
+// lists its findings the same way on every run over the same inputs.
+func sortedKeysOf[V any](m map[int]V) []int {
 	out := make([]int, 0, len(m))
 	for k := range m {
 		out = append(out, k)

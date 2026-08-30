@@ -1,6 +1,7 @@
 package build
 
 import (
+	"fmt"
 	"strings"
 	"testing"
 
@@ -112,8 +113,14 @@ func TestCheckSeasonChronologyCatchesASwappedSibling(t *testing.T) {
 	checkSeasonChronology(s, report)
 
 	got := report.String()
-	if !strings.Contains(got, "season 2 aired FALL 2020, before season 1's WINTER 2024") {
-		t.Errorf("expected the out-of-order pair to be named:\n%s", got)
+	// Both are named and neither is accused: season 1 is the one carrying the
+	// wrong id here, so blaming season 2 — as an earlier version did — would
+	// point a reader at the innocent one.
+	if !strings.Contains(got, "season 2 (anilistId 1) aired FALL 2020, before season 1 (anilistId 3) aired WINTER 2024") {
+		t.Errorf("expected both seasons named with their ids:\n%s", got)
+	}
+	if !strings.Contains(got, "one of the two names the wrong installment") {
+		t.Errorf("the note must not accuse either one:\n%s", got)
 	}
 	// The graph check sees nothing wrong here — both ids are real siblings.
 	b := New(Sources{Offline: offlineFrom(t, chainDB)})
@@ -225,7 +232,7 @@ func TestCheckSameWorkCoverageCounts(t *testing.T) {
 		season("chain-s1", 1, 1, 2020, model.SeasonFall),
 		season("chain-s2", 2, 2, 2022, model.SeasonSpring),
 	}}, linked)
-	if got := linked.Coverage; got.Corroborated != 2 || got.Alone != 0 {
+	if got := linked.Coverage; got.Corroborated != 2 || got.Alone != 0 || got.Authored != 2 {
 		t.Errorf("both linked: %+v", got)
 	}
 
@@ -233,7 +240,7 @@ func TestCheckSameWorkCoverageCounts(t *testing.T) {
 	b.checkSameWork(&model.Series{ID: "solo", Seasons: []model.Season{
 		season("solo-s1", 1, 99, 1999, model.SeasonFall),
 	}}, alone)
-	if got := alone.Coverage; got.Alone != 1 || got.Corroborated != 0 {
+	if got := alone.Coverage; got.Alone != 1 || got.Corroborated != 0 || got.Authored != 1 {
 		t.Errorf("lone installment: %+v", got)
 	}
 
@@ -248,8 +255,11 @@ func TestCheckSameWorkCoverageCounts(t *testing.T) {
 	if got := mixed.Coverage; got.Corroborated != 2 || got.Alone != 0 {
 		t.Errorf("a failing id must not be counted as checked: %+v", got)
 	}
-	if got := mixed.Coverage.Total(); got != 2 {
-		t.Errorf("Total = %d, want only what was actually accounted for", got)
+	// The denominator counts every id the checks were given, including the one
+	// that failed. Summing the outcomes instead would shrink it exactly when
+	// something was found, which is when the fraction matters most.
+	if got := mixed.Coverage.Total(); got != 3 {
+		t.Errorf("Total = %d, want every id considered", got)
 	}
 	if len(mixed.Notes) != 1 {
 		t.Errorf("the failing id must still be reported: %v", mixed.Notes)
@@ -259,8 +269,8 @@ func TestCheckSameWorkCoverageCounts(t *testing.T) {
 // Reports are merged per record before the build sums them, so the counts have
 // to survive a merge or the total silently under-reports.
 func TestReportMergeSumsCoverage(t *testing.T) {
-	a := &Report{Coverage: Coverage{Corroborated: 2, Alone: 1}}
-	a.Merge(&Report{Coverage: Coverage{Corroborated: 3, Alone: 4}})
+	a := &Report{Coverage: Coverage{Authored: 3, Corroborated: 2, Alone: 1}}
+	a.Merge(&Report{Coverage: Coverage{Authored: 7, Corroborated: 3, Alone: 4}})
 	if a.Coverage.Corroborated != 5 || a.Coverage.Alone != 5 {
 		t.Errorf("merge lost counts: %+v", a.Coverage)
 	}
@@ -277,8 +287,96 @@ func TestReportMergeSumsCoverage(t *testing.T) {
 // Coverage must not make a findings-free report look non-empty, or every clean
 // build would print a report block.
 func TestCoverageDoesNotMakeAReportNonEmpty(t *testing.T) {
-	r := &Report{Coverage: Coverage{Corroborated: 9}}
+	r := &Report{Coverage: Coverage{Authored: 9, Corroborated: 9}}
 	if !r.Empty() {
 		t.Error("counts alone are not findings")
+	}
+}
+
+// Two installments given the same id is the one mistake the other checks cannot
+// see — a duplicate is trivially linked to and in order with itself. It used to
+// vanish into a map key, leaving the series looking like a single installment.
+func TestCheckSameWorkReportsADuplicateID(t *testing.T) {
+	b := New(Sources{Offline: offlineFrom(t, chainDB)})
+	s := &model.Series{ID: "chain", Seasons: []model.Season{
+		season("chain-s1", 1, 1, 2020, model.SeasonFall),
+		season("chain-s2", 2, 1, 2022, model.SeasonSpring), // same id, pasted twice
+	}}
+	report := &Report{}
+	b.checkSameWork(s, report)
+
+	got := report.String()
+	if !strings.Contains(got, "anilistId 1 is authored on more than one installment") {
+		t.Errorf("the duplicate must be reported:\n%s", got)
+	}
+	for _, name := range []string{"season chain-s1", "season chain-s2"} {
+		if !strings.Contains(got, name) {
+			t.Errorf("every node carrying it must be named (%s):\n%s", name, got)
+		}
+	}
+	// Both are still counted, or the coverage line would say one id where the
+	// override carries two.
+	if got := report.Coverage.Authored; got != 2 {
+		t.Errorf("Authored = %d, want 2", got)
+	}
+}
+
+// A walk that stops at the cap has not shown the id is unlinked, only that
+// nobody looked far enough. Saying so is the difference between a finding and
+// an accusation.
+func TestCheckSameWorkSaysWhenTheWalkWasTruncated(t *testing.T) {
+	// A chain longer than the cap, so the walk runs out of budget before it
+	// reaches the far end.
+	var b strings.Builder
+	b.WriteString(`{"data":[`)
+	for i := 1; i <= relatedWalkCap+5; i++ {
+		if i > 1 {
+			b.WriteString(",")
+		}
+		fmt.Fprintf(&b, `{"sources":["https://anilist.co/anime/%d"],"title":"n%d","type":"TV","episodes":1,
+		  "animeSeason":{"season":"FALL","year":2000},"relatedAnime":["https://anilist.co/anime/%d"]}`, i, i, i+1)
+	}
+	b.WriteString(`]}`)
+
+	bl := New(Sources{Offline: offlineFrom(t, b.String())})
+	s := &model.Series{ID: "long", Seasons: []model.Season{
+		season("long-s1", 1, 1, 2000, model.SeasonFall),
+		season("long-s2", 2, relatedWalkCap+4, 2001, model.SeasonFall),
+	}}
+	report := &Report{}
+	bl.checkSameWork(s, report)
+
+	if !strings.Contains(report.String(), "within the walk limit, so this is inconclusive rather than wrong") {
+		t.Errorf("a truncated walk must say so:\n%s", report.String())
+	}
+}
+
+// Upstream leaves animeSeason.season blank while carrying the year. Reading
+// that as "earliest" reported a season for airing before the one ahead of it
+// when all that was known is that both aired the same year.
+func TestCheckSeasonChronologyIgnoresAnUnknownQuarter(t *testing.T) {
+	s := &model.Series{ID: "x", Seasons: []model.Season{
+		season("x-s1", 1, 1, 2023, model.SeasonFall),
+		season("x-s2", 2, 2, 2023, ""), // same year, quarter unknown upstream
+	}}
+	report := &Report{}
+	checkSeasonChronology(s, report)
+
+	if !report.Empty() {
+		t.Errorf("an unknown quarter within the same year says nothing: %v", report.Notes)
+	}
+}
+
+// A different year is still decisive, unknown quarter or not.
+func TestCheckSeasonChronologyStillCatchesAWrongYear(t *testing.T) {
+	s := &model.Series{ID: "x", Seasons: []model.Season{
+		season("x-s1", 1, 1, 2023, model.SeasonFall),
+		season("x-s2", 2, 2, 2019, ""),
+	}}
+	report := &Report{}
+	checkSeasonChronology(s, report)
+
+	if report.Empty() {
+		t.Error("a season airing four years early is out of order whatever the quarter")
 	}
 }

@@ -100,7 +100,7 @@ func TestResolveAnilistIDsNeverOverwritesAnAuthoredID(t *testing.T) {
 		t.Error("an authored id was overwritten")
 	}
 	got := report.String()
-	if !strings.Contains(got, "resolves to anilistId 100 from the title, but 999 is authored") {
+	if !strings.Contains(got, "season show-s1") || !strings.Contains(got, "resolves to anilistId 100 from the series' title, but 999 is authored") {
 		t.Errorf("the disagreement must name both ids:\n%s", got)
 	}
 	// The rest of the kind still resolves: an unauthored slot has no anchor to
@@ -244,5 +244,74 @@ func TestResolveAnilistIDsIsDeterministicForSplitCours(t *testing.T) {
 	// p1 sorts before p2 on the id, so it takes the earlier-airing entry.
 	if first != 200 || second != 100 {
 		t.Errorf("split cours resolved to %d, %d", first, second)
+	}
+}
+
+// Movies and specials carry no number, so the override's order is the author's
+// and the candidates' is upstream's airing order. Pairing two of them lines up
+// two lists that agree only by luck, so more than one is left alone.
+func TestResolveAnilistIDsSkipsUnorderedKindsWithMoreThanOne(t *testing.T) {
+	const twoFilms = `{"data":[
+	 {"sources":["https://anilist.co/anime/300"],"title":"A","type":"MOVIE","episodes":1,
+	  "animeSeason":{"season":"SUMMER","year":2023},"synonyms":["ショー"]},
+	 {"sources":["https://anilist.co/anime/301"],"title":"B","type":"MOVIE","episodes":1,
+	  "animeSeason":{"season":"SUMMER","year":2024},"synonyms":["ショー"]}
+	]}`
+	b := New(Sources{Offline: offlineFrom(t, twoFilms)})
+	s := &model.Series{
+		ID:     "show",
+		Titles: model.Title{Original: "ショー"},
+		Movies: []model.Movie{{ID: "show-film-b"}, {ID: "show-film-a"}},
+	}
+	report := &Report{}
+	b.resolveAnilistIDs(s, report)
+
+	for _, m := range s.Movies {
+		if m.ExternalIDs.AnilistID != 0 {
+			t.Errorf("%s was paired on file order alone: %d", m.ID, m.ExternalIDs.AnilistID)
+		}
+	}
+	if !report.Empty() {
+		t.Errorf("declining to guess is not a finding: %v", report.Notes)
+	}
+}
+
+// One of an unordered kind has nothing to line up wrongly, so it still resolves.
+func TestResolveAnilistIDsStillHandlesASingleMovie(t *testing.T) {
+	b := New(Sources{Offline: offlineFrom(t, familyDB)})
+	s := &model.Series{
+		ID:     "show",
+		Titles: model.Title{Original: "ショー"},
+		Movies: []model.Movie{{ID: "show-film"}},
+	}
+	b.resolveAnilistIDs(s, &Report{})
+
+	if s.Movies[0].ExternalIDs.AnilistID != 300 {
+		t.Errorf("movie = %d, want 300", s.Movies[0].ExternalIDs.AnilistID)
+	}
+}
+
+// A split cour sits in a later slot than its own number, so a disagreement is
+// named by the node rather than by its position in the ordering.
+func TestResolveAnilistIDsNamesTheNodeNotThePosition(t *testing.T) {
+	one, two := 1, 2
+	b := New(Sources{Offline: offlineFrom(t, familyDB)})
+	s := &model.Series{
+		ID:     "show",
+		Titles: model.Title{Original: "ショー"},
+		Seasons: []model.Season{
+			{ID: "show-s1p1", Number: 1, Part: &one},
+			{ID: "show-s1p2", Number: 1, Part: &two, ExternalIDs: model.ExternalIDs{AnilistID: 999}},
+		},
+	}
+	report := &Report{}
+	b.resolveAnilistIDs(s, report)
+
+	got := report.String()
+	if !strings.Contains(got, "season show-s1p2") {
+		t.Errorf("the node must be named:\n%s", got)
+	}
+	if strings.Contains(got, "season 2 ") {
+		t.Errorf("a slot index must not be reported as a season number:\n%s", got)
 	}
 }

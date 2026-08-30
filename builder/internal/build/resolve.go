@@ -76,31 +76,48 @@ func (b *Builder) candidates(s *model.Series) map[int]offlinedb.Anime {
 type installmentKind struct {
 	name  string
 	types map[offlinedb.MediaType]bool
-	// ids returns a pointer to each node's id, in the order the installments
-	// are numbered, so a resolution can be written back.
-	ids func(*model.Series) []*model.ExternalIDs
+	// slots returns each node in the order the resolution should be paired
+	// against, so a resolution can be written back and named.
+	slots func(*model.Series) []slot
+	// ordered reports whether the nodes of this kind carry something that puts
+	// them in airing order. Where they do not, pairing more than one against
+	// date-sorted candidates would be guesswork.
+	ordered bool
+}
+
+// slot is one node a resolution can be paired with: its id to fill or compare,
+// and the name a report line uses for it.
+type slot struct {
+	ids  *model.ExternalIDs
+	name string
 }
 
 var (
 	seasonKind = installmentKind{
-		name:  "season",
-		types: map[offlinedb.MediaType]bool{offlinedb.TypeTV: true},
-		ids: func(s *model.Series) []*model.ExternalIDs {
-			ordered := orderedSeasons(s)
-			out := make([]*model.ExternalIDs, len(ordered))
-			for i, idx := range ordered {
-				out[i] = &s.Seasons[idx].ExternalIDs
+		name:    "season",
+		types:   map[offlinedb.MediaType]bool{offlinedb.TypeTV: true},
+		ordered: true,
+		slots: func(s *model.Series) []slot {
+			idx := orderedSeasons(s)
+			out := make([]slot, len(idx))
+			for i, at := range idx {
+				out[i] = slot{&s.Seasons[at].ExternalIDs, "season " + s.Seasons[at].ID}
 			}
 			return out
 		},
 	}
+	// Movies and specials carry no number, so the override's file order is the
+	// only order there is — and that is the author's, not upstream's airing
+	// order the candidates are sorted by. Pairing two of them would be lining
+	// up two lists that agree only by luck, so only a single one is paired,
+	// where there is nothing to get wrong.
 	movieKind = installmentKind{
 		name:  "movie",
 		types: map[offlinedb.MediaType]bool{offlinedb.TypeMovie: true},
-		ids: func(s *model.Series) []*model.ExternalIDs {
-			out := make([]*model.ExternalIDs, len(s.Movies))
+		slots: func(s *model.Series) []slot {
+			out := make([]slot, len(s.Movies))
 			for i := range s.Movies {
-				out[i] = &s.Movies[i].ExternalIDs
+				out[i] = slot{&s.Movies[i].ExternalIDs, "movie " + s.Movies[i].ID}
 			}
 			return out
 		},
@@ -110,10 +127,10 @@ var (
 		types: map[offlinedb.MediaType]bool{
 			offlinedb.TypeOVA: true, offlinedb.TypeONA: true, offlinedb.TypeSpecial: true,
 		},
-		ids: func(s *model.Series) []*model.ExternalIDs {
-			out := make([]*model.ExternalIDs, len(s.Specials))
+		slots: func(s *model.Series) []slot {
+			out := make([]slot, len(s.Specials))
 			for i := range s.Specials {
-				out[i] = &s.Specials[i].ExternalIDs
+				out[i] = slot{&s.Specials[i].ExternalIDs, "special " + s.Specials[i].ID}
 			}
 			return out
 		},
@@ -150,8 +167,11 @@ func orderedSeasons(s *model.Series) []int {
 // reporting every one would be a line per series saying only that the title is
 // popular.
 func resolveKind(s *model.Series, kind installmentKind, pool map[int]offlinedb.Anime, report *Report) {
-	ids := kind.ids(s)
-	if len(ids) == 0 {
+	slots := kind.slots(s)
+	if len(slots) == 0 {
+		return
+	}
+	if !kind.ordered && len(slots) > 1 {
 		return
 	}
 	matching := make([]offlinedb.Anime, 0, len(pool))
@@ -160,26 +180,30 @@ func resolveKind(s *model.Series, kind installmentKind, pool map[int]offlinedb.A
 			matching = append(matching, a)
 		}
 	}
-	if len(matching) != len(ids) {
+	if len(matching) != len(slots) {
 		return
 	}
 	sort.Slice(matching, func(i, j int) bool { return airedEarlier(matching[i], matching[j]) })
 
-	for i, e := range ids {
+	for i, sl := range slots {
 		want := matching[i].AnilistID()
-		switch e.AnilistID {
+		switch sl.ids.AnilistID {
 		case 0:
 			// Nothing authored, so the resolution is the only answer there is.
 			// A series may omit its ids and take these, accepting that a title
 			// upstream stops carrying takes the build with it.
-			e.AnilistID = want
+			sl.ids.AnilistID = want
 			report.Coverage.Derived++
 		case want:
 			report.Coverage.Agreed++
 		default:
-			report.add("series "+s.ID, "externalIds", fmt.Sprintf(
-				"%s %d of this series resolves to anilistId %d from the title, but %d is authored; check which names the right entry, or upstream may simply not carry this title on both",
-				kind.name, i+1, want, e.AnilistID))
+			// Named by the node, not by its position in the ordering: a split
+			// cour sits in the third slot while its own number is 2, and
+			// "season 3" would send a reader looking for a season that is not
+			// there.
+			report.add(sl.name, "externalIds", fmt.Sprintf(
+				"resolves to anilistId %d from the series' title, but %d is authored; check which names the right entry, or upstream may simply not carry this title on both",
+				want, sl.ids.AnilistID))
 		}
 	}
 }
