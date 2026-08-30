@@ -54,13 +54,20 @@ jobs:
           (cd api && go install connectrpc.com/connect/cmd/protoc-gen-connect-go)
           echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
 
-      # Checks BOTH generated trees, so a proto change that updates the Go
-      # server but leaves the TypeScript client stale fails here rather than
-      # showing up as a type error in the web build.
+      # Checks EVERY generated tree, so a proto change that updates the Go
+      # server but leaves the TypeScript client — or the API reference the docs
+      # site publishes — stale fails here rather than showing up as a type error
+      # in the web build, or as documentation for an API that no longer exists.
+      #
+      # The reference pages are generated from the OpenAPI spec, which is itself
+      # generated from the proto, so both steps run: a spec that regenerated but
+      # was never rendered would leave the published pages describing the old
+      # schema while every file in the diff looked current.
       - name: Regenerate and verify no diff
         run: |
           (cd api && buf generate)
-          if ! git diff --exit-code -- api/internal/gen web/src/lib/gen; then
+          (cd web && npm run generate:api-docs)
+          if ! git diff --exit-code -- api/internal/gen web/src/lib/gen web/openapi web/content/docs/api; then
             echo "::error::generated code is out of date; run 'make generate' and commit the result."
             exit 1
           fi

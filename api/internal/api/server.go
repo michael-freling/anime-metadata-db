@@ -15,13 +15,18 @@ import (
 
 // NewHandler builds the HTTP handler that serves AnimeService over the Connect,
 // gRPC and gRPC-Web protocols, plus a human-readable index at "/".
+//
+// Wrapped in withCORS so browsers can call it, which a terminal client neither
+// needs nor notices. It wraps the whole mux rather than just the RPC path so a
+// preflight to any path gets a consistent answer instead of a 404 from the
+// catch-all below.
 func NewHandler(store *Store, version string) http.Handler {
 	svc := NewService(store, version)
 	mux := http.NewServeMux()
 	rpcPath, h := animev1connect.NewAnimeServiceHandler(svc, connect.WithInterceptors(varyAcceptLanguage()))
 	mux.Handle(rpcPath, h)
 	mux.HandleFunc("/", indexHandler(rpcPath))
-	return mux
+	return withCORS(mux)
 }
 
 // varyAcceptLanguage marks every response as varying by Accept-Language, since

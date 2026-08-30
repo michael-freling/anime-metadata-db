@@ -15,8 +15,9 @@ help: ## Show this help
 # --- API: protobuf codegen + local server ----------------------------------
 
 .PHONY: generate
-generate: ## Regenerate the committed Go and TypeScript clients (needs buf; run npm install in web/ first)
+generate: ## Regenerate the committed Go and TypeScript clients and the API reference (needs buf; run npm install in web/ first)
 	cd api && buf generate
+	cd web && npm run generate:api-docs
 
 .PHONY: api
 api: ## Run the read-only Connect API server locally (defaults to :8080)
