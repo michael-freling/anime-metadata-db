@@ -9,5 +9,6 @@ series:
   seasons:
     - id: marika-chan-no-koukando-wa-bukkowareteiru-s1
       number: 1
+      externalIds: { anilistId: 202523 } # Marika-chan no Koukando wa Bukkowareteiru (Spring 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [marika-chan-no-koukando-wa-bukkowareteiru]

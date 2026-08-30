@@ -9,5 +9,6 @@ series:
   seasons:
     - id: omae-wa-mada-gunma-wo-shiranai-reiwa-ban-s1
       number: 1
+      externalIds: { anilistId: 202419 } # Omae wa Mada Gunma wo Shiranai: Reiwa-ban (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [omae-wa-mada-gunma-wo-shiranai-reiwa-ban]

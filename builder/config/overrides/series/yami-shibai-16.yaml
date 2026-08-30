@@ -9,5 +9,6 @@ series:
   seasons:
     - id: yami-shibai-16-s1
       number: 1
+      externalIds: { anilistId: 203939 } # Yami Shibai 16 (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [yami-shibai-16]

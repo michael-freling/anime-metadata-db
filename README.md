@@ -36,8 +36,8 @@ AniList is **not** used: its ToS forbids storing or redistributing its content.
 
 The `anilistId` on each node is an identifier parsed out of the cross-reference
 URLs the offline database publishes — a join key into that ODbL source, not
-AniList data. Which entry each installment is gets resolved at build time from
-the series' own title; where that is ambiguous the id is authored instead. See [`NOTICE`](NOTICE) and the
+AniList data. The build independently resolves which entry each
+installment should be, from the series' own title, and reports a disagreement. See [`NOTICE`](NOTICE) and the
 [Sources and licensing](https://anime-metadata-db.vercel.app/docs/sources-and-licensing)
 guide.
 

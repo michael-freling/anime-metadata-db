@@ -9,5 +9,6 @@ series:
   seasons:
     - id: replica-datte-koi-wo-suru-s1
       number: 1
+      externalIds: { anilistId: 186744 } # Replica datte, Koi wo Suru. (Spring 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [replica-datte-koi-wo-suru]

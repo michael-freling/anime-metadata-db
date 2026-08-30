@@ -9,6 +9,7 @@ series:
   seasons:
     - id: yoroi-shin-den-samurai-troopers-s1
       number: 1
+      externalIds: { anilistId: 194318 } # Yoroi Shin Den Samurai Troopers (Winter 2026)
 # Scope stops at Spring 2026: a later announced season is left out until it airs.
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [yoroi-shin-den-samurai-troopers]

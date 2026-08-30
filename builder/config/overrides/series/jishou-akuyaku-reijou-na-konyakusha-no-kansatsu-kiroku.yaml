@@ -9,6 +9,7 @@ series:
   seasons:
     - id: jishou-akuyaku-reijou-na-konyakusha-no-kansatsu-kiroku-s1
       number: 1
+      externalIds: { anilistId: 192808 } # Jishou Akuyaku Reijou na Konyakusha no Kansatsu Kiroku. (Spring 2026)
   # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
   # the builder fills every name from the QID at build time.
   characters:

@@ -9,5 +9,6 @@ series:
   seasons:
     - id: hidarikiki-no-eren-s1
       number: 1
+      externalIds: { anilistId: 158036 } # Hidarikiki no Eren (Spring 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [hidarikiki-no-eren]

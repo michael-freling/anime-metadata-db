@@ -9,5 +9,6 @@ series:
   seasons:
     - id: ibitte-konai-gibo-to-gishi-s1
       number: 1
+      externalIds: { anilistId: 196356 } # Ibitte Konai Gibo to Gishi (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [ibitte-konai-gibo-to-gishi]

@@ -9,5 +9,6 @@ series:
   seasons:
     - id: snowball-earth-s1
       number: 1
+      externalIds: { anilistId: 196144 } # Snowball Earth (Spring 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [snowball-earth]

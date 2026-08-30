@@ -8,5 +8,6 @@ series:
   seasons:
     - id: dark-machine-the-animation-s1
       number: 1
+      externalIds: { anilistId: 179876 } # Dark Machine: The Animation (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [dark-machine-the-animation]

@@ -9,6 +9,7 @@ series:
   seasons:
     - id: mata-korosarete-shimatta-no-desu-ne-tantei-sama-s1
       number: 1
+      externalIds: { anilistId: 202381 } # Mata Korosarete Shimatta no desu ne, Tantei-sama (Spring 2026)
   # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
   # the builder fills every name from the QID at build time.
   characters:

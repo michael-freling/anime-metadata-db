@@ -9,5 +9,6 @@ series:
   seasons:
     - id: hikuidori-ushuu-boro-tobi-gumi-s1
       number: 1
+      externalIds: { anilistId: 187062 } # Hikuidori: Ushuu Boro Tobi-gumi (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [hikuidori-ushuu-boro-tobi-gumi]

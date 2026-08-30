@@ -9,5 +9,6 @@ series:
   seasons:
     - id: maid-san-wa-taberu-dake-s1
       number: 1
+      externalIds: { anilistId: 197868 } # Maid-san wa Taberu dake (Spring 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [maid-san-wa-taberu-dake]

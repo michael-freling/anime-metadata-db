@@ -9,5 +9,6 @@ series:
   seasons:
     - id: shunkashuutou-daikousha-haru-no-mai-s1
       number: 1
+      externalIds: { anilistId: 190143 } # Shunkashuutou Daikousha: Haru no Mai (Spring 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [shunkashuutou-daikousha-haru-no-mai]

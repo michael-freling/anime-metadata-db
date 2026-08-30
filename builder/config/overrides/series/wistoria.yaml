@@ -15,8 +15,10 @@ series:
   seasons:
     - id: wistoria-s1
       number: 1
+      externalIds: { anilistId: 174576 } # Tsue to Tsurugi no Wistoria (2024)
     - id: wistoria-s2
       number: 2
+      externalIds: { anilistId: 182300 } # Season 2 (2026)
 # One linear storyline, so its episodes carry a continuous absoluteNumber across
   # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
   # the builder fills every name from the QID at build time.

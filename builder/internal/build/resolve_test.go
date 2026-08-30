@@ -86,31 +86,52 @@ func TestResolveAnilistIDsOrdersByAiringDate(t *testing.T) {
 	}
 }
 
-// An authored id is the correction path for what the resolution gets wrong, so
-// it has to survive — and its whole kind is left alone, since filling around it
-// would mean guessing which candidates it already accounts for.
-func TestResolveAnilistIDsLeavesAnAuthoredKindAlone(t *testing.T) {
+// An authored id is never overwritten: it is the anchor the build reads every
+// other fact through, and a resolution that disagrees is reported rather than
+// applied. Which of the two is wrong is not something the build can know.
+func TestResolveAnilistIDsNeverOverwritesAnAuthoredID(t *testing.T) {
 	b := New(Sources{Offline: offlineFrom(t, familyDB)})
 	s := showSeries()
-	s.Seasons[0].ExternalIDs.AnilistID = 999 // authored, and deliberately odd
-	b.resolveAnilistIDs(s, &Report{})
+	s.Seasons[0].ExternalIDs.AnilistID = 999 // authored, and deliberately wrong
+	report := &Report{}
+	b.resolveAnilistIDs(s, report)
 
 	if s.Seasons[0].ExternalIDs.AnilistID != 999 {
 		t.Error("an authored id was overwritten")
 	}
-	if s.Seasons[1].ExternalIDs.AnilistID != 0 {
-		t.Errorf("the rest of an authored kind must be left alone, got %d", s.Seasons[1].ExternalIDs.AnilistID)
+	got := report.String()
+	if !strings.Contains(got, "resolves to anilistId 100 from the title, but 999 is authored") {
+		t.Errorf("the disagreement must name both ids:\n%s", got)
 	}
-	// Other kinds are independent, and still resolve.
-	if s.Movies[0].ExternalIDs.AnilistID != 300 {
-		t.Errorf("movie = %d, want 300", s.Movies[0].ExternalIDs.AnilistID)
+	// The rest of the kind still resolves: an unauthored slot has no anchor to
+	// preserve, and the resolution is the only answer there is.
+	if s.Seasons[1].ExternalIDs.AnilistID != 200 {
+		t.Errorf("season 2 = %d, want 200", s.Seasons[1].ExternalIDs.AnilistID)
+	}
+}
+
+// The common case now the ids are authored: both routes reach the same entry,
+// which is the strongest corroboration available and worth counting.
+func TestResolveAnilistIDsCountsAgreement(t *testing.T) {
+	b := New(Sources{Offline: offlineFrom(t, familyDB)})
+	s := showSeries()
+	s.Seasons[0].ExternalIDs.AnilistID = 100
+	s.Seasons[1].ExternalIDs.AnilistID = 200
+	report := &Report{}
+	b.resolveAnilistIDs(s, report)
+
+	if report.Coverage.Agreed != 2 {
+		t.Errorf("Agreed = %d, want 2", report.Coverage.Agreed)
+	}
+	if !report.Empty() {
+		t.Errorf("agreement is not a finding: %v", report.Notes)
 	}
 }
 
 // The safety property the measurements turned on: when the counts disagree,
-// nothing is assigned. A spare candidate would have to be attributed to some
-// installment, and getting that wrong fills a season with another's episode
-// count and says nothing.
+// nothing is assigned and nothing is claimed. A spare candidate would have to
+// be attributed to some installment, and a wrong answer there would assert that
+// a season holds another's id.
 func TestResolveAnilistIDsRefusesWhenCountsDisagree(t *testing.T) {
 	b := New(Sources{Offline: offlineFrom(t, familyDB)})
 	s := &model.Series{
@@ -130,12 +151,14 @@ func TestResolveAnilistIDsRefusesWhenCountsDisagree(t *testing.T) {
 			t.Errorf("season %d was assigned %d despite a count mismatch", i+1, season.ExternalIDs.AnilistID)
 		}
 	}
-	got := report.String()
-	if !strings.Contains(got, "3 season(s) authored but 2 upstream") {
-		t.Errorf("the refusal must say what did not line up:\n%s", got)
+	// Silent, not reported: upstream carries spin-offs and shorts under the same
+	// title for many series, so a line each would say only that the title is
+	// popular.
+	if !report.Empty() {
+		t.Errorf("a count that does not line up is not a finding: %v", report.Notes)
 	}
-	if report.Coverage.Derived != 0 {
-		t.Errorf("nothing was derived, so nothing should be counted: %d", report.Coverage.Derived)
+	if report.Coverage.Derived != 0 || report.Coverage.Agreed != 0 {
+		t.Errorf("nothing was resolved, so nothing should be counted: %+v", report.Coverage)
 	}
 }
 

@@ -9,6 +9,7 @@ series:
   seasons:
     - id: kirei-ni-shitemoraemasu-ka-s1
       number: 1
+      externalIds: { anilistId: 194028 } # Kirei ni Shitemoraemasu ka. (Winter 2026)
   # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
   # the builder fills every name from the QID at build time.
   characters:

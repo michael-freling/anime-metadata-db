@@ -9,8 +9,10 @@ series:
   seasons:
     - id: sousou-no-frieren-s1
       number: 1
+      externalIds: { anilistId: 154587 } # Sousou no Frieren (Fall 2023)
     - id: sousou-no-frieren-s2
       number: 2
+      externalIds: { anilistId: 182255 } # Sousou no Frieren 2nd Season (Winter 2026)
 # Scope stops at Spring 2026: a later announced season is left out until it airs.
   # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
   # the builder fills every name from the QID at build time.

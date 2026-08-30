@@ -50,18 +50,20 @@ successful build is always a valid dataset. Where it makes a low-confidence gues
 (chiefly title-language tagging) it prints a report — pin those cases with an
 override.
 
-Most of an installment's `anilistId` is no longer typed in either. A series
-carries no AniList id — it spans several, one per installment — but upstream
-lists the series' title among the synonyms of each entry belonging to it, so the
-build finds those entries and deals them out to the installments in airing
-order. It does this per kind and only when the counts agree: a spare candidate
-would have to be attributed to some installment, and getting that wrong fills a
-season with another's episode count and says nothing. Where it declines, author
-the id; an authored one always wins.
+The build also works out which upstream entry each installment *should* be, from
+the series' own title: upstream lists that title among the synonyms of each
+entry belonging to the series, so finding those entries enumerates the family
+and the airing dates order it. Where that agrees with the authored `anilistId`
+the id has been reached two independent ways, and where it disagrees you get a
+note naming both.
 
-```
-anilistId: 148 of 225 resolved from the series' own title, 77 authored
-```
+It corroborates rather than replaces. The ids were briefly derived and deleted
+from the overrides, and upstream moved two days later: two series stopped
+resolving and the build failed outright, because every other fact about an
+installment is read through this id and a missing one has nothing to fall back
+on. `wikidataId` can be derived exactly because it is optional — a series that
+stops resolving loses its English title and the build carries on. A new series
+may still omit its ids and take the resolution, accepting that trade knowingly.
 
 The report also carries what the build could not verify. An `anilistId` is the
 key every other fact about an installment is read from, so an id naming the

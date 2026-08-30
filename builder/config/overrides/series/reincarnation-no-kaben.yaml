@@ -9,5 +9,6 @@ series:
   seasons:
     - id: reincarnation-no-kaben-s1
       number: 1
+      externalIds: { anilistId: 179950 } # Reincarnation no Kaben (Spring 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [reincarnation-no-kaben]

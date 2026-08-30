@@ -8,24 +8,26 @@ import (
 	"github.com/michael-freling/anime-metadata-db/internal/model"
 )
 
-// resolveAnilistIDs fills the AniList id of every installment a series has not
-// authored one for, by finding the upstream entries that carry the series' own
-// title and dealing them out in airing order.
+// resolveAnilistIDs works out which upstream entry each installment is, from the
+// series' own title, and checks that against what the override says.
 //
-// This is the last join key that was typed by hand. A series has no AniList id
-// — it spans several, one per installment — so there is no id to look the
-// installments up by, but there is a name: upstream lists the series' native
-// title among the synonyms of each entry that belongs to it. Matching on that
-// enumerates the family, and the airing dates order it.
+// A series has no AniList id — it spans several, one per installment — so there
+// is no id to look the installments up by. There is a name: upstream lists the
+// series' native title among the synonyms of each entry belonging to it, so
+// finding those entries enumerates the family and the airing dates order it.
+// Over the catalogue that reproduces the authored id for 123 of 152 series and
+// never picks a different one, so a disagreement is worth reporting.
 //
-// Measured over the catalogue before it was written: the title finds exactly
-// the authored set for 123 of 152 series, covering 156 of 225 ids, and assigns
-// every one of them to the installment it was authored on. Not one is assigned
-// wrongly — every failure is a count that does not line up, which is refused
-// below rather than guessed at.
+// It corroborates rather than replaces, which was not the first plan. The ids
+// were briefly derived and deleted from the overrides — and upstream moved two
+// days later, two series stopped resolving, and the build failed outright,
+// because every other fact about an installment is read through this id and a
+// missing one has nothing to fall back on. wikidataId can be derived the same
+// way precisely because it is optional: a series that stops resolving loses its
+// English title and the build carries on. This one is load-bearing, so the
+// authored id stays and the resolution checks it.
 //
-// Nothing here reaches the network. The offline database is already loaded for
-// the build, so a resolved id is as reproducible as the sources it came from.
+// Nothing here reaches the network: the offline database is already loaded.
 func (b *Builder) resolveAnilistIDs(s *model.Series, report *Report) {
 	if b.sources.Offline == nil {
 		return
@@ -128,28 +130,22 @@ func orderedSeasons(s *model.Series) []int {
 	return idx
 }
 
-// resolveKind deals the candidates of one media type out to the installments of
-// the matching kind, in airing order.
+// resolveKind works out the candidates of one media type, deals them out to the
+// installments of the matching kind in airing order, and compares.
 //
 // All or nothing per kind, and only when the counts agree. A partial match
-// would have to decide which installment the spare candidate belongs to, and
-// getting that wrong does not fail — it fills a season with another
-// installment's episode count and says nothing. Refusing costs an id that stays
-// authored; guessing costs a wrong fact nobody sees.
+// would have to decide which installment the spare candidate belongs to, and a
+// wrong answer there does not fail — it would claim a season holds another
+// installment's id. Saying nothing is the honest result when the evidence does
+// not line up, and the count that did not line up is silent too: upstream
+// carries spin-offs and shorts under the same title for many series, so
+// reporting every one would be a line per series saying only that the title is
+// popular.
 func resolveKind(s *model.Series, kind installmentKind, pool map[int]offlinedb.Anime, report *Report) {
 	ids := kind.ids(s)
 	if len(ids) == 0 {
 		return
 	}
-	for _, e := range ids {
-		if e.AnilistID != 0 {
-			// The author named one, so the author is naming them all for this
-			// kind. Filling around an authored id would mean guessing which
-			// candidates it already accounts for.
-			return
-		}
-	}
-
 	matching := make([]offlinedb.Anime, 0, len(pool))
 	for _, a := range pool {
 		if kind.types[a.Type] {
@@ -157,16 +153,26 @@ func resolveKind(s *model.Series, kind installmentKind, pool map[int]offlinedb.A
 		}
 	}
 	if len(matching) != len(ids) {
-		report.add("series "+s.ID, "externalIds", fmt.Sprintf(
-			"%d %s(s) authored but %d upstream entr(y/ies) carry this title; anilistId not resolved — author them, or narrow the titles",
-			len(ids), kind.name, len(matching)))
 		return
 	}
 	sort.Slice(matching, func(i, j int) bool { return airedEarlier(matching[i], matching[j]) })
 
 	for i, e := range ids {
-		e.AnilistID = matching[i].AnilistID()
-		report.Coverage.Derived++
+		want := matching[i].AnilistID()
+		switch {
+		case e.AnilistID == 0:
+			// Nothing authored, so the resolution is the only answer there is.
+			// A series may omit its ids and take these, accepting that a title
+			// upstream stops carrying takes the build with it.
+			e.AnilistID = want
+			report.Coverage.Derived++
+		case e.AnilistID == want:
+			report.Coverage.Agreed++
+		default:
+			report.add("series "+s.ID, "externalIds", fmt.Sprintf(
+				"%s %d of this series resolves to anilistId %d from the title, but %d is authored; one of them names the wrong entry",
+				kind.name, i+1, want, e.AnilistID))
+		}
 	}
 }
 

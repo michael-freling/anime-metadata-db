@@ -130,7 +130,7 @@ jobs:
             exit 1
           }
           grep -E '^anilistId corroboration: ' /tmp/build.log
-          if grep -nE 'anilistId [0-9]+ is not linked|names the right installment' /tmp/build.log; then
+          if grep -nE 'anilistId [0-9]+ is not linked|names the right installment|names the wrong entry' /tmp/build.log; then
             echo "::error::an authored anilistId does not look like it belongs where it sits — see the lines above"
             exit 1
           fi
@@ -160,6 +160,8 @@ jobs:
             echo "::error::the relatedAnime check did not catch an id from another series"; fail=1; }
           grep -q 'names the right installment' /tmp/planted.log || {
             echo "::error::the chronology check did not catch a season that predates the one before it"; fail=1; }
+          grep -q 'names the wrong entry' /tmp/planted.log || {
+            echo "::error::the title resolution did not disagree with the planted id"; fail=1; }
           test "$fail" -eq 0
           echo "both checks caught the planted id"
 

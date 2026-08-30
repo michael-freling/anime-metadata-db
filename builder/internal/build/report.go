@@ -38,8 +38,12 @@ type Coverage struct {
 	// nothing to check them against.
 	Alone int `yaml:"alone"`
 	// Derived is the number the build resolved from the series' own title
-	// rather than reading from an override.
+	// because no override named one.
 	Derived int `yaml:"derived"`
+	// Agreed is the number an authored id and the title resolution both name,
+	// which is the strongest corroboration available: two independent routes to
+	// the same entry.
+	Agreed int `yaml:"agreed"`
 }
 
 // Total is every authored id the checks considered.
@@ -50,6 +54,7 @@ func (c *Coverage) Add(other Coverage) {
 	c.Corroborated += other.Corroborated
 	c.Alone += other.Alone
 	c.Derived += other.Derived
+	c.Agreed += other.Agreed
 }
 
 // add appends a note to the report.

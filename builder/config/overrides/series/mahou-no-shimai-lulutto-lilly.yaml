@@ -9,5 +9,6 @@ series:
   seasons:
     - id: mahou-no-shimai-lulutto-lilly-s1
       number: 1
+      externalIds: { anilistId: 178749 } # Mahou no Shimai Lulutto Lilly (Spring 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [mahou-no-shimai-lulutto-lilly]

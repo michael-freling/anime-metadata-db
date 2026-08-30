@@ -9,6 +9,7 @@ series:
   seasons:
     - id: high-school-kimengumi-2026-s1
       number: 1
+      externalIds: { anilistId: 200556 } # High School! Kimengumi (2026) (Winter 2026)
   # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
   # the builder fills every name from the QID at build time.
   #

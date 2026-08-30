@@ -9,6 +9,7 @@ series:
   seasons:
     - id: tongari-boushi-no-atelier-s1
       number: 1
+      externalIds: { anilistId: 147105 } # Tongari Boushi no Atelier (Spring 2026)
   # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
   # the builder fills every name from the QID at build time.
   characters:

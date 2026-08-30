@@ -9,7 +9,9 @@ series:
   seasons:
     - id: kikansha-no-mahou-wa-tokubetsu-desu-s1
       number: 1
+      externalIds: { anilistId: 163142 } # Kikansha no Mahou wa Tokubetsu desu (Fall 2023)
     - id: kikansha-no-mahou-wa-tokubetsu-desu-s2
       number: 2
+      externalIds: { anilistId: 172192 } # Kikansha no Mahou wa Tokubetsu desu 2nd Season (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [kikansha-no-mahou-wa-tokubetsu-desu]

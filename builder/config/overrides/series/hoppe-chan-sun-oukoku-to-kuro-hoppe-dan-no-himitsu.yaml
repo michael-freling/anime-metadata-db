@@ -9,5 +9,6 @@ series:
   seasons:
     - id: hoppe-chan-sun-oukoku-to-kuro-hoppe-dan-no-himitsu-s1
       number: 1
+      externalIds: { anilistId: 203148 } # Hoppe-chan: Sun Oukoku to Kuro Hoppe-dan no Himitsu (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [hoppe-chan-sun-oukoku-to-kuro-hoppe-dan-no-himitsu]

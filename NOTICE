@@ -14,12 +14,10 @@ Contributes the facts behind every season, movie and special in data/: titles,
 release year and season, episode counts, and the cross-provider ids (AniList,
 AniDB, MyAnimeList, Kitsu) used to join records.
 
-It also decides which of its entries each installment *is*. A series carries no
-AniList id of its own, so the build finds the entries listing the series' title
-among their own and deals them out to its installments in airing order; the
-anilistId recorded on each is then parsed from that entry. Where that cannot be
-done unambiguously the id stays authored in config/overrides/, and an authored
-one always wins.
+Its titles and synonyms are also read to work out which of its entries each
+installment should be, and a disagreement with the authored anilistId is
+reported. That is a check on this project's own editorial choice, not a fact
+taken from the source; the anilistId itself remains authored here.
 
 Because data/ is a derivative database of this source, it is offered under the
 same ODbL + DbCL terms. See LICENSE-DATA.

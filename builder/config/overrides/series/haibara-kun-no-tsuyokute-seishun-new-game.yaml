@@ -9,6 +9,7 @@ series:
   seasons:
     - id: haibara-kun-no-tsuyokute-seishun-new-game-s1
       number: 1
+      externalIds: { anilistId: 195333 } # Haibara-kun no Tsuyokute Seishun New Game (Spring 2026)
   # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
   # the builder fills every name from the QID at build time.
   characters:

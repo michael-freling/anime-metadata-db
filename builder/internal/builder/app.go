@@ -544,10 +544,11 @@ func (a *App) reportCoverage(c build.Coverage) {
 	if c.Total() == 0 {
 		return
 	}
-	fmt.Fprintf(a.Out, "anilistId: %d of %d resolved from the series' own title, %d authored\n",
-		c.Derived, c.Total(), c.Total()-c.Derived)
-	fmt.Fprintf(a.Out, "  corroboration: %d/%d checked against a sibling installment\n",
-		c.Corroborated, c.Total())
+	fmt.Fprintf(a.Out, "anilistId corroboration: %d/%d agree with the entry the series' title resolves to, %d checked against a sibling installment\n",
+		c.Agreed, c.Total(), c.Corroborated)
+	if c.Derived > 0 {
+		fmt.Fprintf(a.Out, "  %d resolved from the title because no override named one\n", c.Derived)
+	}
 	if c.Alone > 0 {
 		fmt.Fprintf(a.Out, "  %d unverifiable: the only installment of their series, so nothing to check against\n", c.Alone)
 	}

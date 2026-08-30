@@ -9,5 +9,6 @@ series:
   seasons:
     - id: osananajimi-to-wa-love-comedy-ni-naranai-s1
       number: 1
+      externalIds: { anilistId: 189565 } # Osananajimi to wa Love Comedy ni Naranai (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [osananajimi-to-wa-love-comedy-ni-naranai]

@@ -9,5 +9,6 @@ series:
   seasons:
     - id: okiraku-ryoushu-no-tanoshii-ryouchi-bouei-seisankei-s1
       number: 1
+      externalIds: { anilistId: 191205 } # Okiraku Ryoushu no Tanoshii Ryouchi Bouei: Seisankei Majutsu de Na mo Naki Mura wo Saikyou no Jousai Toshi ni (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [okiraku-ryoushu-no-tanoshii-ryouchi-bouei-seisankei]

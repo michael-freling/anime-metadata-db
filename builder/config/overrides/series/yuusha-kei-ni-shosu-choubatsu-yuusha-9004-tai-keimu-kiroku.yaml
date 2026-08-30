@@ -9,6 +9,7 @@ series:
   seasons:
     - id: yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku-s1
       number: 1
+      externalIds: { anilistId: 167152 } # Yuusha-kei ni Shosu: Choubatsu Yuusha 9004-tai Keimu Kiroku (Winter 2026)
   # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
   # the builder fills every name from the QID at build time.
   characters:
