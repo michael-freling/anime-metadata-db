@@ -9,6 +9,5 @@ series:
   seasons:
     - id: tetsunabe-no-jan-s1
       number: 1
-      externalIds: { anilistId: 204060 } # Tetsunabe no Jan! (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [tetsunabe-no-jan]

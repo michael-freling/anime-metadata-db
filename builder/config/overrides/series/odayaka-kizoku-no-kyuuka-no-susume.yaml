@@ -9,6 +9,5 @@ series:
   seasons:
     - id: odayaka-kizoku-no-kyuuka-no-susume-s1
       number: 1
-      externalIds: { anilistId: 182771 } # Odayaka Kizoku no Kyuuka no Susume. (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [odayaka-kizoku-no-kyuuka-no-susume]

@@ -9,6 +9,5 @@ series:
   seasons:
     - id: ojisan-wa-kawaii-mono-ga-osuki-s1
       number: 1
-      externalIds: { anilistId: 202079 } # Ojisan wa Kawaii Mono ga Osuki. (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [ojisan-wa-kawaii-mono-ga-osuki]

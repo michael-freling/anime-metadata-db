@@ -9,6 +9,5 @@ series:
   seasons:
     - id: tadaima-ojamasaremasu-s1
       number: 1
-      externalIds: { anilistId: 202985 } # Tadaima, Ojamasaremasu! (Spring 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [tadaima-ojamasaremasu]

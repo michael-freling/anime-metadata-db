@@ -9,6 +9,5 @@ series:
   seasons:
     - id: nezumi-kun-no-chokki-tv-s1
       number: 1
-      externalIds: { anilistId: 198411 } # Nezumi-kun no Chokki (TV) (Spring 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [nezumi-kun-no-chokki-tv]

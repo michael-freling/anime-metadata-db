@@ -9,6 +9,5 @@ series:
   seasons:
     - id: oshiri-dandy-the-young-s1
       number: 1
-      externalIds: { anilistId: 201910 } # Oshiri Dandy the Young (Spring 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [oshiri-dandy-the-young]

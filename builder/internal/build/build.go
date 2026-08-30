@@ -84,6 +84,9 @@ func (b *Builder) Build(o overrides.Override) (model.Record, *Report, error) {
 // and when numbered assigns a continuous absoluteNumber.
 func (b *Builder) buildSeries(s *model.Series, numbered bool, report *Report) error {
 	b.fillSeriesTitle(s, report)
+	// Before the fills: every one of them reads the entry the anilistId names,
+	// so the id has to exist first.
+	b.resolveAnilistIDs(s, report)
 	for i := range s.Seasons {
 		if err := b.fillSeason(&s.Seasons[i], report); err != nil {
 			return err

@@ -9,6 +9,5 @@ series:
   seasons:
     - id: megami-isekai-tensei-nani-ni-naritai-desu-ka-ore-yuusha-s1
       number: 1
-      externalIds: { anilistId: 206951 } # Megami "Isekai Tensei Nani ni Naritai desu ka" Ore "Yuusha no Rokkotsu de" (Spring 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [megami-isekai-tensei-nani-ni-naritai-desu-ka-ore-yuusha]

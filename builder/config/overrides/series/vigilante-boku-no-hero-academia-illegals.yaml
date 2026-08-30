@@ -9,10 +9,8 @@ series:
   seasons:
     - id: vigilante-boku-no-hero-academia-illegals-s1
       number: 1
-      externalIds: { anilistId: 185736 } # Vigilante: Boku no Hero Academia Illegals (Spring 2025)
     - id: vigilante-boku-no-hero-academia-illegals-s2
       number: 2
-      externalIds: { anilistId: 195322 } # Vigilante: Boku no Hero Academia Illegals 2nd Season (Winter 2026)
   # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
   # the builder fills every name from the QID at build time.
   characters:

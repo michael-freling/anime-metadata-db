@@ -9,6 +9,7 @@ import (
 	"io"
 	"os"
 	"regexp"
+	"sort"
 	"strconv"
 )
 
@@ -46,6 +47,11 @@ type Anime struct {
 // Database is an indexed view of the offline database.
 type Database struct {
 	byAnilist map[int]Anime
+	// byTitle indexes every entry under its title and each of its synonyms, so
+	// a work can be found by a name rather than by an id. A series has no
+	// AniList id of its own — it spans several — so its own native title is the
+	// only handle it has on the entries that make it up.
+	byTitle map[string][]Anime
 }
 
 // rawDatabase is the on-disk JSON shape.
@@ -137,10 +143,18 @@ func Parse(r io.Reader) (*Database, error) {
 	if err := json.NewDecoder(r).Decode(&raw); err != nil {
 		return nil, fmt.Errorf("decode offline database: %w", err)
 	}
-	db := &Database{byAnilist: make(map[int]Anime, len(raw.Data))}
+	db := &Database{
+		byAnilist: make(map[int]Anime, len(raw.Data)),
+		byTitle:   make(map[string][]Anime, len(raw.Data)*4),
+	}
 	for _, a := range raw.Data {
 		if id := a.AnilistID(); id != 0 {
 			db.byAnilist[id] = a
+			for _, name := range append([]string{a.Title}, a.Synonyms...) {
+				if name != "" {
+					db.byTitle[name] = append(db.byTitle[name], a)
+				}
+			}
 		}
 	}
 	return db, nil
@@ -160,6 +174,24 @@ func Load(path string) (*Database, error) {
 func (d *Database) Lookup(anilistID int) (Anime, bool) {
 	a, ok := d.byAnilist[anilistID]
 	return a, ok
+}
+
+// Titled returns every entry carrying name as its title or one of its
+// synonyms, in AniList id order so two runs over the same database agree.
+//
+// An exact match rather than a prefix or a fold: upstream's synonym lists are
+// long and multilingual, and anything looser turns "find this work" into "find
+// works whose names look a bit like this", which is how a season of one show
+// gets an id belonging to another.
+func (d *Database) Titled(name string) []Anime {
+	found := d.byTitle[name]
+	if len(found) == 0 {
+		return nil
+	}
+	out := make([]Anime, len(found))
+	copy(out, found)
+	sort.Slice(out, func(i, j int) bool { return out[i].AnilistID() < out[j].AnilistID() })
+	return out
 }
 
 // Len reports the number of indexed entries.

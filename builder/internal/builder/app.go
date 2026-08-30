@@ -531,18 +531,22 @@ func (a *App) build(cfg config.Config, ids []string) error {
 	return nil
 }
 
-// reportCoverage prints how much of the authored anilistId surface the checks
-// could actually see.
+// reportCoverage prints how many anilistIds the build resolved rather than
+// read, and how much of the result the checks could actually see.
 //
 // A build whose report is empty is either clean or blind, and from the notes
 // alone the two are indistinguishable — the honest output for an id nothing can
 // corroborate is silence. This says which it was, so "no findings" can be read
-// as a result rather than an absence.
+// as a result rather than an absence. The derived count sits beside it because
+// the two answer one question between them: how much of this was computed, and
+// how much of that was checked.
 func (a *App) reportCoverage(c build.Coverage) {
 	if c.Total() == 0 {
 		return
 	}
-	fmt.Fprintf(a.Out, "anilistId corroboration: %d/%d checked against a sibling installment\n",
+	fmt.Fprintf(a.Out, "anilistId: %d of %d resolved from the series' own title, %d authored\n",
+		c.Derived, c.Total(), c.Total()-c.Derived)
+	fmt.Fprintf(a.Out, "  corroboration: %d/%d checked against a sibling installment\n",
 		c.Corroborated, c.Total())
 	if c.Alone > 0 {
 		fmt.Fprintf(a.Out, "  %d unverifiable: the only installment of their series, so nothing to check against\n", c.Alone)

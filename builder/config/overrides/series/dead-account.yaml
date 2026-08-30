@@ -9,6 +9,5 @@ series:
   seasons:
     - id: dead-account-s1
       number: 1
-      externalIds: { anilistId: 187901 } # Dead Account (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [dead-account]

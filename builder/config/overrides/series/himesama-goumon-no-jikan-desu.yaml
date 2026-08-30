@@ -9,9 +9,7 @@ series:
   seasons:
     - id: himesama-goumon-no-jikan-desu-s1
       number: 1
-      externalIds: { anilistId: 166522 } # Himesama "Goumon" no Jikan desu (Winter 2024)
     - id: himesama-goumon-no-jikan-desu-s2
       number: 2
-      externalIds: { anilistId: 176370 } # Himesama "Goumon" no Jikan desu 2nd Season (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [himesama-goumon-no-jikan-desu]

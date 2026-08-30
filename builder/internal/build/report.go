@@ -37,6 +37,9 @@ type Coverage struct {
 	// Alone is the number whose series has no other installment, leaving
 	// nothing to check them against.
 	Alone int `yaml:"alone"`
+	// Derived is the number the build resolved from the series' own title
+	// rather than reading from an override.
+	Derived int `yaml:"derived"`
 }
 
 // Total is every authored id the checks considered.
@@ -46,6 +49,7 @@ func (c Coverage) Total() int { return c.Corroborated + c.Alone }
 func (c *Coverage) Add(other Coverage) {
 	c.Corroborated += other.Corroborated
 	c.Alone += other.Alone
+	c.Derived += other.Derived
 }
 
 // add appends a note to the report.
