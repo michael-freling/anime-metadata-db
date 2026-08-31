@@ -82,11 +82,25 @@ enum EntryKind {
 }
 
 // Episode is one TV episode. Dates are serialized as YYYY-MM-DD strings.
+// Episode is one numbered entry of a season or special.
+//
+// It carries numbering and nothing else. The upstream database publishes an
+// episode *count*, not a list, so the entries are the count expanded to 1..n;
+// aired_number is that position and absolute_number is the franchise-wide
+// running count assignAbsoluteNumbers computes by interleaving installments in
+// release order, which is the one fact here that is not arithmetic.
+//
+// 3 and 4 held release_date and title. Both were declared before there was a
+// source for them and neither was ever populated — 0 of 3,229 episodes — so
+// the API advertised fields that always came back empty. They are removed
+// rather than left as an intention: if an episode-level source is ever added,
+// filling a new field is easier than explaining a permanently blank one.
 message Episode {
   optional int32 absolute_number = 1;
   int32 aired_number = 2;
-  string release_date = 3;
-  string title = 4;
+
+  reserved 3, 4;
+  reserved "release_date", "title";
 }
 
 // Season is one numbered TV installment (one media node / cour).
@@ -512,12 +526,20 @@ message ListStaffResponse {
   int32 total_size = 3;
 }
 
-message GetHealthRequest {}
+message GetStatsRequest {}
 
-message GetHealthResponse {
-  string status = 1;
+message GetStatsResponse {
+  // version is the deployed revision, so a caller can tell which build
+  // answered. Nothing reads it programmatically; it is here because "which
+  // deploy am I hitting" is a question that comes up whenever a change looks
+  // like it has not landed.
   string version = 2;
   DatasetStats stats = 3;
+
+  // 1 held `status`, a string literal "ok" that could never be anything else.
+  // A 200 response already said that, so the field carried no information.
+  reserved 1;
+  reserved "status";
 }
 
 message ListCatalogRequest {
@@ -620,8 +642,13 @@ service AnimeService {
   rpc ListAppearances(ListAppearancesRequest) returns (ListAppearancesResponse) {}
   // ListCredits pages the roles one staff member is cast in.
   rpc ListCredits(ListCreditsRequest) returns (ListCreditsResponse) {}
-  // GetHealth reports liveness, build version and dataset stats.
-  rpc GetHealth(GetHealthRequest) returns (GetHealthResponse) {}
+  // GetStats reports what the dataset contains, plus the deployed revision.
+  //
+  // Named for the stats because that is what it is for. It was GetHealth, and
+  // the counts had been folded into a liveness probe during a refactor — which
+  // left the one genuinely useful part of the response behind a name that told
+  // consumers to skip it.
+  rpc GetStats(GetStatsRequest) returns (GetStatsResponse) {}
 }
 
 // ListEpisodesRequest names exactly one parent: a season or a special.

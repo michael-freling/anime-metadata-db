@@ -31,7 +31,7 @@ func TestHandlerServesConnectJSON(t *testing.T) {
 	defer srv.Close()
 
 	resp, err := http.Post(
-		srv.URL+"/anime.v1.AnimeService/GetHealth",
+		srv.URL+"/anime.v1.AnimeService/GetStats",
 		"application/json",
 		strings.NewReader("{}"),
 	)
@@ -43,7 +43,7 @@ func TestHandlerServesConnectJSON(t *testing.T) {
 	if resp.StatusCode != http.StatusOK {
 		t.Fatalf("status = %d, body = %s", resp.StatusCode, body)
 	}
-	for _, want := range []string{`"status":"ok"`, `"version":"v-test"`} {
+	for _, want := range []string{`"version":"v-test"`, `"series":3`} {
 		if !strings.Contains(string(body), want) {
 			t.Errorf("body %s missing %q", body, want)
 		}

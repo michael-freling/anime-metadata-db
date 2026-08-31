@@ -20,11 +20,14 @@ func TestNewServerServesHealth(t *testing.T) {
 	}
 
 	rec := httptest.NewRecorder()
-	req := httptest.NewRequest(http.MethodPost, "/anime.v1.AnimeService/GetHealth", strings.NewReader("{}"))
+	req := httptest.NewRequest(http.MethodPost, "/anime.v1.AnimeService/GetStats", strings.NewReader("{}"))
 	req.Header.Set("Content-Type", "application/json")
 	srv.Handler.ServeHTTP(rec, req)
-	if rec.Code != http.StatusOK || !strings.Contains(rec.Body.String(), `"status":"ok"`) {
-		t.Errorf("health response code=%d body=%s", rec.Code, rec.Body.String())
+	// Asserts a real figure rather than the old `"status":"ok"`, which was a
+	// constant the handler wrote unconditionally — it proved the route was
+	// wired, not that the dataset had loaded.
+	if rec.Code != http.StatusOK || !strings.Contains(rec.Body.String(), `"series":`) {
+		t.Errorf("stats response code=%d body=%s", rec.Code, rec.Body.String())
 	}
 }
 

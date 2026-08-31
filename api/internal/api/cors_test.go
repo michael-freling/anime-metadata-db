@@ -21,7 +21,7 @@ func corsTestHandler(reached *bool) http.Handler {
 // before it was made — which is exactly what the deployed API returned.
 func TestCORSAnswersPreflightWithoutReachingTheService(t *testing.T) {
 	var reached bool
-	req := httptest.NewRequest(http.MethodOptions, "/anime.v1.AnimeService/GetHealth", nil)
+	req := httptest.NewRequest(http.MethodOptions, "/anime.v1.AnimeService/GetStats", nil)
 	req.Header.Set("Origin", "https://example.test")
 	req.Header.Set("Access-Control-Request-Method", "POST")
 	req.Header.Set("Access-Control-Request-Headers", "content-type,connect-protocol-version")
@@ -64,7 +64,7 @@ func TestCORSAnswersPreflightWithoutReachingTheService(t *testing.T) {
 // carry the headers that let the browser hand the body to JavaScript.
 func TestCORSPassesRealRequestsThrough(t *testing.T) {
 	var reached bool
-	req := httptest.NewRequest(http.MethodPost, "/anime.v1.AnimeService/GetHealth", strings.NewReader("{}"))
+	req := httptest.NewRequest(http.MethodPost, "/anime.v1.AnimeService/GetStats", strings.NewReader("{}"))
 	req.Header.Set("Origin", "https://example.test")
 	rec := httptest.NewRecorder()
 	corsTestHandler(&reached).ServeHTTP(rec, req)
@@ -97,7 +97,7 @@ func TestCORSPassesRealRequestsThrough(t *testing.T) {
 // the docs print `curl -v` transcripts and headers nobody asked for are noise.
 func TestCORSLeavesNonBrowserRequestsAlone(t *testing.T) {
 	var reached bool
-	req := httptest.NewRequest(http.MethodPost, "/anime.v1.AnimeService/GetHealth", strings.NewReader("{}"))
+	req := httptest.NewRequest(http.MethodPost, "/anime.v1.AnimeService/GetStats", strings.NewReader("{}"))
 	rec := httptest.NewRecorder()
 	corsTestHandler(&reached).ServeHTTP(rec, req)
 
@@ -119,7 +119,7 @@ func TestHandlerAnswersPreflightOnAnRPCPath(t *testing.T) {
 	if err != nil {
 		t.Fatalf("newFromFS: %v", err)
 	}
-	req := httptest.NewRequest(http.MethodOptions, "/anime.v1.AnimeService/GetHealth", nil)
+	req := httptest.NewRequest(http.MethodOptions, "/anime.v1.AnimeService/GetStats", nil)
 	req.Header.Set("Origin", "https://example.test")
 	req.Header.Set("Access-Control-Request-Method", "POST")
 	rec := httptest.NewRecorder()

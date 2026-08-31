@@ -11,12 +11,13 @@ library or codegen required.
 ## Your first call
 
 ```sh
-curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/GetHealth \
+curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/GetStats \
   -H 'Content-Type: application/json' -d '{}'
 ```
 
 ```json
-{"status":"ok","version":"<commit>","stats":{"franchises":1,"series":3,"seasons":9,"episodes":124}}
+{"version":"<commit>","stats":{"franchises":1,"series":152,"seasons":222,"episodes":3229,
+ "characters":647,"staff":445,"earliestReleaseYear":2006,"latestReleaseYear":2026}}
 ```
 
 That's the whole contract: `POST` a JSON body to

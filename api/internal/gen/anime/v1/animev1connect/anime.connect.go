@@ -80,8 +80,8 @@ const (
 	// AnimeServiceListCreditsProcedure is the fully-qualified name of the AnimeService's ListCredits
 	// RPC.
 	AnimeServiceListCreditsProcedure = "/anime.v1.AnimeService/ListCredits"
-	// AnimeServiceGetHealthProcedure is the fully-qualified name of the AnimeService's GetHealth RPC.
-	AnimeServiceGetHealthProcedure = "/anime.v1.AnimeService/GetHealth"
+	// AnimeServiceGetStatsProcedure is the fully-qualified name of the AnimeService's GetStats RPC.
+	AnimeServiceGetStatsProcedure = "/anime.v1.AnimeService/GetStats"
 )
 
 // AnimeServiceClient is a client for the anime.v1.AnimeService service.
@@ -123,8 +123,13 @@ type AnimeServiceClient interface {
 	ListAppearances(context.Context, *connect.Request[v1.ListAppearancesRequest]) (*connect.Response[v1.ListAppearancesResponse], error)
 	// ListCredits pages the roles one staff member is cast in.
 	ListCredits(context.Context, *connect.Request[v1.ListCreditsRequest]) (*connect.Response[v1.ListCreditsResponse], error)
-	// GetHealth reports liveness, build version and dataset stats.
-	GetHealth(context.Context, *connect.Request[v1.GetHealthRequest]) (*connect.Response[v1.GetHealthResponse], error)
+	// GetStats reports what the dataset contains, plus the deployed revision.
+	//
+	// Named for the stats because that is what it is for. It was GetHealth, and
+	// the counts had been folded into a liveness probe during a refactor — which
+	// left the one genuinely useful part of the response behind a name that told
+	// consumers to skip it.
+	GetStats(context.Context, *connect.Request[v1.GetStatsRequest]) (*connect.Response[v1.GetStatsResponse], error)
 }
 
 // NewAnimeServiceClient constructs a client for the anime.v1.AnimeService service. By default, it
@@ -222,10 +227,10 @@ func NewAnimeServiceClient(httpClient connect.HTTPClient, baseURL string, opts .
 			connect.WithSchema(animeServiceMethods.ByName("ListCredits")),
 			connect.WithClientOptions(opts...),
 		),
-		getHealth: connect.NewClient[v1.GetHealthRequest, v1.GetHealthResponse](
+		getStats: connect.NewClient[v1.GetStatsRequest, v1.GetStatsResponse](
 			httpClient,
-			baseURL+AnimeServiceGetHealthProcedure,
-			connect.WithSchema(animeServiceMethods.ByName("GetHealth")),
+			baseURL+AnimeServiceGetStatsProcedure,
+			connect.WithSchema(animeServiceMethods.ByName("GetStats")),
 			connect.WithClientOptions(opts...),
 		),
 	}
@@ -247,7 +252,7 @@ type animeServiceClient struct {
 	listSeries      *connect.Client[v1.ListSeriesRequest, v1.ListSeriesResponse]
 	listAppearances *connect.Client[v1.ListAppearancesRequest, v1.ListAppearancesResponse]
 	listCredits     *connect.Client[v1.ListCreditsRequest, v1.ListCreditsResponse]
-	getHealth       *connect.Client[v1.GetHealthRequest, v1.GetHealthResponse]
+	getStats        *connect.Client[v1.GetStatsRequest, v1.GetStatsResponse]
 }
 
 // ListFranchises calls anime.v1.AnimeService.ListFranchises.
@@ -320,9 +325,9 @@ func (c *animeServiceClient) ListCredits(ctx context.Context, req *connect.Reque
 	return c.listCredits.CallUnary(ctx, req)
 }
 
-// GetHealth calls anime.v1.AnimeService.GetHealth.
-func (c *animeServiceClient) GetHealth(ctx context.Context, req *connect.Request[v1.GetHealthRequest]) (*connect.Response[v1.GetHealthResponse], error) {
-	return c.getHealth.CallUnary(ctx, req)
+// GetStats calls anime.v1.AnimeService.GetStats.
+func (c *animeServiceClient) GetStats(ctx context.Context, req *connect.Request[v1.GetStatsRequest]) (*connect.Response[v1.GetStatsResponse], error) {
+	return c.getStats.CallUnary(ctx, req)
 }
 
 // AnimeServiceHandler is an implementation of the anime.v1.AnimeService service.
@@ -364,8 +369,13 @@ type AnimeServiceHandler interface {
 	ListAppearances(context.Context, *connect.Request[v1.ListAppearancesRequest]) (*connect.Response[v1.ListAppearancesResponse], error)
 	// ListCredits pages the roles one staff member is cast in.
 	ListCredits(context.Context, *connect.Request[v1.ListCreditsRequest]) (*connect.Response[v1.ListCreditsResponse], error)
-	// GetHealth reports liveness, build version and dataset stats.
-	GetHealth(context.Context, *connect.Request[v1.GetHealthRequest]) (*connect.Response[v1.GetHealthResponse], error)
+	// GetStats reports what the dataset contains, plus the deployed revision.
+	//
+	// Named for the stats because that is what it is for. It was GetHealth, and
+	// the counts had been folded into a liveness probe during a refactor — which
+	// left the one genuinely useful part of the response behind a name that told
+	// consumers to skip it.
+	GetStats(context.Context, *connect.Request[v1.GetStatsRequest]) (*connect.Response[v1.GetStatsResponse], error)
 }
 
 // NewAnimeServiceHandler builds an HTTP handler from the service implementation. It returns the
@@ -459,10 +469,10 @@ func NewAnimeServiceHandler(svc AnimeServiceHandler, opts ...connect.HandlerOpti
 		connect.WithSchema(animeServiceMethods.ByName("ListCredits")),
 		connect.WithHandlerOptions(opts...),
 	)
-	animeServiceGetHealthHandler := connect.NewUnaryHandler(
-		AnimeServiceGetHealthProcedure,
-		svc.GetHealth,
-		connect.WithSchema(animeServiceMethods.ByName("GetHealth")),
+	animeServiceGetStatsHandler := connect.NewUnaryHandler(
+		AnimeServiceGetStatsProcedure,
+		svc.GetStats,
+		connect.WithSchema(animeServiceMethods.ByName("GetStats")),
 		connect.WithHandlerOptions(opts...),
 	)
 	return "/anime.v1.AnimeService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -495,8 +505,8 @@ func NewAnimeServiceHandler(svc AnimeServiceHandler, opts ...connect.HandlerOpti
 			animeServiceListAppearancesHandler.ServeHTTP(w, r)
 		case AnimeServiceListCreditsProcedure:
 			animeServiceListCreditsHandler.ServeHTTP(w, r)
-		case AnimeServiceGetHealthProcedure:
-			animeServiceGetHealthHandler.ServeHTTP(w, r)
+		case AnimeServiceGetStatsProcedure:
+			animeServiceGetStatsHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -562,6 +572,6 @@ func (UnimplementedAnimeServiceHandler) ListCredits(context.Context, *connect.Re
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.ListCredits is not implemented"))
 }
 
-func (UnimplementedAnimeServiceHandler) GetHealth(context.Context, *connect.Request[v1.GetHealthRequest]) (*connect.Response[v1.GetHealthResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.GetHealth is not implemented"))
+func (UnimplementedAnimeServiceHandler) GetStats(context.Context, *connect.Request[v1.GetStatsRequest]) (*connect.Response[v1.GetStatsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.GetStats is not implemented"))
 }
