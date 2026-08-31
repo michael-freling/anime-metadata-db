@@ -73,7 +73,7 @@ export const localizedApi = cache(async (): Promise<Client<typeof AnimeService>>
 // API gave it.
 export const datasetYearSpan = cache(async (): Promise<{ earliest: number; latest: number }> => {
   try {
-    const { stats } = await api.getHealth({});
+    const { stats } = await api.getStats({});
     return {
       earliest: stats?.earliestReleaseYear ?? 0,
       latest: stats?.latestReleaseYear ?? 0,

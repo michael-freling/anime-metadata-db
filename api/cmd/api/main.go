@@ -81,7 +81,7 @@ func defaultAddr() string {
 }
 
 // resolveVersion prefers the Vercel deployment's commit SHA, then the
-// build-time version, so GetHealth reports the deployed revision.
+// build-time version, so GetStats reports the deployed revision.
 func resolveVersion() string {
 	if sha := os.Getenv("VERCEL_GIT_COMMIT_SHA"); sha != "" {
 		return sha

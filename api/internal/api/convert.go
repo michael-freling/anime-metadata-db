@@ -280,12 +280,17 @@ func toDate(d *model.Date) string {
 }
 
 // toEpisode converts one episode.
+//
+// The model still carries a title and a release date; the API no longer does.
+// Neither has ever been populated — no source this build reads publishes
+// episode-level data — so serving them meant advertising fields that always
+// came back empty. They are dropped here rather than in the model, because the
+// model is the dataset's shape and emptying it there is a separate decision
+// about what data/ holds.
 func toEpisode(e model.Episode) *animev1.Episode {
 	return &animev1.Episode{
 		AbsoluteNumber: toInt32Ptr(e.AbsoluteNumber),
 		AiredNumber:    int32(e.AiredNumber),
-		ReleaseDate:    toDate(e.ReleaseDate),
-		Title:          e.Title,
 	}
 }
 

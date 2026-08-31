@@ -395,12 +395,23 @@ func (x *ExternalIds) GetWikidataId() string {
 }
 
 // Episode is one TV episode. Dates are serialized as YYYY-MM-DD strings.
+// Episode is one numbered entry of a season or special.
+//
+// It carries numbering and nothing else. The upstream database publishes an
+// episode *count*, not a list, so the entries are the count expanded to 1..n;
+// aired_number is that position and absolute_number is the franchise-wide
+// running count assignAbsoluteNumbers computes by interleaving installments in
+// release order, which is the one fact here that is not arithmetic.
+//
+// 3 and 4 held release_date and title. Both were declared before there was a
+// source for them and neither was ever populated — 0 of 3,229 episodes — so
+// the API advertised fields that always came back empty. They are removed
+// rather than left as an intention: if an episode-level source is ever added,
+// filling a new field is easier than explaining a permanently blank one.
 type Episode struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
 	AbsoluteNumber *int32                 `protobuf:"varint,1,opt,name=absolute_number,json=absoluteNumber,proto3,oneof" json:"absolute_number,omitempty"`
 	AiredNumber    int32                  `protobuf:"varint,2,opt,name=aired_number,json=airedNumber,proto3" json:"aired_number,omitempty"`
-	ReleaseDate    string                 `protobuf:"bytes,3,opt,name=release_date,json=releaseDate,proto3" json:"release_date,omitempty"`
-	Title          string                 `protobuf:"bytes,4,opt,name=title,proto3" json:"title,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -447,20 +458,6 @@ func (x *Episode) GetAiredNumber() int32 {
 		return x.AiredNumber
 	}
 	return 0
-}
-
-func (x *Episode) GetReleaseDate() string {
-	if x != nil {
-		return x.ReleaseDate
-	}
-	return ""
-}
-
-func (x *Episode) GetTitle() string {
-	if x != nil {
-		return x.Title
-	}
-	return ""
 }
 
 // Season is one numbered TV installment (one media node / cour).
@@ -3086,26 +3083,26 @@ func (x *ListStaffResponse) GetTotalSize() int32 {
 	return 0
 }
 
-type GetHealthRequest struct {
+type GetStatsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetHealthRequest) Reset() {
-	*x = GetHealthRequest{}
+func (x *GetStatsRequest) Reset() {
+	*x = GetStatsRequest{}
 	mi := &file_anime_v1_anime_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetHealthRequest) String() string {
+func (x *GetStatsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetHealthRequest) ProtoMessage() {}
+func (*GetStatsRequest) ProtoMessage() {}
 
-func (x *GetHealthRequest) ProtoReflect() protoreflect.Message {
+func (x *GetStatsRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_anime_v1_anime_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -3117,34 +3114,37 @@ func (x *GetHealthRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetHealthRequest.ProtoReflect.Descriptor instead.
-func (*GetHealthRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetStatsRequest.ProtoReflect.Descriptor instead.
+func (*GetStatsRequest) Descriptor() ([]byte, []int) {
 	return file_anime_v1_anime_proto_rawDescGZIP(), []int{37}
 }
 
-type GetHealthResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Status        string                 `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
-	Version       string                 `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty"`
-	Stats         *DatasetStats          `protobuf:"bytes,3,opt,name=stats,proto3" json:"stats,omitempty"`
+type GetStatsResponse struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// version is the deployed revision, so a caller can tell which build
+	// answered. Nothing reads it programmatically; it is here because "which
+	// deploy am I hitting" is a question that comes up whenever a change looks
+	// like it has not landed.
+	Version       string        `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty"`
+	Stats         *DatasetStats `protobuf:"bytes,3,opt,name=stats,proto3" json:"stats,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetHealthResponse) Reset() {
-	*x = GetHealthResponse{}
+func (x *GetStatsResponse) Reset() {
+	*x = GetStatsResponse{}
 	mi := &file_anime_v1_anime_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetHealthResponse) String() string {
+func (x *GetStatsResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetHealthResponse) ProtoMessage() {}
+func (*GetStatsResponse) ProtoMessage() {}
 
-func (x *GetHealthResponse) ProtoReflect() protoreflect.Message {
+func (x *GetStatsResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_anime_v1_anime_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -3156,26 +3156,19 @@ func (x *GetHealthResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetHealthResponse.ProtoReflect.Descriptor instead.
-func (*GetHealthResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetStatsResponse.ProtoReflect.Descriptor instead.
+func (*GetStatsResponse) Descriptor() ([]byte, []int) {
 	return file_anime_v1_anime_proto_rawDescGZIP(), []int{38}
 }
 
-func (x *GetHealthResponse) GetStatus() string {
-	if x != nil {
-		return x.Status
-	}
-	return ""
-}
-
-func (x *GetHealthResponse) GetVersion() string {
+func (x *GetStatsResponse) GetVersion() string {
 	if x != nil {
 		return x.Version
 	}
 	return ""
 }
 
-func (x *GetHealthResponse) GetStats() *DatasetStats {
+func (x *GetStatsResponse) GetStats() *DatasetStats {
 	if x != nil {
 		return x.Stats
 	}
@@ -3993,13 +3986,11 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\atmdb_id\x18\x03 \x01(\x05R\x06tmdbId\x12\x17\n" +
 	"\atvdb_id\x18\x04 \x01(\x05R\x06tvdbId\x12\x1f\n" +
 	"\vwikidata_id\x18\x05 \x01(\tR\n" +
-	"wikidataId\"\xa7\x01\n" +
+	"wikidataId\"\x8f\x01\n" +
 	"\aEpisode\x12,\n" +
 	"\x0fabsolute_number\x18\x01 \x01(\x05H\x00R\x0eabsoluteNumber\x88\x01\x01\x12!\n" +
-	"\faired_number\x18\x02 \x01(\x05R\vairedNumber\x12!\n" +
-	"\frelease_date\x18\x03 \x01(\tR\vreleaseDate\x12\x14\n" +
-	"\x05title\x18\x04 \x01(\tR\x05titleB\x12\n" +
-	"\x10_absolute_number\"\xc1\x03\n" +
+	"\faired_number\x18\x02 \x01(\x05R\vairedNumberB\x12\n" +
+	"\x10_absolute_numberJ\x04\b\x03\x10\x04J\x04\b\x04\x10\x05R\frelease_dateR\x05title\"\xc1\x03\n" +
 	"\x06Season\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
 	"\x05title\x18\n" +
@@ -4219,12 +4210,11 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\x05staff\x18\x01 \x03(\v2\x0f.anime.v1.StaffR\x05staff\x12&\n" +
 	"\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n" +
 	"\n" +
-	"total_size\x18\x03 \x01(\x05R\ttotalSize\"\x12\n" +
-	"\x10GetHealthRequest\"s\n" +
-	"\x11GetHealthResponse\x12\x16\n" +
-	"\x06status\x18\x01 \x01(\tR\x06status\x12\x18\n" +
+	"total_size\x18\x03 \x01(\x05R\ttotalSize\"\x11\n" +
+	"\x0fGetStatsRequest\"h\n" +
+	"\x10GetStatsResponse\x12\x18\n" +
 	"\aversion\x18\x02 \x01(\tR\aversion\x12,\n" +
-	"\x05stats\x18\x03 \x01(\v2\x16.anime.v1.DatasetStatsR\x05stats\"r\n" +
+	"\x05stats\x18\x03 \x01(\v2\x16.anime.v1.DatasetStatsR\x05statsJ\x04\b\x01\x10\x02R\x06status\"r\n" +
 	"\x12ListCatalogRequest\x12\x1d\n" +
 	"\n" +
 	"page_token\x18\x01 \x01(\tR\tpageToken\x12\x14\n" +
@@ -4317,7 +4307,7 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\x11ENTRY_UNSPECIFIED\x10\x00\x12\r\n" +
 	"\tFRANCHISE\x10\x01\x12\n" +
 	"\n" +
-	"\x06SERIES\x10\x022\x94\t\n" +
+	"\x06SERIES\x10\x022\x91\t\n" +
 	"\fAnimeService\x12U\n" +
 	"\x0eListFranchises\x12\x1f.anime.v1.ListFranchisesRequest\x1a .anime.v1.ListFranchisesResponse\"\x00\x12O\n" +
 	"\fGetFranchise\x12\x1d.anime.v1.GetFranchiseRequest\x1a\x1e.anime.v1.GetFranchiseResponse\"\x00\x12F\n" +
@@ -4333,8 +4323,8 @@ const file_anime_v1_anime_proto_rawDesc = "" +
 	"\n" +
 	"ListSeries\x12\x1b.anime.v1.ListSeriesRequest\x1a\x1c.anime.v1.ListSeriesResponse\"\x00\x12X\n" +
 	"\x0fListAppearances\x12 .anime.v1.ListAppearancesRequest\x1a!.anime.v1.ListAppearancesResponse\"\x00\x12L\n" +
-	"\vListCredits\x12\x1c.anime.v1.ListCreditsRequest\x1a\x1d.anime.v1.ListCreditsResponse\"\x00\x12F\n" +
-	"\tGetHealth\x12\x1a.anime.v1.GetHealthRequest\x1a\x1b.anime.v1.GetHealthResponse\"\x00BPZNgithub.com/michael-freling/anime-metadata-db/api/internal/gen/anime/v1;animev1b\x06proto3"
+	"\vListCredits\x12\x1c.anime.v1.ListCreditsRequest\x1a\x1d.anime.v1.ListCreditsResponse\"\x00\x12C\n" +
+	"\bGetStats\x12\x19.anime.v1.GetStatsRequest\x1a\x1a.anime.v1.GetStatsResponse\"\x00BPZNgithub.com/michael-freling/anime-metadata-db/api/internal/gen/anime/v1;animev1b\x06proto3"
 
 var (
 	file_anime_v1_anime_proto_rawDescOnce sync.Once
@@ -4392,8 +4382,8 @@ var file_anime_v1_anime_proto_goTypes = []any{
 	(*GetStaffResponse)(nil),        // 38: anime.v1.GetStaffResponse
 	(*ListStaffRequest)(nil),        // 39: anime.v1.ListStaffRequest
 	(*ListStaffResponse)(nil),       // 40: anime.v1.ListStaffResponse
-	(*GetHealthRequest)(nil),        // 41: anime.v1.GetHealthRequest
-	(*GetHealthResponse)(nil),       // 42: anime.v1.GetHealthResponse
+	(*GetStatsRequest)(nil),         // 41: anime.v1.GetStatsRequest
+	(*GetStatsResponse)(nil),        // 42: anime.v1.GetStatsResponse
 	(*ListCatalogRequest)(nil),      // 43: anime.v1.ListCatalogRequest
 	(*ListCatalogResponse)(nil),     // 44: anime.v1.ListCatalogResponse
 	(*ListWorksRequest)(nil),        // 45: anime.v1.ListWorksRequest
@@ -4457,7 +4447,7 @@ var file_anime_v1_anime_proto_depIdxs = []int32{
 	16, // 45: anime.v1.GetStaffResponse.staff:type_name -> anime.v1.Staff
 	17, // 46: anime.v1.GetStaffResponse.credits:type_name -> anime.v1.StaffCredit
 	16, // 47: anime.v1.ListStaffResponse.staff:type_name -> anime.v1.Staff
-	24, // 48: anime.v1.GetHealthResponse.stats:type_name -> anime.v1.DatasetStats
+	24, // 48: anime.v1.GetStatsResponse.stats:type_name -> anime.v1.DatasetStats
 	3,  // 49: anime.v1.ListCatalogRequest.kind:type_name -> anime.v1.EntryKind
 	22, // 50: anime.v1.ListCatalogResponse.entries:type_name -> anime.v1.CatalogEntry
 	0,  // 51: anime.v1.ListWorksRequest.release_season:type_name -> anime.v1.ReleaseSeason
@@ -4481,7 +4471,7 @@ var file_anime_v1_anime_proto_depIdxs = []int32{
 	49, // 69: anime.v1.AnimeService.ListSeries:input_type -> anime.v1.ListSeriesRequest
 	51, // 70: anime.v1.AnimeService.ListAppearances:input_type -> anime.v1.ListAppearancesRequest
 	53, // 71: anime.v1.AnimeService.ListCredits:input_type -> anime.v1.ListCreditsRequest
-	41, // 72: anime.v1.AnimeService.GetHealth:input_type -> anime.v1.GetHealthRequest
+	41, // 72: anime.v1.AnimeService.GetStats:input_type -> anime.v1.GetStatsRequest
 	26, // 73: anime.v1.AnimeService.ListFranchises:output_type -> anime.v1.ListFranchisesResponse
 	28, // 74: anime.v1.AnimeService.GetFranchise:output_type -> anime.v1.GetFranchiseResponse
 	30, // 75: anime.v1.AnimeService.GetSeries:output_type -> anime.v1.GetSeriesResponse
@@ -4496,7 +4486,7 @@ var file_anime_v1_anime_proto_depIdxs = []int32{
 	50, // 84: anime.v1.AnimeService.ListSeries:output_type -> anime.v1.ListSeriesResponse
 	52, // 85: anime.v1.AnimeService.ListAppearances:output_type -> anime.v1.ListAppearancesResponse
 	54, // 86: anime.v1.AnimeService.ListCredits:output_type -> anime.v1.ListCreditsResponse
-	42, // 87: anime.v1.AnimeService.GetHealth:output_type -> anime.v1.GetHealthResponse
+	42, // 87: anime.v1.AnimeService.GetStats:output_type -> anime.v1.GetStatsResponse
 	73, // [73:88] is the sub-list for method output_type
 	58, // [58:73] is the sub-list for method input_type
 	58, // [58:58] is the sub-list for extension type_name

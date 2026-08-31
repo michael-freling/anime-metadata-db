@@ -80,7 +80,7 @@ func indexHandler(rpcPath string) http.HandlerFunc {
 		fmt.Fprintf(w, "Service: %s\n", animev1connect.AnimeServiceName)
 		fmt.Fprintf(w, "Base path: %s\n\n", rpcPath)
 		fmt.Fprintf(w, "Example (Connect, JSON over HTTP POST):\n")
-		fmt.Fprintf(w, "  curl -X POST %sGetHealth \\\n", rpcPath)
+		fmt.Fprintf(w, "  curl -X POST %sGetStats \\\n", rpcPath)
 		fmt.Fprintf(w, "    -H 'Content-Type: application/json' -d '{}'\n")
 	}
 }

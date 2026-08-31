@@ -13,13 +13,13 @@ describe('operationName', () => {
   });
 
   it('leaves a bare name alone', () => {
-    expect(operationName('GetHealth')).toBe('GetHealth');
+    expect(operationName('GetStats')).toBe('GetStats');
   });
 });
 
 describe('methodSlug', () => {
   it('kebab-cases the RPCs the schema actually has', () => {
-    expect(methodSlug('GetHealth')).toBe('get-health');
+    expect(methodSlug('GetStats')).toBe('get-stats');
     expect(methodSlug('ListFranchises')).toBe('list-franchises');
     expect(methodSlug('Search')).toBe('search');
     expect(methodSlug('ListAppearances')).toBe('list-appearances');
@@ -46,8 +46,8 @@ describe('methodSlug', () => {
 
 describe('slugsFor', () => {
   it('maps every name to its slug', () => {
-    const slugs = slugsFor(['GetHealth', 'ListWorks']);
-    expect(slugs.get('GetHealth')).toBe('get-health');
+    const slugs = slugsFor(['GetStats', 'ListWorks']);
+    expect(slugs.get('GetStats')).toBe('get-stats');
     expect(slugs.get('ListWorks')).toBe('list-works');
     expect(slugs.size).toBe(2);
   });

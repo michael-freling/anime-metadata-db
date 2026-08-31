@@ -830,14 +830,14 @@
         }
       }
     },
-    "/anime.v1.AnimeService/GetHealth": {
+    "/anime.v1.AnimeService/GetStats": {
       "post": {
         "tags": [
           "anime.v1.AnimeService"
         ],
-        "summary": "GetHealth",
-        "description": "GetHealth reports liveness, build version and dataset stats.",
-        "operationId": "anime.v1.AnimeService.GetHealth",
+        "summary": "GetStats",
+        "description": "GetStats reports what the dataset contains, plus the deployed revision.\n\n Named for the stats because that is what it is for. It was GetHealth, and\n the counts had been folded into a liveness probe during a refactor — which\n left the one genuinely useful part of the response behind a name that told\n consumers to skip it.",
+        "operationId": "anime.v1.AnimeService.GetStats",
         "parameters": [
           {
             "name": "Connect-Protocol-Version",
@@ -859,7 +859,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/anime.v1.GetHealthRequest"
+                "$ref": "#/components/schemas/anime.v1.GetStatsRequest"
               }
             }
           },
@@ -881,7 +881,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/anime.v1.GetHealthResponse"
+                  "$ref": "#/components/schemas/anime.v1.GetStatsResponse"
                 }
               }
             }
@@ -1149,19 +1149,11 @@
             "type": "integer",
             "title": "aired_number",
             "format": "int32"
-          },
-          "releaseDate": {
-            "type": "string",
-            "title": "release_date"
-          },
-          "title": {
-            "type": "string",
-            "title": "title"
           }
         },
         "title": "Episode",
         "additionalProperties": false,
-        "description": "Episode is one TV episode. Dates are serialized as YYYY-MM-DD strings."
+        "description": "Episode is one TV episode. Dates are serialized as YYYY-MM-DD strings.\n Episode is one numbered entry of a season or special.\n\n It carries numbering and nothing else. The upstream database publishes an\n episode *count*, not a list, so the entries are the count expanded to 1..n;\n aired_number is that position and absolute_number is the franchise-wide\n running count assignAbsoluteNumbers computes by interleaving installments in\n release order, which is the one fact here that is not arithmetic.\n\n 3 and 4 held release_date and title. Both were declared before there was a\n source for them and neither was ever populated — 0 of 3,229 episodes — so\n the API advertised fields that always came back empty. They are removed\n rather than left as an intention: if an episode-level source is ever added,\n filling a new field is easier than explaining a permanently blank one."
       },
       "anime.v1.ExternalIds": {
         "type": "object",
@@ -1286,30 +1278,6 @@
         "title": "GetFranchiseResponse",
         "additionalProperties": false
       },
-      "anime.v1.GetHealthRequest": {
-        "type": "object",
-        "title": "GetHealthRequest",
-        "additionalProperties": false
-      },
-      "anime.v1.GetHealthResponse": {
-        "type": "object",
-        "properties": {
-          "status": {
-            "type": "string",
-            "title": "status"
-          },
-          "version": {
-            "type": "string",
-            "title": "version"
-          },
-          "stats": {
-            "title": "stats",
-            "$ref": "#/components/schemas/anime.v1.DatasetStats"
-          }
-        },
-        "title": "GetHealthResponse",
-        "additionalProperties": false
-      },
       "anime.v1.GetSeriesRequest": {
         "type": "object",
         "properties": {
@@ -1370,6 +1338,27 @@
           }
         },
         "title": "GetStaffResponse",
+        "additionalProperties": false
+      },
+      "anime.v1.GetStatsRequest": {
+        "type": "object",
+        "title": "GetStatsRequest",
+        "additionalProperties": false
+      },
+      "anime.v1.GetStatsResponse": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string",
+            "title": "version",
+            "description": "version is the deployed revision, so a caller can tell which build\n answered. Nothing reads it programmatically; it is here because \"which\n deploy am I hitting\" is a question that comes up whenever a change looks\n like it has not landed."
+          },
+          "stats": {
+            "title": "stats",
+            "$ref": "#/components/schemas/anime.v1.DatasetStats"
+          }
+        },
+        "title": "GetStatsResponse",
         "additionalProperties": false
       },
       "anime.v1.ListAppearancesRequest": {

@@ -22,7 +22,7 @@ type Service struct {
 var _ animev1connect.AnimeServiceHandler = (*Service)(nil)
 
 // NewService returns a Service backed by store. version is reported by
-// GetHealth.
+// GetStats.
 func NewService(store *Store, version string) *Service {
 	return &Service{store: store, version: version}
 }
@@ -256,11 +256,10 @@ func (s *Service) ListStaff(_ context.Context, req *connect.Request[animev1.List
 	}), nil
 }
 
-// GetHealth reports liveness, build version and dataset stats.
-func (s *Service) GetHealth(_ context.Context, _ *connect.Request[animev1.GetHealthRequest]) (*connect.Response[animev1.GetHealthResponse], error) {
+// GetStats reports what the dataset contains, plus the deployed revision.
+func (s *Service) GetStats(_ context.Context, _ *connect.Request[animev1.GetStatsRequest]) (*connect.Response[animev1.GetStatsResponse], error) {
 	st := s.store.Stats()
-	return connect.NewResponse(&animev1.GetHealthResponse{
-		Status:  "ok",
+	return connect.NewResponse(&animev1.GetStatsResponse{
 		Version: s.version,
 		Stats: &animev1.DatasetStats{
 			Franchises: int32(st.Franchises),

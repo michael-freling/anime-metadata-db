@@ -65,7 +65,11 @@ func TestListFranchises(t *testing.T) {
 	if len(eps) != 2 {
 		t.Fatalf("got %d episodes, want 2", len(eps))
 	}
-	if eps[0].GetAbsoluteNumber() != 1 || eps[0].GetTitle() != "Pilot" || eps[0].GetReleaseDate() != "2006-01-06" {
+	// Numbering and nothing else. The fixture still gives its episodes a title
+	// and a date — the model carries both — and neither must reach the wire,
+	// because no source populates them for real data and a field that is always
+	// empty is worse than one that is absent.
+	if eps[0].GetAbsoluteNumber() != 1 || eps[0].GetAiredNumber() != 1 {
 		t.Errorf("episode0 = %+v", eps[0])
 	}
 	if eps[1].AbsoluteNumber != nil {
@@ -193,14 +197,14 @@ func TestSearch(t *testing.T) {
 	}
 }
 
-func TestGetHealth(t *testing.T) {
+func TestGetStats(t *testing.T) {
 	svc := newTestService(t)
-	resp, err := svc.GetHealth(context.Background(), connect.NewRequest(&animev1.GetHealthRequest{}))
+	resp, err := svc.GetStats(context.Background(), connect.NewRequest(&animev1.GetStatsRequest{}))
 	if err != nil {
-		t.Fatalf("GetHealth: %v", err)
+		t.Fatalf("GetStats: %v", err)
 	}
-	if resp.Msg.GetStatus() != "ok" || resp.Msg.GetVersion() != "test-version" {
-		t.Errorf("health = %+v", resp.Msg)
+	if resp.Msg.GetVersion() != "test-version" {
+		t.Errorf("version = %q, want test-version", resp.Msg.GetVersion())
 	}
 	if st := resp.Msg.GetStats(); st.GetFranchises() != 1 || st.GetSeries() != 3 || st.GetSeasons() != 5 || st.GetEpisodes() != 3 {
 		t.Errorf("stats = %+v", resp.Msg.GetStats())
