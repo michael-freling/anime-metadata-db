@@ -5,6 +5,7 @@ series:
     original: ドクターストーン SCIENCE FUTURE
     translations:
       ja-Latn: 'Dr. Stone: Science Future'
+  ordering: absolute
   seasons:
     - id: dr-stone-science-future-s1
       number: 1
@@ -15,30 +16,8 @@ series:
         anidbId: 18336
         tvdbId: 355774
       episodes:
-        - absoluteNumber: 1
-          airedNumber: 1
-        - absoluteNumber: 2
-          airedNumber: 2
-        - absoluteNumber: 3
-          airedNumber: 3
-        - absoluteNumber: 4
-          airedNumber: 4
-        - absoluteNumber: 5
-          airedNumber: 5
-        - absoluteNumber: 6
-          airedNumber: 6
-        - absoluteNumber: 7
-          airedNumber: 7
-        - absoluteNumber: 8
-          airedNumber: 8
-        - absoluteNumber: 9
-          airedNumber: 9
-        - absoluteNumber: 10
-          airedNumber: 10
-        - absoluteNumber: 11
-          airedNumber: 11
-        - absoluteNumber: 12
-          airedNumber: 12
+        count: 12
+        absoluteFrom: 1
     - id: dr-stone-science-future-s2p2
       number: 2
       part: 2
@@ -49,30 +28,8 @@ series:
         anidbId: 19248
         tvdbId: 355774
       episodes:
-        - absoluteNumber: 13
-          airedNumber: 1
-        - absoluteNumber: 14
-          airedNumber: 2
-        - absoluteNumber: 15
-          airedNumber: 3
-        - absoluteNumber: 16
-          airedNumber: 4
-        - absoluteNumber: 17
-          airedNumber: 5
-        - absoluteNumber: 18
-          airedNumber: 6
-        - absoluteNumber: 19
-          airedNumber: 7
-        - absoluteNumber: 20
-          airedNumber: 8
-        - absoluteNumber: 21
-          airedNumber: 9
-        - absoluteNumber: 22
-          airedNumber: 10
-        - absoluteNumber: 23
-          airedNumber: 11
-        - absoluteNumber: 24
-          airedNumber: 12
+        count: 12
+        absoluteFrom: 13
     - id: dr-stone-science-future-s3p3
       number: 3
       part: 3
@@ -83,27 +40,5 @@ series:
         anidbId: 19614
         tvdbId: 355774
       episodes:
-        - absoluteNumber: 25
-          airedNumber: 1
-        - absoluteNumber: 26
-          airedNumber: 2
-        - absoluteNumber: 27
-          airedNumber: 3
-        - absoluteNumber: 28
-          airedNumber: 4
-        - absoluteNumber: 29
-          airedNumber: 5
-        - absoluteNumber: 30
-          airedNumber: 6
-        - absoluteNumber: 31
-          airedNumber: 7
-        - absoluteNumber: 32
-          airedNumber: 8
-        - absoluteNumber: 33
-          airedNumber: 9
-        - absoluteNumber: 34
-          airedNumber: 10
-        - absoluteNumber: 35
-          airedNumber: 11
-        - absoluteNumber: 36
-          airedNumber: 12
+        count: 12
+        absoluteFrom: 25

@@ -5,6 +5,7 @@ series:
     original: 地狱乐
     translations:
       ja-Latn: Jigokuraku
+  ordering: absolute
   seasons:
     - id: jigokuraku-s1
       number: 1
@@ -15,32 +16,8 @@ series:
         anidbId: 16012
         tvdbId: 402474
       episodes:
-        - absoluteNumber: 1
-          airedNumber: 1
-        - absoluteNumber: 2
-          airedNumber: 2
-        - absoluteNumber: 3
-          airedNumber: 3
-        - absoluteNumber: 4
-          airedNumber: 4
-        - absoluteNumber: 5
-          airedNumber: 5
-        - absoluteNumber: 6
-          airedNumber: 6
-        - absoluteNumber: 7
-          airedNumber: 7
-        - absoluteNumber: 8
-          airedNumber: 8
-        - absoluteNumber: 9
-          airedNumber: 9
-        - absoluteNumber: 10
-          airedNumber: 10
-        - absoluteNumber: 11
-          airedNumber: 11
-        - absoluteNumber: 12
-          airedNumber: 12
-        - absoluteNumber: 13
-          airedNumber: 13
+        count: 13
+        absoluteFrom: 1
     - id: jigokuraku-s2
       number: 2
       releaseYear: 2026
@@ -50,30 +27,8 @@ series:
         anidbId: 18090
         tvdbId: 402474
       episodes:
-        - absoluteNumber: 14
-          airedNumber: 1
-        - absoluteNumber: 15
-          airedNumber: 2
-        - absoluteNumber: 16
-          airedNumber: 3
-        - absoluteNumber: 17
-          airedNumber: 4
-        - absoluteNumber: 18
-          airedNumber: 5
-        - absoluteNumber: 19
-          airedNumber: 6
-        - absoluteNumber: 20
-          airedNumber: 7
-        - absoluteNumber: 21
-          airedNumber: 8
-        - absoluteNumber: 22
-          airedNumber: 9
-        - absoluteNumber: 23
-          airedNumber: 10
-        - absoluteNumber: 24
-          airedNumber: 11
-        - absoluteNumber: 25
-          airedNumber: 12
+        count: 12
+        absoluteFrom: 14
   characters:
     - id: aza-chobei
       names:

@@ -5,6 +5,7 @@ series:
     original: 百鬼夜行抄
     translations:
       ja-Latn: Hyakki Yakou Shou
+  ordering: absolute
   externalIds:
     wikidataId: Q5365522
   seasons:
@@ -15,5 +16,5 @@ series:
       externalIds:
         anilistId: 207675
       episodes:
-        - absoluteNumber: 1
-          airedNumber: 1
+        count: 1
+        absoluteFrom: 1

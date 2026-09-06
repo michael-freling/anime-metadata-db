@@ -72,15 +72,15 @@ func TestFranchiseConversion(t *testing.T) {
 	if len(eps) != 2 {
 		t.Fatalf("got %d episodes, want 2", len(eps))
 	}
-	// Numbering and nothing else. The fixture still gives its episodes a title
-	// and a date — the model carries both — and neither must reach the wire,
-	// because no source populates them for real data and a field that is always
-	// empty is worse than one that is absent.
+	// Numbering and nothing else, expanded from the stored count. Absolute
+	// numbering is per-installment now rather than per-episode, so it is
+	// all-or-nothing within a season — which is the only shape real data has
+	// ever had, and it counts on from absoluteFrom.
 	if eps[0].GetAbsoluteNumber() != 1 || eps[0].GetAiredNumber() != 1 {
 		t.Errorf("episode0 = %+v", eps[0])
 	}
-	if eps[1].AbsoluteNumber != nil {
-		t.Errorf("episode1 absoluteNumber should be nil, got %v", eps[1].GetAbsoluteNumber())
+	if eps[1].GetAbsoluteNumber() != 2 || eps[1].GetAiredNumber() != 2 {
+		t.Errorf("episode1 = %+v", eps[1])
 	}
 	// Unknown release season maps to UNSPECIFIED.
 	if seasons[3].GetReleaseSeason() != animev1.ReleaseSeason_SEASON_UNSPECIFIED {

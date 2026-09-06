@@ -5,6 +5,7 @@ series:
     original: エレキシード / 일렉시드
     translations:
       ja-Latn: Eleceed
+  ordering: absolute
   seasons:
     - id: eleceed-s1
       number: 1
@@ -14,5 +15,5 @@ series:
         anilistId: 195350
         anidbId: 19425
       episodes:
-        - absoluteNumber: 1
-          airedNumber: 1
+        count: 1
+        absoluteFrom: 1

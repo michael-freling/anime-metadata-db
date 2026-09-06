@@ -262,11 +262,62 @@ func (d *Date) UnmarshalYAML(unmarshal func(any) error) error {
 type Episode struct {
 	// AbsoluteNumber is the continuous count across a numbered Series. It is
 	// nil for non-numbered series.
-	AbsoluteNumber *int `yaml:"absoluteNumber,omitempty"`
+	AbsoluteNumber *int
 	// AiredNumber is the local number within this season/part.
-	AiredNumber int    `yaml:"airedNumber"`
-	ReleaseDate *Date  `yaml:"releaseDate,omitempty"`
-	Title       string `yaml:"title,omitempty"`
+	AiredNumber int
+}
+
+// Episodes is one installment's episode numbering, stored as the two facts it
+// is computed from rather than as the expansion of them.
+//
+// Every episode this project has ever held is a pure function of these: the
+// upstream database publishes an episode *count* and nothing else (see
+// sources/offlinedb), airedNumber is that count laid out from AiredFrom, and
+// absoluteNumber is the running total assignAbsoluteNumbers hands each
+// installment. Writing the expansion into data/ cost 6,400 lines — a third of
+// the committed dataset — to say what these three fields say.
+//
+// It is a struct rather than a bare int so the shape has somewhere to grow. If
+// an episode-level source ever appears (titles, air dates, a recap numbered
+// 10.5), it becomes a field here; today no source publishes one, so inventing
+// the field now would be the same empty-field mistake Episode already made
+// once with ReleaseDate and Title.
+type Episodes struct {
+	// Count is how many episodes the installment has. Zero means the count is
+	// not known yet, which is normal for an announced-but-unaired installment.
+	Count int `yaml:"count"`
+	// AbsoluteFrom is the absoluteNumber of this installment's first episode.
+	// Nil when the Series has no single linear order to count along — a
+	// parallel-route adaptation like Fate/stay night — which is the same
+	// signal the per-episode absoluteNumber used to carry by its absence.
+	AbsoluteFrom *int `yaml:"absoluteFrom,omitempty"`
+	// AiredFrom is the airedNumber of the first episode, for the broadcasts
+	// that keep counting across a cour break rather than restarting. Nil means
+	// 1, which is every installment in the dataset today.
+	AiredFrom *int `yaml:"airedFrom,omitempty"`
+}
+
+// Expand materialises the episodes this numbering describes, in order.
+//
+// The one place the expansion happens, so a consumer of the model and the API's
+// own conversion cannot disagree about what episode 1 is.
+func (e Episodes) Expand() []Episode {
+	if e.Count <= 0 {
+		return nil
+	}
+	aired := 1
+	if e.AiredFrom != nil {
+		aired = *e.AiredFrom
+	}
+	out := make([]Episode, e.Count)
+	for i := range out {
+		out[i].AiredNumber = aired + i
+		if e.AbsoluteFrom != nil {
+			n := *e.AbsoluteFrom + i
+			out[i].AbsoluteNumber = &n
+		}
+	}
+	return out
 }
 
 // Season is one numbered TV installment (one media node / cour).
@@ -279,7 +330,7 @@ type Season struct {
 	ReleaseYear   int           `yaml:"releaseYear,omitempty"`
 	ReleaseSeason ReleaseSeason `yaml:"releaseSeason,omitempty"`
 	ExternalIDs   ExternalIDs   `yaml:"externalIds,omitempty"`
-	Episodes      []Episode     `yaml:"episodes,omitempty"`
+	Episodes      Episodes      `yaml:"episodes,omitempty"`
 }
 
 // AlternateCutOf links an alternate-cut film to the Season that carries its
@@ -328,14 +379,39 @@ type Special struct {
 	ReleaseDate    *Date         `yaml:"releaseDate,omitempty"`
 	ReleaseYear    int           `yaml:"releaseYear,omitempty"`
 	ExternalIDs    ExternalIDs   `yaml:"externalIds,omitempty"`
-	Episodes       []Episode     `yaml:"episodes,omitempty"`
+	Episodes       Episodes      `yaml:"episodes,omitempty"`
 	AbsoluteNumber *int          `yaml:"absoluteNumber,omitempty"`
 }
+
+// Ordering says how a Series' installments are meant to be sequenced.
+type Ordering string
+
+// The orderings.
+const (
+	// OrderingAbsolute: one linear storyline, so its installments carry a
+	// continuous absoluteNumber and that is the order.
+	OrderingAbsolute Ordering = "absolute"
+	// OrderingRelease: no single linear stream — a parallel-route adaptation
+	// like Fate/stay night — so installments sort by release date.
+	OrderingRelease Ordering = "release"
+)
 
 // Series is the base unit: one storyline / continuity.
 type Series struct {
 	ID     string `yaml:"id"`
 	Titles Title  `yaml:"titles,omitempty"`
+	// Ordering is derived, never authored: the build writes "absolute" for a
+	// series named in `numbered:` and "release" for every other, in the same
+	// pass that assigns the numbering, so the two cannot disagree.
+	//
+	// The design (data-model-anime-series §2.1) originally refused a field
+	// here, on the grounds that the presence or absence of absoluteNumber was
+	// already the signal and a second field could drift from it. Deriving it
+	// removes the drift while keeping the answer legible: 151 of 220
+	// installments have absoluteNumber equal to airedNumber, so under the old
+	// encoding the linearity of a series was spelled out in thousands of
+	// duplicated integers that a reader had to scan to the end of to trust.
+	Ordering Ordering `yaml:"ordering,omitempty"`
 	// ExternalIDs names the work this series is, so the build can fill facts a
 	// grouping node has no other way to reach. Only WikidataID is read: a
 	// series spans several AniList entries (one per installment) and so has no

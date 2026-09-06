@@ -6,6 +6,7 @@ series:
     translations:
       en: The Klutzy Class Monitor and the Girl with the Short Skirt
       ja-Latn: Ponkotsu Fuuki Iin to Skirt-take ga Futekisetsu na JK no Hanashi
+  ordering: absolute
   externalIds:
     wikidataId: Q133836658
   seasons:
@@ -18,5 +19,5 @@ series:
         anidbId: 19277
         tvdbId: 462400
       episodes:
-        - absoluteNumber: 1
-          airedNumber: 1
+        count: 1
+        absoluteFrom: 1

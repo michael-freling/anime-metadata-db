@@ -5,6 +5,7 @@ series:
     original: 小3アシベ QQゴマちゃん
     translations:
       ja-Latn: Shou 3 Ashibe QQ Goma-chan
+  ordering: absolute
   seasons:
     - id: shou-3-ashibe-qq-goma-chan-s1
       number: 1
@@ -14,27 +15,5 @@ series:
         anilistId: 202386
         anidbId: 19930
       episodes:
-        - absoluteNumber: 1
-          airedNumber: 1
-        - absoluteNumber: 2
-          airedNumber: 2
-        - absoluteNumber: 3
-          airedNumber: 3
-        - absoluteNumber: 4
-          airedNumber: 4
-        - absoluteNumber: 5
-          airedNumber: 5
-        - absoluteNumber: 6
-          airedNumber: 6
-        - absoluteNumber: 7
-          airedNumber: 7
-        - absoluteNumber: 8
-          airedNumber: 8
-        - absoluteNumber: 9
-          airedNumber: 9
-        - absoluteNumber: 10
-          airedNumber: 10
-        - absoluteNumber: 11
-          airedNumber: 11
-        - absoluteNumber: 12
-          airedNumber: 12
+        count: 12
+        absoluteFrom: 1

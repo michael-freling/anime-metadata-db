@@ -275,15 +275,14 @@ func fixture() fstest.MapFS {
           releaseYear: 2019
           releaseSeason: SPRING
           episodes:
-            - airedNumber: 1
-            - airedNumber: 2
+            count: 2
         - id: aaa-s2
           number: 2
           releaseYear: 2021
           releaseSeason: FALL
           releaseDate: 2021-10-03
           episodes:
-            - airedNumber: 1
+            count: 1
       movies:
         - id: aaa-movie
           releaseYear: 2020

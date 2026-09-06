@@ -6,6 +6,7 @@ series:
     translations:
       en: A Misanthrope Teaches a Class for Demi-Humans
       ja-Latn: Jingai Kyoushitsu no Ningengirai Kyoushi
+  ordering: absolute
   externalIds:
     wikidataId: Q132182370
   seasons:
@@ -18,29 +19,5 @@ series:
         anidbId: 19564
         tvdbId: 467839
       episodes:
-        - absoluteNumber: 1
-          airedNumber: 1
-        - absoluteNumber: 2
-          airedNumber: 2
-        - absoluteNumber: 3
-          airedNumber: 3
-        - absoluteNumber: 4
-          airedNumber: 4
-        - absoluteNumber: 5
-          airedNumber: 5
-        - absoluteNumber: 6
-          airedNumber: 6
-        - absoluteNumber: 7
-          airedNumber: 7
-        - absoluteNumber: 8
-          airedNumber: 8
-        - absoluteNumber: 9
-          airedNumber: 9
-        - absoluteNumber: 10
-          airedNumber: 10
-        - absoluteNumber: 11
-          airedNumber: 11
-        - absoluteNumber: 12
-          airedNumber: 12
-        - absoluteNumber: 13
-          airedNumber: 13
+        count: 13
+        absoluteFrom: 1

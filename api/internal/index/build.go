@@ -252,7 +252,7 @@ func (d *Dataset) flatten(idx *rows) []buildWork {
 				out = append(out, buildWork{
 					kind: WorkSeason, id: sn.ID, seriesRow: row, number: sn.Number,
 					date: sn.ReleaseDate, year: sn.ReleaseYear, quarter: sn.ReleaseSeason,
-					episodes: len(sn.Episodes), titles: sn.Titles, externalIDs: sn.ExternalIDs,
+					episodes: sn.Episodes.Count, titles: sn.Titles, externalIDs: sn.ExternalIDs,
 				})
 			}
 			for _, m := range s.Movies {
@@ -266,7 +266,7 @@ func (d *Dataset) flatten(idx *rows) []buildWork {
 				out = append(out, buildWork{
 					kind: WorkSpecial, id: sp.ID, seriesRow: row,
 					date: sp.ReleaseDate, year: sp.ReleaseYear, format: sp.Format,
-					episodes: len(sp.Episodes), titles: sp.Titles, externalIDs: sp.ExternalIDs,
+					episodes: sp.Episodes.Count, titles: sp.Titles, externalIDs: sp.ExternalIDs,
 				})
 			}
 		})
@@ -285,10 +285,10 @@ func (d *Dataset) stats(works []buildWork) Stats {
 			s.Series++
 			for i := range series.Seasons {
 				s.Seasons++
-				s.Episodes += len(series.Seasons[i].Episodes)
+				s.Episodes += series.Seasons[i].Episodes.Count
 			}
 			for i := range series.Specials {
-				s.Episodes += len(series.Specials[i].Episodes)
+				s.Episodes += series.Specials[i].Episodes.Count
 			}
 		})
 		s.Characters += len(f.rec.Cast())

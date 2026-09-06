@@ -6,6 +6,7 @@ series:
     translations:
       en: My Stepmother and Stepsisters Aren't Wicked
       ja-Latn: Ibitte Konai Gibo to Gishi
+  ordering: absolute
   externalIds:
     wikidataId: Q125554161
   seasons:
@@ -18,27 +19,5 @@ series:
         anidbId: 19492
         tvdbId: 466092
       episodes:
-        - absoluteNumber: 1
-          airedNumber: 1
-        - absoluteNumber: 2
-          airedNumber: 2
-        - absoluteNumber: 3
-          airedNumber: 3
-        - absoluteNumber: 4
-          airedNumber: 4
-        - absoluteNumber: 5
-          airedNumber: 5
-        - absoluteNumber: 6
-          airedNumber: 6
-        - absoluteNumber: 7
-          airedNumber: 7
-        - absoluteNumber: 8
-          airedNumber: 8
-        - absoluteNumber: 9
-          airedNumber: 9
-        - absoluteNumber: 10
-          airedNumber: 10
-        - absoluteNumber: 11
-          airedNumber: 11
-        - absoluteNumber: 12
-          airedNumber: 12
+        count: 12
+        absoluteFrom: 1

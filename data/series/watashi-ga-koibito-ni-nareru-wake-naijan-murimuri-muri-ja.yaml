@@ -5,6 +5,7 @@ series:
     original: わたしが恋人になれるわけないじゃん、ムリムリ! (※ムリじゃなかった!?) ~Next Shine~
     translations:
       ja-Latn: 'Watashi ga Koibito ni Nareru Wake Naijan, Murimuri! (※Muri ja Nakatta!?): Next Shine!'
+  ordering: absolute
   seasons:
     - id: watashi-ga-koibito-ni-nareru-wake-naijan-murimuri-muri-ja-s1
       number: 1
@@ -13,13 +14,5 @@ series:
       externalIds:
         anilistId: 199112
       episodes:
-        - absoluteNumber: 1
-          airedNumber: 1
-        - absoluteNumber: 2
-          airedNumber: 2
-        - absoluteNumber: 3
-          airedNumber: 3
-        - absoluteNumber: 4
-          airedNumber: 4
-        - absoluteNumber: 5
-          airedNumber: 5
+        count: 5
+        absoluteFrom: 1

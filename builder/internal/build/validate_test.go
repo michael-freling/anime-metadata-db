@@ -77,9 +77,9 @@ func TestAssignAbsoluteNumbersInterleave(t *testing.T) {
 		ID: "rascal",
 		Seasons: []model.Season{
 			{ID: "s1", Number: 1, ReleaseYear: 2018, ReleaseSeason: model.SeasonFall,
-				Episodes: []model.Episode{{AiredNumber: 1}, {AiredNumber: 2}}},
+				Episodes: model.Episodes{Count: 2}},
 			{ID: "s2", Number: 2, ReleaseYear: 2025, ReleaseSeason: model.SeasonWinter,
-				Episodes: []model.Episode{{AiredNumber: 1}}},
+				Episodes: model.Episodes{Count: 1}},
 		},
 		Movies: []model.Movie{
 			{ID: "movie", ReleaseDate: &movieDate},
@@ -88,16 +88,18 @@ func TestAssignAbsoluteNumbersInterleave(t *testing.T) {
 	}
 	assignAbsoluteNumbers(s)
 
-	if got := *s.Seasons[0].Episodes[0].AbsoluteNumber; got != 1 {
+	if got := *s.Seasons[0].Episodes.AbsoluteFrom; got != 1 {
 		t.Errorf("s1 ep1 = %d, want 1", got)
 	}
-	if got := *s.Seasons[0].Episodes[1].AbsoluteNumber; got != 2 {
-		t.Errorf("s1 ep2 = %d, want 2", got)
+	// Through Expand, because that is what a consumer sees: the stored
+	// AbsoluteFrom is only correct if the expansion counts on from it.
+	if eps := s.Seasons[0].Episodes.Expand(); len(eps) != 2 || *eps[1].AbsoluteNumber != 2 {
+		t.Errorf("s1 expanded = %+v, want ep2 absolute 2", eps)
 	}
 	if got := *s.Movies[0].AbsoluteNumber; got != 3 {
 		t.Errorf("interleaved movie = %d, want 3", got)
 	}
-	if got := *s.Seasons[1].Episodes[0].AbsoluteNumber; got != 4 {
+	if got := *s.Seasons[1].Episodes.AbsoluteFrom; got != 4 {
 		t.Errorf("s2 ep1 = %d, want 4", got)
 	}
 	if s.Movies[1].AbsoluteNumber != nil {
