@@ -3,13 +3,13 @@ import { methodSlug, operationName, slugsFor } from './openapi-slug';
 
 describe('operationName', () => {
   it('takes the RPC name out of a spec path', () => {
-    expect(operationName('/anime.v1.AnimeService/ListFranchises')).toBe('ListFranchises');
+    expect(operationName('/anime.v1.AnimeService/SearchSeries')).toBe('SearchSeries');
   });
 
   it('takes it out of a generated file name too', () => {
     // The generator names files after the operation id; both routes must land
     // on the same name, or the sidebar order and the page filenames disagree.
-    expect(operationName('anime.v1.AnimeService.ListFranchises.mdx')).toBe('ListFranchises');
+    expect(operationName('anime.v1.AnimeService.SearchSeries.mdx')).toBe('SearchSeries');
   });
 
   it('leaves a bare name alone', () => {
@@ -20,7 +20,7 @@ describe('operationName', () => {
 describe('methodSlug', () => {
   it('kebab-cases the RPCs the schema actually has', () => {
     expect(methodSlug('GetStats')).toBe('get-stats');
-    expect(methodSlug('ListFranchises')).toBe('list-franchises');
+    expect(methodSlug('SearchSeries')).toBe('search-series');
     expect(methodSlug('Search')).toBe('search');
     expect(methodSlug('ListAppearances')).toBe('list-appearances');
   });

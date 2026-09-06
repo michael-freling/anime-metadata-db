@@ -5,7 +5,6 @@ import (
 	"strings"
 
 	animev1 "github.com/michael-freling/anime-metadata-db/api/internal/gen/anime/v1"
-	"github.com/michael-freling/anime-metadata-db/api/internal/index"
 	"github.com/michael-freling/anime-metadata-db/internal/model"
 )
 
@@ -254,14 +253,6 @@ func toSpecialFormat(f model.SpecialFormat) animev1.SpecialFormat {
 	}
 }
 
-// toEntryKind maps a store catalog kind to its proto enum.
-func toEntryKind(k EntryKind) animev1.EntryKind {
-	if k == EntryFranchise {
-		return animev1.EntryKind_FRANCHISE
-	}
-	return animev1.EntryKind_SERIES
-}
-
 // toInt32Ptr converts an optional int, preserving nil.
 func toInt32Ptr(v *int) *int32 {
 	if v == nil {
@@ -306,25 +297,9 @@ func toEpisodes(in []model.Episode) []*animev1.Episode {
 	return out
 }
 
-// capped returns the first index.EmbeddedLimit elements of in, and the true
-// length of in.
-//
-// Every collection embedded in a Get* response goes through this. Returning
-// the count alongside the slice is what keeps the cap honest: a client can see
-// that there is more and page it with the matching List RPC, rather than
-// mistaking a truncated list for the whole of it.
-func capped[T any](in []T) ([]T, int32) {
-	total := int32(len(in))
-	if len(in) > index.EmbeddedLimit {
-		in = in[:index.EmbeddedLimit]
-	}
-	return in, total
-}
-
 // toSeason converts one season, resolving its title via loc.
 func toSeason(loc localizer, s model.Season) *animev1.Season {
 	title, full := loc.title(s.Titles)
-	episodes, episodesTotal := capped(s.Episodes)
 	return &animev1.Season{
 		Id:             s.ID,
 		Title:          title,
@@ -335,8 +310,7 @@ func toSeason(loc localizer, s model.Season) *animev1.Season {
 		ReleaseYear:    int32(s.ReleaseYear),
 		ReleaseSeason:  toReleaseSeason(s.ReleaseSeason),
 		ExternalIds:    toExternalIDs(s.ExternalIDs),
-		Episodes:       toEpisodes(episodes),
-		EpisodesTotal:  episodesTotal,
+		Episodes:       toEpisodes(s.Episodes),
 	}
 }
 
@@ -362,7 +336,6 @@ func toMovie(loc localizer, m model.Movie) *animev1.Movie {
 // toSpecial converts one special, resolving its title via loc.
 func toSpecial(loc localizer, sp model.Special) *animev1.Special {
 	title, full := loc.title(sp.Titles)
-	episodes, episodesTotal := capped(sp.Episodes)
 	return &animev1.Special{
 		Id:             sp.ID,
 		Title:          title,
@@ -371,8 +344,7 @@ func toSpecial(loc localizer, sp model.Special) *animev1.Special {
 		ReleaseDate:    toDate(sp.ReleaseDate),
 		ReleaseYear:    int32(sp.ReleaseYear),
 		ExternalIds:    toExternalIDs(sp.ExternalIDs),
-		Episodes:       toEpisodes(episodes),
-		EpisodesTotal:  episodesTotal,
+		Episodes:       toEpisodes(sp.Episodes),
 		AbsoluteNumber: toInt32Ptr(sp.AbsoluteNumber),
 	}
 }
@@ -528,12 +500,10 @@ func toCharacter(loc localizer, store *Store, seriesID string, c *model.Characte
 		ExternalIds:   toExternalIDs(c.ExternalIDs),
 		VoiceActors:   cast,
 	}
-	appearances, appearancesTotal := capped(c.Appearances)
-	out.AppearancesTotal = appearancesTotal
-	if len(appearances) > 0 {
-		out.Appearances = make([]*animev1.CharacterAppearance, len(appearances))
-		for i := range appearances {
-			out.Appearances[i] = toAppearance(loc, store, c.VoiceActors, appearances[i])
+	if len(c.Appearances) > 0 {
+		out.Appearances = make([]*animev1.CharacterAppearance, len(c.Appearances))
+		for i := range c.Appearances {
+			out.Appearances[i] = toAppearance(loc, store, c.VoiceActors, c.Appearances[i])
 		}
 	}
 	return out
@@ -551,161 +521,50 @@ func toCharacters(loc localizer, store *Store, seriesID string, in []*model.Char
 	return out
 }
 
-// toStaff converts one staff member, resolving their name via loc.
-func toStaff(loc localizer, st *model.Staff) *animev1.Staff {
-	name, full := loc.title(st.Names)
-	return &animev1.Staff{
-		Id:            st.ID,
-		Name:          name,
-		LocalizedName: full,
-		ExternalIds:   toExternalIDs(st.ExternalIDs),
-	}
-}
-
-// toStaffList converts a slice of staff, returning nil for an empty input.
-func toStaffList(loc localizer, in []*model.Staff) []*animev1.Staff {
-	if len(in) == 0 {
-		return nil
-	}
-	out := make([]*animev1.Staff, len(in))
-	for i, st := range in {
-		out[i] = toStaff(loc, st)
-	}
-	return out
-}
-
-// toStaffCredits converts a staff member's roles, resolving each character's
-// name via loc.
-func toStaffCredits(loc localizer, store *Store, in []StaffCredit) []*animev1.StaffCredit {
-	if len(in) == 0 {
-		return nil
-	}
-	out := make([]*animev1.StaffCredit, len(in))
-	for i, credit := range in {
-		out[i] = &animev1.StaffCredit{
-			CharacterId:   credit.CharacterID,
-			CharacterName: resolveTitle(credit.CharacterNames, loc.lang),
-			Language:      credit.Language,
-			SeriesIds:     credit.SeriesIDs,
-			SeriesTitles:  seriesTitles(loc, store, credit.SeriesIDs),
-		}
-	}
-	return out
-}
-
 // toSeries converts one series, its installments and the cast appearing in it.
 func toSeries(loc localizer, store *Store, s *model.Series) (*animev1.Series, error) {
 	title, full := loc.title(s.Titles)
-	// The cast comes back already limited, with its own total, because it is
-	// the one collection here that is not stored inside this record.
-	castPage, err := store.CharactersPage(s.ID, "", "", index.EmbeddedLimit)
+	// The cast is the one collection here not stored inside this record, so it
+	// is fetched rather than read off s. It comes back whole: GetSeries returns
+	// a series complete, and a truncated cast is the bug this used to have.
+	cast, err := store.SeriesCast(s.ID)
 	if err != nil {
 		return nil, err
 	}
-	seasons, seasonsTotal := capped(s.Seasons)
-	movies, moviesTotal := capped(s.Movies)
-	specials, specialsTotal := capped(s.Specials)
 	out := &animev1.Series{
-		Id:              s.ID,
-		Title:           title,
-		LocalizedTitle:  full,
-		Characters:      toCharacters(loc, store, s.ID, castPage.Items),
-		CharactersTotal: int32(castPage.Total),
-		SeasonsTotal:    seasonsTotal,
-		MoviesTotal:     moviesTotal,
-		SpecialsTotal:   specialsTotal,
-	}
-	if len(seasons) > 0 {
-		out.Seasons = make([]*animev1.Season, len(seasons))
-		for i := range seasons {
-			out.Seasons[i] = toSeason(loc, seasons[i])
-		}
-	}
-	if len(movies) > 0 {
-		out.Movies = make([]*animev1.Movie, len(movies))
-		for i := range movies {
-			out.Movies[i] = toMovie(loc, movies[i])
-		}
-	}
-	if len(specials) > 0 {
-		out.Specials = make([]*animev1.Special, len(specials))
-		for i := range specials {
-			out.Specials[i] = toSpecial(loc, specials[i])
-		}
-	}
-	return out, nil
-}
-
-// toFranchise converts one franchise and its nested series and watch orders.
-// The cast is carried by each nested series, not by the franchise itself.
-func toFranchise(loc localizer, store *Store, f *model.Franchise) (*animev1.Franchise, error) {
-	title, full := loc.title(f.Titles)
-	series, seriesTotal := capped(f.Series)
-	watchOrders, watchOrdersTotal := capped(f.WatchOrders)
-	out := &animev1.Franchise{
-		Id: f.ID, Title: title, LocalizedTitle: full,
-		SeriesTotal: seriesTotal, WatchOrdersTotal: watchOrdersTotal,
-	}
-	if len(series) > 0 {
-		out.Series = make([]*animev1.Series, len(series))
-		for i := range series {
-			s, err := toSeries(loc, store, &series[i])
-			if err != nil {
-				return nil, err
-			}
-			out.Series[i] = s
-		}
-	}
-	if len(watchOrders) > 0 {
-		out.WatchOrders = make([]*animev1.WatchOrder, len(watchOrders))
-		for i, wo := range watchOrders {
-			entries := make([]*animev1.WatchOrderEntry, len(wo.Entries))
-			for j, e := range wo.Entries {
-				entries[j] = &animev1.WatchOrderEntry{Ref: e.Ref, Note: e.Note}
-			}
-			out.WatchOrders[i] = &animev1.WatchOrder{Name: wo.Name, Entries: entries}
-		}
-	}
-	return out, nil
-}
-
-// toSearchResult converts a catalog entry to a search result, resolving its
-// title via loc.
-func toSearchResult(loc localizer, e CatalogEntry) *animev1.SearchResult {
-	title, full := loc.title(e.Titles)
-	return &animev1.SearchResult{
-		Kind:           toEntryKind(e.Kind),
-		Id:             e.ID,
+		Id:             s.ID,
 		Title:          title,
 		LocalizedTitle: full,
-		FranchiseId:    e.FranchiseID,
+		Characters:     toCharacters(loc, store, s.ID, cast),
 	}
+	if len(s.Seasons) > 0 {
+		out.Seasons = make([]*animev1.Season, len(s.Seasons))
+		for i := range s.Seasons {
+			out.Seasons[i] = toSeason(loc, s.Seasons[i])
+		}
+	}
+	if len(s.Movies) > 0 {
+		out.Movies = make([]*animev1.Movie, len(s.Movies))
+		for i := range s.Movies {
+			out.Movies[i] = toMovie(loc, s.Movies[i])
+		}
+	}
+	if len(s.Specials) > 0 {
+		out.Specials = make([]*animev1.Special, len(s.Specials))
+		for i := range s.Specials {
+			out.Specials[i] = toSpecial(loc, s.Specials[i])
+		}
+	}
+	return out, nil
 }
 
-// toCatalogEntry renders a browse row: the entry plus its precomputed
-// aggregates, and deliberately none of the nested structure.
-func toCatalogEntry(loc localizer, e CatalogEntry) *animev1.CatalogEntry {
-	title, full := loc.title(e.Titles)
-	return &animev1.CatalogEntry{
-		Kind:              toEntryKind(e.Kind),
-		Id:                e.ID,
-		Title:             title,
-		LocalizedTitle:    full,
-		FranchiseId:       e.FranchiseID,
-		FirstReleaseYear:  int32(e.FirstReleaseYear),
-		LatestReleaseYear: int32(e.LatestReleaseYear),
-		Works:             int32(e.Works),
-		Episodes:          int32(e.Episodes),
-	}
-}
-
-// toWorkSummary renders one release, carrying its series' resolved title so a
-// row can name its show without a second call.
-func toWorkSummary(loc localizer, w Work) *animev1.WorkSummary {
+// toReleaseSummary renders one release, carrying its series' resolved title so
+// a row can name its show without a second call.
+func toReleaseSummary(loc localizer, w Work) *animev1.ReleaseSummary {
 	title, full := loc.title(w.Titles)
 	seriesTitle, _ := loc.title(w.SeriesTitles)
-	return &animev1.WorkSummary{
-		Kind:           toWorkKind(w.Kind),
+	return &animev1.ReleaseSummary{
+		Kind:           toReleaseKind(w.Kind),
 		Id:             w.ID,
 		Title:          title,
 		LocalizedTitle: full,
@@ -721,49 +580,33 @@ func toWorkSummary(loc localizer, w Work) *animev1.WorkSummary {
 	}
 }
 
-// toWorkKind maps the internal work kind onto the wire enum.
-func toWorkKind(k WorkKind) animev1.WorkKind {
+// toReleaseKind maps the internal work kind onto the wire enum.
+func toReleaseKind(k WorkKind) animev1.ReleaseKind {
 	switch k {
 	case WorkSeason:
-		return animev1.WorkKind_WORK_SEASON
+		return animev1.ReleaseKind_TV_SEASON
 	case WorkMovie:
-		return animev1.WorkKind_WORK_MOVIE
+		return animev1.ReleaseKind_MOVIE
 	case WorkSpecial:
-		return animev1.WorkKind_WORK_SPECIAL
+		return animev1.ReleaseKind_SPECIAL
 	}
-	return animev1.WorkKind_WORK_UNSPECIFIED
+	return animev1.ReleaseKind_KIND_UNSPECIFIED
 }
 
-// fromWorkKind maps the wire enum back onto the internal work kind. It returns
-// nil for UNSPECIFIED, which is the filter's "match every kind".
-func fromWorkKind(k animev1.WorkKind) *WorkKind {
-	var w WorkKind
-	switch k {
-	case animev1.WorkKind_WORK_SEASON:
-		w = WorkSeason
-	case animev1.WorkKind_WORK_MOVIE:
-		w = WorkMovie
-	case animev1.WorkKind_WORK_SPECIAL:
-		w = WorkSpecial
-	default:
-		return nil
+// toSeriesSummary renders one series as a search result. Every field comes from
+// the index, so a page of these opens no record files.
+func toSeriesSummary(loc localizer, e SeriesEntry) *animev1.SeriesSummary {
+	title, full := loc.title(e.Titles)
+	return &animev1.SeriesSummary{
+		Id:                e.ID,
+		Title:             title,
+		LocalizedTitle:    full,
+		FranchiseId:       e.FranchiseID,
+		FirstReleaseYear:  int32(e.FirstReleaseYear),
+		LatestReleaseYear: int32(e.LatestReleaseYear),
+		Works:             int32(e.Works),
+		Episodes:          int32(e.Episodes),
 	}
-	return &w
-}
-
-// fromEntryKind maps the wire enum back onto the internal entry kind. It
-// returns nil for UNSPECIFIED, which is the filter's "match both kinds".
-func fromEntryKind(k animev1.EntryKind) *EntryKind {
-	var e EntryKind
-	switch k {
-	case animev1.EntryKind_FRANCHISE:
-		e = EntryFranchise
-	case animev1.EntryKind_SERIES:
-		e = EntrySeries
-	default:
-		return nil
-	}
-	return &e
 }
 
 // fromReleaseSeason maps the wire enum back onto the internal release season.

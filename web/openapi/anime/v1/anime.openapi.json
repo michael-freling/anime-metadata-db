@@ -4,14 +4,14 @@
     "title": "anime.v1"
   },
   "paths": {
-    "/anime.v1.AnimeService/ListFranchises": {
+    "/anime.v1.AnimeService/SearchSeries": {
       "post": {
         "tags": [
           "anime.v1.AnimeService"
         ],
-        "summary": "ListFranchises",
-        "description": "ListFranchises returns every multi-series franchise in the catalog.\n Standalone series are reachable via GetSeries and Search.",
-        "operationId": "anime.v1.AnimeService.ListFranchises",
+        "summary": "SearchSeries",
+        "description": "SearchSeries pages through series matching a keyword. An empty query walks\n the whole catalogue in dataset order.",
+        "operationId": "anime.v1.AnimeService.SearchSeries",
         "parameters": [
           {
             "name": "Connect-Protocol-Version",
@@ -33,7 +33,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/anime.v1.ListFranchisesRequest"
+                "$ref": "#/components/schemas/anime.v1.SearchSeriesRequest"
               }
             }
           },
@@ -55,7 +55,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/anime.v1.ListFranchisesResponse"
+                  "$ref": "#/components/schemas/anime.v1.SearchSeriesResponse"
                 }
               }
             }
@@ -63,14 +63,14 @@
         }
       }
     },
-    "/anime.v1.AnimeService/GetFranchise": {
+    "/anime.v1.AnimeService/SearchReleases": {
       "post": {
         "tags": [
           "anime.v1.AnimeService"
         ],
-        "summary": "GetFranchise",
-        "description": "GetFranchise returns one franchise with its full nested structure.",
-        "operationId": "anime.v1.AnimeService.GetFranchise",
+        "summary": "SearchReleases",
+        "description": "SearchReleases pages through individual releases — seasons, films and\n specials — matching a keyword, a release year and a release quarter. Each\n filter is optional and they combine freely; the one rejected request is a\n quarter with no year.",
+        "operationId": "anime.v1.AnimeService.SearchReleases",
         "parameters": [
           {
             "name": "Connect-Protocol-Version",
@@ -92,7 +92,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/anime.v1.GetFranchiseRequest"
+                "$ref": "#/components/schemas/anime.v1.SearchReleasesRequest"
               }
             }
           },
@@ -114,7 +114,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/anime.v1.GetFranchiseResponse"
+                  "$ref": "#/components/schemas/anime.v1.SearchReleasesResponse"
                 }
               }
             }
@@ -128,7 +128,7 @@
           "anime.v1.AnimeService"
         ],
         "summary": "GetSeries",
-        "description": "GetSeries returns one series (under a franchise or standalone) by id.",
+        "description": "GetSeries returns one series by id with everything under it: every season\n and its episodes, every film, every special, and the whole cast with the\n voice actors resolved.",
         "operationId": "anime.v1.AnimeService.GetSeries",
         "parameters": [
           {
@@ -180,727 +180,20 @@
           }
         }
       }
-    },
-    "/anime.v1.AnimeService/ListCatalog": {
-      "post": {
-        "tags": [
-          "anime.v1.AnimeService"
-        ],
-        "summary": "ListCatalog",
-        "description": "ListCatalog pages through every top-level entry — franchises and\n standalone series — as flat summaries. This is the browse entry point:\n unlike ListFranchises it is paginated and does not nest the structure, so\n it stays usable as the catalog grows.",
-        "operationId": "anime.v1.AnimeService.ListCatalog",
-        "parameters": [
-          {
-            "name": "Connect-Protocol-Version",
-            "in": "header",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/connect-protocol-version"
-            }
-          },
-          {
-            "name": "Connect-Timeout-Ms",
-            "in": "header",
-            "schema": {
-              "$ref": "#/components/schemas/connect-timeout-header"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/anime.v1.ListCatalogRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "default": {
-            "description": "Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/connect.error"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/anime.v1.ListCatalogResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/anime.v1.AnimeService/ListWorks": {
-      "post": {
-        "tags": [
-          "anime.v1.AnimeService"
-        ],
-        "summary": "ListWorks",
-        "description": "ListWorks pages through individual releases (seasons, movies, specials),\n filtered by year, quarter, kind or series. This is what a seasonal chart\n lists.",
-        "operationId": "anime.v1.AnimeService.ListWorks",
-        "parameters": [
-          {
-            "name": "Connect-Protocol-Version",
-            "in": "header",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/connect-protocol-version"
-            }
-          },
-          {
-            "name": "Connect-Timeout-Ms",
-            "in": "header",
-            "schema": {
-              "$ref": "#/components/schemas/connect-timeout-header"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/anime.v1.ListWorksRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "default": {
-            "description": "Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/connect.error"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/anime.v1.ListWorksResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/anime.v1.AnimeService/Search": {
-      "post": {
-        "tags": [
-          "anime.v1.AnimeService"
-        ],
-        "summary": "Search",
-        "description": "Search matches franchises and series by title (case-insensitive substring).",
-        "operationId": "anime.v1.AnimeService.Search",
-        "parameters": [
-          {
-            "name": "Connect-Protocol-Version",
-            "in": "header",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/connect-protocol-version"
-            }
-          },
-          {
-            "name": "Connect-Timeout-Ms",
-            "in": "header",
-            "schema": {
-              "$ref": "#/components/schemas/connect-timeout-header"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/anime.v1.SearchRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "default": {
-            "description": "Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/connect.error"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/anime.v1.SearchResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/anime.v1.AnimeService/GetCharacter": {
-      "post": {
-        "tags": [
-          "anime.v1.AnimeService"
-        ],
-        "summary": "GetCharacter",
-        "description": "GetCharacter returns one character by id, with every appearance and the\n voice actors cast for it.",
-        "operationId": "anime.v1.AnimeService.GetCharacter",
-        "parameters": [
-          {
-            "name": "Connect-Protocol-Version",
-            "in": "header",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/connect-protocol-version"
-            }
-          },
-          {
-            "name": "Connect-Timeout-Ms",
-            "in": "header",
-            "schema": {
-              "$ref": "#/components/schemas/connect-timeout-header"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/anime.v1.GetCharacterRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "default": {
-            "description": "Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/connect.error"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/anime.v1.GetCharacterResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/anime.v1.AnimeService/ListCharacters": {
-      "post": {
-        "tags": [
-          "anime.v1.AnimeService"
-        ],
-        "summary": "ListCharacters",
-        "description": "ListCharacters returns the whole cast, or just one series' cast.",
-        "operationId": "anime.v1.AnimeService.ListCharacters",
-        "parameters": [
-          {
-            "name": "Connect-Protocol-Version",
-            "in": "header",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/connect-protocol-version"
-            }
-          },
-          {
-            "name": "Connect-Timeout-Ms",
-            "in": "header",
-            "schema": {
-              "$ref": "#/components/schemas/connect-timeout-header"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/anime.v1.ListCharactersRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "default": {
-            "description": "Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/connect.error"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/anime.v1.ListCharactersResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/anime.v1.AnimeService/GetStaff": {
-      "post": {
-        "tags": [
-          "anime.v1.AnimeService"
-        ],
-        "summary": "GetStaff",
-        "description": "GetStaff returns one staff member by id, with the characters they voice.",
-        "operationId": "anime.v1.AnimeService.GetStaff",
-        "parameters": [
-          {
-            "name": "Connect-Protocol-Version",
-            "in": "header",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/connect-protocol-version"
-            }
-          },
-          {
-            "name": "Connect-Timeout-Ms",
-            "in": "header",
-            "schema": {
-              "$ref": "#/components/schemas/connect-timeout-header"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/anime.v1.GetStaffRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "default": {
-            "description": "Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/connect.error"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/anime.v1.GetStaffResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/anime.v1.AnimeService/ListStaff": {
-      "post": {
-        "tags": [
-          "anime.v1.AnimeService"
-        ],
-        "summary": "ListStaff",
-        "description": "ListStaff returns every staff member, optionally filtered by the language\n they are credited in.",
-        "operationId": "anime.v1.AnimeService.ListStaff",
-        "parameters": [
-          {
-            "name": "Connect-Protocol-Version",
-            "in": "header",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/connect-protocol-version"
-            }
-          },
-          {
-            "name": "Connect-Timeout-Ms",
-            "in": "header",
-            "schema": {
-              "$ref": "#/components/schemas/connect-timeout-header"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/anime.v1.ListStaffRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "default": {
-            "description": "Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/connect.error"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/anime.v1.ListStaffResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/anime.v1.AnimeService/ListEpisodes": {
-      "post": {
-        "tags": [
-          "anime.v1.AnimeService"
-        ],
-        "summary": "ListEpisodes",
-        "description": "ListEpisodes pages the episodes of one season or special. A long-running\n show accumulates episodes indefinitely, so they are never embedded whole.",
-        "operationId": "anime.v1.AnimeService.ListEpisodes",
-        "parameters": [
-          {
-            "name": "Connect-Protocol-Version",
-            "in": "header",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/connect-protocol-version"
-            }
-          },
-          {
-            "name": "Connect-Timeout-Ms",
-            "in": "header",
-            "schema": {
-              "$ref": "#/components/schemas/connect-timeout-header"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/anime.v1.ListEpisodesRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "default": {
-            "description": "Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/connect.error"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/anime.v1.ListEpisodesResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/anime.v1.AnimeService/ListSeries": {
-      "post": {
-        "tags": [
-          "anime.v1.AnimeService"
-        ],
-        "summary": "ListSeries",
-        "description": "ListSeries pages the series belonging to one franchise.",
-        "operationId": "anime.v1.AnimeService.ListSeries",
-        "parameters": [
-          {
-            "name": "Connect-Protocol-Version",
-            "in": "header",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/connect-protocol-version"
-            }
-          },
-          {
-            "name": "Connect-Timeout-Ms",
-            "in": "header",
-            "schema": {
-              "$ref": "#/components/schemas/connect-timeout-header"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/anime.v1.ListSeriesRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "default": {
-            "description": "Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/connect.error"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/anime.v1.ListSeriesResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/anime.v1.AnimeService/ListAppearances": {
-      "post": {
-        "tags": [
-          "anime.v1.AnimeService"
-        ],
-        "summary": "ListAppearances",
-        "description": "ListAppearances pages the series one character appears in.",
-        "operationId": "anime.v1.AnimeService.ListAppearances",
-        "parameters": [
-          {
-            "name": "Connect-Protocol-Version",
-            "in": "header",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/connect-protocol-version"
-            }
-          },
-          {
-            "name": "Connect-Timeout-Ms",
-            "in": "header",
-            "schema": {
-              "$ref": "#/components/schemas/connect-timeout-header"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/anime.v1.ListAppearancesRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "default": {
-            "description": "Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/connect.error"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/anime.v1.ListAppearancesResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/anime.v1.AnimeService/ListCredits": {
-      "post": {
-        "tags": [
-          "anime.v1.AnimeService"
-        ],
-        "summary": "ListCredits",
-        "description": "ListCredits pages the roles one staff member is cast in.",
-        "operationId": "anime.v1.AnimeService.ListCredits",
-        "parameters": [
-          {
-            "name": "Connect-Protocol-Version",
-            "in": "header",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/connect-protocol-version"
-            }
-          },
-          {
-            "name": "Connect-Timeout-Ms",
-            "in": "header",
-            "schema": {
-              "$ref": "#/components/schemas/connect-timeout-header"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/anime.v1.ListCreditsRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "default": {
-            "description": "Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/connect.error"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/anime.v1.ListCreditsResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/anime.v1.AnimeService/GetStats": {
-      "post": {
-        "tags": [
-          "anime.v1.AnimeService"
-        ],
-        "summary": "GetStats",
-        "description": "GetStats reports what the dataset contains, plus the deployed revision.\n\n Named for the stats because that is what it is for. It was GetHealth, and\n the counts had been folded into a liveness probe during a refactor — which\n left the one genuinely useful part of the response behind a name that told\n consumers to skip it.",
-        "operationId": "anime.v1.AnimeService.GetStats",
-        "parameters": [
-          {
-            "name": "Connect-Protocol-Version",
-            "in": "header",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/connect-protocol-version"
-            }
-          },
-          {
-            "name": "Connect-Timeout-Ms",
-            "in": "header",
-            "schema": {
-              "$ref": "#/components/schemas/connect-timeout-header"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/anime.v1.GetStatsRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "default": {
-            "description": "Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/connect.error"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/anime.v1.GetStatsResponse"
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components": {
     "schemas": {
-      "anime.v1.EntryKind": {
+      "anime.v1.ReleaseKind": {
         "type": "string",
-        "title": "EntryKind",
+        "title": "ReleaseKind",
         "enum": [
-          "ENTRY_UNSPECIFIED",
-          "FRANCHISE",
-          "SERIES"
+          "KIND_UNSPECIFIED",
+          "TV_SEASON",
+          "MOVIE",
+          "SPECIAL"
         ],
-        "description": "EntryKind distinguishes a top-level catalog entry's type in search results.\n buf:lint:ignore ENUM_VALUE_PREFIX"
+        "description": "ReleaseKind distinguishes the three node types that map to a real release. A\n series is a grouping rather than a release, so it is not one of these.\n\n TV_SEASON rather than SEASON, which ReleaseSeason's unspecified value already\n spells; protobuf scopes enum values to the package, so the two would collide.\n buf:lint:ignore ENUM_VALUE_PREFIX"
       },
       "anime.v1.ReleaseSeason": {
         "type": "string",
@@ -912,7 +205,7 @@
           "SUMMER",
           "FALL"
         ],
-        "description": "ReleaseSeason is the calendar quarter an installment premiered in.\n\n The values are unprefixed so the JSON reads \"SPRING\" — the same string the\n dataset stores — rather than \"RELEASE_SEASON_SPRING\", which every client was\n left to translate back. Protobuf scopes enum values to the package, so a\n prefix is added only where the bare word would collide with another enum's\n (see SpecialFormat and WorkKind, which both want SPECIAL).\n buf:lint:ignore ENUM_VALUE_PREFIX"
+        "description": "ReleaseSeason is the calendar quarter an installment premiered in.\n\n The values are unprefixed so the JSON reads \"SPRING\" — the same string the\n dataset stores — rather than \"RELEASE_SEASON_SPRING\", which every client was\n left to translate back. Protobuf scopes enum values to the package, so a\n prefix is added only where the bare word would collide with another enum's\n (see SpecialFormat).\n buf:lint:ignore ENUM_VALUE_PREFIX"
       },
       "anime.v1.SpecialFormat": {
         "type": "string",
@@ -923,18 +216,7 @@
           "FORMAT_ONA",
           "FORMAT_SPECIAL"
         ],
-        "description": "SpecialFormat is the kind of side content a Special represents. Prefixed,\n because SPECIAL alone would collide with WorkKind's.\n buf:lint:ignore ENUM_VALUE_PREFIX"
-      },
-      "anime.v1.WorkKind": {
-        "type": "string",
-        "title": "WorkKind",
-        "enum": [
-          "WORK_UNSPECIFIED",
-          "WORK_SEASON",
-          "WORK_MOVIE",
-          "WORK_SPECIAL"
-        ],
-        "description": "WorkKind distinguishes the three node types that map to a real release. A\n Franchise or Series is our grouping, not a release, so neither is a work.\n buf:lint:ignore ENUM_VALUE_PREFIX"
+        "description": "SpecialFormat is the kind of side content a Special represents. Prefixed,\n because SPECIAL alone would collide with the browse API's WorkKind.\n buf:lint:ignore ENUM_VALUE_PREFIX"
       },
       "anime.v1.AlternateCutOf": {
         "type": "object",
@@ -951,59 +233,6 @@
         "title": "AlternateCutOf",
         "additionalProperties": false,
         "description": "AlternateCutOf links an alternate-cut film to the Season it re-cuts."
-      },
-      "anime.v1.CatalogEntry": {
-        "type": "object",
-        "properties": {
-          "kind": {
-            "title": "kind",
-            "$ref": "#/components/schemas/anime.v1.EntryKind"
-          },
-          "id": {
-            "type": "string",
-            "title": "id"
-          },
-          "title": {
-            "type": "string",
-            "title": "title",
-            "description": "title is resolved for the request's Accept-Language."
-          },
-          "localizedTitle": {
-            "title": "localized_title",
-            "description": "localized_title carries every language; set only for Accept-Language: *.",
-            "$ref": "#/components/schemas/anime.v1.LocalizedTitle"
-          },
-          "franchiseId": {
-            "type": "string",
-            "title": "franchise_id",
-            "description": "franchise_id is set when kind is SERIES and the series belongs to a\n franchise; empty for a standalone series or a franchise entry."
-          },
-          "firstReleaseYear": {
-            "type": "integer",
-            "title": "first_release_year",
-            "format": "int32",
-            "description": "The span of release years across everything under this entry. Both are 0\n when nothing under it carries a year."
-          },
-          "latestReleaseYear": {
-            "type": "integer",
-            "title": "latest_release_year",
-            "format": "int32"
-          },
-          "works": {
-            "type": "integer",
-            "title": "works",
-            "format": "int32",
-            "description": "Counts of what sits under this entry: works is seasons + movies + specials."
-          },
-          "episodes": {
-            "type": "integer",
-            "title": "episodes",
-            "format": "int32"
-          }
-        },
-        "title": "CatalogEntry",
-        "additionalProperties": false,
-        "description": "DatasetStats summarizes the loaded dataset.\n CatalogEntry is one browsable top-level entry — a franchise or a standalone\n series — carrying just enough to render a catalog row. Unlike GetFranchise\n and GetSeries it does NOT nest seasons, movies, specials or episodes, so a\n page of entries stays small no matter how large the catalog grows."
       },
       "anime.v1.Character": {
         "type": "object",
@@ -1040,12 +269,7 @@
               "$ref": "#/components/schemas/anime.v1.CharacterAppearance"
             },
             "title": "appearances",
-            "description": "appearances is the first page only, capped; appearances_total is the real\n count. Use ListAppearances to page the rest."
-          },
-          "appearancesTotal": {
-            "type": "integer",
-            "title": "appearances_total",
-            "format": "int32"
+            "description": "appearances is every series this character appears in."
           }
         },
         "title": "Character",
@@ -1077,7 +301,7 @@
               "$ref": "#/components/schemas/anime.v1.VoiceActor"
             },
             "title": "voice_actors",
-            "description": "voice_actors is the cast for this appearance, resolved: it is the\n character's constant cast plus whoever is specific to this series. Render\n it as-is; there is nothing to merge client-side."
+            "description": "voice_actors is the cast for this appearance, resolved: it is the\n character's constant cast plus whoever is specific to that series. Render\n it as-is; there is nothing to merge client-side."
           },
           "externalIds": {
             "title": "external_ids",
@@ -1086,55 +310,7 @@
         },
         "title": "CharacterAppearance",
         "additionalProperties": false,
-        "description": "CharacterAppearance is a Character \u003c-\u003e Series edge. series_id is the rollup\n association and scope optionally narrows it to specific installments."
-      },
-      "anime.v1.DatasetStats": {
-        "type": "object",
-        "properties": {
-          "franchises": {
-            "type": "integer",
-            "title": "franchises",
-            "format": "int32"
-          },
-          "series": {
-            "type": "integer",
-            "title": "series",
-            "format": "int32"
-          },
-          "seasons": {
-            "type": "integer",
-            "title": "seasons",
-            "format": "int32"
-          },
-          "episodes": {
-            "type": "integer",
-            "title": "episodes",
-            "format": "int32"
-          },
-          "characters": {
-            "type": "integer",
-            "title": "characters",
-            "format": "int32"
-          },
-          "staff": {
-            "type": "integer",
-            "title": "staff",
-            "format": "int32"
-          },
-          "earliestReleaseYear": {
-            "type": "integer",
-            "title": "earliest_release_year",
-            "format": "int32",
-            "description": "The span of release years the dataset actually covers, across every work\n that carries a year. Both are 0 for an empty dataset. A consumer can use\n earliest_release_year as the floor below which a year cannot be real data —\n it is derived from the dataset, so it does not go stale as older works are\n added."
-          },
-          "latestReleaseYear": {
-            "type": "integer",
-            "title": "latest_release_year",
-            "format": "int32"
-          }
-        },
-        "title": "DatasetStats",
-        "additionalProperties": false
+        "description": "CharacterAppearance is a Character \u003c-\u003e Series edge. series_id is the rollup\n association and scope optionally narrows it to specific installments.\n\n A character reached through GetSeries is the full global node, so its\n appearances may name series other than the one you asked for. That is how a\n caller learns a character is shared across the catalogue."
       },
       "anime.v1.Episode": {
         "type": "object",
@@ -1153,7 +329,7 @@
         },
         "title": "Episode",
         "additionalProperties": false,
-        "description": "Episode is one TV episode. Dates are serialized as YYYY-MM-DD strings.\n Episode is one numbered entry of a season or special.\n\n It carries numbering and nothing else. The upstream database publishes an\n episode *count*, not a list, so the entries are the count expanded to 1..n;\n aired_number is that position and absolute_number is the franchise-wide\n running count assignAbsoluteNumbers computes by interleaving installments in\n release order, which is the one fact here that is not arithmetic.\n\n 3 and 4 held release_date and title. Both were declared before there was a\n source for them and neither was ever populated — 0 of 3,229 episodes — so\n the API advertised fields that always came back empty. They are removed\n rather than left as an intention: if an episode-level source is ever added,\n filling a new field is easier than explaining a permanently blank one."
+        "description": "Episode is one numbered entry of a season or special.\n\n It carries numbering and nothing else. The upstream database publishes an\n episode *count*, not a list, so the entries are the count expanded to 1..n;\n aired_number is that position and absolute_number is the franchise-wide\n running count assignAbsoluteNumbers computes by interleaving installments in\n release order, which is the one fact here that is not arithmetic.\n\n 3 and 4 held release_date and title. Both were declared before there was a\n source for them and neither was ever populated — 0 of 3,229 episodes — so\n the API advertised fields that always came back empty. They are removed\n rather than left as an intention: if an episode-level source is ever added,\n filling a new field is easier than explaining a permanently blank one."
       },
       "anime.v1.ExternalIds": {
         "type": "object",
@@ -1187,97 +363,6 @@
         "additionalProperties": false,
         "description": "ExternalIds cross-maps a node to external databases. All fields are optional."
       },
-      "anime.v1.Franchise": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "title": "id"
-          },
-          "title": {
-            "type": "string",
-            "title": "title",
-            "description": "title is resolved for the request's Accept-Language."
-          },
-          "localizedTitle": {
-            "title": "localized_title",
-            "description": "localized_title carries every language; set only for Accept-Language: *.",
-            "$ref": "#/components/schemas/anime.v1.LocalizedTitle"
-          },
-          "series": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/anime.v1.Series"
-            },
-            "title": "series",
-            "description": "series is the first page only, capped, and each Series in it carries its\n own capped collections. A franchise nests the deepest structure in the\n dataset, so an unbounded GetFranchise would serialize every episode of\n every season of every series under the brand. Use ListSeries to page."
-          },
-          "seriesTotal": {
-            "type": "integer",
-            "title": "series_total",
-            "format": "int32"
-          },
-          "watchOrders": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/anime.v1.WatchOrder"
-            },
-            "title": "watch_orders"
-          },
-          "watchOrdersTotal": {
-            "type": "integer",
-            "title": "watch_orders_total",
-            "format": "int32"
-          }
-        },
-        "title": "Franchise",
-        "additionalProperties": false,
-        "description": "Franchise groups related Series under one brand."
-      },
-      "anime.v1.GetCharacterRequest": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "title": "id"
-          }
-        },
-        "title": "GetCharacterRequest",
-        "additionalProperties": false
-      },
-      "anime.v1.GetCharacterResponse": {
-        "type": "object",
-        "properties": {
-          "character": {
-            "title": "character",
-            "$ref": "#/components/schemas/anime.v1.Character"
-          }
-        },
-        "title": "GetCharacterResponse",
-        "additionalProperties": false
-      },
-      "anime.v1.GetFranchiseRequest": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "title": "id"
-          }
-        },
-        "title": "GetFranchiseRequest",
-        "additionalProperties": false
-      },
-      "anime.v1.GetFranchiseResponse": {
-        "type": "object",
-        "properties": {
-          "franchise": {
-            "title": "franchise",
-            "$ref": "#/components/schemas/anime.v1.Franchise"
-          }
-        },
-        "title": "GetFranchiseResponse",
-        "additionalProperties": false
-      },
       "anime.v1.GetSeriesRequest": {
         "type": "object",
         "properties": {
@@ -1299,512 +384,10 @@
           "franchiseId": {
             "type": "string",
             "title": "franchise_id",
-            "description": "franchise_id is the owning franchise, or empty for a standalone series."
+            "description": "franchise_id is the brand this series belongs to, or empty for a standalone\n series. It is an id and nothing else: this API has no franchise call, so\n treat it as a grouping key — two series carrying the same one belong\n together — rather than as something to dereference."
           }
         },
         "title": "GetSeriesResponse",
-        "additionalProperties": false
-      },
-      "anime.v1.GetStaffRequest": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "title": "id"
-          }
-        },
-        "title": "GetStaffRequest",
-        "additionalProperties": false
-      },
-      "anime.v1.GetStaffResponse": {
-        "type": "object",
-        "properties": {
-          "staff": {
-            "title": "staff",
-            "$ref": "#/components/schemas/anime.v1.Staff"
-          },
-          "credits": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/anime.v1.StaffCredit"
-            },
-            "title": "credits",
-            "description": "credits is the first page only, capped, in dataset order; credits_total is\n the real count. A prolific voice actor accumulates roles for as long as\n they work, so this cannot be unbounded. Use ListCredits to page the rest."
-          },
-          "creditsTotal": {
-            "type": "integer",
-            "title": "credits_total",
-            "format": "int32"
-          }
-        },
-        "title": "GetStaffResponse",
-        "additionalProperties": false
-      },
-      "anime.v1.GetStatsRequest": {
-        "type": "object",
-        "title": "GetStatsRequest",
-        "additionalProperties": false
-      },
-      "anime.v1.GetStatsResponse": {
-        "type": "object",
-        "properties": {
-          "version": {
-            "type": "string",
-            "title": "version",
-            "description": "version is the deployed revision, so a caller can tell which build\n answered. Nothing reads it programmatically; it is here because \"which\n deploy am I hitting\" is a question that comes up whenever a change looks\n like it has not landed."
-          },
-          "stats": {
-            "title": "stats",
-            "$ref": "#/components/schemas/anime.v1.DatasetStats"
-          }
-        },
-        "title": "GetStatsResponse",
-        "additionalProperties": false
-      },
-      "anime.v1.ListAppearancesRequest": {
-        "type": "object",
-        "properties": {
-          "characterId": {
-            "type": "string",
-            "title": "character_id"
-          },
-          "pageToken": {
-            "type": "string",
-            "title": "page_token"
-          },
-          "limit": {
-            "type": "integer",
-            "title": "limit",
-            "format": "int32"
-          }
-        },
-        "title": "ListAppearancesRequest",
-        "additionalProperties": false
-      },
-      "anime.v1.ListAppearancesResponse": {
-        "type": "object",
-        "properties": {
-          "appearances": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/anime.v1.CharacterAppearance"
-            },
-            "title": "appearances"
-          },
-          "nextPageToken": {
-            "type": "string",
-            "title": "next_page_token"
-          },
-          "totalSize": {
-            "type": "integer",
-            "title": "total_size",
-            "format": "int32"
-          }
-        },
-        "title": "ListAppearancesResponse",
-        "additionalProperties": false
-      },
-      "anime.v1.ListCatalogRequest": {
-        "type": "object",
-        "properties": {
-          "pageToken": {
-            "type": "string",
-            "title": "page_token",
-            "description": "page_token continues a previous call; empty starts from the beginning."
-          },
-          "limit": {
-            "type": "integer",
-            "title": "limit",
-            "format": "int32",
-            "description": "limit caps the page size; \u003c= 0 applies a server default."
-          },
-          "kind": {
-            "title": "kind",
-            "description": "kind restricts the result to franchises or to standalone series;\n unspecified returns both.",
-            "$ref": "#/components/schemas/anime.v1.EntryKind"
-          }
-        },
-        "title": "ListCatalogRequest",
-        "additionalProperties": false
-      },
-      "anime.v1.ListCatalogResponse": {
-        "type": "object",
-        "properties": {
-          "entries": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/anime.v1.CatalogEntry"
-            },
-            "title": "entries"
-          },
-          "nextPageToken": {
-            "type": "string",
-            "title": "next_page_token",
-            "description": "next_page_token is empty when this is the last page."
-          },
-          "totalSize": {
-            "type": "integer",
-            "title": "total_size",
-            "format": "int32",
-            "description": "total_size counts every entry matching the filters, across all pages."
-          }
-        },
-        "title": "ListCatalogResponse",
-        "additionalProperties": false
-      },
-      "anime.v1.ListCharactersRequest": {
-        "type": "object",
-        "properties": {
-          "seriesId": {
-            "type": "string",
-            "title": "series_id",
-            "description": "series_id restricts the result to that series' cast; empty lists every\n character in the dataset. It also decides what each character's\n voice_actors means: with a series, they are that series' cast (the constant\n cast plus anyone cast only there); without one, only the cast that holds\n throughout. Series.characters is scoped the same way."
-          },
-          "query": {
-            "type": "string",
-            "title": "query",
-            "description": "query matches a character's name in any language, case-insensitively, as a\n substring. Empty matches every character. Combined with series_id it\n searches within that series' cast."
-          },
-          "limit": {
-            "type": "integer",
-            "title": "limit",
-            "format": "int32",
-            "description": "limit caps the number of results; \u003c= 0 applies a server default."
-          },
-          "pageToken": {
-            "type": "string",
-            "title": "page_token",
-            "description": "page_token continues a previous call; empty starts from the beginning.\n Pass the next_page_token from the previous response."
-          }
-        },
-        "title": "ListCharactersRequest",
-        "additionalProperties": false
-      },
-      "anime.v1.ListCharactersResponse": {
-        "type": "object",
-        "properties": {
-          "characters": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/anime.v1.Character"
-            },
-            "title": "characters"
-          },
-          "nextPageToken": {
-            "type": "string",
-            "title": "next_page_token",
-            "description": "next_page_token is empty when this is the last page."
-          },
-          "totalSize": {
-            "type": "integer",
-            "title": "total_size",
-            "format": "int32",
-            "description": "total_size counts every match across all pages."
-          }
-        },
-        "title": "ListCharactersResponse",
-        "additionalProperties": false
-      },
-      "anime.v1.ListCreditsRequest": {
-        "type": "object",
-        "properties": {
-          "staffId": {
-            "type": "string",
-            "title": "staff_id"
-          },
-          "pageToken": {
-            "type": "string",
-            "title": "page_token"
-          },
-          "limit": {
-            "type": "integer",
-            "title": "limit",
-            "format": "int32"
-          }
-        },
-        "title": "ListCreditsRequest",
-        "additionalProperties": false
-      },
-      "anime.v1.ListCreditsResponse": {
-        "type": "object",
-        "properties": {
-          "credits": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/anime.v1.StaffCredit"
-            },
-            "title": "credits"
-          },
-          "nextPageToken": {
-            "type": "string",
-            "title": "next_page_token"
-          },
-          "totalSize": {
-            "type": "integer",
-            "title": "total_size",
-            "format": "int32"
-          }
-        },
-        "title": "ListCreditsResponse",
-        "additionalProperties": false
-      },
-      "anime.v1.ListEpisodesRequest": {
-        "type": "object",
-        "properties": {
-          "seasonId": {
-            "type": "string",
-            "title": "season_id"
-          },
-          "specialId": {
-            "type": "string",
-            "title": "special_id"
-          },
-          "pageToken": {
-            "type": "string",
-            "title": "page_token"
-          },
-          "limit": {
-            "type": "integer",
-            "title": "limit",
-            "format": "int32"
-          }
-        },
-        "title": "ListEpisodesRequest",
-        "additionalProperties": false,
-        "description": "ListEpisodesRequest names exactly one parent: a season or a special."
-      },
-      "anime.v1.ListEpisodesResponse": {
-        "type": "object",
-        "properties": {
-          "episodes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/anime.v1.Episode"
-            },
-            "title": "episodes"
-          },
-          "nextPageToken": {
-            "type": "string",
-            "title": "next_page_token",
-            "description": "next_page_token is empty on the last page."
-          },
-          "totalSize": {
-            "type": "integer",
-            "title": "total_size",
-            "format": "int32",
-            "description": "total_size counts every episode of the parent, not just this page."
-          }
-        },
-        "title": "ListEpisodesResponse",
-        "additionalProperties": false
-      },
-      "anime.v1.ListFranchisesRequest": {
-        "type": "object",
-        "properties": {
-          "pageToken": {
-            "type": "string",
-            "title": "page_token",
-            "description": "page_token continues a previous listing; limit caps the page.\n\n A franchise carries its whole tree — every series, season and episode —\n so an unbounded listing is a request to serve the entire dataset in one\n response. It is paginated for that reason. Callers that want a flat,\n cheap catalogue should use ListCatalog instead."
-          },
-          "limit": {
-            "type": "integer",
-            "title": "limit",
-            "format": "int32"
-          }
-        },
-        "title": "ListFranchisesRequest",
-        "additionalProperties": false
-      },
-      "anime.v1.ListFranchisesResponse": {
-        "type": "object",
-        "properties": {
-          "franchises": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/anime.v1.Franchise"
-            },
-            "title": "franchises"
-          },
-          "nextPageToken": {
-            "type": "string",
-            "title": "next_page_token",
-            "description": "next_page_token is empty on the last page."
-          },
-          "totalSize": {
-            "type": "integer",
-            "title": "total_size",
-            "format": "int32",
-            "description": "total_size counts every franchise, not just this page."
-          }
-        },
-        "title": "ListFranchisesResponse",
-        "additionalProperties": false
-      },
-      "anime.v1.ListSeriesRequest": {
-        "type": "object",
-        "properties": {
-          "franchiseId": {
-            "type": "string",
-            "title": "franchise_id",
-            "description": "franchise_id is required: this pages one franchise's series. The flat\n catalog of every series is ListCatalog."
-          },
-          "pageToken": {
-            "type": "string",
-            "title": "page_token"
-          },
-          "limit": {
-            "type": "integer",
-            "title": "limit",
-            "format": "int32"
-          }
-        },
-        "title": "ListSeriesRequest",
-        "additionalProperties": false
-      },
-      "anime.v1.ListSeriesResponse": {
-        "type": "object",
-        "properties": {
-          "series": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/anime.v1.Series"
-            },
-            "title": "series",
-            "description": "Each Series carries its own capped collections, exactly as GetSeries\n returns it."
-          },
-          "nextPageToken": {
-            "type": "string",
-            "title": "next_page_token"
-          },
-          "totalSize": {
-            "type": "integer",
-            "title": "total_size",
-            "format": "int32"
-          }
-        },
-        "title": "ListSeriesResponse",
-        "additionalProperties": false
-      },
-      "anime.v1.ListStaffRequest": {
-        "type": "object",
-        "properties": {
-          "language": {
-            "type": "string",
-            "title": "language",
-            "description": "language restricts the result to staff credited in that language (\"ja\");\n empty lists everyone. It chooses *which people* come back, not what\n language their names are written in — that is Accept-Language, as\n everywhere else, and the two are deliberately separate: a Japanese reader\n browsing voice actors wants Japanese names and the whole cast, not only\n the half credited in Japanese.\n\n So `{\"language\": \"ja\"}` with no Accept-Language header returns the\n Japanese-credited cast under their English names, which looks wrong and is\n not. Send both to get Japanese names as well."
-          },
-          "query": {
-            "type": "string",
-            "title": "query",
-            "description": "query matches a staff member's name in any language, case-insensitively,\n as a substring. Empty matches everyone."
-          },
-          "limit": {
-            "type": "integer",
-            "title": "limit",
-            "format": "int32",
-            "description": "limit caps the number of results; \u003c= 0 applies a server default."
-          },
-          "pageToken": {
-            "type": "string",
-            "title": "page_token",
-            "description": "page_token continues a previous call; empty starts from the beginning.\n Pass the next_page_token from the previous response."
-          }
-        },
-        "title": "ListStaffRequest",
-        "additionalProperties": false
-      },
-      "anime.v1.ListStaffResponse": {
-        "type": "object",
-        "properties": {
-          "staff": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/anime.v1.Staff"
-            },
-            "title": "staff"
-          },
-          "nextPageToken": {
-            "type": "string",
-            "title": "next_page_token",
-            "description": "next_page_token is empty when this is the last page."
-          },
-          "totalSize": {
-            "type": "integer",
-            "title": "total_size",
-            "format": "int32",
-            "description": "total_size counts every match across all pages."
-          }
-        },
-        "title": "ListStaffResponse",
-        "additionalProperties": false
-      },
-      "anime.v1.ListWorksRequest": {
-        "type": "object",
-        "properties": {
-          "pageToken": {
-            "type": "string",
-            "title": "page_token",
-            "description": "page_token continues a previous call; empty starts from the beginning."
-          },
-          "limit": {
-            "type": "integer",
-            "title": "limit",
-            "format": "int32",
-            "description": "limit caps the page size; \u003c= 0 applies a server default."
-          },
-          "releaseYear": {
-            "type": "integer",
-            "title": "release_year",
-            "format": "int32",
-            "description": "Filters, AND-ed together. An unset filter matches everything, so an empty\n request walks every work in the dataset.\n\n release_year is the calendar year the work premiered. proto3 gives scalars\n no field presence, so 0 necessarily means \"no year filter\" rather than\n \"works with no year\" — a caller wanting a specific year must send a real\n one, and a UI must reject 0 before it reaches here rather than labelling\n the unfiltered result as year 0."
-          },
-          "releaseSeason": {
-            "title": "release_season",
-            "description": "release_season only ever matches seasons: movies and specials carry a year\n without a quarter, so setting this excludes them.",
-            "$ref": "#/components/schemas/anime.v1.ReleaseSeason"
-          },
-          "kind": {
-            "title": "kind",
-            "description": "kind restricts to seasons, movies or specials.",
-            "$ref": "#/components/schemas/anime.v1.WorkKind"
-          },
-          "seriesId": {
-            "type": "string",
-            "title": "series_id",
-            "description": "series_id restricts to the works under one series."
-          },
-          "query": {
-            "type": "string",
-            "title": "query",
-            "description": "query matches the work's own title or its series' title, in any language,\n case-insensitively, as a substring. Empty matches everything. Without this\n a unified browse page could not offer one search box across every result\n type, since releases would be the only kind that could not be searched."
-          }
-        },
-        "title": "ListWorksRequest",
-        "additionalProperties": false
-      },
-      "anime.v1.ListWorksResponse": {
-        "type": "object",
-        "properties": {
-          "works": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/anime.v1.WorkSummary"
-            },
-            "title": "works"
-          },
-          "nextPageToken": {
-            "type": "string",
-            "title": "next_page_token",
-            "description": "next_page_token is empty when this is the last page."
-          },
-          "totalSize": {
-            "type": "integer",
-            "title": "total_size",
-            "format": "int32",
-            "description": "total_size counts every work matching the filters, across all pages."
-          }
-        },
-        "title": "ListWorksResponse",
         "additionalProperties": false
       },
       "anime.v1.LocalizedTitle": {
@@ -1887,6 +470,75 @@
         "additionalProperties": false,
         "description": "Movie is one film (one media node)."
       },
+      "anime.v1.ReleaseSummary": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "title": "kind",
+            "$ref": "#/components/schemas/anime.v1.ReleaseKind"
+          },
+          "id": {
+            "type": "string",
+            "title": "id"
+          },
+          "title": {
+            "type": "string",
+            "title": "title",
+            "description": "title is resolved for the request's Accept-Language."
+          },
+          "localizedTitle": {
+            "title": "localized_title",
+            "description": "localized_title carries every language; set only for Accept-Language: *.",
+            "$ref": "#/components/schemas/anime.v1.LocalizedTitle"
+          },
+          "seriesId": {
+            "type": "string",
+            "title": "series_id",
+            "description": "The series this release belongs to, and that series' resolved title, so a\n row can name its show without a second call. Pass series_id to GetSeries\n for the whole thing."
+          },
+          "seriesTitle": {
+            "type": "string",
+            "title": "series_title"
+          },
+          "number": {
+            "type": "integer",
+            "title": "number",
+            "format": "int32",
+            "description": "number is the season number; set only when kind is TV_SEASON."
+          },
+          "releaseDate": {
+            "type": "string",
+            "title": "release_date"
+          },
+          "releaseYear": {
+            "type": "integer",
+            "title": "release_year",
+            "format": "int32"
+          },
+          "releaseSeason": {
+            "title": "release_season",
+            "description": "release_season is set only when kind is TV_SEASON; films and specials carry\n a year without a quarter.",
+            "$ref": "#/components/schemas/anime.v1.ReleaseSeason"
+          },
+          "format": {
+            "title": "format",
+            "description": "format is set only when kind is SPECIAL.",
+            "$ref": "#/components/schemas/anime.v1.SpecialFormat"
+          },
+          "episodeCount": {
+            "type": "integer",
+            "title": "episode_count",
+            "format": "int32"
+          },
+          "externalIds": {
+            "title": "external_ids",
+            "$ref": "#/components/schemas/anime.v1.ExternalIds"
+          }
+        },
+        "title": "ReleaseSummary",
+        "additionalProperties": false,
+        "description": "ReleaseSummary is one release — a season, film or special — flattened out of\n the hierarchy and carrying enough of its series to stand on its own. This is\n the unit a seasonal chart lists: \"Winter 2026\" is a set of releases, not a\n set of series, and each row needs to name its show."
+      },
       "anime.v1.ScopeRef": {
         "type": "object",
         "properties": {
@@ -1905,7 +557,7 @@
           "title": {
             "type": "string",
             "title": "title",
-            "description": "title is that installment's own title resolved for the request's\n Accept-Language, denormalized for the same reason series_title is: a client\n labelling a scoped appearance should not have to call GetSeries to do it.\n A numbered season usually has no title of its own, so number carries its\n position for a caller composing a label; it is 0 for a movie or special."
+            "description": "title is that installment's own title resolved for the request's\n Accept-Language, denormalized for the same reason series_title is: a client\n labelling a scoped appearance should not have to look the installment up.\n A numbered season usually has no title of its own, so number carries its\n position for a caller composing a label; it is 0 for a movie or special."
           },
           "number": {
             "type": "integer",
@@ -1917,37 +569,50 @@
         "additionalProperties": false,
         "description": "ScopeRef narrows a CharacterAppearance to one installment of a Series.\n Exactly one id field is set."
       },
-      "anime.v1.SearchRequest": {
+      "anime.v1.SearchReleasesRequest": {
         "type": "object",
         "properties": {
           "query": {
             "type": "string",
-            "title": "query"
+            "title": "query",
+            "description": "query matches the release's own title or its series' title, in any\n language, case-insensitively, as a substring. Empty matches everything."
+          },
+          "releaseYear": {
+            "type": "integer",
+            "title": "release_year",
+            "format": "int32",
+            "description": "release_year is the calendar year the release premiered.\n\n proto3 gives scalars no field presence, so 0 necessarily means \"no year\n filter\" rather than \"releases with no year\" — a caller wanting a specific\n year must send a real one, and a UI must reject 0 before it reaches here\n rather than labelling an unfiltered result as year 0."
+          },
+          "releaseSeason": {
+            "title": "release_season",
+            "description": "release_season narrows release_year to one quarter, and requires it. Only\n TV seasons carry a quarter, so setting it excludes every film and special.",
+            "$ref": "#/components/schemas/anime.v1.ReleaseSeason"
           },
           "limit": {
             "type": "integer",
             "title": "limit",
             "format": "int32",
-            "description": "limit caps the number of results; \u003c= 0 applies a server default."
+            "description": "limit caps the page size; \u003c= 0 applies the server default of 50."
           },
           "pageToken": {
             "type": "string",
             "title": "page_token",
-            "description": "page_token continues a previous call; empty starts from the beginning.\n Pass the next_page_token from the previous response."
+            "description": "page_token continues a previous call; empty starts from the beginning."
           }
         },
-        "title": "SearchRequest",
-        "additionalProperties": false
+        "title": "SearchReleasesRequest",
+        "additionalProperties": false,
+        "description": "SearchReleasesRequest carries three independent filters. Every one is\n optional and they AND together, so a keyword alone, a year alone, a year with\n a quarter, or a keyword narrowed by either all work. An empty request walks\n every release in the catalogue.\n\n The one combination refused is a quarter without a year: \"Winter\" across\n every year the dataset covers is not a question anyone means to ask, and\n answering it silently would look like a working filter. It is\n InvalidArgument."
       },
-      "anime.v1.SearchResponse": {
+      "anime.v1.SearchReleasesResponse": {
         "type": "object",
         "properties": {
-          "results": {
+          "releases": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/anime.v1.SearchResult"
+              "$ref": "#/components/schemas/anime.v1.ReleaseSummary"
             },
-            "title": "results"
+            "title": "releases"
           },
           "nextPageToken": {
             "type": "string",
@@ -1958,42 +623,59 @@
             "type": "integer",
             "title": "total_size",
             "format": "int32",
-            "description": "total_size counts every match across all pages."
+            "description": "total_size counts every match across all pages, not just this page."
           }
         },
-        "title": "SearchResponse",
+        "title": "SearchReleasesResponse",
         "additionalProperties": false
       },
-      "anime.v1.SearchResult": {
+      "anime.v1.SearchSeriesRequest": {
         "type": "object",
         "properties": {
-          "kind": {
-            "title": "kind",
-            "$ref": "#/components/schemas/anime.v1.EntryKind"
-          },
-          "id": {
+          "query": {
             "type": "string",
-            "title": "id"
+            "title": "query",
+            "description": "query matches the series' title in any language, case-insensitively, as a\n substring. Empty matches every series, which is how a caller walks the\n catalogue rather than searching it."
           },
-          "title": {
+          "limit": {
+            "type": "integer",
+            "title": "limit",
+            "format": "int32",
+            "description": "limit caps the page size; \u003c= 0 applies the server default of 50."
+          },
+          "pageToken": {
             "type": "string",
-            "title": "title",
-            "description": "title is resolved for the request's Accept-Language."
-          },
-          "localizedTitle": {
-            "title": "localized_title",
-            "description": "localized_title carries every language; set only for Accept-Language: *.",
-            "$ref": "#/components/schemas/anime.v1.LocalizedTitle"
-          },
-          "franchiseId": {
-            "type": "string",
-            "title": "franchise_id",
-            "description": "franchise_id is set when kind is SERIES and the series belongs to a\n franchise; empty for a standalone series or a franchise result."
+            "title": "page_token",
+            "description": "page_token continues a previous call; empty starts from the beginning.\n Pass the next_page_token from the previous response."
           }
         },
-        "title": "SearchResult",
-        "additionalProperties": false,
-        "description": "SearchResult is one match: a top-level franchise or a series."
+        "title": "SearchSeriesRequest",
+        "additionalProperties": false
+      },
+      "anime.v1.SearchSeriesResponse": {
+        "type": "object",
+        "properties": {
+          "series": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/anime.v1.SeriesSummary"
+            },
+            "title": "series"
+          },
+          "nextPageToken": {
+            "type": "string",
+            "title": "next_page_token",
+            "description": "next_page_token is empty when this is the last page."
+          },
+          "totalSize": {
+            "type": "integer",
+            "title": "total_size",
+            "format": "int32",
+            "description": "total_size counts every match across all pages, not just this page."
+          }
+        },
+        "title": "SearchSeriesResponse",
+        "additionalProperties": false
       },
       "anime.v1.Season": {
         "type": "object",
@@ -2046,12 +728,7 @@
               "$ref": "#/components/schemas/anime.v1.Episode"
             },
             "title": "episodes",
-            "description": "episodes is the first page only, capped; episodes_total is the real count.\n Use ListEpisodes to page the rest."
-          },
-          "episodesTotal": {
-            "type": "integer",
-            "title": "episodes_total",
-            "format": "int32"
+            "description": "episodes is every episode of this season, in order."
           }
         },
         "title": "Season",
@@ -2080,13 +757,7 @@
             "items": {
               "$ref": "#/components/schemas/anime.v1.Season"
             },
-            "title": "seasons",
-            "description": "Every collection below is the first page only, capped at a fixed limit.\n The matching *_total is the real count, and a List RPC pages the rest:\n ListWorks(series_id) for releases, ListCharacters(series_id) for the cast.\n Embedding them unbounded would make one GetSeries call serialize an entire\n long-running show, which is exactly what this API is built not to do."
-          },
-          "seasonsTotal": {
-            "type": "integer",
-            "title": "seasons_total",
-            "format": "int32"
+            "title": "seasons"
           },
           "movies": {
             "type": "array",
@@ -2095,11 +766,6 @@
             },
             "title": "movies"
           },
-          "moviesTotal": {
-            "type": "integer",
-            "title": "movies_total",
-            "format": "int32"
-          },
           "specials": {
             "type": "array",
             "items": {
@@ -2107,28 +773,67 @@
             },
             "title": "specials"
           },
-          "specialsTotal": {
-            "type": "integer",
-            "title": "specials_total",
-            "format": "int32"
-          },
           "characters": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/anime.v1.Character"
             },
             "title": "characters",
-            "description": "characters appearing in this series, in dataset order. Each is the full\n global Character node, so its appearances may name other series too."
-          },
-          "charactersTotal": {
-            "type": "integer",
-            "title": "characters_total",
-            "format": "int32"
+            "description": "characters is this series' whole cast, in dataset order. Each is the full\n global Character node, so its appearances may name other series too."
           }
         },
         "title": "Series",
         "additionalProperties": false,
-        "description": "Series is the base unit: one storyline / continuity."
+        "description": "Series is the unit of this API: one storyline / continuity, whole.\n\n Every collection below is complete — no caps, no page tokens, no companion\n List calls. One series is bounded by what a series can be: the longest-running\n show in existence is a four-figure episode count of two integers each, and a\n large cast is a few hundred names. The thing this API refuses to serialize\n unbounded is a *collection of series*, which is what SearchSeries pages."
+      },
+      "anime.v1.SeriesSummary": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "id"
+          },
+          "title": {
+            "type": "string",
+            "title": "title",
+            "description": "title is resolved for the request's Accept-Language."
+          },
+          "localizedTitle": {
+            "title": "localized_title",
+            "description": "localized_title carries every language; set only for Accept-Language: *.",
+            "$ref": "#/components/schemas/anime.v1.LocalizedTitle"
+          },
+          "franchiseId": {
+            "type": "string",
+            "title": "franchise_id",
+            "description": "franchise_id is the brand this series belongs to, or empty when it stands\n alone. Two summaries sharing one are two storylines of the same franchise."
+          },
+          "firstReleaseYear": {
+            "type": "integer",
+            "title": "first_release_year",
+            "format": "int32",
+            "description": "The span of release years across everything in this series. Both are 0 when\n nothing in it carries a year."
+          },
+          "latestReleaseYear": {
+            "type": "integer",
+            "title": "latest_release_year",
+            "format": "int32"
+          },
+          "works": {
+            "type": "integer",
+            "title": "works",
+            "format": "int32",
+            "description": "Counts of what is in this series: works is seasons + movies + specials."
+          },
+          "episodes": {
+            "type": "integer",
+            "title": "episodes",
+            "format": "int32"
+          }
+        },
+        "title": "SeriesSummary",
+        "additionalProperties": false,
+        "description": "SeriesSummary is one search hit: enough to render a result row and decide\n whether to open it, and nothing that would make a page of results expensive.\n\n It is deliberately not a Series. A page of 50 whole series would be a bulk\n export of most of the dataset; this is the shape that keeps SearchSeries a\n search rather than a download."
       },
       "anime.v1.Special": {
         "type": "object",
@@ -2170,12 +875,7 @@
               "$ref": "#/components/schemas/anime.v1.Episode"
             },
             "title": "episodes",
-            "description": "episodes is the first page only, capped; episodes_total is the real count.\n Use ListEpisodes to page the rest."
-          },
-          "episodesTotal": {
-            "type": "integer",
-            "title": "episodes_total",
-            "format": "int32"
+            "description": "episodes is every episode of this special, in order."
           },
           "absoluteNumber": {
             "type": "integer",
@@ -2187,67 +887,6 @@
         "title": "Special",
         "additionalProperties": false,
         "description": "Special is one OVA / ONA / special (side content, no season number)."
-      },
-      "anime.v1.Staff": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "title": "id"
-          },
-          "name": {
-            "type": "string",
-            "title": "name",
-            "description": "name is resolved for the request's Accept-Language."
-          },
-          "localizedName": {
-            "title": "localized_name",
-            "description": "localized_name carries every language; set only for Accept-Language: *.",
-            "$ref": "#/components/schemas/anime.v1.LocalizedTitle"
-          },
-          "externalIds": {
-            "title": "external_ids",
-            "$ref": "#/components/schemas/anime.v1.ExternalIds"
-          }
-        },
-        "title": "Staff",
-        "additionalProperties": false,
-        "description": "Staff is a global real person — currently only voice actors."
-      },
-      "anime.v1.StaffCredit": {
-        "type": "object",
-        "properties": {
-          "characterId": {
-            "type": "string",
-            "title": "character_id"
-          },
-          "characterName": {
-            "type": "string",
-            "title": "character_name"
-          },
-          "language": {
-            "type": "string",
-            "title": "language"
-          },
-          "seriesIds": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "title": "series_ids"
-          },
-          "seriesTitles": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "title": "series_titles",
-            "description": "series_titles are those series' titles resolved for the request's\n Accept-Language, positionally matching series_ids. Denormalized for the\n same reason VoiceActor carries staff_name: a client listing someone's\n roles should not have to call GetSeries once per credit, and without it\n the only thing it can show a reader is a slug."
-          }
-        },
-        "title": "StaffCredit",
-        "additionalProperties": false,
-        "description": "StaffCredit is one role a Staff member is cast in: the character they voice,\n the language they voice it in, and the series it applies to."
       },
       "anime.v1.VoiceActor": {
         "type": "object",
@@ -2264,121 +903,17 @@
           "staffName": {
             "type": "string",
             "title": "staff_name",
-            "description": "staff_name is the staff member's name resolved for the request's\n Accept-Language, denormalized so a client need not call GetStaff. Empty\n when the dataset carries no name for them yet."
+            "description": "staff_name is the staff member's name resolved for the request's\n Accept-Language, denormalized so a client need not look the person up.\n Empty when the dataset carries no name for them yet."
           },
           "throughout": {
             "type": "boolean",
             "title": "throughout",
-            "description": "throughout marks a credit that comes from the character rather than from\n the thing being described — Ayako Kawasumi voices Saber in every Fate\n work, so she is `throughout` in each of Saber's appearances while the\n English dub cast alongside her is not.\n\n It is set only where a list mixes the two: an appearance's cast, and a\n character's cast when the request named a series. Character.voice_actors\n asked without a series holds nothing else, so nothing is marked there.\n Ignore it and you still have the full cast, which is the point of\n resolving the list server-side; read it and you can tell what is specific\n to this series without diffing two lists yourself."
+            "description": "throughout marks a credit that comes from the character rather than from\n the thing being described — Ayako Kawasumi voices Saber in every Fate\n work, so she is `throughout` in each of Saber's appearances while the\n English dub cast alongside her is not.\n\n It is set only on an appearance's cast, where the two are mixed. Ignore it\n and you still have the full cast, which is the point of resolving the list\n server-side; read it and you can tell what is specific to one series\n without diffing two lists yourself."
           }
         },
         "title": "VoiceActor",
         "additionalProperties": false,
         "description": "VoiceActor links a Character to the Staff who voices it in one language."
-      },
-      "anime.v1.WatchOrder": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "title": "name"
-          },
-          "entries": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/anime.v1.WatchOrderEntry"
-            },
-            "title": "entries"
-          }
-        },
-        "title": "WatchOrder",
-        "additionalProperties": false,
-        "description": "WatchOrder is a named curated alternate order across a Franchise's Series."
-      },
-      "anime.v1.WatchOrderEntry": {
-        "type": "object",
-        "properties": {
-          "ref": {
-            "type": "string",
-            "title": "ref"
-          },
-          "note": {
-            "type": "string",
-            "title": "note"
-          }
-        },
-        "title": "WatchOrderEntry",
-        "additionalProperties": false,
-        "description": "WatchOrderEntry is one ordered reference within a WatchOrder."
-      },
-      "anime.v1.WorkSummary": {
-        "type": "object",
-        "properties": {
-          "kind": {
-            "title": "kind",
-            "$ref": "#/components/schemas/anime.v1.WorkKind"
-          },
-          "id": {
-            "type": "string",
-            "title": "id"
-          },
-          "title": {
-            "type": "string",
-            "title": "title",
-            "description": "title is resolved for the request's Accept-Language."
-          },
-          "localizedTitle": {
-            "title": "localized_title",
-            "description": "localized_title carries every language; set only for Accept-Language: *.",
-            "$ref": "#/components/schemas/anime.v1.LocalizedTitle"
-          },
-          "seriesId": {
-            "type": "string",
-            "title": "series_id",
-            "description": "The series this work belongs to, and that series' resolved title, so a row\n can name its show without a second call."
-          },
-          "seriesTitle": {
-            "type": "string",
-            "title": "series_title"
-          },
-          "number": {
-            "type": "integer",
-            "title": "number",
-            "format": "int32",
-            "description": "number is the season number; set only when kind is SEASON."
-          },
-          "releaseDate": {
-            "type": "string",
-            "title": "release_date"
-          },
-          "releaseYear": {
-            "type": "integer",
-            "title": "release_year",
-            "format": "int32"
-          },
-          "releaseSeason": {
-            "title": "release_season",
-            "description": "release_season is set only when kind is SEASON; movies and specials carry\n a year only.",
-            "$ref": "#/components/schemas/anime.v1.ReleaseSeason"
-          },
-          "format": {
-            "title": "format",
-            "description": "format is set only when kind is SPECIAL.",
-            "$ref": "#/components/schemas/anime.v1.SpecialFormat"
-          },
-          "episodeCount": {
-            "type": "integer",
-            "title": "episode_count",
-            "format": "int32"
-          },
-          "externalIds": {
-            "title": "external_ids",
-            "$ref": "#/components/schemas/anime.v1.ExternalIds"
-          }
-        },
-        "title": "WorkSummary",
-        "additionalProperties": false,
-        "description": "WorkSummary is one release — a season, movie or special — flattened out of\n the hierarchy with enough of its parent to render it standalone. This is the\n unit a seasonal chart lists, which the nested Franchise/Series records cannot\n serve without the client walking the whole tree."
       },
       "connect-protocol-version": {
         "type": "number",
@@ -2458,7 +993,7 @@
   "tags": [
     {
       "name": "anime.v1.AnimeService",
-      "description": "AnimeService is the read-only API over the committed dataset.\n\n Title localization: every title-bearing message returns a single resolved\n `title` string chosen from the request's `Accept-Language` header (default\n `en`). Resolution per title: the requested language, then — for a non-English\n request — the native `original`, then English, then the native `original`,\n then any available translation. Send `Accept-Language: *` to additionally\n receive the full `localized_title` (every language) on each node."
+      "description": "AnimeService is the public read-only API over the committed dataset.\n\n Three calls: find series by name, find releases by when they aired, then open\n one series. GetSeries returns a series complete, so rendering a page never\n needs a follow-up request.\n\n Title localization: every title-bearing message returns a single resolved\n `title` string chosen from the request's `Accept-Language` header (default\n `en`). Resolution per title: the requested language, then — for a non-English\n request — the native `original`, then English, then the native `original`,\n then any available translation. Send `Accept-Language: *` to additionally\n receive the full `localized_title` (every language) on each node."
     }
   ]
 }

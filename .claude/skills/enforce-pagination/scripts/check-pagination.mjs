@@ -5,19 +5,40 @@
 // or a total, and it cannot know whether a collection grows with the catalogue.
 // That judgement lives in SKILL.md, and in BOUNDED_BY_ENTITY below, where each
 // exemption carries its reason. The runtime half is
-// TestNoResponseEmbedsAnUnboundedCollection in api/internal/api.
+// TestSearchResponsesNeverReturnTheWholeCollection in api/internal/api.
 //
-// Usage: node .claude/skills/enforce-pagination/scripts/check-pagination.mjs [proto-path]
+// Usage: node .claude/skills/enforce-pagination/scripts/check-pagination.mjs [proto-path...]
+//
+// Both schemas are checked by default. The browse API is undocumented and free
+// to change, but it is served from the same process over the same dataset, so
+// an unbounded response there is the same outage — being private buys you no
+// relief from the catalogue growing.
 
 import { readFileSync } from 'node:fs';
 import { argv, exit } from 'node:process';
 
-const PROTO = argv[2] ?? 'api/proto/anime/v1/anime.proto';
+const PROTOS = argv.slice(2).length
+  ? argv.slice(2)
+  : ['api/proto/anime/v1/anime.proto', 'api/proto/browse/v1/browse.proto'];
 
 // Collections bounded by the entity that owns them, not by how large the
 // catalogue grows. Each entry states why, because "it is small today" is not a
 // reason and the next person needs to be able to check the claim.
 export const BOUNDED_BY_ENTITY = new Map([
+  // A single-entity Get returns its entity whole. What bounds these is what one
+  // series, one character or one person can be — which does not move when the
+  // catalogue grows from 150 rows to 150,000. The collections that DO grow with
+  // the catalogue are the search results, and none of them is exempt below.
+  ['Series.seasons', 'the installments of one series; the longest show ever made is a two-figure count'],
+  ['Series.movies', 'the films of one series; same bound'],
+  ['Series.specials', 'the side content of one series; same bound'],
+  ['Series.characters', 'the cast of one series — a few hundred names at the extreme'],
+  ['Season.episodes', 'the episodes of one season; four figures for the longest-running show alive'],
+  ['Special.episodes', 'the episodes of one special; same bound, far smaller in practice'],
+  ['Character.appearances', 'the series one character appears in, bounded by that character'],
+  ['Franchise.series', 'the storylines under one brand — a handful'],
+  ['Franchise.watch_orders', 'the curated orders over one franchise, each authored by a person'],
+  ['GetStaffResponse.credits', 'the roles in one career, bounded by a working lifetime'],
   ['Character.voice_actors', 'one per dub language, not per work in the catalogue'],
   ['CharacterAppearance.voice_actors', 'the cast override for one appearance; same bound'],
   ['CharacterAppearance.scope', 'the installments of a single series that an appearance narrows to'],
@@ -145,12 +166,17 @@ export function check(source) {
 
 // Run only when invoked directly, so the tests can import the functions.
 if (import.meta.url === `file://${process.argv[1]}`) {
-  const problems = check(readFileSync(PROTO, 'utf8'));
+  // Concatenated rather than checked file by file: browse.proto embeds
+  // anime.v1 messages, and an exemption naming one of them must resolve
+  // wherever it is listed rather than reading as stale.
+  const source = PROTOS.map((p) => readFileSync(p, 'utf8')).join('\n');
+  const label = PROTOS.join(', ');
+  const problems = check(source);
   if (problems.length > 0) {
-    console.error(`${PROTO}: every response must be bounded\n`);
+    console.error(`${label}: every response must be bounded\n`);
     for (const p of problems) console.error(`  - ${p}`);
     console.error(`\nSee .claude/skills/enforce-pagination/SKILL.md`);
     exit(1);
   }
-  console.log(`${PROTO}: every collection is paginated or capped with its true size`);
+  console.log(`${label}: every search paginates, and every embedded collection is bounded by its entity`);
 }

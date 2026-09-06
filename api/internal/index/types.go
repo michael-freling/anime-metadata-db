@@ -101,6 +101,27 @@ type CatalogEntry struct {
 	Episodes          int
 }
 
+// SeriesEntry is one series as a search result: its identity plus aggregates
+// over everything in it, so a page of results renders without opening a single
+// record file.
+//
+// It differs from CatalogEntry in what it covers. A catalog entry is a
+// browsable *root* — a franchise, or a series belonging to none — so the series
+// inside a franchise never appear as entries of their own. SearchSeries
+// searches series, all of them, which is why this exists alongside it.
+type SeriesEntry struct {
+	ID          string
+	Titles      model.Title
+	FranchiseID string
+
+	// Aggregates over this series' own releases. The year span is 0/0 when
+	// nothing in it carries a release year.
+	FirstReleaseYear  int
+	LatestReleaseYear int
+	Works             int
+	Episodes          int
+}
+
 // Stats summarizes the dataset.
 type Stats struct {
 	Franchises int
@@ -142,8 +163,6 @@ type Ref struct {
 type WorkFilter struct {
 	ReleaseYear   int
 	ReleaseSeason model.ReleaseSeason
-	Kind          *WorkKind
-	SeriesID      string
 	// Query matches the work's own title or its series' title. A work often has
 	// no title of its own — an untitled season is just "Season 2" — so matching
 	// the series too is what makes searching releases useful.

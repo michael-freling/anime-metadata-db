@@ -136,5 +136,6 @@ for year in sorted(y for y in works if y):
     print(year, dict(works[year]), episodes[year])
 ```
 
-[`GetStats`](/docs/api/get-stats) on the API reports the
-top-line totals (franchises, series, seasons, episodes) for a running server.
+[`SearchSeries`](/docs/api/search-series) with an empty query reports the number
+of series a running server holds in `totalSize`, and
+[`SearchReleases`](/docs/api/search-releases) does the same for releases.

@@ -2,17 +2,30 @@
 //
 // Source: anime/v1/anime.proto
 
-// Package anime.v1 is the read-only Connect API over the committed anime
-// franchise dataset: the R1 model (Franchise -> Series -> Season -> Episode,
-// plus Movie and Special) and the R2 cast (Character and Staff). It mirrors
-// internal/model.
+// Package anime.v1 is the public, read-only Connect API over the committed
+// anime dataset.
 //
-// The cast is a global, many-to-many layer that attaches onto the R1 spine
-// through a Character's appearances, so a character reached from a Series is
-// the same node reachable by id from GetCharacter — it just carries every
-// series it appears in. Only facts are served (ids, names, the appearance and
-// voice-actor graph); expression (roles, bios, images) is left to the consumer
-// to fetch live from the external ids.
+// It is deliberately three calls wide. SearchSeries finds series by name;
+// SearchReleases finds individual releases by when they premiered; GetSeries
+// returns one series whole — every season, episode, film, special and cast
+// member in a single response, with no pagination to thread through a detail
+// view and no second call needed to render a page.
+//
+// Series and releases are separate searches because they are separate units. A
+// series spans years and has no quarter, so "Winter 2026" cannot select one; it
+// selects the seasons, films and specials that premiered then, each of which
+// names the series it belongs to. Folding the two into one call would mean a
+// year filter that silently changed what the results were.
+//
+// A series is the unit. Franchises group series in the dataset, but the only
+// thing this API says about that grouping is GetSeriesResponse.franchise_id: a
+// caller can tell two series share a brand, and nothing more. Franchise detail
+// may be added later; until there is a consumer for it, exposing it would be
+// advertising a shape before knowing what it should be.
+//
+// Only facts are served (ids, names, numbering, the appearance and voice-actor
+// graph). Expression — roles, bios, images — is left to the consumer to fetch
+// live from the external ids. It mirrors internal/model.
 package animev1connect
 
 import (
@@ -44,92 +57,30 @@ const (
 // reflection-formatted method names, remove the leading slash and convert the remaining slash to a
 // period.
 const (
-	// AnimeServiceListFranchisesProcedure is the fully-qualified name of the AnimeService's
-	// ListFranchises RPC.
-	AnimeServiceListFranchisesProcedure = "/anime.v1.AnimeService/ListFranchises"
-	// AnimeServiceGetFranchiseProcedure is the fully-qualified name of the AnimeService's GetFranchise
+	// AnimeServiceSearchSeriesProcedure is the fully-qualified name of the AnimeService's SearchSeries
 	// RPC.
-	AnimeServiceGetFranchiseProcedure = "/anime.v1.AnimeService/GetFranchise"
+	AnimeServiceSearchSeriesProcedure = "/anime.v1.AnimeService/SearchSeries"
+	// AnimeServiceSearchReleasesProcedure is the fully-qualified name of the AnimeService's
+	// SearchReleases RPC.
+	AnimeServiceSearchReleasesProcedure = "/anime.v1.AnimeService/SearchReleases"
 	// AnimeServiceGetSeriesProcedure is the fully-qualified name of the AnimeService's GetSeries RPC.
 	AnimeServiceGetSeriesProcedure = "/anime.v1.AnimeService/GetSeries"
-	// AnimeServiceListCatalogProcedure is the fully-qualified name of the AnimeService's ListCatalog
-	// RPC.
-	AnimeServiceListCatalogProcedure = "/anime.v1.AnimeService/ListCatalog"
-	// AnimeServiceListWorksProcedure is the fully-qualified name of the AnimeService's ListWorks RPC.
-	AnimeServiceListWorksProcedure = "/anime.v1.AnimeService/ListWorks"
-	// AnimeServiceSearchProcedure is the fully-qualified name of the AnimeService's Search RPC.
-	AnimeServiceSearchProcedure = "/anime.v1.AnimeService/Search"
-	// AnimeServiceGetCharacterProcedure is the fully-qualified name of the AnimeService's GetCharacter
-	// RPC.
-	AnimeServiceGetCharacterProcedure = "/anime.v1.AnimeService/GetCharacter"
-	// AnimeServiceListCharactersProcedure is the fully-qualified name of the AnimeService's
-	// ListCharacters RPC.
-	AnimeServiceListCharactersProcedure = "/anime.v1.AnimeService/ListCharacters"
-	// AnimeServiceGetStaffProcedure is the fully-qualified name of the AnimeService's GetStaff RPC.
-	AnimeServiceGetStaffProcedure = "/anime.v1.AnimeService/GetStaff"
-	// AnimeServiceListStaffProcedure is the fully-qualified name of the AnimeService's ListStaff RPC.
-	AnimeServiceListStaffProcedure = "/anime.v1.AnimeService/ListStaff"
-	// AnimeServiceListEpisodesProcedure is the fully-qualified name of the AnimeService's ListEpisodes
-	// RPC.
-	AnimeServiceListEpisodesProcedure = "/anime.v1.AnimeService/ListEpisodes"
-	// AnimeServiceListSeriesProcedure is the fully-qualified name of the AnimeService's ListSeries RPC.
-	AnimeServiceListSeriesProcedure = "/anime.v1.AnimeService/ListSeries"
-	// AnimeServiceListAppearancesProcedure is the fully-qualified name of the AnimeService's
-	// ListAppearances RPC.
-	AnimeServiceListAppearancesProcedure = "/anime.v1.AnimeService/ListAppearances"
-	// AnimeServiceListCreditsProcedure is the fully-qualified name of the AnimeService's ListCredits
-	// RPC.
-	AnimeServiceListCreditsProcedure = "/anime.v1.AnimeService/ListCredits"
-	// AnimeServiceGetStatsProcedure is the fully-qualified name of the AnimeService's GetStats RPC.
-	AnimeServiceGetStatsProcedure = "/anime.v1.AnimeService/GetStats"
 )
 
 // AnimeServiceClient is a client for the anime.v1.AnimeService service.
 type AnimeServiceClient interface {
-	// ListFranchises returns every multi-series franchise in the catalog.
-	// Standalone series are reachable via GetSeries and Search.
-	ListFranchises(context.Context, *connect.Request[v1.ListFranchisesRequest]) (*connect.Response[v1.ListFranchisesResponse], error)
-	// GetFranchise returns one franchise with its full nested structure.
-	GetFranchise(context.Context, *connect.Request[v1.GetFranchiseRequest]) (*connect.Response[v1.GetFranchiseResponse], error)
-	// GetSeries returns one series (under a franchise or standalone) by id.
+	// SearchSeries pages through series matching a keyword. An empty query walks
+	// the whole catalogue in dataset order.
+	SearchSeries(context.Context, *connect.Request[v1.SearchSeriesRequest]) (*connect.Response[v1.SearchSeriesResponse], error)
+	// SearchReleases pages through individual releases — seasons, films and
+	// specials — matching a keyword, a release year and a release quarter. Each
+	// filter is optional and they combine freely; the one rejected request is a
+	// quarter with no year.
+	SearchReleases(context.Context, *connect.Request[v1.SearchReleasesRequest]) (*connect.Response[v1.SearchReleasesResponse], error)
+	// GetSeries returns one series by id with everything under it: every season
+	// and its episodes, every film, every special, and the whole cast with the
+	// voice actors resolved.
 	GetSeries(context.Context, *connect.Request[v1.GetSeriesRequest]) (*connect.Response[v1.GetSeriesResponse], error)
-	// ListCatalog pages through every top-level entry — franchises and
-	// standalone series — as flat summaries. This is the browse entry point:
-	// unlike ListFranchises it is paginated and does not nest the structure, so
-	// it stays usable as the catalog grows.
-	ListCatalog(context.Context, *connect.Request[v1.ListCatalogRequest]) (*connect.Response[v1.ListCatalogResponse], error)
-	// ListWorks pages through individual releases (seasons, movies, specials),
-	// filtered by year, quarter, kind or series. This is what a seasonal chart
-	// lists.
-	ListWorks(context.Context, *connect.Request[v1.ListWorksRequest]) (*connect.Response[v1.ListWorksResponse], error)
-	// Search matches franchises and series by title (case-insensitive substring).
-	Search(context.Context, *connect.Request[v1.SearchRequest]) (*connect.Response[v1.SearchResponse], error)
-	// GetCharacter returns one character by id, with every appearance and the
-	// voice actors cast for it.
-	GetCharacter(context.Context, *connect.Request[v1.GetCharacterRequest]) (*connect.Response[v1.GetCharacterResponse], error)
-	// ListCharacters returns the whole cast, or just one series' cast.
-	ListCharacters(context.Context, *connect.Request[v1.ListCharactersRequest]) (*connect.Response[v1.ListCharactersResponse], error)
-	// GetStaff returns one staff member by id, with the characters they voice.
-	GetStaff(context.Context, *connect.Request[v1.GetStaffRequest]) (*connect.Response[v1.GetStaffResponse], error)
-	// ListStaff returns every staff member, optionally filtered by the language
-	// they are credited in.
-	ListStaff(context.Context, *connect.Request[v1.ListStaffRequest]) (*connect.Response[v1.ListStaffResponse], error)
-	// ListEpisodes pages the episodes of one season or special. A long-running
-	// show accumulates episodes indefinitely, so they are never embedded whole.
-	ListEpisodes(context.Context, *connect.Request[v1.ListEpisodesRequest]) (*connect.Response[v1.ListEpisodesResponse], error)
-	// ListSeries pages the series belonging to one franchise.
-	ListSeries(context.Context, *connect.Request[v1.ListSeriesRequest]) (*connect.Response[v1.ListSeriesResponse], error)
-	// ListAppearances pages the series one character appears in.
-	ListAppearances(context.Context, *connect.Request[v1.ListAppearancesRequest]) (*connect.Response[v1.ListAppearancesResponse], error)
-	// ListCredits pages the roles one staff member is cast in.
-	ListCredits(context.Context, *connect.Request[v1.ListCreditsRequest]) (*connect.Response[v1.ListCreditsResponse], error)
-	// GetStats reports what the dataset contains, plus the deployed revision.
-	//
-	// Named for the stats because that is what it is for. It was GetHealth, and
-	// the counts had been folded into a liveness probe during a refactor — which
-	// left the one genuinely useful part of the response behind a name that told
-	// consumers to skip it.
-	GetStats(context.Context, *connect.Request[v1.GetStatsRequest]) (*connect.Response[v1.GetStatsResponse], error)
 }
 
 // NewAnimeServiceClient constructs a client for the anime.v1.AnimeService service. By default, it
@@ -143,16 +94,16 @@ func NewAnimeServiceClient(httpClient connect.HTTPClient, baseURL string, opts .
 	baseURL = strings.TrimRight(baseURL, "/")
 	animeServiceMethods := v1.File_anime_v1_anime_proto.Services().ByName("AnimeService").Methods()
 	return &animeServiceClient{
-		listFranchises: connect.NewClient[v1.ListFranchisesRequest, v1.ListFranchisesResponse](
+		searchSeries: connect.NewClient[v1.SearchSeriesRequest, v1.SearchSeriesResponse](
 			httpClient,
-			baseURL+AnimeServiceListFranchisesProcedure,
-			connect.WithSchema(animeServiceMethods.ByName("ListFranchises")),
+			baseURL+AnimeServiceSearchSeriesProcedure,
+			connect.WithSchema(animeServiceMethods.ByName("SearchSeries")),
 			connect.WithClientOptions(opts...),
 		),
-		getFranchise: connect.NewClient[v1.GetFranchiseRequest, v1.GetFranchiseResponse](
+		searchReleases: connect.NewClient[v1.SearchReleasesRequest, v1.SearchReleasesResponse](
 			httpClient,
-			baseURL+AnimeServiceGetFranchiseProcedure,
-			connect.WithSchema(animeServiceMethods.ByName("GetFranchise")),
+			baseURL+AnimeServiceSearchReleasesProcedure,
+			connect.WithSchema(animeServiceMethods.ByName("SearchReleases")),
 			connect.WithClientOptions(opts...),
 		),
 		getSeries: connect.NewClient[v1.GetSeriesRequest, v1.GetSeriesResponse](
@@ -161,108 +112,24 @@ func NewAnimeServiceClient(httpClient connect.HTTPClient, baseURL string, opts .
 			connect.WithSchema(animeServiceMethods.ByName("GetSeries")),
 			connect.WithClientOptions(opts...),
 		),
-		listCatalog: connect.NewClient[v1.ListCatalogRequest, v1.ListCatalogResponse](
-			httpClient,
-			baseURL+AnimeServiceListCatalogProcedure,
-			connect.WithSchema(animeServiceMethods.ByName("ListCatalog")),
-			connect.WithClientOptions(opts...),
-		),
-		listWorks: connect.NewClient[v1.ListWorksRequest, v1.ListWorksResponse](
-			httpClient,
-			baseURL+AnimeServiceListWorksProcedure,
-			connect.WithSchema(animeServiceMethods.ByName("ListWorks")),
-			connect.WithClientOptions(opts...),
-		),
-		search: connect.NewClient[v1.SearchRequest, v1.SearchResponse](
-			httpClient,
-			baseURL+AnimeServiceSearchProcedure,
-			connect.WithSchema(animeServiceMethods.ByName("Search")),
-			connect.WithClientOptions(opts...),
-		),
-		getCharacter: connect.NewClient[v1.GetCharacterRequest, v1.GetCharacterResponse](
-			httpClient,
-			baseURL+AnimeServiceGetCharacterProcedure,
-			connect.WithSchema(animeServiceMethods.ByName("GetCharacter")),
-			connect.WithClientOptions(opts...),
-		),
-		listCharacters: connect.NewClient[v1.ListCharactersRequest, v1.ListCharactersResponse](
-			httpClient,
-			baseURL+AnimeServiceListCharactersProcedure,
-			connect.WithSchema(animeServiceMethods.ByName("ListCharacters")),
-			connect.WithClientOptions(opts...),
-		),
-		getStaff: connect.NewClient[v1.GetStaffRequest, v1.GetStaffResponse](
-			httpClient,
-			baseURL+AnimeServiceGetStaffProcedure,
-			connect.WithSchema(animeServiceMethods.ByName("GetStaff")),
-			connect.WithClientOptions(opts...),
-		),
-		listStaff: connect.NewClient[v1.ListStaffRequest, v1.ListStaffResponse](
-			httpClient,
-			baseURL+AnimeServiceListStaffProcedure,
-			connect.WithSchema(animeServiceMethods.ByName("ListStaff")),
-			connect.WithClientOptions(opts...),
-		),
-		listEpisodes: connect.NewClient[v1.ListEpisodesRequest, v1.ListEpisodesResponse](
-			httpClient,
-			baseURL+AnimeServiceListEpisodesProcedure,
-			connect.WithSchema(animeServiceMethods.ByName("ListEpisodes")),
-			connect.WithClientOptions(opts...),
-		),
-		listSeries: connect.NewClient[v1.ListSeriesRequest, v1.ListSeriesResponse](
-			httpClient,
-			baseURL+AnimeServiceListSeriesProcedure,
-			connect.WithSchema(animeServiceMethods.ByName("ListSeries")),
-			connect.WithClientOptions(opts...),
-		),
-		listAppearances: connect.NewClient[v1.ListAppearancesRequest, v1.ListAppearancesResponse](
-			httpClient,
-			baseURL+AnimeServiceListAppearancesProcedure,
-			connect.WithSchema(animeServiceMethods.ByName("ListAppearances")),
-			connect.WithClientOptions(opts...),
-		),
-		listCredits: connect.NewClient[v1.ListCreditsRequest, v1.ListCreditsResponse](
-			httpClient,
-			baseURL+AnimeServiceListCreditsProcedure,
-			connect.WithSchema(animeServiceMethods.ByName("ListCredits")),
-			connect.WithClientOptions(opts...),
-		),
-		getStats: connect.NewClient[v1.GetStatsRequest, v1.GetStatsResponse](
-			httpClient,
-			baseURL+AnimeServiceGetStatsProcedure,
-			connect.WithSchema(animeServiceMethods.ByName("GetStats")),
-			connect.WithClientOptions(opts...),
-		),
 	}
 }
 
 // animeServiceClient implements AnimeServiceClient.
 type animeServiceClient struct {
-	listFranchises  *connect.Client[v1.ListFranchisesRequest, v1.ListFranchisesResponse]
-	getFranchise    *connect.Client[v1.GetFranchiseRequest, v1.GetFranchiseResponse]
-	getSeries       *connect.Client[v1.GetSeriesRequest, v1.GetSeriesResponse]
-	listCatalog     *connect.Client[v1.ListCatalogRequest, v1.ListCatalogResponse]
-	listWorks       *connect.Client[v1.ListWorksRequest, v1.ListWorksResponse]
-	search          *connect.Client[v1.SearchRequest, v1.SearchResponse]
-	getCharacter    *connect.Client[v1.GetCharacterRequest, v1.GetCharacterResponse]
-	listCharacters  *connect.Client[v1.ListCharactersRequest, v1.ListCharactersResponse]
-	getStaff        *connect.Client[v1.GetStaffRequest, v1.GetStaffResponse]
-	listStaff       *connect.Client[v1.ListStaffRequest, v1.ListStaffResponse]
-	listEpisodes    *connect.Client[v1.ListEpisodesRequest, v1.ListEpisodesResponse]
-	listSeries      *connect.Client[v1.ListSeriesRequest, v1.ListSeriesResponse]
-	listAppearances *connect.Client[v1.ListAppearancesRequest, v1.ListAppearancesResponse]
-	listCredits     *connect.Client[v1.ListCreditsRequest, v1.ListCreditsResponse]
-	getStats        *connect.Client[v1.GetStatsRequest, v1.GetStatsResponse]
+	searchSeries   *connect.Client[v1.SearchSeriesRequest, v1.SearchSeriesResponse]
+	searchReleases *connect.Client[v1.SearchReleasesRequest, v1.SearchReleasesResponse]
+	getSeries      *connect.Client[v1.GetSeriesRequest, v1.GetSeriesResponse]
 }
 
-// ListFranchises calls anime.v1.AnimeService.ListFranchises.
-func (c *animeServiceClient) ListFranchises(ctx context.Context, req *connect.Request[v1.ListFranchisesRequest]) (*connect.Response[v1.ListFranchisesResponse], error) {
-	return c.listFranchises.CallUnary(ctx, req)
+// SearchSeries calls anime.v1.AnimeService.SearchSeries.
+func (c *animeServiceClient) SearchSeries(ctx context.Context, req *connect.Request[v1.SearchSeriesRequest]) (*connect.Response[v1.SearchSeriesResponse], error) {
+	return c.searchSeries.CallUnary(ctx, req)
 }
 
-// GetFranchise calls anime.v1.AnimeService.GetFranchise.
-func (c *animeServiceClient) GetFranchise(ctx context.Context, req *connect.Request[v1.GetFranchiseRequest]) (*connect.Response[v1.GetFranchiseResponse], error) {
-	return c.getFranchise.CallUnary(ctx, req)
+// SearchReleases calls anime.v1.AnimeService.SearchReleases.
+func (c *animeServiceClient) SearchReleases(ctx context.Context, req *connect.Request[v1.SearchReleasesRequest]) (*connect.Response[v1.SearchReleasesResponse], error) {
+	return c.searchReleases.CallUnary(ctx, req)
 }
 
 // GetSeries calls anime.v1.AnimeService.GetSeries.
@@ -270,112 +137,20 @@ func (c *animeServiceClient) GetSeries(ctx context.Context, req *connect.Request
 	return c.getSeries.CallUnary(ctx, req)
 }
 
-// ListCatalog calls anime.v1.AnimeService.ListCatalog.
-func (c *animeServiceClient) ListCatalog(ctx context.Context, req *connect.Request[v1.ListCatalogRequest]) (*connect.Response[v1.ListCatalogResponse], error) {
-	return c.listCatalog.CallUnary(ctx, req)
-}
-
-// ListWorks calls anime.v1.AnimeService.ListWorks.
-func (c *animeServiceClient) ListWorks(ctx context.Context, req *connect.Request[v1.ListWorksRequest]) (*connect.Response[v1.ListWorksResponse], error) {
-	return c.listWorks.CallUnary(ctx, req)
-}
-
-// Search calls anime.v1.AnimeService.Search.
-func (c *animeServiceClient) Search(ctx context.Context, req *connect.Request[v1.SearchRequest]) (*connect.Response[v1.SearchResponse], error) {
-	return c.search.CallUnary(ctx, req)
-}
-
-// GetCharacter calls anime.v1.AnimeService.GetCharacter.
-func (c *animeServiceClient) GetCharacter(ctx context.Context, req *connect.Request[v1.GetCharacterRequest]) (*connect.Response[v1.GetCharacterResponse], error) {
-	return c.getCharacter.CallUnary(ctx, req)
-}
-
-// ListCharacters calls anime.v1.AnimeService.ListCharacters.
-func (c *animeServiceClient) ListCharacters(ctx context.Context, req *connect.Request[v1.ListCharactersRequest]) (*connect.Response[v1.ListCharactersResponse], error) {
-	return c.listCharacters.CallUnary(ctx, req)
-}
-
-// GetStaff calls anime.v1.AnimeService.GetStaff.
-func (c *animeServiceClient) GetStaff(ctx context.Context, req *connect.Request[v1.GetStaffRequest]) (*connect.Response[v1.GetStaffResponse], error) {
-	return c.getStaff.CallUnary(ctx, req)
-}
-
-// ListStaff calls anime.v1.AnimeService.ListStaff.
-func (c *animeServiceClient) ListStaff(ctx context.Context, req *connect.Request[v1.ListStaffRequest]) (*connect.Response[v1.ListStaffResponse], error) {
-	return c.listStaff.CallUnary(ctx, req)
-}
-
-// ListEpisodes calls anime.v1.AnimeService.ListEpisodes.
-func (c *animeServiceClient) ListEpisodes(ctx context.Context, req *connect.Request[v1.ListEpisodesRequest]) (*connect.Response[v1.ListEpisodesResponse], error) {
-	return c.listEpisodes.CallUnary(ctx, req)
-}
-
-// ListSeries calls anime.v1.AnimeService.ListSeries.
-func (c *animeServiceClient) ListSeries(ctx context.Context, req *connect.Request[v1.ListSeriesRequest]) (*connect.Response[v1.ListSeriesResponse], error) {
-	return c.listSeries.CallUnary(ctx, req)
-}
-
-// ListAppearances calls anime.v1.AnimeService.ListAppearances.
-func (c *animeServiceClient) ListAppearances(ctx context.Context, req *connect.Request[v1.ListAppearancesRequest]) (*connect.Response[v1.ListAppearancesResponse], error) {
-	return c.listAppearances.CallUnary(ctx, req)
-}
-
-// ListCredits calls anime.v1.AnimeService.ListCredits.
-func (c *animeServiceClient) ListCredits(ctx context.Context, req *connect.Request[v1.ListCreditsRequest]) (*connect.Response[v1.ListCreditsResponse], error) {
-	return c.listCredits.CallUnary(ctx, req)
-}
-
-// GetStats calls anime.v1.AnimeService.GetStats.
-func (c *animeServiceClient) GetStats(ctx context.Context, req *connect.Request[v1.GetStatsRequest]) (*connect.Response[v1.GetStatsResponse], error) {
-	return c.getStats.CallUnary(ctx, req)
-}
-
 // AnimeServiceHandler is an implementation of the anime.v1.AnimeService service.
 type AnimeServiceHandler interface {
-	// ListFranchises returns every multi-series franchise in the catalog.
-	// Standalone series are reachable via GetSeries and Search.
-	ListFranchises(context.Context, *connect.Request[v1.ListFranchisesRequest]) (*connect.Response[v1.ListFranchisesResponse], error)
-	// GetFranchise returns one franchise with its full nested structure.
-	GetFranchise(context.Context, *connect.Request[v1.GetFranchiseRequest]) (*connect.Response[v1.GetFranchiseResponse], error)
-	// GetSeries returns one series (under a franchise or standalone) by id.
+	// SearchSeries pages through series matching a keyword. An empty query walks
+	// the whole catalogue in dataset order.
+	SearchSeries(context.Context, *connect.Request[v1.SearchSeriesRequest]) (*connect.Response[v1.SearchSeriesResponse], error)
+	// SearchReleases pages through individual releases — seasons, films and
+	// specials — matching a keyword, a release year and a release quarter. Each
+	// filter is optional and they combine freely; the one rejected request is a
+	// quarter with no year.
+	SearchReleases(context.Context, *connect.Request[v1.SearchReleasesRequest]) (*connect.Response[v1.SearchReleasesResponse], error)
+	// GetSeries returns one series by id with everything under it: every season
+	// and its episodes, every film, every special, and the whole cast with the
+	// voice actors resolved.
 	GetSeries(context.Context, *connect.Request[v1.GetSeriesRequest]) (*connect.Response[v1.GetSeriesResponse], error)
-	// ListCatalog pages through every top-level entry — franchises and
-	// standalone series — as flat summaries. This is the browse entry point:
-	// unlike ListFranchises it is paginated and does not nest the structure, so
-	// it stays usable as the catalog grows.
-	ListCatalog(context.Context, *connect.Request[v1.ListCatalogRequest]) (*connect.Response[v1.ListCatalogResponse], error)
-	// ListWorks pages through individual releases (seasons, movies, specials),
-	// filtered by year, quarter, kind or series. This is what a seasonal chart
-	// lists.
-	ListWorks(context.Context, *connect.Request[v1.ListWorksRequest]) (*connect.Response[v1.ListWorksResponse], error)
-	// Search matches franchises and series by title (case-insensitive substring).
-	Search(context.Context, *connect.Request[v1.SearchRequest]) (*connect.Response[v1.SearchResponse], error)
-	// GetCharacter returns one character by id, with every appearance and the
-	// voice actors cast for it.
-	GetCharacter(context.Context, *connect.Request[v1.GetCharacterRequest]) (*connect.Response[v1.GetCharacterResponse], error)
-	// ListCharacters returns the whole cast, or just one series' cast.
-	ListCharacters(context.Context, *connect.Request[v1.ListCharactersRequest]) (*connect.Response[v1.ListCharactersResponse], error)
-	// GetStaff returns one staff member by id, with the characters they voice.
-	GetStaff(context.Context, *connect.Request[v1.GetStaffRequest]) (*connect.Response[v1.GetStaffResponse], error)
-	// ListStaff returns every staff member, optionally filtered by the language
-	// they are credited in.
-	ListStaff(context.Context, *connect.Request[v1.ListStaffRequest]) (*connect.Response[v1.ListStaffResponse], error)
-	// ListEpisodes pages the episodes of one season or special. A long-running
-	// show accumulates episodes indefinitely, so they are never embedded whole.
-	ListEpisodes(context.Context, *connect.Request[v1.ListEpisodesRequest]) (*connect.Response[v1.ListEpisodesResponse], error)
-	// ListSeries pages the series belonging to one franchise.
-	ListSeries(context.Context, *connect.Request[v1.ListSeriesRequest]) (*connect.Response[v1.ListSeriesResponse], error)
-	// ListAppearances pages the series one character appears in.
-	ListAppearances(context.Context, *connect.Request[v1.ListAppearancesRequest]) (*connect.Response[v1.ListAppearancesResponse], error)
-	// ListCredits pages the roles one staff member is cast in.
-	ListCredits(context.Context, *connect.Request[v1.ListCreditsRequest]) (*connect.Response[v1.ListCreditsResponse], error)
-	// GetStats reports what the dataset contains, plus the deployed revision.
-	//
-	// Named for the stats because that is what it is for. It was GetHealth, and
-	// the counts had been folded into a liveness probe during a refactor — which
-	// left the one genuinely useful part of the response behind a name that told
-	// consumers to skip it.
-	GetStats(context.Context, *connect.Request[v1.GetStatsRequest]) (*connect.Response[v1.GetStatsResponse], error)
 }
 
 // NewAnimeServiceHandler builds an HTTP handler from the service implementation. It returns the
@@ -385,16 +160,16 @@ type AnimeServiceHandler interface {
 // and JSON codecs. They also support gzip compression.
 func NewAnimeServiceHandler(svc AnimeServiceHandler, opts ...connect.HandlerOption) (string, http.Handler) {
 	animeServiceMethods := v1.File_anime_v1_anime_proto.Services().ByName("AnimeService").Methods()
-	animeServiceListFranchisesHandler := connect.NewUnaryHandler(
-		AnimeServiceListFranchisesProcedure,
-		svc.ListFranchises,
-		connect.WithSchema(animeServiceMethods.ByName("ListFranchises")),
+	animeServiceSearchSeriesHandler := connect.NewUnaryHandler(
+		AnimeServiceSearchSeriesProcedure,
+		svc.SearchSeries,
+		connect.WithSchema(animeServiceMethods.ByName("SearchSeries")),
 		connect.WithHandlerOptions(opts...),
 	)
-	animeServiceGetFranchiseHandler := connect.NewUnaryHandler(
-		AnimeServiceGetFranchiseProcedure,
-		svc.GetFranchise,
-		connect.WithSchema(animeServiceMethods.ByName("GetFranchise")),
+	animeServiceSearchReleasesHandler := connect.NewUnaryHandler(
+		AnimeServiceSearchReleasesProcedure,
+		svc.SearchReleases,
+		connect.WithSchema(animeServiceMethods.ByName("SearchReleases")),
 		connect.WithHandlerOptions(opts...),
 	)
 	animeServiceGetSeriesHandler := connect.NewUnaryHandler(
@@ -403,110 +178,14 @@ func NewAnimeServiceHandler(svc AnimeServiceHandler, opts ...connect.HandlerOpti
 		connect.WithSchema(animeServiceMethods.ByName("GetSeries")),
 		connect.WithHandlerOptions(opts...),
 	)
-	animeServiceListCatalogHandler := connect.NewUnaryHandler(
-		AnimeServiceListCatalogProcedure,
-		svc.ListCatalog,
-		connect.WithSchema(animeServiceMethods.ByName("ListCatalog")),
-		connect.WithHandlerOptions(opts...),
-	)
-	animeServiceListWorksHandler := connect.NewUnaryHandler(
-		AnimeServiceListWorksProcedure,
-		svc.ListWorks,
-		connect.WithSchema(animeServiceMethods.ByName("ListWorks")),
-		connect.WithHandlerOptions(opts...),
-	)
-	animeServiceSearchHandler := connect.NewUnaryHandler(
-		AnimeServiceSearchProcedure,
-		svc.Search,
-		connect.WithSchema(animeServiceMethods.ByName("Search")),
-		connect.WithHandlerOptions(opts...),
-	)
-	animeServiceGetCharacterHandler := connect.NewUnaryHandler(
-		AnimeServiceGetCharacterProcedure,
-		svc.GetCharacter,
-		connect.WithSchema(animeServiceMethods.ByName("GetCharacter")),
-		connect.WithHandlerOptions(opts...),
-	)
-	animeServiceListCharactersHandler := connect.NewUnaryHandler(
-		AnimeServiceListCharactersProcedure,
-		svc.ListCharacters,
-		connect.WithSchema(animeServiceMethods.ByName("ListCharacters")),
-		connect.WithHandlerOptions(opts...),
-	)
-	animeServiceGetStaffHandler := connect.NewUnaryHandler(
-		AnimeServiceGetStaffProcedure,
-		svc.GetStaff,
-		connect.WithSchema(animeServiceMethods.ByName("GetStaff")),
-		connect.WithHandlerOptions(opts...),
-	)
-	animeServiceListStaffHandler := connect.NewUnaryHandler(
-		AnimeServiceListStaffProcedure,
-		svc.ListStaff,
-		connect.WithSchema(animeServiceMethods.ByName("ListStaff")),
-		connect.WithHandlerOptions(opts...),
-	)
-	animeServiceListEpisodesHandler := connect.NewUnaryHandler(
-		AnimeServiceListEpisodesProcedure,
-		svc.ListEpisodes,
-		connect.WithSchema(animeServiceMethods.ByName("ListEpisodes")),
-		connect.WithHandlerOptions(opts...),
-	)
-	animeServiceListSeriesHandler := connect.NewUnaryHandler(
-		AnimeServiceListSeriesProcedure,
-		svc.ListSeries,
-		connect.WithSchema(animeServiceMethods.ByName("ListSeries")),
-		connect.WithHandlerOptions(opts...),
-	)
-	animeServiceListAppearancesHandler := connect.NewUnaryHandler(
-		AnimeServiceListAppearancesProcedure,
-		svc.ListAppearances,
-		connect.WithSchema(animeServiceMethods.ByName("ListAppearances")),
-		connect.WithHandlerOptions(opts...),
-	)
-	animeServiceListCreditsHandler := connect.NewUnaryHandler(
-		AnimeServiceListCreditsProcedure,
-		svc.ListCredits,
-		connect.WithSchema(animeServiceMethods.ByName("ListCredits")),
-		connect.WithHandlerOptions(opts...),
-	)
-	animeServiceGetStatsHandler := connect.NewUnaryHandler(
-		AnimeServiceGetStatsProcedure,
-		svc.GetStats,
-		connect.WithSchema(animeServiceMethods.ByName("GetStats")),
-		connect.WithHandlerOptions(opts...),
-	)
 	return "/anime.v1.AnimeService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
-		case AnimeServiceListFranchisesProcedure:
-			animeServiceListFranchisesHandler.ServeHTTP(w, r)
-		case AnimeServiceGetFranchiseProcedure:
-			animeServiceGetFranchiseHandler.ServeHTTP(w, r)
+		case AnimeServiceSearchSeriesProcedure:
+			animeServiceSearchSeriesHandler.ServeHTTP(w, r)
+		case AnimeServiceSearchReleasesProcedure:
+			animeServiceSearchReleasesHandler.ServeHTTP(w, r)
 		case AnimeServiceGetSeriesProcedure:
 			animeServiceGetSeriesHandler.ServeHTTP(w, r)
-		case AnimeServiceListCatalogProcedure:
-			animeServiceListCatalogHandler.ServeHTTP(w, r)
-		case AnimeServiceListWorksProcedure:
-			animeServiceListWorksHandler.ServeHTTP(w, r)
-		case AnimeServiceSearchProcedure:
-			animeServiceSearchHandler.ServeHTTP(w, r)
-		case AnimeServiceGetCharacterProcedure:
-			animeServiceGetCharacterHandler.ServeHTTP(w, r)
-		case AnimeServiceListCharactersProcedure:
-			animeServiceListCharactersHandler.ServeHTTP(w, r)
-		case AnimeServiceGetStaffProcedure:
-			animeServiceGetStaffHandler.ServeHTTP(w, r)
-		case AnimeServiceListStaffProcedure:
-			animeServiceListStaffHandler.ServeHTTP(w, r)
-		case AnimeServiceListEpisodesProcedure:
-			animeServiceListEpisodesHandler.ServeHTTP(w, r)
-		case AnimeServiceListSeriesProcedure:
-			animeServiceListSeriesHandler.ServeHTTP(w, r)
-		case AnimeServiceListAppearancesProcedure:
-			animeServiceListAppearancesHandler.ServeHTTP(w, r)
-		case AnimeServiceListCreditsProcedure:
-			animeServiceListCreditsHandler.ServeHTTP(w, r)
-		case AnimeServiceGetStatsProcedure:
-			animeServiceGetStatsHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -516,62 +195,14 @@ func NewAnimeServiceHandler(svc AnimeServiceHandler, opts ...connect.HandlerOpti
 // UnimplementedAnimeServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedAnimeServiceHandler struct{}
 
-func (UnimplementedAnimeServiceHandler) ListFranchises(context.Context, *connect.Request[v1.ListFranchisesRequest]) (*connect.Response[v1.ListFranchisesResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.ListFranchises is not implemented"))
+func (UnimplementedAnimeServiceHandler) SearchSeries(context.Context, *connect.Request[v1.SearchSeriesRequest]) (*connect.Response[v1.SearchSeriesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.SearchSeries is not implemented"))
 }
 
-func (UnimplementedAnimeServiceHandler) GetFranchise(context.Context, *connect.Request[v1.GetFranchiseRequest]) (*connect.Response[v1.GetFranchiseResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.GetFranchise is not implemented"))
+func (UnimplementedAnimeServiceHandler) SearchReleases(context.Context, *connect.Request[v1.SearchReleasesRequest]) (*connect.Response[v1.SearchReleasesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.SearchReleases is not implemented"))
 }
 
 func (UnimplementedAnimeServiceHandler) GetSeries(context.Context, *connect.Request[v1.GetSeriesRequest]) (*connect.Response[v1.GetSeriesResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.GetSeries is not implemented"))
-}
-
-func (UnimplementedAnimeServiceHandler) ListCatalog(context.Context, *connect.Request[v1.ListCatalogRequest]) (*connect.Response[v1.ListCatalogResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.ListCatalog is not implemented"))
-}
-
-func (UnimplementedAnimeServiceHandler) ListWorks(context.Context, *connect.Request[v1.ListWorksRequest]) (*connect.Response[v1.ListWorksResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.ListWorks is not implemented"))
-}
-
-func (UnimplementedAnimeServiceHandler) Search(context.Context, *connect.Request[v1.SearchRequest]) (*connect.Response[v1.SearchResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.Search is not implemented"))
-}
-
-func (UnimplementedAnimeServiceHandler) GetCharacter(context.Context, *connect.Request[v1.GetCharacterRequest]) (*connect.Response[v1.GetCharacterResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.GetCharacter is not implemented"))
-}
-
-func (UnimplementedAnimeServiceHandler) ListCharacters(context.Context, *connect.Request[v1.ListCharactersRequest]) (*connect.Response[v1.ListCharactersResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.ListCharacters is not implemented"))
-}
-
-func (UnimplementedAnimeServiceHandler) GetStaff(context.Context, *connect.Request[v1.GetStaffRequest]) (*connect.Response[v1.GetStaffResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.GetStaff is not implemented"))
-}
-
-func (UnimplementedAnimeServiceHandler) ListStaff(context.Context, *connect.Request[v1.ListStaffRequest]) (*connect.Response[v1.ListStaffResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.ListStaff is not implemented"))
-}
-
-func (UnimplementedAnimeServiceHandler) ListEpisodes(context.Context, *connect.Request[v1.ListEpisodesRequest]) (*connect.Response[v1.ListEpisodesResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.ListEpisodes is not implemented"))
-}
-
-func (UnimplementedAnimeServiceHandler) ListSeries(context.Context, *connect.Request[v1.ListSeriesRequest]) (*connect.Response[v1.ListSeriesResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.ListSeries is not implemented"))
-}
-
-func (UnimplementedAnimeServiceHandler) ListAppearances(context.Context, *connect.Request[v1.ListAppearancesRequest]) (*connect.Response[v1.ListAppearancesResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.ListAppearances is not implemented"))
-}
-
-func (UnimplementedAnimeServiceHandler) ListCredits(context.Context, *connect.Request[v1.ListCreditsRequest]) (*connect.Response[v1.ListCreditsResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.ListCredits is not implemented"))
-}
-
-func (UnimplementedAnimeServiceHandler) GetStats(context.Context, *connect.Request[v1.GetStatsRequest]) (*connect.Response[v1.GetStatsResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("anime.v1.AnimeService.GetStats is not implemented"))
 }

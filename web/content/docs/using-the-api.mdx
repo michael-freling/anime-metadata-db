@@ -11,13 +11,13 @@ library or codegen required.
 ## Your first call
 
 ```sh
-curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/GetStats \
-  -H 'Content-Type: application/json' -d '{}'
+curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/SearchSeries \
+  -H 'Content-Type: application/json' -d '{"query": "demon", "limit": 3}'
 ```
 
 ```json
-{"version":"<commit>","stats":{"franchises":1,"series":152,"seasons":222,"episodes":3229,
- "characters":647,"staff":445,"earliestReleaseYear":2006,"latestReleaseYear":2026}}
+{"series":[{"id":"demon-slayer","title":"Demon Slayer","firstReleaseYear":2019,
+ "latestReleaseYear":2025,"works":7,"episodes":63}],"totalSize":2}
 ```
 
 That's the whole contract: `POST` a JSON body to
@@ -35,9 +35,24 @@ own, start the server locally (`cd api && go run ./cmd/api`, see
 [Building the dataset](/docs/building-the-dataset)) and use
 `http://localhost:8080` instead — the paths are identical.
 
-## Methods
+## Three methods
 
-The **[API reference](/docs/api)** documents every method: its request and
+That is the whole API. It is small on purpose: a small surface is one you can
+hold in your head, and one we can keep stable.
+
+| Method | Answers |
+|---|---|
+| [`SearchSeries`](/docs/api/search-series) | "which series are called *demon*?" |
+| [`SearchReleases`](/docs/api/search-releases) | "what premiered in Winter 2026?" |
+| [`GetSeries`](/docs/api/get-series) | "tell me everything about this series" |
+
+**Series and releases are searched separately because they are different
+things.** A series spans years and has no quarter, so `Winter 2026` cannot
+select one — it selects the seasons, films and specials that premiered then,
+each of which names the series it belongs to. Take a `seriesId` from a release
+and pass it to `GetSeries` to go from one to the other.
+
+The **[API reference](/docs/api)** documents each method: its request and
 response fields, their types, and the descriptions from the schema — with a
 playground on each page that sends a real request to the deployed service and
 shows you what comes back.
@@ -45,72 +60,102 @@ shows you what comes back.
 It is generated from
 [`anime.proto`](https://github.com/michael-freling/anime-metadata-db/blob/main/api/proto/anime/v1/anime.proto),
 the same schema the server and this site's own client are built from, so it
-cannot drift from the API it describes. There is no separate list to keep in
-step: a method added to the service appears there, and a field renamed there
-cannot be described by the old name here.
+cannot drift from the API it describes.
 
-Some behaviour is worth knowing before you start.
+> **Other methods you may see on the wire.** The site you are reading also calls
+> a second service, `browse.v1.BrowseService`, for things only a browse UI needs
+> — the franchise grouping, flat catalog rows, global character and staff
+> indexes. It is deliberately undocumented and carries **no compatibility
+> promise**: it changes whenever these pages do. Build against `anime.v1`.
 
-`ListCatalog` is the browse entry point and the cheapest way to ask what the
-dataset contains, because it does not nest the structure. `ListFranchises`
-returns only multi-series **franchises**; a standalone series is reachable
-through `Search` and `GetSeries`. For `Search`, a blank `query` matches nothing.
-An unknown `seriesId` is a `not_found` error rather than an empty list, so a
-typo is not mistaken for a series with no cast.
+## What paginates, and what does not
 
 ## Nothing comes back unbounded
 
-This dataset is built to hold the full upstream catalogue, so **no response ever
-returns a whole collection**. Every one takes one of two shapes.
+The rule is per shape, and there are only two shapes.
 
-**Lists page.** Send `limit` and, to continue, the `pageToken` you were given:
+**Searches page.** `SearchSeries` and `SearchReleases` both take `limit` and a
+`pageToken`, and both return `nextPageToken` — empty on the last page — plus
+`totalSize`, the count of every match rather than of the page:
 
 ```json
 {"pageToken": "bzoyNA", "limit": 20}
 ```
 
-and you get back `nextPageToken` — empty on the last page — plus `totalSize`,
-the count of every match rather than of the page. `limit` defaults to 100 (50
-for `Search`). Treat `pageToken` as opaque: it is deliberately not a documented
-format, so that the cursor scheme can change without breaking you. A token you
-did not receive from us is an `invalid_argument` error rather than a silent
-first page.
+`limit` defaults to 50. Treat `pageToken` as opaque: it is deliberately not a
+documented format, so the cursor scheme can change without breaking you. A token
+you did not receive from us is an `invalid_argument` error rather than a silent
+first page. This is the half that has to page — the catalogue grows.
 
-**A `Get*` response embeds at most the first 25 of each collection**, as a
-convenience, and tells you the real count beside it:
+**`GetSeries` returns a series whole.** Every season with every episode, every
+film, every special, and the whole cast with voice actors resolved. No caps, no
+`*Total` fields to read instead of an array length, no second call:
 
 ```jsonc
 {
   "series": {
     "id": "tensei-shitara-slime-datta-ken",
-    "characters": [ /* 25 of them */ ],
-    "charactersTotal": 148,          // ← what actually exists
-    "seasons": [ /* … */ ],
-    "seasonsTotal": 5
-  }
+    "seasons": [ /* 5, carrying 96 episodes between them */ ],
+    "characters": [ /* all 148 */ ]
+  },
+  "franchiseId": ""
 }
 ```
 
-Read the `*Total`, never the array length, whenever you show a count — the array
-is a page. To get the rest, page the matching list method: `ListCharacters` for
-a cast, `ListWorks` or `ListEpisodes` for releases and episodes,
-`ListAppearances`, `ListCredits`, `ListSeries`.
+That is bounded by what one series can be rather than by how large the catalogue
+grows, which is why it is safe to send in full. The largest series in the
+dataset today answers in **66 KB**; the one with the longest run — 171 episodes
+— answers in 12 KB. An array's length is the count.
+
+`franchiseId` names the brand a series belongs to, or is empty when it stands
+alone. It is a grouping key and nothing more: two series carrying the same one
+belong together. There is no franchise method to dereference it with.
 
 ## Examples
 
-Search — case-insensitive substring over titles:
+Search series — case-insensitive substring over titles, in any language. Each
+hit carries the aggregates a result row needs, so listing results opens no
+further calls:
 
 ```sh
-curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/Search \
-  -H 'Content-Type: application/json' -d '{"query": "demon", "limit": 5}'
+curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/SearchSeries \
+  -H 'Content-Type: application/json' -d '{"query": "demon", "limit": 3}'
 ```
 
 ```json
-{"results":[{"kind":"SERIES","id":"demon-slayer","title":"Demon Slayer"}]}
+{"series":[{"id":"demon-slayer","title":"Demon Slayer","firstReleaseYear":2019,
+ "latestReleaseYear":2025,"works":7,"episodes":63}],"totalSize":2}
 ```
 
-Fetch one series — the `id` comes from a search result. Each collection below
-is the first page of itself, with its true size alongside:
+Search releases — a seasonal chart is this call. Each row names its series, so
+nothing has to be looked up to render it:
+
+```sh
+curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/SearchReleases \
+  -H 'Content-Type: application/json' -d '{"releaseYear": 2026, "releaseSeason": "WINTER", "limit": 1}'
+```
+
+```json
+{"releases":[{"kind":"TV_SEASON","id":"29-sai-dokushin-chuuken-boukensha-no-nichijou-s1",
+ "seriesId":"29-sai-dokushin-chuuken-boukensha-no-nichijou",
+ "seriesTitle":"An Adventurer's Daily Grind at Age 29","number":1,"releaseYear":2026,
+ "releaseSeason":"WINTER","episodeCount":12,
+ "externalIds":{"anilistId":192261,"anidbId":19324,"tvdbId":463334}}],
+ "nextPageToken":"bzoy","totalSize":80}
+```
+
+All three filters — `query`, `releaseYear`, `releaseSeason` — are optional and
+combine freely. The one request that is refused is a quarter with no year:
+
+```json
+{"code":"invalid_argument","message":"release_season requires release_year: a quarter alone spans every year in the dataset"}
+```
+
+"Winter" across every year the dataset covers is not a question anyone means to
+ask, and answering it would look like a filter that worked.
+
+Fetch one series — the `id` comes from a search result, or from a release's
+`seriesId`. Everything under it comes back:
 
 ```sh
 curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/GetSeries \
@@ -142,10 +187,10 @@ curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/GetSerie
 }
 ```
 
-A `Franchise` nests `series`, which nests `seasons`, `movies` and `specials`,
-each carrying `episodes`. Field names in the JSON are camelCase (`releaseYear`,
-`externalIds`, `absoluteNumber`). See [Using the dataset](/docs/using-the-dataset)
-for the full model.
+A series nests `seasons`, `movies` and `specials`, each season and special
+carrying its `episodes`, plus `characters`. Field names in the JSON are
+camelCase (`releaseYear`, `externalIds`, `absoluteNumber`). See
+[Using the dataset](/docs/using-the-dataset) for the full model.
 
 Two things the schema offers that no response currently carries: `releaseDate`
 (a `YYYY-MM-DD` string when set — a release is dated only to `releaseYear` and
@@ -169,69 +214,79 @@ English reader would be.
 `Accept-Language: *` returns every language instead, each under its own tag:
 `en` for an English title, `ja-Latn` (or `ko-Latn`, …) for a romanization.
 
-## Characters and staff
+## Characters and cast
 
-Characters and staff are **global** nodes, not children of a series. A character
-attaches onto the structure through its `appearances`, so the same node is
-reachable three ways — nested in a series' `characters`, by id from
-`GetCharacter`, and as a credit from `GetStaff` — and it names the series it
-appears in, with `appearancesTotal` giving the full count and `ListAppearances`
-paging beyond the first:
+Characters are **global** nodes rather than children of a series, attached to
+the structure through their `appearances`. `GetSeries` embeds the whole cast, so
+the graph arrives with the series:
 
 ```sh
-curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/GetCharacter \
-  -H 'Content-Type: application/json' -d '{"id": "artoria-pendragon"}'
+curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/GetSeries \
+  -H 'Content-Type: application/json' -d '{"id": "fate-zero"}'
 ```
 
-```json
+```jsonc
 {
-  "character": {
-    "id": "artoria-pendragon",
-    "externalIds": {"wikidataId": "Q4918886"},
-    "voiceActors": [
-      {"staffId": "ayako-kawasumi", "language": "ja"}
-    ],
-    "appearances": [
-      {"seriesId": "fate-stay-night"},
-      {"seriesId": "fate-zero"}
+  "series": {
+    "id": "fate-zero",
+    "characters": [
+      {
+        "id": "artoria-pendragon",
+        "name": "Saber",
+        "externalIds": {"wikidataId": "Q4918886"},
+        "voiceActors": [
+          {"staffId": "ayako-kawasumi", "language": "ja",
+           "staffName": "Ayako Kawasumi", "throughout": true},
+          {"staffId": "kari-wahlgren", "language": "en", "staffName": "Kari Wahlgren"}
+        ],
+        "appearances": [
+          {"seriesId": "fate-stay-night", "seriesTitle": "Fate/stay night",
+           "scope": [{"seasonId": "fate-stay-night-s1", "number": 1}], "voiceActors": [ /* … */ ]}
+        ]
+      }
     ]
-  }
+  },
+  "franchiseId": "fate"
 }
 ```
 
-That response has no `name` or `staffName`, and it is not a bug: names are
-filled from Wikidata **at build time**, and the committed dataset was built
+Because a character is global, the one you reach through a series names **every**
+series it appears in — that is how you learn a character is shared across the
+catalogue, and each appearance carries the other series' resolved `seriesTitle`
+so you can label it without another call.
+
+If a response has no `name` or `staffName`, that is not a bug: names are filled
+from Wikidata **at build time**, and the committed dataset may have been built
 without the Wikidata fetch. Run `builder init` before `builder build` and the
-same call returns `"name": "Artoria Pendragon"` on the character and
-`"staffName": "Ayako Kawasumi"` on each voice-actor link. Every other field is
-independent of it, so the graph is fully usable by id either way.
+same call returns them. Every other field is independent of it, so the graph is
+usable by id either way.
+
+### Which cast belongs where
 
 `voiceActors` on the character is the cast that **holds throughout** — an
 original-language role is nearly always the same person in every adaptation.
 Cast that varies by series is not there: English dubs are routinely recast, so
 each of those lives on the appearance it was cast in, optionally with a `scope`
-narrowing it to specific seasons, movies or specials.
+narrowing it to specific seasons, films or specials.
 
 You never have to combine the two yourself. An appearance's `voiceActors` is
 already **the cast for that appearance** — the constant cast plus whoever is
-specific to it — and `ListCharacters` with a `seriesId` (and the cast embedded
-in `GetSeries`) resolves each character's `voiceActors` the same way. Only an
-unscoped character listing reports the constant cast alone, because no series
-was named to be specific to. Each link repeats the staff member's resolved
-`staffName`, so rendering a cast list needs no second call.
+specific to it — and a character reached through `GetSeries` has its
+`voiceActors` resolved the same way for the series you asked about. Each link
+repeats the staff member's resolved `staffName`, so rendering a cast list needs
+no second call.
 
 Because those lists are resolved, an actor who voices the character everywhere
 appears in every one of them. `throughout` says so: it marks the credits that
 came from the character rather than from the thing being described. Ignore it
 and you still have the full cast; read it and you can show what a series adds
 — *"Fate/Zero — also Kari Wahlgren"* — without restating Ayako Kawasumi on
-every row. It is set only where a list mixes the two, so an unscoped
-character's own `voiceActors` carries no marks at all.
+every row.
 
-Saber is the worked example: Ayako Kawasumi voices her in every Fate work and
-sits on the character, while Kate Higgins and Kari Wahlgren sit on the
-appearances they were cast in. Asking for Fate/Zero's cast returns Kawasumi and
-Wahlgren, and never Higgins.
+Saber is the worked example: Ayako Kawasumi voices her in every Fate work and is
+marked `throughout`, while Kate Higgins and Kari Wahlgren sit on the appearances
+they were cast in. Asking for Fate/Zero returns Kawasumi and Wahlgren, never
+Higgins.
 
 An appearance can be narrower than a whole series. Higgins dubbed the 2006
 *Fate/stay night* only, not the 2014 re-adaptation the same series id also
@@ -241,79 +296,6 @@ appearance is therefore identified by its `seriesId` **and** its `scope`, and
 each scope entry carries the installment's resolved `title` (plus `number` for a
 season, which usually has no title of its own) so you can label it without a
 second call.
-
-**Two different things are called a language here**, and mistaking one for the
-other is the first thing most people do.
-
-`ListStaff`'s `language` field is a **filter**: it picks *which people* come
-back — those credited in that language. `Accept-Language` is **rendering**: it
-picks what language their names are written in. Neither implies the other, and
-`totalSize` is where you can see it: asking for Japanese names returns all 445
-staff, while filtering to the Japanese-credited cast returns 394 of them.
-
-So the filter alone answers with the Japanese cast under their English names,
-because no `Accept-Language` was sent and English is the default:
-
-```sh
-curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/ListStaff \
-  -H 'Content-Type: application/json' -d '{"language": "ja", "limit": 2}'
-```
-
-```json
-{"staff":[{"id":"ayako-kawasumi", "name":"Ayako Kawasumi", "externalIds":{"wikidataId":"Q49566"}}, {"id":"natsuki-hanae", "name":"Natsuki Hanae", "externalIds":{"wikidataId":"Q2596113"}}], "nextPageToken":"bzoy", "totalSize":394}
-```
-
-Send both to get the same people under their Japanese names:
-
-```sh
-curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/ListStaff \
-  -H 'Content-Type: application/json' -H 'Accept-Language: ja' \
-  -d '{"language": "ja", "limit": 2}'
-```
-
-```json
-{"staff":[{"id":"ayako-kawasumi", "name":"川澄綾子", "externalIds":{"wikidataId":"Q49566"}}, {"id":"natsuki-hanae", "name":"花江夏樹", "externalIds":{"wikidataId":"Q2596113"}}], "nextPageToken":"bzoy", "totalSize":394}
-```
-
-Keeping them apart is what lets a Japanese reader browse the *whole* cast in
-Japanese. The header alone does that — English-dub actors included, under the
-names they are credited by, because `アーロン・ロバーツ` is a spelling of his
-name rather than a fact anyone recorded:
-
-```json
-{"staff":[{"id":"aaron-roberts", "name":"Aaron Roberts", "externalIds":{"wikidataId":"Q141031024"}}, {"id":"annie-wild", "name":"Annie Wild", "externalIds":{"wikidataId":"Q134440355"}}], "nextPageToken":"bzoy", "totalSize":445}
-```
-
-An English-language actor's `name` follows the same rule, so an
-`Accept-Language: ja` request answers `ザック・アギラール` for Zach Aguilar —
-that is how a Japanese reader sees his name. The dataset stores the name
-itself as the `original` and the katakana as the `ja` translation, so reading
-`data/` directly gives you both.
-
-`GetStaff` is the inverse — the characters a person is cast as, with the
-language and the series each casting covers:
-
-```sh
-curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/GetStaff \
-  -H 'Content-Type: application/json' -d '{"id": "ayako-kawasumi"}'
-```
-
-```json
-{
-  "staff": {"id": "ayako-kawasumi", "externalIds": {"wikidataId": "Q49566"}},
-  "credits": [
-    {
-      "characterId": "artoria-pendragon",
-      "language": "ja",
-      "seriesIds": ["fate-stay-night", "fate-zero"]
-    }
-  ]
-}
-```
-
-One credit is emitted per character and language, listing every series the
-casting covers — so a voice actor who plays the same character across a whole
-franchise appears once, not once per series.
 
 Names follow the same `Accept-Language` rules as titles, via `name` and (with
 `Accept-Language: *`) `localizedName`.
@@ -344,11 +326,7 @@ curl -X POST https://anime-metadata-db.vercel.app/anime.v1.AnimeService/GetSerie
 Send `Accept-Language: *` to additionally receive the full `localizedTitle` (the
 native `original` plus every translation) on every node.
 
-> **Scope.** The API serves the structural catalog — franchises, series,
-> seasons, movies, specials and episodes. Characters and staff are present in the
-> committed dataset but not yet exposed over the API.
-
----
-
-**Next:** [Using the dataset](/docs/using-the-dataset) — the
-same data as committed YAML, and the full model.
+> **Scope.** The API serves the structural catalog — series, seasons, films,
+> specials and episodes — together with the characters and voice actors cast in
+> them. Franchises group series in the dataset, and `franchiseId` is all the API
+> says about that grouping today.

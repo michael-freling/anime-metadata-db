@@ -1,16 +1,29 @@
 syntax = "proto3";
 
-// Package anime.v1 is the read-only Connect API over the committed anime
-// franchise dataset: the R1 model (Franchise -> Series -> Season -> Episode,
-// plus Movie and Special) and the R2 cast (Character and Staff). It mirrors
-// internal/model.
+// Package anime.v1 is the public, read-only Connect API over the committed
+// anime dataset.
 //
-// The cast is a global, many-to-many layer that attaches onto the R1 spine
-// through a Character's appearances, so a character reached from a Series is
-// the same node reachable by id from GetCharacter — it just carries every
-// series it appears in. Only facts are served (ids, names, the appearance and
-// voice-actor graph); expression (roles, bios, images) is left to the consumer
-// to fetch live from the external ids.
+// It is deliberately three calls wide. SearchSeries finds series by name;
+// SearchReleases finds individual releases by when they premiered; GetSeries
+// returns one series whole — every season, episode, film, special and cast
+// member in a single response, with no pagination to thread through a detail
+// view and no second call needed to render a page.
+//
+// Series and releases are separate searches because they are separate units. A
+// series spans years and has no quarter, so "Winter 2026" cannot select one; it
+// selects the seasons, films and specials that premiered then, each of which
+// names the series it belongs to. Folding the two into one call would mean a
+// year filter that silently changed what the results were.
+//
+// A series is the unit. Franchises group series in the dataset, but the only
+// thing this API says about that grouping is GetSeriesResponse.franchise_id: a
+// caller can tell two series share a brand, and nothing more. Franchise detail
+// may be added later; until there is a consumer for it, exposing it would be
+// advertising a shape before knowing what it should be.
+//
+// Only facts are served (ids, names, numbering, the appearance and voice-actor
+// graph). Expression — roles, bios, images — is left to the consumer to fetch
+// live from the external ids. It mirrors internal/model.
 package anime.v1;
 
 option go_package = "github.com/michael-freling/anime-metadata-db/api/internal/gen/anime/v1;animev1";
@@ -43,7 +56,7 @@ message ExternalIds {
 // dataset stores — rather than "RELEASE_SEASON_SPRING", which every client was
 // left to translate back. Protobuf scopes enum values to the package, so a
 // prefix is added only where the bare word would collide with another enum's
-// (see SpecialFormat and WorkKind, which both want SPECIAL).
+// (see SpecialFormat).
 // buf:lint:ignore ENUM_VALUE_PREFIX
 enum ReleaseSeason {
   SEASON_UNSPECIFIED = 0;
@@ -54,7 +67,7 @@ enum ReleaseSeason {
 }
 
 // SpecialFormat is the kind of side content a Special represents. Prefixed,
-// because SPECIAL alone would collide with WorkKind's.
+// because SPECIAL alone would collide with the browse API's WorkKind.
 // buf:lint:ignore ENUM_VALUE_PREFIX
 enum SpecialFormat {
   FORMAT_UNSPECIFIED = 0;
@@ -63,25 +76,19 @@ enum SpecialFormat {
   FORMAT_SPECIAL = 3;
 }
 
-// WorkKind distinguishes the three node types that map to a real release. A
-// Franchise or Series is our grouping, not a release, so neither is a work.
+// ReleaseKind distinguishes the three node types that map to a real release. A
+// series is a grouping rather than a release, so it is not one of these.
+//
+// TV_SEASON rather than SEASON, which ReleaseSeason's unspecified value already
+// spells; protobuf scopes enum values to the package, so the two would collide.
 // buf:lint:ignore ENUM_VALUE_PREFIX
-enum WorkKind {
-  WORK_UNSPECIFIED = 0;
-  WORK_SEASON = 1;
-  WORK_MOVIE = 2;
-  WORK_SPECIAL = 3;
+enum ReleaseKind {
+  KIND_UNSPECIFIED = 0;
+  TV_SEASON = 1;
+  MOVIE = 2;
+  SPECIAL = 3;
 }
 
-// EntryKind distinguishes a top-level catalog entry's type in search results.
-// buf:lint:ignore ENUM_VALUE_PREFIX
-enum EntryKind {
-  ENTRY_UNSPECIFIED = 0;
-  FRANCHISE = 1;
-  SERIES = 2;
-}
-
-// Episode is one TV episode. Dates are serialized as YYYY-MM-DD strings.
 // Episode is one numbered entry of a season or special.
 //
 // It carries numbering and nothing else. The upstream database publishes an
@@ -116,10 +123,13 @@ message Season {
   int32 release_year = 6;
   ReleaseSeason release_season = 7;
   ExternalIds external_ids = 8;
-  // episodes is the first page only, capped; episodes_total is the real count.
-  // Use ListEpisodes to page the rest.
+  // episodes is every episode of this season, in order.
   repeated Episode episodes = 9;
-  int32 episodes_total = 11;
+
+  // 11 held episodes_total, the count alongside a capped first page. Episodes
+  // are no longer capped, so len(episodes) is the count.
+  reserved 11;
+  reserved "episodes_total";
 }
 
 // AlternateCutOf links an alternate-cut film to the Season it re-cuts.
@@ -153,35 +163,13 @@ message Special {
   string release_date = 4;
   int32 release_year = 5;
   ExternalIds external_ids = 6;
-  // episodes is the first page only, capped; episodes_total is the real count.
-  // Use ListEpisodes to page the rest.
+  // episodes is every episode of this special, in order.
   repeated Episode episodes = 7;
-  int32 episodes_total = 10;
   optional int32 absolute_number = 8;
-}
 
-// Series is the base unit: one storyline / continuity.
-message Series {
-  string id = 1;
-  // title is resolved for the request's Accept-Language.
-  string title = 6;
-  // localized_title carries every language; set only for Accept-Language: *.
-  LocalizedTitle localized_title = 2;
-  // Every collection below is the first page only, capped at a fixed limit.
-  // The matching *_total is the real count, and a List RPC pages the rest:
-  // ListWorks(series_id) for releases, ListCharacters(series_id) for the cast.
-  // Embedding them unbounded would make one GetSeries call serialize an entire
-  // long-running show, which is exactly what this API is built not to do.
-  repeated Season seasons = 3;
-  int32 seasons_total = 8;
-  repeated Movie movies = 4;
-  int32 movies_total = 9;
-  repeated Special specials = 5;
-  int32 specials_total = 10;
-  // characters appearing in this series, in dataset order. Each is the full
-  // global Character node, so its appearances may name other series too.
-  repeated Character characters = 7;
-  int32 characters_total = 11;
+  // 10 held episodes_total; see Season.
+  reserved 10;
+  reserved "episodes_total";
 }
 
 // VoiceActor links a Character to the Staff who voices it in one language.
@@ -190,20 +178,18 @@ message VoiceActor {
   // language is a BCP-47 tag ("ja", "en").
   string language = 2;
   // staff_name is the staff member's name resolved for the request's
-  // Accept-Language, denormalized so a client need not call GetStaff. Empty
-  // when the dataset carries no name for them yet.
+  // Accept-Language, denormalized so a client need not look the person up.
+  // Empty when the dataset carries no name for them yet.
   string staff_name = 3;
   // throughout marks a credit that comes from the character rather than from
   // the thing being described — Ayako Kawasumi voices Saber in every Fate
   // work, so she is `throughout` in each of Saber's appearances while the
   // English dub cast alongside her is not.
   //
-  // It is set only where a list mixes the two: an appearance's cast, and a
-  // character's cast when the request named a series. Character.voice_actors
-  // asked without a series holds nothing else, so nothing is marked there.
-  // Ignore it and you still have the full cast, which is the point of
-  // resolving the list server-side; read it and you can tell what is specific
-  // to this series without diffing two lists yourself.
+  // It is set only on an appearance's cast, where the two are mixed. Ignore it
+  // and you still have the full cast, which is the point of resolving the list
+  // server-side; read it and you can tell what is specific to one series
+  // without diffing two lists yourself.
   bool throughout = 4;
 }
 
@@ -215,7 +201,7 @@ message ScopeRef {
   string special_id = 3;
   // title is that installment's own title resolved for the request's
   // Accept-Language, denormalized for the same reason series_title is: a client
-  // labelling a scoped appearance should not have to call GetSeries to do it.
+  // labelling a scoped appearance should not have to look the installment up.
   // A numbered season usually has no title of its own, so number carries its
   // position for a caller composing a label; it is 0 for a movie or special.
   string title = 4;
@@ -224,6 +210,10 @@ message ScopeRef {
 
 // CharacterAppearance is a Character <-> Series edge. series_id is the rollup
 // association and scope optionally narrows it to specific installments.
+//
+// A character reached through GetSeries is the full global node, so its
+// appearances may name series other than the one you asked for. That is how a
+// caller learns a character is shared across the catalogue.
 message CharacterAppearance {
   string series_id = 1;
   // series_title is that series' title resolved for the request's
@@ -233,7 +223,7 @@ message CharacterAppearance {
   string series_title = 5;
   repeated ScopeRef scope = 2;
   // voice_actors is the cast for this appearance, resolved: it is the
-  // character's constant cast plus whoever is specific to this series. Render
+  // character's constant cast plus whoever is specific to that series. Render
   // it as-is; there is nothing to merge client-side.
   repeated VoiceActor voice_actors = 3;
   ExternalIds external_ids = 4;
@@ -254,124 +244,114 @@ message Character {
   // appearance it belongs to. An appearance's voice_actors already includes
   // these, so a client showing per-appearance cast never needs this field.
   repeated VoiceActor voice_actors = 5;
-  // appearances is the first page only, capped; appearances_total is the real
-  // count. Use ListAppearances to page the rest.
+  // appearances is every series this character appears in.
   repeated CharacterAppearance appearances = 6;
-  int32 appearances_total = 7;
+
+  // 7 held appearances_total; appearances are no longer capped.
+  reserved 7;
+  reserved "appearances_total";
 }
 
-// Staff is a global real person — currently only voice actors.
-message Staff {
-  string id = 1;
-  // name is resolved for the request's Accept-Language.
-  string name = 2;
-  // localized_name carries every language; set only for Accept-Language: *.
-  LocalizedTitle localized_name = 3;
-  ExternalIds external_ids = 4;
-}
-
-// StaffCredit is one role a Staff member is cast in: the character they voice,
-// the language they voice it in, and the series it applies to.
-message StaffCredit {
-  string character_id = 1;
-  string character_name = 2;
-  string language = 3;
-  repeated string series_ids = 4;
-  // series_titles are those series' titles resolved for the request's
-  // Accept-Language, positionally matching series_ids. Denormalized for the
-  // same reason VoiceActor carries staff_name: a client listing someone's
-  // roles should not have to call GetSeries once per credit, and without it
-  // the only thing it can show a reader is a slug.
-  repeated string series_titles = 5;
-}
-
-// WatchOrderEntry is one ordered reference within a WatchOrder.
-message WatchOrderEntry {
-  string ref = 1;
-  string note = 2;
-}
-
-// WatchOrder is a named curated alternate order across a Franchise's Series.
-message WatchOrder {
-  string name = 1;
-  repeated WatchOrderEntry entries = 2;
-}
-
-// Franchise groups related Series under one brand.
-message Franchise {
+// Series is the unit of this API: one storyline / continuity, whole.
+//
+// Every collection below is complete — no caps, no page tokens, no companion
+// List calls. One series is bounded by what a series can be: the longest-running
+// show in existence is a four-figure episode count of two integers each, and a
+// large cast is a few hundred names. The thing this API refuses to serialize
+// unbounded is a *collection of series*, which is what SearchSeries pages.
+message Series {
   string id = 1;
   // title is resolved for the request's Accept-Language.
-  string title = 5;
+  string title = 6;
   // localized_title carries every language; set only for Accept-Language: *.
   LocalizedTitle localized_title = 2;
-  // series is the first page only, capped, and each Series in it carries its
-  // own capped collections. A franchise nests the deepest structure in the
-  // dataset, so an unbounded GetFranchise would serialize every episode of
-  // every season of every series under the brand. Use ListSeries to page.
-  repeated Series series = 3;
-  int32 series_total = 6;
-  repeated WatchOrder watch_orders = 4;
-  int32 watch_orders_total = 7;
+  repeated Season seasons = 3;
+  repeated Movie movies = 4;
+  repeated Special specials = 5;
+  // characters is this series' whole cast, in dataset order. Each is the full
+  // global Character node, so its appearances may name other series too.
+  repeated Character characters = 7;
+
+  // 8-11 held seasons_total, movies_total, specials_total and characters_total,
+  // the counts that went alongside capped first pages. Nothing is capped now,
+  // so each collection's length is its count.
+  reserved 8, 9, 10, 11;
+  reserved "seasons_total", "movies_total", "specials_total", "characters_total";
 }
 
-// SearchResult is one match: a top-level franchise or a series.
-message SearchResult {
-  EntryKind kind = 1;
-  string id = 2;
+// SeriesSummary is one search hit: enough to render a result row and decide
+// whether to open it, and nothing that would make a page of results expensive.
+//
+// It is deliberately not a Series. A page of 50 whole series would be a bulk
+// export of most of the dataset; this is the shape that keeps SearchSeries a
+// search rather than a download.
+message SeriesSummary {
+  string id = 1;
   // title is resolved for the request's Accept-Language.
-  string title = 5;
+  string title = 2;
   // localized_title carries every language; set only for Accept-Language: *.
   LocalizedTitle localized_title = 3;
-  // franchise_id is set when kind is SERIES and the series belongs to a
-  // franchise; empty for a standalone series or a franchise result.
+  // franchise_id is the brand this series belongs to, or empty when it stands
+  // alone. Two summaries sharing one are two storylines of the same franchise.
   string franchise_id = 4;
+  // The span of release years across everything in this series. Both are 0 when
+  // nothing in it carries a year.
+  int32 first_release_year = 5;
+  int32 latest_release_year = 6;
+  // Counts of what is in this series: works is seasons + movies + specials.
+  int32 works = 7;
+  int32 episodes = 8;
 }
 
-// DatasetStats summarizes the loaded dataset.
-// CatalogEntry is one browsable top-level entry — a franchise or a standalone
-// series — carrying just enough to render a catalog row. Unlike GetFranchise
-// and GetSeries it does NOT nest seasons, movies, specials or episodes, so a
-// page of entries stays small no matter how large the catalog grows.
-message CatalogEntry {
-  EntryKind kind = 1;
+message SearchSeriesRequest {
+  // query matches the series' title in any language, case-insensitively, as a
+  // substring. Empty matches every series, which is how a caller walks the
+  // catalogue rather than searching it.
+  string query = 1;
+  // limit caps the page size; <= 0 applies the server default of 50.
+  int32 limit = 4;
+  // page_token continues a previous call; empty starts from the beginning.
+  // Pass the next_page_token from the previous response.
+  string page_token = 5;
+
+  // 2 and 3 held release_year and release_season. A series has neither: it
+  // spans years, and only its individual releases premiere in a quarter. The
+  // filters moved to SearchReleases, where they describe the thing being
+  // returned instead of quietly reinterpreting it.
+  reserved 2, 3;
+  reserved "release_year", "release_season";
+}
+
+message SearchSeriesResponse {
+  repeated SeriesSummary series = 1;
+  // next_page_token is empty when this is the last page.
+  string next_page_token = 2;
+  // total_size counts every match across all pages, not just this page.
+  int32 total_size = 3;
+}
+
+// ReleaseSummary is one release — a season, film or special — flattened out of
+// the hierarchy and carrying enough of its series to stand on its own. This is
+// the unit a seasonal chart lists: "Winter 2026" is a set of releases, not a
+// set of series, and each row needs to name its show.
+message ReleaseSummary {
+  ReleaseKind kind = 1;
   string id = 2;
   // title is resolved for the request's Accept-Language.
   string title = 3;
   // localized_title carries every language; set only for Accept-Language: *.
   LocalizedTitle localized_title = 4;
-  // franchise_id is set when kind is SERIES and the series belongs to a
-  // franchise; empty for a standalone series or a franchise entry.
-  string franchise_id = 5;
-  // The span of release years across everything under this entry. Both are 0
-  // when nothing under it carries a year.
-  int32 first_release_year = 6;
-  int32 latest_release_year = 7;
-  // Counts of what sits under this entry: works is seasons + movies + specials.
-  int32 works = 8;
-  int32 episodes = 9;
-}
-
-// WorkSummary is one release — a season, movie or special — flattened out of
-// the hierarchy with enough of its parent to render it standalone. This is the
-// unit a seasonal chart lists, which the nested Franchise/Series records cannot
-// serve without the client walking the whole tree.
-message WorkSummary {
-  WorkKind kind = 1;
-  string id = 2;
-  // title is resolved for the request's Accept-Language.
-  string title = 3;
-  // localized_title carries every language; set only for Accept-Language: *.
-  LocalizedTitle localized_title = 4;
-  // The series this work belongs to, and that series' resolved title, so a row
-  // can name its show without a second call.
+  // The series this release belongs to, and that series' resolved title, so a
+  // row can name its show without a second call. Pass series_id to GetSeries
+  // for the whole thing.
   string series_id = 5;
   string series_title = 6;
-  // number is the season number; set only when kind is SEASON.
+  // number is the season number; set only when kind is TV_SEASON.
   int32 number = 7;
   string release_date = 8;
   int32 release_year = 9;
-  // release_season is set only when kind is SEASON; movies and specials carry
-  // a year only.
+  // release_season is set only when kind is TV_SEASON; films and specials carry
+  // a year without a quarter.
   ReleaseSeason release_season = 10;
   // format is set only when kind is SPECIAL.
   SpecialFormat format = 11;
@@ -379,47 +359,41 @@ message WorkSummary {
   ExternalIds external_ids = 13;
 }
 
-message DatasetStats {
-  int32 franchises = 1;
-  int32 series = 2;
-  int32 seasons = 3;
-  int32 episodes = 4;
-  int32 characters = 5;
-  int32 staff = 6;
-  // The span of release years the dataset actually covers, across every work
-  // that carries a year. Both are 0 for an empty dataset. A consumer can use
-  // earliest_release_year as the floor below which a year cannot be real data —
-  // it is derived from the dataset, so it does not go stale as older works are
-  // added.
-  int32 earliest_release_year = 7;
-  int32 latest_release_year = 8;
-}
-
-message ListFranchisesRequest {
-  // page_token continues a previous listing; limit caps the page.
+// SearchReleasesRequest carries three independent filters. Every one is
+// optional and they AND together, so a keyword alone, a year alone, a year with
+// a quarter, or a keyword narrowed by either all work. An empty request walks
+// every release in the catalogue.
+//
+// The one combination refused is a quarter without a year: "Winter" across
+// every year the dataset covers is not a question anyone means to ask, and
+// answering it silently would look like a working filter. It is
+// InvalidArgument.
+message SearchReleasesRequest {
+  // query matches the release's own title or its series' title, in any
+  // language, case-insensitively, as a substring. Empty matches everything.
+  string query = 1;
+  // release_year is the calendar year the release premiered.
   //
-  // A franchise carries its whole tree — every series, season and episode —
-  // so an unbounded listing is a request to serve the entire dataset in one
-  // response. It is paginated for that reason. Callers that want a flat,
-  // cheap catalogue should use ListCatalog instead.
-  string page_token = 1;
-  int32 limit = 2;
+  // proto3 gives scalars no field presence, so 0 necessarily means "no year
+  // filter" rather than "releases with no year" — a caller wanting a specific
+  // year must send a real one, and a UI must reject 0 before it reaches here
+  // rather than labelling an unfiltered result as year 0.
+  int32 release_year = 2;
+  // release_season narrows release_year to one quarter, and requires it. Only
+  // TV seasons carry a quarter, so setting it excludes every film and special.
+  ReleaseSeason release_season = 3;
+  // limit caps the page size; <= 0 applies the server default of 50.
+  int32 limit = 4;
+  // page_token continues a previous call; empty starts from the beginning.
+  string page_token = 5;
 }
 
-message ListFranchisesResponse {
-  repeated Franchise franchises = 1;
-  // next_page_token is empty on the last page.
+message SearchReleasesResponse {
+  repeated ReleaseSummary releases = 1;
+  // next_page_token is empty when this is the last page.
   string next_page_token = 2;
-  // total_size counts every franchise, not just this page.
+  // total_size counts every match across all pages, not just this page.
   int32 total_size = 3;
-}
-
-message GetFranchiseRequest {
-  string id = 1;
-}
-
-message GetFranchiseResponse {
-  Franchise franchise = 1;
 }
 
 message GetSeriesRequest {
@@ -428,175 +402,18 @@ message GetSeriesRequest {
 
 message GetSeriesResponse {
   Series series = 1;
-  // franchise_id is the owning franchise, or empty for a standalone series.
+  // franchise_id is the brand this series belongs to, or empty for a standalone
+  // series. It is an id and nothing else: this API has no franchise call, so
+  // treat it as a grouping key — two series carrying the same one belong
+  // together — rather than as something to dereference.
   string franchise_id = 2;
 }
 
-message SearchRequest {
-  string query = 1;
-  // limit caps the number of results; <= 0 applies a server default.
-  int32 limit = 2;
-  // page_token continues a previous call; empty starts from the beginning.
-  // Pass the next_page_token from the previous response.
-  string page_token = 3;
-}
-
-message SearchResponse {
-  repeated SearchResult results = 1;
-  // next_page_token is empty when this is the last page.
-  string next_page_token = 2;
-  // total_size counts every match across all pages.
-  int32 total_size = 3;
-}
-
-message GetCharacterRequest {
-  string id = 1;
-}
-
-message GetCharacterResponse {
-  Character character = 1;
-}
-
-message ListCharactersRequest {
-  // series_id restricts the result to that series' cast; empty lists every
-  // character in the dataset. It also decides what each character's
-  // voice_actors means: with a series, they are that series' cast (the constant
-  // cast plus anyone cast only there); without one, only the cast that holds
-  // throughout. Series.characters is scoped the same way.
-  string series_id = 1;
-  // query matches a character's name in any language, case-insensitively, as a
-  // substring. Empty matches every character. Combined with series_id it
-  // searches within that series' cast.
-  string query = 4;
-  // limit caps the number of results; <= 0 applies a server default.
-  int32 limit = 2;
-  // page_token continues a previous call; empty starts from the beginning.
-  // Pass the next_page_token from the previous response.
-  string page_token = 3;
-}
-
-message ListCharactersResponse {
-  repeated Character characters = 1;
-  // next_page_token is empty when this is the last page.
-  string next_page_token = 2;
-  // total_size counts every match across all pages.
-  int32 total_size = 3;
-}
-
-message GetStaffRequest {
-  string id = 1;
-}
-
-message GetStaffResponse {
-  Staff staff = 1;
-  // credits is the first page only, capped, in dataset order; credits_total is
-  // the real count. A prolific voice actor accumulates roles for as long as
-  // they work, so this cannot be unbounded. Use ListCredits to page the rest.
-  repeated StaffCredit credits = 2;
-  int32 credits_total = 3;
-}
-
-message ListStaffRequest {
-  // language restricts the result to staff credited in that language ("ja");
-  // empty lists everyone. It chooses *which people* come back, not what
-  // language their names are written in — that is Accept-Language, as
-  // everywhere else, and the two are deliberately separate: a Japanese reader
-  // browsing voice actors wants Japanese names and the whole cast, not only
-  // the half credited in Japanese.
-  //
-  // So `{"language": "ja"}` with no Accept-Language header returns the
-  // Japanese-credited cast under their English names, which looks wrong and is
-  // not. Send both to get Japanese names as well.
-  string language = 1;
-  // query matches a staff member's name in any language, case-insensitively,
-  // as a substring. Empty matches everyone.
-  string query = 4;
-  // limit caps the number of results; <= 0 applies a server default.
-  int32 limit = 2;
-  // page_token continues a previous call; empty starts from the beginning.
-  // Pass the next_page_token from the previous response.
-  string page_token = 3;
-}
-
-message ListStaffResponse {
-  repeated Staff staff = 1;
-  // next_page_token is empty when this is the last page.
-  string next_page_token = 2;
-  // total_size counts every match across all pages.
-  int32 total_size = 3;
-}
-
-message GetStatsRequest {}
-
-message GetStatsResponse {
-  // version is the deployed revision, so a caller can tell which build
-  // answered. Nothing reads it programmatically; it is here because "which
-  // deploy am I hitting" is a question that comes up whenever a change looks
-  // like it has not landed.
-  string version = 2;
-  DatasetStats stats = 3;
-
-  // 1 held `status`, a string literal "ok" that could never be anything else.
-  // A 200 response already said that, so the field carried no information.
-  reserved 1;
-  reserved "status";
-}
-
-message ListCatalogRequest {
-  // page_token continues a previous call; empty starts from the beginning.
-  string page_token = 1;
-  // limit caps the page size; <= 0 applies a server default.
-  int32 limit = 2;
-  // kind restricts the result to franchises or to standalone series;
-  // unspecified returns both.
-  EntryKind kind = 3;
-}
-
-message ListCatalogResponse {
-  repeated CatalogEntry entries = 1;
-  // next_page_token is empty when this is the last page.
-  string next_page_token = 2;
-  // total_size counts every entry matching the filters, across all pages.
-  int32 total_size = 3;
-}
-
-message ListWorksRequest {
-  // page_token continues a previous call; empty starts from the beginning.
-  string page_token = 1;
-  // limit caps the page size; <= 0 applies a server default.
-  int32 limit = 2;
-  // Filters, AND-ed together. An unset filter matches everything, so an empty
-  // request walks every work in the dataset.
-  //
-  // release_year is the calendar year the work premiered. proto3 gives scalars
-  // no field presence, so 0 necessarily means "no year filter" rather than
-  // "works with no year" — a caller wanting a specific year must send a real
-  // one, and a UI must reject 0 before it reaches here rather than labelling
-  // the unfiltered result as year 0.
-  int32 release_year = 3;
-  // release_season only ever matches seasons: movies and specials carry a year
-  // without a quarter, so setting this excludes them.
-  ReleaseSeason release_season = 4;
-  // kind restricts to seasons, movies or specials.
-  WorkKind kind = 5;
-  // series_id restricts to the works under one series.
-  string series_id = 6;
-  // query matches the work's own title or its series' title, in any language,
-  // case-insensitively, as a substring. Empty matches everything. Without this
-  // a unified browse page could not offer one search box across every result
-  // type, since releases would be the only kind that could not be searched.
-  string query = 7;
-}
-
-message ListWorksResponse {
-  repeated WorkSummary works = 1;
-  // next_page_token is empty when this is the last page.
-  string next_page_token = 2;
-  // total_size counts every work matching the filters, across all pages.
-  int32 total_size = 3;
-}
-
-// AnimeService is the read-only API over the committed dataset.
+// AnimeService is the public read-only API over the committed dataset.
+//
+// Three calls: find series by name, find releases by when they aired, then open
+// one series. GetSeries returns a series complete, so rendering a page never
+// needs a follow-up request.
 //
 // Title localization: every title-bearing message returns a single resolved
 // `title` string chosen from the request's `Accept-Language` header (default
@@ -605,104 +422,16 @@ message ListWorksResponse {
 // then any available translation. Send `Accept-Language: *` to additionally
 // receive the full `localized_title` (every language) on each node.
 service AnimeService {
-  // ListFranchises returns every multi-series franchise in the catalog.
-  // Standalone series are reachable via GetSeries and Search.
-  rpc ListFranchises(ListFranchisesRequest) returns (ListFranchisesResponse) {}
-  // GetFranchise returns one franchise with its full nested structure.
-  rpc GetFranchise(GetFranchiseRequest) returns (GetFranchiseResponse) {}
-  // GetSeries returns one series (under a franchise or standalone) by id.
+  // SearchSeries pages through series matching a keyword. An empty query walks
+  // the whole catalogue in dataset order.
+  rpc SearchSeries(SearchSeriesRequest) returns (SearchSeriesResponse) {}
+  // SearchReleases pages through individual releases — seasons, films and
+  // specials — matching a keyword, a release year and a release quarter. Each
+  // filter is optional and they combine freely; the one rejected request is a
+  // quarter with no year.
+  rpc SearchReleases(SearchReleasesRequest) returns (SearchReleasesResponse) {}
+  // GetSeries returns one series by id with everything under it: every season
+  // and its episodes, every film, every special, and the whole cast with the
+  // voice actors resolved.
   rpc GetSeries(GetSeriesRequest) returns (GetSeriesResponse) {}
-  // ListCatalog pages through every top-level entry — franchises and
-  // standalone series — as flat summaries. This is the browse entry point:
-  // unlike ListFranchises it is paginated and does not nest the structure, so
-  // it stays usable as the catalog grows.
-  rpc ListCatalog(ListCatalogRequest) returns (ListCatalogResponse) {}
-  // ListWorks pages through individual releases (seasons, movies, specials),
-  // filtered by year, quarter, kind or series. This is what a seasonal chart
-  // lists.
-  rpc ListWorks(ListWorksRequest) returns (ListWorksResponse) {}
-  // Search matches franchises and series by title (case-insensitive substring).
-  rpc Search(SearchRequest) returns (SearchResponse) {}
-  // GetCharacter returns one character by id, with every appearance and the
-  // voice actors cast for it.
-  rpc GetCharacter(GetCharacterRequest) returns (GetCharacterResponse) {}
-  // ListCharacters returns the whole cast, or just one series' cast.
-  rpc ListCharacters(ListCharactersRequest) returns (ListCharactersResponse) {}
-  // GetStaff returns one staff member by id, with the characters they voice.
-  rpc GetStaff(GetStaffRequest) returns (GetStaffResponse) {}
-  // ListStaff returns every staff member, optionally filtered by the language
-  // they are credited in.
-  rpc ListStaff(ListStaffRequest) returns (ListStaffResponse) {}
-  // ListEpisodes pages the episodes of one season or special. A long-running
-  // show accumulates episodes indefinitely, so they are never embedded whole.
-  rpc ListEpisodes(ListEpisodesRequest) returns (ListEpisodesResponse) {}
-  // ListSeries pages the series belonging to one franchise.
-  rpc ListSeries(ListSeriesRequest) returns (ListSeriesResponse) {}
-  // ListAppearances pages the series one character appears in.
-  rpc ListAppearances(ListAppearancesRequest) returns (ListAppearancesResponse) {}
-  // ListCredits pages the roles one staff member is cast in.
-  rpc ListCredits(ListCreditsRequest) returns (ListCreditsResponse) {}
-  // GetStats reports what the dataset contains, plus the deployed revision.
-  //
-  // Named for the stats because that is what it is for. It was GetHealth, and
-  // the counts had been folded into a liveness probe during a refactor — which
-  // left the one genuinely useful part of the response behind a name that told
-  // consumers to skip it.
-  rpc GetStats(GetStatsRequest) returns (GetStatsResponse) {}
-}
-
-// ListEpisodesRequest names exactly one parent: a season or a special.
-message ListEpisodesRequest {
-  string season_id = 1;
-  string special_id = 2;
-  string page_token = 3;
-  int32 limit = 4;
-}
-
-message ListEpisodesResponse {
-  repeated Episode episodes = 1;
-  // next_page_token is empty on the last page.
-  string next_page_token = 2;
-  // total_size counts every episode of the parent, not just this page.
-  int32 total_size = 3;
-}
-
-message ListSeriesRequest {
-  // franchise_id is required: this pages one franchise's series. The flat
-  // catalog of every series is ListCatalog.
-  string franchise_id = 1;
-  string page_token = 2;
-  int32 limit = 3;
-}
-
-message ListSeriesResponse {
-  // Each Series carries its own capped collections, exactly as GetSeries
-  // returns it.
-  repeated Series series = 1;
-  string next_page_token = 2;
-  int32 total_size = 3;
-}
-
-message ListAppearancesRequest {
-  string character_id = 1;
-  string page_token = 2;
-  int32 limit = 3;
-}
-
-message ListAppearancesResponse {
-  repeated CharacterAppearance appearances = 1;
-  string next_page_token = 2;
-  int32 total_size = 3;
-}
-
-message ListCreditsRequest {
-  string staff_id = 1;
-  string page_token = 2;
-  int32 limit = 3;
-}
-
-message ListCreditsResponse {
-  repeated StaffCredit credits = 1;
-  string next_page_token = 2;
-  int32 total_size = 3;
 }

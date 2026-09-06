@@ -9,7 +9,7 @@ import (
 	"testing"
 )
 
-func TestNewServerServesHealth(t *testing.T) {
+func TestNewServerServesBothServices(t *testing.T) {
 	t.Setenv("PORT", "") // ensure the local default, independent of the CI env
 	srv, err := newServer(nil, io.Discard)
 	if err != nil {
@@ -19,15 +19,24 @@ func TestNewServerServesHealth(t *testing.T) {
 		t.Errorf("default addr = %q, want :8080", srv.Addr)
 	}
 
-	rec := httptest.NewRecorder()
-	req := httptest.NewRequest(http.MethodPost, "/anime.v1.AnimeService/GetStats", strings.NewReader("{}"))
-	req.Header.Set("Content-Type", "application/json")
-	srv.Handler.ServeHTTP(rec, req)
-	// Asserts a real figure rather than the old `"status":"ok"`, which was a
-	// constant the handler wrote unconditionally — it proved the route was
-	// wired, not that the dataset had loaded.
-	if rec.Code != http.StatusOK || !strings.Contains(rec.Body.String(), `"series":`) {
-		t.Errorf("stats response code=%d body=%s", rec.Code, rec.Body.String())
+	// Both services are mounted on the one binary, so both paths are checked:
+	// a refactor that dropped either handler from the mux would otherwise show
+	// up only as a 404 in production.
+	//
+	// Each asserts a real figure rather than a constant the handler writes
+	// unconditionally — that would prove the route was wired, not that the
+	// dataset had loaded.
+	for _, tc := range []struct{ path, body, want string }{
+		{"/anime.v1.AnimeService/SearchSeries", "{}", `"totalSize":`},
+		{"/browse.v1.BrowseService/GetStats", "{}", `"series":`},
+	} {
+		rec := httptest.NewRecorder()
+		req := httptest.NewRequest(http.MethodPost, tc.path, strings.NewReader(tc.body))
+		req.Header.Set("Content-Type", "application/json")
+		srv.Handler.ServeHTTP(rec, req)
+		if rec.Code != http.StatusOK || !strings.Contains(rec.Body.String(), tc.want) {
+			t.Errorf("%s: code=%d body=%s", tc.path, rec.Code, rec.Body.String())
+		}
 	}
 }
 

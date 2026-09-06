@@ -73,7 +73,7 @@ jobs:
           fi
 
   pagination:
-    name: Every response is bounded
+    name: Every search is bounded
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -89,8 +89,10 @@ jobs:
       # catch up. The failure is invisible at today's row counts — a list that
       # is complete at 150 and ruinous at 150,000 reads identically in review —
       # so it is asserted rather than reviewed.
-      # This checks the schema; TestNoResponseEmbedsAnUnboundedCollection in
-      # internal/api checks the responses the server actually builds.
+      # This checks the schema; TestSearchResponsesNeverReturnTheWholeCollection
+      # in internal/api checks the responses the server actually builds. Both
+      # protos are covered — the browse API is private, not exempt from the
+      # catalogue growing.
       - name: Test the check itself
         run: node .claude/skills/enforce-pagination/scripts/check-pagination.test.mjs
 

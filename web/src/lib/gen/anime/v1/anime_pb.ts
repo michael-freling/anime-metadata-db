@@ -2,17 +2,30 @@
 // @generated from file anime/v1/anime.proto (package anime.v1, syntax proto3)
 /* eslint-disable */
 
-// Package anime.v1 is the read-only Connect API over the committed anime
-// franchise dataset: the R1 model (Franchise -> Series -> Season -> Episode,
-// plus Movie and Special) and the R2 cast (Character and Staff). It mirrors
-// internal/model.
+// Package anime.v1 is the public, read-only Connect API over the committed
+// anime dataset.
 //
-// The cast is a global, many-to-many layer that attaches onto the R1 spine
-// through a Character's appearances, so a character reached from a Series is
-// the same node reachable by id from GetCharacter — it just carries every
-// series it appears in. Only facts are served (ids, names, the appearance and
-// voice-actor graph); expression (roles, bios, images) is left to the consumer
-// to fetch live from the external ids.
+// It is deliberately three calls wide. SearchSeries finds series by name;
+// SearchReleases finds individual releases by when they premiered; GetSeries
+// returns one series whole — every season, episode, film, special and cast
+// member in a single response, with no pagination to thread through a detail
+// view and no second call needed to render a page.
+//
+// Series and releases are separate searches because they are separate units. A
+// series spans years and has no quarter, so "Winter 2026" cannot select one; it
+// selects the seasons, films and specials that premiered then, each of which
+// names the series it belongs to. Folding the two into one call would mean a
+// year filter that silently changed what the results were.
+//
+// A series is the unit. Franchises group series in the dataset, but the only
+// thing this API says about that grouping is GetSeriesResponse.franchise_id: a
+// caller can tell two series share a brand, and nothing more. Franchise detail
+// may be added later; until there is a consumer for it, exposing it would be
+// advertising a shape before knowing what it should be.
+//
+// Only facts are served (ids, names, numbering, the appearance and voice-actor
+// graph). Expression — roles, bios, images — is left to the consumer to fetch
+// live from the external ids. It mirrors internal/model.
 
 import type { GenEnum, GenFile, GenMessage, GenService } from "@bufbuild/protobuf/codegenv2";
 import { enumDesc, fileDesc, messageDesc, serviceDesc } from "@bufbuild/protobuf/codegenv2";
@@ -22,7 +35,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file anime/v1/anime.proto.
  */
 export const file_anime_v1_anime: GenFile = /*@__PURE__*/
-  fileDesc("ChRhbmltZS92MS9hbmltZS5wcm90bxIIYW5pbWUudjEimQEKDkxvY2FsaXplZFRpdGxlEhAKCG9yaWdpbmFsGAEgASgJEkAKDHRyYW5zbGF0aW9ucxgCIAMoCzIqLmFuaW1lLnYxLkxvY2FsaXplZFRpdGxlLlRyYW5zbGF0aW9uc0VudHJ5GjMKEVRyYW5zbGF0aW9uc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEiagoLRXh0ZXJuYWxJZHMSEgoKYW5pbGlzdF9pZBgBIAEoBRIQCghhbmlkYl9pZBgCIAEoBRIPCgd0bWRiX2lkGAMgASgFEg8KB3R2ZGJfaWQYBCABKAUSEwoLd2lraWRhdGFfaWQYBSABKAkicgoHRXBpc29kZRIcCg9hYnNvbHV0ZV9udW1iZXIYASABKAVIAIgBARIUCgxhaXJlZF9udW1iZXIYAiABKAVCEgoQX2Fic29sdXRlX251bWJlckoECAMQBEoECAQQBVIMcmVsZWFzZV9kYXRlUgV0aXRsZSLJAgoGU2Vhc29uEgoKAmlkGAEgASgJEg0KBXRpdGxlGAogASgJEjEKD2xvY2FsaXplZF90aXRsZRgCIAEoCzIYLmFuaW1lLnYxLkxvY2FsaXplZFRpdGxlEg4KBm51bWJlchgDIAEoBRIRCgRwYXJ0GAQgASgFSACIAQESFAoMcmVsZWFzZV9kYXRlGAUgASgJEhQKDHJlbGVhc2VfeWVhchgGIAEoBRIvCg5yZWxlYXNlX3NlYXNvbhgHIAEoDjIXLmFuaW1lLnYxLlJlbGVhc2VTZWFzb24SKwoMZXh0ZXJuYWxfaWRzGAggASgLMhUuYW5pbWUudjEuRXh0ZXJuYWxJZHMSIwoIZXBpc29kZXMYCSADKAsyES5hbmltZS52MS5FcGlzb2RlEhYKDmVwaXNvZGVzX3RvdGFsGAsgASgFQgcKBV9wYXJ0IjUKDkFsdGVybmF0ZUN1dE9mEhEKCXNlYXNvbl9pZBgBIAEoCRIQCghlcGlzb2RlcxgCIAEoCSKUAgoFTW92aWUSCgoCaWQYASABKAkSDQoFdGl0bGUYCCABKAkSMQoPbG9jYWxpemVkX3RpdGxlGAIgASgLMhguYW5pbWUudjEuTG9jYWxpemVkVGl0bGUSFAoMcmVsZWFzZV9kYXRlGAMgASgJEhQKDHJlbGVhc2VfeWVhchgEIAEoBRIrCgxleHRlcm5hbF9pZHMYBSABKAsyFS5hbmltZS52MS5FeHRlcm5hbElkcxIcCg9hYnNvbHV0ZV9udW1iZXIYBiABKAVIAIgBARIyChBhbHRlcm5hdGVfY3V0X29mGAcgASgLMhguYW5pbWUudjEuQWx0ZXJuYXRlQ3V0T2ZCEgoQX2Fic29sdXRlX251bWJlciLIAgoHU3BlY2lhbBIKCgJpZBgBIAEoCRINCgV0aXRsZRgJIAEoCRIxCg9sb2NhbGl6ZWRfdGl0bGUYAiABKAsyGC5hbmltZS52MS5Mb2NhbGl6ZWRUaXRsZRInCgZmb3JtYXQYAyABKA4yFy5hbmltZS52MS5TcGVjaWFsRm9ybWF0EhQKDHJlbGVhc2VfZGF0ZRgEIAEoCRIUCgxyZWxlYXNlX3llYXIYBSABKAUSKwoMZXh0ZXJuYWxfaWRzGAYgASgLMhUuYW5pbWUudjEuRXh0ZXJuYWxJZHMSIwoIZXBpc29kZXMYByADKAsyES5hbmltZS52MS5FcGlzb2RlEhYKDmVwaXNvZGVzX3RvdGFsGAogASgFEhwKD2Fic29sdXRlX251bWJlchgIIAEoBUgAiAEBQhIKEF9hYnNvbHV0ZV9udW1iZXIixwIKBlNlcmllcxIKCgJpZBgBIAEoCRINCgV0aXRsZRgGIAEoCRIxCg9sb2NhbGl6ZWRfdGl0bGUYAiABKAsyGC5hbmltZS52MS5Mb2NhbGl6ZWRUaXRsZRIhCgdzZWFzb25zGAMgAygLMhAuYW5pbWUudjEuU2Vhc29uEhUKDXNlYXNvbnNfdG90YWwYCCABKAUSHwoGbW92aWVzGAQgAygLMg8uYW5pbWUudjEuTW92aWUSFAoMbW92aWVzX3RvdGFsGAkgASgFEiMKCHNwZWNpYWxzGAUgAygLMhEuYW5pbWUudjEuU3BlY2lhbBIWCg5zcGVjaWFsc190b3RhbBgKIAEoBRInCgpjaGFyYWN0ZXJzGAcgAygLMhMuYW5pbWUudjEuQ2hhcmFjdGVyEhgKEGNoYXJhY3RlcnNfdG90YWwYCyABKAUiWAoKVm9pY2VBY3RvchIQCghzdGFmZl9pZBgBIAEoCRIQCghsYW5ndWFnZRgCIAEoCRISCgpzdGFmZl9uYW1lGAMgASgJEhIKCnRocm91Z2hvdXQYBCABKAgiYgoIU2NvcGVSZWYSEQoJc2Vhc29uX2lkGAEgASgJEhAKCG1vdmllX2lkGAIgASgJEhIKCnNwZWNpYWxfaWQYAyABKAkSDQoFdGl0bGUYBCABKAkSDgoGbnVtYmVyGAUgASgFIroBChNDaGFyYWN0ZXJBcHBlYXJhbmNlEhEKCXNlcmllc19pZBgBIAEoCRIUCgxzZXJpZXNfdGl0bGUYBSABKAkSIQoFc2NvcGUYAiADKAsyEi5hbmltZS52MS5TY29wZVJlZhIqCgx2b2ljZV9hY3RvcnMYAyADKAsyFC5hbmltZS52MS5Wb2ljZUFjdG9yEisKDGV4dGVybmFsX2lkcxgEIAEoCzIVLmFuaW1lLnYxLkV4dGVybmFsSWRzIv8BCglDaGFyYWN0ZXISCgoCaWQYASABKAkSDAoEbmFtZRgCIAEoCRIwCg5sb2NhbGl6ZWRfbmFtZRgDIAEoCzIYLmFuaW1lLnYxLkxvY2FsaXplZFRpdGxlEisKDGV4dGVybmFsX2lkcxgEIAEoCzIVLmFuaW1lLnYxLkV4dGVybmFsSWRzEioKDHZvaWNlX2FjdG9ycxgFIAMoCzIULmFuaW1lLnYxLlZvaWNlQWN0b3ISMgoLYXBwZWFyYW5jZXMYBiADKAsyHS5hbmltZS52MS5DaGFyYWN0ZXJBcHBlYXJhbmNlEhkKEWFwcGVhcmFuY2VzX3RvdGFsGAcgASgFIoABCgVTdGFmZhIKCgJpZBgBIAEoCRIMCgRuYW1lGAIgASgJEjAKDmxvY2FsaXplZF9uYW1lGAMgASgLMhguYW5pbWUudjEuTG9jYWxpemVkVGl0bGUSKwoMZXh0ZXJuYWxfaWRzGAQgASgLMhUuYW5pbWUudjEuRXh0ZXJuYWxJZHMieAoLU3RhZmZDcmVkaXQSFAoMY2hhcmFjdGVyX2lkGAEgASgJEhYKDmNoYXJhY3Rlcl9uYW1lGAIgASgJEhAKCGxhbmd1YWdlGAMgASgJEhIKCnNlcmllc19pZHMYBCADKAkSFQoNc2VyaWVzX3RpdGxlcxgFIAMoCSIsCg9XYXRjaE9yZGVyRW50cnkSCwoDcmVmGAEgASgJEgwKBG5vdGUYAiABKAkiRgoKV2F0Y2hPcmRlchIMCgRuYW1lGAEgASgJEioKB2VudHJpZXMYAiADKAsyGS5hbmltZS52MS5XYXRjaE9yZGVyRW50cnki2QEKCUZyYW5jaGlzZRIKCgJpZBgBIAEoCRINCgV0aXRsZRgFIAEoCRIxCg9sb2NhbGl6ZWRfdGl0bGUYAiABKAsyGC5hbmltZS52MS5Mb2NhbGl6ZWRUaXRsZRIgCgZzZXJpZXMYAyADKAsyEC5hbmltZS52MS5TZXJpZXMSFAoMc2VyaWVzX3RvdGFsGAYgASgFEioKDHdhdGNoX29yZGVycxgEIAMoCzIULmFuaW1lLnYxLldhdGNoT3JkZXISGgoSd2F0Y2hfb3JkZXJzX3RvdGFsGAcgASgFIpUBCgxTZWFyY2hSZXN1bHQSIQoEa2luZBgBIAEoDjITLmFuaW1lLnYxLkVudHJ5S2luZBIKCgJpZBgCIAEoCRINCgV0aXRsZRgFIAEoCRIxCg9sb2NhbGl6ZWRfdGl0bGUYAyABKAsyGC5hbmltZS52MS5Mb2NhbGl6ZWRUaXRsZRIUCgxmcmFuY2hpc2VfaWQYBCABKAki7wEKDENhdGFsb2dFbnRyeRIhCgRraW5kGAEgASgOMhMuYW5pbWUudjEuRW50cnlLaW5kEgoKAmlkGAIgASgJEg0KBXRpdGxlGAMgASgJEjEKD2xvY2FsaXplZF90aXRsZRgEIAEoCzIYLmFuaW1lLnYxLkxvY2FsaXplZFRpdGxlEhQKDGZyYW5jaGlzZV9pZBgFIAEoCRIaChJmaXJzdF9yZWxlYXNlX3llYXIYBiABKAUSGwoTbGF0ZXN0X3JlbGVhc2VfeWVhchgHIAEoBRINCgV3b3JrcxgIIAEoBRIQCghlcGlzb2RlcxgJIAEoBSKAAwoLV29ya1N1bW1hcnkSIAoEa2luZBgBIAEoDjISLmFuaW1lLnYxLldvcmtLaW5kEgoKAmlkGAIgASgJEg0KBXRpdGxlGAMgASgJEjEKD2xvY2FsaXplZF90aXRsZRgEIAEoCzIYLmFuaW1lLnYxLkxvY2FsaXplZFRpdGxlEhEKCXNlcmllc19pZBgFIAEoCRIUCgxzZXJpZXNfdGl0bGUYBiABKAkSDgoGbnVtYmVyGAcgASgFEhQKDHJlbGVhc2VfZGF0ZRgIIAEoCRIUCgxyZWxlYXNlX3llYXIYCSABKAUSLwoOcmVsZWFzZV9zZWFzb24YCiABKA4yFy5hbmltZS52MS5SZWxlYXNlU2Vhc29uEicKBmZvcm1hdBgLIAEoDjIXLmFuaW1lLnYxLlNwZWNpYWxGb3JtYXQSFQoNZXBpc29kZV9jb3VudBgMIAEoBRIrCgxleHRlcm5hbF9pZHMYDSABKAsyFS5hbmltZS52MS5FeHRlcm5hbElkcyK0AQoMRGF0YXNldFN0YXRzEhIKCmZyYW5jaGlzZXMYASABKAUSDgoGc2VyaWVzGAIgASgFEg8KB3NlYXNvbnMYAyABKAUSEAoIZXBpc29kZXMYBCABKAUSEgoKY2hhcmFjdGVycxgFIAEoBRINCgVzdGFmZhgGIAEoBRIdChVlYXJsaWVzdF9yZWxlYXNlX3llYXIYByABKAUSGwoTbGF0ZXN0X3JlbGVhc2VfeWVhchgIIAEoBSI6ChVMaXN0RnJhbmNoaXNlc1JlcXVlc3QSEgoKcGFnZV90b2tlbhgBIAEoCRINCgVsaW1pdBgCIAEoBSJuChZMaXN0RnJhbmNoaXNlc1Jlc3BvbnNlEicKCmZyYW5jaGlzZXMYASADKAsyEy5hbmltZS52MS5GcmFuY2hpc2USFwoPbmV4dF9wYWdlX3Rva2VuGAIgASgJEhIKCnRvdGFsX3NpemUYAyABKAUiIQoTR2V0RnJhbmNoaXNlUmVxdWVzdBIKCgJpZBgBIAEoCSI+ChRHZXRGcmFuY2hpc2VSZXNwb25zZRImCglmcmFuY2hpc2UYASABKAsyEy5hbmltZS52MS5GcmFuY2hpc2UiHgoQR2V0U2VyaWVzUmVxdWVzdBIKCgJpZBgBIAEoCSJLChFHZXRTZXJpZXNSZXNwb25zZRIgCgZzZXJpZXMYASABKAsyEC5hbmltZS52MS5TZXJpZXMSFAoMZnJhbmNoaXNlX2lkGAIgASgJIkEKDVNlYXJjaFJlcXVlc3QSDQoFcXVlcnkYASABKAkSDQoFbGltaXQYAiABKAUSEgoKcGFnZV90b2tlbhgDIAEoCSJmCg5TZWFyY2hSZXNwb25zZRInCgdyZXN1bHRzGAEgAygLMhYuYW5pbWUudjEuU2VhcmNoUmVzdWx0EhcKD25leHRfcGFnZV90b2tlbhgCIAEoCRISCgp0b3RhbF9zaXplGAMgASgFIiEKE0dldENoYXJhY3RlclJlcXVlc3QSCgoCaWQYASABKAkiPgoUR2V0Q2hhcmFjdGVyUmVzcG9uc2USJgoJY2hhcmFjdGVyGAEgASgLMhMuYW5pbWUudjEuQ2hhcmFjdGVyIlwKFUxpc3RDaGFyYWN0ZXJzUmVxdWVzdBIRCglzZXJpZXNfaWQYASABKAkSDQoFcXVlcnkYBCABKAkSDQoFbGltaXQYAiABKAUSEgoKcGFnZV90b2tlbhgDIAEoCSJuChZMaXN0Q2hhcmFjdGVyc1Jlc3BvbnNlEicKCmNoYXJhY3RlcnMYASADKAsyEy5hbmltZS52MS5DaGFyYWN0ZXISFwoPbmV4dF9wYWdlX3Rva2VuGAIgASgJEhIKCnRvdGFsX3NpemUYAyABKAUiHQoPR2V0U3RhZmZSZXF1ZXN0EgoKAmlkGAEgASgJInEKEEdldFN0YWZmUmVzcG9uc2USHgoFc3RhZmYYASABKAsyDy5hbmltZS52MS5TdGFmZhImCgdjcmVkaXRzGAIgAygLMhUuYW5pbWUudjEuU3RhZmZDcmVkaXQSFQoNY3JlZGl0c190b3RhbBgDIAEoBSJWChBMaXN0U3RhZmZSZXF1ZXN0EhAKCGxhbmd1YWdlGAEgASgJEg0KBXF1ZXJ5GAQgASgJEg0KBWxpbWl0GAIgASgFEhIKCnBhZ2VfdG9rZW4YAyABKAkiYAoRTGlzdFN0YWZmUmVzcG9uc2USHgoFc3RhZmYYASADKAsyDy5hbmltZS52MS5TdGFmZhIXCg9uZXh0X3BhZ2VfdG9rZW4YAiABKAkSEgoKdG90YWxfc2l6ZRgDIAEoBSIRCg9HZXRTdGF0c1JlcXVlc3QiWAoQR2V0U3RhdHNSZXNwb25zZRIPCgd2ZXJzaW9uGAIgASgJEiUKBXN0YXRzGAMgASgLMhYuYW5pbWUudjEuRGF0YXNldFN0YXRzSgQIARACUgZzdGF0dXMiWgoSTGlzdENhdGFsb2dSZXF1ZXN0EhIKCnBhZ2VfdG9rZW4YASABKAkSDQoFbGltaXQYAiABKAUSIQoEa2luZBgDIAEoDjITLmFuaW1lLnYxLkVudHJ5S2luZCJrChNMaXN0Q2F0YWxvZ1Jlc3BvbnNlEicKB2VudHJpZXMYASADKAsyFi5hbmltZS52MS5DYXRhbG9nRW50cnkSFwoPbmV4dF9wYWdlX3Rva2VuGAIgASgJEhIKCnRvdGFsX3NpemUYAyABKAUiwAEKEExpc3RXb3Jrc1JlcXVlc3QSEgoKcGFnZV90b2tlbhgBIAEoCRINCgVsaW1pdBgCIAEoBRIUCgxyZWxlYXNlX3llYXIYAyABKAUSLwoOcmVsZWFzZV9zZWFzb24YBCABKA4yFy5hbmltZS52MS5SZWxlYXNlU2Vhc29uEiAKBGtpbmQYBSABKA4yEi5hbmltZS52MS5Xb3JrS2luZBIRCglzZXJpZXNfaWQYBiABKAkSDQoFcXVlcnkYByABKAkiZgoRTGlzdFdvcmtzUmVzcG9uc2USJAoFd29ya3MYASADKAsyFS5hbmltZS52MS5Xb3JrU3VtbWFyeRIXCg9uZXh0X3BhZ2VfdG9rZW4YAiABKAkSEgoKdG90YWxfc2l6ZRgDIAEoBSJfChNMaXN0RXBpc29kZXNSZXF1ZXN0EhEKCXNlYXNvbl9pZBgBIAEoCRISCgpzcGVjaWFsX2lkGAIgASgJEhIKCnBhZ2VfdG9rZW4YAyABKAkSDQoFbGltaXQYBCABKAUiaAoUTGlzdEVwaXNvZGVzUmVzcG9uc2USIwoIZXBpc29kZXMYASADKAsyES5hbmltZS52MS5FcGlzb2RlEhcKD25leHRfcGFnZV90b2tlbhgCIAEoCRISCgp0b3RhbF9zaXplGAMgASgFIkwKEUxpc3RTZXJpZXNSZXF1ZXN0EhQKDGZyYW5jaGlzZV9pZBgBIAEoCRISCgpwYWdlX3Rva2VuGAIgASgJEg0KBWxpbWl0GAMgASgFImMKEkxpc3RTZXJpZXNSZXNwb25zZRIgCgZzZXJpZXMYASADKAsyEC5hbmltZS52MS5TZXJpZXMSFwoPbmV4dF9wYWdlX3Rva2VuGAIgASgJEhIKCnRvdGFsX3NpemUYAyABKAUiUQoWTGlzdEFwcGVhcmFuY2VzUmVxdWVzdBIUCgxjaGFyYWN0ZXJfaWQYASABKAkSEgoKcGFnZV90b2tlbhgCIAEoCRINCgVsaW1pdBgDIAEoBSJ6ChdMaXN0QXBwZWFyYW5jZXNSZXNwb25zZRIyCgthcHBlYXJhbmNlcxgBIAMoCzIdLmFuaW1lLnYxLkNoYXJhY3RlckFwcGVhcmFuY2USFwoPbmV4dF9wYWdlX3Rva2VuGAIgASgJEhIKCnRvdGFsX3NpemUYAyABKAUiSQoSTGlzdENyZWRpdHNSZXF1ZXN0EhAKCHN0YWZmX2lkGAEgASgJEhIKCnBhZ2VfdG9rZW4YAiABKAkSDQoFbGltaXQYAyABKAUiagoTTGlzdENyZWRpdHNSZXNwb25zZRImCgdjcmVkaXRzGAEgAygLMhUuYW5pbWUudjEuU3RhZmZDcmVkaXQSFwoPbmV4dF9wYWdlX3Rva2VuGAIgASgJEhIKCnRvdGFsX3NpemUYAyABKAUqVQoNUmVsZWFzZVNlYXNvbhIWChJTRUFTT05fVU5TUEVDSUZJRUQQABIKCgZXSU5URVIQARIKCgZTUFJJTkcQAhIKCgZTVU1NRVIQAxIICgRGQUxMEAQqWwoNU3BlY2lhbEZvcm1hdBIWChJGT1JNQVRfVU5TUEVDSUZJRUQQABIOCgpGT1JNQVRfT1ZBEAESDgoKRk9STUFUX09OQRACEhIKDkZPUk1BVF9TUEVDSUFMEAMqUwoIV29ya0tpbmQSFAoQV09SS19VTlNQRUNJRklFRBAAEg8KC1dPUktfU0VBU09OEAESDgoKV09SS19NT1ZJRRACEhAKDFdPUktfU1BFQ0lBTBADKj0KCUVudHJ5S2luZBIVChFFTlRSWV9VTlNQRUNJRklFRBAAEg0KCUZSQU5DSElTRRABEgoKBlNFUklFUxACMpEJCgxBbmltZVNlcnZpY2USVQoOTGlzdEZyYW5jaGlzZXMSHy5hbmltZS52MS5MaXN0RnJhbmNoaXNlc1JlcXVlc3QaIC5hbmltZS52MS5MaXN0RnJhbmNoaXNlc1Jlc3BvbnNlIgASTwoMR2V0RnJhbmNoaXNlEh0uYW5pbWUudjEuR2V0RnJhbmNoaXNlUmVxdWVzdBoeLmFuaW1lLnYxLkdldEZyYW5jaGlzZVJlc3BvbnNlIgASRgoJR2V0U2VyaWVzEhouYW5pbWUudjEuR2V0U2VyaWVzUmVxdWVzdBobLmFuaW1lLnYxLkdldFNlcmllc1Jlc3BvbnNlIgASTAoLTGlzdENhdGFsb2cSHC5hbmltZS52MS5MaXN0Q2F0YWxvZ1JlcXVlc3QaHS5hbmltZS52MS5MaXN0Q2F0YWxvZ1Jlc3BvbnNlIgASRgoJTGlzdFdvcmtzEhouYW5pbWUudjEuTGlzdFdvcmtzUmVxdWVzdBobLmFuaW1lLnYxLkxpc3RXb3Jrc1Jlc3BvbnNlIgASPQoGU2VhcmNoEhcuYW5pbWUudjEuU2VhcmNoUmVxdWVzdBoYLmFuaW1lLnYxLlNlYXJjaFJlc3BvbnNlIgASTwoMR2V0Q2hhcmFjdGVyEh0uYW5pbWUudjEuR2V0Q2hhcmFjdGVyUmVxdWVzdBoeLmFuaW1lLnYxLkdldENoYXJhY3RlclJlc3BvbnNlIgASVQoOTGlzdENoYXJhY3RlcnMSHy5hbmltZS52MS5MaXN0Q2hhcmFjdGVyc1JlcXVlc3QaIC5hbmltZS52MS5MaXN0Q2hhcmFjdGVyc1Jlc3BvbnNlIgASQwoIR2V0U3RhZmYSGS5hbmltZS52MS5HZXRTdGFmZlJlcXVlc3QaGi5hbmltZS52MS5HZXRTdGFmZlJlc3BvbnNlIgASRgoJTGlzdFN0YWZmEhouYW5pbWUudjEuTGlzdFN0YWZmUmVxdWVzdBobLmFuaW1lLnYxLkxpc3RTdGFmZlJlc3BvbnNlIgASTwoMTGlzdEVwaXNvZGVzEh0uYW5pbWUudjEuTGlzdEVwaXNvZGVzUmVxdWVzdBoeLmFuaW1lLnYxLkxpc3RFcGlzb2Rlc1Jlc3BvbnNlIgASSQoKTGlzdFNlcmllcxIbLmFuaW1lLnYxLkxpc3RTZXJpZXNSZXF1ZXN0GhwuYW5pbWUudjEuTGlzdFNlcmllc1Jlc3BvbnNlIgASWAoPTGlzdEFwcGVhcmFuY2VzEiAuYW5pbWUudjEuTGlzdEFwcGVhcmFuY2VzUmVxdWVzdBohLmFuaW1lLnYxLkxpc3RBcHBlYXJhbmNlc1Jlc3BvbnNlIgASTAoLTGlzdENyZWRpdHMSHC5hbmltZS52MS5MaXN0Q3JlZGl0c1JlcXVlc3QaHS5hbmltZS52MS5MaXN0Q3JlZGl0c1Jlc3BvbnNlIgASQwoIR2V0U3RhdHMSGS5hbmltZS52MS5HZXRTdGF0c1JlcXVlc3QaGi5hbmltZS52MS5HZXRTdGF0c1Jlc3BvbnNlIgBCUFpOZ2l0aHViLmNvbS9taWNoYWVsLWZyZWxpbmcvYW5pbWUtbWV0YWRhdGEtZGIvYXBpL2ludGVybmFsL2dlbi9hbmltZS92MTthbmltZXYxYgZwcm90bzM");
+  fileDesc("ChRhbmltZS92MS9hbmltZS5wcm90bxIIYW5pbWUudjEimQEKDkxvY2FsaXplZFRpdGxlEhAKCG9yaWdpbmFsGAEgASgJEkAKDHRyYW5zbGF0aW9ucxgCIAMoCzIqLmFuaW1lLnYxLkxvY2FsaXplZFRpdGxlLlRyYW5zbGF0aW9uc0VudHJ5GjMKEVRyYW5zbGF0aW9uc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEiagoLRXh0ZXJuYWxJZHMSEgoKYW5pbGlzdF9pZBgBIAEoBRIQCghhbmlkYl9pZBgCIAEoBRIPCgd0bWRiX2lkGAMgASgFEg8KB3R2ZGJfaWQYBCABKAUSEwoLd2lraWRhdGFfaWQYBSABKAkicgoHRXBpc29kZRIcCg9hYnNvbHV0ZV9udW1iZXIYASABKAVIAIgBARIUCgxhaXJlZF9udW1iZXIYAiABKAVCEgoQX2Fic29sdXRlX251bWJlckoECAMQBEoECAQQBVIMcmVsZWFzZV9kYXRlUgV0aXRsZSLHAgoGU2Vhc29uEgoKAmlkGAEgASgJEg0KBXRpdGxlGAogASgJEjEKD2xvY2FsaXplZF90aXRsZRgCIAEoCzIYLmFuaW1lLnYxLkxvY2FsaXplZFRpdGxlEg4KBm51bWJlchgDIAEoBRIRCgRwYXJ0GAQgASgFSACIAQESFAoMcmVsZWFzZV9kYXRlGAUgASgJEhQKDHJlbGVhc2VfeWVhchgGIAEoBRIvCg5yZWxlYXNlX3NlYXNvbhgHIAEoDjIXLmFuaW1lLnYxLlJlbGVhc2VTZWFzb24SKwoMZXh0ZXJuYWxfaWRzGAggASgLMhUuYW5pbWUudjEuRXh0ZXJuYWxJZHMSIwoIZXBpc29kZXMYCSADKAsyES5hbmltZS52MS5FcGlzb2RlQgcKBV9wYXJ0SgQICxAMUg5lcGlzb2Rlc190b3RhbCI1Cg5BbHRlcm5hdGVDdXRPZhIRCglzZWFzb25faWQYASABKAkSEAoIZXBpc29kZXMYAiABKAkilAIKBU1vdmllEgoKAmlkGAEgASgJEg0KBXRpdGxlGAggASgJEjEKD2xvY2FsaXplZF90aXRsZRgCIAEoCzIYLmFuaW1lLnYxLkxvY2FsaXplZFRpdGxlEhQKDHJlbGVhc2VfZGF0ZRgDIAEoCRIUCgxyZWxlYXNlX3llYXIYBCABKAUSKwoMZXh0ZXJuYWxfaWRzGAUgASgLMhUuYW5pbWUudjEuRXh0ZXJuYWxJZHMSHAoPYWJzb2x1dGVfbnVtYmVyGAYgASgFSACIAQESMgoQYWx0ZXJuYXRlX2N1dF9vZhgHIAEoCzIYLmFuaW1lLnYxLkFsdGVybmF0ZUN1dE9mQhIKEF9hYnNvbHV0ZV9udW1iZXIixgIKB1NwZWNpYWwSCgoCaWQYASABKAkSDQoFdGl0bGUYCSABKAkSMQoPbG9jYWxpemVkX3RpdGxlGAIgASgLMhguYW5pbWUudjEuTG9jYWxpemVkVGl0bGUSJwoGZm9ybWF0GAMgASgOMhcuYW5pbWUudjEuU3BlY2lhbEZvcm1hdBIUCgxyZWxlYXNlX2RhdGUYBCABKAkSFAoMcmVsZWFzZV95ZWFyGAUgASgFEisKDGV4dGVybmFsX2lkcxgGIAEoCzIVLmFuaW1lLnYxLkV4dGVybmFsSWRzEiMKCGVwaXNvZGVzGAcgAygLMhEuYW5pbWUudjEuRXBpc29kZRIcCg9hYnNvbHV0ZV9udW1iZXIYCCABKAVIAIgBAUISChBfYWJzb2x1dGVfbnVtYmVySgQIChALUg5lcGlzb2Rlc190b3RhbCJYCgpWb2ljZUFjdG9yEhAKCHN0YWZmX2lkGAEgASgJEhAKCGxhbmd1YWdlGAIgASgJEhIKCnN0YWZmX25hbWUYAyABKAkSEgoKdGhyb3VnaG91dBgEIAEoCCJiCghTY29wZVJlZhIRCglzZWFzb25faWQYASABKAkSEAoIbW92aWVfaWQYAiABKAkSEgoKc3BlY2lhbF9pZBgDIAEoCRINCgV0aXRsZRgEIAEoCRIOCgZudW1iZXIYBSABKAUiugEKE0NoYXJhY3RlckFwcGVhcmFuY2USEQoJc2VyaWVzX2lkGAEgASgJEhQKDHNlcmllc190aXRsZRgFIAEoCRIhCgVzY29wZRgCIAMoCzISLmFuaW1lLnYxLlNjb3BlUmVmEioKDHZvaWNlX2FjdG9ycxgDIAMoCzIULmFuaW1lLnYxLlZvaWNlQWN0b3ISKwoMZXh0ZXJuYWxfaWRzGAQgASgLMhUuYW5pbWUudjEuRXh0ZXJuYWxJZHMi/QEKCUNoYXJhY3RlchIKCgJpZBgBIAEoCRIMCgRuYW1lGAIgASgJEjAKDmxvY2FsaXplZF9uYW1lGAMgASgLMhguYW5pbWUudjEuTG9jYWxpemVkVGl0bGUSKwoMZXh0ZXJuYWxfaWRzGAQgASgLMhUuYW5pbWUudjEuRXh0ZXJuYWxJZHMSKgoMdm9pY2VfYWN0b3JzGAUgAygLMhQuYW5pbWUudjEuVm9pY2VBY3RvchIyCgthcHBlYXJhbmNlcxgGIAMoCzIdLmFuaW1lLnYxLkNoYXJhY3RlckFwcGVhcmFuY2VKBAgHEAhSEWFwcGVhcmFuY2VzX3RvdGFsIr8CCgZTZXJpZXMSCgoCaWQYASABKAkSDQoFdGl0bGUYBiABKAkSMQoPbG9jYWxpemVkX3RpdGxlGAIgASgLMhguYW5pbWUudjEuTG9jYWxpemVkVGl0bGUSIQoHc2Vhc29ucxgDIAMoCzIQLmFuaW1lLnYxLlNlYXNvbhIfCgZtb3ZpZXMYBCADKAsyDy5hbmltZS52MS5Nb3ZpZRIjCghzcGVjaWFscxgFIAMoCzIRLmFuaW1lLnYxLlNwZWNpYWwSJwoKY2hhcmFjdGVycxgHIAMoCzITLmFuaW1lLnYxLkNoYXJhY3RlckoECAgQCUoECAkQCkoECAoQC0oECAsQDFINc2Vhc29uc190b3RhbFIMbW92aWVzX3RvdGFsUg5zcGVjaWFsc190b3RhbFIQY2hhcmFjdGVyc190b3RhbCLNAQoNU2VyaWVzU3VtbWFyeRIKCgJpZBgBIAEoCRINCgV0aXRsZRgCIAEoCRIxCg9sb2NhbGl6ZWRfdGl0bGUYAyABKAsyGC5hbmltZS52MS5Mb2NhbGl6ZWRUaXRsZRIUCgxmcmFuY2hpc2VfaWQYBCABKAkSGgoSZmlyc3RfcmVsZWFzZV95ZWFyGAUgASgFEhsKE2xhdGVzdF9yZWxlYXNlX3llYXIYBiABKAUSDQoFd29ya3MYByABKAUSEAoIZXBpc29kZXMYCCABKAUicQoTU2VhcmNoU2VyaWVzUmVxdWVzdBINCgVxdWVyeRgBIAEoCRINCgVsaW1pdBgEIAEoBRISCgpwYWdlX3Rva2VuGAUgASgJSgQIAhADSgQIAxAEUgxyZWxlYXNlX3llYXJSDnJlbGVhc2Vfc2Vhc29uImwKFFNlYXJjaFNlcmllc1Jlc3BvbnNlEicKBnNlcmllcxgBIAMoCzIXLmFuaW1lLnYxLlNlcmllc1N1bW1hcnkSFwoPbmV4dF9wYWdlX3Rva2VuGAIgASgJEhIKCnRvdGFsX3NpemUYAyABKAUihgMKDlJlbGVhc2VTdW1tYXJ5EiMKBGtpbmQYASABKA4yFS5hbmltZS52MS5SZWxlYXNlS2luZBIKCgJpZBgCIAEoCRINCgV0aXRsZRgDIAEoCRIxCg9sb2NhbGl6ZWRfdGl0bGUYBCABKAsyGC5hbmltZS52MS5Mb2NhbGl6ZWRUaXRsZRIRCglzZXJpZXNfaWQYBSABKAkSFAoMc2VyaWVzX3RpdGxlGAYgASgJEg4KBm51bWJlchgHIAEoBRIUCgxyZWxlYXNlX2RhdGUYCCABKAkSFAoMcmVsZWFzZV95ZWFyGAkgASgFEi8KDnJlbGVhc2Vfc2Vhc29uGAogASgOMhcuYW5pbWUudjEuUmVsZWFzZVNlYXNvbhInCgZmb3JtYXQYCyABKA4yFy5hbmltZS52MS5TcGVjaWFsRm9ybWF0EhUKDWVwaXNvZGVfY291bnQYDCABKAUSKwoMZXh0ZXJuYWxfaWRzGA0gASgLMhUuYW5pbWUudjEuRXh0ZXJuYWxJZHMikAEKFVNlYXJjaFJlbGVhc2VzUmVxdWVzdBINCgVxdWVyeRgBIAEoCRIUCgxyZWxlYXNlX3llYXIYAiABKAUSLwoOcmVsZWFzZV9zZWFzb24YAyABKA4yFy5hbmltZS52MS5SZWxlYXNlU2Vhc29uEg0KBWxpbWl0GAQgASgFEhIKCnBhZ2VfdG9rZW4YBSABKAkicQoWU2VhcmNoUmVsZWFzZXNSZXNwb25zZRIqCghyZWxlYXNlcxgBIAMoCzIYLmFuaW1lLnYxLlJlbGVhc2VTdW1tYXJ5EhcKD25leHRfcGFnZV90b2tlbhgCIAEoCRISCgp0b3RhbF9zaXplGAMgASgFIh4KEEdldFNlcmllc1JlcXVlc3QSCgoCaWQYASABKAkiSwoRR2V0U2VyaWVzUmVzcG9uc2USIAoGc2VyaWVzGAEgASgLMhAuYW5pbWUudjEuU2VyaWVzEhQKDGZyYW5jaGlzZV9pZBgCIAEoCSpVCg1SZWxlYXNlU2Vhc29uEhYKElNFQVNPTl9VTlNQRUNJRklFRBAAEgoKBldJTlRFUhABEgoKBlNQUklORxACEgoKBlNVTU1FUhADEggKBEZBTEwQBCpbCg1TcGVjaWFsRm9ybWF0EhYKEkZPUk1BVF9VTlNQRUNJRklFRBAAEg4KCkZPUk1BVF9PVkEQARIOCgpGT1JNQVRfT05BEAISEgoORk9STUFUX1NQRUNJQUwQAypKCgtSZWxlYXNlS2luZBIUChBLSU5EX1VOU1BFQ0lGSUVEEAASDQoJVFZfU0VBU09OEAESCQoFTU9WSUUQAhILCgdTUEVDSUFMEAMy/gEKDEFuaW1lU2VydmljZRJPCgxTZWFyY2hTZXJpZXMSHS5hbmltZS52MS5TZWFyY2hTZXJpZXNSZXF1ZXN0Gh4uYW5pbWUudjEuU2VhcmNoU2VyaWVzUmVzcG9uc2UiABJVCg5TZWFyY2hSZWxlYXNlcxIfLmFuaW1lLnYxLlNlYXJjaFJlbGVhc2VzUmVxdWVzdBogLmFuaW1lLnYxLlNlYXJjaFJlbGVhc2VzUmVzcG9uc2UiABJGCglHZXRTZXJpZXMSGi5hbmltZS52MS5HZXRTZXJpZXNSZXF1ZXN0GhsuYW5pbWUudjEuR2V0U2VyaWVzUmVzcG9uc2UiAEJQWk5naXRodWIuY29tL21pY2hhZWwtZnJlbGluZy9hbmltZS1tZXRhZGF0YS1kYi9hcGkvaW50ZXJuYWwvZ2VuL2FuaW1lL3YxO2FuaW1ldjFiBnByb3RvMw");
 
 /**
  * LocalizedTitle holds a title across languages: the original native-script
@@ -95,7 +108,6 @@ export const ExternalIdsSchema: GenMessage<ExternalIds> = /*@__PURE__*/
   messageDesc(file_anime_v1_anime, 1);
 
 /**
- * Episode is one TV episode. Dates are serialized as YYYY-MM-DD strings.
  * Episode is one numbered entry of a season or special.
  *
  * It carries numbering and nothing else. The upstream database publishes an
@@ -187,17 +199,11 @@ export type Season = Message<"anime.v1.Season"> & {
   externalIds?: ExternalIds | undefined;
 
   /**
-   * episodes is the first page only, capped; episodes_total is the real count.
-   * Use ListEpisodes to page the rest.
+   * episodes is every episode of this season, in order.
    *
    * @generated from field: repeated anime.v1.Episode episodes = 9;
    */
   episodes: Episode[];
-
-  /**
-   * @generated from field: int32 episodes_total = 11;
-   */
-  episodesTotal: number;
 };
 
 /**
@@ -335,17 +341,11 @@ export type Special = Message<"anime.v1.Special"> & {
   externalIds?: ExternalIds | undefined;
 
   /**
-   * episodes is the first page only, capped; episodes_total is the real count.
-   * Use ListEpisodes to page the rest.
+   * episodes is every episode of this special, in order.
    *
    * @generated from field: repeated anime.v1.Episode episodes = 7;
    */
   episodes: Episode[];
-
-  /**
-   * @generated from field: int32 episodes_total = 10;
-   */
-  episodesTotal: number;
 
   /**
    * @generated from field: optional int32 absolute_number = 8;
@@ -359,88 +359,6 @@ export type Special = Message<"anime.v1.Special"> & {
  */
 export const SpecialSchema: GenMessage<Special> = /*@__PURE__*/
   messageDesc(file_anime_v1_anime, 6);
-
-/**
- * Series is the base unit: one storyline / continuity.
- *
- * @generated from message anime.v1.Series
- */
-export type Series = Message<"anime.v1.Series"> & {
-  /**
-   * @generated from field: string id = 1;
-   */
-  id: string;
-
-  /**
-   * title is resolved for the request's Accept-Language.
-   *
-   * @generated from field: string title = 6;
-   */
-  title: string;
-
-  /**
-   * localized_title carries every language; set only for Accept-Language: *.
-   *
-   * @generated from field: anime.v1.LocalizedTitle localized_title = 2;
-   */
-  localizedTitle?: LocalizedTitle | undefined;
-
-  /**
-   * Every collection below is the first page only, capped at a fixed limit.
-   * The matching *_total is the real count, and a List RPC pages the rest:
-   * ListWorks(series_id) for releases, ListCharacters(series_id) for the cast.
-   * Embedding them unbounded would make one GetSeries call serialize an entire
-   * long-running show, which is exactly what this API is built not to do.
-   *
-   * @generated from field: repeated anime.v1.Season seasons = 3;
-   */
-  seasons: Season[];
-
-  /**
-   * @generated from field: int32 seasons_total = 8;
-   */
-  seasonsTotal: number;
-
-  /**
-   * @generated from field: repeated anime.v1.Movie movies = 4;
-   */
-  movies: Movie[];
-
-  /**
-   * @generated from field: int32 movies_total = 9;
-   */
-  moviesTotal: number;
-
-  /**
-   * @generated from field: repeated anime.v1.Special specials = 5;
-   */
-  specials: Special[];
-
-  /**
-   * @generated from field: int32 specials_total = 10;
-   */
-  specialsTotal: number;
-
-  /**
-   * characters appearing in this series, in dataset order. Each is the full
-   * global Character node, so its appearances may name other series too.
-   *
-   * @generated from field: repeated anime.v1.Character characters = 7;
-   */
-  characters: Character[];
-
-  /**
-   * @generated from field: int32 characters_total = 11;
-   */
-  charactersTotal: number;
-};
-
-/**
- * Describes the message anime.v1.Series.
- * Use `create(SeriesSchema)` to create a new message.
- */
-export const SeriesSchema: GenMessage<Series> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 7);
 
 /**
  * VoiceActor links a Character to the Staff who voices it in one language.
@@ -462,8 +380,8 @@ export type VoiceActor = Message<"anime.v1.VoiceActor"> & {
 
   /**
    * staff_name is the staff member's name resolved for the request's
-   * Accept-Language, denormalized so a client need not call GetStaff. Empty
-   * when the dataset carries no name for them yet.
+   * Accept-Language, denormalized so a client need not look the person up.
+   * Empty when the dataset carries no name for them yet.
    *
    * @generated from field: string staff_name = 3;
    */
@@ -475,12 +393,10 @@ export type VoiceActor = Message<"anime.v1.VoiceActor"> & {
    * work, so she is `throughout` in each of Saber's appearances while the
    * English dub cast alongside her is not.
    *
-   * It is set only where a list mixes the two: an appearance's cast, and a
-   * character's cast when the request named a series. Character.voice_actors
-   * asked without a series holds nothing else, so nothing is marked there.
-   * Ignore it and you still have the full cast, which is the point of
-   * resolving the list server-side; read it and you can tell what is specific
-   * to this series without diffing two lists yourself.
+   * It is set only on an appearance's cast, where the two are mixed. Ignore it
+   * and you still have the full cast, which is the point of resolving the list
+   * server-side; read it and you can tell what is specific to one series
+   * without diffing two lists yourself.
    *
    * @generated from field: bool throughout = 4;
    */
@@ -492,7 +408,7 @@ export type VoiceActor = Message<"anime.v1.VoiceActor"> & {
  * Use `create(VoiceActorSchema)` to create a new message.
  */
 export const VoiceActorSchema: GenMessage<VoiceActor> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 8);
+  messageDesc(file_anime_v1_anime, 7);
 
 /**
  * ScopeRef narrows a CharacterAppearance to one installment of a Series.
@@ -519,7 +435,7 @@ export type ScopeRef = Message<"anime.v1.ScopeRef"> & {
   /**
    * title is that installment's own title resolved for the request's
    * Accept-Language, denormalized for the same reason series_title is: a client
-   * labelling a scoped appearance should not have to call GetSeries to do it.
+   * labelling a scoped appearance should not have to look the installment up.
    * A numbered season usually has no title of its own, so number carries its
    * position for a caller composing a label; it is 0 for a movie or special.
    *
@@ -538,11 +454,15 @@ export type ScopeRef = Message<"anime.v1.ScopeRef"> & {
  * Use `create(ScopeRefSchema)` to create a new message.
  */
 export const ScopeRefSchema: GenMessage<ScopeRef> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 9);
+  messageDesc(file_anime_v1_anime, 8);
 
 /**
  * CharacterAppearance is a Character <-> Series edge. series_id is the rollup
  * association and scope optionally narrows it to specific installments.
+ *
+ * A character reached through GetSeries is the full global node, so its
+ * appearances may name series other than the one you asked for. That is how a
+ * caller learns a character is shared across the catalogue.
  *
  * @generated from message anime.v1.CharacterAppearance
  */
@@ -569,7 +489,7 @@ export type CharacterAppearance = Message<"anime.v1.CharacterAppearance"> & {
 
   /**
    * voice_actors is the cast for this appearance, resolved: it is the
-   * character's constant cast plus whoever is specific to this series. Render
+   * character's constant cast plus whoever is specific to that series. Render
    * it as-is; there is nothing to merge client-side.
    *
    * @generated from field: repeated anime.v1.VoiceActor voice_actors = 3;
@@ -587,7 +507,7 @@ export type CharacterAppearance = Message<"anime.v1.CharacterAppearance"> & {
  * Use `create(CharacterAppearanceSchema)` to create a new message.
  */
 export const CharacterAppearanceSchema: GenMessage<CharacterAppearance> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 10);
+  messageDesc(file_anime_v1_anime, 9);
 
 /**
  * Character is a global fictional entity, owned by no Franchise or Series.
@@ -632,17 +552,11 @@ export type Character = Message<"anime.v1.Character"> & {
   voiceActors: VoiceActor[];
 
   /**
-   * appearances is the first page only, capped; appearances_total is the real
-   * count. Use ListAppearances to page the rest.
+   * appearances is every series this character appears in.
    *
    * @generated from field: repeated anime.v1.CharacterAppearance appearances = 6;
    */
   appearances: CharacterAppearance[];
-
-  /**
-   * @generated from field: int32 appearances_total = 7;
-   */
-  appearancesTotal: number;
 };
 
 /**
@@ -650,146 +564,20 @@ export type Character = Message<"anime.v1.Character"> & {
  * Use `create(CharacterSchema)` to create a new message.
  */
 export const CharacterSchema: GenMessage<Character> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 11);
+  messageDesc(file_anime_v1_anime, 10);
 
 /**
- * Staff is a global real person — currently only voice actors.
+ * Series is the unit of this API: one storyline / continuity, whole.
  *
- * @generated from message anime.v1.Staff
- */
-export type Staff = Message<"anime.v1.Staff"> & {
-  /**
-   * @generated from field: string id = 1;
-   */
-  id: string;
-
-  /**
-   * name is resolved for the request's Accept-Language.
-   *
-   * @generated from field: string name = 2;
-   */
-  name: string;
-
-  /**
-   * localized_name carries every language; set only for Accept-Language: *.
-   *
-   * @generated from field: anime.v1.LocalizedTitle localized_name = 3;
-   */
-  localizedName?: LocalizedTitle | undefined;
-
-  /**
-   * @generated from field: anime.v1.ExternalIds external_ids = 4;
-   */
-  externalIds?: ExternalIds | undefined;
-};
-
-/**
- * Describes the message anime.v1.Staff.
- * Use `create(StaffSchema)` to create a new message.
- */
-export const StaffSchema: GenMessage<Staff> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 12);
-
-/**
- * StaffCredit is one role a Staff member is cast in: the character they voice,
- * the language they voice it in, and the series it applies to.
+ * Every collection below is complete — no caps, no page tokens, no companion
+ * List calls. One series is bounded by what a series can be: the longest-running
+ * show in existence is a four-figure episode count of two integers each, and a
+ * large cast is a few hundred names. The thing this API refuses to serialize
+ * unbounded is a *collection of series*, which is what SearchSeries pages.
  *
- * @generated from message anime.v1.StaffCredit
+ * @generated from message anime.v1.Series
  */
-export type StaffCredit = Message<"anime.v1.StaffCredit"> & {
-  /**
-   * @generated from field: string character_id = 1;
-   */
-  characterId: string;
-
-  /**
-   * @generated from field: string character_name = 2;
-   */
-  characterName: string;
-
-  /**
-   * @generated from field: string language = 3;
-   */
-  language: string;
-
-  /**
-   * @generated from field: repeated string series_ids = 4;
-   */
-  seriesIds: string[];
-
-  /**
-   * series_titles are those series' titles resolved for the request's
-   * Accept-Language, positionally matching series_ids. Denormalized for the
-   * same reason VoiceActor carries staff_name: a client listing someone's
-   * roles should not have to call GetSeries once per credit, and without it
-   * the only thing it can show a reader is a slug.
-   *
-   * @generated from field: repeated string series_titles = 5;
-   */
-  seriesTitles: string[];
-};
-
-/**
- * Describes the message anime.v1.StaffCredit.
- * Use `create(StaffCreditSchema)` to create a new message.
- */
-export const StaffCreditSchema: GenMessage<StaffCredit> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 13);
-
-/**
- * WatchOrderEntry is one ordered reference within a WatchOrder.
- *
- * @generated from message anime.v1.WatchOrderEntry
- */
-export type WatchOrderEntry = Message<"anime.v1.WatchOrderEntry"> & {
-  /**
-   * @generated from field: string ref = 1;
-   */
-  ref: string;
-
-  /**
-   * @generated from field: string note = 2;
-   */
-  note: string;
-};
-
-/**
- * Describes the message anime.v1.WatchOrderEntry.
- * Use `create(WatchOrderEntrySchema)` to create a new message.
- */
-export const WatchOrderEntrySchema: GenMessage<WatchOrderEntry> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 14);
-
-/**
- * WatchOrder is a named curated alternate order across a Franchise's Series.
- *
- * @generated from message anime.v1.WatchOrder
- */
-export type WatchOrder = Message<"anime.v1.WatchOrder"> & {
-  /**
-   * @generated from field: string name = 1;
-   */
-  name: string;
-
-  /**
-   * @generated from field: repeated anime.v1.WatchOrderEntry entries = 2;
-   */
-  entries: WatchOrderEntry[];
-};
-
-/**
- * Describes the message anime.v1.WatchOrder.
- * Use `create(WatchOrderSchema)` to create a new message.
- */
-export const WatchOrderSchema: GenMessage<WatchOrder> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 15);
-
-/**
- * Franchise groups related Series under one brand.
- *
- * @generated from message anime.v1.Franchise
- */
-export type Franchise = Message<"anime.v1.Franchise"> & {
+export type Series = Message<"anime.v1.Series"> & {
   /**
    * @generated from field: string id = 1;
    */
@@ -798,7 +586,7 @@ export type Franchise = Message<"anime.v1.Franchise"> & {
   /**
    * title is resolved for the request's Accept-Language.
    *
-   * @generated from field: string title = 5;
+   * @generated from field: string title = 6;
    */
   title: string;
 
@@ -810,58 +598,56 @@ export type Franchise = Message<"anime.v1.Franchise"> & {
   localizedTitle?: LocalizedTitle | undefined;
 
   /**
-   * series is the first page only, capped, and each Series in it carries its
-   * own capped collections. A franchise nests the deepest structure in the
-   * dataset, so an unbounded GetFranchise would serialize every episode of
-   * every season of every series under the brand. Use ListSeries to page.
+   * @generated from field: repeated anime.v1.Season seasons = 3;
+   */
+  seasons: Season[];
+
+  /**
+   * @generated from field: repeated anime.v1.Movie movies = 4;
+   */
+  movies: Movie[];
+
+  /**
+   * @generated from field: repeated anime.v1.Special specials = 5;
+   */
+  specials: Special[];
+
+  /**
+   * characters is this series' whole cast, in dataset order. Each is the full
+   * global Character node, so its appearances may name other series too.
    *
-   * @generated from field: repeated anime.v1.Series series = 3;
+   * @generated from field: repeated anime.v1.Character characters = 7;
    */
-  series: Series[];
-
-  /**
-   * @generated from field: int32 series_total = 6;
-   */
-  seriesTotal: number;
-
-  /**
-   * @generated from field: repeated anime.v1.WatchOrder watch_orders = 4;
-   */
-  watchOrders: WatchOrder[];
-
-  /**
-   * @generated from field: int32 watch_orders_total = 7;
-   */
-  watchOrdersTotal: number;
+  characters: Character[];
 };
 
 /**
- * Describes the message anime.v1.Franchise.
- * Use `create(FranchiseSchema)` to create a new message.
+ * Describes the message anime.v1.Series.
+ * Use `create(SeriesSchema)` to create a new message.
  */
-export const FranchiseSchema: GenMessage<Franchise> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 16);
+export const SeriesSchema: GenMessage<Series> = /*@__PURE__*/
+  messageDesc(file_anime_v1_anime, 11);
 
 /**
- * SearchResult is one match: a top-level franchise or a series.
+ * SeriesSummary is one search hit: enough to render a result row and decide
+ * whether to open it, and nothing that would make a page of results expensive.
  *
- * @generated from message anime.v1.SearchResult
+ * It is deliberately not a Series. A page of 50 whole series would be a bulk
+ * export of most of the dataset; this is the shape that keeps SearchSeries a
+ * search rather than a download.
+ *
+ * @generated from message anime.v1.SeriesSummary
  */
-export type SearchResult = Message<"anime.v1.SearchResult"> & {
+export type SeriesSummary = Message<"anime.v1.SeriesSummary"> & {
   /**
-   * @generated from field: anime.v1.EntryKind kind = 1;
-   */
-  kind: EntryKind;
-
-  /**
-   * @generated from field: string id = 2;
+   * @generated from field: string id = 1;
    */
   id: string;
 
   /**
    * title is resolved for the request's Accept-Language.
    *
-   * @generated from field: string title = 5;
+   * @generated from field: string title = 2;
    */
   title: string;
 
@@ -873,109 +659,126 @@ export type SearchResult = Message<"anime.v1.SearchResult"> & {
   localizedTitle?: LocalizedTitle | undefined;
 
   /**
-   * franchise_id is set when kind is SERIES and the series belongs to a
-   * franchise; empty for a standalone series or a franchise result.
+   * franchise_id is the brand this series belongs to, or empty when it stands
+   * alone. Two summaries sharing one are two storylines of the same franchise.
    *
    * @generated from field: string franchise_id = 4;
    */
   franchiseId: string;
-};
-
-/**
- * Describes the message anime.v1.SearchResult.
- * Use `create(SearchResultSchema)` to create a new message.
- */
-export const SearchResultSchema: GenMessage<SearchResult> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 17);
-
-/**
- * DatasetStats summarizes the loaded dataset.
- * CatalogEntry is one browsable top-level entry — a franchise or a standalone
- * series — carrying just enough to render a catalog row. Unlike GetFranchise
- * and GetSeries it does NOT nest seasons, movies, specials or episodes, so a
- * page of entries stays small no matter how large the catalog grows.
- *
- * @generated from message anime.v1.CatalogEntry
- */
-export type CatalogEntry = Message<"anime.v1.CatalogEntry"> & {
-  /**
-   * @generated from field: anime.v1.EntryKind kind = 1;
-   */
-  kind: EntryKind;
 
   /**
-   * @generated from field: string id = 2;
-   */
-  id: string;
-
-  /**
-   * title is resolved for the request's Accept-Language.
+   * The span of release years across everything in this series. Both are 0 when
+   * nothing in it carries a year.
    *
-   * @generated from field: string title = 3;
-   */
-  title: string;
-
-  /**
-   * localized_title carries every language; set only for Accept-Language: *.
-   *
-   * @generated from field: anime.v1.LocalizedTitle localized_title = 4;
-   */
-  localizedTitle?: LocalizedTitle | undefined;
-
-  /**
-   * franchise_id is set when kind is SERIES and the series belongs to a
-   * franchise; empty for a standalone series or a franchise entry.
-   *
-   * @generated from field: string franchise_id = 5;
-   */
-  franchiseId: string;
-
-  /**
-   * The span of release years across everything under this entry. Both are 0
-   * when nothing under it carries a year.
-   *
-   * @generated from field: int32 first_release_year = 6;
+   * @generated from field: int32 first_release_year = 5;
    */
   firstReleaseYear: number;
 
   /**
-   * @generated from field: int32 latest_release_year = 7;
+   * @generated from field: int32 latest_release_year = 6;
    */
   latestReleaseYear: number;
 
   /**
-   * Counts of what sits under this entry: works is seasons + movies + specials.
+   * Counts of what is in this series: works is seasons + movies + specials.
    *
-   * @generated from field: int32 works = 8;
+   * @generated from field: int32 works = 7;
    */
   works: number;
 
   /**
-   * @generated from field: int32 episodes = 9;
+   * @generated from field: int32 episodes = 8;
    */
   episodes: number;
 };
 
 /**
- * Describes the message anime.v1.CatalogEntry.
- * Use `create(CatalogEntrySchema)` to create a new message.
+ * Describes the message anime.v1.SeriesSummary.
+ * Use `create(SeriesSummarySchema)` to create a new message.
  */
-export const CatalogEntrySchema: GenMessage<CatalogEntry> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 18);
+export const SeriesSummarySchema: GenMessage<SeriesSummary> = /*@__PURE__*/
+  messageDesc(file_anime_v1_anime, 12);
 
 /**
- * WorkSummary is one release — a season, movie or special — flattened out of
- * the hierarchy with enough of its parent to render it standalone. This is the
- * unit a seasonal chart lists, which the nested Franchise/Series records cannot
- * serve without the client walking the whole tree.
- *
- * @generated from message anime.v1.WorkSummary
+ * @generated from message anime.v1.SearchSeriesRequest
  */
-export type WorkSummary = Message<"anime.v1.WorkSummary"> & {
+export type SearchSeriesRequest = Message<"anime.v1.SearchSeriesRequest"> & {
   /**
-   * @generated from field: anime.v1.WorkKind kind = 1;
+   * query matches the series' title in any language, case-insensitively, as a
+   * substring. Empty matches every series, which is how a caller walks the
+   * catalogue rather than searching it.
+   *
+   * @generated from field: string query = 1;
    */
-  kind: WorkKind;
+  query: string;
+
+  /**
+   * limit caps the page size; <= 0 applies the server default of 50.
+   *
+   * @generated from field: int32 limit = 4;
+   */
+  limit: number;
+
+  /**
+   * page_token continues a previous call; empty starts from the beginning.
+   * Pass the next_page_token from the previous response.
+   *
+   * @generated from field: string page_token = 5;
+   */
+  pageToken: string;
+};
+
+/**
+ * Describes the message anime.v1.SearchSeriesRequest.
+ * Use `create(SearchSeriesRequestSchema)` to create a new message.
+ */
+export const SearchSeriesRequestSchema: GenMessage<SearchSeriesRequest> = /*@__PURE__*/
+  messageDesc(file_anime_v1_anime, 13);
+
+/**
+ * @generated from message anime.v1.SearchSeriesResponse
+ */
+export type SearchSeriesResponse = Message<"anime.v1.SearchSeriesResponse"> & {
+  /**
+   * @generated from field: repeated anime.v1.SeriesSummary series = 1;
+   */
+  series: SeriesSummary[];
+
+  /**
+   * next_page_token is empty when this is the last page.
+   *
+   * @generated from field: string next_page_token = 2;
+   */
+  nextPageToken: string;
+
+  /**
+   * total_size counts every match across all pages, not just this page.
+   *
+   * @generated from field: int32 total_size = 3;
+   */
+  totalSize: number;
+};
+
+/**
+ * Describes the message anime.v1.SearchSeriesResponse.
+ * Use `create(SearchSeriesResponseSchema)` to create a new message.
+ */
+export const SearchSeriesResponseSchema: GenMessage<SearchSeriesResponse> = /*@__PURE__*/
+  messageDesc(file_anime_v1_anime, 14);
+
+/**
+ * ReleaseSummary is one release — a season, film or special — flattened out of
+ * the hierarchy and carrying enough of its series to stand on its own. This is
+ * the unit a seasonal chart lists: "Winter 2026" is a set of releases, not a
+ * set of series, and each row needs to name its show.
+ *
+ * @generated from message anime.v1.ReleaseSummary
+ */
+export type ReleaseSummary = Message<"anime.v1.ReleaseSummary"> & {
+  /**
+   * @generated from field: anime.v1.ReleaseKind kind = 1;
+   */
+  kind: ReleaseKind;
 
   /**
    * @generated from field: string id = 2;
@@ -997,8 +800,9 @@ export type WorkSummary = Message<"anime.v1.WorkSummary"> & {
   localizedTitle?: LocalizedTitle | undefined;
 
   /**
-   * The series this work belongs to, and that series' resolved title, so a row
-   * can name its show without a second call.
+   * The series this release belongs to, and that series' resolved title, so a
+   * row can name its show without a second call. Pass series_id to GetSeries
+   * for the whole thing.
    *
    * @generated from field: string series_id = 5;
    */
@@ -1010,7 +814,7 @@ export type WorkSummary = Message<"anime.v1.WorkSummary"> & {
   seriesTitle: string;
 
   /**
-   * number is the season number; set only when kind is SEASON.
+   * number is the season number; set only when kind is TV_SEASON.
    *
    * @generated from field: int32 number = 7;
    */
@@ -1027,8 +831,8 @@ export type WorkSummary = Message<"anime.v1.WorkSummary"> & {
   releaseYear: number;
 
   /**
-   * release_season is set only when kind is SEASON; movies and specials carry
-   * a year only.
+   * release_season is set only when kind is TV_SEASON; films and specials carry
+   * a year without a quarter.
    *
    * @generated from field: anime.v1.ReleaseSeason release_season = 10;
    */
@@ -1053,117 +857,94 @@ export type WorkSummary = Message<"anime.v1.WorkSummary"> & {
 };
 
 /**
- * Describes the message anime.v1.WorkSummary.
- * Use `create(WorkSummarySchema)` to create a new message.
+ * Describes the message anime.v1.ReleaseSummary.
+ * Use `create(ReleaseSummarySchema)` to create a new message.
  */
-export const WorkSummarySchema: GenMessage<WorkSummary> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 19);
+export const ReleaseSummarySchema: GenMessage<ReleaseSummary> = /*@__PURE__*/
+  messageDesc(file_anime_v1_anime, 15);
 
 /**
- * @generated from message anime.v1.DatasetStats
+ * SearchReleasesRequest carries three independent filters. Every one is
+ * optional and they AND together, so a keyword alone, a year alone, a year with
+ * a quarter, or a keyword narrowed by either all work. An empty request walks
+ * every release in the catalogue.
+ *
+ * The one combination refused is a quarter without a year: "Winter" across
+ * every year the dataset covers is not a question anyone means to ask, and
+ * answering it silently would look like a working filter. It is
+ * InvalidArgument.
+ *
+ * @generated from message anime.v1.SearchReleasesRequest
  */
-export type DatasetStats = Message<"anime.v1.DatasetStats"> & {
+export type SearchReleasesRequest = Message<"anime.v1.SearchReleasesRequest"> & {
   /**
-   * @generated from field: int32 franchises = 1;
-   */
-  franchises: number;
-
-  /**
-   * @generated from field: int32 series = 2;
-   */
-  series: number;
-
-  /**
-   * @generated from field: int32 seasons = 3;
-   */
-  seasons: number;
-
-  /**
-   * @generated from field: int32 episodes = 4;
-   */
-  episodes: number;
-
-  /**
-   * @generated from field: int32 characters = 5;
-   */
-  characters: number;
-
-  /**
-   * @generated from field: int32 staff = 6;
-   */
-  staff: number;
-
-  /**
-   * The span of release years the dataset actually covers, across every work
-   * that carries a year. Both are 0 for an empty dataset. A consumer can use
-   * earliest_release_year as the floor below which a year cannot be real data —
-   * it is derived from the dataset, so it does not go stale as older works are
-   * added.
+   * query matches the release's own title or its series' title, in any
+   * language, case-insensitively, as a substring. Empty matches everything.
    *
-   * @generated from field: int32 earliest_release_year = 7;
+   * @generated from field: string query = 1;
    */
-  earliestReleaseYear: number;
+  query: string;
 
   /**
-   * @generated from field: int32 latest_release_year = 8;
-   */
-  latestReleaseYear: number;
-};
-
-/**
- * Describes the message anime.v1.DatasetStats.
- * Use `create(DatasetStatsSchema)` to create a new message.
- */
-export const DatasetStatsSchema: GenMessage<DatasetStats> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 20);
-
-/**
- * @generated from message anime.v1.ListFranchisesRequest
- */
-export type ListFranchisesRequest = Message<"anime.v1.ListFranchisesRequest"> & {
-  /**
-   * page_token continues a previous listing; limit caps the page.
+   * release_year is the calendar year the release premiered.
    *
-   * A franchise carries its whole tree — every series, season and episode —
-   * so an unbounded listing is a request to serve the entire dataset in one
-   * response. It is paginated for that reason. Callers that want a flat,
-   * cheap catalogue should use ListCatalog instead.
+   * proto3 gives scalars no field presence, so 0 necessarily means "no year
+   * filter" rather than "releases with no year" — a caller wanting a specific
+   * year must send a real one, and a UI must reject 0 before it reaches here
+   * rather than labelling an unfiltered result as year 0.
    *
-   * @generated from field: string page_token = 1;
+   * @generated from field: int32 release_year = 2;
    */
-  pageToken: string;
+  releaseYear: number;
 
   /**
-   * @generated from field: int32 limit = 2;
+   * release_season narrows release_year to one quarter, and requires it. Only
+   * TV seasons carry a quarter, so setting it excludes every film and special.
+   *
+   * @generated from field: anime.v1.ReleaseSeason release_season = 3;
+   */
+  releaseSeason: ReleaseSeason;
+
+  /**
+   * limit caps the page size; <= 0 applies the server default of 50.
+   *
+   * @generated from field: int32 limit = 4;
    */
   limit: number;
+
+  /**
+   * page_token continues a previous call; empty starts from the beginning.
+   *
+   * @generated from field: string page_token = 5;
+   */
+  pageToken: string;
 };
 
 /**
- * Describes the message anime.v1.ListFranchisesRequest.
- * Use `create(ListFranchisesRequestSchema)` to create a new message.
+ * Describes the message anime.v1.SearchReleasesRequest.
+ * Use `create(SearchReleasesRequestSchema)` to create a new message.
  */
-export const ListFranchisesRequestSchema: GenMessage<ListFranchisesRequest> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 21);
+export const SearchReleasesRequestSchema: GenMessage<SearchReleasesRequest> = /*@__PURE__*/
+  messageDesc(file_anime_v1_anime, 16);
 
 /**
- * @generated from message anime.v1.ListFranchisesResponse
+ * @generated from message anime.v1.SearchReleasesResponse
  */
-export type ListFranchisesResponse = Message<"anime.v1.ListFranchisesResponse"> & {
+export type SearchReleasesResponse = Message<"anime.v1.SearchReleasesResponse"> & {
   /**
-   * @generated from field: repeated anime.v1.Franchise franchises = 1;
+   * @generated from field: repeated anime.v1.ReleaseSummary releases = 1;
    */
-  franchises: Franchise[];
+  releases: ReleaseSummary[];
 
   /**
-   * next_page_token is empty on the last page.
+   * next_page_token is empty when this is the last page.
    *
    * @generated from field: string next_page_token = 2;
    */
   nextPageToken: string;
 
   /**
-   * total_size counts every franchise, not just this page.
+   * total_size counts every match across all pages, not just this page.
    *
    * @generated from field: int32 total_size = 3;
    */
@@ -1171,45 +952,11 @@ export type ListFranchisesResponse = Message<"anime.v1.ListFranchisesResponse"> 
 };
 
 /**
- * Describes the message anime.v1.ListFranchisesResponse.
- * Use `create(ListFranchisesResponseSchema)` to create a new message.
+ * Describes the message anime.v1.SearchReleasesResponse.
+ * Use `create(SearchReleasesResponseSchema)` to create a new message.
  */
-export const ListFranchisesResponseSchema: GenMessage<ListFranchisesResponse> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 22);
-
-/**
- * @generated from message anime.v1.GetFranchiseRequest
- */
-export type GetFranchiseRequest = Message<"anime.v1.GetFranchiseRequest"> & {
-  /**
-   * @generated from field: string id = 1;
-   */
-  id: string;
-};
-
-/**
- * Describes the message anime.v1.GetFranchiseRequest.
- * Use `create(GetFranchiseRequestSchema)` to create a new message.
- */
-export const GetFranchiseRequestSchema: GenMessage<GetFranchiseRequest> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 23);
-
-/**
- * @generated from message anime.v1.GetFranchiseResponse
- */
-export type GetFranchiseResponse = Message<"anime.v1.GetFranchiseResponse"> & {
-  /**
-   * @generated from field: anime.v1.Franchise franchise = 1;
-   */
-  franchise?: Franchise | undefined;
-};
-
-/**
- * Describes the message anime.v1.GetFranchiseResponse.
- * Use `create(GetFranchiseResponseSchema)` to create a new message.
- */
-export const GetFranchiseResponseSchema: GenMessage<GetFranchiseResponse> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 24);
+export const SearchReleasesResponseSchema: GenMessage<SearchReleasesResponse> = /*@__PURE__*/
+  messageDesc(file_anime_v1_anime, 17);
 
 /**
  * @generated from message anime.v1.GetSeriesRequest
@@ -1226,7 +973,7 @@ export type GetSeriesRequest = Message<"anime.v1.GetSeriesRequest"> & {
  * Use `create(GetSeriesRequestSchema)` to create a new message.
  */
 export const GetSeriesRequestSchema: GenMessage<GetSeriesRequest> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 25);
+  messageDesc(file_anime_v1_anime, 18);
 
 /**
  * @generated from message anime.v1.GetSeriesResponse
@@ -1238,7 +985,10 @@ export type GetSeriesResponse = Message<"anime.v1.GetSeriesResponse"> & {
   series?: Series | undefined;
 
   /**
-   * franchise_id is the owning franchise, or empty for a standalone series.
+   * franchise_id is the brand this series belongs to, or empty for a standalone
+   * series. It is an id and nothing else: this API has no franchise call, so
+   * treat it as a grouping key — two series carrying the same one belong
+   * together — rather than as something to dereference.
    *
    * @generated from field: string franchise_id = 2;
    */
@@ -1250,753 +1000,7 @@ export type GetSeriesResponse = Message<"anime.v1.GetSeriesResponse"> & {
  * Use `create(GetSeriesResponseSchema)` to create a new message.
  */
 export const GetSeriesResponseSchema: GenMessage<GetSeriesResponse> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 26);
-
-/**
- * @generated from message anime.v1.SearchRequest
- */
-export type SearchRequest = Message<"anime.v1.SearchRequest"> & {
-  /**
-   * @generated from field: string query = 1;
-   */
-  query: string;
-
-  /**
-   * limit caps the number of results; <= 0 applies a server default.
-   *
-   * @generated from field: int32 limit = 2;
-   */
-  limit: number;
-
-  /**
-   * page_token continues a previous call; empty starts from the beginning.
-   * Pass the next_page_token from the previous response.
-   *
-   * @generated from field: string page_token = 3;
-   */
-  pageToken: string;
-};
-
-/**
- * Describes the message anime.v1.SearchRequest.
- * Use `create(SearchRequestSchema)` to create a new message.
- */
-export const SearchRequestSchema: GenMessage<SearchRequest> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 27);
-
-/**
- * @generated from message anime.v1.SearchResponse
- */
-export type SearchResponse = Message<"anime.v1.SearchResponse"> & {
-  /**
-   * @generated from field: repeated anime.v1.SearchResult results = 1;
-   */
-  results: SearchResult[];
-
-  /**
-   * next_page_token is empty when this is the last page.
-   *
-   * @generated from field: string next_page_token = 2;
-   */
-  nextPageToken: string;
-
-  /**
-   * total_size counts every match across all pages.
-   *
-   * @generated from field: int32 total_size = 3;
-   */
-  totalSize: number;
-};
-
-/**
- * Describes the message anime.v1.SearchResponse.
- * Use `create(SearchResponseSchema)` to create a new message.
- */
-export const SearchResponseSchema: GenMessage<SearchResponse> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 28);
-
-/**
- * @generated from message anime.v1.GetCharacterRequest
- */
-export type GetCharacterRequest = Message<"anime.v1.GetCharacterRequest"> & {
-  /**
-   * @generated from field: string id = 1;
-   */
-  id: string;
-};
-
-/**
- * Describes the message anime.v1.GetCharacterRequest.
- * Use `create(GetCharacterRequestSchema)` to create a new message.
- */
-export const GetCharacterRequestSchema: GenMessage<GetCharacterRequest> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 29);
-
-/**
- * @generated from message anime.v1.GetCharacterResponse
- */
-export type GetCharacterResponse = Message<"anime.v1.GetCharacterResponse"> & {
-  /**
-   * @generated from field: anime.v1.Character character = 1;
-   */
-  character?: Character | undefined;
-};
-
-/**
- * Describes the message anime.v1.GetCharacterResponse.
- * Use `create(GetCharacterResponseSchema)` to create a new message.
- */
-export const GetCharacterResponseSchema: GenMessage<GetCharacterResponse> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 30);
-
-/**
- * @generated from message anime.v1.ListCharactersRequest
- */
-export type ListCharactersRequest = Message<"anime.v1.ListCharactersRequest"> & {
-  /**
-   * series_id restricts the result to that series' cast; empty lists every
-   * character in the dataset. It also decides what each character's
-   * voice_actors means: with a series, they are that series' cast (the constant
-   * cast plus anyone cast only there); without one, only the cast that holds
-   * throughout. Series.characters is scoped the same way.
-   *
-   * @generated from field: string series_id = 1;
-   */
-  seriesId: string;
-
-  /**
-   * query matches a character's name in any language, case-insensitively, as a
-   * substring. Empty matches every character. Combined with series_id it
-   * searches within that series' cast.
-   *
-   * @generated from field: string query = 4;
-   */
-  query: string;
-
-  /**
-   * limit caps the number of results; <= 0 applies a server default.
-   *
-   * @generated from field: int32 limit = 2;
-   */
-  limit: number;
-
-  /**
-   * page_token continues a previous call; empty starts from the beginning.
-   * Pass the next_page_token from the previous response.
-   *
-   * @generated from field: string page_token = 3;
-   */
-  pageToken: string;
-};
-
-/**
- * Describes the message anime.v1.ListCharactersRequest.
- * Use `create(ListCharactersRequestSchema)` to create a new message.
- */
-export const ListCharactersRequestSchema: GenMessage<ListCharactersRequest> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 31);
-
-/**
- * @generated from message anime.v1.ListCharactersResponse
- */
-export type ListCharactersResponse = Message<"anime.v1.ListCharactersResponse"> & {
-  /**
-   * @generated from field: repeated anime.v1.Character characters = 1;
-   */
-  characters: Character[];
-
-  /**
-   * next_page_token is empty when this is the last page.
-   *
-   * @generated from field: string next_page_token = 2;
-   */
-  nextPageToken: string;
-
-  /**
-   * total_size counts every match across all pages.
-   *
-   * @generated from field: int32 total_size = 3;
-   */
-  totalSize: number;
-};
-
-/**
- * Describes the message anime.v1.ListCharactersResponse.
- * Use `create(ListCharactersResponseSchema)` to create a new message.
- */
-export const ListCharactersResponseSchema: GenMessage<ListCharactersResponse> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 32);
-
-/**
- * @generated from message anime.v1.GetStaffRequest
- */
-export type GetStaffRequest = Message<"anime.v1.GetStaffRequest"> & {
-  /**
-   * @generated from field: string id = 1;
-   */
-  id: string;
-};
-
-/**
- * Describes the message anime.v1.GetStaffRequest.
- * Use `create(GetStaffRequestSchema)` to create a new message.
- */
-export const GetStaffRequestSchema: GenMessage<GetStaffRequest> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 33);
-
-/**
- * @generated from message anime.v1.GetStaffResponse
- */
-export type GetStaffResponse = Message<"anime.v1.GetStaffResponse"> & {
-  /**
-   * @generated from field: anime.v1.Staff staff = 1;
-   */
-  staff?: Staff | undefined;
-
-  /**
-   * credits is the first page only, capped, in dataset order; credits_total is
-   * the real count. A prolific voice actor accumulates roles for as long as
-   * they work, so this cannot be unbounded. Use ListCredits to page the rest.
-   *
-   * @generated from field: repeated anime.v1.StaffCredit credits = 2;
-   */
-  credits: StaffCredit[];
-
-  /**
-   * @generated from field: int32 credits_total = 3;
-   */
-  creditsTotal: number;
-};
-
-/**
- * Describes the message anime.v1.GetStaffResponse.
- * Use `create(GetStaffResponseSchema)` to create a new message.
- */
-export const GetStaffResponseSchema: GenMessage<GetStaffResponse> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 34);
-
-/**
- * @generated from message anime.v1.ListStaffRequest
- */
-export type ListStaffRequest = Message<"anime.v1.ListStaffRequest"> & {
-  /**
-   * language restricts the result to staff credited in that language ("ja");
-   * empty lists everyone. It chooses *which people* come back, not what
-   * language their names are written in — that is Accept-Language, as
-   * everywhere else, and the two are deliberately separate: a Japanese reader
-   * browsing voice actors wants Japanese names and the whole cast, not only
-   * the half credited in Japanese.
-   *
-   * So `{"language": "ja"}` with no Accept-Language header returns the
-   * Japanese-credited cast under their English names, which looks wrong and is
-   * not. Send both to get Japanese names as well.
-   *
-   * @generated from field: string language = 1;
-   */
-  language: string;
-
-  /**
-   * query matches a staff member's name in any language, case-insensitively,
-   * as a substring. Empty matches everyone.
-   *
-   * @generated from field: string query = 4;
-   */
-  query: string;
-
-  /**
-   * limit caps the number of results; <= 0 applies a server default.
-   *
-   * @generated from field: int32 limit = 2;
-   */
-  limit: number;
-
-  /**
-   * page_token continues a previous call; empty starts from the beginning.
-   * Pass the next_page_token from the previous response.
-   *
-   * @generated from field: string page_token = 3;
-   */
-  pageToken: string;
-};
-
-/**
- * Describes the message anime.v1.ListStaffRequest.
- * Use `create(ListStaffRequestSchema)` to create a new message.
- */
-export const ListStaffRequestSchema: GenMessage<ListStaffRequest> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 35);
-
-/**
- * @generated from message anime.v1.ListStaffResponse
- */
-export type ListStaffResponse = Message<"anime.v1.ListStaffResponse"> & {
-  /**
-   * @generated from field: repeated anime.v1.Staff staff = 1;
-   */
-  staff: Staff[];
-
-  /**
-   * next_page_token is empty when this is the last page.
-   *
-   * @generated from field: string next_page_token = 2;
-   */
-  nextPageToken: string;
-
-  /**
-   * total_size counts every match across all pages.
-   *
-   * @generated from field: int32 total_size = 3;
-   */
-  totalSize: number;
-};
-
-/**
- * Describes the message anime.v1.ListStaffResponse.
- * Use `create(ListStaffResponseSchema)` to create a new message.
- */
-export const ListStaffResponseSchema: GenMessage<ListStaffResponse> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 36);
-
-/**
- * @generated from message anime.v1.GetStatsRequest
- */
-export type GetStatsRequest = Message<"anime.v1.GetStatsRequest"> & {
-};
-
-/**
- * Describes the message anime.v1.GetStatsRequest.
- * Use `create(GetStatsRequestSchema)` to create a new message.
- */
-export const GetStatsRequestSchema: GenMessage<GetStatsRequest> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 37);
-
-/**
- * @generated from message anime.v1.GetStatsResponse
- */
-export type GetStatsResponse = Message<"anime.v1.GetStatsResponse"> & {
-  /**
-   * version is the deployed revision, so a caller can tell which build
-   * answered. Nothing reads it programmatically; it is here because "which
-   * deploy am I hitting" is a question that comes up whenever a change looks
-   * like it has not landed.
-   *
-   * @generated from field: string version = 2;
-   */
-  version: string;
-
-  /**
-   * @generated from field: anime.v1.DatasetStats stats = 3;
-   */
-  stats?: DatasetStats | undefined;
-};
-
-/**
- * Describes the message anime.v1.GetStatsResponse.
- * Use `create(GetStatsResponseSchema)` to create a new message.
- */
-export const GetStatsResponseSchema: GenMessage<GetStatsResponse> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 38);
-
-/**
- * @generated from message anime.v1.ListCatalogRequest
- */
-export type ListCatalogRequest = Message<"anime.v1.ListCatalogRequest"> & {
-  /**
-   * page_token continues a previous call; empty starts from the beginning.
-   *
-   * @generated from field: string page_token = 1;
-   */
-  pageToken: string;
-
-  /**
-   * limit caps the page size; <= 0 applies a server default.
-   *
-   * @generated from field: int32 limit = 2;
-   */
-  limit: number;
-
-  /**
-   * kind restricts the result to franchises or to standalone series;
-   * unspecified returns both.
-   *
-   * @generated from field: anime.v1.EntryKind kind = 3;
-   */
-  kind: EntryKind;
-};
-
-/**
- * Describes the message anime.v1.ListCatalogRequest.
- * Use `create(ListCatalogRequestSchema)` to create a new message.
- */
-export const ListCatalogRequestSchema: GenMessage<ListCatalogRequest> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 39);
-
-/**
- * @generated from message anime.v1.ListCatalogResponse
- */
-export type ListCatalogResponse = Message<"anime.v1.ListCatalogResponse"> & {
-  /**
-   * @generated from field: repeated anime.v1.CatalogEntry entries = 1;
-   */
-  entries: CatalogEntry[];
-
-  /**
-   * next_page_token is empty when this is the last page.
-   *
-   * @generated from field: string next_page_token = 2;
-   */
-  nextPageToken: string;
-
-  /**
-   * total_size counts every entry matching the filters, across all pages.
-   *
-   * @generated from field: int32 total_size = 3;
-   */
-  totalSize: number;
-};
-
-/**
- * Describes the message anime.v1.ListCatalogResponse.
- * Use `create(ListCatalogResponseSchema)` to create a new message.
- */
-export const ListCatalogResponseSchema: GenMessage<ListCatalogResponse> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 40);
-
-/**
- * @generated from message anime.v1.ListWorksRequest
- */
-export type ListWorksRequest = Message<"anime.v1.ListWorksRequest"> & {
-  /**
-   * page_token continues a previous call; empty starts from the beginning.
-   *
-   * @generated from field: string page_token = 1;
-   */
-  pageToken: string;
-
-  /**
-   * limit caps the page size; <= 0 applies a server default.
-   *
-   * @generated from field: int32 limit = 2;
-   */
-  limit: number;
-
-  /**
-   * Filters, AND-ed together. An unset filter matches everything, so an empty
-   * request walks every work in the dataset.
-   *
-   * release_year is the calendar year the work premiered. proto3 gives scalars
-   * no field presence, so 0 necessarily means "no year filter" rather than
-   * "works with no year" — a caller wanting a specific year must send a real
-   * one, and a UI must reject 0 before it reaches here rather than labelling
-   * the unfiltered result as year 0.
-   *
-   * @generated from field: int32 release_year = 3;
-   */
-  releaseYear: number;
-
-  /**
-   * release_season only ever matches seasons: movies and specials carry a year
-   * without a quarter, so setting this excludes them.
-   *
-   * @generated from field: anime.v1.ReleaseSeason release_season = 4;
-   */
-  releaseSeason: ReleaseSeason;
-
-  /**
-   * kind restricts to seasons, movies or specials.
-   *
-   * @generated from field: anime.v1.WorkKind kind = 5;
-   */
-  kind: WorkKind;
-
-  /**
-   * series_id restricts to the works under one series.
-   *
-   * @generated from field: string series_id = 6;
-   */
-  seriesId: string;
-
-  /**
-   * query matches the work's own title or its series' title, in any language,
-   * case-insensitively, as a substring. Empty matches everything. Without this
-   * a unified browse page could not offer one search box across every result
-   * type, since releases would be the only kind that could not be searched.
-   *
-   * @generated from field: string query = 7;
-   */
-  query: string;
-};
-
-/**
- * Describes the message anime.v1.ListWorksRequest.
- * Use `create(ListWorksRequestSchema)` to create a new message.
- */
-export const ListWorksRequestSchema: GenMessage<ListWorksRequest> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 41);
-
-/**
- * @generated from message anime.v1.ListWorksResponse
- */
-export type ListWorksResponse = Message<"anime.v1.ListWorksResponse"> & {
-  /**
-   * @generated from field: repeated anime.v1.WorkSummary works = 1;
-   */
-  works: WorkSummary[];
-
-  /**
-   * next_page_token is empty when this is the last page.
-   *
-   * @generated from field: string next_page_token = 2;
-   */
-  nextPageToken: string;
-
-  /**
-   * total_size counts every work matching the filters, across all pages.
-   *
-   * @generated from field: int32 total_size = 3;
-   */
-  totalSize: number;
-};
-
-/**
- * Describes the message anime.v1.ListWorksResponse.
- * Use `create(ListWorksResponseSchema)` to create a new message.
- */
-export const ListWorksResponseSchema: GenMessage<ListWorksResponse> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 42);
-
-/**
- * ListEpisodesRequest names exactly one parent: a season or a special.
- *
- * @generated from message anime.v1.ListEpisodesRequest
- */
-export type ListEpisodesRequest = Message<"anime.v1.ListEpisodesRequest"> & {
-  /**
-   * @generated from field: string season_id = 1;
-   */
-  seasonId: string;
-
-  /**
-   * @generated from field: string special_id = 2;
-   */
-  specialId: string;
-
-  /**
-   * @generated from field: string page_token = 3;
-   */
-  pageToken: string;
-
-  /**
-   * @generated from field: int32 limit = 4;
-   */
-  limit: number;
-};
-
-/**
- * Describes the message anime.v1.ListEpisodesRequest.
- * Use `create(ListEpisodesRequestSchema)` to create a new message.
- */
-export const ListEpisodesRequestSchema: GenMessage<ListEpisodesRequest> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 43);
-
-/**
- * @generated from message anime.v1.ListEpisodesResponse
- */
-export type ListEpisodesResponse = Message<"anime.v1.ListEpisodesResponse"> & {
-  /**
-   * @generated from field: repeated anime.v1.Episode episodes = 1;
-   */
-  episodes: Episode[];
-
-  /**
-   * next_page_token is empty on the last page.
-   *
-   * @generated from field: string next_page_token = 2;
-   */
-  nextPageToken: string;
-
-  /**
-   * total_size counts every episode of the parent, not just this page.
-   *
-   * @generated from field: int32 total_size = 3;
-   */
-  totalSize: number;
-};
-
-/**
- * Describes the message anime.v1.ListEpisodesResponse.
- * Use `create(ListEpisodesResponseSchema)` to create a new message.
- */
-export const ListEpisodesResponseSchema: GenMessage<ListEpisodesResponse> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 44);
-
-/**
- * @generated from message anime.v1.ListSeriesRequest
- */
-export type ListSeriesRequest = Message<"anime.v1.ListSeriesRequest"> & {
-  /**
-   * franchise_id is required: this pages one franchise's series. The flat
-   * catalog of every series is ListCatalog.
-   *
-   * @generated from field: string franchise_id = 1;
-   */
-  franchiseId: string;
-
-  /**
-   * @generated from field: string page_token = 2;
-   */
-  pageToken: string;
-
-  /**
-   * @generated from field: int32 limit = 3;
-   */
-  limit: number;
-};
-
-/**
- * Describes the message anime.v1.ListSeriesRequest.
- * Use `create(ListSeriesRequestSchema)` to create a new message.
- */
-export const ListSeriesRequestSchema: GenMessage<ListSeriesRequest> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 45);
-
-/**
- * @generated from message anime.v1.ListSeriesResponse
- */
-export type ListSeriesResponse = Message<"anime.v1.ListSeriesResponse"> & {
-  /**
-   * Each Series carries its own capped collections, exactly as GetSeries
-   * returns it.
-   *
-   * @generated from field: repeated anime.v1.Series series = 1;
-   */
-  series: Series[];
-
-  /**
-   * @generated from field: string next_page_token = 2;
-   */
-  nextPageToken: string;
-
-  /**
-   * @generated from field: int32 total_size = 3;
-   */
-  totalSize: number;
-};
-
-/**
- * Describes the message anime.v1.ListSeriesResponse.
- * Use `create(ListSeriesResponseSchema)` to create a new message.
- */
-export const ListSeriesResponseSchema: GenMessage<ListSeriesResponse> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 46);
-
-/**
- * @generated from message anime.v1.ListAppearancesRequest
- */
-export type ListAppearancesRequest = Message<"anime.v1.ListAppearancesRequest"> & {
-  /**
-   * @generated from field: string character_id = 1;
-   */
-  characterId: string;
-
-  /**
-   * @generated from field: string page_token = 2;
-   */
-  pageToken: string;
-
-  /**
-   * @generated from field: int32 limit = 3;
-   */
-  limit: number;
-};
-
-/**
- * Describes the message anime.v1.ListAppearancesRequest.
- * Use `create(ListAppearancesRequestSchema)` to create a new message.
- */
-export const ListAppearancesRequestSchema: GenMessage<ListAppearancesRequest> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 47);
-
-/**
- * @generated from message anime.v1.ListAppearancesResponse
- */
-export type ListAppearancesResponse = Message<"anime.v1.ListAppearancesResponse"> & {
-  /**
-   * @generated from field: repeated anime.v1.CharacterAppearance appearances = 1;
-   */
-  appearances: CharacterAppearance[];
-
-  /**
-   * @generated from field: string next_page_token = 2;
-   */
-  nextPageToken: string;
-
-  /**
-   * @generated from field: int32 total_size = 3;
-   */
-  totalSize: number;
-};
-
-/**
- * Describes the message anime.v1.ListAppearancesResponse.
- * Use `create(ListAppearancesResponseSchema)` to create a new message.
- */
-export const ListAppearancesResponseSchema: GenMessage<ListAppearancesResponse> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 48);
-
-/**
- * @generated from message anime.v1.ListCreditsRequest
- */
-export type ListCreditsRequest = Message<"anime.v1.ListCreditsRequest"> & {
-  /**
-   * @generated from field: string staff_id = 1;
-   */
-  staffId: string;
-
-  /**
-   * @generated from field: string page_token = 2;
-   */
-  pageToken: string;
-
-  /**
-   * @generated from field: int32 limit = 3;
-   */
-  limit: number;
-};
-
-/**
- * Describes the message anime.v1.ListCreditsRequest.
- * Use `create(ListCreditsRequestSchema)` to create a new message.
- */
-export const ListCreditsRequestSchema: GenMessage<ListCreditsRequest> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 49);
-
-/**
- * @generated from message anime.v1.ListCreditsResponse
- */
-export type ListCreditsResponse = Message<"anime.v1.ListCreditsResponse"> & {
-  /**
-   * @generated from field: repeated anime.v1.StaffCredit credits = 1;
-   */
-  credits: StaffCredit[];
-
-  /**
-   * @generated from field: string next_page_token = 2;
-   */
-  nextPageToken: string;
-
-  /**
-   * @generated from field: int32 total_size = 3;
-   */
-  totalSize: number;
-};
-
-/**
- * Describes the message anime.v1.ListCreditsResponse.
- * Use `create(ListCreditsResponseSchema)` to create a new message.
- */
-export const ListCreditsResponseSchema: GenMessage<ListCreditsResponse> = /*@__PURE__*/
-  messageDesc(file_anime_v1_anime, 50);
+  messageDesc(file_anime_v1_anime, 19);
 
 /**
  * ReleaseSeason is the calendar quarter an installment premiered in.
@@ -2005,7 +1009,7 @@ export const ListCreditsResponseSchema: GenMessage<ListCreditsResponse> = /*@__P
  * dataset stores — rather than "RELEASE_SEASON_SPRING", which every client was
  * left to translate back. Protobuf scopes enum values to the package, so a
  * prefix is added only where the bare word would collide with another enum's
- * (see SpecialFormat and WorkKind, which both want SPECIAL).
+ * (see SpecialFormat).
  * buf:lint:ignore ENUM_VALUE_PREFIX
  *
  * @generated from enum anime.v1.ReleaseSeason
@@ -2045,7 +1049,7 @@ export const ReleaseSeasonSchema: GenEnum<ReleaseSeason> = /*@__PURE__*/
 
 /**
  * SpecialFormat is the kind of side content a Special represents. Prefixed,
- * because SPECIAL alone would collide with WorkKind's.
+ * because SPECIAL alone would collide with the browse API's WorkKind.
  * buf:lint:ignore ENUM_VALUE_PREFIX
  *
  * @generated from enum anime.v1.SpecialFormat
@@ -2079,71 +1083,49 @@ export const SpecialFormatSchema: GenEnum<SpecialFormat> = /*@__PURE__*/
   enumDesc(file_anime_v1_anime, 1);
 
 /**
- * WorkKind distinguishes the three node types that map to a real release. A
- * Franchise or Series is our grouping, not a release, so neither is a work.
+ * ReleaseKind distinguishes the three node types that map to a real release. A
+ * series is a grouping rather than a release, so it is not one of these.
+ *
+ * TV_SEASON rather than SEASON, which ReleaseSeason's unspecified value already
+ * spells; protobuf scopes enum values to the package, so the two would collide.
  * buf:lint:ignore ENUM_VALUE_PREFIX
  *
- * @generated from enum anime.v1.WorkKind
+ * @generated from enum anime.v1.ReleaseKind
  */
-export enum WorkKind {
+export enum ReleaseKind {
   /**
-   * @generated from enum value: WORK_UNSPECIFIED = 0;
+   * @generated from enum value: KIND_UNSPECIFIED = 0;
    */
-  WORK_UNSPECIFIED = 0,
+  KIND_UNSPECIFIED = 0,
 
   /**
-   * @generated from enum value: WORK_SEASON = 1;
+   * @generated from enum value: TV_SEASON = 1;
    */
-  WORK_SEASON = 1,
+  TV_SEASON = 1,
 
   /**
-   * @generated from enum value: WORK_MOVIE = 2;
+   * @generated from enum value: MOVIE = 2;
    */
-  WORK_MOVIE = 2,
+  MOVIE = 2,
 
   /**
-   * @generated from enum value: WORK_SPECIAL = 3;
+   * @generated from enum value: SPECIAL = 3;
    */
-  WORK_SPECIAL = 3,
+  SPECIAL = 3,
 }
 
 /**
- * Describes the enum anime.v1.WorkKind.
+ * Describes the enum anime.v1.ReleaseKind.
  */
-export const WorkKindSchema: GenEnum<WorkKind> = /*@__PURE__*/
+export const ReleaseKindSchema: GenEnum<ReleaseKind> = /*@__PURE__*/
   enumDesc(file_anime_v1_anime, 2);
 
 /**
- * EntryKind distinguishes a top-level catalog entry's type in search results.
- * buf:lint:ignore ENUM_VALUE_PREFIX
+ * AnimeService is the public read-only API over the committed dataset.
  *
- * @generated from enum anime.v1.EntryKind
- */
-export enum EntryKind {
-  /**
-   * @generated from enum value: ENTRY_UNSPECIFIED = 0;
-   */
-  ENTRY_UNSPECIFIED = 0,
-
-  /**
-   * @generated from enum value: FRANCHISE = 1;
-   */
-  FRANCHISE = 1,
-
-  /**
-   * @generated from enum value: SERIES = 2;
-   */
-  SERIES = 2,
-}
-
-/**
- * Describes the enum anime.v1.EntryKind.
- */
-export const EntryKindSchema: GenEnum<EntryKind> = /*@__PURE__*/
-  enumDesc(file_anime_v1_anime, 3);
-
-/**
- * AnimeService is the read-only API over the committed dataset.
+ * Three calls: find series by name, find releases by when they aired, then open
+ * one series. GetSeries returns a series complete, so rendering a page never
+ * needs a follow-up request.
  *
  * Title localization: every title-bearing message returns a single resolved
  * `title` string chosen from the request's `Accept-Language` header (default
@@ -2156,28 +1138,33 @@ export const EntryKindSchema: GenEnum<EntryKind> = /*@__PURE__*/
  */
 export const AnimeService: GenService<{
   /**
-   * ListFranchises returns every multi-series franchise in the catalog.
-   * Standalone series are reachable via GetSeries and Search.
+   * SearchSeries pages through series matching a keyword. An empty query walks
+   * the whole catalogue in dataset order.
    *
-   * @generated from rpc anime.v1.AnimeService.ListFranchises
+   * @generated from rpc anime.v1.AnimeService.SearchSeries
    */
-  listFranchises: {
+  searchSeries: {
     methodKind: "unary";
-    input: typeof ListFranchisesRequestSchema;
-    output: typeof ListFranchisesResponseSchema;
+    input: typeof SearchSeriesRequestSchema;
+    output: typeof SearchSeriesResponseSchema;
   },
   /**
-   * GetFranchise returns one franchise with its full nested structure.
+   * SearchReleases pages through individual releases — seasons, films and
+   * specials — matching a keyword, a release year and a release quarter. Each
+   * filter is optional and they combine freely; the one rejected request is a
+   * quarter with no year.
    *
-   * @generated from rpc anime.v1.AnimeService.GetFranchise
+   * @generated from rpc anime.v1.AnimeService.SearchReleases
    */
-  getFranchise: {
+  searchReleases: {
     methodKind: "unary";
-    input: typeof GetFranchiseRequestSchema;
-    output: typeof GetFranchiseResponseSchema;
+    input: typeof SearchReleasesRequestSchema;
+    output: typeof SearchReleasesResponseSchema;
   },
   /**
-   * GetSeries returns one series (under a franchise or standalone) by id.
+   * GetSeries returns one series by id with everything under it: every season
+   * and its episodes, every film, every special, and the whole cast with the
+   * voice actors resolved.
    *
    * @generated from rpc anime.v1.AnimeService.GetSeries
    */
@@ -2185,139 +1172,6 @@ export const AnimeService: GenService<{
     methodKind: "unary";
     input: typeof GetSeriesRequestSchema;
     output: typeof GetSeriesResponseSchema;
-  },
-  /**
-   * ListCatalog pages through every top-level entry — franchises and
-   * standalone series — as flat summaries. This is the browse entry point:
-   * unlike ListFranchises it is paginated and does not nest the structure, so
-   * it stays usable as the catalog grows.
-   *
-   * @generated from rpc anime.v1.AnimeService.ListCatalog
-   */
-  listCatalog: {
-    methodKind: "unary";
-    input: typeof ListCatalogRequestSchema;
-    output: typeof ListCatalogResponseSchema;
-  },
-  /**
-   * ListWorks pages through individual releases (seasons, movies, specials),
-   * filtered by year, quarter, kind or series. This is what a seasonal chart
-   * lists.
-   *
-   * @generated from rpc anime.v1.AnimeService.ListWorks
-   */
-  listWorks: {
-    methodKind: "unary";
-    input: typeof ListWorksRequestSchema;
-    output: typeof ListWorksResponseSchema;
-  },
-  /**
-   * Search matches franchises and series by title (case-insensitive substring).
-   *
-   * @generated from rpc anime.v1.AnimeService.Search
-   */
-  search: {
-    methodKind: "unary";
-    input: typeof SearchRequestSchema;
-    output: typeof SearchResponseSchema;
-  },
-  /**
-   * GetCharacter returns one character by id, with every appearance and the
-   * voice actors cast for it.
-   *
-   * @generated from rpc anime.v1.AnimeService.GetCharacter
-   */
-  getCharacter: {
-    methodKind: "unary";
-    input: typeof GetCharacterRequestSchema;
-    output: typeof GetCharacterResponseSchema;
-  },
-  /**
-   * ListCharacters returns the whole cast, or just one series' cast.
-   *
-   * @generated from rpc anime.v1.AnimeService.ListCharacters
-   */
-  listCharacters: {
-    methodKind: "unary";
-    input: typeof ListCharactersRequestSchema;
-    output: typeof ListCharactersResponseSchema;
-  },
-  /**
-   * GetStaff returns one staff member by id, with the characters they voice.
-   *
-   * @generated from rpc anime.v1.AnimeService.GetStaff
-   */
-  getStaff: {
-    methodKind: "unary";
-    input: typeof GetStaffRequestSchema;
-    output: typeof GetStaffResponseSchema;
-  },
-  /**
-   * ListStaff returns every staff member, optionally filtered by the language
-   * they are credited in.
-   *
-   * @generated from rpc anime.v1.AnimeService.ListStaff
-   */
-  listStaff: {
-    methodKind: "unary";
-    input: typeof ListStaffRequestSchema;
-    output: typeof ListStaffResponseSchema;
-  },
-  /**
-   * ListEpisodes pages the episodes of one season or special. A long-running
-   * show accumulates episodes indefinitely, so they are never embedded whole.
-   *
-   * @generated from rpc anime.v1.AnimeService.ListEpisodes
-   */
-  listEpisodes: {
-    methodKind: "unary";
-    input: typeof ListEpisodesRequestSchema;
-    output: typeof ListEpisodesResponseSchema;
-  },
-  /**
-   * ListSeries pages the series belonging to one franchise.
-   *
-   * @generated from rpc anime.v1.AnimeService.ListSeries
-   */
-  listSeries: {
-    methodKind: "unary";
-    input: typeof ListSeriesRequestSchema;
-    output: typeof ListSeriesResponseSchema;
-  },
-  /**
-   * ListAppearances pages the series one character appears in.
-   *
-   * @generated from rpc anime.v1.AnimeService.ListAppearances
-   */
-  listAppearances: {
-    methodKind: "unary";
-    input: typeof ListAppearancesRequestSchema;
-    output: typeof ListAppearancesResponseSchema;
-  },
-  /**
-   * ListCredits pages the roles one staff member is cast in.
-   *
-   * @generated from rpc anime.v1.AnimeService.ListCredits
-   */
-  listCredits: {
-    methodKind: "unary";
-    input: typeof ListCreditsRequestSchema;
-    output: typeof ListCreditsResponseSchema;
-  },
-  /**
-   * GetStats reports what the dataset contains, plus the deployed revision.
-   *
-   * Named for the stats because that is what it is for. It was GetHealth, and
-   * the counts had been folded into a liveness probe during a refactor — which
-   * left the one genuinely useful part of the response behind a name that told
-   * consumers to skip it.
-   *
-   * @generated from rpc anime.v1.AnimeService.GetStats
-   */
-  getStats: {
-    methodKind: "unary";
-    input: typeof GetStatsRequestSchema;
-    output: typeof GetStatsResponseSchema;
   },
 }> = /*@__PURE__*/
   serviceDesc(file_anime_v1_anime, 0);
