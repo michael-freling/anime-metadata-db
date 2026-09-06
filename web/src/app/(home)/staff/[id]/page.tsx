@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { cache } from 'react';
 import { Code, ConnectError } from '@connectrpc/connect';
 import { localizedBrowse } from '@/lib/api';
-import { ApiError, isBadRequest, PageHeader, Pager, plural } from '@/components/browse';
+import { ApiError, isBadRequest, PageHeader, plural } from '@/components/browse';
 import { humanizeId, languageLabel } from '@/lib/format';
 
 const load = cache(async (id: string) => {
@@ -38,13 +38,7 @@ export async function generateMetadata({
   return { title: humanizeId(id) };
 }
 
-export default async function StaffPage({
-  params,
-  searchParams,
-}: {
-  params: Promise<{ id: string }>;
-  searchParams: Promise<{ token?: string }>;
-}) {
+export default async function StaffPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   // One call: GetStaff embeds every role, bounded by a career rather than by
   // the catalogue.

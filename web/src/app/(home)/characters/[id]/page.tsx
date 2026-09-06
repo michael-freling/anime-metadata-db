@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { cache } from 'react';
 import { Code, ConnectError } from '@connectrpc/connect';
 import { localizedBrowse } from '@/lib/api';
-import { ApiError, isBadRequest, PageHeader, Pager, plural } from '@/components/browse';
+import { ApiError, isBadRequest, PageHeader, plural } from '@/components/browse';
 import { humanizeId, languageLabel } from '@/lib/format';
 import type { ScopeRef, VoiceActor } from '@/lib/gen/anime/v1/anime_pb';
 
