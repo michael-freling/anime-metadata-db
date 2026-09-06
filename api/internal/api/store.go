@@ -22,6 +22,8 @@ import (
 type (
 	// CatalogEntry is a searchable top-level node.
 	CatalogEntry = index.CatalogEntry
+	// SeriesEntry is one series as a search result.
+	SeriesEntry = index.SeriesEntry
 	// EntryKind classifies a catalog entry.
 	EntryKind = index.EntryKind
 	// Work is one release flattened out of the hierarchy.
@@ -150,30 +152,6 @@ func (s *Store) record(file string) (*model.Record, error) {
 // Stats returns the dataset summary recorded in the index.
 func (s *Store) Stats() Stats { return s.ix.Stats() }
 
-// FranchisesPage returns one page of franchises, fully expanded.
-//
-// This is the one listing that reads record files, because a franchise response
-// embeds its whole tree. It is paginated for that reason: unbounded, it would
-// be a request to parse the entire dataset.
-func (s *Store) FranchisesPage(token string, limit int) (Page[*model.Franchise], error) {
-	refs := s.ix.Franchises()
-	p, err := index.Paginate(refs, token, limit)
-	if err != nil {
-		return Page[*model.Franchise]{}, err
-	}
-	out := Page[*model.Franchise]{NextToken: p.NextToken, Total: p.Total}
-	for _, ref := range p.Items {
-		f, ok, err := s.franchiseIn(ref.File, ref.ID)
-		if err != nil {
-			return Page[*model.Franchise]{}, err
-		}
-		if ok {
-			out.Items = append(out.Items, f)
-		}
-	}
-	return out, nil
-}
-
 // Franchise returns the franchise with the given id, or false if none exists.
 func (s *Store) Franchise(id string) (*model.Franchise, bool, error) {
 	file, ok := s.ix.Franchise(id)
@@ -280,6 +258,13 @@ func (s *Store) SearchPage(query, token string, limit int) (Page[CatalogEntry], 
 	return s.ix.Search(query, token, limit)
 }
 
+// SeriesSearch returns one page of series matching query, with the aggregates a
+// result row needs. It reads no record files: everything a SeriesEntry carries
+// is already in the index.
+func (s *Store) SeriesSearch(query, token string, limit int) (Page[SeriesEntry], error) {
+	return s.ix.SeriesSearch(query, token, limit)
+}
+
 // StaffPage returns staff, or only those credited in language when it is
 // non-empty, one page at a time.
 func (s *Store) StaffPage(language, query, token string, limit int) (Page[*model.Staff], error) {
@@ -307,6 +292,22 @@ func (s *Store) CharactersPage(seriesID, query, token string, limit int) (Page[*
 	return out, nil
 }
 
+// SeriesCast returns the entire cast of seriesID, in dataset order. GetSeries
+// embeds a series whole, so this is unpaged by design; the bound is the size of
+// one series' cast, which is a few hundred names at most.
+func (s *Store) SeriesCast(seriesID string) ([]*model.Character, error) {
+	refs := s.ix.CharacterRefs(seriesID)
+	out := make([]*model.Character, 0, len(refs))
+	for _, ref := range refs {
+		c, err := s.characterIn(ref.File, ref.ID)
+		if err != nil {
+			return nil, err
+		}
+		out = append(out, c)
+	}
+	return out, nil
+}
+
 // Characters returns the cast of seriesID, or the whole cast when seriesID is
 // empty. limit caps the count; a non-positive limit applies the default.
 //
@@ -328,86 +329,6 @@ func (s *Store) SeriesTitle(id string) (model.Title, bool) { return s.ix.SeriesT
 // Work resolves an installment id to its indexed row, for labelling a scope
 // without reopening the record it lives in.
 func (s *Store) Work(id string) (index.Work, bool) { return s.ix.WorkByID(id) }
-
-// EpisodesPage returns one page of the episodes of a season or special.
-//
-// Reading the record parses the whole series, including every episode of every
-// installment — that is inherent to one-record-per-series storage. What this
-// bounds is the response: a caller asking for a 1000-episode season gets the
-// page it asked for, not a megabyte of JSON.
-func (s *Store) EpisodesPage(seasonID, specialID, token string, limit int) (Page[model.Episode], error) {
-	id := seasonID
-	if id == "" {
-		id = specialID
-	}
-	seriesID, file, _, ok := s.ix.Work(id)
-	if !ok {
-		return Page[model.Episode]{}, nil
-	}
-	rec, err := s.record(file)
-	if err != nil {
-		return Page[model.Episode]{}, err
-	}
-
-	var episodes []model.Episode
-	var found bool
-	rec.EachSeries(func(series *model.Series) {
-		if found || series.ID != seriesID {
-			return
-		}
-		for i := range series.Seasons {
-			if series.Seasons[i].ID == id && seasonID != "" {
-				episodes, found = series.Seasons[i].Episodes, true
-				return
-			}
-		}
-		for i := range series.Specials {
-			if series.Specials[i].ID == id && specialID != "" {
-				episodes, found = series.Specials[i].Episodes, true
-				return
-			}
-		}
-	})
-	if !found {
-		// The id resolved to a work of the other kind — a movie, or a season
-		// asked for as a special. Neither has the episodes requested.
-		return Page[model.Episode]{}, nil
-	}
-	return index.Paginate(episodes, token, limit)
-}
-
-// SeriesPage returns one page of the series belonging to a franchise.
-func (s *Store) SeriesPage(franchiseID, token string, limit int) (Page[*model.Series], error) {
-	refs, err := s.ix.SeriesOf(franchiseID, token, limit)
-	if err != nil {
-		return Page[*model.Series]{}, err
-	}
-	out := Page[*model.Series]{NextToken: refs.NextToken, Total: refs.Total}
-	for _, ref := range refs.Items {
-		series, _, ok, err := s.Series(ref.ID)
-		if err != nil {
-			return Page[*model.Series]{}, err
-		}
-		if ok {
-			out.Items = append(out.Items, series)
-		}
-	}
-	return out, nil
-}
-
-// AppearancesPage returns one page of the series a character appears in. It
-// takes the character rather than an id because every caller needs the rest of
-// the record anyway — the cast that holds throughout, to resolve each
-// appearance against — and resolving it here as well would walk the record's
-// whole cast a second time per request.
-func (s *Store) AppearancesPage(c *model.Character, token string, limit int) (Page[model.CharacterAppearance], error) {
-	return index.Paginate(c.Appearances, token, limit)
-}
-
-// CreditsPage returns one page of the roles a staff member is cast in.
-func (s *Store) CreditsPage(staffID, token string, limit int) (Page[StaffCredit], error) {
-	return s.ix.CreditsPage(staffID, token, limit)
-}
 
 // WorkExists reports whether an installment id is known.
 func (s *Store) WorkExists(id string) bool {

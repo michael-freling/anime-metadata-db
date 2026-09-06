@@ -443,14 +443,18 @@ func TestCatalogKindFilter(t *testing.T) {
 
 func TestWorksCarryTheirSeriesAndDates(t *testing.T) {
 	ix := mustIndex(t)
-	page, err := ix.Works(WorkFilter{SeriesID: "aaa-main"}, "", 0)
+	page, err := ix.Works(WorkFilter{}, "", 0)
 	if err != nil {
 		t.Fatalf("Works: %v", err)
 	}
-	if len(page.Items) != 3 {
-		t.Fatalf("Works(aaa-main) returned %d, want 3", len(page.Items))
+	byID := map[string]Work{}
+	for _, w := range page.Items {
+		byID[w.ID] = w
 	}
-	s2 := page.Items[1]
+	s2, ok := byID["aaa-s2"]
+	if !ok {
+		t.Fatalf("aaa-s2 missing from %d works", len(page.Items))
+	}
 	if s2.ID != "aaa-s2" || s2.Number != 2 || s2.ReleaseSeason != model.SeasonFall {
 		t.Errorf("second work = %+v", s2)
 	}
@@ -462,14 +466,13 @@ func TestWorksCarryTheirSeriesAndDates(t *testing.T) {
 		t.Errorf("series on work = %q / %+v", s2.SeriesID, s2.SeriesTitles)
 	}
 	// A season with no date of its own keeps a nil date rather than a zero one.
-	if page.Items[0].ReleaseDate != nil {
-		t.Errorf("undated season got date %v", page.Items[0].ReleaseDate)
+	if s1 := byID["aaa-s1"]; s1.ReleaseDate != nil {
+		t.Errorf("undated season got date %v", s1.ReleaseDate)
 	}
 }
 
 func TestWorksFilters(t *testing.T) {
 	ix := mustIndex(t)
-	special := WorkSpecial
 	tests := []struct {
 		name    string
 		filter  WorkFilter
@@ -478,9 +481,6 @@ func TestWorksFilters(t *testing.T) {
 		{"everything", WorkFilter{}, []string{"aaa-s1", "aaa-s2", "aaa-movie", "aaa-ova", "zzz-s1"}},
 		{"by year", WorkFilter{ReleaseYear: 2019}, []string{"aaa-s1", "zzz-s1"}},
 		{"by quarter", WorkFilter{ReleaseSeason: model.SeasonFall}, []string{"aaa-s2"}},
-		{"by kind", WorkFilter{Kind: &special}, []string{"aaa-ova"}},
-		{"by series", WorkFilter{SeriesID: "aaa-side"}, []string{"aaa-ova"}},
-		{"unknown series", WorkFilter{SeriesID: "nope"}, nil},
 		// A work with no title of its own is still found through its series.
 		{"query matches the series title", WorkFilter{Query: "zed"}, []string{"zzz-s1"}},
 		{"query matches the work title", WorkFilter{Query: "the movie"}, []string{"aaa-movie"}},

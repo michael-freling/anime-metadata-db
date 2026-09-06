@@ -185,13 +185,6 @@ func TestNewStoreStats(t *testing.T) {
 
 func TestStoreFranchises(t *testing.T) {
 	s := mustStore(t)
-	page, err := s.FranchisesPage("", 0)
-	if err != nil {
-		t.Fatalf("FranchisesPage: %v", err)
-	}
-	if len(page.Items) != 1 || page.Items[0].ID != "aaa" || page.Total != 1 {
-		t.Fatalf("FranchisesPage() = %v (total %d), want one franchise aaa", page.Items, page.Total)
-	}
 	f, ok, err := s.Franchise("aaa")
 	if err != nil || !ok || f.ID != "aaa" {
 		t.Fatalf("Franchise(aaa) = %v, %v, %v", f, ok, err)
@@ -499,7 +492,10 @@ func TestStoreCreditsToUnknownStaffAreDropped(t *testing.T) {
 // must surface as an error, not as a "not found" that looks like a typo.
 func TestStoreReportsIndexDriftRatherThanNotFound(t *testing.T) {
 	dataset := fstest.MapFS{
-		"data/series/a.yaml": {Data: []byte("franchise:\n  id: f\n  series:\n    - id: s\n  characters:\n    - id: c\n")},
+		// The character carries an appearance because that, not nesting, is
+		// what links a character to a series in the index — and SeriesCast
+		// resolves through that link.
+		"data/series/a.yaml": {Data: []byte("franchise:\n  id: f\n  series:\n    - id: s\n      characters:\n        - id: c\n          appearances:\n            - seriesId: s\n")},
 	}
 	ix, err := index.Build(dataset)
 	if err != nil {
@@ -522,8 +518,8 @@ func TestStoreReportsIndexDriftRatherThanNotFound(t *testing.T) {
 	if _, err := drifted.CharactersPage("", "", "", 0); err == nil {
 		t.Error("CharactersPage: want an error naming the drift")
 	}
-	if _, err := drifted.FranchisesPage("", 0); err == nil {
-		t.Error("FranchisesPage: want an error naming the drift")
+	if _, err := drifted.SeriesCast("s"); err == nil {
+		t.Error("SeriesCast: want an error naming the drift")
 	}
 }
 

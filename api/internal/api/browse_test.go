@@ -7,6 +7,7 @@ import (
 	"connectrpc.com/connect"
 
 	animev1 "github.com/michael-freling/anime-metadata-db/api/internal/gen/anime/v1"
+	browsev1 "github.com/michael-freling/anime-metadata-db/api/internal/gen/browse/v1"
 	"github.com/michael-freling/anime-metadata-db/internal/model"
 )
 
@@ -132,23 +133,19 @@ func TestCatalogPagingCoversEverythingOnce(t *testing.T) {
 
 func TestWorksFilters(t *testing.T) {
 	s := mustStore(t)
-	season, movie, special := WorkSeason, WorkMovie, WorkSpecial
 	for _, tc := range []struct {
 		name   string
 		filter WorkFilter
 		want   int
 	}{
 		{"everything", WorkFilter{}, 10},
-		{"by kind season", WorkFilter{Kind: &season}, 5},
-		{"by kind movie", WorkFilter{Kind: &movie}, 1},
-		{"by kind special", WorkFilter{Kind: &special}, 4},
 		{"by year", WorkFilter{ReleaseYear: 2006}, 1},
 		{"by year with no works", WorkFilter{ReleaseYear: 1999}, 0},
 		{"by quarter", WorkFilter{ReleaseSeason: model.SeasonWinter}, 1},
-		{"by series", WorkFilter{SeriesID: "zzz"}, 1},
-		{"by series with none", WorkFilter{SeriesID: "minimal"}, 0},
-		{"combined", WorkFilter{SeriesID: "aaa-main", Kind: &season}, 4},
-		{"combined with no overlap", WorkFilter{SeriesID: "zzz", Kind: &movie}, 0},
+		{"by query", WorkFilter{Query: "zed"}, 1},
+		{"by query with no match", WorkFilter{Query: "absent"}, 0},
+		{"year and quarter together", WorkFilter{ReleaseYear: 2006, ReleaseSeason: model.SeasonWinter}, 1},
+		{"year and quarter that do not overlap", WorkFilter{ReleaseYear: 2006, ReleaseSeason: model.SeasonFall}, 0},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			page, err := s.Works(tc.filter, "", 0)
@@ -179,13 +176,13 @@ func TestWorksQuarterExcludesUndatedKinds(t *testing.T) {
 
 func TestWorksCarryTheirSeries(t *testing.T) {
 	s := mustStore(t)
-	page, err := s.Works(WorkFilter{SeriesID: "aaa-main"}, "", 0)
+	page, err := s.Works(WorkFilter{}, "", 0)
 	if err != nil {
 		t.Fatalf("Works: %v", err)
 	}
 	for _, w := range page.Items {
-		if w.SeriesID != "aaa-main" {
-			t.Errorf("work %q has series %q", w.ID, w.SeriesID)
+		if w.SeriesID == "" {
+			t.Errorf("work %q names no series", w.ID)
 		}
 		if w.SeriesTitles.IsZero() {
 			t.Errorf("work %q carries no series title", w.ID)
@@ -287,8 +284,8 @@ func TestCharactersAndStaffPages(t *testing.T) {
 // --- service level ----------------------------------------------------------
 
 func TestListCatalogRPC(t *testing.T) {
-	svc := newTestService(t)
-	resp, err := svc.ListCatalog(context.Background(), connect.NewRequest(&animev1.ListCatalogRequest{Limit: 2}))
+	svc := newTestBrowse(t)
+	resp, err := svc.ListCatalog(context.Background(), connect.NewRequest(&browsev1.ListCatalogRequest{Limit: 2}))
 	if err != nil {
 		t.Fatalf("ListCatalog: %v", err)
 	}
@@ -307,8 +304,8 @@ func TestListCatalogRPC(t *testing.T) {
 	}
 
 	t.Run("kind filter", func(t *testing.T) {
-		resp, err := svc.ListCatalog(context.Background(), connect.NewRequest(&animev1.ListCatalogRequest{
-			Kind: animev1.EntryKind_FRANCHISE,
+		resp, err := svc.ListCatalog(context.Background(), connect.NewRequest(&browsev1.ListCatalogRequest{
+			Kind: browsev1.EntryKind_FRANCHISE,
 		}))
 		if err != nil {
 			t.Fatalf("ListCatalog: %v", err)
@@ -319,67 +316,69 @@ func TestListCatalogRPC(t *testing.T) {
 	})
 
 	t.Run("bad token is invalid argument", func(t *testing.T) {
-		_, err := svc.ListCatalog(context.Background(), connect.NewRequest(&animev1.ListCatalogRequest{PageToken: "!!!"}))
+		_, err := svc.ListCatalog(context.Background(), connect.NewRequest(&browsev1.ListCatalogRequest{PageToken: "!!!"}))
 		if connect.CodeOf(err) != connect.CodeInvalidArgument {
 			t.Fatalf("code = %v, want invalid_argument", connect.CodeOf(err))
 		}
 	})
 }
 
-func TestListWorksRPC(t *testing.T) {
+func TestSearchReleasesRPC(t *testing.T) {
 	svc := newTestService(t)
 
-	resp, err := svc.ListWorks(context.Background(), connect.NewRequest(&animev1.ListWorksRequest{}))
+	resp, err := svc.SearchReleases(context.Background(), connect.NewRequest(&animev1.SearchReleasesRequest{}))
 	if err != nil {
-		t.Fatalf("ListWorks: %v", err)
+		t.Fatalf("SearchReleases: %v", err)
 	}
 	if resp.Msg.GetTotalSize() != 10 {
 		t.Fatalf("total = %d, want 10", resp.Msg.GetTotalSize())
 	}
 
 	t.Run("filters map onto the wire enums", func(t *testing.T) {
-		resp, err := svc.ListWorks(context.Background(), connect.NewRequest(&animev1.ListWorksRequest{
+		resp, err := svc.SearchReleases(context.Background(), connect.NewRequest(&animev1.SearchReleasesRequest{
 			ReleaseYear:   2006,
 			ReleaseSeason: animev1.ReleaseSeason_WINTER,
-			Kind:          animev1.WorkKind_WORK_SEASON,
 		}))
 		if err != nil {
-			t.Fatalf("ListWorks: %v", err)
+			t.Fatalf("SearchReleases: %v", err)
 		}
 		if resp.Msg.GetTotalSize() != 1 {
 			t.Fatalf("total = %d, want 1", resp.Msg.GetTotalSize())
 		}
-		w := resp.Msg.GetWorks()[0]
-		if w.GetKind() != animev1.WorkKind_WORK_SEASON || w.GetSeriesId() != "aaa-main" {
-			t.Errorf("work = %+v", w)
+		w := resp.Msg.GetReleases()[0]
+		if w.GetKind() != animev1.ReleaseKind_TV_SEASON || w.GetSeriesId() != "aaa-main" {
+			t.Errorf("release = %+v", w)
 		}
 		if w.GetSeriesTitle() == "" {
-			t.Error("work carries no series title")
+			t.Error("release carries no series title")
 		}
 	})
 
-	t.Run("unknown series is not found", func(t *testing.T) {
-		_, err := svc.ListWorks(context.Background(), connect.NewRequest(&animev1.ListWorksRequest{SeriesId: "nope"}))
-		if connect.CodeOf(err) != connect.CodeNotFound {
-			t.Fatalf("code = %v, want not_found", connect.CodeOf(err))
+	// A quarter alone would span every year in the dataset and come back
+	// looking like a working filter, so it is refused rather than answered.
+	t.Run("quarter without a year is invalid argument", func(t *testing.T) {
+		_, err := svc.SearchReleases(context.Background(), connect.NewRequest(&animev1.SearchReleasesRequest{
+			ReleaseSeason: animev1.ReleaseSeason_WINTER,
+		}))
+		if connect.CodeOf(err) != connect.CodeInvalidArgument {
+			t.Fatalf("code = %v, want invalid_argument", connect.CodeOf(err))
 		}
 	})
 
 	t.Run("bad token is invalid argument", func(t *testing.T) {
-		_, err := svc.ListWorks(context.Background(), connect.NewRequest(&animev1.ListWorksRequest{PageToken: "!!!"}))
+		_, err := svc.SearchReleases(context.Background(), connect.NewRequest(&animev1.SearchReleasesRequest{PageToken: "!!!"}))
 		if connect.CodeOf(err) != connect.CodeInvalidArgument {
 			t.Fatalf("code = %v, want invalid_argument", connect.CodeOf(err))
 		}
 	})
 }
 
-// The three pre-existing list endpoints gained cursors; check they report a
-// total and hand back a usable token.
+// The browse list endpoints report a total and hand back a usable token.
 func TestExistingListsPaginate(t *testing.T) {
-	svc := newTestService(t)
+	svc := newTestBrowse(t)
 	ctx := context.Background()
 
-	search, err := svc.Search(ctx, connect.NewRequest(&animev1.SearchRequest{Query: "a", Limit: 1}))
+	search, err := svc.Search(ctx, connect.NewRequest(&browsev1.SearchRequest{Query: "a", Limit: 1}))
 	if err != nil {
 		t.Fatalf("Search: %v", err)
 	}
@@ -387,14 +386,14 @@ func TestExistingListsPaginate(t *testing.T) {
 		t.Error("search reported no total")
 	}
 
-	chars, err := svc.ListCharacters(ctx, connect.NewRequest(&animev1.ListCharactersRequest{Limit: 1}))
+	chars, err := svc.ListCharacters(ctx, connect.NewRequest(&browsev1.ListCharactersRequest{Limit: 1}))
 	if err != nil {
 		t.Fatalf("ListCharacters: %v", err)
 	}
 	if chars.Msg.GetTotalSize() != 2 || chars.Msg.GetNextPageToken() == "" {
 		t.Errorf("characters total = %d, next = %q", chars.Msg.GetTotalSize(), chars.Msg.GetNextPageToken())
 	}
-	next, err := svc.ListCharacters(ctx, connect.NewRequest(&animev1.ListCharactersRequest{
+	next, err := svc.ListCharacters(ctx, connect.NewRequest(&browsev1.ListCharactersRequest{
 		Limit: 1, PageToken: chars.Msg.GetNextPageToken(),
 	}))
 	if err != nil {
@@ -405,7 +404,7 @@ func TestExistingListsPaginate(t *testing.T) {
 		t.Error("second character page repeated the first")
 	}
 
-	staff, err := svc.ListStaff(ctx, connect.NewRequest(&animev1.ListStaffRequest{Limit: 1}))
+	staff, err := svc.ListStaff(ctx, connect.NewRequest(&browsev1.ListStaffRequest{Limit: 1}))
 	if err != nil {
 		t.Fatalf("ListStaff: %v", err)
 	}
@@ -415,15 +414,15 @@ func TestExistingListsPaginate(t *testing.T) {
 
 	for name, call := range map[string]func() error{
 		"search": func() error {
-			_, e := svc.Search(ctx, connect.NewRequest(&animev1.SearchRequest{Query: "a", PageToken: "!!!"}))
+			_, e := svc.Search(ctx, connect.NewRequest(&browsev1.SearchRequest{Query: "a", PageToken: "!!!"}))
 			return e
 		},
 		"characters": func() error {
-			_, e := svc.ListCharacters(ctx, connect.NewRequest(&animev1.ListCharactersRequest{PageToken: "!!!"}))
+			_, e := svc.ListCharacters(ctx, connect.NewRequest(&browsev1.ListCharactersRequest{PageToken: "!!!"}))
 			return e
 		},
 		"staff": func() error {
-			_, e := svc.ListStaff(ctx, connect.NewRequest(&animev1.ListStaffRequest{PageToken: "!!!"}))
+			_, e := svc.ListStaff(ctx, connect.NewRequest(&browsev1.ListStaffRequest{PageToken: "!!!"}))
 			return e
 		},
 	} {
@@ -435,30 +434,29 @@ func TestExistingListsPaginate(t *testing.T) {
 
 // --- enum mapping -----------------------------------------------------------
 
-func TestWorkKindMapping(t *testing.T) {
-	for _, k := range []WorkKind{WorkSeason, WorkMovie, WorkSpecial} {
-		got := fromWorkKind(toWorkKind(k))
-		if got == nil || *got != k {
-			t.Errorf("round trip of %v = %v", k, got)
+func TestReleaseKindMapping(t *testing.T) {
+	for in, want := range map[WorkKind]animev1.ReleaseKind{
+		WorkSeason:  animev1.ReleaseKind_TV_SEASON,
+		WorkMovie:   animev1.ReleaseKind_MOVIE,
+		WorkSpecial: animev1.ReleaseKind_SPECIAL,
+	} {
+		if got := toReleaseKind(in); got != want {
+			t.Errorf("toReleaseKind(%v) = %v, want %v", in, got, want)
 		}
 	}
-	if got := toWorkKind(WorkKind(99)); got != animev1.WorkKind_WORK_UNSPECIFIED {
+	if got := toReleaseKind(WorkKind(99)); got != animev1.ReleaseKind_KIND_UNSPECIFIED {
 		t.Errorf("unknown kind = %v", got)
-	}
-	// UNSPECIFIED is the filter's "any kind", so it must map to no filter.
-	if got := fromWorkKind(animev1.WorkKind_WORK_UNSPECIFIED); got != nil {
-		t.Errorf("unspecified = %v, want nil", got)
 	}
 }
 
 func TestEntryKindAndSeasonMapping(t *testing.T) {
 	for _, tc := range []struct {
-		in   animev1.EntryKind
+		in   browsev1.EntryKind
 		want *EntryKind
 	}{
-		{animev1.EntryKind_FRANCHISE, ptr(EntryFranchise)},
-		{animev1.EntryKind_SERIES, ptr(EntrySeries)},
-		{animev1.EntryKind_ENTRY_UNSPECIFIED, nil},
+		{browsev1.EntryKind_FRANCHISE, ptr(EntryFranchise)},
+		{browsev1.EntryKind_SERIES, ptr(EntrySeries)},
+		{browsev1.EntryKind_ENTRY_UNSPECIFIED, nil},
 	} {
 		got := fromEntryKind(tc.in)
 		switch {
@@ -557,8 +555,8 @@ func TestStaffPageQuery(t *testing.T) {
 }
 
 func TestListCharactersRPCQuery(t *testing.T) {
-	svc := newTestService(t)
-	resp, err := svc.ListCharacters(context.Background(), connect.NewRequest(&animev1.ListCharactersRequest{
+	svc := newTestBrowse(t)
+	resp, err := svc.ListCharacters(context.Background(), connect.NewRequest(&browsev1.ListCharactersRequest{
 		Query: "hero",
 	}))
 	if err != nil {
@@ -570,8 +568,8 @@ func TestListCharactersRPCQuery(t *testing.T) {
 }
 
 func TestListStaffRPCQuery(t *testing.T) {
-	svc := newTestService(t)
-	resp, err := svc.ListStaff(context.Background(), connect.NewRequest(&animev1.ListStaffRequest{
+	svc := newTestBrowse(t)
+	resp, err := svc.ListStaff(context.Background(), connect.NewRequest(&browsev1.ListStaffRequest{
 		Query: "voice",
 	}))
 	if err != nil {
@@ -587,7 +585,6 @@ func TestListStaffRPCQuery(t *testing.T) {
 // title OR its series' title, because an untitled season has no title to match.
 func TestWorksFilterQuery(t *testing.T) {
 	s := mustStore(t)
-	season := WorkSeason
 	for _, tc := range []struct {
 		name   string
 		filter WorkFilter
@@ -604,11 +601,9 @@ func TestWorksFilterQuery(t *testing.T) {
 		{"no match", WorkFilter{Query: "nothinghere"}, 0},
 		{"empty query matches everything", WorkFilter{Query: ""}, 10},
 		// Combining must intersect, not let either side win.
-		{"with a kind", WorkFilter{Query: "alpha main", Kind: &season}, 4},
 		{"with a year", WorkFilter{Query: "alpha main", ReleaseYear: 2006}, 1},
 		{"with a year that excludes it", WorkFilter{Query: "alpha movie", ReleaseYear: 2006}, 0},
-		{"with a quarter", WorkFilter{Query: "alpha main", ReleaseSeason: model.SeasonWinter}, 1},
-		{"with a series", WorkFilter{Query: "alpha", SeriesID: "zzz"}, 0},
+		{"with a year and quarter", WorkFilter{Query: "alpha main", ReleaseYear: 2006, ReleaseSeason: model.SeasonWinter}, 1},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			page, err := s.Works(tc.filter, "", 0)
@@ -626,15 +621,15 @@ func TestWorksFilterQuery(t *testing.T) {
 	}
 }
 
-func TestListWorksRPCQuery(t *testing.T) {
+func TestSearchReleasesRPCQuery(t *testing.T) {
 	svc := newTestService(t)
-	resp, err := svc.ListWorks(context.Background(), connect.NewRequest(&animev1.ListWorksRequest{
+	resp, err := svc.SearchReleases(context.Background(), connect.NewRequest(&animev1.SearchReleasesRequest{
 		Query: "alpha movie",
 	}))
 	if err != nil {
-		t.Fatalf("ListWorks: %v", err)
+		t.Fatalf("SearchReleases: %v", err)
 	}
-	if resp.Msg.GetTotalSize() != 1 || resp.Msg.GetWorks()[0].GetId() != "aaa-movie" {
-		t.Fatalf("total = %d, works = %+v", resp.Msg.GetTotalSize(), resp.Msg.GetWorks())
+	if resp.Msg.GetTotalSize() != 1 || resp.Msg.GetReleases()[0].GetId() != "aaa-movie" {
+		t.Fatalf("total = %d, releases = %+v", resp.Msg.GetTotalSize(), resp.Msg.GetReleases())
 	}
 }

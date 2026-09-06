@@ -41,7 +41,16 @@ type Index struct {
 	// row. Credits are written grouped by staff, so a range replaces a map of
 	// slices.
 	creditsByStaff map[int32][2]int32
+
+	// seriesAgg[row] totals the releases of series row. The index file records
+	// aggregates per catalog *entry*, which skips the series inside a franchise;
+	// SearchSeries returns every series, so these are folded up once at open
+	// from the works table rather than recomputed per request.
+	seriesAgg []seriesAgg
 }
+
+// seriesAgg totals one series' own releases.
+type seriesAgg struct{ first, latest, works, episodes int32 }
 
 type franchiseRow struct{ id, file, titles span }
 
@@ -95,7 +104,58 @@ func Open(blob string) (*Index, error) {
 		return nil, err
 	}
 	ix.indexCredits()
+	ix.aggregateSeries()
 	return ix, nil
+}
+
+// aggregateSeries folds the works table up into a per-series total: the span of
+// release years, the number of releases and the number of episodes.
+//
+// One pass over the works, which is the only table large enough to matter, and
+// it happens once per process rather than once per search.
+func (ix *Index) aggregateSeries() {
+	ix.seriesAgg = make([]seriesAgg, len(ix.series))
+	for _, w := range ix.works {
+		if w.series < 1 || int(w.series) > len(ix.seriesAgg) {
+			continue
+		}
+		a := &ix.seriesAgg[w.series-1]
+		a.works++
+		a.episodes += w.episodes
+		if w.year == 0 {
+			continue
+		}
+		if a.first == 0 || w.year < a.first {
+			a.first = w.year
+		}
+		if w.year > a.latest {
+			a.latest = w.year
+		}
+	}
+}
+
+// seriesEntryAt materialises the series at row i as a search result.
+func (ix *Index) seriesEntryAt(i int) SeriesEntry {
+	r := ix.series[i]
+	a := ix.seriesAgg[i]
+	e := SeriesEntry{
+		ID:                ix.text(r.id),
+		Titles:            unpackTitle(r.titles.text(ix.blob)),
+		FirstReleaseYear:  int(a.first),
+		LatestReleaseYear: int(a.latest),
+		Works:             int(a.works),
+		Episodes:          int(a.episodes),
+	}
+	if r.franchise > 0 {
+		e.FranchiseID = ix.text(ix.franchises[r.franchise-1].id)
+	}
+	return e
+}
+
+// seriesTitlesMatch reports whether the series at row i matches the
+// already-lowercased query, without materialising it.
+func (ix *Index) seriesTitlesMatch(i int, query string) bool {
+	return titleMatches(ix.series[i].titles.text(ix.blob), query)
 }
 
 // scan walks the blob once, dispatching each row to its section.

@@ -1,0 +1,273 @@
+syntax = "proto3";
+
+// Package browse.v1 is the internal API behind anime-metadata-web. It is not
+// documented, not published in the API reference, and carries no compatibility
+// promise: it exists to render the pages of one site and changes whenever those
+// pages do.
+//
+// The public API is anime.v1 — two calls, SearchSeries and GetSeries. Anything
+// here is a shape a browse UI wanted (flat rows with precomputed counts, the
+// franchise grouping, the global character and staff indexes) rather than a
+// fact about the dataset that an outside consumer was asking for. Keeping the
+// two apart is what lets anime.v1 stay two calls wide while the site keeps
+// whatever it needs.
+//
+// It reuses anime.v1's messages wherever the shape is the same, so a series
+// rendered by the site and a series served to the public cannot drift. Where
+// the public API already answers a question the site asks — searching series,
+// searching releases, opening one series — the site calls anime.v1 directly
+// rather than getting a private copy that could drift from it.
+package browse.v1;
+
+import "anime/v1/anime.proto";
+
+option go_package = "github.com/michael-freling/anime-metadata-db/api/internal/gen/browse/v1;browsev1";
+
+// EntryKind distinguishes a top-level catalog entry's type: the dataset's
+// browsable roots are franchises and the series that belong to none.
+// buf:lint:ignore ENUM_VALUE_PREFIX
+enum EntryKind {
+  ENTRY_UNSPECIFIED = 0;
+  FRANCHISE = 1;
+  SERIES = 2;
+}
+
+// WatchOrderEntry is one ordered reference within a WatchOrder. ref is the id
+// of a series, season, movie or special, validated against the dataset at build
+// time (see builder/internal/build/validate.go).
+message WatchOrderEntry {
+  string ref = 1;
+  string note = 2;
+}
+
+// WatchOrder is a named curated alternate order across a Franchise's Series.
+message WatchOrder {
+  string name = 1;
+  repeated WatchOrderEntry entries = 2;
+}
+
+// Franchise groups related Series under one brand.
+//
+// series embeds each member whole, exactly as anime.v1.GetSeries returns it, so
+// a franchise page renders in one call. That is affordable because a franchise
+// holds a handful of series; if one ever holds dozens, this is the field to
+// reconsider — and being internal, it can be changed without notice.
+message Franchise {
+  string id = 1;
+  // title is resolved for the request's Accept-Language.
+  string title = 5;
+  // localized_title carries every language; set only for Accept-Language: *.
+  anime.v1.LocalizedTitle localized_title = 2;
+  repeated anime.v1.Series series = 3;
+  repeated WatchOrder watch_orders = 4;
+
+  // 6 and 7 held series_total and watch_orders_total, counts that went with
+  // capped first pages. Neither collection is capped now.
+  reserved 6, 7;
+  reserved "series_total", "watch_orders_total";
+}
+
+// Staff is a global real person — currently only voice actors.
+message Staff {
+  string id = 1;
+  // name is resolved for the request's Accept-Language.
+  string name = 2;
+  // localized_name carries every language; set only for Accept-Language: *.
+  anime.v1.LocalizedTitle localized_name = 3;
+  anime.v1.ExternalIds external_ids = 4;
+}
+
+// StaffCredit is one role a Staff member is cast in: the character they voice,
+// the language they voice it in, and the series it applies to.
+message StaffCredit {
+  string character_id = 1;
+  string character_name = 2;
+  string language = 3;
+  repeated string series_ids = 4;
+  // series_titles are those series' titles resolved for the request's
+  // Accept-Language, positionally matching series_ids, so a page listing
+  // someone's roles can name each one without a call per credit.
+  repeated string series_titles = 5;
+}
+
+// SearchResult is one match: a top-level franchise or a standalone series.
+message SearchResult {
+  EntryKind kind = 1;
+  string id = 2;
+  // title is resolved for the request's Accept-Language.
+  string title = 5;
+  // localized_title carries every language; set only for Accept-Language: *.
+  anime.v1.LocalizedTitle localized_title = 3;
+  // franchise_id is set when kind is SERIES and the series belongs to a
+  // franchise; empty for a standalone series or a franchise result.
+  string franchise_id = 4;
+}
+
+// CatalogEntry is one browsable top-level entry — a franchise or a standalone
+// series — carrying just enough to render a catalog row. It nests nothing, so a
+// page stays small however large the catalog grows.
+message CatalogEntry {
+  EntryKind kind = 1;
+  string id = 2;
+  // title is resolved for the request's Accept-Language.
+  string title = 3;
+  // localized_title carries every language; set only for Accept-Language: *.
+  anime.v1.LocalizedTitle localized_title = 4;
+  // franchise_id is set when kind is SERIES and the series belongs to a
+  // franchise; empty for a standalone series or a franchise entry.
+  string franchise_id = 5;
+  // The span of release years across everything under this entry. Both are 0
+  // when nothing under it carries a year.
+  int32 first_release_year = 6;
+  int32 latest_release_year = 7;
+  // Counts of what sits under this entry: works is seasons + movies + specials.
+  int32 works = 8;
+  int32 episodes = 9;
+}
+
+// DatasetStats summarizes the loaded dataset.
+message DatasetStats {
+  int32 franchises = 1;
+  int32 series = 2;
+  int32 seasons = 3;
+  int32 episodes = 4;
+  int32 characters = 5;
+  int32 staff = 6;
+  // The span of release years the dataset actually covers, across every work
+  // that carries a year. Both are 0 for an empty dataset.
+  int32 earliest_release_year = 7;
+  int32 latest_release_year = 8;
+}
+
+message SearchRequest {
+  string query = 1;
+  // limit caps the number of results; <= 0 applies a server default.
+  int32 limit = 2;
+  // page_token continues a previous call; empty starts from the beginning.
+  string page_token = 3;
+}
+
+message SearchResponse {
+  repeated SearchResult results = 1;
+  string next_page_token = 2;
+  int32 total_size = 3;
+}
+
+message ListCatalogRequest {
+  string page_token = 1;
+  int32 limit = 2;
+  // kind restricts the result to franchises or to standalone series;
+  // unspecified returns both.
+  EntryKind kind = 3;
+}
+
+message ListCatalogResponse {
+  repeated CatalogEntry entries = 1;
+  string next_page_token = 2;
+  int32 total_size = 3;
+}
+
+message GetFranchiseRequest {
+  string id = 1;
+}
+
+message GetFranchiseResponse {
+  Franchise franchise = 1;
+}
+
+message GetCharacterRequest {
+  string id = 1;
+}
+
+message GetCharacterResponse {
+  anime.v1.Character character = 1;
+}
+
+message ListCharactersRequest {
+  // series_id restricts the result to that series' cast; empty lists every
+  // character in the dataset. It also decides what each character's
+  // voice_actors means: with a series, they are that series' cast (the constant
+  // cast plus anyone cast only there); without one, only the cast that holds
+  // throughout.
+  string series_id = 1;
+  // query matches a character's name in any language, case-insensitively, as a
+  // substring. Empty matches every character.
+  string query = 4;
+  int32 limit = 2;
+  string page_token = 3;
+}
+
+message ListCharactersResponse {
+  repeated anime.v1.Character characters = 1;
+  string next_page_token = 2;
+  int32 total_size = 3;
+}
+
+message GetStaffRequest {
+  string id = 1;
+}
+
+message GetStaffResponse {
+  Staff staff = 1;
+  // credits is every role this person is cast in, in dataset order. A career is
+  // bounded the way a series is, so this is embedded whole rather than paged.
+  repeated StaffCredit credits = 2;
+
+  // 3 held credits_total, the count alongside a capped first page.
+  reserved 3;
+  reserved "credits_total";
+}
+
+message ListStaffRequest {
+  // language restricts the result to staff credited in that language ("ja");
+  // empty lists everyone. It chooses *which people* come back, not what
+  // language their names are written in — that is Accept-Language, and the two
+  // are deliberately separate.
+  string language = 1;
+  // query matches a staff member's name in any language, case-insensitively,
+  // as a substring. Empty matches everyone.
+  string query = 4;
+  int32 limit = 2;
+  string page_token = 3;
+}
+
+message ListStaffResponse {
+  repeated Staff staff = 1;
+  string next_page_token = 2;
+  int32 total_size = 3;
+}
+
+message GetStatsRequest {}
+
+message GetStatsResponse {
+  // version is the deployed revision, so a caller can tell which build
+  // answered.
+  string version = 2;
+  DatasetStats stats = 3;
+
+  reserved 1;
+  reserved "status";
+}
+
+// BrowseService serves anime-metadata-web. See the package comment: undocumented
+// by design, and free to change with the site.
+service BrowseService {
+  // Search matches franchises and standalone series by title.
+  rpc Search(SearchRequest) returns (SearchResponse) {}
+  // ListCatalog pages through every top-level entry as a flat summary row.
+  rpc ListCatalog(ListCatalogRequest) returns (ListCatalogResponse) {}
+  // GetFranchise returns one franchise with each of its series embedded whole.
+  rpc GetFranchise(GetFranchiseRequest) returns (GetFranchiseResponse) {}
+  // GetCharacter returns one character by id, with every appearance and the
+  // voice actors cast for it.
+  rpc GetCharacter(GetCharacterRequest) returns (GetCharacterResponse) {}
+  // ListCharacters returns the whole cast, or just one series' cast.
+  rpc ListCharacters(ListCharactersRequest) returns (ListCharactersResponse) {}
+  // GetStaff returns one staff member by id with every role they are cast in.
+  rpc GetStaff(GetStaffRequest) returns (GetStaffResponse) {}
+  // ListStaff returns every staff member, optionally filtered by the language
+  // they are credited in.
+  rpc ListStaff(ListStaffRequest) returns (ListStaffResponse) {}
+  // GetStats reports what the dataset contains, plus the deployed revision.
+  rpc GetStats(GetStatsRequest) returns (GetStatsResponse) {}
+}

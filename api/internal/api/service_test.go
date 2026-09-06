@@ -8,25 +8,32 @@ import (
 	"connectrpc.com/connect"
 
 	animev1 "github.com/michael-freling/anime-metadata-db/api/internal/gen/anime/v1"
+	browsev1 "github.com/michael-freling/anime-metadata-db/api/internal/gen/browse/v1"
 )
 
-// newTestService builds a Service over the standard fixtures.
+// newTestBrowse builds a BrowseService over the standard fixtures.
+func newTestBrowse(t *testing.T) *BrowseService {
+	t.Helper()
+	return NewBrowseService(mustStore(t), "test-version")
+}
+
+// newTestService builds the public Service over the standard fixtures.
 func newTestService(t *testing.T) *Service {
 	t.Helper()
 	return NewService(mustStore(t), "test-version")
 }
 
-func TestListFranchises(t *testing.T) {
-	svc := newTestService(t)
-	resp, err := svc.ListFranchises(context.Background(), connect.NewRequest(&animev1.ListFranchisesRequest{}))
+// Every converter branch, reached through the one response that still nests
+// the whole tree. GetFranchise is a browse RPC, but the shapes below it —
+// season, movie, special, episode — are the public API's, converted once and
+// shared, so exercising them here covers both.
+func TestFranchiseConversion(t *testing.T) {
+	svc := newTestBrowse(t)
+	resp, err := svc.GetFranchise(context.Background(), connect.NewRequest(&browsev1.GetFranchiseRequest{Id: "aaa"}))
 	if err != nil {
-		t.Fatalf("ListFranchises: %v", err)
+		t.Fatalf("GetFranchise: %v", err)
 	}
-	got := resp.Msg.GetFranchises()
-	if len(got) != 1 {
-		t.Fatalf("got %d franchises, want 1", len(got))
-	}
-	f := got[0]
+	f := resp.Msg.GetFranchise()
 	// Default request (no Accept-Language) resolves the title to English and
 	// omits the full multilingual set.
 	if f.GetId() != "aaa" || f.GetTitle() != "Alpha Franchise" {
@@ -106,8 +113,8 @@ func TestListFranchises(t *testing.T) {
 }
 
 func TestGetFranchise(t *testing.T) {
-	svc := newTestService(t)
-	resp, err := svc.GetFranchise(context.Background(), connect.NewRequest(&animev1.GetFranchiseRequest{Id: "aaa"}))
+	svc := newTestBrowse(t)
+	resp, err := svc.GetFranchise(context.Background(), connect.NewRequest(&browsev1.GetFranchiseRequest{Id: "aaa"}))
 	if err != nil {
 		t.Fatalf("GetFranchise: %v", err)
 	}
@@ -117,7 +124,7 @@ func TestGetFranchise(t *testing.T) {
 }
 
 func TestGetFranchiseErrors(t *testing.T) {
-	svc := newTestService(t)
+	svc := newTestBrowse(t)
 	tests := []struct {
 		name string
 		id   string
@@ -128,7 +135,7 @@ func TestGetFranchiseErrors(t *testing.T) {
 	}
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
-			_, err := svc.GetFranchise(context.Background(), connect.NewRequest(&animev1.GetFranchiseRequest{Id: tc.id}))
+			_, err := svc.GetFranchise(context.Background(), connect.NewRequest(&browsev1.GetFranchiseRequest{Id: tc.id}))
 			if connect.CodeOf(err) != tc.want {
 				t.Errorf("code = %v, want %v (err=%v)", connect.CodeOf(err), tc.want, err)
 			}
@@ -180,8 +187,8 @@ func TestGetSeriesErrors(t *testing.T) {
 }
 
 func TestSearch(t *testing.T) {
-	svc := newTestService(t)
-	resp, err := svc.Search(context.Background(), connect.NewRequest(&animev1.SearchRequest{Query: "alpha"}))
+	svc := newTestBrowse(t)
+	resp, err := svc.Search(context.Background(), connect.NewRequest(&browsev1.SearchRequest{Query: "alpha"}))
 	if err != nil {
 		t.Fatalf("Search: %v", err)
 	}
@@ -189,17 +196,17 @@ func TestSearch(t *testing.T) {
 	if len(results) != 2 {
 		t.Fatalf("got %d results, want 2", len(results))
 	}
-	if results[0].GetKind() != animev1.EntryKind_FRANCHISE || results[0].GetId() != "aaa" {
+	if results[0].GetKind() != browsev1.EntryKind_FRANCHISE || results[0].GetId() != "aaa" {
 		t.Errorf("result0 = %+v", results[0])
 	}
-	if results[1].GetKind() != animev1.EntryKind_SERIES || results[1].GetFranchiseId() != "aaa" {
+	if results[1].GetKind() != browsev1.EntryKind_SERIES || results[1].GetFranchiseId() != "aaa" {
 		t.Errorf("result1 = %+v", results[1])
 	}
 }
 
 func TestGetStats(t *testing.T) {
-	svc := newTestService(t)
-	resp, err := svc.GetStats(context.Background(), connect.NewRequest(&animev1.GetStatsRequest{}))
+	svc := newTestBrowse(t)
+	resp, err := svc.GetStats(context.Background(), connect.NewRequest(&browsev1.GetStatsRequest{}))
 	if err != nil {
 		t.Fatalf("GetStats: %v", err)
 	}
@@ -219,10 +226,10 @@ func reqWithLang[T any](msg *T, lang string) *connect.Request[T] {
 }
 
 func TestGetFranchiseLanguage(t *testing.T) {
-	svc := newTestService(t)
+	svc := newTestBrowse(t)
 
 	// A Japanese request with no ja translation falls back to the native original.
-	resp, err := svc.GetFranchise(context.Background(), reqWithLang(&animev1.GetFranchiseRequest{Id: "aaa"}, "ja"))
+	resp, err := svc.GetFranchise(context.Background(), reqWithLang(&browsev1.GetFranchiseRequest{Id: "aaa"}, "ja"))
 	if err != nil {
 		t.Fatalf("GetFranchise(ja): %v", err)
 	}
@@ -234,7 +241,7 @@ func TestGetFranchiseLanguage(t *testing.T) {
 	}
 
 	// Accept-Language: * returns the English title plus the full multilingual set.
-	resp, err = svc.GetFranchise(context.Background(), reqWithLang(&animev1.GetFranchiseRequest{Id: "aaa"}, "*"))
+	resp, err = svc.GetFranchise(context.Background(), reqWithLang(&browsev1.GetFranchiseRequest{Id: "aaa"}, "*"))
 	if err != nil {
 		t.Fatalf("GetFranchise(*): %v", err)
 	}
@@ -253,9 +260,9 @@ func TestGetFranchiseLanguage(t *testing.T) {
 }
 
 func TestGetCharacter(t *testing.T) {
-	svc := newTestService(t)
+	svc := newTestBrowse(t)
 
-	resp, err := svc.GetCharacter(context.Background(), connect.NewRequest(&animev1.GetCharacterRequest{Id: "alpha-hero"}))
+	resp, err := svc.GetCharacter(context.Background(), connect.NewRequest(&browsev1.GetCharacterRequest{Id: "alpha-hero"}))
 	if err != nil {
 		t.Fatalf("GetCharacter: %v", err)
 	}
@@ -336,7 +343,7 @@ func TestGetCharacter(t *testing.T) {
 	}
 
 	// Accept-Language: * adds the full multilingual name.
-	resp, err = svc.GetCharacter(context.Background(), reqWithLang(&animev1.GetCharacterRequest{Id: "alpha-hero"}, "*"))
+	resp, err = svc.GetCharacter(context.Background(), reqWithLang(&browsev1.GetCharacterRequest{Id: "alpha-hero"}, "*"))
 	if err != nil {
 		t.Fatalf("GetCharacter(*): %v", err)
 	}
@@ -344,7 +351,7 @@ func TestGetCharacter(t *testing.T) {
 		t.Errorf("localized original = %q", got)
 	}
 	// A Japanese request resolves the staff name to their native form.
-	resp, err = svc.GetCharacter(context.Background(), reqWithLang(&animev1.GetCharacterRequest{Id: "alpha-hero"}, "ja"))
+	resp, err = svc.GetCharacter(context.Background(), reqWithLang(&browsev1.GetCharacterRequest{Id: "alpha-hero"}, "ja"))
 	if err != nil {
 		t.Fatalf("GetCharacter(ja): %v", err)
 	}
@@ -358,7 +365,7 @@ func TestGetCharacter(t *testing.T) {
 // is only the cast that holds throughout, and the per-series additions are on
 // the appearances.
 func TestCharacterCastIsScopedToTheSeriesAsked(t *testing.T) {
-	svc := newTestService(t)
+	svc := newTestBrowse(t)
 	staffIDs := func(vas []*animev1.VoiceActor) []string {
 		out := make([]string, len(vas))
 		for i, va := range vas {
@@ -375,7 +382,7 @@ func TestCharacterCastIsScopedToTheSeriesAsked(t *testing.T) {
 		{"zzz", []string{"va-one", "va-two"}}, // va-two is cast only here
 	} {
 		resp, err := svc.ListCharacters(context.Background(), connect.NewRequest(
-			&animev1.ListCharactersRequest{SeriesId: tc.seriesID, Query: "Alpha Hero"}))
+			&browsev1.ListCharactersRequest{SeriesId: tc.seriesID, Query: "Alpha Hero"}))
 		if err != nil {
 			t.Fatalf("ListCharacters(%q): %v", tc.seriesID, err)
 		}
@@ -390,28 +397,28 @@ func TestCharacterCastIsScopedToTheSeriesAsked(t *testing.T) {
 }
 
 func TestGetCharacterErrors(t *testing.T) {
-	svc := newTestService(t)
-	if _, err := svc.GetCharacter(context.Background(), connect.NewRequest(&animev1.GetCharacterRequest{})); connect.CodeOf(err) != connect.CodeInvalidArgument {
+	svc := newTestBrowse(t)
+	if _, err := svc.GetCharacter(context.Background(), connect.NewRequest(&browsev1.GetCharacterRequest{})); connect.CodeOf(err) != connect.CodeInvalidArgument {
 		t.Errorf("empty id: got %v, want invalid_argument", err)
 	}
-	if _, err := svc.GetCharacter(context.Background(), connect.NewRequest(&animev1.GetCharacterRequest{Id: "nobody"})); connect.CodeOf(err) != connect.CodeNotFound {
+	if _, err := svc.GetCharacter(context.Background(), connect.NewRequest(&browsev1.GetCharacterRequest{Id: "nobody"})); connect.CodeOf(err) != connect.CodeNotFound {
 		t.Errorf("unknown id: got %v, want not_found", err)
 	}
 }
 
 func TestListCharacters(t *testing.T) {
-	svc := newTestService(t)
+	svc := newTestBrowse(t)
 	tests := []struct {
 		name     string
-		req      *animev1.ListCharactersRequest
+		req      *browsev1.ListCharactersRequest
 		wantIDs  []string
 		wantCode connect.Code
 	}{
-		{"whole cast", &animev1.ListCharactersRequest{}, []string{"alpha-hero", "zed-friend"}, 0},
-		{"by series", &animev1.ListCharactersRequest{SeriesId: "aaa-main"}, []string{"alpha-hero"}, 0},
-		{"series with no cast", &animev1.ListCharactersRequest{SeriesId: "minimal"}, nil, 0},
-		{"limit", &animev1.ListCharactersRequest{Limit: 1}, []string{"alpha-hero"}, 0},
-		{"unknown series", &animev1.ListCharactersRequest{SeriesId: "nope"}, nil, connect.CodeNotFound},
+		{"whole cast", &browsev1.ListCharactersRequest{}, []string{"alpha-hero", "zed-friend"}, 0},
+		{"by series", &browsev1.ListCharactersRequest{SeriesId: "aaa-main"}, []string{"alpha-hero"}, 0},
+		{"series with no cast", &browsev1.ListCharactersRequest{SeriesId: "minimal"}, nil, 0},
+		{"limit", &browsev1.ListCharactersRequest{Limit: 1}, []string{"alpha-hero"}, 0},
+		{"unknown series", &browsev1.ListCharactersRequest{SeriesId: "nope"}, nil, connect.CodeNotFound},
 	}
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
@@ -439,9 +446,9 @@ func TestListCharacters(t *testing.T) {
 }
 
 func TestGetStaff(t *testing.T) {
-	svc := newTestService(t)
+	svc := newTestBrowse(t)
 
-	resp, err := svc.GetStaff(context.Background(), connect.NewRequest(&animev1.GetStaffRequest{Id: "va-one"}))
+	resp, err := svc.GetStaff(context.Background(), connect.NewRequest(&browsev1.GetStaffRequest{Id: "va-one"}))
 	if err != nil {
 		t.Fatalf("GetStaff: %v", err)
 	}
@@ -468,7 +475,7 @@ func TestGetStaff(t *testing.T) {
 	}
 
 	// An unnamed staff member with only an override credit still resolves.
-	resp, err = svc.GetStaff(context.Background(), reqWithLang(&animev1.GetStaffRequest{Id: "va-two"}, "*"))
+	resp, err = svc.GetStaff(context.Background(), reqWithLang(&browsev1.GetStaffRequest{Id: "va-two"}, "*"))
 	if err != nil {
 		t.Fatalf("GetStaff(va-two): %v", err)
 	}
@@ -487,9 +494,9 @@ func TestGetStaff(t *testing.T) {
 // a title is missing — so a desynced or empty title would render as something
 // plausible rather than as an error, and ship unnoticed.
 func TestGetStaffCreditsCarrySeriesTitles(t *testing.T) {
-	svc := newTestService(t)
+	svc := newTestBrowse(t)
 
-	resp, err := svc.GetStaff(context.Background(), connect.NewRequest(&animev1.GetStaffRequest{Id: "va-one"}))
+	resp, err := svc.GetStaff(context.Background(), connect.NewRequest(&browsev1.GetStaffRequest{Id: "va-one"}))
 	if err != nil {
 		t.Fatalf("GetStaff: %v", err)
 	}
@@ -514,7 +521,7 @@ func TestGetStaffCreditsCarrySeriesTitles(t *testing.T) {
 	// one fixture series with a native original, so asking in Japanese must
 	// return it — a credit built with the wrong localizer would still return
 	// the English title here and pass every assertion above.
-	resp, err = svc.GetStaff(context.Background(), reqWithLang(&animev1.GetStaffRequest{Id: "va-two"}, "ja"))
+	resp, err = svc.GetStaff(context.Background(), reqWithLang(&browsev1.GetStaffRequest{Id: "va-two"}, "ja"))
 	if err != nil {
 		t.Fatalf("GetStaff(va-two): %v", err)
 	}
@@ -526,26 +533,26 @@ func TestGetStaffCreditsCarrySeriesTitles(t *testing.T) {
 }
 
 func TestGetStaffErrors(t *testing.T) {
-	svc := newTestService(t)
-	if _, err := svc.GetStaff(context.Background(), connect.NewRequest(&animev1.GetStaffRequest{})); connect.CodeOf(err) != connect.CodeInvalidArgument {
+	svc := newTestBrowse(t)
+	if _, err := svc.GetStaff(context.Background(), connect.NewRequest(&browsev1.GetStaffRequest{})); connect.CodeOf(err) != connect.CodeInvalidArgument {
 		t.Errorf("empty id: got %v, want invalid_argument", err)
 	}
-	if _, err := svc.GetStaff(context.Background(), connect.NewRequest(&animev1.GetStaffRequest{Id: "nobody"})); connect.CodeOf(err) != connect.CodeNotFound {
+	if _, err := svc.GetStaff(context.Background(), connect.NewRequest(&browsev1.GetStaffRequest{Id: "nobody"})); connect.CodeOf(err) != connect.CodeNotFound {
 		t.Errorf("unknown id: got %v, want not_found", err)
 	}
 }
 
 func TestListStaff(t *testing.T) {
-	svc := newTestService(t)
+	svc := newTestBrowse(t)
 	tests := []struct {
 		name    string
-		req     *animev1.ListStaffRequest
+		req     *browsev1.ListStaffRequest
 		wantIDs []string
 	}{
-		{"everyone", &animev1.ListStaffRequest{}, []string{"va-one", "va-two"}},
-		{"by language", &animev1.ListStaffRequest{Language: "ja"}, []string{"va-one"}},
-		{"language with no credits", &animev1.ListStaffRequest{Language: "fr"}, nil},
-		{"limit", &animev1.ListStaffRequest{Limit: 1}, []string{"va-one"}},
+		{"everyone", &browsev1.ListStaffRequest{}, []string{"va-one", "va-two"}},
+		{"by language", &browsev1.ListStaffRequest{Language: "ja"}, []string{"va-one"}},
+		{"language with no credits", &browsev1.ListStaffRequest{Language: "fr"}, nil},
+		{"limit", &browsev1.ListStaffRequest{Limit: 1}, []string{"va-one"}},
 	}
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {

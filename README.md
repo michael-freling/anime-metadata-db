@@ -141,26 +141,34 @@ normal run, and a job that rebuilds `data/` from the real sources and diffs it.
 a `replace` pointing into the working tree, so no `go.work` is needed and every
 module builds standalone — which is exactly how CI builds them.
 
-`AnimeService` exposes the structure — `ListFranchises`, `GetFranchise`,
-`GetSeries`, `Search` — the R2 cast — `GetCharacter`, `ListCharacters`,
-`GetStaff`, `ListStaff` — and `GetHealth`. Run it locally:
+The public API is `anime.v1.AnimeService`, and it is three methods wide:
+`SearchSeries` finds series by name, `SearchReleases` finds seasons, films and
+specials by when they premiered, and `GetSeries` returns one series **whole** —
+every installment, every episode and the entire cast in a single response, with
+nothing capped and nothing to page. Run it locally:
 
 ```sh
 cd api && go run ./cmd/api                 # listens on :8080 (HTTP/1.1 + cleartext HTTP/2)
 
-curl -X POST localhost:8080/anime.v1.AnimeService/GetHealth \
-  -H 'Content-Type: application/json' -d '{}'
-curl -X POST localhost:8080/anime.v1.AnimeService/Search \
+curl -X POST localhost:8080/anime.v1.AnimeService/SearchSeries \
   -H 'Content-Type: application/json' -d '{"query":"demon"}'
-curl -X POST localhost:8080/anime.v1.AnimeService/GetStaff \
-  -H 'Content-Type: application/json' -d '{"id":"ayako-kawasumi"}'
+curl -X POST localhost:8080/anime.v1.AnimeService/SearchReleases \
+  -H 'Content-Type: application/json' -d '{"releaseYear":2026,"releaseSeason":"WINTER"}'
+curl -X POST localhost:8080/anime.v1.AnimeService/GetSeries \
+  -H 'Content-Type: application/json' -d '{"id":"demon-slayer"}'
 ```
 
-**Cast.** Characters and staff are global, so a character is reachable nested in
-a series' `characters`, by id from `GetCharacter`, or as a credit from
-`GetStaff` — always carrying every series it appears in. A character's
-`voiceActors` is the default cast; an `appearance` may override it and `scope`
-it to specific seasons, movies or specials.
+A second service, `browse.v1.BrowseService`, serves
+[anime-metadata-web](https://anime-metadata-web.vercel.app) from the same binary:
+the franchise grouping, flat catalog rows and the global character and staff
+indexes that a browse UI needs. It is deliberately undocumented and carries no
+compatibility promise — it changes whenever that site does. It is excluded from
+the published API reference, which is why that reference lists three methods.
+
+**Cast.** Characters and staff are global, so the character embedded in a
+series' `characters` is the full node, carrying every series it appears in. A
+character's `voiceActors` is the cast that holds throughout; an `appearance` may
+add to it and `scope` that to specific seasons, movies or specials.
 
 **Localized titles.** Each node returns a single `title` resolved from the
 request's `Accept-Language` header (default `en`); resolution falls back
@@ -173,8 +181,8 @@ requested-language → native original (for non-English) → English → any. Se
 curl -X POST localhost:8080/anime.v1.AnimeService/GetSeries \
   -H 'Content-Type: application/json' -H 'Accept-Language: ja' -d '{"id":"demon-slayer"}'
 # Every language on every node:
-curl -X POST localhost:8080/anime.v1.AnimeService/ListFranchises \
-  -H 'Content-Type: application/json' -H 'Accept-Language: *' -d '{}'
+curl -X POST localhost:8080/anime.v1.AnimeService/SearchSeries \
+  -H 'Content-Type: application/json' -H 'Accept-Language: *' -d '{"limit":5}'
 ```
 
 ### Hosting (Vercel)
@@ -183,7 +191,8 @@ The service deploys to Vercel's free tier using Vercel's native **Go web-server*
 builder: it compiles [`api/cmd/api`](api/cmd/api) and runs it as a server, injecting the
 listen port via `$PORT` (which the server binds automatically). No `vercel.json`
 or serverless-function wrapper is needed — every request is proxied to the
-server. `GetHealth` reports `$VERCEL_GIT_COMMIT_SHA` as its `version`.
+server. The browse service's `GetStats` reports `$VERCEL_GIT_COMMIT_SHA` as its
+`version`.
 
 Connect-protocol, gRPC-Web and JSON clients all work over Vercel; deploy by
 connecting the repo in the Vercel dashboard (pushes to the production branch

@@ -3,30 +3,19 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { cache } from 'react';
 import { Code, ConnectError } from '@connectrpc/connect';
-import { localizedApi } from '@/lib/api';
+import { localizedBrowse } from '@/lib/api';
 import { ApiError, isBadRequest, PageHeader, Pager, plural } from '@/components/browse';
 import { humanizeId, languageLabel } from '@/lib/format';
 
 const load = cache(async (id: string) => {
   try {
-    const api = await localizedApi();
-    const res = await api.getStaff({ id });
+    const browse = await localizedBrowse();
+    const res = await browse.getStaff({ id });
     return res.staff ? res : null;
   } catch (err) {
     if (err instanceof ConnectError && err.code === Code.NotFound) return null;
     throw err;
   }
-});
-
-// How many roles one page shows.
-const ROLE_LIMIT = 24;
-
-// A working voice actor accumulates roles for a career, so the credits GetStaff
-// embeds are a capped page. Asking ListCredits is what makes the rest
-// reachable, and the count honest.
-const loadCredits = cache(async (id: string, token: string) => {
-  const api = await localizedApi();
-  return api.listCredits({ staffId: id, pageToken: token, limit: ROLE_LIMIT });
 });
 
 export async function generateMetadata({
@@ -57,13 +46,11 @@ export default async function StaffPage({
   searchParams: Promise<{ token?: string }>;
 }) {
   const { id } = await params;
-  const { token = '' } = await searchParams;
-
+  // One call: GetStaff embeds every role, bounded by a career rather than by
+  // the catalogue.
   let res;
-  let page;
   try {
     res = await load(id);
-    if (res?.staff) page = await loadCredits(id, token);
   } catch (err) {
     return (
       <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-12">
@@ -75,10 +62,10 @@ export default async function StaffPage({
       </main>
     );
   }
-  if (!res?.staff || !page) notFound();
+  if (!res?.staff) notFound();
 
   const { staff } = res;
-  const credits = page.credits;
+  const credits = res.credits;
 
   return (
     <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-12">
@@ -88,11 +75,11 @@ export default async function StaffPage({
       <div className="mt-4">
         <PageHeader
           title={staff.name || humanizeId(staff.id)}
-          subtitle={plural(page.totalSize, 'role')}
+          subtitle={plural(credits.length, 'role')}
         />
       </div>
 
-      {page.totalSize > 0 ? (
+      {credits.length > 0 ? (
         <section className="mt-10">
           <h2 className="mb-2 text-lg font-semibold">Roles</h2>
           <ul>
@@ -115,12 +102,6 @@ export default async function StaffPage({
               </li>
             ))}
           </ul>
-          <Pager
-            basePath={`/staff/${staff.id}`}
-            nextToken={page.nextPageToken}
-            shown={credits.length}
-            total={page.totalSize}
-          />
         </section>
       ) : (
         <p className="mt-10 text-fd-muted-foreground">

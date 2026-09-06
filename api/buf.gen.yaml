@@ -28,6 +28,13 @@ plugins:
   # do not work remotely, which costs nothing here: the only thing a base file
   # would add is `servers`, and that URL already exists in the web app (see
   # lib/shared.ts), where duplicating it would be the thing that goes stale.
+  # A spec is emitted for browse.proto too, into web/openapi/browse/v1/. Nothing
+  # renders it: scripts/generate-api-docs.mts names the anime spec by path, so
+  # the published reference is the public API and only the public API. It is
+  # generated and committed anyway because buf has no per-plugin path filter,
+  # and because a spec that exists is worth having for anyone working on the
+  # site — it is simply not documentation.
+  #
   # JSON rather than YAML so the docs site can read the spec with JSON.parse.
   # The server URL is not in the schema and has to be added at load time (see
   # web/src/lib/openapi.ts); parsing YAML to do that would mean a parser

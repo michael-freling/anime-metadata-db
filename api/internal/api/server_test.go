@@ -31,7 +31,7 @@ func TestHandlerServesConnectJSON(t *testing.T) {
 	defer srv.Close()
 
 	resp, err := http.Post(
-		srv.URL+"/anime.v1.AnimeService/GetStats",
+		srv.URL+"/browse.v1.BrowseService/GetStats",
 		"application/json",
 		strings.NewReader("{}"),
 	)
@@ -51,6 +51,21 @@ func TestHandlerServesConnectJSON(t *testing.T) {
 	// The interceptor marks responses as varying by Accept-Language.
 	if vary := resp.Header.Get("Vary"); !strings.Contains(vary, "Accept-Language") {
 		t.Errorf("Vary header = %q, want it to include Accept-Language", vary)
+	}
+
+	// The public service is mounted on the same handler, on its own path.
+	pub, err := http.Post(
+		srv.URL+"/anime.v1.AnimeService/SearchSeries",
+		"application/json",
+		strings.NewReader("{}"),
+	)
+	if err != nil {
+		t.Fatalf("POST SearchSeries: %v", err)
+	}
+	defer pub.Body.Close()
+	pubBody, _ := io.ReadAll(pub.Body)
+	if pub.StatusCode != http.StatusOK || !strings.Contains(string(pubBody), `"totalSize"`) {
+		t.Errorf("SearchSeries: status = %d, body = %s", pub.StatusCode, pubBody)
 	}
 }
 

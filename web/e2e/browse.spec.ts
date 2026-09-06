@@ -294,46 +294,47 @@ test('detail pages describe the entry instead of printing its id', async ({ page
   await expect(body).not.toContainText('demon-slayer');
 });
 
-// The series page used to render the cast embedded in GetSeries, which the API
-// caps. tensei-shitara-slime-datta-ken has 148 characters and the page showed
-// 100 — no pager, no count, nothing to indicate 48 were missing. A cap you
-// cannot see is worse than a page you have to click through, so this asserts
-// the count is honest and the rest is reachable.
-test('a large cast is paged rather than silently cut off', async ({ page }) => {
+// The series page used to render a capped cast: tensei-shitara-slime-datta-ken
+// has 148 characters and the page showed 100 — no count, nothing to indicate 48
+// were missing. GetSeries now returns a series whole, so the fix is not a pager
+// but the absence of one: every character is on the page, and nothing claims
+// otherwise.
+test('a large cast renders in full rather than being cut off', async ({ page }) => {
   await page.goto('/browse/tensei-shitara-slime-datta-ken');
   const body = page.locator('main').last();
+  await expect(body.getByRole('heading', { name: 'Cast' })).toBeVisible();
 
-  const pager = body.getByText(/Showing \d+ of [\d,]+/);
-  await expect(pager).toBeVisible();
-  const [, shown, total] = (await pager.textContent())!.match(/Showing (\d+) of ([\d,]+)/)!;
-  const totalNum = Number(total.replace(/,/g, ''));
-  expect(totalNum).toBeGreaterThan(Number(shown));
+  const links = await body
+    .locator('a[href^="/characters/"]')
+    .evaluateAll((els) => els.map((e) => (e as HTMLAnchorElement).getAttribute('href')!));
+  // Comfortably past the old cap of 25 and the older one of 100, so a
+  // reintroduced limit fails here rather than passing quietly.
+  expect(links.length).toBeGreaterThan(100);
+  expect(new Set(links).size).toBe(links.length);
 
-  const hrefs = () =>
-    body
-      .locator('a[href^="/characters/"]')
-      .evaluateAll((els) => els.map((e) => (e as HTMLAnchorElement).getAttribute('href')!));
-
-  const first = await hrefs();
-  expect(first.length).toBe(Number(shown));
-
-  await body.getByRole('link', { name: /Next/ }).click();
-  // The navigation is client-side, so without this the next read races it and
-  // sees page one again — which would pass a weaker assertion than intended.
-  await page.waitForURL(/token=/);
-  const second = await hrefs();
-  // A cursor that repeated rows would still "page", so require disjointness.
-  expect(second.filter((h) => first.includes(h))).toEqual([]);
+  // Nothing on a series page may claim a partial view any more.
+  await expect(body.getByText(/Showing \d+ of/)).toHaveCount(0);
+  await expect(body.getByRole('link', { name: /Next/ })).toHaveCount(0);
 });
 
-// A franchise renders several casts at once, so one cursor cannot describe the
-// view; each is previewed and links onward instead. Whatever it shows, the
-// count it reports has to match what it rendered.
-test('a franchise previews each cast without misreporting it', async ({ page }) => {
+// A franchise page renders each of its series in one GetFranchise call, cast
+// included. Each cast is previewed rather than shown whole, so where the
+// preview cuts, the page has to say so and link onward.
+test('a franchise renders every series, previewing each cast honestly', async ({ page }) => {
   await page.goto('/browse/fate');
   const body = page.locator('main').last();
-  await expect(body.getByRole('heading', { name: 'Cast' }).first()).toBeVisible();
 
+  // Both series of the franchise, each with its own cast section — the whole
+  // page comes from one request, so a missing one is a real regression rather
+  // than a slow call.
+  await expect(body.getByRole('heading', { name: 'Fate/Zero' })).toBeVisible();
+  await expect(body.getByRole('heading', { name: 'Fate/stay night' })).toBeVisible();
+  const casts = body.getByRole('heading', { name: 'Cast' });
+  expect(await casts.count()).toBeGreaterThan(1);
+
+  // Where a cast is cut to the preview, the count must be the real one and the
+  // link out must be there. Vacuous while every Fate series has a small cast,
+  // which is why the assertions above carry the test.
   for (const hint of await body.getByText(/Showing \d+ of \d+ —/).all()) {
     const [, shown, total] = (await hint.textContent())!.match(/Showing (\d+) of (\d+)/)!;
     expect(Number(total)).toBeGreaterThan(Number(shown));
@@ -341,31 +342,26 @@ test('a franchise previews each cast without misreporting it', async ({ page }) 
   }
 });
 
-// Every Get* response embeds a capped page of each collection, so any count the
-// UI derives from `.length` is the size of the page, not of the collection.
-// That shipped once already: capping episodes at 25 turned "26 episodes" into
-// "25 episodes" on the series page, silently. Counts must come from the
-// reported total, and this checks the one case where the two differ.
-test('counts come from the reported total, not the page that was sent', async ({ page }) => {
+// Counting from `.length` was wrong when collections were capped: capping
+// episodes at 25 turned "26 episodes" into "25 episodes" on the series page,
+// silently. Nothing is capped now, so `.length` IS the count — and this asserts
+// that directly, on the case that used to differ.
+test('episode counts are the real counts', async ({ page }) => {
   await page.goto('/browse/demon-slayer');
   const body = page.locator('main').last();
-  // Season 1 has 26 episodes, one more than the embed cap, so a count taken
-  // from the embedded array reads 25 here and this fails.
+  // Season 1 has 26 episodes, one more than the old embed cap, so a
+  // reintroduced cap reads 25 here and this fails.
   await expect(body.getByText('Spring 2019 · 26 episodes')).toBeVisible();
 });
 
-// The detail pages page their own collections now, so none of them can present
-// a truncated list as a complete one.
-test('a staff page pages its roles', async ({ page }) => {
+// A staff page is one call now, and shows every role. Whatever it claims in the
+// subtitle has to be what it rendered — there is no "rest" to link to.
+test('a staff page shows every role it claims', async ({ page }) => {
   await page.goto('/staff/ayako-kawasumi');
   const body = page.locator('main').last();
-  const roles = body.locator('a[href^="/characters/"]');
   const subtitle = await body.locator('header p').textContent();
   const claimed = Number(subtitle!.match(/(\d+)/)![1]);
-  // Whatever the page claims, it must either show that many or offer the rest.
-  const shown = await roles.count();
-  if (shown < claimed) {
-    await expect(body.getByText(/Showing \d+ of [\d,]+/)).toBeVisible();
-  }
   expect(claimed).toBeGreaterThan(0);
+  await expect(body.locator('a[href^="/characters/"]')).toHaveCount(claimed);
+  await expect(body.getByText(/Showing \d+ of/)).toHaveCount(0);
 });

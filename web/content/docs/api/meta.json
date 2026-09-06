@@ -2,21 +2,9 @@
   "title": "API reference",
   "description": "Every method, generated from the schema",
   "pages": [
-    "list-franchises",
-    "get-franchise",
+    "search-series",
+    "search-releases",
     "get-series",
-    "list-catalog",
-    "list-works",
-    "search",
-    "get-character",
-    "list-characters",
-    "get-staff",
-    "list-staff",
-    "list-episodes",
-    "list-series",
-    "list-appearances",
-    "list-credits",
-    "get-stats",
     "..."
   ]
 }

@@ -122,28 +122,15 @@ func (ix *Index) Search(query, token string, limit int) (Page[CatalogEntry], err
 // matching. Works keep the deterministic catalog order.
 func (ix *Index) Works(f WorkFilter, token string, limit int) (Page[Work], error) {
 	q := NormalizeQuery(f.Query)
-
-	// Resolve the series filter to a row once, rather than comparing an id
-	// string per row. An unknown id matches nothing.
-	var seriesRow int32 = -1
-	if f.SeriesID != "" {
-		row, ok := ix.seriesByID[f.SeriesID]
-		if !ok {
-			return Page[Work]{}, nil
-		}
-		seriesRow = row + 1
+	if limit <= 0 {
+		limit = DefaultSearchLimit
 	}
-
 	match := func(i int) bool {
 		r := ix.works[i]
 		switch {
 		case f.ReleaseYear != 0 && int(r.year) != f.ReleaseYear:
 			return false
 		case f.ReleaseSeason != "" && r.quarter.text(ix.blob) != string(f.ReleaseSeason):
-			return false
-		case f.Kind != nil && r.kind != *f.Kind:
-			return false
-		case seriesRow >= 0 && r.series != seriesRow:
 			return false
 		}
 		if q == "" {
@@ -153,6 +140,45 @@ func (ix *Index) Works(f WorkFilter, token string, limit int) (Page[Work], error
 			titleMatches(ix.series[r.series-1].titles.text(ix.blob), q)
 	}
 	return page(len(ix.works), match, ix.workAt, token, limit)
+}
+
+// SeriesSearch returns one page of series whose title matches query in any
+// language, plus the total matching. A blank query matches every series, so an
+// empty request walks the catalogue. Results keep deterministic dataset order.
+//
+// Unlike Search, which walks catalog entries and therefore only ever returns
+// franchises and standalone series, this walks the series table: the series
+// inside a franchise are results too, because they are what a caller asked for.
+func (ix *Index) SeriesSearch(query, token string, limit int) (Page[SeriesEntry], error) {
+	q := NormalizeQuery(query)
+	if limit <= 0 {
+		limit = DefaultSearchLimit
+	}
+	match := func(i int) bool { return q == "" || ix.seriesTitlesMatch(i, q) }
+	return page(len(ix.series), match, ix.seriesEntryAt, token, limit)
+}
+
+// CharacterRefs returns every character in the cast of seriesID, unpaged.
+//
+// GetSeries embeds a series' whole cast, so the one caller that needs all of it
+// says so rather than passing a limit large enough to mean "all" — which is the
+// kind of number that later reads as a cap someone forgot to raise.
+func (ix *Index) CharacterRefs(seriesID string) []Ref {
+	row, ok := ix.seriesByID[seriesID]
+	if !ok {
+		return nil
+	}
+	want := row + 1
+	var out []Ref
+	for i := range ix.characters {
+		if listHasRow(ix.characters[i].series.text(ix.blob), want) {
+			out = append(out, Ref{
+				ID:   ix.text(ix.characters[i].id),
+				File: ix.text(ix.characters[i].file),
+			})
+		}
+	}
+	return out
 }
 
 // Characters returns one page of the cast of seriesID, or of the whole cast

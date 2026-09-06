@@ -3,10 +3,11 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { cache } from 'react';
 import { Code, ConnectError } from '@connectrpc/connect';
-import { localizedApi } from '@/lib/api';
-import type { Character, Franchise, Series } from '@/lib/gen/anime/v1/anime_pb';
+import { localizedApi, localizedBrowse } from '@/lib/api';
+import type { Series } from '@/lib/gen/anime/v1/anime_pb';
 import { ReleaseSeason, SpecialFormat } from '@/lib/gen/anime/v1/anime_pb';
-import { ApiError, isBadRequest, PageHeader, Pager, plural } from '@/components/browse';
+import type { Franchise } from '@/lib/gen/browse/v1/browse_pb';
+import { ApiError, isBadRequest, PageHeader, plural } from '@/components/browse';
 import { humanizeId } from '@/lib/format';
 
 // An id names either a franchise or a series, and the API has a separate call
@@ -27,8 +28,8 @@ const load = cache(async (id: string): Promise<{ series?: Series; franchise?: Fr
     if (!(err instanceof ConnectError) || err.code !== Code.NotFound) throw err;
   }
   try {
-    const api = await localizedApi();
-    const { franchise } = await api.getFranchise({ id });
+    const browse = await localizedBrowse();
+    const { franchise } = await browse.getFranchise({ id });
     if (franchise) return { franchise };
   } catch (err) {
     if (!(err instanceof ConnectError) || err.code !== Code.NotFound) throw err;
@@ -36,24 +37,9 @@ const load = cache(async (id: string): Promise<{ series?: Series; franchise?: Fr
   return null;
 });
 
-// How many cast members one page of a series shows, and how many a franchise
-// page previews per series before pointing at that series' own page.
-const CAST_LIMIT = 24;
+// How many cast members a franchise page previews per series before pointing
+// at that series' own page. A series page shows the whole cast.
 const CAST_PREVIEW = 6;
-
-// Cast is a page of a series' cast, not the whole of it.
-//
-// GetSeries embeds a series' cast, but that embed is capped, so rendering it
-// directly silently dropped everyone past the cap — 48 of the 148 characters in
-// tensei-shitara-slime-datta-ken, with nothing on the page to say so. Asking
-// ListCharacters instead means the count is honest and the rest is reachable.
-type Cast = { items: Character[]; total: number; nextToken: string };
-
-const loadCast = cache(async (seriesID: string, token: string, limit: number): Promise<Cast> => {
-  const api = await localizedApi();
-  const res = await api.listCharacters({ seriesId: seriesID, limit, pageToken: token });
-  return { items: res.characters, total: res.totalSize, nextToken: res.nextPageToken };
-});
 
 export async function generateMetadata({
   params,
@@ -106,20 +92,18 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 
 function SeriesBody({
   series,
-  cast,
-  pagerPath,
+  // Set on a franchise page, where each series is previewed rather than shown
+  // in full: the cast is cut to this many and the row links onward. A series
+  // page leaves it unset and renders everything GetSeries returned.
+  castPreview,
 }: {
   series: Series;
-  cast: Cast;
-  // Set only for a page showing one series, where a single cursor describes the
-  // whole view. A franchise page renders several casts at once, so it previews
-  // each and links onward instead — the same reason /browse pages only its
-  // single-kind views.
-  pagerPath?: string;
+  castPreview?: number;
 }) {
+  const cast = castPreview ? series.characters.slice(0, castPreview) : series.characters;
   return (
     <>
-      {series.seasonsTotal > 0 ? (
+      {series.seasons.length > 0 ? (
         <Section title="Seasons">
           {series.seasons.map((s) => (
             <Row
@@ -131,7 +115,7 @@ function SeriesBody({
                 s.releaseYear
                   ? `${SEASON_LABEL[s.releaseSeason] ? `${SEASON_LABEL[s.releaseSeason]} ` : ''}${s.releaseYear}`
                   : null,
-                s.episodesTotal ? plural(s.episodesTotal, 'episode') : null,
+                s.episodes.length ? plural(s.episodes.length, 'episode') : null,
               ]
                 .filter(Boolean)
                 .join(' · ')}
@@ -140,7 +124,7 @@ function SeriesBody({
         </Section>
       ) : null}
 
-      {series.moviesTotal > 0 ? (
+      {series.movies.length > 0 ? (
         <Section title="Films">
           {series.movies.map((m) => (
             <Row
@@ -152,13 +136,17 @@ function SeriesBody({
         </Section>
       ) : null}
 
-      {series.specialsTotal > 0 ? (
+      {series.specials.length > 0 ? (
         <Section title="Specials">
           {series.specials.map((sp) => (
             <Row
               key={sp.id}
               title={sp.title || humanizeId(sp.id)}
-              meta={[FORMAT_LABEL[sp.format], sp.releaseYear || null, sp.episodesTotal ? plural(sp.episodesTotal, 'episode') : null]
+              meta={[
+                FORMAT_LABEL[sp.format],
+                sp.releaseYear || null,
+                sp.episodes.length ? plural(sp.episodes.length, 'episode') : null,
+              ]
                 .filter(Boolean)
                 .join(' · ')}
             />
@@ -166,9 +154,9 @@ function SeriesBody({
         </Section>
       ) : null}
 
-      {cast.total > 0 ? (
+      {cast.length > 0 ? (
         <Section title="Cast">
-          {cast.items.map((c) => (
+          {cast.map((c) => (
             <Row
               key={c.id}
               title={
@@ -193,18 +181,9 @@ function SeriesBody({
         </Section>
       ) : null}
 
-      {cast.total > 0 && pagerPath ? (
-        <Pager
-          basePath={pagerPath}
-          nextToken={cast.nextToken}
-          shown={cast.items.length}
-          total={cast.total}
-        />
-      ) : null}
-
-      {cast.total > cast.items.length && !pagerPath ? (
+      {castPreview && series.characters.length > castPreview ? (
         <p className="mt-3 text-sm text-fd-muted-foreground">
-          Showing {cast.items.length} of {cast.total} —{' '}
+          Showing {castPreview} of {series.characters.length} —{' '}
           <Link href={`/browse/${series.id}`} className="underline">
             open {series.title || humanizeId(series.id)}
           </Link>{' '}
@@ -215,34 +194,15 @@ function SeriesBody({
   );
 }
 
-export default async function EntryPage({
-  params,
-  searchParams,
-}: {
-  params: Promise<{ id: string }>;
-  searchParams: Promise<{ token?: string }>;
-}) {
+export default async function EntryPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const { token = '' } = await searchParams;
 
+  // One request. GetSeries embeds the whole series — every installment, every
+  // episode and the whole cast — and GetFranchise embeds each of its series the
+  // same way, so nothing below needs a follow-up call or a cursor.
   let found: Awaited<ReturnType<typeof load>>;
-  let casts: Record<string, Cast> = {};
   try {
     found = await load(id);
-    // One request per series whose cast is rendered: the series itself, or each
-    // series of a franchise. Issued together rather than in sequence.
-    const ids = found?.series
-      ? [found.series.id]
-      : (found?.franchise?.series.map((s) => s.id) ?? []);
-    const limit = found?.series ? CAST_LIMIT : CAST_PREVIEW;
-    casts = Object.fromEntries(
-      await Promise.all(
-        ids.map(async (seriesID) => [
-          seriesID,
-          await loadCast(seriesID, found?.series ? token : '', limit),
-        ]),
-      ),
-    );
   } catch (err) {
     return (
       <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-12">
@@ -272,12 +232,12 @@ export default async function EntryPage({
           // there is.
           subtitle={
             franchise
-              ? `Franchise · ${plural(franchise.seriesTotal, 'series', 'series')}`
+              ? `Franchise · ${plural(franchise.series.length, 'series', 'series')}`
               : [
                   'Series',
-                  series?.seasonsTotal ? plural(series.seasonsTotal, 'season') : null,
-                  series?.moviesTotal ? plural(series.moviesTotal, 'film') : null,
-                  series?.specialsTotal ? plural(series.specialsTotal, 'special') : null,
+                  series?.seasons.length ? plural(series.seasons.length, 'season') : null,
+                  series?.movies.length ? plural(series.movies.length, 'film') : null,
+                  series?.specials.length ? plural(series.specials.length, 'special') : null,
                 ]
                   .filter(Boolean)
                   .join(' · ')
@@ -285,13 +245,7 @@ export default async function EntryPage({
         />
       </div>
 
-      {series ? (
-        <SeriesBody
-          series={series}
-          cast={casts[series.id] ?? { items: [], total: 0, nextToken: '' }}
-          pagerPath={`/browse/${series.id}`}
-        />
-      ) : null}
+      {series ? <SeriesBody series={series} /> : null}
 
       {franchise
         ? franchise.series.map((s) => (
@@ -301,7 +255,7 @@ export default async function EntryPage({
                   {s.title || humanizeId(s.id)}
                 </Link>
               </h2>
-              <SeriesBody series={s} cast={casts[s.id] ?? { items: [], total: 0, nextToken: '' }} />
+              <SeriesBody series={s} castPreview={CAST_PREVIEW} />
             </div>
           ))
         : null}

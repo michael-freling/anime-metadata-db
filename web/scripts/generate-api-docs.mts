@@ -1,3 +1,4 @@
+import { rm } from 'node:fs/promises';
 import { generateFiles } from 'fumadocs-openapi';
 import { openapi } from '../src/lib/openapi.js';
 import { operationName, slugsFor } from '../src/lib/openapi-slug.js';
@@ -18,6 +19,13 @@ import spec from '../openapi/anime/v1/anime.openapi.json' with { type: 'json' };
 // the wiring around it.
 
 const OUT = './content/docs/api';
+
+// Emptied first, the way `clean: true` empties the generated Go and TypeScript
+// trees. generateFiles only writes; it never deletes, so an RPC removed from
+// the schema kept its page — and the `...` in the sidebar meta below meant that
+// page stayed listed, documenting a method the server no longer has. CI diffs
+// this directory, so the stale file looked committed and correct.
+await rm(OUT, { recursive: true, force: true });
 
 // Every RPC the schema declares, in the order it declares them — which is an
 // editorial order (the browse entry points first, the leaf lookups after) and

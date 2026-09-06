@@ -3,20 +3,36 @@ import { cookies } from 'next/headers';
 import { createClient, type Client } from '@connectrpc/connect';
 import { createConnectTransport } from '@connectrpc/connect-web';
 import { AnimeService } from './gen/anime/v1/anime_pb';
+import { BrowseService } from './gen/browse/v1/browse_pb';
 import { apiBaseUrl } from './shared';
 
-// The Connect client for the read-only dataset API.
+// The Connect clients for the read-only dataset API.
 //
-// This is imported by server components only. Fetching on the server rather
+// Two services, one server. `api` is the public anime.v1 API — three methods,
+// documented, stable. `browse` is browse.v1, which exists for this site: the
+// flat catalog rows, the franchise grouping and the global character and staff
+// indexes that a browse UI needs and an outside consumer never asked for.
+//
+// Reaching for `browse` is therefore a decision, not a default. Anything the
+// public API answers — searching series, searching releases, opening one series
+// — is called through `api`, so this site exercises the same surface everyone
+// else gets and cannot quietly depend on something it forgot to publish.
+//
+// Both are imported by server components only. Fetching on the server rather
 // than in the browser is what lets the API stay exactly as it is: the request
 // is same-origin from Node's point of view, so no CORS headers are needed on
 // the Go service, and series pages render server-side and stay indexable.
 //
-// The types come from the same proto the Go server is built from (see
+// The types come from the same protos the Go server is built from (see
 // buf.gen.yaml), so a field renamed there fails this build rather than
 // surfacing as undefined at runtime.
 export const api: Client<typeof AnimeService> = createClient(
   AnimeService,
+  createConnectTransport({ baseUrl: apiBaseUrl }),
+);
+
+export const browse: Client<typeof BrowseService> = createClient(
+  BrowseService,
   createConnectTransport({ baseUrl: apiBaseUrl }),
 );
 
@@ -48,20 +64,27 @@ export const currentLanguage = cache(async (): Promise<LanguageCode> => {
 // cache()d for the same reason as currentLanguage above: a detail page can ask
 // for it more than once — /browse/[id] tries getSeries and then getFranchise —
 // and without this each call builds a transport and a client of its own.
-export const localizedApi = cache(async (): Promise<Client<typeof AnimeService>> => {
+const localizedTransport = cache(async () => {
   const lang = await currentLanguage();
-  return createClient(
-    AnimeService,
-    createConnectTransport({
-      baseUrl: apiBaseUrl,
-      interceptors: [
-        (next) => async (req) => {
-          req.header.set('Accept-Language', lang);
-          return next(req);
-        },
-      ],
-    }),
-  );
+  return createConnectTransport({
+    baseUrl: apiBaseUrl,
+    interceptors: [
+      (next) => async (req) => {
+        req.header.set('Accept-Language', lang);
+        return next(req);
+      },
+    ],
+  });
+});
+
+export const localizedApi = cache(async (): Promise<Client<typeof AnimeService>> => {
+  return createClient(AnimeService, await localizedTransport());
+});
+
+// The same, for the browse API. Separate from localizedApi because the two are
+// different services; sharing the transport keeps it to one per request.
+export const localizedBrowse = cache(async (): Promise<Client<typeof BrowseService>> => {
+  return createClient(BrowseService, await localizedTransport());
 });
 
 // The earliest release year the dataset covers, used as the floor below which a
@@ -73,7 +96,7 @@ export const localizedApi = cache(async (): Promise<Client<typeof AnimeService>>
 // API gave it.
 export const datasetYearSpan = cache(async (): Promise<{ earliest: number; latest: number }> => {
   try {
-    const { stats } = await api.getStats({});
+    const { stats } = await browse.getStats({});
     return {
       earliest: stats?.earliestReleaseYear ?? 0,
       latest: stats?.latestReleaseYear ?? 0,

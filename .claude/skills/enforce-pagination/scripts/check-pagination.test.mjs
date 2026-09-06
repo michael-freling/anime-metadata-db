@@ -148,7 +148,16 @@ run(
 
 // --- the real proto ---------------------------------------------------------
 
-run('the committed proto passes', readFileSync('api/proto/anime/v1/anime.proto', 'utf8'), accepts);
+// Both schemas, concatenated exactly as the checker reads them: browse.proto
+// embeds anime.v1 messages, so checking either alone would miss an exemption
+// that no longer resolves.
+run(
+  'the committed protos pass',
+  ['api/proto/anime/v1/anime.proto', 'api/proto/browse/v1/browse.proto']
+    .map((p) => readFileSync(p, 'utf8'))
+    .join('\n'),
+  accepts,
+);
 
 console.log(failed === 0 ? '\nall checks passed' : `\n${failed} failed`);
 exit(failed === 0 ? 0 : 1);

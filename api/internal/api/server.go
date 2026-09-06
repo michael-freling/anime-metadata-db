@@ -10,21 +10,35 @@ import (
 
 	animedb "github.com/michael-freling/anime-metadata-db"
 	"github.com/michael-freling/anime-metadata-db/api/internal/gen/anime/v1/animev1connect"
+	"github.com/michael-freling/anime-metadata-db/api/internal/gen/browse/v1/browsev1connect"
 	"github.com/michael-freling/anime-metadata-db/api/internal/index"
 )
 
-// NewHandler builds the HTTP handler that serves AnimeService over the Connect,
-// gRPC and gRPC-Web protocols, plus a human-readable index at "/".
+// NewHandler builds the HTTP handler that serves both services over the
+// Connect, gRPC and gRPC-Web protocols, plus a human-readable index at "/".
+//
+// Two services, one binary, one host: anime.v1.AnimeService is the public API,
+// and browse.v1.BrowseService is the undocumented one anime-metadata-web calls.
+// They are separate packages rather than separate deployments because the split
+// is about what is promised, not about who can reach it — the dataset is public
+// either way. What the split buys is that the published reference describes
+// three methods, and the site can change its own eight without that being a
+// breaking change to anybody.
 //
 // Wrapped in withCORS so browsers can call it, which a terminal client neither
-// needs nor notices. It wraps the whole mux rather than just the RPC path so a
+// needs nor notices. It wraps the whole mux rather than just the RPC paths so a
 // preflight to any path gets a consistent answer instead of a 404 from the
 // catch-all below.
 func NewHandler(store *Store, version string) http.Handler {
-	svc := NewService(store, version)
 	mux := http.NewServeMux()
-	rpcPath, h := animev1connect.NewAnimeServiceHandler(svc, connect.WithInterceptors(varyAcceptLanguage()))
+	opts := connect.WithInterceptors(varyAcceptLanguage())
+
+	rpcPath, h := animev1connect.NewAnimeServiceHandler(NewService(store, version), opts)
 	mux.Handle(rpcPath, h)
+
+	browsePath, browseHandler := browsev1connect.NewBrowseServiceHandler(NewBrowseService(store, version), opts)
+	mux.Handle(browsePath, browseHandler)
+
 	mux.HandleFunc("/", indexHandler(rpcPath))
 	return withCORS(mux)
 }
@@ -80,7 +94,7 @@ func indexHandler(rpcPath string) http.HandlerFunc {
 		fmt.Fprintf(w, "Service: %s\n", animev1connect.AnimeServiceName)
 		fmt.Fprintf(w, "Base path: %s\n\n", rpcPath)
 		fmt.Fprintf(w, "Example (Connect, JSON over HTTP POST):\n")
-		fmt.Fprintf(w, "  curl -X POST %sGetStats \\\n", rpcPath)
-		fmt.Fprintf(w, "    -H 'Content-Type: application/json' -d '{}'\n")
+		fmt.Fprintf(w, "  curl -X POST %sSearchSeries \\\n", rpcPath)
+		fmt.Fprintf(w, "    -H 'Content-Type: application/json' -d '{\"query\": \"fate\"}'\n")
 	}
 }

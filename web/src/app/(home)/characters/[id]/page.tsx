@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { cache } from 'react';
 import { Code, ConnectError } from '@connectrpc/connect';
-import { localizedApi } from '@/lib/api';
+import { localizedBrowse } from '@/lib/api';
 import { ApiError, isBadRequest, PageHeader, Pager, plural } from '@/components/browse';
 import { humanizeId, languageLabel } from '@/lib/format';
 import type { ScopeRef, VoiceActor } from '@/lib/gen/anime/v1/anime_pb';
@@ -12,8 +12,8 @@ import type { ScopeRef, VoiceActor } from '@/lib/gen/anime/v1/anime_pb';
 // issue their own RPC for the same character.
 const load = cache(async (id: string) => {
   try {
-    const api = await localizedApi();
-    const { character } = await api.getCharacter({ id });
+    const browse = await localizedBrowse();
+    const { character } = await browse.getCharacter({ id });
     return character ?? null;
   } catch (err) {
     // Only a genuine not-found is swallowed; an outage must not be reported as
@@ -22,9 +22,6 @@ const load = cache(async (id: string) => {
     throw err;
   }
 });
-
-// How many appearances one page shows.
-const APPEARANCE_LIMIT = 24;
 
 // A scope narrows an appearance to particular installments of a series — Saber
 // is in every Fate/stay night adaptation, but Kate Higgins dubbed only the 2006
@@ -49,13 +46,6 @@ function scopeLabel(a: { scope: ScopeRef[] }): string {
     .join(', ');
 }
 
-// GetCharacter embeds a capped page of appearances; ListAppearances is what
-// makes the rest reachable.
-const loadAppearances = cache(async (id: string, token: string) => {
-  const api = await localizedApi();
-  return api.listAppearances({ characterId: id, pageToken: token, limit: APPEARANCE_LIMIT });
-});
-
 export async function generateMetadata({
   params,
 }: {
@@ -76,21 +66,14 @@ export async function generateMetadata({
   return { title: humanizeId(id) };
 }
 
-export default async function CharacterPage({
-  params,
-  searchParams,
-}: {
-  params: Promise<{ id: string }>;
-  searchParams: Promise<{ token?: string }>;
-}) {
+export default async function CharacterPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const { token = '' } = await searchParams;
 
+  // One call. GetCharacter embeds every appearance, each with its cast already
+  // resolved, so there is no second request and no pager to thread.
   let character;
-  let page;
   try {
     character = await load(id);
-    if (character) page = await loadAppearances(id, token);
   } catch (err) {
     return (
       <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-12">
@@ -102,7 +85,9 @@ export default async function CharacterPage({
       </main>
     );
   }
-  if (!character || !page) notFound();
+  if (!character) notFound();
+
+  const appearances = character.appearances;
 
   return (
     <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-12">
@@ -113,9 +98,8 @@ export default async function CharacterPage({
         <PageHeader
           title={character.name || humanizeId(character.id)}
           // No voice-actor count here: cast that varies by series lives on the
-          // appearances, and those are paged, so any total would be a count of
-          // the page rather than of the character.
-          subtitle={plural(page.totalSize, 'appearance')}
+          // appearances, so a single total would conflate the two.
+          subtitle={plural(appearances.length, 'appearance')}
         />
       </div>
 
@@ -140,11 +124,11 @@ export default async function CharacterPage({
         </section>
       ) : null}
 
-      {page.totalSize > 0 ? (
+      {appearances.length > 0 ? (
         <section className="mt-10">
           <h2 className="mb-2 text-lg font-semibold">Appears in</h2>
           <ul>
-            {page.appearances.map((a) => (
+            {appearances.map((a) => (
               <li
                 // A character can hold more than one appearance in a series
                 // when the cast changes between its installments, so the series
@@ -178,12 +162,6 @@ export default async function CharacterPage({
               </li>
             ))}
           </ul>
-          <Pager
-            basePath={`/characters/${character.id}`}
-            nextToken={page.nextPageToken}
-            shown={page.appearances.length}
-            total={page.totalSize}
-          />
         </section>
       ) : null}
     </main>

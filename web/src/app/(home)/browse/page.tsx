@@ -2,10 +2,11 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ConnectError } from '@connectrpc/connect';
-import { datasetYearSpan, localizedApi } from '@/lib/api';
+import { datasetYearSpan, localizedApi, localizedBrowse } from '@/lib/api';
 import { LanguageSwitch } from '@/components/language';
 import { humanizeId } from '@/lib/format';
-import { EntryKind, ReleaseSeason } from '@/lib/gen/anime/v1/anime_pb';
+import { ReleaseSeason } from '@/lib/gen/anime/v1/anime_pb';
+import { EntryKind } from '@/lib/gen/browse/v1/browse_pb';
 import {
   ApiError,
   Card,
@@ -89,6 +90,12 @@ export default async function BrowsePage({ searchParams }: { searchParams: Promi
 
   const year = rawYear === '' ? 0 : Number(rawYear);
 
+  // A quarter with no year is refused here for the same reason SearchReleases
+  // refuses it: "Winter" across every year the dataset covers is not the
+  // question anyone typed, and answering it would render every Winter release
+  // ever under a heading naming one season.
+  if (quarter !== undefined && year === 0) notFound();
+
   // Year and quarter only describe releases, so choosing either means the
   // reader is asking about releases whether or not they said so.
   const datedFilter = year > 0 || quarter !== undefined;
@@ -112,6 +119,7 @@ export default async function BrowsePage({ searchParams }: { searchParams: Promi
   const limit = single ? LIMIT : 12;
 
   const api = await localizedApi();
+  const browse = await localizedBrowse();
 
   let shows, releases, characters, staff;
   let error: unknown = null;
@@ -119,11 +127,11 @@ export default async function BrowsePage({ searchParams }: { searchParams: Promi
     [shows, releases, characters, staff] = await Promise.all([
       showShows
         ? q
-          ? api.search({ query: q, limit, pageToken: single ? token : '' })
-          : api.listCatalog({ limit, pageToken: single ? token : '' })
+          ? browse.search({ query: q, limit, pageToken: single ? token : '' })
+          : browse.listCatalog({ limit, pageToken: single ? token : '' })
         : null,
       showReleases
-        ? api.listWorks({
+        ? api.searchReleases({
             query: q,
             releaseYear: year,
             releaseSeason: quarter?.enum ?? ReleaseSeason.SEASON_UNSPECIFIED,
@@ -131,8 +139,10 @@ export default async function BrowsePage({ searchParams }: { searchParams: Promi
             pageToken: single ? token : '',
           })
         : null,
-      showCharacters ? api.listCharacters({ query: q, limit, pageToken: single ? token : '' }) : null,
-      showStaff ? api.listStaff({ query: q, limit, pageToken: single ? token : '' }) : null,
+      showCharacters
+        ? browse.listCharacters({ query: q, limit, pageToken: single ? token : '' })
+        : null,
+      showStaff ? browse.listStaff({ query: q, limit, pageToken: single ? token : '' }) : null,
     ]);
   } catch (err) {
     error = err;
@@ -310,7 +320,7 @@ export default async function BrowsePage({ searchParams }: { searchParams: Promi
       {releases && releases.totalSize > 0 ? (
         <Section title="Releases" total={releases.totalSize} single={single}>
           <Grid>
-            {releases.works.map((w) => (
+            {releases.releases.map((w) => (
               <Card
                 key={w.id}
                 href={`/browse/${w.seriesId}`}
@@ -339,7 +349,7 @@ export default async function BrowsePage({ searchParams }: { searchParams: Promi
                 meta={
                   c.voiceActors.length
                     ? `Voiced by ${c.voiceActors.map((v) => v.staffName || humanizeId(v.staffId)).join(', ')}`
-                    : plural(c.appearancesTotal, 'appearance')
+                    : plural(c.appearances.length, 'appearance')
                 }
               />
             ))}
@@ -369,7 +379,7 @@ export default async function BrowsePage({ searchParams }: { searchParams: Promi
           }
           shown={
             showItems.length +
-            (releases?.works.length ?? 0) +
+            (releases?.releases.length ?? 0) +
             (characters?.characters.length ?? 0) +
             (staff?.staff.length ?? 0)
           }

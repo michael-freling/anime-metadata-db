@@ -1,6 +1,6 @@
 ---
 name: enforce-pagination
-description: Check that no API response can return an unbounded amount of data — every collection is either paginated or explicitly capped with its true size reported. Use whenever api/proto/anime/v1/anime.proto gains a repeated field or an RPC, whenever a Get* response embeds a new collection, whenever a UI page renders a list from the API, and whenever asked whether an endpoint scales or why a response is truncated.
+description: Check that no API response can return a collection that grows with the dataset — every search paginates, and every embedded collection is bounded by the single entity that owns it. Use whenever api/proto/anime/v1/anime.proto or api/proto/browse/v1/browse.proto gains a repeated field or an RPC, whenever a Get* response embeds a new collection, whenever a UI page renders a list from the API, and whenever asked whether an endpoint scales or why a response is truncated.
 ---
 
 # Keep every response bounded
@@ -24,23 +24,36 @@ against the committed data, and on the page — right up until it doesn't.
 
 Every repeated field must be one of these. There is no third option.
 
-**1. A paginated list.** Lives in a `List*Response`, alongside
-`next_page_token` and `total_size`, with `page_token` and `limit` on the
-request. The caller controls the size; the server never decides to send
-everything.
+**1. A paginated search.** Lives in a response alongside `next_page_token` and
+`total_size`, with `page_token` and `limit` on the request. The caller controls
+the size; the server never decides to send everything. This is the shape for
+anything that returns *many entities* — `SearchSeries`, `SearchReleases`,
+`ListCatalog`, `ListCharacters`, `ListStaff`.
 
-**2. A capped embed.** Lives in a `Get*` response as a convenience — one call
-that shows the shape of a node — truncated at `index.EmbeddedLimit`, with a
-sibling `<field>_total` carrying the real count.
+**2. A collection bounded by its owning entity.** Lives in a `Get*` response and
+is returned **whole**. `GetSeries` embeds every season, every episode, every
+film, every special and the entire cast, because what bounds those is what one
+series can be — the longest-running show alive is a four-figure episode count of
+two integers each — and that does not move when the catalogue grows from 220
+works to 41,000. The largest series in the dataset answers in 66 KB.
 
-The `_total` is not optional bookkeeping; it is the whole difference between a
-cap and a lie. Without it a client cannot distinguish "this series has 25
-characters" from "this series has 25 of 148 characters", and neither can a
-reader looking at the page. That exact bug shipped: a series page showed 100 of
-148 cast members with nothing to indicate the other 48 existed.
+Each such field must be listed in `BOUNDED_BY_ENTITY` in the checker, **with the
+reason**. "It is small today" is not a reason; "one series' cast" is. The list is
+the judgement the mechanical check cannot make, so an entry with a vague reason
+is the thing to push back on in review.
 
-A capped embed always needs a List RPC that pages the same collection, or the
-truncated data is unreachable.
+### Why not cap the embeds instead
+
+That was the previous design, and the cap was the bug. A `Get*` used to truncate
+at 25 with a sibling `<field>_total` giving the real count, which meant every
+client had to read the total rather than the array length, and had to make a
+second call to get the rest. Both were quietly skipped: a series page showed 100
+of 148 cast members with nothing to indicate the other 48 existed, and capping
+episodes at 25 turned "26 episodes" into "25 episodes" on the same page.
+
+Returning one entity whole removes the class of bug rather than testing for it.
+The rule that survives is the one that was actually load-bearing: **a response
+that returns many entities must page**.
 
 ## 1. Run the mechanical check
 
@@ -50,10 +63,14 @@ From the repository root:
 node .claude/skills/enforce-pagination/scripts/check-pagination.mjs
 ```
 
+It checks both schemas — the public `anime.v1` and the internal `browse.v1`.
+Being private buys no relief: the browse API is served from the same process
+over the same dataset, so an unbounded response there is the same outage.
+
 It fails (exit 1) on the structural violations:
 
-- a `repeated` field with neither a `_total` sibling nor a home in a paginated
-  `List*Response`
+- a `repeated` field with neither a `_total` sibling, nor a home in a paginated
+  response, nor an entry in `BOUNDED_BY_ENTITY`
 - a `List*Request` missing `page_token` or `limit`
 - a `List*Response` missing `next_page_token` or `total_size`
 - a `_total` field with no matching repeated field
@@ -102,9 +119,9 @@ collection it must either page it or say what it is not showing:
   `/browse` (its type chips) and `/browse/[id]` (a franchise's several casts)
   do this.
 
-Never render a capped embed as though it were the whole collection. If the page
-shows `series.characters`, it is showing at most `EmbeddedLimit` of them — ask
-`ListCharacters` instead.
+`GetSeries` returns a series whole, so a series page renders `series.characters`
+and `season.episodes` directly and an array's length **is** the count. What still
+needs a pager is anything listing many entities — the `/browse` result sets.
 
 ## 4. When adding a new endpoint
 
@@ -115,6 +132,8 @@ shows `series.characters`, it is showing at most `EmbeddedLimit` of them — ask
   corrupt cursor must not look like a first page.
 - Page tokens are opaque (`api/internal/index`, base64) so the cursor scheme can
   change later without a wire break. Never document the format.
-- Add the endpoint to `TestNewListEndpointsPageTheirWholeCollection`, which
-  walks it to exhaustion and asserts every item appears exactly once and the
-  reported total matches what paging produced.
+- Add the endpoint to `TestSearchEndpointsPageTheirWholeCollection`, which walks
+  it to exhaustion and asserts every item appears exactly once and the reported
+  total matches what paging produced, and to
+  `TestSearchResponsesNeverReturnTheWholeCollection`, which asserts a `limit` is
+  actually honoured.
