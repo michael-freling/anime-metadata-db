@@ -5,6 +5,7 @@ series:
     original: ニーディガール オーバードーズ
     translations:
       ja-Latn: Needy Girl Overdose
+  ordering: absolute
   seasons:
     - id: needy-girl-overdose-s1
       number: 1
@@ -15,29 +16,5 @@ series:
         anidbId: 19713
         tvdbId: 470270
       episodes:
-        - absoluteNumber: 1
-          airedNumber: 1
-        - absoluteNumber: 2
-          airedNumber: 2
-        - absoluteNumber: 3
-          airedNumber: 3
-        - absoluteNumber: 4
-          airedNumber: 4
-        - absoluteNumber: 5
-          airedNumber: 5
-        - absoluteNumber: 6
-          airedNumber: 6
-        - absoluteNumber: 7
-          airedNumber: 7
-        - absoluteNumber: 8
-          airedNumber: 8
-        - absoluteNumber: 9
-          airedNumber: 9
-        - absoluteNumber: 10
-          airedNumber: 10
-        - absoluteNumber: 11
-          airedNumber: 11
-        - absoluteNumber: 12
-          airedNumber: 12
-        - absoluteNumber: 13
-          airedNumber: 13
+        count: 13
+        absoluteFrom: 1

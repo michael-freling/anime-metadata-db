@@ -5,6 +5,7 @@ series:
     original: マリッジトキシン
     translations:
       ja-Latn: Marriagetoxin
+  ordering: absolute
   externalIds:
     wikidataId: Q112114773
   seasons:
@@ -17,30 +18,8 @@ series:
         anidbId: 19625
         tvdbId: 468734
       episodes:
-        - absoluteNumber: 1
-          airedNumber: 1
-        - absoluteNumber: 2
-          airedNumber: 2
-        - absoluteNumber: 3
-          airedNumber: 3
-        - absoluteNumber: 4
-          airedNumber: 4
-        - absoluteNumber: 5
-          airedNumber: 5
-        - absoluteNumber: 6
-          airedNumber: 6
-        - absoluteNumber: 7
-          airedNumber: 7
-        - absoluteNumber: 8
-          airedNumber: 8
-        - absoluteNumber: 9
-          airedNumber: 9
-        - absoluteNumber: 10
-          airedNumber: 10
-        - absoluteNumber: 11
-          airedNumber: 11
-        - absoluteNumber: 12
-          airedNumber: 12
+        count: 12
+        absoluteFrom: 1
   characters:
     - id: hikaru-gero
       names:

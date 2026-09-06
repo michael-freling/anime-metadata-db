@@ -88,8 +88,14 @@ func TestE2EInitAndBuild(t *testing.T) {
 	if !strings.Contains(got, "id: demon-slayer") {
 		t.Errorf("generated data is missing the series id:\n%s", got)
 	}
-	if !strings.Contains(got, "absoluteNumber: 1") {
-		t.Errorf("generated data is missing a computed absoluteNumber:\n%s", got)
+	// The numbering is stored as the facts it is computed from, so what proves
+	// assignAbsoluteNumbers ran is absoluteFrom on the installment rather than a
+	// number on each episode.
+	if !strings.Contains(got, "absoluteFrom: 1") {
+		t.Errorf("generated data is missing a computed absoluteFrom:\n%s", got)
+	}
+	if !strings.Contains(got, "ordering: absolute") {
+		t.Errorf("generated data is missing the derived ordering:\n%s", got)
 	}
 
 	// R2: the cast is co-located in the series file with names from Wikidata,

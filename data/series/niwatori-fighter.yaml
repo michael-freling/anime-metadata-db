@@ -6,6 +6,7 @@ series:
     translations:
       en: Rooster Fighter
       ja-Latn: Niwatori Fighter
+  ordering: absolute
   externalIds:
     wikidataId: Q106647301
   seasons:
@@ -18,9 +19,5 @@ series:
         anidbId: 18772
         tvdbId: 452575
       episodes:
-        - absoluteNumber: 1
-          airedNumber: 1
-        - absoluteNumber: 2
-          airedNumber: 2
-        - absoluteNumber: 3
-          airedNumber: 3
+        count: 3
+        absoluteFrom: 1

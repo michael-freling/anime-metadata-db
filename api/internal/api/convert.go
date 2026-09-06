@@ -285,8 +285,19 @@ func toEpisode(e model.Episode) *animev1.Episode {
 	}
 }
 
-// toEpisodes converts a slice of episodes, returning nil for an empty input.
-func toEpisodes(in []model.Episode) []*animev1.Episode {
+// toEpisodes expands an installment's numbering onto the wire.
+//
+// data/ stores the two facts the episodes are computed from, not the episodes
+// themselves (see model.Episodes), so the list a client receives is built here
+// from model.Episodes.Expand. The wire shape is unchanged by that: a caller
+// still gets one Episode per episode, with absoluteNumber present exactly when
+// the series has a linear order.
+func toEpisodes(eps model.Episodes) []*animev1.Episode {
+	return toEpisodeList(eps.Expand())
+}
+
+// toEpisodeList converts already-expanded episodes, returning nil for none.
+func toEpisodeList(in []model.Episode) []*animev1.Episode {
 	if len(in) == 0 {
 		return nil
 	}

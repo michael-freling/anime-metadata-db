@@ -6,6 +6,7 @@ series:
     translations:
       en: 'Kujima: Why Sing, When You Can Warble?'
       ja-Latn: Kujima Utaeba Ie Hororo
+  ordering: absolute
   externalIds:
     wikidataId: Q123052418
   seasons:
@@ -18,27 +19,5 @@ series:
         anidbId: 18622
         tvdbId: 449913
       episodes:
-        - absoluteNumber: 1
-          airedNumber: 1
-        - absoluteNumber: 2
-          airedNumber: 2
-        - absoluteNumber: 3
-          airedNumber: 3
-        - absoluteNumber: 4
-          airedNumber: 4
-        - absoluteNumber: 5
-          airedNumber: 5
-        - absoluteNumber: 6
-          airedNumber: 6
-        - absoluteNumber: 7
-          airedNumber: 7
-        - absoluteNumber: 8
-          airedNumber: 8
-        - absoluteNumber: 9
-          airedNumber: 9
-        - absoluteNumber: 10
-          airedNumber: 10
-        - absoluteNumber: 11
-          airedNumber: 11
-        - absoluteNumber: 12
-          airedNumber: 12
+        count: 12
+        absoluteFrom: 1

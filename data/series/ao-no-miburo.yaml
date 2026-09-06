@@ -6,6 +6,7 @@ series:
     translations:
       en: The Blue Wolves of Mibu
       ja-Latn: Ao no Miburo
+  ordering: absolute
   externalIds:
     wikidataId: Q116865404
   seasons:
@@ -18,54 +19,8 @@ series:
         anidbId: 18193
         tvdbId: 439531
       episodes:
-        - absoluteNumber: 1
-          airedNumber: 1
-        - absoluteNumber: 2
-          airedNumber: 2
-        - absoluteNumber: 3
-          airedNumber: 3
-        - absoluteNumber: 4
-          airedNumber: 4
-        - absoluteNumber: 5
-          airedNumber: 5
-        - absoluteNumber: 6
-          airedNumber: 6
-        - absoluteNumber: 7
-          airedNumber: 7
-        - absoluteNumber: 8
-          airedNumber: 8
-        - absoluteNumber: 9
-          airedNumber: 9
-        - absoluteNumber: 10
-          airedNumber: 10
-        - absoluteNumber: 11
-          airedNumber: 11
-        - absoluteNumber: 12
-          airedNumber: 12
-        - absoluteNumber: 13
-          airedNumber: 13
-        - absoluteNumber: 14
-          airedNumber: 14
-        - absoluteNumber: 15
-          airedNumber: 15
-        - absoluteNumber: 16
-          airedNumber: 16
-        - absoluteNumber: 17
-          airedNumber: 17
-        - absoluteNumber: 18
-          airedNumber: 18
-        - absoluteNumber: 19
-          airedNumber: 19
-        - absoluteNumber: 20
-          airedNumber: 20
-        - absoluteNumber: 21
-          airedNumber: 21
-        - absoluteNumber: 22
-          airedNumber: 22
-        - absoluteNumber: 23
-          airedNumber: 23
-        - absoluteNumber: 24
-          airedNumber: 24
+        count: 24
+        absoluteFrom: 1
     - id: ao-no-miburo-s2
       titles:
         original: 青のミブロ 芹沢暗殺編
@@ -80,31 +35,5 @@ series:
         anidbId: 19258
         tvdbId: 439531
       episodes:
-        - absoluteNumber: 25
-          airedNumber: 1
-        - absoluteNumber: 26
-          airedNumber: 2
-        - absoluteNumber: 27
-          airedNumber: 3
-        - absoluteNumber: 28
-          airedNumber: 4
-        - absoluteNumber: 29
-          airedNumber: 5
-        - absoluteNumber: 30
-          airedNumber: 6
-        - absoluteNumber: 31
-          airedNumber: 7
-        - absoluteNumber: 32
-          airedNumber: 8
-        - absoluteNumber: 33
-          airedNumber: 9
-        - absoluteNumber: 34
-          airedNumber: 10
-        - absoluteNumber: 35
-          airedNumber: 11
-        - absoluteNumber: 36
-          airedNumber: 12
-        - absoluteNumber: 37
-          airedNumber: 13
-        - absoluteNumber: 38
-          airedNumber: 14
+        count: 14
+        absoluteFrom: 25

@@ -102,7 +102,9 @@ func (b *Builder) buildSeries(s *model.Series, numbered bool, report *Report) er
 			return err
 		}
 	}
+	s.Ordering = model.OrderingRelease
 	if numbered {
+		s.Ordering = model.OrderingAbsolute
 		assignAbsoluteNumbers(s)
 	}
 	// After the fills, so the chronology check reads the release year and
@@ -248,11 +250,8 @@ func (b *Builder) fillSeason(s *model.Season, report *Report) error {
 	}
 	fillReleaseSeason(&s.ReleaseYear, &s.ReleaseSeason, s.ReleaseDate, a)
 	b.fillExternalIDs(&s.ExternalIDs, a)
-	if len(s.Episodes) == 0 && a.Episodes > 0 {
-		s.Episodes = make([]model.Episode, a.Episodes)
-		for i := range s.Episodes {
-			s.Episodes[i].AiredNumber = i + 1
-		}
+	if s.Episodes.Count == 0 && a.Episodes > 0 {
+		s.Episodes.Count = a.Episodes
 	}
 	return nil
 }
@@ -298,11 +297,8 @@ func (b *Builder) fillSpecial(s *model.Special, report *Report) error {
 			s.Format = model.FormatOVA
 		}
 	}
-	if len(s.Episodes) == 0 && a.Episodes > 0 {
-		s.Episodes = make([]model.Episode, a.Episodes)
-		for i := range s.Episodes {
-			s.Episodes[i].AiredNumber = i + 1
-		}
+	if s.Episodes.Count == 0 && a.Episodes > 0 {
+		s.Episodes.Count = a.Episodes
 	}
 	return nil
 }
@@ -363,11 +359,12 @@ func assignAbsoluteNumbers(s *model.Series) {
 	for _, u := range units {
 		switch {
 		case u.season != nil:
-			for i := range u.season.Episodes {
-				n := counter
-				u.season.Episodes[i].AbsoluteNumber = &n
-				counter++
+			if u.season.Episodes.Count == 0 {
+				continue
 			}
+			n := counter
+			u.season.Episodes.AbsoluteFrom = &n
+			counter += u.season.Episodes.Count
 		case u.movie != nil:
 			n := counter
 			u.movie.AbsoluteNumber = &n

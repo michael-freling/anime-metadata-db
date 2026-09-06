@@ -5,6 +5,7 @@ series:
     original: カードファイト!! ヴァンガード DivineZ 幻真星戦編
     translations:
       ja-Latn: 'Cardfight!! Vanguard: Divinez Genma Seisen-hen'
+  ordering: absolute
   seasons:
     - id: cardfight-vanguard-divinez-genma-seisen-hen-s1
       number: 1
@@ -14,23 +15,5 @@ series:
         anilistId: 203296
         anidbId: 19780
       episodes:
-        - absoluteNumber: 1
-          airedNumber: 1
-        - absoluteNumber: 2
-          airedNumber: 2
-        - absoluteNumber: 3
-          airedNumber: 3
-        - absoluteNumber: 4
-          airedNumber: 4
-        - absoluteNumber: 5
-          airedNumber: 5
-        - absoluteNumber: 6
-          airedNumber: 6
-        - absoluteNumber: 7
-          airedNumber: 7
-        - absoluteNumber: 8
-          airedNumber: 8
-        - absoluteNumber: 9
-          airedNumber: 9
-        - absoluteNumber: 10
-          airedNumber: 10
+        count: 10
+        absoluteFrom: 1

@@ -5,6 +5,7 @@ series:
     original: トライガン スタンピード
     translations:
       ja-Latn: Trigun Stampede
+  ordering: absolute
   seasons:
     - id: trigun-stampede-s1
       number: 1
@@ -15,30 +16,8 @@ series:
         anidbId: 17464
         tvdbId: 421378
       episodes:
-        - absoluteNumber: 1
-          airedNumber: 1
-        - absoluteNumber: 2
-          airedNumber: 2
-        - absoluteNumber: 3
-          airedNumber: 3
-        - absoluteNumber: 4
-          airedNumber: 4
-        - absoluteNumber: 5
-          airedNumber: 5
-        - absoluteNumber: 6
-          airedNumber: 6
-        - absoluteNumber: 7
-          airedNumber: 7
-        - absoluteNumber: 8
-          airedNumber: 8
-        - absoluteNumber: 9
-          airedNumber: 9
-        - absoluteNumber: 10
-          airedNumber: 10
-        - absoluteNumber: 11
-          airedNumber: 11
-        - absoluteNumber: 12
-          airedNumber: 12
+        count: 12
+        absoluteFrom: 1
     - id: trigun-stampede-s2
       titles:
         original: TRIGUN STAMPEDE (完結編)
@@ -54,30 +33,8 @@ series:
         anidbId: 17953
         tvdbId: 421378
       episodes:
-        - absoluteNumber: 13
-          airedNumber: 1
-        - absoluteNumber: 14
-          airedNumber: 2
-        - absoluteNumber: 15
-          airedNumber: 3
-        - absoluteNumber: 16
-          airedNumber: 4
-        - absoluteNumber: 17
-          airedNumber: 5
-        - absoluteNumber: 18
-          airedNumber: 6
-        - absoluteNumber: 19
-          airedNumber: 7
-        - absoluteNumber: 20
-          airedNumber: 8
-        - absoluteNumber: 21
-          airedNumber: 9
-        - absoluteNumber: 22
-          airedNumber: 10
-        - absoluteNumber: 23
-          airedNumber: 11
-        - absoluteNumber: 24
-          airedNumber: 12
+        count: 12
+        absoluteFrom: 13
   characters:
     - id: knives-millions
       names:

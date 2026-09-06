@@ -30,12 +30,12 @@ The catalog is a hierarchy:
 - **Franchise** — a brand grouping related Series (e.g. *Fate*). Carries
   `series` and optional curated `watchOrders`.
 - **Series** — one continuity / storyline, the base unit. Carries `seasons`,
-  `movies` and `specials`.
+  `movies` and `specials`, plus an `ordering` (see below).
 - **Season** — one numbered TV installment (one broadcast run, i.e. a *cour*),
   with `number`, release info, `externalIds` and `episodes`.
 - **Movie** / **Special** — films and side content (OVA / ONA / special).
-- **Episode** — one episode, with an `airedNumber` and, where the series is
-  linearly numbered, an `absoluteNumber` spanning the whole series.
+- **Episodes** — a season's or special's episode numbering, stored as the facts
+  it is computed from rather than as a list. See [Episode numbering](#episode-numbering).
 
 A file's top-level key — `series:` or `franchise:` — determines its kind, not
 its directory. Standalone series and multi-storyline franchises both live under
@@ -51,6 +51,7 @@ series:
     original: 鬼滅の刃
     translations:
       en: Demon Slayer
+  ordering: absolute
   seasons:
     - id: demon-slayer-s1
       number: 1
@@ -61,10 +62,48 @@ series:
         anidbId: 14107
         tvdbId: 348545
       episodes:
-        - absoluteNumber: 1
-          airedNumber: 1
-        # ...
+        count: 26
+        absoluteFrom: 1
 ```
+
+## Episode numbering
+
+A season or special stores `episodes` as a small block, not a list:
+
+```yaml
+episodes:
+  count: 26          # how many episodes the installment has
+  absoluteFrom: 27   # optional — the absoluteNumber of its first episode
+  airedFrom: 13      # optional — its first airedNumber; absent means 1
+```
+
+Expand it and you get the episodes: `airedNumber` runs from `airedFrom` (or 1)
+for `count` entries, and `absoluteNumber` runs from `absoluteFrom` alongside it.
+The API does exactly this and serves one `Episode` per episode, so nothing about
+the wire format changed — this is how the dataset is *stored*.
+
+It is stored this way because every one of those numbers is derived. The only
+episode-level fact any source publishes is a count:
+[anime-offline-database](https://github.com/manami-project/anime-offline-database)
+has one `episodes` integer per entry and nothing else — no titles, no air dates,
+no per-episode records at all. Writing the expansion into `data/` cost 6,422
+lines, a third of the committed dataset, to say what three fields say.
+
+**`ordering` on the series tells you which sequence to trust:**
+
+- `absolute` — one linear storyline, so its installments carry `absoluteFrom`
+  and that continuous count is the order (*Demon Slayer*, *Fate/Zero*).
+- `release` — no single linear stream, so there is no `absoluteFrom` anywhere in
+  it and the installments sort by release date. *Fate/stay night* is the case:
+  the 2006 series, *Unlimited Blade Works* and *Heaven's Feel* retell the same
+  Holy Grail War from different routes, so numbering them continuously would
+  assert an order that is not real.
+
+`ordering` is derived by the build from the same decision that assigns the
+numbering, so the two cannot disagree. Note it is scoped to a **Series**, not a
+franchise: *Fate* holds `fate-zero` and `fate-strange-fake` as `absolute` — each
+counting from 1 independently — alongside `fate-stay-night` as `release`. For
+ordering *across* series, see a franchise's `watchOrders`.
 
 ## Titles
 

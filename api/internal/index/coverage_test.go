@@ -109,7 +109,7 @@ func worksByYear(d *Dataset) []string {
 				case model.SeasonFall:
 					r.fall++
 				}
-				r.episodes += len(sn.Episodes)
+				r.episodes += sn.Episodes.Count
 			}
 			for _, m := range s.Movies {
 				at(m.ReleaseYear).film++
@@ -117,7 +117,7 @@ func worksByYear(d *Dataset) []string {
 			for _, sp := range s.Specials {
 				r := at(sp.ReleaseYear)
 				r.film++
-				r.episodes += len(sp.Episodes)
+				r.episodes += sp.Episodes.Count
 			}
 		})
 	}
@@ -163,10 +163,10 @@ func totals(d *Dataset) []string {
 			movies += len(s.Movies)
 			specials += len(s.Specials)
 			for _, sn := range s.Seasons {
-				episodes += len(sn.Episodes)
+				episodes += sn.Episodes.Count
 			}
 			for _, sp := range s.Specials {
-				episodes += len(sp.Episodes)
+				episodes += sp.Episodes.Count
 			}
 		})
 	}

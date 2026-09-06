@@ -37,11 +37,8 @@ const franchiseYAML = `franchise:
             tvdbId: 4
             wikidataId: Q1
           episodes:
-            - absoluteNumber: 1
-              airedNumber: 1
-              releaseDate: 2006-01-06
-              title: Pilot
-            - airedNumber: 2
+            count: 2
+            absoluteFrom: 1
         - id: aaa-s2
           number: 2
           releaseSeason: SPRING
@@ -68,7 +65,7 @@ const franchiseYAML = `franchise:
           format: OVA
           absoluteNumber: 6
           episodes:
-            - airedNumber: 1
+            count: 1
         - id: aaa-ona
           format: ONA
         - id: aaa-sp

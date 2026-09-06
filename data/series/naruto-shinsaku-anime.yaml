@@ -5,6 +5,7 @@ series:
     original: NARUTO -ナルト- (新作アニメ)
     translations:
       ja-Latn: Naruto (Shinsaku Anime)
+  ordering: absolute
   seasons:
     - id: naruto-shinsaku-anime-s1
       number: 1
@@ -14,11 +15,5 @@ series:
         anilistId: 162561
         anidbId: 17897
       episodes:
-        - absoluteNumber: 1
-          airedNumber: 1
-        - absoluteNumber: 2
-          airedNumber: 2
-        - absoluteNumber: 3
-          airedNumber: 3
-        - absoluteNumber: 4
-          airedNumber: 4
+        count: 4
+        absoluteFrom: 1

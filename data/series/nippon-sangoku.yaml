@@ -5,6 +5,7 @@ series:
     original: 日本三國
     translations:
       ja-Latn: Nippon Sangoku
+  ordering: absolute
   externalIds:
     wikidataId: Q113159338
   seasons:
@@ -17,27 +18,5 @@ series:
         anidbId: 19861
         tvdbId: 473228
       episodes:
-        - absoluteNumber: 1
-          airedNumber: 1
-        - absoluteNumber: 2
-          airedNumber: 2
-        - absoluteNumber: 3
-          airedNumber: 3
-        - absoluteNumber: 4
-          airedNumber: 4
-        - absoluteNumber: 5
-          airedNumber: 5
-        - absoluteNumber: 6
-          airedNumber: 6
-        - absoluteNumber: 7
-          airedNumber: 7
-        - absoluteNumber: 8
-          airedNumber: 8
-        - absoluteNumber: 9
-          airedNumber: 9
-        - absoluteNumber: 10
-          airedNumber: 10
-        - absoluteNumber: 11
-          airedNumber: 11
-        - absoluteNumber: 12
-          airedNumber: 12
+        count: 12
+        absoluteFrom: 1

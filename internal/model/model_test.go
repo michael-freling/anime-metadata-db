@@ -83,6 +83,85 @@ func TestSpecialFormatValid(t *testing.T) {
 	}
 }
 
+// Expand is the one place stored numbering becomes episodes, so both the model
+// and the API depend on it counting from the right place. AiredFrom in
+// particular has no record in data/ to exercise it — no broadcast in the
+// catalogue numbers through a cour break — so without this it is reachable only
+// in theory.
+func TestEpisodesExpand(t *testing.T) {
+	n := func(v int) *int { return &v }
+
+	for _, tc := range []struct {
+		name     string
+		in       Episodes
+		wantLen  int
+		aired    []int
+		absolute []*int
+	}{
+		{name: "no count expands to nothing", in: Episodes{}, wantLen: 0},
+		{name: "negative count expands to nothing", in: Episodes{Count: -1}, wantLen: 0},
+		{
+			// No linear order: every episode is aired-numbered and none is
+			// absolute-numbered, which is Fate/stay night.
+			name: "without absoluteFrom", in: Episodes{Count: 3},
+			wantLen: 3, aired: []int{1, 2, 3}, absolute: []*int{nil, nil, nil},
+		},
+		{
+			// A later installment of a numbered series continues the count
+			// rather than restarting it.
+			name: "absoluteFrom continues the run", in: Episodes{Count: 3, AbsoluteFrom: n(27)},
+			wantLen: 3, aired: []int{1, 2, 3}, absolute: []*int{n(27), n(28), n(29)},
+		},
+		{
+			// A broadcast that keeps counting across a cour break: episodes 13
+			// to 24, not 1 to 12.
+			name: "airedFrom offsets the broadcast numbering", in: Episodes{Count: 12, AiredFrom: n(13)},
+			wantLen: 12, aired: []int{13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24},
+		},
+		{
+			// Both offsets at once, each counting independently.
+			name:    "airedFrom and absoluteFrom are independent",
+			in:      Episodes{Count: 2, AiredFrom: n(13), AbsoluteFrom: n(40)},
+			wantLen: 2, aired: []int{13, 14}, absolute: []*int{n(40), n(41)},
+		},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			got := tc.in.Expand()
+			if len(got) != tc.wantLen {
+				t.Fatalf("expanded %d episodes, want %d", len(got), tc.wantLen)
+			}
+			for i, want := range tc.aired {
+				if got[i].AiredNumber != want {
+					t.Errorf("episode %d airedNumber = %d, want %d", i, got[i].AiredNumber, want)
+				}
+			}
+			for i, want := range tc.absolute {
+				switch {
+				case want == nil && got[i].AbsoluteNumber != nil:
+					t.Errorf("episode %d absoluteNumber = %d, want none", i, *got[i].AbsoluteNumber)
+				case want != nil && got[i].AbsoluteNumber == nil:
+					t.Errorf("episode %d absoluteNumber missing, want %d", i, *want)
+				case want != nil && *got[i].AbsoluteNumber != *want:
+					t.Errorf("episode %d absoluteNumber = %d, want %d", i, *got[i].AbsoluteNumber, *want)
+				}
+			}
+		})
+	}
+}
+
+// Each call must hand back its own pointers; sharing one would make renumbering
+// a single episode silently renumber the rest.
+func TestEpisodesExpandDoesNotShareAbsolutePointers(t *testing.T) {
+	from := 1
+	got := Episodes{Count: 2, AbsoluteFrom: &from}.Expand()
+	if got[0].AbsoluteNumber == got[1].AbsoluteNumber {
+		t.Fatal("episodes share one absoluteNumber pointer")
+	}
+	if got[0].AbsoluteNumber == &from {
+		t.Fatal("episode aliases the stored AbsoluteFrom")
+	}
+}
+
 func TestDateRoundTrip(t *testing.T) {
 	d := NewDate(2019, time.April, 6)
 	out, err := yaml.Marshal(d)

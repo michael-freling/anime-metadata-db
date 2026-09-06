@@ -9,6 +9,7 @@ franchise:
     - id: fate-stay-night
       titles:
         original: Fate/stay night
+      ordering: release
       externalIds:
         wikidataId: Q857823
       seasons:
@@ -21,30 +22,7 @@ franchise:
             anidbId: 3348
             tvdbId: 79151
           episodes:
-            - airedNumber: 1
-            - airedNumber: 2
-            - airedNumber: 3
-            - airedNumber: 4
-            - airedNumber: 5
-            - airedNumber: 6
-            - airedNumber: 7
-            - airedNumber: 8
-            - airedNumber: 9
-            - airedNumber: 10
-            - airedNumber: 11
-            - airedNumber: 12
-            - airedNumber: 13
-            - airedNumber: 14
-            - airedNumber: 15
-            - airedNumber: 16
-            - airedNumber: 17
-            - airedNumber: 18
-            - airedNumber: 19
-            - airedNumber: 20
-            - airedNumber: 21
-            - airedNumber: 22
-            - airedNumber: 23
-            - airedNumber: 24
+            count: 24
         - id: fate-stay-night-s2
           titles:
             original: フェイト/ステイナイト (2014)
@@ -60,18 +38,7 @@ franchise:
             anidbId: 9977
             tvdbId: 278626
           episodes:
-            - airedNumber: 1
-            - airedNumber: 2
-            - airedNumber: 3
-            - airedNumber: 4
-            - airedNumber: 5
-            - airedNumber: 6
-            - airedNumber: 7
-            - airedNumber: 8
-            - airedNumber: 9
-            - airedNumber: 10
-            - airedNumber: 11
-            - airedNumber: 12
+            count: 12
       movies:
         - id: fate-stay-night-hf-1
           titles:
@@ -86,6 +53,7 @@ franchise:
     - id: fate-zero
       titles:
         original: Fate/Zero
+      ordering: absolute
       externalIds:
         wikidataId: Q1141789
       seasons:
@@ -99,32 +67,8 @@ franchise:
             anidbId: 8160
             tvdbId: 275798
           episodes:
-            - absoluteNumber: 1
-              airedNumber: 1
-            - absoluteNumber: 2
-              airedNumber: 2
-            - absoluteNumber: 3
-              airedNumber: 3
-            - absoluteNumber: 4
-              airedNumber: 4
-            - absoluteNumber: 5
-              airedNumber: 5
-            - absoluteNumber: 6
-              airedNumber: 6
-            - absoluteNumber: 7
-              airedNumber: 7
-            - absoluteNumber: 8
-              airedNumber: 8
-            - absoluteNumber: 9
-              airedNumber: 9
-            - absoluteNumber: 10
-              airedNumber: 10
-            - absoluteNumber: 11
-              airedNumber: 11
-            - absoluteNumber: 12
-              airedNumber: 12
-            - absoluteNumber: 13
-              airedNumber: 13
+            count: 13
+            absoluteFrom: 1
         - id: fate-zero-s2
           number: 1
           part: 2
@@ -135,33 +79,12 @@ franchise:
             anidbId: 8880
             tvdbId: 275798
           episodes:
-            - absoluteNumber: 14
-              airedNumber: 1
-            - absoluteNumber: 15
-              airedNumber: 2
-            - absoluteNumber: 16
-              airedNumber: 3
-            - absoluteNumber: 17
-              airedNumber: 4
-            - absoluteNumber: 18
-              airedNumber: 5
-            - absoluteNumber: 19
-              airedNumber: 6
-            - absoluteNumber: 20
-              airedNumber: 7
-            - absoluteNumber: 21
-              airedNumber: 8
-            - absoluteNumber: 22
-              airedNumber: 9
-            - absoluteNumber: 23
-              airedNumber: 10
-            - absoluteNumber: 24
-              airedNumber: 11
-            - absoluteNumber: 25
-              airedNumber: 12
+            count: 12
+            absoluteFrom: 14
     - id: fate-strange-fake
       titles:
         original: Fate/strange Fake
+      ordering: absolute
       externalIds:
         wikidataId: Q11200035
       seasons:
@@ -174,32 +97,8 @@ franchise:
             anidbId: 18093
             tvdbId: 436779
           episodes:
-            - absoluteNumber: 1
-              airedNumber: 1
-            - absoluteNumber: 2
-              airedNumber: 2
-            - absoluteNumber: 3
-              airedNumber: 3
-            - absoluteNumber: 4
-              airedNumber: 4
-            - absoluteNumber: 5
-              airedNumber: 5
-            - absoluteNumber: 6
-              airedNumber: 6
-            - absoluteNumber: 7
-              airedNumber: 7
-            - absoluteNumber: 8
-              airedNumber: 8
-            - absoluteNumber: 9
-              airedNumber: 9
-            - absoluteNumber: 10
-              airedNumber: 10
-            - absoluteNumber: 11
-              airedNumber: 11
-            - absoluteNumber: 12
-              airedNumber: 12
-            - absoluteNumber: 13
-              airedNumber: 13
+            count: 13
+            absoluteFrom: 1
   watchOrders:
     - name: Chronological
       entries:

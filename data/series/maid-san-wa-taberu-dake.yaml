@@ -6,6 +6,7 @@ series:
     translations:
       en: The Food Diary of Miss Maid
       ja-Latn: Maid-san wa Taberu dake
+  ordering: absolute
   externalIds:
     wikidataId: Q109512167
   seasons:
@@ -18,5 +19,5 @@ series:
         anidbId: 19541
         tvdbId: 467292
       episodes:
-        - absoluteNumber: 1
-          airedNumber: 1
+        count: 1
+        absoluteFrom: 1

@@ -302,8 +302,8 @@ func TestFillSpecialFormat(t *testing.T) {
 	if err := b.fillSpecial(sp, &Report{}); err != nil {
 		t.Fatal(err)
 	}
-	if sp.Format != model.FormatONA || len(sp.Episodes) != 2 {
-		t.Errorf("authored format/episodes: %q %d", sp.Format, len(sp.Episodes))
+	if sp.Format != model.FormatONA || sp.Episodes.Count != 2 {
+		t.Errorf("authored format/episodes: %q %d", sp.Format, sp.Episodes.Count)
 	}
 }
 
@@ -337,14 +337,14 @@ func TestBuildDemonSlayer(t *testing.T) {
 	if !s.Seasons[0].Titles.IsZero() {
 		t.Errorf("unauthored season should have no auto-filled title: %+v", s.Seasons[0].Titles)
 	}
-	if got := len(s.Seasons[0].Episodes); got != 26 {
+	if got := s.Seasons[0].Episodes.Count; got != 26 {
 		t.Fatalf("s1 episodes = %d", got)
 	}
-	if n := s.Seasons[0].Episodes[0].AbsoluteNumber; n == nil || *n != 1 {
+	if n := s.Seasons[0].Episodes.AbsoluteFrom; n == nil || *n != 1 {
 		t.Errorf("first episode absolute = %v", n)
 	}
-	if n := s.Seasons[1].Episodes[6].AbsoluteNumber; n == nil || *n != 33 {
-		t.Errorf("s2p1 last episode absolute = %v", n)
+	if n := s.Seasons[1].Episodes.AbsoluteFrom; n == nil || *n != 27 {
+		t.Errorf("s2p1 first episode absolute = %v", n)
 	}
 	// Cross-filled TVDB id from anime-list.xml.
 	if s.Seasons[0].ExternalIDs.TvdbID != 361069 {
@@ -418,10 +418,17 @@ func TestBuildFranchiseNonNumbered(t *testing.T) {
 		t.Fatal(err)
 	}
 	s := rec.Franchise.Series[0]
-	// Non-numbered: no absolute numbers anywhere.
-	for _, e := range s.Seasons[0].Episodes {
+	// Non-numbered: no absolute numbering, and the series says so rather than
+	// leaving a reader to infer it from every episode lacking a number.
+	if s.Ordering != model.OrderingRelease {
+		t.Errorf("non-numbered series ordering = %q, want %q", s.Ordering, model.OrderingRelease)
+	}
+	if s.Seasons[0].Episodes.AbsoluteFrom != nil {
+		t.Fatal("non-numbered series should have no absoluteFrom")
+	}
+	for _, e := range s.Seasons[0].Episodes.Expand() {
 		if e.AbsoluteNumber != nil {
-			t.Fatal("non-numbered series should have no absoluteNumber")
+			t.Fatal("non-numbered series should expand with no absoluteNumber")
 		}
 	}
 	// Authored season title preserved (override wins).

@@ -6,6 +6,7 @@ series:
     translations:
       en: 'Frieren: Beyond Journey''s End'
       ja-Latn: Sousou no Frieren
+  ordering: absolute
   externalIds:
     wikidataId: Q98642652
   seasons:
@@ -18,62 +19,8 @@ series:
         anidbId: 17617
         tvdbId: 424536
       episodes:
-        - absoluteNumber: 1
-          airedNumber: 1
-        - absoluteNumber: 2
-          airedNumber: 2
-        - absoluteNumber: 3
-          airedNumber: 3
-        - absoluteNumber: 4
-          airedNumber: 4
-        - absoluteNumber: 5
-          airedNumber: 5
-        - absoluteNumber: 6
-          airedNumber: 6
-        - absoluteNumber: 7
-          airedNumber: 7
-        - absoluteNumber: 8
-          airedNumber: 8
-        - absoluteNumber: 9
-          airedNumber: 9
-        - absoluteNumber: 10
-          airedNumber: 10
-        - absoluteNumber: 11
-          airedNumber: 11
-        - absoluteNumber: 12
-          airedNumber: 12
-        - absoluteNumber: 13
-          airedNumber: 13
-        - absoluteNumber: 14
-          airedNumber: 14
-        - absoluteNumber: 15
-          airedNumber: 15
-        - absoluteNumber: 16
-          airedNumber: 16
-        - absoluteNumber: 17
-          airedNumber: 17
-        - absoluteNumber: 18
-          airedNumber: 18
-        - absoluteNumber: 19
-          airedNumber: 19
-        - absoluteNumber: 20
-          airedNumber: 20
-        - absoluteNumber: 21
-          airedNumber: 21
-        - absoluteNumber: 22
-          airedNumber: 22
-        - absoluteNumber: 23
-          airedNumber: 23
-        - absoluteNumber: 24
-          airedNumber: 24
-        - absoluteNumber: 25
-          airedNumber: 25
-        - absoluteNumber: 26
-          airedNumber: 26
-        - absoluteNumber: 27
-          airedNumber: 27
-        - absoluteNumber: 28
-          airedNumber: 28
+        count: 28
+        absoluteFrom: 1
     - id: sousou-no-frieren-s2
       number: 2
       releaseYear: 2026
@@ -83,26 +30,8 @@ series:
         anidbId: 18886
         tvdbId: 424536
       episodes:
-        - absoluteNumber: 29
-          airedNumber: 1
-        - absoluteNumber: 30
-          airedNumber: 2
-        - absoluteNumber: 31
-          airedNumber: 3
-        - absoluteNumber: 32
-          airedNumber: 4
-        - absoluteNumber: 33
-          airedNumber: 5
-        - absoluteNumber: 34
-          airedNumber: 6
-        - absoluteNumber: 35
-          airedNumber: 7
-        - absoluteNumber: 36
-          airedNumber: 8
-        - absoluteNumber: 37
-          airedNumber: 9
-        - absoluteNumber: 38
-          airedNumber: 10
+        count: 10
+        absoluteFrom: 29
   characters:
     - id: aura
       names:

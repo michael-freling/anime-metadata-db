@@ -5,6 +5,7 @@ series:
     original: 女神「異世界転生先は何になりたいですか」 俺「勇者の肋骨で」
     translations:
       ja-Latn: Megami "Isekai Tensei Nani ni Naritai desu ka" Ore "Yuusha no Rokkotsu de"
+  ordering: absolute
   seasons:
     - id: megami-isekai-tensei-nani-ni-naritai-desu-ka-ore-yuusha-s1
       number: 1
@@ -15,5 +16,5 @@ series:
         anidbId: 19862
         tvdbId: 473229
       episodes:
-        - absoluteNumber: 1
-          airedNumber: 1
+        count: 1
+        absoluteFrom: 1

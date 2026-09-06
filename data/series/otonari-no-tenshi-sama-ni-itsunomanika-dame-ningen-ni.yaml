@@ -6,6 +6,7 @@ series:
     translations:
       en: The Angel Next Door Spoils Me Rotten
       ja-Latn: Otonari no Tenshi-sama ni Itsunomanika Dame Ningen ni Sareteita Ken
+  ordering: absolute
   externalIds:
     wikidataId: Q86740055
   seasons:
@@ -18,30 +19,8 @@ series:
         anidbId: 17108
         tvdbId: 414221
       episodes:
-        - absoluteNumber: 1
-          airedNumber: 1
-        - absoluteNumber: 2
-          airedNumber: 2
-        - absoluteNumber: 3
-          airedNumber: 3
-        - absoluteNumber: 4
-          airedNumber: 4
-        - absoluteNumber: 5
-          airedNumber: 5
-        - absoluteNumber: 6
-          airedNumber: 6
-        - absoluteNumber: 7
-          airedNumber: 7
-        - absoluteNumber: 8
-          airedNumber: 8
-        - absoluteNumber: 9
-          airedNumber: 9
-        - absoluteNumber: 10
-          airedNumber: 10
-        - absoluteNumber: 11
-          airedNumber: 11
-        - absoluteNumber: 12
-          airedNumber: 12
+        count: 12
+        absoluteFrom: 1
     - id: otonari-no-tenshi-sama-ni-itsunomanika-dame-ningen-ni-s2
       number: 2
       releaseYear: 2026
@@ -51,27 +30,5 @@ series:
         anidbId: 18235
         tvdbId: 414221
       episodes:
-        - absoluteNumber: 13
-          airedNumber: 1
-        - absoluteNumber: 14
-          airedNumber: 2
-        - absoluteNumber: 15
-          airedNumber: 3
-        - absoluteNumber: 16
-          airedNumber: 4
-        - absoluteNumber: 17
-          airedNumber: 5
-        - absoluteNumber: 18
-          airedNumber: 6
-        - absoluteNumber: 19
-          airedNumber: 7
-        - absoluteNumber: 20
-          airedNumber: 8
-        - absoluteNumber: 21
-          airedNumber: 9
-        - absoluteNumber: 22
-          airedNumber: 10
-        - absoluteNumber: 23
-          airedNumber: 11
-        - absoluteNumber: 24
-          airedNumber: 12
+        count: 12
+        absoluteFrom: 13

@@ -6,6 +6,7 @@ series:
     translations:
       en: Marika's Love Meter Malfunction
       ja-Latn: Marika-chan no Koukando wa Bukkowareteiru
+  ordering: absolute
   externalIds:
     wikidataId: Q136564901
   seasons:
@@ -18,5 +19,5 @@ series:
         anidbId: 19730
         tvdbId: 471300
       episodes:
-        - absoluteNumber: 1
-          airedNumber: 1
+        count: 1
+        absoluteFrom: 1
