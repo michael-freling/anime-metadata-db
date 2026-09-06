@@ -269,7 +269,13 @@ test('no page shows a reader an id it links to', async ({ page }) => {
 
     const text = await body.innerText();
     for (const id of ids) {
-      expect(text, `${path} displays the id "${id}"`).not.toContain(id);
+      // Matched on word boundaries, not as a bare substring. An id is a slug,
+      // so a leaked one is surrounded by punctuation or whitespace; a substring
+      // test also fires on any name that happens to contain one, which is not
+      // a leak. The Demon Slayer cast is the case: the character `suma` sits
+      // beside "Zenitsu Agatsuma", and "Agat-suma" contains it.
+      const leaked = new RegExp(`\\b${id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`);
+      expect(text, `${path} displays the id "${id}"`).not.toMatch(leaked);
     }
   }
 });
