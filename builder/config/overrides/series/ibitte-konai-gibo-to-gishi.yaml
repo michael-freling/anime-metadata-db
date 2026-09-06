@@ -9,5 +9,51 @@ series:
   seasons:
     - id: ibitte-konai-gibo-to-gishi-s1
       number: 1
+  # Cast (R2) nested under the series; names filled from Wikidata (CC0).
+  characters:
+    - id: arisa-konokura
+      externalIds: { wikidataId: Q141141764 }  # Arisa Kōnokura
+      voiceActors:
+        - { staffId: yuka-nukui, language: ja }
+    - id: koyuki-inari
+      externalIds: { wikidataId: Q141141772 }  # Koyuki Inari
+      voiceActors:
+        - { staffId: momoka-terasawa, language: ja }
+    - id: marika-konokura
+      externalIds: { wikidataId: Q141141765 }  # Marika Kōnokura
+      voiceActors:
+        - { staffId: yu-serizawa, language: ja }
+    - id: mitsuya
+      externalIds: { wikidataId: Q141141768 }  # Mitsuya
+      voiceActors:
+        - { staffId: mao-ichimichi, language: ja }
+    - id: miya-nakamura
+      externalIds: { wikidataId: Q141141703 }  # Miya Nakamura
+      voiceActors:
+        - { staffId: hina-suzuki, language: ja }
+    - id: nago
+      externalIds: { wikidataId: Q141141767 }  # Nago
+      voiceActors:
+        - { staffId: yumi-uchiyama, language: ja }
+    - id: riru-kazan
+      externalIds: { wikidataId: Q141141771 }  # Riru Kazan
+      voiceActors:
+        - { staffId: yo-taichi, language: ja }
+    - id: teru-konokura
+      externalIds: { wikidataId: Q141141763 }  # Teru Kōnokura
+      voiceActors:
+        - { staffId: kujira, language: ja }
+    - id: ueki
+      externalIds: { wikidataId: Q141141769 }  # Ueki
+      voiceActors:
+        - { staffId: hiroki-tochi, language: ja }
+    - id: yaeko-kozo
+      externalIds: { wikidataId: Q141141766 }  # Yaeko Kōzō
+      voiceActors:
+        - { staffId: miyari-nemoto, language: ja }
+    - id: yasu-nakamura
+      externalIds: { wikidataId: Q141141770 }  # Yasu Nakamura
+      voiceActors:
+        - { staffId: eiko-yamada, language: ja }
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [ibitte-konai-gibo-to-gishi]

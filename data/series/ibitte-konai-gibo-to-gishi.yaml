@@ -21,3 +21,147 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
+  characters:
+    - id: arisa-konokura
+      names:
+        original: 鴻蔵ありさ
+        translations:
+          en: Arisa Kōnokura
+          ja: 鴻蔵ありさ
+      externalIds:
+        wikidataId: Q141141764
+      voiceActors:
+        - staffId: yuka-nukui
+          language: ja
+      appearances:
+        - seriesId: ibitte-konai-gibo-to-gishi
+    - id: koyuki-inari
+      names:
+        original: 稲荷小雪
+        translations:
+          en: Koyuki Inari
+          ja: 稲荷小雪
+      externalIds:
+        wikidataId: Q141141772
+      voiceActors:
+        - staffId: momoka-terasawa
+          language: ja
+      appearances:
+        - seriesId: ibitte-konai-gibo-to-gishi
+    - id: marika-konokura
+      names:
+        original: 鴻蔵まりか
+        translations:
+          en: Marika Kōnokura
+          ja: 鴻蔵まりか
+      externalIds:
+        wikidataId: Q141141765
+      voiceActors:
+        - staffId: yu-serizawa
+          language: ja
+      appearances:
+        - seriesId: ibitte-konai-gibo-to-gishi
+    - id: mitsuya
+      names:
+        original: 三ツ矢
+        translations:
+          en: Mitsuya
+          ja: 三ツ矢
+      externalIds:
+        wikidataId: Q141141768
+      voiceActors:
+        - staffId: mao-ichimichi
+          language: ja
+      appearances:
+        - seriesId: ibitte-konai-gibo-to-gishi
+    - id: miya-nakamura
+      names:
+        original: 中村美冶
+        translations:
+          en: Miya Nakamura
+          ja: 中村美冶
+      externalIds:
+        wikidataId: Q141141703
+      voiceActors:
+        - staffId: hina-suzuki
+          language: ja
+      appearances:
+        - seriesId: ibitte-konai-gibo-to-gishi
+    - id: nago
+      names:
+        original: 名護
+        translations:
+          en: Nago
+          ja: 名護
+      externalIds:
+        wikidataId: Q141141767
+      voiceActors:
+        - staffId: yumi-uchiyama
+          language: ja
+      appearances:
+        - seriesId: ibitte-konai-gibo-to-gishi
+    - id: riru-kazan
+      names:
+        original: 花山リル
+        translations:
+          en: Riru Kazan
+          ja: 花山リル
+      externalIds:
+        wikidataId: Q141141771
+      voiceActors:
+        - staffId: yo-taichi
+          language: ja
+      appearances:
+        - seriesId: ibitte-konai-gibo-to-gishi
+    - id: teru-konokura
+      names:
+        original: 鴻蔵てる
+        translations:
+          en: Teru Kōnokura
+          ja: 鴻蔵てる
+      externalIds:
+        wikidataId: Q141141763
+      voiceActors:
+        - staffId: kujira
+          language: ja
+      appearances:
+        - seriesId: ibitte-konai-gibo-to-gishi
+    - id: ueki
+      names:
+        original: 植木
+        translations:
+          en: Ueki
+          ja: 植木
+      externalIds:
+        wikidataId: Q141141769
+      voiceActors:
+        - staffId: hiroki-tochi
+          language: ja
+      appearances:
+        - seriesId: ibitte-konai-gibo-to-gishi
+    - id: yaeko-kozo
+      names:
+        original: 鴻蔵弥栄子
+        translations:
+          en: Yaeko Kōzō
+          ja: 鴻蔵弥栄子
+      externalIds:
+        wikidataId: Q141141766
+      voiceActors:
+        - staffId: miyari-nemoto
+          language: ja
+      appearances:
+        - seriesId: ibitte-konai-gibo-to-gishi
+    - id: yasu-nakamura
+      names:
+        original: 中村ヤス
+        translations:
+          en: Yasu Nakamura
+          ja: 中村ヤス
+      externalIds:
+        wikidataId: Q141141770
+      voiceActors:
+        - staffId: eiko-yamada
+          language: ja
+      appearances:
+        - seriesId: ibitte-konai-gibo-to-gishi

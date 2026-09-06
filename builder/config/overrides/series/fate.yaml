@@ -90,4 +90,159 @@ franchise:
         - seriesId: fate-zero # Q96500220 — one story across both cours
           voiceActors:
             - { staffId: kari-wahlgren, language: en }
+    # Imported from Wikidata's P1441 (present in work) on each series. A
+    # character in more than one Fate series is one node with an appearance
+    # per series, the way Saber above is: the franchise holds the cast.
+    #
+    # The shared characters carry Japanese cast only. Their English credits
+    # have no P10663 saying which adaptation they belong to, and stay night
+    # and Zero are different adaptations, so attributing one to either would
+    # be a guess. Saber keeps hers because hers does carry the qualifier.
+    - id: archer
+      externalIds: { wikidataId: Q3543951 }  # Archer
+      voiceActors:
+        - { staffId: junichi-suwabe, language: ja }
+        - { staffId: liam-obrien, language: en }  # Liam O'Brien
+      appearances:
+        - { seriesId: fate-stay-night }
+    - id: assassin
+      externalIds: { wikidataId: Q20456662 }  # Assassin
+      voiceActors:
+        - { staffId: shin-ichiro-miki, language: ja }
+      appearances:
+        - { seriesId: fate-stay-night }
+    - id: berserker
+      externalIds: { wikidataId: Q4925309 }  # Berserker
+      voiceActors:
+        - { staffId: tadahisa-saizen, language: ja }
+      appearances:
+        - { seriesId: fate-stay-night }
+    - id: caster
+      externalIds: { wikidataId: Q20466812 }  # Caster
+      voiceActors:
+        - { staffId: atsuko-tanaka, language: ja }
+      appearances:
+        - { seriesId: fate-stay-night }
+    - id: enkidu
+      externalIds: { wikidataId: Q138774374 }  # Enkidu
+      voiceActors:
+        - { staffId: marin-miller, language: en }
+        - { staffId: yu-kobayashi, language: ja }  # Yū Kobayashi
+      appearances:
+        - { seriesId: fate-strange-fake }
+    - id: ereshkigal
+      externalIds: { wikidataId: Q137842668 }  # Ereshkigal
+      voiceActors:
+        - { staffId: kana-ueda, language: ja }
+        - { staffId: mela-lee, language: en }
+      appearances:
+        - { seriesId: fate-strange-fake }
+    - id: gilgamesh
+      externalIds: { wikidataId: Q20461586 }  # Gilgamesh
+      voiceActors:
+        - { staffId: tomokazu-seki, language: ja }
+      appearances:
+        - { seriesId: fate-stay-night }
+        - { seriesId: fate-strange-fake }
+        - { seriesId: fate-zero }
+    - id: illyasviel-von-einzbern
+      externalIds: { wikidataId: Q4918698 }  # Illyasviel von Einzbern
+      voiceActors:
+        - { staffId: mai-kadowaki, language: ja }
+      appearances:
+        - { seriesId: fate-stay-night }
+        - { seriesId: fate-zero }
+    - id: irisviel-von-einzbern
+      externalIds: { wikidataId: Q61982935 }  # Irisviel von Einzbern
+      voiceActors:
+        - { staffId: maggie-flecknoe, language: en }
+        - { staffId: sayaka-ohara, language: ja }
+      appearances:
+        - { seriesId: fate-zero }
+    - id: iskandar
+      externalIds: { wikidataId: Q137414236 }  # Iskandar
+      voiceActors:
+        - { staffId: akio-otsuka, language: ja }
+        - { staffId: jamieson-price, language: en }
+      appearances:
+        - { seriesId: fate-zero }
+    - id: kirei-kotomine
+      externalIds: { wikidataId: Q4919813 }  # Kirei Kotomine
+      voiceActors:
+        - { staffId: joji-nakata, language: ja }
+      appearances:
+        - { seriesId: fate-stay-night }
+        - { seriesId: fate-zero }
+    - id: kiritsugu-emiya
+      externalIds: { wikidataId: Q4925676 }  # Kiritsugu Emiya
+      voiceActors:
+        - { staffId: rikiya-koyama, language: ja }
+      appearances:
+        - { seriesId: fate-stay-night }
+        - { seriesId: fate-zero }
+    - id: lancelot
+      externalIds: { wikidataId: Q106192272 }  # Lancelot
+      voiceActors:
+        - { staffId: ryotaro-okiayu, language: ja }
+      appearances:
+        - { seriesId: fate-zero }
+    - id: lancer
+      externalIds: { wikidataId: Q4925320 }  # Lancer
+      voiceActors:
+        - { staffId: nobutoshi-canna, language: ja }
+      appearances:
+        - { seriesId: fate-stay-night }
+    - id: no-name-assassin
+      externalIds: { wikidataId: Q138167425 }  # No Name Assassin
+      voiceActors:
+        - { staffId: lynn, language: ja }
+      appearances:
+        - { seriesId: fate-strange-fake }
+    - id: richard-i
+      externalIds: { wikidataId: Q138167076 }  # Richard I
+      voiceActors:
+        - { staffId: yuki-ono, language: ja }  # Yūki Ono
+      appearances:
+        - { seriesId: fate-strange-fake }
+    - id: rider
+      externalIds: { wikidataId: Q4925331 }  # Rider
+      voiceActors:
+        - { staffId: yu-asakawa, language: ja }  # Yū Asakawa
+      appearances:
+        - { seriesId: fate-stay-night }
+    - id: rin-tohsaka
+      externalIds: { wikidataId: Q4919883 }  # Rin Tohsaka
+      voiceActors:
+        - { staffId: kana-ueda, language: ja }
+      appearances:
+        - { seriesId: fate-stay-night }
+        - { seriesId: fate-zero }
+    - id: sakura-mato
+      externalIds: { wikidataId: Q4918636 }  # Sakura Matō
+      appearances:
+        - { seriesId: fate-stay-night }
+    - id: shinji-mato
+      externalIds: { wikidataId: Q4925659 }  # Shinji Matō
+      voiceActors:
+        - { staffId: hiroshi-kamiya, language: ja }
+      appearances:
+        - { seriesId: fate-stay-night }
+    - id: shiro-emiya
+      externalIds: { wikidataId: Q4919835 }  # Shirō Emiya
+      voiceActors:
+        - { staffId: noriaki-sugiyama, language: ja }
+      appearances:
+        - { seriesId: fate-stay-night }
+    - id: taiga-fujimura
+      externalIds: { wikidataId: Q20459661 }  # Taiga Fujimura
+      voiceActors:
+        - { staffId: miki-ito, language: ja }  # Miki Itō
+      appearances:
+        - { seriesId: fate-stay-night }
+    - id: waver-velvet
+      externalIds: { wikidataId: Q102315460 }  # Waver Velvet
+      voiceActors:
+        - { staffId: daisuke-namikawa, language: ja }
+      appearances:
+        - { seriesId: fate-zero }
 numbered: [fate-zero, fate-strange-fake]

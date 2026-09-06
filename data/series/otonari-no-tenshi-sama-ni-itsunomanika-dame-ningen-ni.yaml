@@ -32,3 +32,56 @@ series:
       episodes:
         count: 12
         absoluteFrom: 13
+  characters:
+    - id: amane-fujimiya
+      names:
+        original: 藤宮周
+        translations:
+          en: Amane Fujimiya
+          ja: 藤宮周
+      externalIds:
+        wikidataId: Q110713995
+      voiceActors:
+        - staffId: taito-ban
+          language: ja
+      appearances:
+        - seriesId: otonari-no-tenshi-sama-ni-itsunomanika-dame-ningen-ni
+    - id: chitose-shirakawa
+      names:
+        original: 白河千歳
+        translations:
+          en: Chitose Shirakawa
+          ja: 白河千歳
+      externalIds:
+        wikidataId: Q110714002
+      voiceActors:
+        - staffId: haruka-shiraishi
+          language: ja
+      appearances:
+        - seriesId: otonari-no-tenshi-sama-ni-itsunomanika-dame-ningen-ni
+    - id: itsuki-akasawa
+      names:
+        original: 赤澤樹
+        translations:
+          en: Itsuki Akasawa
+          ja: 赤澤樹
+      externalIds:
+        wikidataId: Q110714001
+      voiceActors:
+        - staffId: taku-yashiro
+          language: ja
+      appearances:
+        - seriesId: otonari-no-tenshi-sama-ni-itsunomanika-dame-ningen-ni
+    - id: mahiru-shiina
+      names:
+        original: 椎名真昼
+        translations:
+          en: Mahiru Shiina
+          ja: 椎名真昼
+      externalIds:
+        wikidataId: Q110713997
+      voiceActors:
+        - staffId: manaka-iwami
+          language: ja
+      appearances:
+        - seriesId: otonari-no-tenshi-sama-ni-itsunomanika-dame-ningen-ni

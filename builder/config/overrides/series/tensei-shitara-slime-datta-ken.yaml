@@ -634,5 +634,26 @@ series:
       voiceActors:
         - { staffId: yoshiki-nakajima, language: ja }  # Yoshiki Nakajima
         - { staffId: aaron-roberts, language: en }
+    - id: apito
+      externalIds: { wikidataId: Q107064135 }  # Apito
+      voiceActors:
+        - { staffId: karan-ashley, language: en }
+        - { staffId: reina-ueda, language: ja }
+    - id: ririna
+      externalIds: { wikidataId: Q106486908 }  # Ririna
+      voiceActors:
+        - { staffId: sarah-roach, language: en }
+        - { staffId: reina-kondo, language: ja }  # Reina Kondō
+    - id: takt
+      externalIds: { wikidataId: Q141060859 }  # Takt
+      voiceActors:
+        - { staffId: riho-sugiyama, language: ja }
+    - id: veldanava
+      externalIds: { wikidataId: Q140298837 }  # Veldanava
+    - id: zegion
+      externalIds: { wikidataId: Q107064136 }  # Zegion
+      voiceActors:
+        - { staffId: greg-ayres, language: en }
+        - { staffId: yuichiro-umehara, language: ja }
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [tensei-shitara-slime-datta-ken]

@@ -21,3 +21,88 @@ series:
       episodes:
         count: 24
         absoluteFrom: 1
+  characters:
+    - id: asa
+      names:
+        original: アサ
+        translations:
+          en: Asa
+          ja: アサ
+      externalIds:
+        wikidataId: Q138296704
+      voiceActors:
+        - staffId: yume-miyamoto
+          language: ja
+      appearances:
+        - seriesId: yomi-no-tsugai
+    - id: dera
+      names:
+        original: デラ
+        translations:
+          en: Dera
+          ja: デラ
+      externalIds:
+        wikidataId: Q141239418
+      voiceActors:
+        - staffId: jarrod-greene
+          language: en
+        - staffId: yuichi-nakamura
+          language: ja
+      appearances:
+        - seriesId: yomi-no-tsugai
+    - id: gabby
+      names:
+        original: ガブ
+        translations:
+          en: Gabby
+          ja: ガブ
+      externalIds:
+        wikidataId: Q140592213
+      voiceActors:
+        - staffId: misaki-kuno
+          language: ja
+      appearances:
+        - seriesId: yomi-no-tsugai
+    - id: left
+      names:
+        original: 左
+        translations:
+          en: Left
+          ja: 左
+      externalIds:
+        wikidataId: Q141214001
+      voiceActors:
+        - staffId: colleen-clinkenbeard
+          language: en
+        - staffId: takako-honda
+          language: ja
+      appearances:
+        - seriesId: yomi-no-tsugai
+    - id: right
+      names:
+        original: 右
+        translations:
+          en: Right
+          ja: 右
+      externalIds:
+        wikidataId: Q141214002
+      voiceActors:
+        - staffId: bill-butts
+          language: en
+        - staffId: rikiya-koyama
+          language: ja
+      appearances:
+        - seriesId: yomi-no-tsugai
+    - id: yuru
+      names:
+        original: ユル
+        translations:
+          en: Yuru
+          ja: ユル
+      externalIds:
+        wikidataId: Q138235542
+      voiceActors:
+        - staffId: kensho-ono
+          language: ja
+      appearances:
+        - seriesId: yomi-no-tsugai

@@ -2018,3 +2018,71 @@ series:
           language: en
       appearances:
         - seriesId: tensei-shitara-slime-datta-ken
+    - id: apito
+      names:
+        original: アピト
+        translations:
+          en: Apito
+          ja: アピト
+      externalIds:
+        wikidataId: Q107064135
+      voiceActors:
+        - staffId: karan-ashley
+          language: en
+        - staffId: reina-ueda
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: ririna
+      names:
+        original: リリナ
+        translations:
+          en: Ririna
+          ja: リリナ
+      externalIds:
+        wikidataId: Q106486908
+      voiceActors:
+        - staffId: sarah-roach
+          language: en
+        - staffId: reina-kondo
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: takt
+      names:
+        original: タクト
+        translations:
+          en: Takt
+          ja: タクト
+      externalIds:
+        wikidataId: Q141060859
+      voiceActors:
+        - staffId: riho-sugiyama
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: veldanava
+      names:
+        original: ヴェルダナーヴァ
+        translations:
+          en: Veldanava
+          ja: ヴェルダナーヴァ
+      externalIds:
+        wikidataId: Q140298837
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken
+    - id: zegion
+      names:
+        original: ゼギオン
+        translations:
+          en: Zegion
+          ja: ゼギオン
+      externalIds:
+        wikidataId: Q107064136
+      voiceActors:
+        - staffId: greg-ayres
+          language: en
+        - staffId: yuichiro-umehara
+          language: ja
+      appearances:
+        - seriesId: tensei-shitara-slime-datta-ken

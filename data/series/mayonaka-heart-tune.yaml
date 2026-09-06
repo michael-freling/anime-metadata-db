@@ -21,3 +21,110 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
+  characters:
+    - id: aiko
+      names:
+        original: アイコ
+        translations:
+          en: Aiko
+          ja: アイコ
+      externalIds:
+        wikidataId: Q137719544
+      voiceActors:
+        - staffId: yuki-wakai
+          language: ja
+      appearances:
+        - seriesId: mayonaka-heart-tune
+    - id: ao-momotose
+      names:
+        original: 百歳あお
+        translations:
+          en: Ao Momotose
+          ja: 百歳あお
+      externalIds:
+        wikidataId: Q137734411
+      voiceActors:
+        - staffId: nao-toyama
+          language: ja
+      appearances:
+        - seriesId: mayonaka-heart-tune
+    - id: arisu-yamabuki
+      names:
+        original: 山吹有栖
+        translations:
+          en: Arisu Yamabuki
+          ja: 山吹有栖
+      externalIds:
+        wikidataId: Q133288393
+      voiceActors:
+        - staffId: ricco-fajardo
+          language: en
+        - staffId: rikuya-yasuda
+          language: ja
+      appearances:
+        - seriesId: mayonaka-heart-tune
+    - id: iko-kirino
+      names:
+        original: 霧乃イコ
+        translations:
+          en: Iko Kirino
+          ja: 霧乃イコ
+      externalIds:
+        wikidataId: Q133288396
+      voiceActors:
+        - staffId: sayumi-suzushiro
+          language: ja
+      appearances:
+        - seriesId: mayonaka-heart-tune
+    - id: lemon-ando
+      names:
+        original: 安藤檸檬
+        translations:
+          en: Lemon Andō
+          ja: 安藤檸檬
+      externalIds:
+        wikidataId: Q137719001
+      voiceActors:
+        - staffId: kana-hanazawa
+          language: ja
+      appearances:
+        - seriesId: mayonaka-heart-tune
+    - id: nene-himekawa
+      names:
+        original: 日芽川寧々
+        translations:
+          en: Nene Himekawa
+          ja: 日芽川寧々
+      externalIds:
+        wikidataId: Q133288397
+      voiceActors:
+        - staffId: rumi-okubo
+          language: ja
+      appearances:
+        - seriesId: mayonaka-heart-tune
+    - id: rikka-inohana
+      names:
+        original: 井ノ華六花
+        translations:
+          en: Rikka Inohana
+          ja: 井ノ華六花
+      externalIds:
+        wikidataId: Q133288394
+      voiceActors:
+        - staffId: momoko-seto
+          language: ja
+      appearances:
+        - seriesId: mayonaka-heart-tune
+    - id: shinobu-uzuki
+      names:
+        original: 雨月しのぶ
+        translations:
+          en: Shinobu Uzuki
+          ja: 雨月しのぶ
+      externalIds:
+        wikidataId: Q133288395
+      voiceActors:
+        - staffId: miku-ito
+          language: ja
+      appearances:
+        - seriesId: mayonaka-heart-tune

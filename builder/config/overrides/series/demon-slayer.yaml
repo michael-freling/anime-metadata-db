@@ -52,6 +52,61 @@ series:
       voiceActors:
         - { staffId: natsuki-hanae, language: ja }
         - { staffId: zach-aguilar, language: en }
+    - id: aoi-kanzaki
+      externalIds: { wikidataId: Q123515824 }  # Aoi Kanzaki
+      voiceActors:
+        - { staffId: reba-buhr, language: en }
+        - { staffId: yuri-ehara, language: ja }
+    - id: genya-shinazugawa
+      externalIds: { wikidataId: Q123515829 }  # Genya Shinazugawa
+    - id: giyu-tomioka
+      externalIds: { wikidataId: Q130425850 }  # Giyū Tomioka
+      voiceActors:
+        - { staffId: johnny-yong-bosch, language: en }
+        - { staffId: takahiro-sakurai, language: ja }
+    - id: inosuke-hashibira
+      externalIds: { wikidataId: Q109321822 }  # Inosuke Hashibira
+      voiceActors:
+        - { staffId: yoshitsugu-matsuoka, language: ja }
+    - id: kagaya-ubuyashiki
+      externalIds: { wikidataId: Q123515823 }  # Kagaya Ubuyashiki
+      voiceActors:
+        - { staffId: matthew-mercer, language: en }
+        - { staffId: toshiyuki-morikawa, language: ja }
+    - id: kanao-tsuyuri
+      externalIds: { wikidataId: Q123515825 }  # Kanao Tsuyuri
+      voiceActors:
+        - { staffId: brianna-knickerbocker, language: en }
+        - { staffId: reina-ueda, language: ja }
+    - id: kanata-ubuyashiki
+      externalIds: { wikidataId: Q123515826 }  # Kanata Ubuyashiki
+      voiceActors:
+        - { staffId: mela-lee, language: en }
+        - { staffId: shiori-izawa, language: ja }
+    - id: makomo
+      externalIds: { wikidataId: Q123515827 }  # Makomo
+      voiceActors:
+        - { staffId: ai-kakuma, language: ja }
+        - { staffId: ryan-bartley, language: en }
+    - id: muzan-kibutsuji
+      externalIds: { wikidataId: Q116252649 }  # Muzan Kibutsuji
+    - id: nezuko-kamado
+      externalIds: { wikidataId: Q109767984 }  # Nezuko Kamado
+      voiceActors:
+        - { staffId: akari-kito, language: ja }
+    - id: sabito
+      externalIds: { wikidataId: Q123515830 }  # Sabito
+    - id: sakonji-urokodaki
+      externalIds: { wikidataId: Q123515828 }  # Sakonji Urokodaki
+      voiceActors:
+        - { staffId: brook-chalmers, language: en }
+        - { staffId: hochu-otsuka, language: ja }
+    - id: suma
+      externalIds: { wikidataId: Q113044891 }  # Suma
+    - id: yoriichi-tsugikuni
+      externalIds: { wikidataId: Q123403607 }  # Yoriichi Tsugikuni
+    - id: zenitsu-agatsuma
+      externalIds: { wikidataId: Q109321740 }  # Zenitsu Agatsuma
 # Demon Slayer is one linear storyline, so its episodes carry a continuous
 # absoluteNumber across the seasons (and the original film).
 numbered: [demon-slayer]

@@ -39,6 +39,8 @@ staff:
     externalIds: { wikidataId: Q5106962 }
   - id: christopher-wehkamp
     externalIds: { wikidataId: Q19665600 }
+  - id: colleen-clinkenbeard
+    externalIds: { wikidataId: Q2017211 }
   - id: dallas-reid
     externalIds: { wikidataId: Q109051005 }
   - id: daman-mills
@@ -51,10 +53,16 @@ staff:
     externalIds: { wikidataId: Q23879975 }
   - id: felecia-angelle
     externalIds: { wikidataId: Q17305620 }
+  - id: greg-ayres
+    externalIds: { wikidataId: Q4721515 }
   - id: ian-sinclair
     externalIds: { wikidataId: Q5982914 }
   - id: j-michael-tatum
     externalIds: { wikidataId: Q6106552 }
+  - id: jamieson-price
+    externalIds: { wikidataId: Q6147699 }
+  - id: jarrod-greene
+    externalIds: { wikidataId: Q108165637 }
   - id: jay-hickman
     externalIds: { wikidataId: Q6166700 }
   - id: jeannie-tirado
@@ -65,12 +73,16 @@ staff:
     externalIds: { wikidataId: Q109320298 }
   - id: joe-zieja
     externalIds: { wikidataId: Q116868160 }
+  - id: johnny-yong-bosch
+    externalIds: { wikidataId: Q2468138 }
   - id: justin-briner
     externalIds: { wikidataId: Q30610426 }
   - id: kaiji-tang
     externalIds: { wikidataId: Q15120664 }
   - id: kara-edwards
     externalIds: { wikidataId: Q6367509 }
+  - id: karan-ashley
+    externalIds: { wikidataId: Q4354563 }
   - id: kari-wahlgren
     externalIds: { wikidataId: Q272919 }
   - id: kate-higgins
@@ -81,16 +93,26 @@ staff:
     externalIds: { wikidataId: Q102427087 }
   - id: laura-stahl
     externalIds: { wikidataId: Q106141965 }
+  - id: liam-obrien
+    externalIds: { wikidataId: Q908941 }
   - id: lisa-reimold
     externalIds: { wikidataId: Q109319643 }
   - id: lizzie-freeman
     externalIds: { wikidataId: Q108139170 }
   - id: luci-christian
     externalIds: { wikidataId: Q4115622 }
+  - id: maggie-flecknoe
+    externalIds: { wikidataId: Q6730229 }
   - id: margaret-mcdonald
     externalIds: { wikidataId: Q16232274 }
+  - id: marin-miller
+    externalIds: { wikidataId: Q6762255 }
   - id: mark-whitten
     externalIds: { wikidataId: Q124217816 }
+  - id: matthew-mercer
+    externalIds: { wikidataId: Q6790967 }
+  - id: mela-lee
+    externalIds: { wikidataId: Q750146 }
   - id: natalie-rial
     externalIds: { wikidataId: Q109734195 }
   - id: paul-st-peter
@@ -99,8 +121,14 @@ staff:
     externalIds: { wikidataId: Q28974090 }
   - id: ray-hurd
     externalIds: { wikidataId: Q141058249 }
+  - id: reba-buhr
+    externalIds: { wikidataId: Q71505927 }
+  - id: ricco-fajardo
+    externalIds: { wikidataId: Q31213388 }
   - id: robert-mccollum
     externalIds: { wikidataId: Q7347478 }
+  - id: ryan-bartley
+    externalIds: { wikidataId: Q116709172 }
   - id: ryan-reynolds
     externalIds: { wikidataId: Q108205165 }
   - id: sara-ragsdale

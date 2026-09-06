@@ -9,5 +9,15 @@ series:
   seasons:
     - id: kanan-sama-wa-akumade-choroi-s1
       number: 1
+  # Cast (R2) nested under the series; names filled from Wikidata (CC0).
+  characters:
+    - id: kanan-takakiyo
+      externalIds: { wikidataId: Q138603674 }  # Kanan Takakiyo
+      voiceActors:
+        - { staffId: aoi-koga, language: ja }
+    - id: yoji-kyogi
+      externalIds: { wikidataId: Q138603682 }  # Yōji Kyōgi
+      voiceActors:
+        - { staffId: seiichiro-yamashita, language: ja }
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [kanan-sama-wa-akumade-choroi]

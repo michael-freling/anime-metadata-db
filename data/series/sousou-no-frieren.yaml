@@ -591,3 +591,25 @@ series:
           language: ja
       appearances:
         - seriesId: sousou-no-frieren
+    - id: mana
+      names:
+        original: Mana
+        translations:
+          en: Mana
+      externalIds:
+        wikidataId: Q135403363
+      appearances:
+        - seriesId: sousou-no-frieren
+    - id: qual
+      names:
+        original: クヴァール
+        translations:
+          en: Qual
+          ja: クヴァール
+      externalIds:
+        wikidataId: Q122781798
+      voiceActors:
+        - staffId: hiroki-yasumoto
+          language: ja
+      appearances:
+        - seriesId: sousou-no-frieren
