@@ -211,3 +211,16 @@ series:
           language: ja
       appearances:
         - seriesId: tongari-boushi-no-atelier
+    - id: qifrey
+      names:
+        original: キーフリー
+        translations:
+          en: Qifrey
+          ja: キーフリー
+      externalIds:
+        wikidataId: Q138386942
+      voiceActors:
+        - staffId: natsuki-hanae
+          language: ja
+      appearances:
+        - seriesId: tongari-boushi-no-atelier

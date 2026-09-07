@@ -31,3 +31,17 @@ series:
       episodes:
         count: 12
         absoluteFrom: 13
+  characters:
+    - id: mitsumi-iwakura
+      names:
+        original: 岩倉美津未
+        translations:
+          en: Mitsumi Iwakura
+          ja: 岩倉美津未
+      externalIds:
+        wikidataId: Q141333178
+      voiceActors:
+        - staffId: tomoyo-kurosawa
+          language: ja
+      appearances:
+        - seriesId: skip-to-loafer

@@ -9,5 +9,15 @@ series:
   seasons:
     - id: ponkotsu-fuuki-iin-to-skirt-take-ga-futekisetsu-na-jk-no-s1
       number: 1
+  # Cast (R2) nested under the series; names filled from Wikidata (CC0).
+  characters:
+    - id: poem-kohinata
+      externalIds: { wikidataId: Q138963594 }  # Poem Kohinata
+      voiceActors:
+        - { staffId: riko-akechi, language: ja }
+    - id: togo-sakuradaimon
+      externalIds: { wikidataId: Q138963593 }  # Tōgo Sakuradaimon
+      voiceActors:
+        - { staffId: junya-enoki, language: ja }
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [ponkotsu-fuuki-iin-to-skirt-take-ga-futekisetsu-na-jk-no]

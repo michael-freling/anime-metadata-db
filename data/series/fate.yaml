@@ -131,3 +131,315 @@ franchise:
           voiceActors:
             - staffId: kari-wahlgren
               language: en
+    - id: archer
+      names:
+        original: アーチャー
+        translations:
+          en: Archer
+          ja: アーチャー
+      externalIds:
+        wikidataId: Q3543951
+      voiceActors:
+        - staffId: junichi-suwabe
+          language: ja
+        - staffId: liam-obrien
+          language: en
+      appearances:
+        - seriesId: fate-stay-night
+    - id: assassin
+      names:
+        original: アサシン
+        translations:
+          en: Assassin
+          ja: アサシン
+      externalIds:
+        wikidataId: Q20456662
+      voiceActors:
+        - staffId: shin-ichiro-miki
+          language: ja
+      appearances:
+        - seriesId: fate-stay-night
+    - id: berserker
+      names:
+        original: バーサーカー
+        translations:
+          en: Berserker
+          ja: バーサーカー
+      externalIds:
+        wikidataId: Q4925309
+      voiceActors:
+        - staffId: tadahisa-saizen
+          language: ja
+      appearances:
+        - seriesId: fate-stay-night
+    - id: caster
+      names:
+        original: キャスター
+        translations:
+          en: Caster
+          ja: キャスター
+      externalIds:
+        wikidataId: Q20466812
+      voiceActors:
+        - staffId: atsuko-tanaka
+          language: ja
+      appearances:
+        - seriesId: fate-stay-night
+    - id: enkidu
+      names:
+        original: エンキドゥ
+        translations:
+          en: Enkidu
+          ja: エンキドゥ
+      externalIds:
+        wikidataId: Q138774374
+      voiceActors:
+        - staffId: marin-miller
+          language: en
+        - staffId: yu-kobayashi
+          language: ja
+      appearances:
+        - seriesId: fate-strange-fake
+    - id: ereshkigal
+      names:
+        original: エレシュキガル
+        translations:
+          en: Ereshkigal
+          ja: エレシュキガル
+      externalIds:
+        wikidataId: Q137842668
+      voiceActors:
+        - staffId: kana-ueda
+          language: ja
+        - staffId: mela-lee
+          language: en
+      appearances:
+        - seriesId: fate-strange-fake
+    - id: gilgamesh
+      names:
+        original: ギルガメッシュ
+        translations:
+          en: Gilgamesh
+          ja: ギルガメッシュ
+      externalIds:
+        wikidataId: Q20461586
+      voiceActors:
+        - staffId: tomokazu-seki
+          language: ja
+      appearances:
+        - seriesId: fate-stay-night
+        - seriesId: fate-strange-fake
+        - seriesId: fate-zero
+    - id: illyasviel-von-einzbern
+      names:
+        original: イリヤスフィール·フォン·アインツベルン
+        translations:
+          en: Illyasviel von Einzbern
+          ja: イリヤスフィール·フォン·アインツベルン
+      externalIds:
+        wikidataId: Q4918698
+      voiceActors:
+        - staffId: mai-kadowaki
+          language: ja
+      appearances:
+        - seriesId: fate-stay-night
+        - seriesId: fate-zero
+    - id: irisviel-von-einzbern
+      names:
+        original: アイリスフィール・フォン・アインツベルン
+        translations:
+          en: Irisviel von Einzbern
+          ja: アイリスフィール・フォン・アインツベルン
+      externalIds:
+        wikidataId: Q61982935
+      voiceActors:
+        - staffId: maggie-flecknoe
+          language: en
+        - staffId: sayaka-ohara
+          language: ja
+      appearances:
+        - seriesId: fate-zero
+    - id: iskandar
+      names:
+        original: イスカンダル
+        translations:
+          en: Iskandar
+          ja: イスカンダル
+      externalIds:
+        wikidataId: Q137414236
+      voiceActors:
+        - staffId: akio-otsuka
+          language: ja
+        - staffId: jamieson-price
+          language: en
+      appearances:
+        - seriesId: fate-zero
+    - id: kirei-kotomine
+      names:
+        original: 言峰綺礼
+        translations:
+          en: Kirei Kotomine
+          ja: 言峰綺礼
+      externalIds:
+        wikidataId: Q4919813
+      voiceActors:
+        - staffId: joji-nakata
+          language: ja
+      appearances:
+        - seriesId: fate-stay-night
+        - seriesId: fate-zero
+    - id: kiritsugu-emiya
+      names:
+        original: 衛宮切嗣
+        translations:
+          en: Kiritsugu Emiya
+          ja: 衛宮切嗣
+      externalIds:
+        wikidataId: Q4925676
+      voiceActors:
+        - staffId: rikiya-koyama
+          language: ja
+      appearances:
+        - seriesId: fate-stay-night
+        - seriesId: fate-zero
+    - id: lancelot
+      names:
+        original: バーサーカー
+        translations:
+          en: Lancelot
+          ja: バーサーカー
+      externalIds:
+        wikidataId: Q106192272
+      voiceActors:
+        - staffId: ryotaro-okiayu
+          language: ja
+      appearances:
+        - seriesId: fate-zero
+    - id: lancer
+      names:
+        original: ランサー
+        translations:
+          en: Lancer
+          ja: ランサー
+      externalIds:
+        wikidataId: Q4925320
+      voiceActors:
+        - staffId: nobutoshi-canna
+          language: ja
+      appearances:
+        - seriesId: fate-stay-night
+    - id: no-name-assassin
+      names:
+        original: 名も無きアサシン
+        translations:
+          en: No Name Assassin
+          ja: 名も無きアサシン
+      externalIds:
+        wikidataId: Q138167425
+      voiceActors:
+        - staffId: lynn
+          language: ja
+      appearances:
+        - seriesId: fate-strange-fake
+    - id: richard-i
+      names:
+        original: リチャード1世
+        translations:
+          en: Richard I
+          ja: リチャード1世
+      externalIds:
+        wikidataId: Q138167076
+      voiceActors:
+        - staffId: yuki-ono
+          language: ja
+      appearances:
+        - seriesId: fate-strange-fake
+    - id: rider
+      names:
+        original: ライダー
+        translations:
+          en: Rider
+          ja: ライダー
+      externalIds:
+        wikidataId: Q4925331
+      voiceActors:
+        - staffId: yu-asakawa
+          language: ja
+      appearances:
+        - seriesId: fate-stay-night
+    - id: rin-tohsaka
+      names:
+        original: 遠坂凛
+        translations:
+          en: Rin Tohsaka
+          ja: 遠坂凛
+      externalIds:
+        wikidataId: Q4919883
+      voiceActors:
+        - staffId: kana-ueda
+          language: ja
+      appearances:
+        - seriesId: fate-stay-night
+        - seriesId: fate-zero
+    - id: sakura-mato
+      names:
+        original: 間桐桜
+        translations:
+          en: Sakura Matō
+          ja: 間桐桜
+      externalIds:
+        wikidataId: Q4918636
+      appearances:
+        - seriesId: fate-stay-night
+    - id: shinji-mato
+      names:
+        original: 間桐慎二
+        translations:
+          en: Shinji Matō
+          ja: 間桐慎二
+      externalIds:
+        wikidataId: Q4925659
+      voiceActors:
+        - staffId: hiroshi-kamiya
+          language: ja
+      appearances:
+        - seriesId: fate-stay-night
+    - id: shiro-emiya
+      names:
+        original: 衛宮士郎
+        translations:
+          en: Shirō Emiya
+          ja: 衛宮士郎
+      externalIds:
+        wikidataId: Q4919835
+      voiceActors:
+        - staffId: noriaki-sugiyama
+          language: ja
+      appearances:
+        - seriesId: fate-stay-night
+    - id: taiga-fujimura
+      names:
+        original: 藤村大河
+        translations:
+          en: Taiga Fujimura
+          ja: 藤村大河
+      externalIds:
+        wikidataId: Q20459661
+      voiceActors:
+        - staffId: miki-ito
+          language: ja
+      appearances:
+        - seriesId: fate-stay-night
+    - id: waver-velvet
+      names:
+        original: ウェイバー・ベルベット
+        translations:
+          en: Waver Velvet
+          ja: ウェイバー・ベルベット
+      externalIds:
+        wikidataId: Q102315460
+      voiceActors:
+        - staffId: daisuke-namikawa
+          language: ja
+      appearances:
+        - seriesId: fate-zero

@@ -9,5 +9,40 @@ series:
   seasons:
     - id: mayonaka-heart-tune-s1
       number: 1
+  # Cast (R2) nested under the series; names filled from Wikidata (CC0).
+  characters:
+    - id: aiko
+      externalIds: { wikidataId: Q137719544 }  # Aiko
+      voiceActors:
+        - { staffId: yuki-wakai, language: ja }  # Yūki Wakai
+    - id: ao-momotose
+      externalIds: { wikidataId: Q137734411 }  # Ao Momotose
+      voiceActors:
+        - { staffId: nao-toyama, language: ja }
+    - id: arisu-yamabuki
+      externalIds: { wikidataId: Q133288393 }  # Arisu Yamabuki
+      voiceActors:
+        - { staffId: ricco-fajardo, language: en }
+        - { staffId: rikuya-yasuda, language: ja }
+    - id: iko-kirino
+      externalIds: { wikidataId: Q133288396 }  # Iko Kirino
+      voiceActors:
+        - { staffId: sayumi-suzushiro, language: ja }
+    - id: lemon-ando
+      externalIds: { wikidataId: Q137719001 }  # Lemon Andō
+      voiceActors:
+        - { staffId: kana-hanazawa, language: ja }
+    - id: nene-himekawa
+      externalIds: { wikidataId: Q133288397 }  # Nene Himekawa
+      voiceActors:
+        - { staffId: rumi-okubo, language: ja }
+    - id: rikka-inohana
+      externalIds: { wikidataId: Q133288394 }  # Rikka Inohana
+      voiceActors:
+        - { staffId: momoko-seto, language: ja }
+    - id: shinobu-uzuki
+      externalIds: { wikidataId: Q133288395 }  # Shinobu Uzuki
+      voiceActors:
+        - { staffId: miku-ito, language: ja }
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [mayonaka-heart-tune]

@@ -95,6 +95,14 @@ staff:
         en: Christopher Wehkamp
     externalIds:
       wikidataId: Q19665600
+  - id: colleen-clinkenbeard
+    names:
+      original: Colleen Clinkenbeard
+      translations:
+        en: Colleen Clinkenbeard
+        ja: コリーン・クリンケンビアード
+    externalIds:
+      wikidataId: Q2017211
   - id: dallas-reid
     names:
       original: Dallas Reid
@@ -141,6 +149,14 @@ staff:
         en: Felecia Angelle
     externalIds:
       wikidataId: Q17305620
+  - id: greg-ayres
+    names:
+      original: Greg Ayres
+      translations:
+        en: Greg Ayres
+        ja: グレッグ・エアーズ
+    externalIds:
+      wikidataId: Q4721515
   - id: ian-sinclair
     names:
       original: Ian Sinclair
@@ -156,6 +172,21 @@ staff:
         en: J. Michael Tatum
     externalIds:
       wikidataId: Q6106552
+  - id: jamieson-price
+    names:
+      original: Jamieson Price
+      translations:
+        en: Jamieson Price
+        ja: ジェイミーソン・プライス
+    externalIds:
+      wikidataId: Q6147699
+  - id: jarrod-greene
+    names:
+      original: Jarrod Greene
+      translations:
+        en: Jarrod Greene
+    externalIds:
+      wikidataId: Q108165637
   - id: jay-hickman
     names:
       original: Jay Hickman
@@ -196,6 +227,14 @@ staff:
         ja: ジョー・ジージャ
     externalIds:
       wikidataId: Q116868160
+  - id: johnny-yong-bosch
+    names:
+      original: Johnny Yong Bosch
+      translations:
+        en: Johnny Yong Bosch
+        ja: ジョニー・ヨング・ボッシュ
+    externalIds:
+      wikidataId: Q2468138
   - id: justin-briner
     names:
       original: Justin Briner
@@ -218,6 +257,14 @@ staff:
         en: Kara Edwards
     externalIds:
       wikidataId: Q6367509
+  - id: karan-ashley
+    names:
+      original: Karan Ashley
+      translations:
+        en: Karan Ashley
+        ja: カラン・アシュレー
+    externalIds:
+      wikidataId: Q4354563
   - id: kari-wahlgren
     names:
       original: Kari Wahlgren
@@ -258,6 +305,14 @@ staff:
         ja: ラウラ・シュタール
     externalIds:
       wikidataId: Q106141965
+  - id: liam-obrien
+    names:
+      original: Liam O'Brien
+      translations:
+        en: Liam O'Brien
+        ja: リアム・オブライエン
+    externalIds:
+      wikidataId: Q908941
   - id: lisa-reimold
     names:
       original: Lisa Reimold
@@ -282,6 +337,13 @@ staff:
         ja: ルーシ・クリスチャン
     externalIds:
       wikidataId: Q4115622
+  - id: maggie-flecknoe
+    names:
+      original: Maggie Flecknoe
+      translations:
+        en: Maggie Flecknoe
+    externalIds:
+      wikidataId: Q6730229
   - id: margaret-mcdonald
     names:
       original: Margaret McDonald
@@ -290,6 +352,13 @@ staff:
         ja: マーガレット・マクドナルド
     externalIds:
       wikidataId: Q16232274
+  - id: marin-miller
+    names:
+      original: Marin Miller
+      translations:
+        en: Marin Miller
+    externalIds:
+      wikidataId: Q6762255
   - id: mark-whitten
     names:
       original: Mark Whitten
@@ -298,6 +367,22 @@ staff:
         ja: マーク・ウィッテン
     externalIds:
       wikidataId: Q124217816
+  - id: matthew-mercer
+    names:
+      original: Matthew Mercer
+      translations:
+        en: Matthew Mercer
+        ja: マシュー・マーサー
+    externalIds:
+      wikidataId: Q6790967
+  - id: mela-lee
+    names:
+      original: Mela Lee
+      translations:
+        en: Mela Lee
+        ja: メラ・リー
+    externalIds:
+      wikidataId: Q750146
   - id: natalie-rial
     names:
       original: Natalie Rial
@@ -328,6 +413,21 @@ staff:
         en: Ray Hurd
     externalIds:
       wikidataId: Q141058249
+  - id: reba-buhr
+    names:
+      original: Reba Buhr
+      translations:
+        en: Reba Buhr
+        ja: リーバ・ビューア
+    externalIds:
+      wikidataId: Q71505927
+  - id: ricco-fajardo
+    names:
+      original: Ricco Fajardo
+      translations:
+        en: Ricco Fajardo
+    externalIds:
+      wikidataId: Q31213388
   - id: robert-mccollum
     names:
       original: Robert McCollum
@@ -336,6 +436,13 @@ staff:
         ja: ロバート・マッカラム
     externalIds:
       wikidataId: Q7347478
+  - id: ryan-bartley
+    names:
+      original: Ryan Bartley
+      translations:
+        en: Ryan Bartley
+    externalIds:
+      wikidataId: Q116709172
   - id: ryan-reynolds
     names:
       original: Ryan Reynolds

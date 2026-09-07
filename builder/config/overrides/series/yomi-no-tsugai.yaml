@@ -9,5 +9,34 @@ series:
   seasons:
     - id: yomi-no-tsugai-s1
       number: 1
+  # Cast (R2) nested under the series; names filled from Wikidata (CC0).
+  characters:
+    - id: asa
+      externalIds: { wikidataId: Q138296704 }  # Asa
+      voiceActors:
+        - { staffId: yume-miyamoto, language: ja }
+    - id: dera
+      externalIds: { wikidataId: Q141239418 }  # Dera
+      voiceActors:
+        - { staffId: jarrod-greene, language: en }
+        - { staffId: yuichi-nakamura, language: ja }
+    - id: gabby
+      externalIds: { wikidataId: Q140592213 }  # Gabby
+      voiceActors:
+        - { staffId: misaki-kuno, language: ja }
+    - id: left
+      externalIds: { wikidataId: Q141214001 }  # Left
+      voiceActors:
+        - { staffId: colleen-clinkenbeard, language: en }
+        - { staffId: takako-honda, language: ja }
+    - id: right
+      externalIds: { wikidataId: Q141214002 }  # Right
+      voiceActors:
+        - { staffId: bill-butts, language: en }
+        - { staffId: rikiya-koyama, language: ja }
+    - id: yuru
+      externalIds: { wikidataId: Q138235542 }  # Yuru
+      voiceActors:
+        - { staffId: kensho-ono, language: ja }
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [yomi-no-tsugai]

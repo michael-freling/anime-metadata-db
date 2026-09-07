@@ -672,6 +672,14 @@ staff:
         ja: 千賀光莉
     externalIds:
       wikidataId: Q137534224
+  - id: hina-suzuki
+    names:
+      original: 鈴木日菜
+      translations:
+        en: Hina Suzuki
+        ja: 鈴木日菜
+    externalIds:
+      wikidataId: Q137839052
   - id: hina-tachibana
     names:
       original: 立花日菜
@@ -720,6 +728,14 @@ staff:
         ja: 伊沢弘
     externalIds:
       wikidataId: Q3546217
+  - id: hiroshi-kamiya
+    names:
+      original: 神谷浩史
+      translations:
+        en: Hiroshi Kamiya
+        ja: 神谷浩史
+    externalIds:
+      wikidataId: Q1331936
   - id: hiroshi-naka
     names:
       original: 中博史
@@ -936,6 +952,14 @@ staff:
         ja: 阿澄佳奈
     externalIds:
       wikidataId: Q49474
+  - id: kana-hanazawa
+    names:
+      original: 花澤香菜
+      translations:
+        en: Kana Hanazawa
+        ja: 花澤香菜
+    externalIds:
+      wikidataId: Q49524
   - id: kana-ichinose
     names:
       original: 市ノ瀬加那
@@ -944,6 +968,14 @@ staff:
         ja: 市ノ瀬加那
     externalIds:
       wikidataId: Q48761396
+  - id: kana-ueda
+    names:
+      original: 植田佳奈
+      translations:
+        en: Kana Ueda
+        ja: 植田佳奈
+    externalIds:
+      wikidataId: Q1155353
   - id: kana-yuki
     names:
       original: 優木かな
@@ -1360,6 +1392,14 @@ staff:
         ja: 三石琴乃
     externalIds:
       wikidataId: Q18735
+  - id: kujira
+    names:
+      original: くじら
+      translations:
+        en: Kujira
+        ja: くじら
+    externalIds:
+      wikidataId: Q1186502
   - id: kurumi-haruki
     names:
       original: 陽木くるみ
@@ -1416,6 +1456,14 @@ staff:
         ja: 朝日奈丸佳
     externalIds:
       wikidataId: Q20038446
+  - id: mai-kadowaki
+    names:
+      original: 門脇舞以
+      translations:
+        en: Mai Kadowaki
+        ja: 門脇舞以
+    externalIds:
+      wikidataId: Q1141935
   - id: mai-nakahara
     names:
       original: 中原麻衣
@@ -1664,6 +1712,14 @@ staff:
         ja: 小松未可子
     externalIds:
       wikidataId: Q1593184
+  - id: miki-ito
+    names:
+      original: 伊藤美紀
+      translations:
+        en: Miki Itō
+        ja: 伊藤美紀
+    externalIds:
+      wikidataId: Q1323148
   - id: miku-ito
     names:
       original: 伊藤美来
@@ -1688,6 +1744,14 @@ staff:
         ja: 鈴木みのり
     externalIds:
       wikidataId: Q22129371
+  - id: misaki-kuno
+    names:
+      original: 久野美咲
+      translations:
+        en: Misaki Kuno
+        ja: 久野美咲
+    externalIds:
+      wikidataId: Q11369771
   - id: misato-matsuoka
     names:
       original: 松岡美里
@@ -1720,6 +1784,14 @@ staff:
         ja: 岩田光央
     externalIds:
       wikidataId: Q1142399
+  - id: miyari-nemoto
+    names:
+      original: 根本京里
+      translations:
+        en: Miyari Nemoto
+        ja: 根本京里
+    externalIds:
+      wikidataId: Q81968067
   - id: miyu-tomita
     names:
       original: 富田美憂
@@ -1760,6 +1832,22 @@ staff:
         ja: 春海百乃
     externalIds:
       wikidataId: Q133282695
+  - id: momoka-terasawa
+    names:
+      original: 寺澤百花
+      translations:
+        en: Momoka Terasawa
+        ja: 寺澤百花
+    externalIds:
+      wikidataId: Q121323859
+  - id: momoko-seto
+    names:
+      original: 瀬戸桃子
+      translations:
+        en: Momoko Seto
+        ja: 瀬戸桃子
+    externalIds:
+      wikidataId: Q119453910
   - id: mugihito
     names:
       original: 麦人
@@ -1840,6 +1928,14 @@ staff:
         ja: 島﨑信長
     externalIds:
       wikidataId: Q5968283
+  - id: nobutoshi-canna
+    names:
+      original: 神奈延年
+      translations:
+        en: Nobutoshi Canna
+        ja: 神奈延年
+    externalIds:
+      wikidataId: Q960528
   - id: nobuyuki-hiyama
     names:
       original: 檜山修之
@@ -1848,6 +1944,14 @@ staff:
         ja: 檜山修之
     externalIds:
       wikidataId: Q2273472
+  - id: noriaki-sugiyama
+    names:
+      original: 杉山紀彰
+      translations:
+        en: Noriaki Sugiyama
+        ja: 杉山紀彰
+    externalIds:
+      wikidataId: Q1152539
   - id: noriko-uemura
     names:
       original: 上村典子
@@ -1879,6 +1983,14 @@ staff:
         ja: 鈴木れい子
     externalIds:
       wikidataId: Q1067536
+  - id: reina-kondo
+    names:
+      original: 近藤玲奈
+      translations:
+        en: Reina Kondō
+        ja: 近藤玲奈
+    externalIds:
+      wikidataId: Q27151126
   - id: reina-ueda
     names:
       original: 上田麗奈
@@ -1935,6 +2047,14 @@ staff:
         ja: 田中理恵
     externalIds:
       wikidataId: Q237371
+  - id: riho-sugiyama
+    names:
+      original: 杉山里穂
+      translations:
+        en: Riho Sugiyama
+        ja: 杉山里穂
+    externalIds:
+      wikidataId: Q62085447
   - id: rika-kinugawa
     names:
       original: 衣川里佳
@@ -1951,6 +2071,14 @@ staff:
         ja: 小山力也
     externalIds:
       wikidataId: Q1204898
+  - id: riko-akechi
+    names:
+      original: 明智璃子
+      translations:
+        en: Riko Akechi
+        ja: 明智璃子
+    externalIds:
+      wikidataId: Q136799851
   - id: rikuya-yasuda
     names:
       original: 安田陸矢
@@ -2207,6 +2335,14 @@ staff:
         ja: 若山詩音
     externalIds:
       wikidataId: Q11616308
+  - id: shiori-izawa
+    names:
+      original: 井澤詩織
+      translations:
+        en: Shiori Izawa
+        ja: 井澤詩織
+    externalIds:
+      wikidataId: Q11373684
   - id: shizuka-ishigami
     names:
       original: 石上静香
@@ -2375,6 +2511,14 @@ staff:
         ja: 木村昴
     externalIds:
       wikidataId: Q7630810
+  - id: tadahisa-saizen
+    names:
+      original: 西前忠久
+      translations:
+        en: Tadahisa Saizen
+        ja: 西前忠久
+    externalIds:
+      wikidataId: Q7674293
   - id: taishi-murata
     names:
       original: 村田太志
@@ -2423,6 +2567,14 @@ staff:
         ja: 櫻井孝宏
     externalIds:
       wikidataId: Q459902
+  - id: takako-honda
+    names:
+      original: 本田貴子
+      translations:
+        en: Takako Honda
+        ja: 本田貴子
+    externalIds:
+      wikidataId: Q988955
   - id: takaya-hashi
     names:
       original: 土師孝也
@@ -2863,6 +3015,22 @@ staff:
         ja: 伊藤良幸
     externalIds:
       wikidataId: Q139889656
+  - id: yu-asakawa
+    names:
+      original: 浅川悠
+      translations:
+        en: Yū Asakawa
+        ja: 浅川悠
+    externalIds:
+      wikidataId: Q1323156
+  - id: yu-kobayashi
+    names:
+      original: 小林ゆう
+      translations:
+        en: Yū Kobayashi
+        ja: 小林ゆう
+    externalIds:
+      wikidataId: Q1324072
   - id: yu-sasahara
     names:
       original: 篠原侑
@@ -2951,6 +3119,14 @@ staff:
         ja: 井口裕香
     externalIds:
       wikidataId: Q1183854
+  - id: yuka-nukui
+    names:
+      original: 貫井柚佳
+      translations:
+        en: Yuka Nukui
+        ja: 貫井柚佳
+    externalIds:
+      wikidataId: Q36520065
   - id: yuki-hirose
     names:
       original: 広瀬ゆうき
@@ -2983,6 +3159,22 @@ staff:
         ja: 岡田雄樹
     externalIds:
       wikidataId: Q112238426
+  - id: yuki-ono
+    names:
+      original: 小野友樹
+      translations:
+        en: Yūki Ono
+        ja: 小野友樹
+    externalIds:
+      wikidataId: Q553835
+  - id: yuki-wakai
+    names:
+      original: 若井友希
+      translations:
+        en: Yūki Wakai
+        ja: 若井友希
+    externalIds:
+      wikidataId: Q17216081
   - id: yukiya-matsui
     names:
       original: 眞對友樹也
@@ -3079,6 +3271,14 @@ staff:
         ja: 谷口夢奈
     externalIds:
       wikidataId: Q20041306
+  - id: yuri-ehara
+    names:
+      original: 江原裕理
+      translations:
+        en: Yuri Ehara
+        ja: 江原裕理
+    externalIds:
+      wikidataId: Q26045706
   - id: yurie-igoma
     names:
       original: 伊駒ゆりえ

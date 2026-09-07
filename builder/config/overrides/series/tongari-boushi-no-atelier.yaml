@@ -68,5 +68,9 @@ series:
       externalIds: { wikidataId: Q139754891 }  # Utowin
       voiceActors:
         - { staffId: jun-kasama, language: ja }  # Jun Kasama
+    - id: qifrey
+      externalIds: { wikidataId: Q138386942 }  # Qifrey
+      voiceActors:
+        - { staffId: natsuki-hanae, language: ja }
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [tongari-boushi-no-atelier]

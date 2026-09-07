@@ -11,5 +11,11 @@ series:
       number: 1
     - id: skip-to-loafer-s2
       number: 2
+  # Cast (R2) nested under the series; names filled from Wikidata (CC0).
+  characters:
+    - id: mitsumi-iwakura
+      externalIds: { wikidataId: Q141333178 }  # Mitsumi Iwakura
+      voiceActors:
+        - { staffId: tomoyo-kurosawa, language: ja }
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [skip-to-loafer]

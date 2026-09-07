@@ -186,5 +186,11 @@ series:
       externalIds: { wikidataId: Q123982659 }  # Übel
       voiceActors:
         - { staffId: ikumi-hasegawa, language: ja }  # Ikumi Hasegawa
+    - id: mana
+      externalIds: { wikidataId: Q135403363 }  # Mana
+    - id: qual
+      externalIds: { wikidataId: Q122781798 }  # Qual
+      voiceActors:
+        - { staffId: hiroki-yasumoto, language: ja }
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [sousou-no-frieren]

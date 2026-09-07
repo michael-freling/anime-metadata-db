@@ -131,3 +131,194 @@ series:
           language: en
       appearances:
         - seriesId: demon-slayer
+    - id: aoi-kanzaki
+      names:
+        original: 神崎アオイ
+        translations:
+          en: Aoi Kanzaki
+          ja: 神崎アオイ
+      externalIds:
+        wikidataId: Q123515824
+      voiceActors:
+        - staffId: reba-buhr
+          language: en
+        - staffId: yuri-ehara
+          language: ja
+      appearances:
+        - seriesId: demon-slayer
+    - id: genya-shinazugawa
+      names:
+        original: 不死川玄弥
+        translations:
+          en: Genya Shinazugawa
+          ja: 不死川玄弥
+      externalIds:
+        wikidataId: Q123515829
+      appearances:
+        - seriesId: demon-slayer
+    - id: giyu-tomioka
+      names:
+        original: 冨岡義勇
+        translations:
+          en: Giyū Tomioka
+          ja: 冨岡義勇
+      externalIds:
+        wikidataId: Q130425850
+      voiceActors:
+        - staffId: johnny-yong-bosch
+          language: en
+        - staffId: takahiro-sakurai
+          language: ja
+      appearances:
+        - seriesId: demon-slayer
+    - id: inosuke-hashibira
+      names:
+        original: 嘴平伊之助
+        translations:
+          en: Inosuke Hashibira
+          ja: 嘴平伊之助
+      externalIds:
+        wikidataId: Q109321822
+      voiceActors:
+        - staffId: yoshitsugu-matsuoka
+          language: ja
+      appearances:
+        - seriesId: demon-slayer
+    - id: kagaya-ubuyashiki
+      names:
+        original: 産屋敷耀哉
+        translations:
+          en: Kagaya Ubuyashiki
+          ja: 産屋敷耀哉
+      externalIds:
+        wikidataId: Q123515823
+      voiceActors:
+        - staffId: matthew-mercer
+          language: en
+        - staffId: toshiyuki-morikawa
+          language: ja
+      appearances:
+        - seriesId: demon-slayer
+    - id: kanao-tsuyuri
+      names:
+        original: 栗花落カナヲ
+        translations:
+          en: Kanao Tsuyuri
+          ja: 栗花落カナヲ
+      externalIds:
+        wikidataId: Q123515825
+      voiceActors:
+        - staffId: brianna-knickerbocker
+          language: en
+        - staffId: reina-ueda
+          language: ja
+      appearances:
+        - seriesId: demon-slayer
+    - id: kanata-ubuyashiki
+      names:
+        original: 産屋敷かなた
+        translations:
+          en: Kanata Ubuyashiki
+          ja: 産屋敷かなた
+      externalIds:
+        wikidataId: Q123515826
+      voiceActors:
+        - staffId: mela-lee
+          language: en
+        - staffId: shiori-izawa
+          language: ja
+      appearances:
+        - seriesId: demon-slayer
+    - id: makomo
+      names:
+        original: 真菰
+        translations:
+          en: Makomo
+          ja: 真菰
+      externalIds:
+        wikidataId: Q123515827
+      voiceActors:
+        - staffId: ai-kakuma
+          language: ja
+        - staffId: ryan-bartley
+          language: en
+      appearances:
+        - seriesId: demon-slayer
+    - id: muzan-kibutsuji
+      names:
+        original: 鬼舞辻無惨
+        translations:
+          en: Muzan Kibutsuji
+          ja: 鬼舞辻無惨
+      externalIds:
+        wikidataId: Q116252649
+      appearances:
+        - seriesId: demon-slayer
+    - id: nezuko-kamado
+      names:
+        original: "竈門禰\U000E0100豆子"
+        translations:
+          en: Nezuko Kamado
+          ja: "竈門禰\U000E0100豆子"
+      externalIds:
+        wikidataId: Q109767984
+      voiceActors:
+        - staffId: akari-kito
+          language: ja
+      appearances:
+        - seriesId: demon-slayer
+    - id: sabito
+      names:
+        original: 錆兎
+        translations:
+          en: Sabito
+          ja: 錆兎
+      externalIds:
+        wikidataId: Q123515830
+      appearances:
+        - seriesId: demon-slayer
+    - id: sakonji-urokodaki
+      names:
+        original: 鱗滝左近次
+        translations:
+          en: Sakonji Urokodaki
+          ja: 鱗滝左近次
+      externalIds:
+        wikidataId: Q123515828
+      voiceActors:
+        - staffId: brook-chalmers
+          language: en
+        - staffId: hochu-otsuka
+          language: ja
+      appearances:
+        - seriesId: demon-slayer
+    - id: suma
+      names:
+        original: 須磨
+        translations:
+          en: Suma
+          ja: 須磨
+      externalIds:
+        wikidataId: Q113044891
+      appearances:
+        - seriesId: demon-slayer
+    - id: yoriichi-tsugikuni
+      names:
+        original: 継国縁壱
+        translations:
+          en: Yoriichi Tsugikuni
+          ja: 継国縁壱
+      externalIds:
+        wikidataId: Q123403607
+      appearances:
+        - seriesId: demon-slayer
+    - id: zenitsu-agatsuma
+      names:
+        original: 我妻善逸
+        translations:
+          en: Zenitsu Agatsuma
+          ja: 我妻善逸
+      externalIds:
+        wikidataId: Q109321740
+      appearances:
+        - seriesId: demon-slayer

@@ -21,3 +21,30 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
+  characters:
+    - id: kanan-takakiyo
+      names:
+        original: 高潔カナン
+        translations:
+          en: Kanan Takakiyo
+          ja: 高潔カナン
+      externalIds:
+        wikidataId: Q138603674
+      voiceActors:
+        - staffId: aoi-koga
+          language: ja
+      appearances:
+        - seriesId: kanan-sama-wa-akumade-choroi
+    - id: yoji-kyogi
+      names:
+        original: 供犠羊司
+        translations:
+          en: Yōji Kyōgi
+          ja: 供犠羊司
+      externalIds:
+        wikidataId: Q138603682
+      voiceActors:
+        - staffId: seiichiro-yamashita
+          language: ja
+      appearances:
+        - seriesId: kanan-sama-wa-akumade-choroi

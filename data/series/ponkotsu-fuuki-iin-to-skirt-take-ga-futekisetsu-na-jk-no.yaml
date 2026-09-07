@@ -21,3 +21,30 @@ series:
       episodes:
         count: 1
         absoluteFrom: 1
+  characters:
+    - id: poem-kohinata
+      names:
+        original: 小日向微笑
+        translations:
+          en: Poem Kohinata
+          ja: 小日向微笑
+      externalIds:
+        wikidataId: Q138963594
+      voiceActors:
+        - staffId: riko-akechi
+          language: ja
+      appearances:
+        - seriesId: ponkotsu-fuuki-iin-to-skirt-take-ga-futekisetsu-na-jk-no
+    - id: togo-sakuradaimon
+      names:
+        original: 桜大門統悟
+        translations:
+          en: Tōgo Sakuradaimon
+          ja: 桜大門統悟
+      externalIds:
+        wikidataId: Q138963593
+      voiceActors:
+        - staffId: junya-enoki
+          language: ja
+      appearances:
+        - seriesId: ponkotsu-fuuki-iin-to-skirt-take-ga-futekisetsu-na-jk-no
