@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: new-panty-and-stocking-with-garterbelt
+  titles:
+    original: New Panty & Stocking with Garterbelt
+  seasons:
+    - id: new-panty-and-stocking-with-garterbelt-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [new-panty-and-stocking-with-garterbelt]

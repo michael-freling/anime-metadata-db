@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hazure-skill-kinomi-master-skill-no-mi-tabetara-shinu-wo
+  titles:
+    original: 外れスキル《木の実マスター》 ～スキルの実（食べたら死ぬ）を無限に食べられるようになった件について～
+    translations: { ja-Latn: "Hazure Skill \"Kinomi Master\": Skill no Mi (Tabetara Shinu) wo Mugen ni Taberareru You ni Natta Ken ni Tsuite" }
+  seasons:
+    - id: hazure-skill-kinomi-master-skill-no-mi-tabetara-shinu-wo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hazure-skill-kinomi-master-skill-no-mi-tabetara-shinu-wo]

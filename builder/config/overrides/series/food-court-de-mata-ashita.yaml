@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: food-court-de-mata-ashita
+  titles:
+    original: フードコートで、また明日
+    translations: { ja-Latn: "Food Court de, Mata Ashita." }
+  seasons:
+    - id: food-court-de-mata-ashita-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [food-court-de-mata-ashita]

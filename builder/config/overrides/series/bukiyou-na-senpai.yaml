@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bukiyou-na-senpai
+  titles:
+    original: 不器用な先輩。
+    translations: { ja-Latn: Bukiyou na Senpai. }
+  seasons:
+    - id: bukiyou-na-senpai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bukiyou-na-senpai]

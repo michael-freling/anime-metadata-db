@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: summer-pockets-sorakado-ao-hen
+  titles:
+    original: Summer Pockets 空門蒼編
+    translations: { ja-Latn: "Summer Pockets: Sorakado Ao-hen" }
+  movies:
+    - id: summer-pockets-sorakado-ao-hen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [summer-pockets-sorakado-ao-hen]

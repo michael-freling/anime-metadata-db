@@ -1,0 +1,15 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sentai-daishikkaku
+  titles:
+    original: 戦隊大失格
+    translations: { ja-Latn: Sentai Daishikkaku }
+  seasons:
+    - id: sentai-daishikkaku-s1
+      number: 1
+    - id: sentai-daishikkaku-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sentai-daishikkaku]

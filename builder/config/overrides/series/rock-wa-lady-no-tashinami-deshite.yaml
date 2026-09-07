@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rock-wa-lady-no-tashinami-deshite
+  titles:
+    original: ロックは淑女〈レディ〉の嗜みでして
+    translations: { ja-Latn: Rock wa Lady no Tashinami deshite }
+  seasons:
+    - id: rock-wa-lady-no-tashinami-deshite-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rock-wa-lady-no-tashinami-deshite]

@@ -1,0 +1,16 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: taiyou-yori-mo-mabushii-hoshi
+  titles:
+    original: 太陽よりも眩しい星
+    translations: { ja-Latn: Taiyou yori mo Mabushii Hoshi }
+  seasons:
+    - id: taiyou-yori-mo-mabushii-hoshi-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 186621 } # Taiyou yori mo Mabushii Hoshi (Fall 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [taiyou-yori-mo-mabushii-hoshi]

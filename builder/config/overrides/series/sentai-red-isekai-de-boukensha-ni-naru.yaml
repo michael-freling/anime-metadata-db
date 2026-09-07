@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sentai-red-isekai-de-boukensha-ni-naru
+  titles:
+    original: 戦隊レッド異世界で冒険者になる
+    translations: { ja-Latn: Sentai Red Isekai de Boukensha ni Naru }
+  seasons:
+    - id: sentai-red-isekai-de-boukensha-ni-naru-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sentai-red-isekai-de-boukensha-ni-naru]

@@ -1,0 +1,15 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kimi-no-koto-ga-daidaidaidaidaisuki-na-100-nin-no-kanojo
+  titles:
+    original: 君のことが大大大大大好きな100人の彼女
+    translations: { ja-Latn: Kimi no Koto ga Daidaidaidaidaisuki na 100-nin no Kanojo }
+  seasons:
+    - id: kimi-no-koto-ga-daidaidaidaidaisuki-na-100-nin-no-kanojo-s1
+      number: 1
+    - id: kimi-no-koto-ga-daidaidaidaidaisuki-na-100-nin-no-kanojo-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kimi-no-koto-ga-daidaidaidaidaisuki-na-100-nin-no-kanojo]

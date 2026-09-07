@@ -1,0 +1,28 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shibuya-hachi
+  titles:
+    original: シブヤ♡ハチ
+    translations: { ja-Latn: "Shibuya♡Hachi" }
+  seasons:
+    - id: shibuya-hachi-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 176577 } # Shibuya♡Hachi (Spring 2024)
+    - id: shibuya-hachi-s2p2
+      number: 2
+      part: 2
+      externalIds: { anilistId: 181835 } # Shibuya♡Hachi Part 2 (Fall 2024)
+    - id: shibuya-hachi-s3p3
+      number: 3
+      part: 3
+      externalIds: { anilistId: 185715 } # Shibuya♡Hachi Part 3 (Spring 2025)
+    - id: shibuya-hachi-s4p4
+      number: 4
+      part: 4
+      externalIds: { anilistId: 195173 } # Shibuya♡Hachi Part 4 (Fall 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shibuya-hachi]

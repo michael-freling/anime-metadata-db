@@ -1,0 +1,19 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: unnamed-memory
+  titles:
+    original: アンネームドメモリー
+    translations: { ja-Latn: Unnamed Memory }
+  seasons:
+    - id: unnamed-memory-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 158709 } # Unnamed Memory (Spring 2024)
+    - id: unnamed-memory-s2
+      number: 2
+      externalIds: { anilistId: 178550 } # Unnamed Memory Act.2 (Winter 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [unnamed-memory]

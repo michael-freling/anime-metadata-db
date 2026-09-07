@@ -1,0 +1,17 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: king-of-prism-your-endless-call-mi-nna-kirameki-prism-tours
+  titles:
+    original: KING OF PRISM-Your Endless Call-み～んなきらめけ！プリズム☆ツアーズ
+    translations: { ja-Latn: "King of Prism: Your Endless Call - Mi~nna Kirameki! Prism☆Tours" }
+  movies:
+    - id: king-of-prism-your-endless-call-mi-nna-kirameki-prism-tours-film
+      # Upstream lists a Chinese title, or a romanization,
+      # ahead of the film's own name.
+      titles:
+        original: KING OF PRISM-Your Endless Call-み～んなきらめけ！プリズム☆ツアーズ
+        translations: { ja: "KING OF PRISM-Your Endless Call-み～んなきらめけ！プリズム☆ツアーズ", ja-Latn: "King of Prism: Your Endless Call - Mi~nna Kirameki! Prism☆Tours" }
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [king-of-prism-your-endless-call-mi-nna-kirameki-prism-tours]

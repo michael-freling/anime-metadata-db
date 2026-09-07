@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kisaki-kyouiku-kara-nigetai-watashi
+  titles:
+    original: 妃教育から逃げたい私
+    translations: { ja-Latn: Kisaki Kyouiku kara Nigetai Watashi }
+  seasons:
+    - id: kisaki-kyouiku-kara-nigetai-watashi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kisaki-kyouiku-kara-nigetai-watashi]

@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nini-to-nene-no-dai-dasshutsu
+  titles:
+    original: ニニとネネのだいだっしゅつ
+    translations: { ja-Latn: Nini to Nene no Dai Dasshutsu }
+  movies:
+    - id: nini-to-nene-no-dai-dasshutsu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nini-to-nene-no-dai-dasshutsu]

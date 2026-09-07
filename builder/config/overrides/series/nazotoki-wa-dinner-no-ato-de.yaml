@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nazotoki-wa-dinner-no-ato-de
+  titles:
+    original: 謎解きはディナーのあとで
+    translations: { ja-Latn: Nazotoki wa Dinner no Ato de }
+  seasons:
+    - id: nazotoki-wa-dinner-no-ato-de-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nazotoki-wa-dinner-no-ato-de]

@@ -20,6 +20,22 @@ series:
       number: 3
       part: 1
       externalIds: { anilistId: 172463 } # Jujutsu Kaisen: Shimetsu Kaiyuu - Zenpen (Winter 2026)
+  movies:
+    # Added by the 2025 catalogue import. Both are recuts of season 2 — one
+    # billed 劇場版総集編 (compilation) of its first arc, one 特別編集版 (special
+    # edit) of its second — so neither takes an absoluteNumber of its own.
+    - id: jujutsu-kaisen-kaigyoku-gyokusetsu-film
+      # Upstream lists this film's Chinese release title before its Japanese
+      # one, and the build takes the first native-script synonym it finds, so
+      # every field is stated here rather than one of them left to infer.
+      titles:
+        original: 劇場版総集編 呪術廻戦 懐玉・玉折
+        translations: { ja: 劇場版総集編 呪術廻戦 懐玉・玉折, ja-Latn: "Jujutsu Kaisen: Kaigyoku/Gyokusetsu" }
+      externalIds: { anilistId: 192809 } # Jujutsu Kaisen: Kaigyoku/Gyokusetsu (Spring 2025)
+      alternateCutOf: { seasonId: jujutsu-kaisen-s2 }
+    - id: jujutsu-kaisen-shibuya-jihen-film
+      externalIds: { anilistId: 204066 } # Jujutsu Kaisen Movie: Shibuya Jihen Tokubetsu Henshuu-ban x Shimetsu Kaiyuu Senkou Jouei (Fall 2025)
+      alternateCutOf: { seasonId: jujutsu-kaisen-s2 }
   # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
   # the builder fills every name from the QID at build time.
   characters:

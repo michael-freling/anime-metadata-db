@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: koujo-denka-no-kateikyoushi
+  titles:
+    original: 公女殿下の家庭教師
+    translations: { ja-Latn: Koujo Denka no Kateikyoushi }
+  seasons:
+    - id: koujo-denka-no-kateikyoushi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [koujo-denka-no-kateikyoushi]

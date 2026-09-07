@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: uso-tantei-tomanto
+  titles:
+    original: うそ探偵トマント
+    translations: { ja-Latn: Uso Tantei Tomanto }
+  seasons:
+    - id: uso-tantei-tomanto-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [uso-tantei-tomanto]

@@ -1,0 +1,17 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: loca
+  titles:
+    original: ロカ！
+    translations: { ja-Latn: "Loca!" }
+  movies:
+    - id: loca-film
+      # Upstream lists a Chinese title, or a romanization,
+      # ahead of the film's own name.
+      titles:
+        original: ロカ！
+        translations: { ja: "ロカ！", ja-Latn: "Loca!" }
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [loca]

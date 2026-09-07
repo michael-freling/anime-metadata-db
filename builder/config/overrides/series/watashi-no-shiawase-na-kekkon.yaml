@@ -1,0 +1,15 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: watashi-no-shiawase-na-kekkon
+  titles:
+    original: わたしの幸せな結婚
+    translations: { ja-Latn: Watashi no Shiawase na Kekkon }
+  seasons:
+    - id: watashi-no-shiawase-na-kekkon-s1
+      number: 1
+    - id: watashi-no-shiawase-na-kekkon-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [watashi-no-shiawase-na-kekkon]

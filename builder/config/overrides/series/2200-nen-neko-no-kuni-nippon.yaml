@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 2200-nen-neko-no-kuni-nippon
+  titles:
+    original: "2200年ねこの国ニッポン"
+    translations: { ja-Latn: 2200-nen Neko no Kuni Nippon }
+  seasons:
+    - id: 2200-nen-neko-no-kuni-nippon-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [2200-nen-neko-no-kuni-nippon]

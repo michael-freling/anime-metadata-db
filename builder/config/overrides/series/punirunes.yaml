@@ -1,0 +1,22 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: punirunes
+  titles:
+    original: ぷにるんず
+    translations: { ja-Latn: Punirunes }
+  seasons:
+    - id: punirunes-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 155526 } # Punirunes (Fall 2022)
+    - id: punirunes-s2
+      number: 2
+      externalIds: { anilistId: 179292 } # Punirunes: Puni 2 (Fall 2024)
+    - id: punirunes-s3
+      number: 3
+      externalIds: { anilistId: 188653 } # Punirunes: Puni 3 (Summer 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [punirunes]

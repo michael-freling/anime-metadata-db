@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sylvanian-families-freya-no-wonder-days
+  titles:
+    original: シルバニアファミリー フレアのワンダーデイズ
+    translations: { ja-Latn: "Sylvanian Families: Freya no Wonder Days" }
+  seasons:
+    - id: sylvanian-families-freya-no-wonder-days-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sylvanian-families-freya-no-wonder-days]

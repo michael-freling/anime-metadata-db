@@ -1,0 +1,22 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shinobanai-crypto-ninja-sakuya
+  titles:
+    original: 忍ばない！クリプトニンジャ咲耶
+    translations: { ja-Latn: "Shinobanai! Crypto Ninja Sakuya" }
+  seasons:
+    - id: shinobanai-crypto-ninja-sakuya-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 170041 } # Shinobanai! Crypto Ninja Sakuya (Fall 2023)
+    - id: shinobanai-crypto-ninja-sakuya-s2
+      number: 2
+      externalIds: { anilistId: 172852 } # Shinobanai! Crypto Ninja Sakuya: Ni no Maki (Winter 2024)
+    - id: shinobanai-crypto-ninja-sakuya-s3
+      number: 3
+      externalIds: { anilistId: 181867 } # Shinobanai! Crypto Ninja Sakuya: San no Maki (Summer 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shinobanai-crypto-ninja-sakuya]

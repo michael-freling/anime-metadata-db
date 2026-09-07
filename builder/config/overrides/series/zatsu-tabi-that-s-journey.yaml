@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zatsu-tabi-that-s-journey
+  titles:
+    original: ざつ旅
+    translations: { ja-Latn: "Zatsu Tabi: That's Journey" }
+  seasons:
+    - id: zatsu-tabi-that-s-journey-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zatsu-tabi-that-s-journey]

@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tensei-akujo-no-kuro-rekishi
+  titles:
+    original: 転生悪女の黒歴史
+    translations: { ja-Latn: Tensei Akujo no Kuro Rekishi }
+  seasons:
+    - id: tensei-akujo-no-kuro-rekishi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tensei-akujo-no-kuro-rekishi]

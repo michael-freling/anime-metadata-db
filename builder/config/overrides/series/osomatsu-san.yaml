@@ -1,0 +1,19 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: osomatsu-san
+  titles:
+    original: おそ松さん
+    translations: { ja-Latn: Osomatsu-san }
+  seasons:
+    - id: osomatsu-san-s1
+      number: 1
+    - id: osomatsu-san-s2
+      number: 2
+    - id: osomatsu-san-s3
+      number: 3
+    - id: osomatsu-san-s4
+      number: 4
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [osomatsu-san]

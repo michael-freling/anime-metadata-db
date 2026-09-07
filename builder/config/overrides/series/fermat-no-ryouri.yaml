@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fermat-no-ryouri
+  titles:
+    original: フェルマーの料理
+    translations: { ja-Latn: Fermat no Ryouri }
+  seasons:
+    - id: fermat-no-ryouri-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fermat-no-ryouri]

@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sawaranaide-kotesashi-kun-mini-anime-gekijou
+  titles:
+    original: さわらないで小手指くんスピンオフミニアニメ
+    translations: { ja-Latn: Sawaranaide Kotesashi-kun Mini Anime Gekijou }
+  seasons:
+    - id: sawaranaide-kotesashi-kun-mini-anime-gekijou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sawaranaide-kotesashi-kun-mini-anime-gekijou]

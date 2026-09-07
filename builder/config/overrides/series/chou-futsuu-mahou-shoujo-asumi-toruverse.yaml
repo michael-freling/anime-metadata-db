@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chou-futsuu-mahou-shoujo-asumi-toruverse
+  titles:
+    original: 超普通マホウ少女アスミトルバース
+    translations: { ja-Latn: Chou Futsuu Mahou Shoujo Asumi Toruverse }
+  seasons:
+    - id: chou-futsuu-mahou-shoujo-asumi-toruverse-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chou-futsuu-mahou-shoujo-asumi-toruverse]

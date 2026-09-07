@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mattaku-saikin-no-tantei-to-kitara
+  titles:
+    original: まったく最近の探偵ときたら
+    translations: { ja-Latn: Mattaku Saikin no Tantei to Kitara }
+  seasons:
+    - id: mattaku-saikin-no-tantei-to-kitara-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mattaku-saikin-no-tantei-to-kitara]

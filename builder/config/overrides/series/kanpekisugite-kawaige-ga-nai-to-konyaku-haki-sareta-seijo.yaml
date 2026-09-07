@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kanpekisugite-kawaige-ga-nai-to-konyaku-haki-sareta-seijo
+  titles:
+    original: 完璧すぎて可愛げがないと婚約破棄された聖女は隣国に売られる
+    translations: { ja-Latn: Kanpekisugite Kawaige ga Nai to Konyaku Haki sareta Seijo wa Ringoku ni Urareru }
+  seasons:
+    - id: kanpekisugite-kawaige-ga-nai-to-konyaku-haki-sareta-seijo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kanpekisugite-kawaige-ga-nai-to-konyaku-haki-sareta-seijo]

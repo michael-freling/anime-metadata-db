@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: girls-and-panzer-motto-love-love-sakusen-desu
+  titles:
+    original: ガールズ＆パンツァー もっとらぶらぶ作戦です！
+    translations: { ja-Latn: "Girls & Panzer: Motto Love Love Sakusen desu!" }
+  movies:
+    - id: girls-and-panzer-motto-love-love-sakusen-desu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [girls-and-panzer-motto-love-love-sakusen-desu]

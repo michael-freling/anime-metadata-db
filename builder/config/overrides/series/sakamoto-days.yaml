@@ -1,0 +1,20 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sakamoto-days
+  titles:
+    original: サカモトデイズ
+    translations: { ja-Latn: Sakamoto Days }
+  seasons:
+    - id: sakamoto-days-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 177709 } # Sakamoto Days (Winter 2025)
+    - id: sakamoto-days-s2p2
+      number: 2
+      part: 2
+      externalIds: { anilistId: 184237 } # Sakamoto Days Part 2 (Summer 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sakamoto-days]

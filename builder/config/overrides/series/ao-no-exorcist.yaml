@@ -1,0 +1,28 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ao-no-exorcist
+  titles:
+    original: 青の祓魔師（エクソシスト）
+    translations: { ja-Latn: Ao no Exorcist }
+  seasons:
+    - id: ao-no-exorcist-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 9919 } # Ao no Exorcist (Spring 2011)
+    - id: ao-no-exorcist-s2
+      number: 2
+      externalIds: { anilistId: 21861 } # Ao no Exorcist: Kyoto Fujouou-hen (Winter 2017)
+    - id: ao-no-exorcist-s3
+      number: 3
+      externalIds: { anilistId: 158931 } # Ao no Exorcist: Shimane Illuminati-hen (Winter 2024)
+    - id: ao-no-exorcist-s4
+      number: 4
+      externalIds: { anilistId: 176311 } # Ao no Exorcist: Yuki no Hate-hen (Fall 2024)
+    - id: ao-no-exorcist-s5
+      number: 5
+      externalIds: { anilistId: 185880 } # Ao no Exorcist: Yosuga-hen (Winter 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ao-no-exorcist]

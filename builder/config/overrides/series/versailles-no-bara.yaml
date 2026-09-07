@@ -1,0 +1,17 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: versailles-no-bara
+  titles:
+    original: ベルサイユのばら
+    translations: { ja-Latn: Versailles no Bara }
+  movies:
+    - id: versailles-no-bara-film
+      # Upstream lists a Chinese title, or a romanization,
+      # ahead of the film's own name.
+      titles:
+        original: ベルサイユのばら
+        translations: { ja: "ベルサイユのばら", ja-Latn: Versailles no Bara }
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [versailles-no-bara]

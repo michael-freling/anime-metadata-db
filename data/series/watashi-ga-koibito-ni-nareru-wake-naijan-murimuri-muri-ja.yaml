@@ -2,17 +2,28 @@
 series:
   id: watashi-ga-koibito-ni-nareru-wake-naijan-murimuri-muri-ja
   titles:
-    original: わたしが恋人になれるわけないじゃん、ムリムリ! (※ムリじゃなかった!?) ~Next Shine~
+    original: わたしが恋人になれるわけないじゃん、ムリムリ! (※ムリじゃなかった!?)
     translations:
-      ja-Latn: 'Watashi ga Koibito ni Nareru Wake Naijan, Murimuri! (※Muri ja Nakatta!?): Next Shine!'
+      ja-Latn: Watashi ga Koibito ni Nareru Wake Nai jan, Muri Muri! (※Muri ja Nakatta!?)
   ordering: absolute
   seasons:
     - id: watashi-ga-koibito-ni-nareru-wake-naijan-murimuri-muri-ja-s1
       number: 1
+      releaseYear: 2025
+      releaseSeason: SUMMER
+      externalIds:
+        anilistId: 184591
+        anidbId: 19001
+        tvdbId: 456835
+      episodes:
+        count: 12
+        absoluteFrom: 1
+    - id: watashi-ga-koibito-ni-nareru-wake-naijan-murimuri-muri-ja-s2
+      number: 2
       releaseYear: 2026
       releaseSeason: WINTER
       externalIds:
         anilistId: 199112
       episodes:
         count: 5
-        absoluteFrom: 1
+        absoluteFrom: 13

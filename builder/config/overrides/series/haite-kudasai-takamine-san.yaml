@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: haite-kudasai-takamine-san
+  titles:
+    original: 履いてください、鷹峰さん
+    translations: { ja-Latn: "Haite Kudasai, Takamine-san" }
+  seasons:
+    - id: haite-kudasai-takamine-san-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [haite-kudasai-takamine-san]

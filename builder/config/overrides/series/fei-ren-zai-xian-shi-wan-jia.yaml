@@ -1,0 +1,16 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fei-ren-zai-xian-shi-wan-jia
+  titles:
+    original: 非人哉：限时玩家
+    translations: { zh-Latn: "Fei Ren Zai: Xian Shi Wan Jia" }
+  movies:
+    - id: fei-ren-zai-xian-shi-wan-jia-film
+      # Stated, or the build reads a Han-only title as Japanese.
+      titles:
+        original: 非人哉：限时玩家
+        translations: { zh-Latn: "Fei Ren Zai: Xian Shi Wan Jia" }
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fei-ren-zai-xian-shi-wan-jia]

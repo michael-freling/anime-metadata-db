@@ -1,0 +1,19 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: slime-taoshite-300-nen-shiranai-uchi-ni-level-max-ni
+  titles:
+    original: スライム倒して３００年、知らないうちにレベルＭＡＸになってました
+    translations: { ja-Latn: "Slime Taoshite 300-nen, Shiranai Uchi ni Level Max ni Nattemashita" }
+  seasons:
+    - id: slime-taoshite-300-nen-shiranai-uchi-ni-level-max-ni-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 112608 } # Slime Taoshite 300-nen, Shiranai Uchi ni Level Max ni Nattemashita (Spring 2021)
+    - id: slime-taoshite-300-nen-shiranai-uchi-ni-level-max-ni-s2
+      number: 2
+      externalIds: { anilistId: 143337 } # Slime Taoshite 300-nen, Shiranai Uchi ni Level Max ni Nattemashita: Sono Ni (Spring 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [slime-taoshite-300-nen-shiranai-uchi-ni-level-max-ni]

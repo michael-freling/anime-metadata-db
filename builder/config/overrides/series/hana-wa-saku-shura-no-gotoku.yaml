@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hana-wa-saku-shura-no-gotoku
+  titles:
+    original: 花は咲く、修羅の如く
+    translations: { ja-Latn: "Hana wa Saku, Shura no Gotoku" }
+  seasons:
+    - id: hana-wa-saku-shura-no-gotoku-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hana-wa-saku-shura-no-gotoku]

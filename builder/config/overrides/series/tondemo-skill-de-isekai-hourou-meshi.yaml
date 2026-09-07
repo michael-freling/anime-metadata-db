@@ -1,0 +1,19 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tondemo-skill-de-isekai-hourou-meshi
+  titles:
+    original: とんでもスキルで異世界放浪メシ
+    translations: { ja-Latn: Tondemo Skill de Isekai Hourou Meshi }
+  seasons:
+    - id: tondemo-skill-de-isekai-hourou-meshi-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 156067 } # Tondemo Skill de Isekai Hourou Meshi (Winter 2023)
+    - id: tondemo-skill-de-isekai-hourou-meshi-s2
+      number: 2
+      externalIds: { anilistId: 170577 } # Tondemo Skill de Isekai Hourou Meshi 2 (Fall 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tondemo-skill-de-isekai-hourou-meshi]

@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chotto-dake-ai-ga-omoi-dark-elf-ga-isekai-kara-oikaketekita
+  titles:
+    original: ちょっとだけ愛が重すぎるダークエルフが異世界から追いかけてきた
+    translations: { ja-Latn: Chotto dake Ai ga Omoi Dark Elf ga Isekai kara Oikaketekita }
+  seasons:
+    - id: chotto-dake-ai-ga-omoi-dark-elf-ga-isekai-kara-oikaketekita-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chotto-dake-ai-ga-omoi-dark-elf-ga-isekai-kara-oikaketekita]
