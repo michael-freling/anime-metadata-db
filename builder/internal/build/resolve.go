@@ -9,14 +9,20 @@ import (
 	"github.com/michael-freling/anime-metadata-db/internal/model"
 )
 
-// resolveAnilistIDs works out which upstream entry each installment is, from the
-// series' own title, filling the id where no override names one and checking it
-// where an override does.
+// resolveInstallments works out which upstream entry each installment is, from
+// the series' own title, filling the anilistId where no override names one and
+// checking it where an override does.
 //
 // A series has no AniList id — it spans several, one per installment — so there
 // is no id to look the installments up by. There is a name: upstream lists the
 // series' native title among the synonyms of each entry belonging to it, so
 // finding those entries enumerates the family and the airing dates order it.
+//
+// The entry is the result, and the id is a fact about it rather than the point.
+// Half of upstream's entries have no AniList id at all, and for those this is
+// the only thing that can find them: they are returned in the resolution so the
+// fills can read an entry that no id names. An installment resolved that way
+// carries no externalIds.anilistId, which the model has always allowed.
 //
 // This supplies 150 of the catalogue's 225 ids, and the dataset it produces is
 // byte-identical to the one the authored ids produced: over the whole
@@ -53,36 +59,89 @@ import (
 // three compares wrong against a perfectly good id.
 //
 // Nothing here reaches the network: the offline database is already loaded.
-func (b *Builder) resolveAnilistIDs(s *model.Series, report *Report) {
+func (b *Builder) resolveInstallments(s *model.Series, report *Report) resolution {
+	resolved := resolution{}
 	if b.sources.Offline == nil {
-		return
+		return resolved
 	}
 	pool := b.candidates(s)
 	if len(pool) == 0 {
-		return
+		return resolved
 	}
+	// Upstream's AniList-bearing records first, and the rest of the pool only
+	// where they cannot account for a kind's installments.
+	//
+	// The two halves are not equally good evidence. An entry carrying an
+	// AniList id is upstream's merged record of a work — the cross-links
+	// between providers reached it — and the pool of those is the one this
+	// resolution was measured against. The other half is the residue the
+	// cross-links have not reached, where a work already in the merged half
+	// routinely appears a second time under its English title with a vaguer
+	// date: "Arne no Jikenbo" carries nine providers, "The Case Book of Arne"
+	// carries Anime News Network alone, and both are winter 2026 TV entries
+	// listing the series' own title. Pooling the two halves outright makes a
+	// one-season series look like a two-season one, and the count check then
+	// declines on a series that resolved yesterday.
+	//
+	// Consulted second rather than not at all, because "the merged records
+	// cannot account for these installments" is exactly the shape of a work
+	// AniList does not carry, and never the shape of one it does. So a series
+	// whose installments the merged half already explains resolves exactly as
+	// it did before any of this was reachable, which is what keeps the
+	// catalogue still.
+	linked := onAnilist(pool)
 	for _, kind := range []installmentKind{seasonKind, movieKind, specialKind} {
-		resolveKind(s, kind, pool, report)
+		if !resolveKind(s, kind, linked, resolved, report) {
+			resolveKind(s, kind, pool, resolved, report)
+		}
 	}
+	return resolved
 }
 
+// onAnilist returns the candidates upstream gives an AniList id.
+func onAnilist(pool map[offlinedb.Key]offlinedb.Anime) map[offlinedb.Key]offlinedb.Anime {
+	out := make(map[offlinedb.Key]offlinedb.Anime, len(pool))
+	for k, a := range pool {
+		if a.AnilistID() != 0 {
+			out[k] = a
+		}
+	}
+	return out
+}
+
+// resolution records the upstream entry the title resolution paired with an
+// installment, keyed by the installment's own externalIds block.
+//
+// It carries the installments upstream lists on no AniList page. Every other
+// one is looked back up through the id the resolution wrote onto it, and needs
+// nothing here; these have no id to write, so the entry itself is the only
+// handle on them and it has to reach the fills somehow.
+//
+// Per build rather than stored on the node, because the handle is a position in
+// a rolling file (see offlinedb.Key) and nothing that leaves the process may
+// reference an entry by one. Keyed by pointer for the same reason: an
+// installment has no stable identity here beyond the block being filled.
+type resolution map[*model.ExternalIDs]offlinedb.Anime
+
 // candidates gathers the upstream entries carrying any of the series' own
-// titles, de-duplicated by id.
+// titles, de-duplicated by entry.
+//
+// By entry and not by AniList id, which is what this did until the entries
+// without one were indexed: they all answer 0, so an id-keyed map collapsed
+// every one of them into a single bucket and kept whichever came last.
 //
 // The romanization is a second key rather than the only one: a title written in
 // Latin script is what upstream indexes some series under, and the native form
 // what it indexes others under. Both are the series' own name, so both are
 // asked; anything beyond them would be guessing at a resemblance.
-func (b *Builder) candidates(s *model.Series) map[int]offlinedb.Anime {
-	out := map[int]offlinedb.Anime{}
+func (b *Builder) candidates(s *model.Series) map[offlinedb.Key]offlinedb.Anime {
+	out := map[offlinedb.Key]offlinedb.Anime{}
 	for _, name := range append([]string{s.Titles.Original}, latinForms(s.Titles)...) {
 		if name == "" {
 			continue
 		}
 		for _, a := range b.sources.Offline.Titled(name) {
-			if id := a.AnilistID(); id != 0 {
-				out[id] = a
-			}
+			out[a.Key()] = a
 		}
 	}
 	return out
@@ -173,7 +232,9 @@ func orderedSeasons(s *model.Series) []int {
 }
 
 // resolveKind works out the candidates of one media type, deals them out to the
-// installments of the matching kind in airing order, and compares.
+// installments of the matching kind in airing order, and compares. It reports
+// whether the kind is settled — either resolved, or deliberately left alone —
+// so a caller holding better evidence knows there is nothing more to try.
 //
 // All or nothing per kind, and only when the counts agree. A partial match
 // would have to decide which installment the spare candidate belongs to, and a
@@ -183,13 +244,13 @@ func orderedSeasons(s *model.Series) []int {
 // carries spin-offs and shorts under the same title for many series, so
 // reporting every one would be a line per series saying only that the title is
 // popular.
-func resolveKind(s *model.Series, kind installmentKind, pool map[int]offlinedb.Anime, report *Report) {
+func resolveKind(s *model.Series, kind installmentKind, pool map[offlinedb.Key]offlinedb.Anime, resolved resolution, report *Report) bool {
 	slots := kind.slots(s)
 	if len(slots) == 0 {
-		return
+		return true // nothing of this kind to fill, whatever the candidates are
 	}
 	if !kind.ordered && len(slots) > 1 {
-		return
+		return true // refused on principle; a wider pool would not make it safer
 	}
 	matching := make([]offlinedb.Anime, 0, len(pool))
 	for _, a := range pool {
@@ -198,20 +259,36 @@ func resolveKind(s *model.Series, kind installmentKind, pool map[int]offlinedb.A
 		}
 	}
 	if len(matching) != len(slots) {
-		return
+		return false
 	}
 	sort.Slice(matching, func(i, j int) bool { return airedEarlier(matching[i], matching[j]) })
 
 	for i, sl := range slots {
-		want := matching[i].AnilistID()
-		switch sl.ids.AnilistID {
-		case 0:
+		entry := matching[i]
+		want := entry.AnilistID()
+		switch {
+		case want == 0 && sl.ids.AnilistID == 0:
+			// Upstream lists this installment on no AniList page, so there is
+			// no id to write and the entry itself is the answer. The fills read
+			// it exactly as they read any other, and the node keeps no
+			// anilistId — the honest record of a work AniList does not carry.
+			resolved[sl.ids] = entry
+			report.Coverage.Unlisted++
+		case want == 0:
+			// An authored id and a record that has none. Silent, and not a
+			// disagreement: the other cases compare two claims about which
+			// AniList entry this is, and a record with no AniList id makes no
+			// such claim. What it usually is instead is upstream's second,
+			// un-cross-linked record of the very work the authored id names,
+			// and reporting that on every build would be a line per series
+			// saying only that upstream has not finished merging.
+		case sl.ids.AnilistID == 0:
 			// Nothing authored, so the resolution is the only answer there is.
 			// A series may omit its ids and take these, accepting that a title
 			// upstream stops carrying takes the build with it.
 			sl.ids.AnilistID = want
 			report.Coverage.Derived++
-		case want:
+		case sl.ids.AnilistID == want:
 			report.Coverage.Agreed++
 		default:
 			// Named by the node, not by its position in the ordering: a split
@@ -223,10 +300,17 @@ func resolveKind(s *model.Series, kind installmentKind, pool map[int]offlinedb.A
 				want, sl.ids.AnilistID))
 		}
 	}
+	return true
 }
 
 // airedEarlier orders two upstream entries by airing window, falling back to
-// the id so entries sharing a window keep a fixed order between runs.
+// the id and then to upstream's own order so entries sharing a window keep a
+// fixed order between runs.
+//
+// The second fallback is what keeps that promise for entries with no AniList
+// id: they all answer 0, so the id alone left every pair of them equal and the
+// unstable sort was free to return them in either order — the same override
+// resolving differently between two runs, which is churn in data/.
 func airedEarlier(a, b offlinedb.Anime) bool {
 	if ya, yb := airedYear(a), airedYear(b); ya != yb {
 		return ya < yb
@@ -234,7 +318,10 @@ func airedEarlier(a, b offlinedb.Anime) bool {
 	if qa, qb := quarterOf(a), quarterOf(b); qa != qb {
 		return qa < qb
 	}
-	return a.AnilistID() < b.AnilistID()
+	if ia, ib := a.AnilistID(), b.AnilistID(); ia != ib {
+		return ia < ib
+	}
+	return a.Key() < b.Key()
 }
 
 // airedYear is an entry's airing year, with an unknown one sorted last rather

@@ -59,7 +59,8 @@ type Report struct {
 	Coverage Coverage `yaml:"coverage"`
 }
 
-// Coverage counts how far the anilistId checks reached.
+// Coverage counts how far the anilistId checks reached, and how many
+// installments there was no id to check.
 //
 // Most ids are resolved from the series' own title rather than authored, and
 // the graph check can only corroborate one against its siblings — so a series
@@ -81,8 +82,8 @@ type Coverage struct {
 	// Corroborated is the number of anilistIds reached from another installment
 	// of the same series.
 	Corroborated int `yaml:"corroborated"`
-	// Alone is the number whose series has no other installment, leaving
-	// nothing to check them against.
+	// Alone is the number whose series has no other installment carrying an id,
+	// leaving nothing to check them against.
 	Alone int `yaml:"alone"`
 	// Derived is the number the build resolved from the series' own title
 	// because no override named one. Considered minus Derived is what remains
@@ -93,6 +94,16 @@ type Coverage struct {
 	// two routes to the same entry. Authoring an id the build could have
 	// derived is redundant rather than wrong, and this counts those.
 	Agreed int `yaml:"agreed"`
+	// Unlisted is the number of installments the title resolution paired with
+	// an upstream entry that has no AniList id — a work on Anime News Network,
+	// MyAnimeList, AniDB or anisearch but not on AniList. They are resolved and
+	// filled like any other and simply carry no anilistId.
+	//
+	// Beside the fractions rather than inside them: every other figure here is
+	// a fraction of the ids the checks were given, and these contribute none.
+	// Counting them in either the numerator or the denominator would make the
+	// provenance line report on a population it did not measure.
+	Unlisted int `yaml:"unlisted"`
 }
 
 // Authored is the number of ids no resolution could supply, so an editor typed
@@ -116,6 +127,7 @@ func (c *Coverage) Add(other Coverage) {
 	c.Alone += other.Alone
 	c.Derived += other.Derived
 	c.Agreed += other.Agreed
+	c.Unlisted += other.Unlisted
 }
 
 // add appends a note to the report.

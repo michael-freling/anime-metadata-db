@@ -60,7 +60,7 @@ override supplied one.
 | `seasons[].episodes.absoluteFrom`, `movies[].absoluteNumber` | this project — `assignAbsoluteNumbers` interleaves seasons and original movies by release order and records where each installment's run starts; an alternate cut takes no number of its own | ODbL |
 | `*.episodes.airedFrom` | this project — editorial, for a broadcast that keeps counting across a cour break instead of restarting at 1. Nothing upstream distinguishes the two, so nothing fills it and no record carries one | ODbL |
 | `series.ordering` | this project — derived, not authored: `absolute` for a series named in `numbered:`, `release` for every other, written in the same pass that assigns the numbering | ODbL |
-| `*.externalIds.anilistId` | anime-offline-database — resolved, not authored: the build finds the entries carrying the series' own native title and orders them by airing date, filling each installment's join key. 150 of 225 come this way; the 75 upstream does not list under the series title stay authored, and the resolution still checks any id an override names | ODbL + DbCL |
+| `*.externalIds.anilistId` | anime-offline-database — resolved, not authored: the build finds the entries carrying the series' own native title and orders them by airing date, filling each installment's join key. 150 of 225 come this way; the 75 upstream does not list under the series title stay authored, and the resolution still checks any id an override names. Absent, not zero, where upstream lists the work on no AniList page at all — the entry it resolved to still fills every other fact | ODbL + DbCL |
 | `seasons[].externalIds.anidbId`, `movies[].externalIds.anidbId`, `specials[].externalIds.anidbId` | anime-offline-database — parsed from its `sources` array. Only these three node kinds are resolved against it | ODbL + DbCL |
 | `seasons[].externalIds.tvdbId`, `movies[].externalIds.tvdbId`, `specials[].externalIds.tvdbId` | Anime-Lists — the AniDB→TVDB map, keyed by the `anidbId` above | *none stated* |
 | `*.characters[].externalIds.wikidataId`, `staff[].externalIds.wikidataId` | this project — the authored QID join key | ODbL |
@@ -166,10 +166,11 @@ service and prohibit mass collection, so the build never calls AniList and no
 AniList content is stored or served. There is no AniList endpoint in
 [`builder/config.yaml`](https://github.com/michael-freling/anime-metadata-db/blob/main/builder/config.yaml).
 
-The `anilistId` on every node is an identifier **parsed out of the
-cross-reference URLs that anime-offline-database publishes** — the same array
-that yields `anidbId`, `myAnimeListId` and `kitsuId`. It is a join key into the
-ODbL source, not AniList data.
+An `anilistId` on a node is an identifier **parsed out of the cross-reference
+URLs that anime-offline-database publishes** — the same array that yields
+`anidbId`, `myAnimeListId` and `kitsuId`. It is a join key into the ODbL source,
+not AniList data. A node whose work that source lists on no AniList page simply
+carries none.
 
 This is the point of the "facts, not expression" rule the dataset follows
 throughout: the dataset stores ids, names and structure, and leaves synopses,

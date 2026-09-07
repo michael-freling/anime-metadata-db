@@ -8,6 +8,7 @@ import (
 	"github.com/michael-freling/anime-metadata-db/builder/internal/sources/animelists"
 	"github.com/michael-freling/anime-metadata-db/builder/internal/sources/offlinedb"
 	"github.com/michael-freling/anime-metadata-db/builder/internal/testsupport"
+	"github.com/michael-freling/anime-metadata-db/builder/internal/writer"
 	"github.com/michael-freling/anime-metadata-db/internal/model"
 )
 
@@ -289,7 +290,7 @@ func TestFillSpecialFormat(t *testing.T) {
 	}
 	for _, c := range cases {
 		sp := &model.Special{ID: "sp", ExternalIDs: model.ExternalIDs{AnilistID: c.anilist}}
-		if err := b.fillSpecial(sp, &Report{}); err != nil {
+		if err := b.fillSpecial(sp, nil, &Report{}); err != nil {
 			t.Fatal(err)
 		}
 		if sp.Format != c.want {
@@ -299,7 +300,7 @@ func TestFillSpecialFormat(t *testing.T) {
 
 	// Authored format is preserved; episodes are generated from the count.
 	sp := &model.Special{ID: "sp", Format: model.FormatONA, ExternalIDs: model.ExternalIDs{AnilistID: 1}}
-	if err := b.fillSpecial(sp, &Report{}); err != nil {
+	if err := b.fillSpecial(sp, nil, &Report{}); err != nil {
 		t.Fatal(err)
 	}
 	if sp.Format != model.FormatONA || sp.Episodes.Count != 2 {
@@ -312,13 +313,83 @@ func TestFillMovieNoAnidb(t *testing.T) {
 	b := New(mustSources(t, db, "<anime-list/>", "<anime-movieset-list/>"))
 	m := &model.Movie{ID: "m", ExternalIDs: model.ExternalIDs{AnilistID: 9}}
 	report := &Report{}
-	if err := b.fillMovie(m, report); err != nil {
+	if err := b.fillMovie(m, nil, report); err != nil {
 		t.Fatal(err)
 	}
 	for _, n := range report.Notes {
 		if strings.Contains(n.Message, "movie set") {
 			t.Errorf("movie with no anidb should not get a set note: %v", report.Notes)
 		}
+	}
+}
+
+// A work upstream lists on Anime News Network and AniDB but not on AniList.
+// Nothing about it is special except the absent id: the build finds it by the
+// series' own title, fills its year, quarter, episode count and AniDB id from
+// the entry, and writes a record with no anilistId rather than refusing to
+// carry it at all.
+func TestBuildCarriesAWorkAniListDoesNotList(t *testing.T) {
+	const db = `{"data":[
+	  {"sources":["https://animenewsnetwork.com/encyclopedia/anime.php?id=33926","https://anidb.net/anime/18967"],
+	   "title":"The Case Book of Arne","type":"TV","episodes":12,
+	   "animeSeason":{"season":"WINTER","year":2026},"synonyms":["アルネの事件簿"]}
+	]}`
+	b := New(mustSources(t, db, "<anime-list/>", "<anime-movieset-list/>"))
+	o := overrides.Override{
+		Path: "series/arne.yaml",
+		Series: &model.Series{
+			ID:      "arne",
+			Titles:  model.Title{Original: "アルネの事件簿"},
+			Seasons: []model.Season{{ID: "arne-s1", Number: 1}},
+		},
+	}
+	rec, _, err := b.Build(o)
+	if err != nil {
+		t.Fatalf("a work with no AniList entry must still build: %v", err)
+	}
+	got := rec.Series.Seasons[0]
+	if got.ExternalIDs.AnilistID != 0 {
+		t.Errorf("anilistId = %d, want none", got.ExternalIDs.AnilistID)
+	}
+	if got.ExternalIDs.AnidbID != 18967 {
+		t.Errorf("anidbId = %d, want the id upstream does give it", got.ExternalIDs.AnidbID)
+	}
+	if got.ReleaseYear != 2026 || got.ReleaseSeason != model.SeasonWinter {
+		t.Errorf("release = %d %s, want 2026 WINTER from the entry", got.ReleaseYear, got.ReleaseSeason)
+	}
+	if got.Episodes.Count != 12 {
+		t.Errorf("episodes = %d, want 12", got.Episodes.Count)
+	}
+	// Absent from the record, not present and zero: consumers read the field
+	// as "AniList has no entry for this", which is a different fact from 0.
+	out, err := writer.Marshal(rec)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if strings.Contains(string(out), "anilistId") {
+		t.Errorf("anilistId must be omitted, not written as zero:\n%s", out)
+	}
+}
+
+// The one way this can break: neither an authored id nor an entry the title
+// reaches. The message has to say so, because the field was never absent from
+// anyone's override — it was computed until it could not be.
+func TestBuildFailsWhenNothingNamesTheInstallment(t *testing.T) {
+	b := New(mustSources(t, `{"data":[]}`, "<anime-list/>", "<anime-movieset-list/>"))
+	o := overrides.Override{
+		Path: "series/nope.yaml",
+		Series: &model.Series{
+			ID:      "nope",
+			Titles:  model.Title{Original: "知らない題"},
+			Seasons: []model.Season{{ID: "nope-s1", Number: 1}},
+		},
+	}
+	_, _, err := b.Build(o)
+	if err == nil {
+		t.Fatal("expected the build to stop")
+	}
+	if !strings.Contains(err.Error(), "no upstream entry could be resolved from the series' title") {
+		t.Errorf("the message must name the cause, got %v", err)
 	}
 }
 
