@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Bad Girl
   ordering: absolute
+  externalIds:
+    wikidataId: Q110825815
   seasons:
     - id: bad-girl-s1
       number: 1

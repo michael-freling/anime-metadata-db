@@ -4,8 +4,11 @@ series:
   titles:
     original: 履いてください、鷹峰さん
     translations:
+      en: Please Put Them On, Takamine-san
       ja-Latn: Haite Kudasai, Takamine-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q107335348
   seasons:
     - id: haite-kudasai-takamine-san-s1
       number: 1

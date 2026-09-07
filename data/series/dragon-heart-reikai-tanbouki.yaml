@@ -4,8 +4,11 @@ series:
   titles:
     original: ドラゴン・ハート―霊界探訪記―
     translations:
+      en: 'Dragon Heart: Adventures Beyond This World'
       ja-Latn: 'Dragon Heart: Reikai Tanbouki'
   ordering: absolute
+  externalIds:
+    wikidataId: Q136124078
   movies:
     - id: dragon-heart-reikai-tanbouki-film
       titles:

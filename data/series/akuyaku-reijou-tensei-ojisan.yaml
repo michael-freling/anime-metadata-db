@@ -4,8 +4,11 @@ series:
   titles:
     original: 悪役令嬢転生おじさん
     translations:
+      en: From Bureaucrat to Villainess
       ja-Latn: Akuyaku Reijou Tensei Ojisan
   ordering: absolute
+  externalIds:
+    wikidataId: Q109512165
   seasons:
     - id: akuyaku-reijou-tensei-ojisan-s1
       number: 1

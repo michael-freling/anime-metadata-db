@@ -4,8 +4,11 @@ series:
   titles:
     original: 終末ツーリング
     translations:
+      en: Touring After the Apocalypse
       ja-Latn: Shuumatsu Touring
   ordering: absolute
+  externalIds:
+    wikidataId: Q126377424
   seasons:
     - id: shuumatsu-touring-s1
       number: 1

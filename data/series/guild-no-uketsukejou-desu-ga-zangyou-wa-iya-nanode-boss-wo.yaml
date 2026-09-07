@@ -4,8 +4,11 @@ series:
   titles:
     original: ギルドの受付嬢ですが、残業は嫌なのでボスをソロ討伐しようと思います
     translations:
+      en: I May Be a Guild Receptionist, But I'll Solo Any Boss to Clock Out on Time
       ja-Latn: Guild no Uketsukejou desu ga, Zangyou wa Iya nanode Boss wo Solo Toubatsu Shiyou to Omoimasu
   ordering: absolute
+  externalIds:
+    wikidataId: Q107110728
   seasons:
     - id: guild-no-uketsukejou-desu-ga-zangyou-wa-iya-nanode-boss-wo-s1
       number: 1

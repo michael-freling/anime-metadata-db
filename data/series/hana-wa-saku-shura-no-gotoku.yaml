@@ -4,8 +4,11 @@ series:
   titles:
     original: 花は咲く、修羅の如く
     translations:
+      en: Flower and Asura
       ja-Latn: Hana wa Saku, Shura no Gotoku
   ordering: absolute
+  externalIds:
+    wikidataId: Q120336453
   seasons:
     - id: hana-wa-saku-shura-no-gotoku-s1
       number: 1

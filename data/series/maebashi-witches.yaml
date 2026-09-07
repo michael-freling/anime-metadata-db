@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Maebashi Witches
   ordering: absolute
+  externalIds:
+    wikidataId: Q130240193
   seasons:
     - id: maebashi-witches-s1
       number: 1

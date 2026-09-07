@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Momentary Lily
   ordering: absolute
+  externalIds:
+    wikidataId: Q125604135
   seasons:
     - id: momentary-lily-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Your Forma
   ordering: absolute
+  externalIds:
+    wikidataId: Q114397576
   seasons:
     - id: your-forma-s1
       number: 1

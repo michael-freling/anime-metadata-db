@@ -4,8 +4,11 @@ series:
   titles:
     original: ふたりソロキャンプ
     translations:
+      en: Solo Camping for Two
       ja-Latn: Futari Solo Camp
   ordering: absolute
+  externalIds:
+    wikidataId: Q97376727
   seasons:
     - id: futari-solo-camp-s1
       number: 1

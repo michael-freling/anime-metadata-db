@@ -4,8 +4,11 @@ series:
   titles:
     original: 矢野くんの普通の日々
     translations:
+      en: Yano-kun's Ordinary Days
       ja-Latn: Yano-kun no Futsuu no Hibi
   ordering: absolute
+  externalIds:
+    wikidataId: Q120336473
   seasons:
     - id: yano-kun-no-futsuu-no-hibi-s1
       number: 1

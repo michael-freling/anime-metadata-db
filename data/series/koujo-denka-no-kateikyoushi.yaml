@@ -4,8 +4,11 @@ series:
   titles:
     original: 公女殿下の家庭教師
     translations:
+      en: Private Tutor to the Duke's Daughter
       ja-Latn: Koujo Denka no Kateikyoushi
   ordering: absolute
+  externalIds:
+    wikidataId: Q97177835
   seasons:
     - id: koujo-denka-no-kateikyoushi-s1
       number: 1

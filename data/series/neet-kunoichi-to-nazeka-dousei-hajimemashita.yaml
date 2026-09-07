@@ -4,8 +4,11 @@ series:
   titles:
     original: ニートくノ一となぜか同棲はじめました
     translations:
+      en: I'm Living with an Otaku NEET Kunoichi!?
       ja-Latn: NEET Kunoichi to Nazeka Dousei Hajimemashita
   ordering: absolute
+  externalIds:
+    wikidataId: Q124475034
   seasons:
     - id: neet-kunoichi-to-nazeka-dousei-hajimemashita-s1
       number: 1

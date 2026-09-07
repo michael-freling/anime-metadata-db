@@ -4,8 +4,11 @@ series:
   titles:
     original: アラフォー男の異世界通販生活
     translations:
+      en: The Daily Life of a Middle-Aged Online Shopper in Another World
       ja-Latn: Around 40 Otoko no Isekai Tsuuhan
   ordering: absolute
+  externalIds:
+    wikidataId: Q129149843
   seasons:
     - id: around-40-otoko-no-isekai-tsuuhan-s1
       number: 1

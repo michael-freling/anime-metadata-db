@@ -4,8 +4,11 @@ series:
   titles:
     original: 友達の妹が俺にだけウザい
     translations:
+      en: My Friend's Little Sister Has It In for Me!
       ja-Latn: Tomodachi no Imouto ga Ore ni dake Uzai
   ordering: absolute
+  externalIds:
+    wikidataId: Q78119556
   seasons:
     - id: tomodachi-no-imouto-ga-ore-ni-dake-uzai-s1
       number: 1

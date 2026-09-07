@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Übel Blatt
   ordering: absolute
+  externalIds:
+    wikidataId: Q2619950
   seasons:
     - id: ubel-blatt-s1
       number: 1

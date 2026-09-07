@@ -4,8 +4,11 @@ series:
   titles:
     original: 僕のヒーローアカデミア
     translations:
+      en: My Hero Academia
       ja-Latn: Boku no Hero Academia
   ordering: absolute
+  externalIds:
+    wikidataId: Q18047903
   seasons:
     - id: boku-no-hero-academia-s1
       number: 1

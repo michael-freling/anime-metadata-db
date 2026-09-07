@@ -4,8 +4,11 @@ series:
   titles:
     original: 白豚貴族ですが前世の記憶が生えたのでひよこな弟育てます
     translations:
+      en: Reincarnated as a Neglected Noble
       ja-Latn: Shirobuta Kizoku desu ga Zense no Kioku ga Haeta node Hiyoko na Otouto Sodatemasu
   ordering: absolute
+  externalIds:
+    wikidataId: Q109512213
   seasons:
     - id: shirobuta-kizoku-desu-ga-zense-no-kioku-ga-haeta-node-s1
       number: 1

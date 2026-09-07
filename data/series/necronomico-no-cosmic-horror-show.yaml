@@ -4,8 +4,11 @@ series:
   titles:
     original: ネクロノミ子のコズミックホラーショウ
     translations:
+      en: Necronomico and the Cosmic Horror Show
       ja-Latn: Necronomico no Cosmic Horror Show
   ordering: absolute
+  externalIds:
+    wikidataId: Q131430109
   seasons:
     - id: necronomico-no-cosmic-horror-show-s1
       number: 1

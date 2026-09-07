@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Zenshuu.
   ordering: absolute
+  externalIds:
+    wikidataId: Q125087128
   seasons:
     - id: zenshuu-s1
       number: 1

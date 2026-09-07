@@ -4,8 +4,11 @@ series:
   titles:
     original: ゲーセン少女と異文化交流
     translations:
+      en: Cultural Exchange With a Game Centre Girl
       ja-Latn: Game Center Shoujo to Ibunka Kouryuu
   ordering: absolute
+  externalIds:
+    wikidataId: Q130070504
   seasons:
     - id: game-center-shoujo-to-ibunka-kouryuu-s1
       number: 1

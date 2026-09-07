@@ -4,8 +4,11 @@ series:
   titles:
     original: 機械じかけのマリー
     translations:
+      en: Mechanical Marie
       ja-Latn: Kikaijikake no Marie
   ordering: absolute
+  externalIds:
+    wikidataId: Q128561611
   seasons:
     - id: kikaijikake-no-marie-s1
       number: 1

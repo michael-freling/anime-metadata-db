@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Nohara Hiroshi: Hiru Meshi no Ryuugi'
   ordering: absolute
+  externalIds:
+    wikidataId: Q48755250
   seasons:
     - id: nohara-hiroshi-hiru-meshi-no-ryuugi-s1
       number: 1

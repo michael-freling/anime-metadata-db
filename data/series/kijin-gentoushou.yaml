@@ -4,8 +4,11 @@ series:
   titles:
     original: 鬼人幻燈抄
     translations:
+      en: 'Sword of the Demon Hunter: Kijin Gentōshō'
       ja-Latn: Kijin Gentoushou
   ordering: absolute
+  externalIds:
+    wikidataId: Q108478846
   seasons:
     - id: kijin-gentoushou-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 素材採取家の異世界旅行記
     translations:
+      en: A Gatherer's Adventure in Isekai
       ja-Latn: Sozai Saishuka no Isekai Ryokouki
   ordering: absolute
+  externalIds:
+    wikidataId: Q131460418
   seasons:
     - id: sozai-saishuka-no-isekai-ryokouki-s1
       number: 1

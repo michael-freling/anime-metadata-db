@@ -4,8 +4,11 @@ series:
   titles:
     original: 水属性の魔法使い
     translations:
+      en: The Water Magician
       ja-Latn: Mizu Zokusei no Mahoutsukai
   ordering: absolute
+  externalIds:
+    wikidataId: Q130297478
   seasons:
     - id: mizu-zokusei-no-mahoutsukai-s1
       number: 1

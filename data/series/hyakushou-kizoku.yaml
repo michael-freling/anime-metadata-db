@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hyakushou Kizoku
   ordering: absolute
+  externalIds:
+    wikidataId: Q5930814
   seasons:
     - id: hyakushou-kizoku-s1
       number: 1

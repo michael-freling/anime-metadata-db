@@ -4,8 +4,11 @@ series:
   titles:
     original: 俺だけレベルアップな件
     translations:
+      en: Solo Leveling
       ja-Latn: Ore dake Level Up na Ken
   ordering: absolute
+  externalIds:
+    wikidataId: Q65551313
   seasons:
     - id: ore-dake-level-up-na-ken-s1
       number: 1

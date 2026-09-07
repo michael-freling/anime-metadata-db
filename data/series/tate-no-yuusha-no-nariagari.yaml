@@ -4,8 +4,11 @@ series:
   titles:
     original: 盾の勇者の成り上がり
     translations:
+      en: The Rising of the Shield Hero
       ja-Latn: Tate no Yuusha no Nariagari
   ordering: absolute
+  externalIds:
+    wikidataId: Q19840638
   seasons:
     - id: tate-no-yuusha-no-nariagari-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: フェルマーの料理
     translations:
+      en: Fermat Kitchen
       ja-Latn: Fermat no Ryouri
   ordering: absolute
+  externalIds:
+    wikidataId: Q120336527
   seasons:
     - id: fermat-no-ryouri-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 君のことが大大大大大好きな100人の彼女
     translations:
+      en: The 100 Girlfriends Who Really, Really, Really, Really, Really Love You
       ja-Latn: Kimi no Koto ga Daidaidaidaidaisuki na 100-nin no Kanojo
   ordering: absolute
+  externalIds:
+    wikidataId: Q91729152
   seasons:
     - id: kimi-no-koto-ga-daidaidaidaidaisuki-na-100-nin-no-kanojo-s1
       number: 1

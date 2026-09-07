@@ -4,8 +4,11 @@ series:
   titles:
     original: ベルサイユのばら
     translations:
+      en: The Rose of Versailles
       ja-Latn: Versailles no Bara
   ordering: absolute
+  externalIds:
+    wikidataId: Q699631
   movies:
     - id: versailles-no-bara-film
       titles:

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Gachiakuta
   ordering: absolute
+  externalIds:
+    wikidataId: Q112874546
   seasons:
     - id: gachiakuta-s1
       number: 1

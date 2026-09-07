@@ -4,8 +4,11 @@ series:
   titles:
     original: さわらないで小手指くん
     translations:
+      en: 'Hands Off: Sawaranaide Kotesashi-kun'
       ja-Latn: Sawaranaide Kotesashi-kun
   ordering: absolute
+  externalIds:
+    wikidataId: Q132192002
   seasons:
     - id: sawaranaide-kotesashi-kun-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: ニャイト・オブ・ザ・リビングキャット
     translations:
+      en: Night of the Living Cat
       ja-Latn: Nyaight of the Living Cat
   ordering: absolute
+  externalIds:
+    wikidataId: Q113159328
   seasons:
     - id: nyaight-of-the-living-cat-s1
       number: 1

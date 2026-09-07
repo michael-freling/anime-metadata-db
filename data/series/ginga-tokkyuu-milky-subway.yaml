@@ -4,8 +4,11 @@ series:
   titles:
     original: 銀河特急 ミルキー☆サブウェイ
     translations:
+      en: 'Milky Subway: The Galactic Limited Express'
       ja-Latn: Ginga Tokkyuu Milky☆Subway
   ordering: absolute
+  externalIds:
+    wikidataId: Q135418771
   seasons:
     - id: ginga-tokkyuu-milky-subway-s1
       number: 1

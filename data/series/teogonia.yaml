@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Teogonia
   ordering: absolute
+  externalIds:
+    wikidataId: Q125029807
   seasons:
     - id: teogonia-s1
       number: 1

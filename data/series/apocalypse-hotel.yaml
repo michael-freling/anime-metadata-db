@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Apocalypse Hotel
   ordering: absolute
+  externalIds:
+    wikidataId: Q129978638
   seasons:
     - id: apocalypse-hotel-s1
       number: 1

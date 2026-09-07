@@ -4,8 +4,11 @@ series:
   titles:
     original: キミとアイドルプリキュア♪
     translations:
+      en: You and Idol Pretty Cure
       ja-Latn: Kimi to Idol Precure♪
   ordering: absolute
+  externalIds:
+    wikidataId: Q131352155
   seasons:
     - id: kimi-to-idol-precure-s1
       number: 1

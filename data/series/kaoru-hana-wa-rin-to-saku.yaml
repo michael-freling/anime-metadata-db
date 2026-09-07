@@ -4,8 +4,11 @@ series:
   titles:
     original: 薫る花は凛と咲く
     translations:
+      en: The Fragrant Flower Blooms With Dignity
       ja-Latn: Kaoru Hana wa Rin to Saku
   ordering: absolute
+  externalIds:
+    wikidataId: Q117005561
   seasons:
     - id: kaoru-hana-wa-rin-to-saku-s1
       number: 1

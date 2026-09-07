@@ -4,8 +4,11 @@ series:
   titles:
     original: クラスの大嫌いな女子と結婚することになった。
     translations:
+      en: I'm Getting Married to a Girl I Hate in My Class
       ja-Latn: Class no Daikirai na Joshi to Kekkon suru Koto ni Natta.
   ordering: absolute
+  externalIds:
+    wikidataId: Q108808077
   seasons:
     - id: class-no-daikirai-na-joshi-to-kekkon-suru-koto-ni-natta-s1
       number: 1

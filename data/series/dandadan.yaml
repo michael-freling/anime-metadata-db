@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Dandadan
   ordering: absolute
+  externalIds:
+    wikidataId: Q108069627
   seasons:
     - id: dandadan-s1
       number: 1

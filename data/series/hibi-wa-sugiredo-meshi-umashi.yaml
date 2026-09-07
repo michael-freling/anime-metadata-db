@@ -4,8 +4,11 @@ series:
   titles:
     original: 日々は過ぎれど飯うまし
     translations:
+      en: Food for the Soul
       ja-Latn: Hibi wa Sugiredo Meshi Umashi
   ordering: absolute
+  externalIds:
+    wikidataId: Q131606570
   seasons:
     - id: hibi-wa-sugiredo-meshi-umashi-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Babanbabanban Vampire
   ordering: absolute
+  externalIds:
+    wikidataId: Q124496845
   seasons:
     - id: babanbabanban-vampire-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: おそ松さん
     translations:
+      en: Mr. Osomatsu
       ja-Latn: Osomatsu-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q22341701
   seasons:
     - id: osomatsu-san-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 阿波連さんははかれない
     translations:
+      en: Aharen-san Is Indecipherable
       ja-Latn: Aharen-san wa Hakarenai
   ordering: absolute
+  externalIds:
+    wikidataId: Q60996980
   seasons:
     - id: aharen-san-wa-hakarenai-s1
       number: 1

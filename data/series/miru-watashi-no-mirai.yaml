@@ -4,8 +4,11 @@ series:
   titles:
     original: 未ル わたしのみらい
     translations:
+      en: 'Miru: Paths to My Future'
       ja-Latn: 'Miru: Watashi no Mirai'
   ordering: absolute
+  externalIds:
+    wikidataId: Q131923877
   seasons:
     - id: miru-watashi-no-mirai-s1
       number: 1

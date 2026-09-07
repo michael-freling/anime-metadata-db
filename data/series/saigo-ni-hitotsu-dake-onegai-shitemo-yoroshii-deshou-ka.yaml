@@ -4,8 +4,11 @@ series:
   titles:
     original: 最後にひとつだけお願いしてもよろしいでしょうか
     translations:
+      en: May I Ask for One Final Thing?
       ja-Latn: Saigo ni Hitotsu dake Onegai shitemo Yoroshii deshou ka
   ordering: absolute
+  externalIds:
+    wikidataId: Q130305467
   seasons:
     - id: saigo-ni-hitotsu-dake-onegai-shitemo-yoroshii-deshou-ka-s1
       number: 1

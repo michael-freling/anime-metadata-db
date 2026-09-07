@@ -4,8 +4,11 @@ series:
   titles:
     original: 傷だらけ聖女より報復をこめて
     translations:
+      en: With Vengeance, Sincerely, Your Broken Saintess
       ja-Latn: Kizu darake Seijo yori Houfuku wo Komete
   ordering: absolute
+  externalIds:
+    wikidataId: Q131275987
   seasons:
     - id: kizu-darake-seijo-yori-houfuku-wo-komete-s1
       number: 1

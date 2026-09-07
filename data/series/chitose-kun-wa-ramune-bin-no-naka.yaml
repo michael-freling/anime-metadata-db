@@ -4,8 +4,11 @@ series:
   titles:
     original: 千歳くんはラムネ瓶のなか
     translations:
+      en: Chitose Is in the Ramune Bottle
       ja-Latn: Chitose-kun wa Ramune Bin no Naka
   ordering: absolute
+  externalIds:
+    wikidataId: Q86728059
   seasons:
     - id: chitose-kun-wa-ramune-bin-no-naka-s1
       number: 1

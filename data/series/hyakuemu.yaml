@@ -4,8 +4,11 @@ series:
   titles:
     original: ひゃくえむ。
     translations:
+      en: 100 Meters
       ja-Latn: Hyakuemu.
   ordering: absolute
+  externalIds:
+    wikidataId: Q126086643
   movies:
     - id: hyakuemu-film
       titles:

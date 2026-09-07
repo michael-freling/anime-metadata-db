@@ -4,8 +4,11 @@ series:
   titles:
     original: とんでもスキルで異世界放浪メシ
     translations:
+      en: Campfire Cooking in Another World with My Absurd Skill
       ja-Latn: Tondemo Skill de Isekai Hourou Meshi
   ordering: absolute
+  externalIds:
+    wikidataId: Q28687721
   seasons:
     - id: tondemo-skill-de-isekai-hourou-meshi-s1
       number: 1

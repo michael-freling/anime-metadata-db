@@ -4,8 +4,11 @@ series:
   titles:
     original: ゴリラの神から加護された令嬢は王立騎士団で可愛がられる
     translations:
+      en: The Gorilla God's Go-To Girl
       ja-Latn: Gorilla no Kami kara Kago sareta Reijou wa Ouritsu Kishidan de Kawaigarareru
   ordering: absolute
+  externalIds:
+    wikidataId: Q130357996
   seasons:
     - id: gorilla-no-kami-kara-kago-sareta-reijou-wa-ouritsu-kishidan-s1
       number: 1

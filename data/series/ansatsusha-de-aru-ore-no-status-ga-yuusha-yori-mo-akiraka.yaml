@@ -4,8 +4,11 @@ series:
   titles:
     original: 暗殺者である俺のステータスが勇者よりも明らかに強いのだが
     translations:
+      en: My Status as an Assassin Obviously Exceeds the Hero's
       ja-Latn: Ansatsusha de Aru Ore no Status ga Yuusha yori mo Akiraka ni Tsuyoi no da ga
   ordering: absolute
+  externalIds:
+    wikidataId: Q131758303
   seasons:
     - id: ansatsusha-de-aru-ore-no-status-ga-yuusha-yori-mo-akiraka-s1
       number: 1

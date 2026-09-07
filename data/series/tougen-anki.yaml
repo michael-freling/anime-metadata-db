@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tougen Anki
   ordering: absolute
+  externalIds:
+    wikidataId: Q111987662
   seasons:
     - id: tougen-anki-s1
       number: 1

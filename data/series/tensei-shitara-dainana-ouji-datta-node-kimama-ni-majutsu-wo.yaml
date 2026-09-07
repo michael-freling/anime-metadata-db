@@ -4,8 +4,11 @@ series:
   titles:
     original: 転生したら第七王子だったので、気ままに魔術を極めます
     translations:
+      en: I Was Reincarnated as the 7th Prince so I Can Take My Time Perfecting My Magical Ability
       ja-Latn: Tensei shitara Dainana Ouji Datta node, Kimama ni Majutsu wo Kiwamemasu
   ordering: absolute
+  externalIds:
+    wikidataId: Q111824791
   seasons:
     - id: tensei-shitara-dainana-ouji-datta-node-kimama-ni-majutsu-wo-s1
       number: 1

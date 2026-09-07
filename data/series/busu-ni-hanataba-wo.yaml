@@ -4,8 +4,11 @@ series:
   titles:
     original: ブスに花束を。
     translations:
+      en: April Showers Bring May Flowers
       ja-Latn: Busu ni Hanataba wo.
   ordering: absolute
+  externalIds:
+    wikidataId: Q48760068
   seasons:
     - id: busu-ni-hanataba-wo-s1
       number: 1

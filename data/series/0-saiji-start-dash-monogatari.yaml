@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 0-saiji Start Dash Monogatari
   ordering: absolute
+  externalIds:
+    wikidataId: Q126366148
   seasons:
     - id: 0-saiji-start-dash-monogatari-s1
       number: 1

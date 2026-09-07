@@ -4,8 +4,11 @@ series:
   titles:
     original: わたしの幸せな結婚
     translations:
+      en: My Happy Marriage
       ja-Latn: Watashi no Shiawase na Kekkon
   ordering: absolute
+  externalIds:
+    wikidataId: Q109512255
   seasons:
     - id: watashi-no-shiawase-na-kekkon-s1
       number: 1

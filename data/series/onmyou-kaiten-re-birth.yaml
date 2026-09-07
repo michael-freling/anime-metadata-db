@@ -4,8 +4,11 @@ series:
   titles:
     original: 陰陽廻天 Re:バース
     translations:
+      en: Onmyo Kaiten Re:Birth Verse
       ja-Latn: Onmyou Kaiten Re:Birth
   ordering: absolute
+  externalIds:
+    wikidataId: Q133059930
   seasons:
     - id: onmyou-kaiten-re-birth-s1
       number: 1

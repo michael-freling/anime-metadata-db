@@ -4,8 +4,11 @@ series:
   titles:
     original: ラーメン赤猫
     translations:
+      en: Red Cat Ramen
       ja-Latn: Ramen Akaneko
   ordering: absolute
+  externalIds:
+    wikidataId: Q116648645
   seasons:
     - id: ramen-akaneko-s1
       number: 1

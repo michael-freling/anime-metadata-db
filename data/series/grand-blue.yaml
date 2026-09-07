@@ -4,8 +4,11 @@ series:
   titles:
     original: ぐらんぶる
     translations:
+      en: Grand Blue Dreaming
       ja-Latn: Grand Blue
   ordering: absolute
+  externalIds:
+    wikidataId: Q20044054
   seasons:
     - id: grand-blue-s1
       number: 1

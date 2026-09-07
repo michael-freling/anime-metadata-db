@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Monster Strike: Deadverse Reloaded'
   ordering: absolute
+  externalIds:
+    wikidataId: Q135301311
   seasons:
     - id: monster-strike-deadverse-reloaded-s1
       number: 1

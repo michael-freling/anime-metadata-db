@@ -4,8 +4,11 @@ series:
   titles:
     original: 不滅のあなたへ
     translations:
+      en: To Your Eternity
       ja-Latn: Fumetsu no Anata e
   ordering: absolute
+  externalIds:
+    wikidataId: Q29413107
   seasons:
     - id: fumetsu-no-anata-e-s1
       number: 1

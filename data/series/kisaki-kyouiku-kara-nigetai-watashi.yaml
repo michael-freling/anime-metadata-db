@@ -4,8 +4,11 @@ series:
   titles:
     original: 妃教育から逃げたい私
     translations:
+      en: I Want to Escape from Princess Lessons
       ja-Latn: Kisaki Kyouiku kara Nigetai Watashi
   ordering: absolute
+  externalIds:
+    wikidataId: Q123272327
   seasons:
     - id: kisaki-kyouiku-kara-nigetai-watashi-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 笑顔のたえない職場です。
     translations:
+      en: A Mangaka's Weirdly Wonderful Workplace
       ja-Latn: Egao no Taenai Shokuba desu.
   ordering: absolute
+  externalIds:
+    wikidataId: Q65277566
   seasons:
     - id: egao-no-taenai-shokuba-desu-s1
       number: 1

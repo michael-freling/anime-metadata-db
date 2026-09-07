@@ -4,8 +4,11 @@ series:
   titles:
     original: 陛下わたしを忘れてください
     translations:
+      en: Forget That Night, Your Majesty
       ja-Latn: Heika Watashi wo Wasurete Kudasai
   ordering: absolute
+  externalIds:
+    wikidataId: Q137003709
   seasons:
     - id: heika-watashi-wo-wasurete-kudasai-s1
       number: 1

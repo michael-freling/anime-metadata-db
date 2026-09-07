@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Ishura
   ordering: absolute
+  externalIds:
+    wikidataId: Q109258837
   seasons:
     - id: ishura-s1
       number: 1

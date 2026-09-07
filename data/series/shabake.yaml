@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Shabake
   ordering: absolute
+  externalIds:
+    wikidataId: Q11269081
   seasons:
     - id: shabake-s1
       number: 1

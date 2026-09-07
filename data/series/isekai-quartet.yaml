@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Isekai Quartet
   ordering: absolute
+  externalIds:
+    wikidataId: Q60168285
   seasons:
     - id: isekai-quartet-s1
       number: 1

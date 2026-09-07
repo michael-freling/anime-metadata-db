@@ -4,8 +4,11 @@ series:
   titles:
     original: ポーション、わが身を助ける
     translations:
+      en: I Saved Myself with a Potion!
       ja-Latn: Potion, Wagami wo Tasukeru
   ordering: absolute
+  externalIds:
+    wikidataId: Q135525113
   seasons:
     - id: potion-wagami-wo-tasukeru-s1
       number: 1

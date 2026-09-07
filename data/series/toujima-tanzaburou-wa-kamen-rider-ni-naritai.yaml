@@ -4,8 +4,11 @@ series:
   titles:
     original: 東島丹三郎は仮面ライダーになりたい
     translations:
+      en: Tojima Wants to Be a Kamen Rider
       ja-Latn: Toujima Tanzaburou wa Kamen Rider ni Naritai
   ordering: absolute
+  externalIds:
+    wikidataId: Q109512114
   seasons:
     - id: toujima-tanzaburou-wa-kamen-rider-ni-naritai-s1
       number: 1

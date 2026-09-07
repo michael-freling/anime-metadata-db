@@ -4,8 +4,11 @@ series:
   titles:
     original: 強くてニューサーガ
     translations:
+      en: New Saga
       ja-Latn: Tsuyokute New Saga
   ordering: absolute
+  externalIds:
+    wikidataId: Q114785520
   seasons:
     - id: tsuyokute-new-saga-s1
       number: 1

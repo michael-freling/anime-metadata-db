@@ -4,8 +4,11 @@ series:
   titles:
     original: 日本へようこそエルフさん。
     translations:
+      en: Welcome to Japan, Ms. Elf!
       ja-Latn: Nihon e Youkoso Elf-san.
   ordering: absolute
+  externalIds:
+    wikidataId: Q110291441
   seasons:
     - id: nihon-e-youkoso-elf-san-s1
       number: 1

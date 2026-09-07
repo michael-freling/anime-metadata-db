@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Nmeneko
   ordering: absolute
+  externalIds:
+    wikidataId: Q134520745
   seasons:
     - id: nmeneko-s1
       number: 1

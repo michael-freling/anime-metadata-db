@@ -4,8 +4,11 @@ series:
   titles:
     original: カッコウの許嫁
     translations:
+      en: A Couple of Cuckoos
       ja-Latn: Kakkou no Iinazuke
   ordering: absolute
+  externalIds:
+    wikidataId: Q85870700
   seasons:
     - id: kakkou-no-iinazuke-s1
       number: 1

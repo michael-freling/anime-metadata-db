@@ -4,8 +4,11 @@ series:
   titles:
     original: たべっ子どうぶつ THE MOVIE
     translations:
+      en: Dream Animals The Movie
       ja-Latn: Tabekko Doubutsu The Movie
   ordering: absolute
+  externalIds:
+    wikidataId: Q135390119
   movies:
     - id: tabekko-doubutsu-the-movie-film
       titles:

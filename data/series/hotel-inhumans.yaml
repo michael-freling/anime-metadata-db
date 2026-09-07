@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hotel Inhumans
   ordering: absolute
+  externalIds:
+    wikidataId: Q131048073
   seasons:
     - id: hotel-inhumans-s1
       number: 1

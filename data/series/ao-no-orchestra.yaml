@@ -4,8 +4,11 @@ series:
   titles:
     original: 青のオーケストラ
     translations:
+      en: Blue Orchestra
       ja-Latn: Ao no Orchestra
   ordering: absolute
+  externalIds:
+    wikidataId: Q102253088
   seasons:
     - id: ao-no-orchestra-s1
       number: 1

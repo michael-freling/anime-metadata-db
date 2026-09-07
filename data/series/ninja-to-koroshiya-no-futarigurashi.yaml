@@ -4,8 +4,11 @@ series:
   titles:
     original: 忍者と殺し屋のふたりぐらし
     translations:
+      en: A Ninja and an Assassin Under One Roof
       ja-Latn: Ninja to Koroshiya no Futarigurashi
   ordering: absolute
+  externalIds:
+    wikidataId: Q114592263
   seasons:
     - id: ninja-to-koroshiya-no-futarigurashi-s1
       number: 1

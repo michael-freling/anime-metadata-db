@@ -4,8 +4,11 @@ series:
   titles:
     original: 薬屋のひとりごと
     translations:
+      en: The Apothecary Diaries
       ja-Latn: Kusuriya no Hitorigoto
   ordering: absolute
+  externalIds:
+    wikidataId: Q48751907
   seasons:
     - id: kusuriya-no-hitorigoto-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 宇宙人ムームー
     translations:
+      en: Me and the Alien MuMu
       ja-Latn: Uchuujin MuuMuu
   ordering: absolute
+  externalIds:
+    wikidataId: Q131348648
   seasons:
     - id: uchuujin-muumuu-s1
       number: 1

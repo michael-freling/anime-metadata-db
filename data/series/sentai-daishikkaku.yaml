@@ -4,8 +4,11 @@ series:
   titles:
     original: 戦隊大失格
     translations:
+      en: Go! Go! Loser Ranger!
       ja-Latn: Sentai Daishikkaku
   ordering: absolute
+  externalIds:
+    wikidataId: Q107284197
   seasons:
     - id: sentai-daishikkaku-s1
       number: 1

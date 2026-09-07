@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Araiguma Calcal-dan
   ordering: absolute
+  externalIds:
+    wikidataId: Q131432742
   seasons:
     - id: araiguma-calcal-dan-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Witch Watch
   ordering: absolute
+  externalIds:
+    wikidataId: Q106430745
   seasons:
     - id: witch-watch-s1
       number: 1

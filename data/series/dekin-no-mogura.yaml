@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Dekin no Mogura
   ordering: absolute
+  externalIds:
+    wikidataId: Q131196560
   seasons:
     - id: dekin-no-mogura-s1
       number: 1

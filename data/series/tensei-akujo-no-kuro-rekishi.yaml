@@ -4,8 +4,11 @@ series:
   titles:
     original: 転生悪女の黒歴史
     translations:
+      en: The Dark History of the Reincarnated Villainess
       ja-Latn: Tensei Akujo no Kuro Rekishi
   ordering: absolute
+  externalIds:
+    wikidataId: Q109512208
   seasons:
     - id: tensei-akujo-no-kuro-rekishi-s1
       number: 1

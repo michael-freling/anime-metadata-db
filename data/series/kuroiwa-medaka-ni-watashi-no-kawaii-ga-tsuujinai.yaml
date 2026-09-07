@@ -4,8 +4,11 @@ series:
   titles:
     original: 黒岩メダカに私の可愛いが通じない
     translations:
+      en: Medaka Kuroiwa Is Impervious to My Charms
       ja-Latn: Kuroiwa Medaka ni Watashi no Kawaii ga Tsuujinai
   ordering: absolute
+  externalIds:
+    wikidataId: Q109368327
   seasons:
     - id: kuroiwa-medaka-ni-watashi-no-kawaii-ga-tsuujinai-s1
       number: 1

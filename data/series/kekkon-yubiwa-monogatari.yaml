@@ -4,8 +4,11 @@ series:
   titles:
     original: 結婚指輪物語
     translations:
+      en: Tales of Wedding Rings
       ja-Latn: Kekkon Yubiwa Monogatari
   ordering: absolute
+  externalIds:
+    wikidataId: Q30738646
   seasons:
     - id: kekkon-yubiwa-monogatari-s1
       number: 1

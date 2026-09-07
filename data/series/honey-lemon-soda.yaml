@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Honey Lemon Soda
   ordering: absolute
+  externalIds:
+    wikidataId: Q30898572
   seasons:
     - id: honey-lemon-soda-s1
       number: 1

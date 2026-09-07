@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Princession Orchestra
   ordering: absolute
+  externalIds:
+    wikidataId: Q126617193
   seasons:
     - id: princession-orchestra-s1
       number: 1

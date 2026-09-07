@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Himitsu no AiPri
   ordering: absolute
+  externalIds:
+    wikidataId: Q124359995
   seasons:
     - id: himitsu-no-aipri-s1
       number: 1

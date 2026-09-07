@@ -4,8 +4,11 @@ series:
   titles:
     original: 瑠璃の宝石
     translations:
+      en: Ruri Rocks
       ja-Latn: Ruri no Houseki
   ordering: absolute
+  externalIds:
+    wikidataId: Q130272455
   seasons:
     - id: ruri-no-houseki-s1
       number: 1

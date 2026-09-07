@@ -4,8 +4,11 @@ series:
   titles:
     original: 太陽よりも眩しい星
     translations:
+      en: A Star Brighter Than the Sun
       ja-Latn: Taiyou yori mo Mabushii Hoshi
   ordering: absolute
+  externalIds:
+    wikidataId: Q124362501
   seasons:
     - id: taiyou-yori-mo-mabushii-hoshi-s1
       number: 1

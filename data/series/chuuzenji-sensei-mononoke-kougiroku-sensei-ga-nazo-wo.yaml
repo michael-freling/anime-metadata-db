@@ -4,8 +4,11 @@ series:
   titles:
     original: 中禅寺先生物怪講義録 先生が謎を解いてしまうから。
     translations:
+      en: The Mononoke Lecture Logs of Chuzenji-sensei
       ja-Latn: 'Chuuzenji-sensei Mononoke Kougiroku: Sensei ga Nazo wo Hodoite Shimau kara.'
   ordering: absolute
+  externalIds:
+    wikidataId: Q113159284
   seasons:
     - id: chuuzenji-sensei-mononoke-kougiroku-sensei-ga-nazo-wo-s1
       number: 1

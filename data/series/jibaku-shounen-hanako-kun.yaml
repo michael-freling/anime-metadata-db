@@ -4,8 +4,11 @@ series:
   titles:
     original: 地縛少年花子くん
     translations:
+      en: Toilet-Bound Hanako-kun
       ja-Latn: Jibaku Shounen Hanako-kun
   ordering: absolute
+  externalIds:
+    wikidataId: Q28684168
   seasons:
     - id: jibaku-shounen-hanako-kun-s1
       number: 1

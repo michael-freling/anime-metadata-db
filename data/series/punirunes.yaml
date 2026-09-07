@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Punirunes
   ordering: absolute
+  externalIds:
+    wikidataId: Q114580283
   seasons:
     - id: punirunes-s1
       number: 1

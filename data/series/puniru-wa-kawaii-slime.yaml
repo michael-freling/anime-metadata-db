@@ -4,8 +4,11 @@ series:
   titles:
     original: ぷにるはかわいいスライム
     translations:
+      en: Puniru Is a Cute Slime
       ja-Latn: Puniru wa Kawaii Slime
   ordering: absolute
+  externalIds:
+    wikidataId: Q113159304
   seasons:
     - id: puniru-wa-kawaii-slime-s1
       number: 1

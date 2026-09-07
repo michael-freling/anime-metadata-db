@@ -4,8 +4,11 @@ series:
   titles:
     original: 帝乃三姉妹は案外、チョロい。
     translations:
+      en: Dealing with Mikadono Sisters Is a Breeze
       ja-Latn: Mikadono Sanshimai wa Angai, Choroi.
   ordering: absolute
+  externalIds:
+    wikidataId: Q115313656
   seasons:
     - id: mikadono-sanshimai-wa-angai-choroi-s1
       number: 1

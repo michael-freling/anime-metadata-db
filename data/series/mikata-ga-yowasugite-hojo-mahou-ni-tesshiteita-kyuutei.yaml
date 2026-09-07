@@ -4,8 +4,11 @@ series:
   titles:
     original: 味方が弱すぎて補助魔法に徹していた宮廷魔法師、追放されて最強を目指す
     translations:
+      en: The Banished Court Magician Aims to Become the Strongest
       ja-Latn: Mikata ga Yowasugite Hojo Mahou ni Tesshiteita Kyuutei Mahoushi, Tsuihou sarete Saikyou wo Mezasu
   ordering: absolute
+  externalIds:
+    wikidataId: Q128790836
   seasons:
     - id: mikata-ga-yowasugite-hojo-mahou-ni-tesshiteita-kyuutei-s1
       number: 1

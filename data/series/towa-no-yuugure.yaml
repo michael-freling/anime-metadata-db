@@ -4,8 +4,11 @@ series:
   titles:
     original: 永久のユウグレ
     translations:
+      en: Dusk Beyond the End of the World
       ja-Latn: Towa no Yuugure
   ordering: absolute
+  externalIds:
+    wikidataId: Q135102970
   seasons:
     - id: towa-no-yuugure-s1
       number: 1

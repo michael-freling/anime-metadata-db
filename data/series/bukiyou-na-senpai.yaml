@@ -4,8 +4,11 @@ series:
   titles:
     original: 不器用な先輩。
     translations:
+      en: My Awkward Senpai
       ja-Latn: Bukiyou na Senpai.
   ordering: absolute
+  externalIds:
+    wikidataId: Q97160539
   seasons:
     - id: bukiyou-na-senpai-s1
       number: 1

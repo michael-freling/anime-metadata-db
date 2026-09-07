@@ -4,8 +4,11 @@ series:
   titles:
     original: サラリーマンが異世界に行ったら四天王になった話
     translations:
+      en: Headhunted to Another World
       ja-Latn: Salaryman ga Isekai ni Ittara Shitennou ni Natta Hanashi
   ordering: absolute
+  externalIds:
+    wikidataId: Q127687360
   seasons:
     - id: salaryman-ga-isekai-ni-ittara-shitennou-ni-natta-hanashi-s1
       number: 1

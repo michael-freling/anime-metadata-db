@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Gnosia
   ordering: absolute
+  externalIds:
+    wikidataId: Q106624394
   seasons:
     - id: gnosia-s1
       number: 1

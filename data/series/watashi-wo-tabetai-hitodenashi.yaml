@@ -4,8 +4,11 @@ series:
   titles:
     original: 私を喰べたい、ひとでなし
     translations:
+      en: This Monster Wants to Eat Me
       ja-Latn: Watashi wo Tabetai, Hitodenashi
   ordering: absolute
+  externalIds:
+    wikidataId: Q107323305
   seasons:
     - id: watashi-wo-tabetai-hitodenashi-s1
       number: 1

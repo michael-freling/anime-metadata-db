@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kowloon Generic Romance
   ordering: absolute
+  externalIds:
+    wikidataId: Q86736171
   seasons:
     - id: kowloon-generic-romance-s1
       number: 1

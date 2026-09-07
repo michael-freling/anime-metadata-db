@@ -4,8 +4,11 @@ series:
   titles:
     original: 忍者と極道
     translations:
+      en: Ninja vs. Gokudo
       ja-Latn: Ninja to Gokudou
   ordering: absolute
+  externalIds:
+    wikidataId: Q94694423
   seasons:
     - id: ninja-to-gokudou-s1
       number: 1

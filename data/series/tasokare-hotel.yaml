@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tasokare Hotel
   ordering: absolute
+  externalIds:
+    wikidataId: Q114260596
   seasons:
     - id: tasokare-hotel-s1
       number: 1

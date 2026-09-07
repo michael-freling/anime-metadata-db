@@ -4,8 +4,11 @@ series:
   titles:
     original: 光が死んだ夏
     translations:
+      en: The Summer Hikaru Died
       ja-Latn: Hikaru ga Shinda Natsu
   ordering: absolute
+  externalIds:
+    wikidataId: Q114494831
   seasons:
     - id: hikaru-ga-shinda-natsu-s1
       number: 1

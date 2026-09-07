@@ -4,8 +4,11 @@ series:
   titles:
     original: 魔神創造伝ワタル
     translations:
+      en: Mashin Creator Wataru
       ja-Latn: Mashin Souzouden Wataru
   ordering: absolute
+  externalIds:
+    wikidataId: Q130041603
   seasons:
     - id: mashin-souzouden-wataru-s1
       number: 1

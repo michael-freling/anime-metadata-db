@@ -4,8 +4,11 @@ series:
   titles:
     original: 紫雲寺家の子供たち
     translations:
+      en: The Shiunji Family Children
       ja-Latn: Shiunji-ke no Kodomotachi
   ordering: absolute
+  externalIds:
+    wikidataId: Q120336481
   seasons:
     - id: shiunji-ke-no-kodomotachi-s1
       number: 1

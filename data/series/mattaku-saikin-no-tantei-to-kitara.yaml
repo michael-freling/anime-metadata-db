@@ -4,8 +4,11 @@ series:
   titles:
     original: まったく最近の探偵ときたら
     translations:
+      en: Detectives These Days Are Crazy!
       ja-Latn: Mattaku Saikin no Tantei to Kitara
   ordering: absolute
+  externalIds:
+    wikidataId: Q28683443
   seasons:
     - id: mattaku-saikin-no-tantei-to-kitara-s1
       number: 1

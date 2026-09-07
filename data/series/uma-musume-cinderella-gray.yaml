@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Uma Musume: Cinderella Gray'
   ordering: absolute
+  externalIds:
+    wikidataId: Q104336957
   seasons:
     - id: uma-musume-cinderella-gray-s1
       number: 1

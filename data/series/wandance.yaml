@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Wandance
   ordering: absolute
+  externalIds:
+    wikidataId: Q101955070
   seasons:
     - id: wandance-s1
       number: 1

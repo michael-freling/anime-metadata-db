@@ -4,8 +4,11 @@ series:
   titles:
     original: 怪獣8号
     translations:
+      en: Kaiju No. 8
       ja-Latn: Kaijuu 8-gou
   ordering: absolute
+  externalIds:
+    wikidataId: Q103888159
   seasons:
     - id: kaijuu-8-gou-s1
       number: 1

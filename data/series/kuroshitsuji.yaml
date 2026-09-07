@@ -4,8 +4,11 @@ series:
   titles:
     original: 黒執事
     translations:
+      en: Black Butler
       ja-Latn: Kuroshitsuji
   ordering: release
+  externalIds:
+    wikidataId: Q696302
   seasons:
     - id: kuroshitsuji-s1
       number: 1

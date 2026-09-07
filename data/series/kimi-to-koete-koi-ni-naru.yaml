@@ -4,8 +4,11 @@ series:
   titles:
     original: キミと越えて恋になる
     translations:
+      en: With You, Our Love Will Make It Through
       ja-Latn: Kimi to Koete Koi ni Naru
   ordering: absolute
+  externalIds:
+    wikidataId: Q127162621
   seasons:
     - id: kimi-to-koete-koi-ni-naru-s1
       number: 1

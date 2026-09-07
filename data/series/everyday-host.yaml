@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Everyday Host
   ordering: absolute
+  externalIds:
+    wikidataId: Q131457028
   seasons:
     - id: everyday-host-s1
       number: 1
