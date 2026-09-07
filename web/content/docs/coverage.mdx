@@ -14,6 +14,14 @@ A **work** is one node that maps to a real anime release: a Season, a Movie or a
 Special. A Series or Franchise is *our* grouping and is never counted as a work,
 so a five-season show contributes five works, not six.
 
+The catalogue carries **TV series and films**. Entries the open sources type as
+`SPECIAL`, `ONA` or `OVA` are not imported: most of them are music videos, OP
+animations, collaboration shorts and promo clips rather than releases, and the
+majority name no parent work, so each would land as a series of its own. Of the
+1,711 entries upstream lists for 2025, 1,067 are side content and 488 of those
+reference nothing at all. A special that genuinely belongs to a series can still
+be authored onto it by hand — the exclusion is about bulk import.
+
 Seasons carry a `releaseYear` **and** a `releaseSeason`; movies and specials
 carry only a year, so they share one column.
 
