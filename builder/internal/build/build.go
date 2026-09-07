@@ -84,21 +84,22 @@ func (b *Builder) Build(o overrides.Override) (model.Record, *Report, error) {
 // and when numbered assigns a continuous absoluteNumber.
 func (b *Builder) buildSeries(s *model.Series, numbered bool, report *Report) error {
 	b.fillSeriesTitle(s, report)
-	// Before the fills: every one of them reads the entry the anilistId names,
-	// so the id has to exist first.
-	b.resolveAnilistIDs(s, report)
+	// Before the fills: every one of them reads an upstream entry, so which
+	// entry each installment is has to be settled first — as an id where
+	// upstream has one, and as the entry itself where it has none.
+	resolved := b.resolveInstallments(s, report)
 	for i := range s.Seasons {
-		if err := b.fillSeason(&s.Seasons[i], report); err != nil {
+		if err := b.fillSeason(&s.Seasons[i], resolved, report); err != nil {
 			return err
 		}
 	}
 	for i := range s.Movies {
-		if err := b.fillMovie(&s.Movies[i], report); err != nil {
+		if err := b.fillMovie(&s.Movies[i], resolved, report); err != nil {
 			return err
 		}
 	}
 	for i := range s.Specials {
-		if err := b.fillSpecial(&s.Specials[i], report); err != nil {
+		if err := b.fillSpecial(&s.Specials[i], resolved, report); err != nil {
 			return err
 		}
 	}
@@ -114,26 +115,40 @@ func (b *Builder) buildSeries(s *model.Series, numbered bool, report *Report) er
 	return nil
 }
 
-// lookup resolves an AniList id against the offline database, failing on an
-// unknown id (design Part 4, step 2).
+// lookup returns the upstream entry an installment was resolved to, failing
+// when there is none (design Part 4, step 2).
 //
-// A zero id here means the resolution could not name an entry and no override
-// did either, which is the one way deriving these ids can break a build: the
-// offline database is a rolling source, so a series it stops listing under its
-// own title loses an id that worked yesterday. The message says that, because
-// the fix is not obvious from "missing" alone — the field was never absent from
-// anyone's override, it was computed until it could not be.
-func (b *Builder) lookup(entity string, anilistID int) (offlinedb.Anime, error) {
-	if anilistID == 0 {
+// The anilistId first, and the resolution only in its absence. Where an id
+// exists it is the join key the dataset already commits to and the one handle
+// that survives a source refresh, so it decides — including when the title
+// resolution paired the installment with some other entry, which is reported
+// rather than applied.
+//
+// Where no id exists the resolution is consulted, and an entry there is a
+// perfectly good answer: upstream lists about half its catalogue on no AniList
+// page, and those works are found by the series' own title or not at all.
+//
+// Neither means nothing named this installment, which is the one way deriving
+// these ids can break a build: the offline database is a rolling source, so a
+// series it stops listing under its own title loses an entry that worked
+// yesterday. The message says that, because the fix is not obvious from
+// "missing" alone — the field was never absent from anyone's override, it was
+// computed until it could not be.
+func (b *Builder) lookup(entity string, ids *model.ExternalIDs, resolved resolution) (offlinedb.Anime, error) {
+	if ids.AnilistID == 0 {
+		if a, ok := resolved[ids]; ok {
+			return a, nil
+		}
 		return offlinedb.Anime{}, fmt.Errorf(
-			"%s: no externalIds.anilistId, and none could be resolved from the series' title. "+
+			"%s: no externalIds.anilistId, and no upstream entry could be resolved from the series' title. "+
 				"Upstream may have stopped listing this installment under it. "+
-				"Find the entry on anilist.co and author `externalIds: { anilistId: N }` on this installment",
+				"Check the series' own title against what upstream lists this installment under, "+
+				"or, if the work is on AniList, author `externalIds: { anilistId: N }` on this installment",
 			entity)
 	}
-	a, ok := b.sources.Offline.Lookup(anilistID)
+	a, ok := b.sources.Offline.Lookup(ids.AnilistID)
 	if !ok {
-		return offlinedb.Anime{}, fmt.Errorf("%s: unknown AniList id %d", entity, anilistID)
+		return offlinedb.Anime{}, fmt.Errorf("%s: unknown AniList id %d", entity, ids.AnilistID)
 	}
 	return a, nil
 }
@@ -235,9 +250,9 @@ func fillReleaseSeason(year *int, season *model.ReleaseSeason, date *model.Date,
 
 // fillSeason resolves and fills a single Season, generating its episode list
 // from the upstream episode count when the override did not supply one.
-func (b *Builder) fillSeason(s *model.Season, report *Report) error {
+func (b *Builder) fillSeason(s *model.Season, resolved resolution, report *Report) error {
 	entity := "season " + s.ID
-	a, err := b.lookup(entity, s.ExternalIDs.AnilistID)
+	a, err := b.lookup(entity, &s.ExternalIDs, resolved)
 	if err != nil {
 		return err
 	}
@@ -257,9 +272,9 @@ func (b *Builder) fillSeason(s *model.Season, report *Report) error {
 }
 
 // fillMovie resolves and fills a single Movie.
-func (b *Builder) fillMovie(m *model.Movie, report *Report) error {
+func (b *Builder) fillMovie(m *model.Movie, resolved resolution, report *Report) error {
 	entity := "movie " + m.ID
-	a, err := b.lookup(entity, m.ExternalIDs.AnilistID)
+	a, err := b.lookup(entity, &m.ExternalIDs, resolved)
 	if err != nil {
 		return err
 	}
@@ -277,9 +292,9 @@ func (b *Builder) fillMovie(m *model.Movie, report *Report) error {
 
 // fillSpecial resolves and fills a single Special, defaulting its format from
 // the upstream media type.
-func (b *Builder) fillSpecial(s *model.Special, report *Report) error {
+func (b *Builder) fillSpecial(s *model.Special, resolved resolution, report *Report) error {
 	entity := "special " + s.ID
-	a, err := b.lookup(entity, s.ExternalIDs.AnilistID)
+	a, err := b.lookup(entity, &s.ExternalIDs, resolved)
 	if err != nil {
 		return err
 	}

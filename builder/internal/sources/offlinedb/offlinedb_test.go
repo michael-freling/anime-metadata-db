@@ -33,8 +33,11 @@ func TestParseAndLookup(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if db.Len() != 1 {
-		t.Fatalf("expected 1 indexed entry, got %d", db.Len())
+	// Every entry is indexed, including the one upstream gives no AniList id
+	// and the one whose AniList url has no numeric tail. Len counts what the
+	// database holds, and what it holds is upstream.
+	if db.Len() != 3 {
+		t.Fatalf("expected all 3 entries indexed, got %d", db.Len())
 	}
 	a, ok := db.Lookup(101922)
 	if !ok {
@@ -83,7 +86,7 @@ func TestLoad(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if db.Len() != 1 {
+	if db.Len() != 3 {
 		t.Errorf("Len = %d", db.Len())
 	}
 }
@@ -156,10 +159,11 @@ func TestTitledReturnsEveryMatchInUpstreamOrder(t *testing.T) {
 		t.Fatalf("parse: %v", err)
 	}
 
-	// 900 first, then 100, then 500: the file's order, not ascending id. An
-	// ascending sort would put 100 first, so this fails if the sort returns.
+	// 900 first, then 100, then 500, then the entry with no id at all: the
+	// file's order, not ascending id. An ascending sort would put 100 first, so
+	// this fails if the sort returns.
 	got := d.Titled("Shared Name")
-	want := []int{900, 100, 500}
+	want := []int{900, 100, 500, 0}
 	if len(got) != len(want) {
 		t.Fatalf("got %d entries, want %d", len(got), len(want))
 	}
@@ -168,17 +172,37 @@ func TestTitledReturnsEveryMatchInUpstreamOrder(t *testing.T) {
 			t.Fatalf("entry %d: got id %d, want %d", i, got[i].AnilistID(), id)
 		}
 	}
-	// Indexing by id must still return the whole entry, not an id-shaped hole.
+	// Indexing by name must return the whole entry, not an id-shaped hole.
 	if got[2].Title != "Other" {
 		t.Errorf("the entry itself comes back, got title %q", got[2].Title)
 	}
 
-	// An entry with no AniList id is not indexed at all, so it cannot be found
-	// by a name it happens to share — there would be no id to join it on.
+	// The entry upstream lists on no AniList page is indexed under the name it
+	// shares, and is the whole reason this index is not keyed on the id: a
+	// title is the only handle such a work has, and dropping it made half of
+	// upstream unreachable.
+	last := got[len(got)-1]
+	if last.Title != "No AniList Id" {
+		t.Errorf("an entry with no AniList id must still be findable by title, got %q", last.Title)
+	}
+	if last.AnidbID() != 7 {
+		t.Errorf("it comes back whole, with the ids upstream does give it: AnidbID = %d", last.AnidbID())
+	}
+
+	// Every entry the parser indexed has a key, and no two share one — that is
+	// what lets a caller de-duplicate and order entries no id distinguishes.
+	keys := map[Key]bool{}
 	for _, a := range got {
-		if a.Title == "No AniList Id" {
-			t.Error("an entry with no AniList id must not be indexed by title")
+		if a.Key() == 0 {
+			t.Errorf("%q has no key", a.Title)
 		}
+		if keys[a.Key()] {
+			t.Errorf("%q reuses key %d", a.Title, a.Key())
+		}
+		keys[a.Key()] = true
+	}
+	if a := (Anime{Title: "hand built"}); a.Key() != 0 {
+		t.Errorf("an Anime no database produced has no key, got %d", a.Key())
 	}
 
 	// A title is indexed as well as the synonyms.

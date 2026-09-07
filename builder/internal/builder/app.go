@@ -552,7 +552,8 @@ func (a *App) reportFindings(report *build.Report) {
 }
 
 // reportCoverage prints how many anilistIds the build computed rather than
-// read, and how much of the result the checks could actually see.
+// read, how much of the result the checks could actually see, and how many
+// installments upstream gives no anilistId to compute or check.
 //
 // A build whose report is empty is either clean or blind, and from the notes
 // alone the two are indistinguishable — the honest output for an id nothing can
@@ -565,25 +566,32 @@ func (a *App) reportFindings(report *build.Report) {
 // every build makes the remaining hand-authored surface impossible to ignore,
 // and makes it obvious when a change grows it.
 func (a *App) reportCoverage(c build.Coverage) {
-	if c.Total() == 0 {
-		return
+	if c.Total() > 0 {
+		// Every figure is a fraction of the same denominator — the ids the
+		// checks were given. They come from independent mechanisms, so sharing
+		// one numerator's denominator with another would compare counts that do
+		// not measure the same population.
+		fmt.Fprintf(a.Out, "anilistId provenance: %d ids\n", c.Total())
+		fmt.Fprintf(a.Out, "  %d/%d resolved from the series' own title\n", c.Derived, c.Total())
+		fmt.Fprintf(a.Out, "  %d/%d read from an override\n", c.Authored(), c.Total())
+		if c.Agreed > 0 {
+			// Only when it happens: an override naming an id the build would have
+			// derived anyway is redundant, not an error, and a permanent "0" would
+			// read as a check that keeps failing.
+			fmt.Fprintf(a.Out, "  %d/%d authored and independently reproduced from the title\n", c.Agreed, c.Total())
+		}
+		fmt.Fprintf(a.Out, "  %d/%d linked to a sibling installment\n", c.Corroborated, c.Total())
+		if c.Alone > 0 {
+			fmt.Fprintf(a.Out, "  %d/%d unverifiable: the only installment of their series, so nothing to check against\n", c.Alone, c.Total())
+		}
 	}
-	// Every figure is a fraction of the same denominator — the ids the checks
-	// were given. They come from independent mechanisms, so sharing one
-	// numerator's denominator with another would compare counts that do not
-	// measure the same population.
-	fmt.Fprintf(a.Out, "anilistId provenance: %d ids\n", c.Total())
-	fmt.Fprintf(a.Out, "  %d/%d resolved from the series' own title\n", c.Derived, c.Total())
-	fmt.Fprintf(a.Out, "  %d/%d read from an override\n", c.Authored(), c.Total())
-	if c.Agreed > 0 {
-		// Only when it happens: an override naming an id the build would have
-		// derived anyway is redundant, not an error, and a permanent "0" would
-		// read as a check that keeps failing.
-		fmt.Fprintf(a.Out, "  %d/%d authored and independently reproduced from the title\n", c.Agreed, c.Total())
-	}
-	fmt.Fprintf(a.Out, "  %d/%d linked to a sibling installment\n", c.Corroborated, c.Total())
-	if c.Alone > 0 {
-		fmt.Fprintf(a.Out, "  %d/%d unverifiable: the only installment of their series, so nothing to check against\n", c.Alone, c.Total())
+	// Outside the block above and outside its fractions. These installments
+	// contribute no id to the population it counts, so folding them in would
+	// have the provenance line report a denominator it never measured — and
+	// leaving them out entirely would have a catalogue full of works AniList
+	// does not carry print a line saying nothing was resolved.
+	if c.Unlisted > 0 {
+		fmt.Fprintf(a.Out, "installments with no anilistId: %d resolved from the series' own title to an upstream entry AniList does not list\n", c.Unlisted)
 	}
 }
 

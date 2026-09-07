@@ -306,6 +306,25 @@ func TestReportCoverage(t *testing.T) {
 	if strings.Contains(none, "unverifiable") {
 		t.Errorf("nothing was alone, so no line:\n%s", none)
 	}
+	// Installments upstream lists on no AniList page contribute no id, so they
+	// are reported beside the fractions rather than inside them — and only when
+	// there are some.
+	if strings.Contains(got, "installments with no anilistId") {
+		t.Errorf("no unlisted installments, so no line:\n%s", got)
+	}
+	unlisted := render(build.Coverage{Considered: 3, Derived: 3, Unlisted: 2})
+	if !strings.Contains(unlisted, "installments with no anilistId: 2") {
+		t.Errorf("the works AniList does not carry must be counted somewhere:\n%s", unlisted)
+	}
+	if strings.Contains(unlisted, "2/3") || strings.Contains(unlisted, "/5") {
+		t.Errorf("an unlisted installment is not a fraction of the ids:\n%s", unlisted)
+	}
+	// And on their own when there is nothing else: a catalogue of works AniList
+	// does not carry must not print as a build that resolved nothing.
+	only := render(build.Coverage{Unlisted: 4})
+	if !strings.Contains(only, "installments with no anilistId: 4") || strings.Contains(only, "provenance") {
+		t.Errorf("no ids and four unlisted installments:\n%s", only)
+	}
 }
 
 // The gate asserts this line positively — "gating findings: 0" must be present
