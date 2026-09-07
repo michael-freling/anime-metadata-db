@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: girls-band-cry-movie
+  titles:
+    original: 総集編ガールズバンドクライ 青春狂走曲
+    translations: { ja-Latn: Girls Band Cry Movie }
+  movies:
+    - id: girls-band-cry-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [girls-band-cry-movie]

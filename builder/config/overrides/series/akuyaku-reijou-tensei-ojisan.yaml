@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: akuyaku-reijou-tensei-ojisan
+  titles:
+    original: 悪役令嬢転生おじさん
+    translations: { ja-Latn: Akuyaku Reijou Tensei Ojisan }
+  seasons:
+    - id: akuyaku-reijou-tensei-ojisan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [akuyaku-reijou-tensei-ojisan]

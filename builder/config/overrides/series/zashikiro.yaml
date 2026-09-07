@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zashikiro
+  titles:
+    original: 極彩色肉筆絵巻 座敷牢
+    translations: { ja-Latn: Zashikiro }
+  movies:
+    - id: zashikiro-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zashikiro]

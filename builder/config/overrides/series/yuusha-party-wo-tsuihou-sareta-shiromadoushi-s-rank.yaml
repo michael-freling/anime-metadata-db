@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yuusha-party-wo-tsuihou-sareta-shiromadoushi-s-rank
+  titles:
+    original: 勇者パーティーを追放された白魔導師、Sランク冒険者に拾われる～この白魔導師が規格外すぎる～
+    translations: { ja-Latn: "Yuusha Party wo Tsuihou sareta Shiromadoushi, S-Rank Boukensha ni Hirowareru: Kono Shiromadoushi ga Kikakugai Sugiru" }
+  seasons:
+    - id: yuusha-party-wo-tsuihou-sareta-shiromadoushi-s-rank-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yuusha-party-wo-tsuihou-sareta-shiromadoushi-s-rank]

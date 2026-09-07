@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chainsaw-man-movie-reze-hen
+  titles:
+    original: チェンソーマン レゼ篇
+    translations: { ja-Latn: "Chainsaw Man Movie: Reze-hen" }
+  movies:
+    - id: chainsaw-man-movie-reze-hen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chainsaw-man-movie-reze-hen]

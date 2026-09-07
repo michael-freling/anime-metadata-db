@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hateshinaki-scarlet
+  titles:
+    original: 果てしなきスカーレット
+    translations: { ja-Latn: Hateshinaki Scarlet }
+  movies:
+    - id: hateshinaki-scarlet-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hateshinaki-scarlet]

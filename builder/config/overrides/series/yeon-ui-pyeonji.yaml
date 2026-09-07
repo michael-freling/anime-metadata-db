@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yeon-ui-pyeonji
+  titles:
+    original: 연의 편지
+    translations: { ko-Latn: Yeon-ui Pyeonji }
+  movies:
+    - id: yeon-ui-pyeonji-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yeon-ui-pyeonji]

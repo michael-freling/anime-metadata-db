@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tsuihousha-shokudou-e-youkoso
+  titles:
+    original: 追放者食堂へようこそ！
+    translations: { ja-Latn: "Tsuihousha Shokudou e Youkoso!" }
+  seasons:
+    - id: tsuihousha-shokudou-e-youkoso-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tsuihousha-shokudou-e-youkoso]

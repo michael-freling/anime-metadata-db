@@ -48,6 +48,30 @@ series:
       episodes:
         count: 12
         absoluteFrom: 48
+  movies:
+    - id: jujutsu-kaisen-kaigyoku-gyokusetsu-film
+      titles:
+        original: 劇場版総集編 呪術廻戦 懐玉・玉折
+        translations:
+          ja: 劇場版総集編 呪術廻戦 懐玉・玉折
+          ja-Latn: 'Jujutsu Kaisen: Kaigyoku/Gyokusetsu'
+      releaseYear: 2025
+      externalIds:
+        anilistId: 192809
+        anidbId: 18835
+      alternateCutOf:
+        seasonId: jujutsu-kaisen-s2
+    - id: jujutsu-kaisen-shibuya-jihen-film
+      titles:
+        original: 劇場版 呪術廻戦 「渋谷事変 特別編集版」×「死滅回游 先行上映」
+        translations:
+          ja: 劇場版 呪術廻戦 「渋谷事変 特別編集版」×「死滅回游 先行上映」
+          ja-Latn: 'Jujutsu Kaisen Movie: Shibuya Jihen Tokubetsu Henshuu-ban x Shimetsu Kaiyuu Senkou Jouei'
+      releaseYear: 2025
+      externalIds:
+        anilistId: 204066
+      alternateCutOf:
+        seasonId: jujutsu-kaisen-s2
   characters:
     - id: akari-nitta
       names:

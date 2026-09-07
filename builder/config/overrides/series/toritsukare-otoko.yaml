@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: toritsukare-otoko
+  titles:
+    original: トリツカレ男
+    translations: { ja-Latn: Toritsukare Otoko }
+  movies:
+    - id: toritsukare-otoko-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [toritsukare-otoko]

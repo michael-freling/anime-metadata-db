@@ -1,0 +1,19 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kekkon-yubiwa-monogatari
+  titles:
+    original: 結婚指輪物語
+    translations: { ja-Latn: Kekkon Yubiwa Monogatari }
+  seasons:
+    - id: kekkon-yubiwa-monogatari-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 160389 } # Kekkon Yubiwa Monogatari (Winter 2024)
+    - id: kekkon-yubiwa-monogatari-s2
+      number: 2
+      externalIds: { anilistId: 176298 } # Kekkon Yubiwa Monogatari II (Fall 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kekkon-yubiwa-monogatari]

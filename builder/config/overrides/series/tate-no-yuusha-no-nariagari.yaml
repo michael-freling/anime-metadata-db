@@ -1,0 +1,25 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tate-no-yuusha-no-nariagari
+  titles:
+    original: 盾の勇者の成り上がり
+    translations: { ja-Latn: Tate no Yuusha no Nariagari }
+  seasons:
+    - id: tate-no-yuusha-no-nariagari-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 99263 } # Tate no Yuusha no Nariagari (Winter 2019)
+    - id: tate-no-yuusha-no-nariagari-s2
+      number: 2
+      externalIds: { anilistId: 111321 } # Tate no Yuusha no Nariagari Season 2 (Spring 2022)
+    - id: tate-no-yuusha-no-nariagari-s3
+      number: 3
+      externalIds: { anilistId: 111322 } # Tate no Yuusha no Nariagari Season 3 (Fall 2023)
+    - id: tate-no-yuusha-no-nariagari-s4
+      number: 4
+      externalIds: { anilistId: 173780 } # Tate no Yuusha no Nariagari Season 4 (Summer 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tate-no-yuusha-no-nariagari]

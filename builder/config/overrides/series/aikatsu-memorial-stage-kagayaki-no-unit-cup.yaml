@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aikatsu-memorial-stage-kagayaki-no-unit-cup
+  titles:
+    original: アイカツ！メモリアルステージ ～輝きのユニットカップ～
+    translations: { ja-Latn: "Aikatsu! Memorial Stage: Kagayaki no Unit Cup" }
+  movies:
+    - id: aikatsu-memorial-stage-kagayaki-no-unit-cup-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aikatsu-memorial-stage-kagayaki-no-unit-cup]

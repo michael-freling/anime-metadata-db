@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mononoke-movie-2-hinezumi
+  titles:
+    original: モノノ怪 第二章 火鼠
+    translations: { ja-Latn: "Mononoke Movie 2: Hinezumi" }
+  movies:
+    - id: mononoke-movie-2-hinezumi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mononoke-movie-2-hinezumi]

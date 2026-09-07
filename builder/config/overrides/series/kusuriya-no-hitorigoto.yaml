@@ -1,0 +1,19 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kusuriya-no-hitorigoto
+  titles:
+    original: 薬屋のひとりごと
+    translations: { ja-Latn: Kusuriya no Hitorigoto }
+  seasons:
+    - id: kusuriya-no-hitorigoto-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 161645 } # Kusuriya no Hitorigoto (Fall 2023)
+    - id: kusuriya-no-hitorigoto-s2
+      number: 2
+      externalIds: { anilistId: 176301 } # Kusuriya no Hitorigoto 2nd Season (Winter 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kusuriya-no-hitorigoto]

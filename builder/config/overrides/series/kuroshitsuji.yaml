@@ -1,0 +1,30 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kuroshitsuji
+  titles:
+    original: 黒執事
+    translations: { ja-Latn: Kuroshitsuji }
+  seasons:
+    - id: kuroshitsuji-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 4898 } # Kuroshitsuji (Fall 2008)
+    - id: kuroshitsuji-s2
+      number: 2
+      externalIds: { anilistId: 6707 } # Kuroshitsuji II (Summer 2010)
+    - id: kuroshitsuji-s3
+      number: 3
+      externalIds: { anilistId: 20606 } # Kuroshitsuji: Book of Circus (Summer 2014)
+    - id: kuroshitsuji-s4
+      number: 4
+      externalIds: { anilistId: 166715 } # Kuroshitsuji: Kishuku Gakkou-hen (Spring 2024)
+    - id: kuroshitsuji-s5
+      number: 5
+      externalIds: { anilistId: 179054 } # Kuroshitsuji: Midori no Majo-hen (Spring 2025)
+# Not numbered: Kuroshitsuji II is a second continuation of season 1 that
+# Book of Circus sets aside and retells from, so the five runs are not one
+# stream and a continuous absoluteNumber across them would assert an order
+# that is not real. They sort by release instead.

@@ -1,0 +1,16 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: isshun-de-chiryou-shiteita-noni-yakutatazu-to-tsuihou
+  titles:
+    original: 一瞬で治療していたのに役立たずと追放された天才治癒師、闇ヒーラーとして楽しく生きる
+    translations: { ja-Latn: "Isshun de Chiryou shiteita noni Yakutatazu to Tsuihou sareta Tensai Chiyushi, Yami Healer toshite Tanoshiku Ikiru" }
+  seasons:
+    - id: isshun-de-chiryou-shiteita-noni-yakutatazu-to-tsuihou-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 175872 } # Isshun de Chiryou shiteita noni Yakutatazu to Tsuihou sareta Tensai Chiyushi, Yami Healer toshite Tanoshiku Ikiru (Spring 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [isshun-de-chiryou-shiteita-noni-yakutatazu-to-tsuihou]

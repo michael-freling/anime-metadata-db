@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: momentary-lily
+  titles:
+    original: もめんたりー・リリィ
+    translations: { ja-Latn: Momentary Lily }
+  seasons:
+    - id: momentary-lily-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [momentary-lily]

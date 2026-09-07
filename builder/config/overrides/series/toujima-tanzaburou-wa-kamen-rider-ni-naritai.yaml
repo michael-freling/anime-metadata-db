@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: toujima-tanzaburou-wa-kamen-rider-ni-naritai
+  titles:
+    original: 東島丹三郎は仮面ライダーになりたい
+    translations: { ja-Latn: Toujima Tanzaburou wa Kamen Rider ni Naritai }
+  seasons:
+    - id: toujima-tanzaburou-wa-kamen-rider-ni-naritai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [toujima-tanzaburou-wa-kamen-rider-ni-naritai]

@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: botsuraku-yotei-no-kizoku-dakedo-hima-datta-kara-mahou-wo
+  titles:
+    original: 没落予定の貴族だけど、暇だったから魔法を極めてみた
+    translations: { ja-Latn: "Botsuraku Yotei no Kizoku dakedo, Hima Datta kara Mahou wo Kiwametemita" }
+  seasons:
+    - id: botsuraku-yotei-no-kizoku-dakedo-hima-datta-kara-mahou-wo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [botsuraku-yotei-no-kizoku-dakedo-hima-datta-kara-mahou-wo]

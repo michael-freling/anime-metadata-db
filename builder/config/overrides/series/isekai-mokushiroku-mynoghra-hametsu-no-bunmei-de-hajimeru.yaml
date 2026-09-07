@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: isekai-mokushiroku-mynoghra-hametsu-no-bunmei-de-hajimeru
+  titles:
+    original: 異世界黙示録マイノグーラ ～破滅の文明で始める世界征服～
+    translations: { ja-Latn: "Isekai Mokushiroku Mynoghra: Hametsu no Bunmei de Hajimeru Sekai Seifuku" }
+  seasons:
+    - id: isekai-mokushiroku-mynoghra-hametsu-no-bunmei-de-hajimeru-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [isekai-mokushiroku-mynoghra-hametsu-no-bunmei-de-hajimeru]

@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shirobuta-kizoku-desu-ga-zense-no-kioku-ga-haeta-node
+  titles:
+    original: 白豚貴族ですが前世の記憶が生えたのでひよこな弟育てます
+    translations: { ja-Latn: Shirobuta Kizoku desu ga Zense no Kioku ga Haeta node Hiyoko na Otouto Sodatemasu }
+  seasons:
+    - id: shirobuta-kizoku-desu-ga-zense-no-kioku-ga-haeta-node-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shirobuta-kizoku-desu-ga-zense-no-kioku-ga-haeta-node]

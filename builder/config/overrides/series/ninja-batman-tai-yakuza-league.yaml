@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ninja-batman-tai-yakuza-league
+  titles:
+    original: ニンジャバットマン対ヤクザリーグ
+    translations: { ja-Latn: Ninja Batman tai Yakuza League }
+  movies:
+    - id: ninja-batman-tai-yakuza-league-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ninja-batman-tai-yakuza-league]

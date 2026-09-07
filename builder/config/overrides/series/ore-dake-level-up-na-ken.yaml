@@ -1,0 +1,19 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ore-dake-level-up-na-ken
+  titles:
+    original: 俺だけレベルアップな件
+    translations: { ja-Latn: Ore dake Level Up na Ken }
+  seasons:
+    - id: ore-dake-level-up-na-ken-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 151807 } # Ore dake Level Up na Ken (Winter 2024)
+    - id: ore-dake-level-up-na-ken-s2
+      number: 2
+      externalIds: { anilistId: 176496 } # Ore dake Level Up na Ken Season 2: Arise from the Shadow (Winter 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ore-dake-level-up-na-ken]

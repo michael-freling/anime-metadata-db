@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yurukawa-mell-chan
+  titles:
+    original: ゆるかわメルちゃん
+    translations: { ja-Latn: Yurukawa Mell-chan }
+  seasons:
+    - id: yurukawa-mell-chan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yurukawa-mell-chan]

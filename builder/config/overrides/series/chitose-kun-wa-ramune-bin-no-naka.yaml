@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chitose-kun-wa-ramune-bin-no-naka
+  titles:
+    original: 千歳くんはラムネ瓶のなか
+    translations: { ja-Latn: Chitose-kun wa Ramune Bin no Naka }
+  seasons:
+    - id: chitose-kun-wa-ramune-bin-no-naka-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chitose-kun-wa-ramune-bin-no-naka]

@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gorilla-no-kami-kara-kago-sareta-reijou-wa-ouritsu-kishidan
+  titles:
+    original: ゴリラの神から加護された令嬢は王立騎士団で可愛がられる
+    translations: { ja-Latn: Gorilla no Kami kara Kago sareta Reijou wa Ouritsu Kishidan de Kawaigarareru }
+  seasons:
+    - id: gorilla-no-kami-kara-kago-sareta-reijou-wa-ouritsu-kishidan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gorilla-no-kami-kara-kago-sareta-reijou-wa-ouritsu-kishidan]

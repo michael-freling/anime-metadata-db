@@ -1,0 +1,31 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: koikeya-sdgs-gekijou-suss-to-tina
+  titles:
+    original: 湖池屋SDGs劇場 サスとテナ
+    translations: { ja-Latn: Koikeya SDGs Gekijou Suss to Tina }
+  seasons:
+    - id: koikeya-sdgs-gekijou-suss-to-tina-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 204616 } # Koikeya SDGs Gekijou Suss to Tina (Fall 2021)
+    - id: koikeya-sdgs-gekijou-suss-to-tina-s2
+      number: 2
+      externalIds: { anilistId: 204617 } # Koikeya SDGs Gekijou Suss to Tina Season 2 (Spring 2022)
+    - id: koikeya-sdgs-gekijou-suss-to-tina-s3
+      number: 3
+      externalIds: { anilistId: 204618 } # Koikeya SDGs Gekijou Suss to Tina Season 3 (Fall 2022)
+    - id: koikeya-sdgs-gekijou-suss-to-tina-s4
+      number: 4
+      externalIds: { anilistId: 204619 } # Koikeya SDGs Gekijou Suss to Tina Season 4 (Summer 2023)
+    - id: koikeya-sdgs-gekijou-suss-to-tina-s5
+      number: 5
+      externalIds: { anilistId: 204620 } # Koikeya SDGs Gekijou Suss to Tina Season 5 (Summer 2024)
+    - id: koikeya-sdgs-gekijou-suss-to-tina-s6
+      number: 6
+      externalIds: { anilistId: 204621 } # Koikeya SDGs Gekijou Suss to Tina Season 6 (Fall 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [koikeya-sdgs-gekijou-suss-to-tina]

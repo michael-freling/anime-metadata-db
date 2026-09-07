@@ -1,0 +1,17 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mumei-no-jinsei
+  titles:
+    original: 無名の人生
+    translations: { ja-Latn: Mumei no Jinsei }
+  movies:
+    - id: mumei-no-jinsei-film
+      # Upstream lists a Chinese title, or a romanization,
+      # ahead of the film's own name.
+      titles:
+        original: 無名の人生
+        translations: { ja: "無名の人生", ja-Latn: Mumei no Jinsei }
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mumei-no-jinsei]

@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: boku-to-roboko-movie
+  titles:
+    original: 僕とロボコ 劇場版
+    translations: { ja-Latn: Boku to Roboko Movie }
+  movies:
+    - id: boku-to-roboko-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [boku-to-roboko-movie]

@@ -15,4 +15,16 @@ series:
         anilistId: 204269
       episodes:
         count: 1
-        absoluteFrom: 1
+        absoluteFrom: 2
+  movies:
+    - id: odekake-kozame-tokai-no-otomodachi
+      titles:
+        original: 映画 おでかけ子ザメ とかいのおともだち
+        translations:
+          ja: 映画 おでかけ子ザメ とかいのおともだち
+          ja-Latn: 'Odekake Kozame Movie: Tokai no Otomodachi'
+      releaseYear: 2025
+      externalIds:
+        anilistId: 177518
+        anidbId: 19062
+      absoluteNumber: 1

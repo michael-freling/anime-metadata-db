@@ -1,0 +1,17 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fushigi-no-kuni-de-alice-to-dive-in-wonderland
+  titles:
+    original: 不思議の国でアリスと -Dive in Wonderland
+    translations: { ja-Latn: "Fushigi no Kuni de Alice to: Dive in Wonderland" }
+  movies:
+    - id: fushigi-no-kuni-de-alice-to-dive-in-wonderland-film
+      # Upstream lists a Chinese title, or a romanization,
+      # ahead of the film's own name.
+      titles:
+        original: 不思議の国でアリスと -Dive in Wonderland
+        translations: { ja: "不思議の国でアリスと -Dive in Wonderland", ja-Latn: "Fushigi no Kuni de Alice to: Dive in Wonderland" }
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fushigi-no-kuni-de-alice-to-dive-in-wonderland]

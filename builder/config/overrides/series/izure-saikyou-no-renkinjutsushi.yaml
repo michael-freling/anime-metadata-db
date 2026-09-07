@@ -1,0 +1,16 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: izure-saikyou-no-renkinjutsushi
+  titles:
+    original: いずれ最強の錬金術師？
+    translations: { ja-Latn: "Izure Saikyou no Renkinjutsushi?" }
+  seasons:
+    - id: izure-saikyou-no-renkinjutsushi-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 177506 } # Izure Saikyou no Renkinjutsushi? (Winter 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [izure-saikyou-no-renkinjutsushi]

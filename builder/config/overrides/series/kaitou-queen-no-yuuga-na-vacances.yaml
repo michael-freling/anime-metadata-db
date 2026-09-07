@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaitou-queen-no-yuuga-na-vacances
+  titles:
+    original: 怪盗クイーンの優雅な休暇（バカンス）
+    translations: { ja-Latn: Kaitou Queen no Yuuga na Vacances }
+  movies:
+    - id: kaitou-queen-no-yuuga-na-vacances-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaitou-queen-no-yuuga-na-vacances]

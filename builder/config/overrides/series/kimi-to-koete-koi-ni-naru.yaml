@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kimi-to-koete-koi-ni-naru
+  titles:
+    original: キミと越えて恋になる
+    translations: { ja-Latn: Kimi to Koete Koi ni Naru }
+  seasons:
+    - id: kimi-to-koete-koi-ni-naru-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kimi-to-koete-koi-ni-naru]

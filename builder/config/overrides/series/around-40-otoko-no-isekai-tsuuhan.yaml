@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: around-40-otoko-no-isekai-tsuuhan
+  titles:
+    original: アラフォー男の異世界通販生活
+    translations: { ja-Latn: Around 40 Otoko no Isekai Tsuuhan }
+  seasons:
+    - id: around-40-otoko-no-isekai-tsuuhan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [around-40-otoko-no-isekai-tsuuhan]

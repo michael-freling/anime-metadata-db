@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: princess-principal-crown-handler-4
+  titles:
+    original: プリンセス・プリンシパル Crown Handler 第4章
+    translations: { ja-Latn: "Princess Principal: Crown Handler 4" }
+  movies:
+    - id: princess-principal-crown-handler-4-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [princess-principal-crown-handler-4]

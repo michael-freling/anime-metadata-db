@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tabekko-doubutsu-the-movie
+  titles:
+    original: たべっ子どうぶつ THE MOVIE
+    translations: { ja-Latn: Tabekko Doubutsu The Movie }
+  movies:
+    - id: tabekko-doubutsu-the-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tabekko-doubutsu-the-movie]

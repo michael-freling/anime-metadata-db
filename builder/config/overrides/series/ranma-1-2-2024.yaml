@@ -1,0 +1,19 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ranma-1-2-2024
+  titles:
+    original: らんま½
+    translations: { ja-Latn: "Ranma ½ (2024)" }
+  seasons:
+    - id: ranma-1-2-2024-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 178533 } # Ranma ½ (2024) (Fall 2024)
+    - id: ranma-1-2-2024-s2
+      number: 2
+      externalIds: { anilistId: 185731 } # Ranma ½ (2024) 2nd Season (Fall 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ranma-1-2-2024]

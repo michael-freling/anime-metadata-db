@@ -1,0 +1,49 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yami-shibai
+  titles:
+    original: やみしばい
+    translations: { ja-Latn: Yami Shibai }
+  seasons:
+    - id: yami-shibai-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 19383 } # Yami Shibai (Summer 2013)
+    - id: yami-shibai-s2
+      number: 2
+      externalIds: { anilistId: 20669 } # Yami Shibai 2 (Summer 2014)
+    - id: yami-shibai-s3
+      number: 3
+      externalIds: { anilistId: 21473 } # Yami Shibai 3 (Winter 2016)
+    - id: yami-shibai-s4
+      number: 4
+      externalIds: { anilistId: 97890 } # Yami Shibai 4 (Winter 2017)
+    - id: yami-shibai-s5
+      number: 5
+      externalIds: { anilistId: 98978 } # Yami Shibai 5 (Summer 2017)
+    - id: yami-shibai-s6
+      number: 6
+      externalIds: { anilistId: 101743 } # Yami Shibai 6 (Summer 2018)
+    - id: yami-shibai-s7
+      number: 7
+      externalIds: { anilistId: 109603 } # Yami Shibai 7 (Summer 2019)
+    - id: yami-shibai-s8
+      number: 8
+      externalIds: { anilistId: 126678 } # Yami Shibai 8 (Winter 2021)
+    - id: yami-shibai-s9
+      number: 9
+      externalIds: { anilistId: 135108 } # Yami Shibai 9 (Summer 2021)
+    - id: yami-shibai-s10
+      number: 10
+      externalIds: { anilistId: 177922 } # Yami Shibai 13 (Summer 2024)
+    - id: yami-shibai-s11
+      number: 11
+      externalIds: { anilistId: 185088 } # Yami Shibai 14 (Winter 2025)
+    - id: yami-shibai-s12
+      number: 12
+      externalIds: { anilistId: 194088 } # Yami Shibai 15 (Summer 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yami-shibai]

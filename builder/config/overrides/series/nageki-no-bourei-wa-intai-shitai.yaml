@@ -1,0 +1,20 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nageki-no-bourei-wa-intai-shitai
+  titles:
+    original: 嘆きの亡霊は引退したい ～最弱ハンターによる最強パーティ育成術～
+    translations: { ja-Latn: Nageki no Bourei wa Intai shitai }
+  seasons:
+    - id: nageki-no-bourei-wa-intai-shitai-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 175019 } # Nageki no Bourei wa Intai shitai (Fall 2024)
+    - id: nageki-no-bourei-wa-intai-shitai-s2p2
+      number: 2
+      part: 2
+      externalIds: { anilistId: 185801 } # Nageki no Bourei wa Intai shitai Part 2 (Fall 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nageki-no-bourei-wa-intai-shitai]

@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sorairo-utility
+  titles:
+    original: 空色ユーティリティ
+    translations: { ja-Latn: Sorairo Utility }
+  seasons:
+    - id: sorairo-utility-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sorairo-utility]

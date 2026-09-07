@@ -1,0 +1,15 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wind-breaker
+  titles:
+    original: ウィンドブレイカー
+    translations: { ja-Latn: Wind Breaker }
+  seasons:
+    - id: wind-breaker-s1
+      number: 1
+    - id: wind-breaker-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wind-breaker]

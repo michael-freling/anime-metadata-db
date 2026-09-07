@@ -1,0 +1,14 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rest
+  titles:
+    original: Rest
+  movies:
+    - id: rest-film
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 200640 } # Rest (Movie) (Winter 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rest]

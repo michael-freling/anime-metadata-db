@@ -1,0 +1,19 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaijuu-8-gou
+  titles:
+    original: 怪獣8号
+    translations: { ja-Latn: Kaijuu 8-gou }
+  seasons:
+    - id: kaijuu-8-gou-s1
+      number: 1
+    - id: kaijuu-8-gou-s2
+      number: 2
+  movies:
+    - id: kaijuu-8-gou-film
+      # A recut of the season, so it takes no absoluteNumber of its own.
+      alternateCutOf: { seasonId: kaijuu-8-gou-s1 }
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaijuu-8-gou]

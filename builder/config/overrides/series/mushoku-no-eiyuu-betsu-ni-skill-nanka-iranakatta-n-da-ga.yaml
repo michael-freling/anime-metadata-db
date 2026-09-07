@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mushoku-no-eiyuu-betsu-ni-skill-nanka-iranakatta-n-da-ga
+  titles:
+    original: 無職の英雄 別にスキルなんか要らなかったんだが
+    translations: { ja-Latn: "Mushoku no Eiyuu: Betsu ni Skill Nanka Iranakatta n da ga" }
+  seasons:
+    - id: mushoku-no-eiyuu-betsu-ni-skill-nanka-iranakatta-n-da-ga-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mushoku-no-eiyuu-betsu-ni-skill-nanka-iranakatta-n-da-ga]

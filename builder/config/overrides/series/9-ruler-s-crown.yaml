@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 9-ruler-s-crown
+  titles:
+    original: "9-nine- 支配者の王冠"
+    translations: { ja-Latn: "9: Ruler's Crown" }
+  seasons:
+    - id: 9-ruler-s-crown-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [9-ruler-s-crown]

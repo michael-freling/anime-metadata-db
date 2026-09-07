@@ -1,0 +1,11 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tamala-2030-a-punk-cat-in-dark
+  titles:
+    original: "Tamala 2030: A Punk Cat in Dark"
+  movies:
+    - id: tamala-2030-a-punk-cat-in-dark-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tamala-2030-a-punk-cat-in-dark]

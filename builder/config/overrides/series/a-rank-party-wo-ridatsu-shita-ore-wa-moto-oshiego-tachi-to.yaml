@@ -1,0 +1,16 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: a-rank-party-wo-ridatsu-shita-ore-wa-moto-oshiego-tachi-to
+  titles:
+    original: Aランクパーティを離脱した俺は、元教え子たちと迷宮深部を目指す。
+    translations: { ja-Latn: "A-Rank Party wo Ridatsu shita Ore wa, Moto Oshiego-tachi to Meikyuu Shinbu wo Mezasu." }
+  seasons:
+    - id: a-rank-party-wo-ridatsu-shita-ore-wa-moto-oshiego-tachi-to-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 180812 } # A-Rank Party wo Ridatsu shita Ore wa, Moto Oshiego-tachi to Meikyuu Shinbu wo Mezasu. (Winter 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [a-rank-party-wo-ridatsu-shita-ore-wa-moto-oshiego-tachi-to]

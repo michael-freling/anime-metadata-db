@@ -1,0 +1,22 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: youtunya
+  titles:
+    original: ユーチューニャー
+    translations: { ja-Latn: YouTuNya }
+  seasons:
+    - id: youtunya-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 162717 } # YouTuNya (Spring 2023)
+    - id: youtunya-s2
+      number: 2
+      externalIds: { anilistId: 176635 } # YouTuNya 2nd Season (Spring 2024)
+    - id: youtunya-s3
+      number: 3
+      externalIds: { anilistId: 189602 } # YouTuNya 3rd Season (Spring 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [youtunya]

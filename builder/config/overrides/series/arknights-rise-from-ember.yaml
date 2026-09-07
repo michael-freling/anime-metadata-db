@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: arknights-rise-from-ember
+  titles:
+    original: アークナイツ【焔燼曙明/RISE FROM EMBER】
+    translations: { ja-Latn: "Arknights: Rise from Ember" }
+  seasons:
+    - id: arknights-rise-from-ember-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [arknights-rise-from-ember]

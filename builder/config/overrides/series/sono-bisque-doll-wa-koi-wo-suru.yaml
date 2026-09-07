@@ -1,0 +1,15 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sono-bisque-doll-wa-koi-wo-suru
+  titles:
+    original: その着せ替え人形（ビスク・ドール）は恋をする
+    translations: { ja-Latn: Sono Bisque Doll wa Koi wo Suru }
+  seasons:
+    - id: sono-bisque-doll-wa-koi-wo-suru-s1
+      number: 1
+    - id: sono-bisque-doll-wa-koi-wo-suru-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sono-bisque-doll-wa-koi-wo-suru]
