@@ -64,6 +64,19 @@ series:
       episodes:
         count: 13
         absoluteFrom: 50
+  movies:
+    - id: golden-kamuy-sapporo-beer-koujou-hen
+      titles:
+        original: ゴールデンカムイ 劇場先行版 札幌ビール工場編
+        translations:
+          ja: ゴールデンカムイ 劇場先行版 札幌ビール工場編
+          ja-Latn: 'Golden Kamuy: Sapporo Beer Koujou-hen'
+      releaseYear: 2025
+      externalIds:
+        anilistId: 196115
+        anidbId: 19475
+      alternateCutOf:
+        seasonId: golden-kamuy-s5
   characters:
     - id: saichi-sugimoto
       names:

@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tooi-san-wa-seishun-shitai-baka-to-smapho-to-romance-to
+  titles:
+    original: 遠井さんは青春したい！バカとスマホとロマンスと
+    translations: { ja-Latn: "Tooi-san wa Seishun Shitai! \"Baka to SmaPho to Romance to\"" }
+  movies:
+    - id: tooi-san-wa-seishun-shitai-baka-to-smapho-to-romance-to-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tooi-san-wa-seishun-shitai-baka-to-smapho-to-romance-to]

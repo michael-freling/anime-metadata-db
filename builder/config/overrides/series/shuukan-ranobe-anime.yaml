@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shuukan-ranobe-anime
+  titles:
+    original: 週刊ラノベアニメ
+    translations: { ja-Latn: Shuukan Ranobe Anime }
+  seasons:
+    - id: shuukan-ranobe-anime-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shuukan-ranobe-anime]

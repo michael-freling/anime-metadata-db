@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: akujiki-reijou-to-kyouketsu-koushaku
+  titles:
+    original: 悪食令嬢と狂血公爵 ～その魔物、私が美味しくいただきます！～
+    translations: { ja-Latn: Akujiki Reijou to Kyouketsu Koushaku }
+  seasons:
+    - id: akujiki-reijou-to-kyouketsu-koushaku-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [akujiki-reijou-to-kyouketsu-koushaku]

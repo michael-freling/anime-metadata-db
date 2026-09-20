@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chikyuu-no-latair
+  titles:
+    original: 地球のラテール
+    translations: { ja-Latn: Chikyuu no Latair }
+  seasons:
+    - id: chikyuu-no-latair-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chikyuu-no-latair]

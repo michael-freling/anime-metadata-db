@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sousei-no-aquarion-myth-of-emotions
+  titles:
+    original: 創星のアクエリオン Myth of Emotions
+    translations: { ja-Latn: "Sousei no Aquarion: Myth of Emotions" }
+  seasons:
+    - id: sousei-no-aquarion-myth-of-emotions-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sousei-no-aquarion-myth-of-emotions]

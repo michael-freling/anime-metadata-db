@@ -17,6 +17,15 @@ series:
       number: 4
     - id: golden-kamuy-s5
       number: 5
+  movies:
+    # Added by the 2025 catalogue import. 劇場先行版 — the two episodes of the
+    # final chapter screened in cinemas ahead of the broadcast, so it is a recut
+    # of season 5 rather than a film of its own and takes no absoluteNumber.
+    - id: golden-kamuy-sapporo-beer-koujou-hen
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 196115 } # Golden Kamuy: Sapporo Beer Koujou-hen (Fall 2025)
+      alternateCutOf: { seasonId: golden-kamuy-s5 }
   # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
   # the builder fills every name from the QID at build time.
   characters:

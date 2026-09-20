@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kijin-gentoushou
+  titles:
+    original: 鬼人幻燈抄
+    translations: { ja-Latn: Kijin Gentoushou }
+  seasons:
+    - id: kijin-gentoushou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kijin-gentoushou]

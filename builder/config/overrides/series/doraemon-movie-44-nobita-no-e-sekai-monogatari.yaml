@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: doraemon-movie-44-nobita-no-e-sekai-monogatari
+  titles:
+    original: ドラえもん のび太の絵世界物語
+    translations: { ja-Latn: "Doraemon Movie 44: Nobita no E Sekai Monogatari" }
+  movies:
+    - id: doraemon-movie-44-nobita-no-e-sekai-monogatari-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [doraemon-movie-44-nobita-no-e-sekai-monogatari]

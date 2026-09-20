@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: project-sekai-movie-kowareta-sekai-to-utaenai-miku
+  titles:
+    original: プロジェクトセカイ 壊れたセカイと歌えないミク
+    translations: { ja-Latn: "Project Sekai Movie: Kowareta Sekai to Utaenai Miku" }
+  movies:
+    - id: project-sekai-movie-kowareta-sekai-to-utaenai-miku-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [project-sekai-movie-kowareta-sekai-to-utaenai-miku]

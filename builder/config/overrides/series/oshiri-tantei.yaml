@@ -1,0 +1,50 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: oshiri-tantei
+  titles:
+    original: おしりたんてい
+    translations: { ja-Latn: Oshiri Tantei }
+  seasons:
+    - id: oshiri-tantei-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 100790 } # Oshiri Tantei (Spring 2018)
+    - id: oshiri-tantei-s2
+      number: 2
+      externalIds: { anilistId: 132694 } # Oshiri Tantei 2nd Season (Winter 2019)
+    - id: oshiri-tantei-s3
+      number: 3
+      externalIds: { anilistId: 132695 } # Oshiri Tantei 3rd Season (Summer 2019)
+    - id: oshiri-tantei-s4
+      number: 4
+      externalIds: { anilistId: 132696 } # Oshiri Tantei 4th Season (Spring 2020)
+    - id: oshiri-tantei-s5
+      number: 5
+      externalIds: { anilistId: 132697 } # Oshiri Tantei 5th Season (Spring 2021)
+    - id: oshiri-tantei-s6
+      number: 6
+      externalIds: { anilistId: 179870 } # Oshiri Tantei 6th Season (Spring 2022)
+    - id: oshiri-tantei-s7
+      number: 7
+      externalIds: { anilistId: 179871 } # Oshiri Tantei 7th Season (Spring 2023)
+    - id: oshiri-tantei-s8
+      number: 8
+      externalIds: { anilistId: 179872 } # Oshiri Tantei 8th Season (Fall 2023)
+    - id: oshiri-tantei-s9
+      number: 9
+      externalIds: { anilistId: 185644 } # Oshiri Tantei 8th Season (Spring 2024)
+    - id: oshiri-tantei-s10
+      number: 10
+      externalIds: { anilistId: 185645 } # Oshiri Tantei 9th Season (Spring 2025)
+    - id: oshiri-tantei-s11p2
+      number: 11
+      part: 2
+      externalIds: { anilistId: 194832 } # Oshiri Tantei 9 Part 2 (Fall 2025)
+  movies:
+    - id: oshiri-tantei-film
+      externalIds: { anilistId: 185643 } # Oshiri Tantei Movie 6: Star and Moon (Winter 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [oshiri-tantei]

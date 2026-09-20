@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aikatsu-x-pripara-the-movie-deai-no-kiseki
+  titles:
+    original: アイカツ！×プリパラ THE MOVIE -出会いのキセキ
+    translations: { ja-Latn: "Aikatsu! x PriPara the Movie: Deai no Kiseki!" }
+  movies:
+    - id: aikatsu-x-pripara-the-movie-deai-no-kiseki-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aikatsu-x-pripara-the-movie-deai-no-kiseki]

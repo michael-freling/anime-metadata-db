@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gakkou-de-wa-oshiete-kurenai-taisetsu-na-koto
+  titles:
+    original: 学校では教えてくれない大切なこと
+    translations: { ja-Latn: Gakkou de wa Oshiete Kurenai Taisetsu na Koto }
+  seasons:
+    - id: gakkou-de-wa-oshiete-kurenai-taisetsu-na-koto-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gakkou-de-wa-oshiete-kurenai-taisetsu-na-koto]

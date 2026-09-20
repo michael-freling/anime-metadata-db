@@ -1,0 +1,15 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aharen-san-wa-hakarenai
+  titles:
+    original: 阿波連さんははかれない
+    translations: { ja-Latn: Aharen-san wa Hakarenai }
+  seasons:
+    - id: aharen-san-wa-hakarenai-s1
+      number: 1
+    - id: aharen-san-wa-hakarenai-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aharen-san-wa-hakarenai]

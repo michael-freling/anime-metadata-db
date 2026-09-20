@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dotoli-munhwasenteo
+  titles:
+    original: 도토리 문화센터
+    translations: { ko-Latn: Dotoli Munhwasenteo }
+  seasons:
+    - id: dotoli-munhwasenteo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dotoli-munhwasenteo]

@@ -1,0 +1,19 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tensei-shitara-dainana-ouji-datta-node-kimama-ni-majutsu-wo
+  titles:
+    original: 転生したら第七王子だったので、気ままに魔術を極めます
+    translations: { ja-Latn: "Tensei shitara Dainana Ouji Datta node, Kimama ni Majutsu wo Kiwamemasu" }
+  seasons:
+    - id: tensei-shitara-dainana-ouji-datta-node-kimama-ni-majutsu-wo-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 156415 } # Tensei shitara Dainana Ouji Datta node, Kimama ni Majutsu wo Kiwamemasu (Spring 2024)
+    - id: tensei-shitara-dainana-ouji-datta-node-kimama-ni-majutsu-wo-s2
+      number: 2
+      externalIds: { anilistId: 178090 } # Tensei shitara Dainana Ouji Datta node, Kimama ni Majutsu wo Kiwamemasu 2nd Season (Summer 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tensei-shitara-dainana-ouji-datta-node-kimama-ni-majutsu-wo]

@@ -1,0 +1,16 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: liaozhai-lanre-si
+  titles:
+    original: 聊斋：兰若寺
+    translations: { zh-Latn: "Liaozhai: Lanre Si" }
+  movies:
+    - id: liaozhai-lanre-si-film
+      # Stated, or the build reads a Han-only title as Japanese.
+      titles:
+        original: 聊斋：兰若寺
+        translations: { zh-Latn: "Liaozhai: Lanre Si" }
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [liaozhai-lanre-si]

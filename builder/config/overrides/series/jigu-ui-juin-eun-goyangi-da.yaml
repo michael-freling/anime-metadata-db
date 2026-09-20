@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jigu-ui-juin-eun-goyangi-da
+  titles:
+    original: 지구의 주인은 고양이다
+    translations: { ko-Latn: Jigu-ui Juin-eun Goyangi-da }
+  seasons:
+    - id: jigu-ui-juin-eun-goyangi-da-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jigu-ui-juin-eun-goyangi-da]

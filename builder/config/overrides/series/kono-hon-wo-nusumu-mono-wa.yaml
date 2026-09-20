@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kono-hon-wo-nusumu-mono-wa
+  titles:
+    original: この本を盗む者は
+    translations: { ja-Latn: Kono Hon wo Nusumu Mono wa }
+  movies:
+    - id: kono-hon-wo-nusumu-mono-wa-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kono-hon-wo-nusumu-mono-wa]

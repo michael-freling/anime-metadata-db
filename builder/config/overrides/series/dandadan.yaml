@@ -1,0 +1,19 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dandadan
+  titles:
+    original: ダンダダン
+    translations: { ja-Latn: Dandadan }
+  seasons:
+    - id: dandadan-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 171018 } # Dandadan (Fall 2024)
+    - id: dandadan-s2
+      number: 2
+      externalIds: { anilistId: 185660 } # Dandadan 2nd Season (Summer 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dandadan]

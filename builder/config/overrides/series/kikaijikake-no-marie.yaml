@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kikaijikake-no-marie
+  titles:
+    original: 機械じかけのマリー
+    translations: { ja-Latn: Kikaijikake no Marie }
+  seasons:
+    - id: kikaijikake-no-marie-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kikaijikake-no-marie]

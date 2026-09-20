@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kizu-darake-seijo-yori-houfuku-wo-komete
+  titles:
+    original: 傷だらけ聖女より報復をこめて
+    translations: { ja-Latn: Kizu darake Seijo yori Houfuku wo Komete }
+  seasons:
+    - id: kizu-darake-seijo-yori-houfuku-wo-komete-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kizu-darake-seijo-yori-houfuku-wo-komete]

@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: s-rank-monster-no-behemoth-dakedo-neko-to-machigawarete-elf
+  titles:
+    original: Ｓランクモンスターの《ベヒーモス》だけど、猫と間違われてエルフ娘の騎士（ペット）として暮らしてます
+    translations: { ja-Latn: "S-Rank Monster no \"Behemoth\" dakedo, Neko to Machigawarete Elf Musume no Pet toshite Kurashitemasu" }
+  seasons:
+    - id: s-rank-monster-no-behemoth-dakedo-neko-to-machigawarete-elf-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [s-rank-monster-no-behemoth-dakedo-neko-to-machigawarete-elf]

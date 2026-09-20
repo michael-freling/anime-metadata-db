@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: neo-atom-tanjou
+  titles:
+    original: ネオアトム誕生
+    translations: { ja-Latn: Neo Atom Tanjou }
+  movies:
+    - id: neo-atom-tanjou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [neo-atom-tanjou]

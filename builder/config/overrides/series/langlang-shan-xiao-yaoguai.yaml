@@ -1,0 +1,16 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: langlang-shan-xiao-yaoguai
+  titles:
+    original: 浪浪山小妖怪
+    translations: { zh-Latn: Langlang Shan Xiao Yaoguai }
+  movies:
+    - id: langlang-shan-xiao-yaoguai-film
+      # Stated, or the build reads a Han-only title as Japanese.
+      titles:
+        original: 浪浪山小妖怪
+        translations: { zh-Latn: Langlang Shan Xiao Yaoguai }
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [langlang-shan-xiao-yaoguai]

@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: danjo-no-yuujou-wa-seiritsu-suru-iya-shinai
+  titles:
+    original: 男女の友情は成立する？（いや、しないっ！！）
+    translations: { ja-Latn: "Danjo no Yuujou wa Seiritsu suru? (Iya, Shinai!!)" }
+  seasons:
+    - id: danjo-no-yuujou-wa-seiritsu-suru-iya-shinai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [danjo-no-yuujou-wa-seiritsu-suru-iya-shinai]

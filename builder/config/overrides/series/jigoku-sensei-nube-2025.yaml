@@ -1,17 +1,25 @@
-# Authored override — Winter/Spring 2026 catalogue import. Holds only the
-# structure the open sources cannot express; `builder build` fills the facts
-# into data/. Never hand-edit data/.
+# Authored override — Winter/Spring 2026 catalogue import, extended by the 2025
+# catalogue import. Holds only the structure the open sources cannot express;
+# `builder build` fills the facts into data/. Never hand-edit data/.
+#
+# Corrected: the 2026 import saw only the second cour and made it the series,
+# titling the whole record after it (第2クール). The first cour aired Summer 2025
+# and is added here as part 1, and the series takes the show's own name back.
 series:
   id: jigoku-sensei-nube-2025
   titles:
-    original: 地獄先生ぬ～べ～ (2025) 第2クール
+    original: 地獄先生ぬ～べ～ (2025)
     translations: { ja-Latn: Jigoku Sensei Nube (2025) }
   seasons:
+    - id: jigoku-sensei-nube-2025-s1p1
+      number: 1
+      part: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 179678 } # Jigoku Sensei Nube (2025) (Summer 2025)
     - id: jigoku-sensei-nube-2025-s1p2
       number: 1
       part: 2
-      # Authored: upstream does not list this under the series' own title, so
-      # the build cannot resolve it. Everywhere else the id is resolved.
       externalIds: { anilistId: 191967 } # Jigoku Sensei Nube (2025) Part 2 (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [jigoku-sensei-nube-2025]

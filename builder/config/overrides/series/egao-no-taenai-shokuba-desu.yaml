@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: egao-no-taenai-shokuba-desu
+  titles:
+    original: 笑顔のたえない職場です。
+    translations: { ja-Latn: Egao no Taenai Shokuba desu. }
+  seasons:
+    - id: egao-no-taenai-shokuba-desu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [egao-no-taenai-shokuba-desu]

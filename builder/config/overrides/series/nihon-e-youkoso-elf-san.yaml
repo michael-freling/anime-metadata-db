@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nihon-e-youkoso-elf-san
+  titles:
+    original: 日本へようこそエルフさん。
+    translations: { ja-Latn: Nihon e Youkoso Elf-san. }
+  seasons:
+    - id: nihon-e-youkoso-elf-san-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nihon-e-youkoso-elf-san]

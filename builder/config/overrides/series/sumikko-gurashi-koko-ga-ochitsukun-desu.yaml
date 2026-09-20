@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sumikko-gurashi-koko-ga-ochitsukun-desu
+  titles:
+    original: すみっコぐらし ここがおちつくんです
+    translations: { ja-Latn: "Sumikko Gurashi: Koko ga Ochitsukun desu" }
+  seasons:
+    - id: sumikko-gurashi-koko-ga-ochitsukun-desu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sumikko-gurashi-koko-ga-ochitsukun-desu]

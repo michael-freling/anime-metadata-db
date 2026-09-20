@@ -1,0 +1,19 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jochum
+  titles:
+    original: ジェオチャム
+    translations: { ja-Latn: Jochum }
+  seasons:
+    - id: jochum-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 179408 } # Jochum (Summer 2024)
+    - id: jochum-s2
+      number: 2
+      externalIds: { anilistId: 198413 } # Jochum Season 2 (Fall 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jochum]

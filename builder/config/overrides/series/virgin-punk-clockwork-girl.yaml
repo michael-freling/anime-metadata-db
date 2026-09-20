@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: virgin-punk-clockwork-girl
+  titles:
+    original: ヴァージン・パンク Clockwork Girl
+    translations: { ja-Latn: "Virgin Punk: Clockwork Girl" }
+  movies:
+    - id: virgin-punk-clockwork-girl-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [virgin-punk-clockwork-girl]

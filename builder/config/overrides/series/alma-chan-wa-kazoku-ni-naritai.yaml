@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: alma-chan-wa-kazoku-ni-naritai
+  titles:
+    original: アルマちゃんは家族になりたい
+    translations: { ja-Latn: Alma-chan wa Kazoku ni Naritai }
+  seasons:
+    - id: alma-chan-wa-kazoku-ni-naritai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [alma-chan-wa-kazoku-ni-naritai]

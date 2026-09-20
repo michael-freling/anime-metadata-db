@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: oide-yo-mahou-shoujo-mura-fuhou-senkyo
+  titles:
+    original: おいでよ魔法少女村（不法占拠）
+    translations: { ja-Latn: "Oide yo Mahou Shoujo Mura (Fuhou Senkyo)" }
+  seasons:
+    - id: oide-yo-mahou-shoujo-mura-fuhou-senkyo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [oide-yo-mahou-shoujo-mura-fuhou-senkyo]

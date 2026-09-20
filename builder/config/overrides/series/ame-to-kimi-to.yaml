@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ame-to-kimi-to
+  titles:
+    original: 雨と君と
+    translations: { ja-Latn: Ame to Kimi to }
+  seasons:
+    - id: ame-to-kimi-to-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ame-to-kimi-to]

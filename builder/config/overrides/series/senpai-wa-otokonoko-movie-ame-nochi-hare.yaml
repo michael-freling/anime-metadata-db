@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: senpai-wa-otokonoko-movie-ame-nochi-hare
+  titles:
+    original: 先輩はおとこのこ あめのち晴れ
+    translations: { ja-Latn: "Senpai wa Otokonoko Movie: Ame Nochi Hare" }
+  movies:
+    - id: senpai-wa-otokonoko-movie-ame-nochi-hare-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [senpai-wa-otokonoko-movie-ame-nochi-hare]

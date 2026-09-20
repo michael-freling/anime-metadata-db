@@ -1,0 +1,16 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nezha-zhi-mo-tong-nao-hai
+  titles:
+    original: 哪吒之魔童闹海
+    translations: { zh-Latn: Nezha Zhi Mo Tong Nao Hai }
+  movies:
+    - id: nezha-zhi-mo-tong-nao-hai-film
+      # Stated, or the build reads a Han-only title as Japanese.
+      titles:
+        original: 哪吒之魔童闹海
+        translations: { zh-Latn: Nezha Zhi Mo Tong Nao Hai }
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nezha-zhi-mo-tong-nao-hai]

@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hoshi-no-kodomo-to-hajimari-no-ki
+  titles:
+    original: 星の子どもとはじまりの樹
+    translations: { ja-Latn: Hoshi no Kodomo to Hajimari no Ki }
+  movies:
+    - id: hoshi-no-kodomo-to-hajimari-no-ki-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hoshi-no-kodomo-to-hajimari-no-ki]

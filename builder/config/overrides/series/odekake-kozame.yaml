@@ -9,5 +9,12 @@ series:
   seasons:
     - id: odekake-kozame-s2
       number: 2
+  movies:
+    # Added by the 2025 catalogue import: an original theatrical short, so it
+    # takes its own slot in the numbered run.
+    - id: odekake-kozame-tokai-no-otomodachi
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 177518 } # Odekake Kozame Movie: Tokai no Otomodachi (Summer 2025)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [odekake-kozame]

@@ -1,0 +1,18 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kimi-to-idol-precure
+  titles:
+    original: キミとアイドルプリキュア♪
+    translations: { ja-Latn: "Kimi to Idol Precure♪" }
+  seasons:
+    - id: kimi-to-idol-precure-s1
+      number: 1
+  movies:
+    - id: kimi-to-idol-precure-film
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 183414 } # Kimi to Idol Precure♪ Movie: Omatase! Kimi ni Todokeru Kirakki Live! (Summer 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kimi-to-idol-precure]

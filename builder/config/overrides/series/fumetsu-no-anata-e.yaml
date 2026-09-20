@@ -1,0 +1,22 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fumetsu-no-anata-e
+  titles:
+    original: 不滅のあなたへ
+    translations: { ja-Latn: Fumetsu no Anata e }
+  seasons:
+    - id: fumetsu-no-anata-e-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 114535 } # Fumetsu no Anata e (Spring 2021)
+    - id: fumetsu-no-anata-e-s2
+      number: 2
+      externalIds: { anilistId: 138565 } # Fumetsu no Anata e Season 2 (Fall 2022)
+    - id: fumetsu-no-anata-e-s3
+      number: 3
+      externalIds: { anilistId: 162669 } # Fumetsu no Anata e Season 3 (Fall 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fumetsu-no-anata-e]

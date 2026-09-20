@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aldnoah-zero-re
+  titles:
+    original: アルドノア・ゼロ（Re+）
+    translations: { ja-Latn: "Aldnoah.Zero (Re+)" }
+  movies:
+    - id: aldnoah-zero-re-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aldnoah-zero-re]

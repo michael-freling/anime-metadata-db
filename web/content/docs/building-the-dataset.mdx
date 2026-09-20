@@ -55,12 +55,14 @@ own title: upstream lists that title among the synonyms of each entry belonging
 to the series, so finding those entries enumerates the family and the airing
 dates order it. **You do not author `anilistId`** — the build resolves it.
 
-That covers 150 of the catalogue's 225 ids, and it is safe to rely on because it
-was measured rather than assumed: deleting every authored id and rebuilding
-produces a byte-identical `data/`, so across the whole catalogue the resolution
-never once named a different entry from the editor who had typed it.
+That covers 492 of the catalogue's 699 ids, and it is safe to rely on because it
+was measured rather than assumed: over the 2026 catalogue, deleting every
+authored id and rebuilding produced a byte-identical `data/`, and over the 2025
+one the resolution reproduced the editor's id everywhere but *Grand Blue*, where
+upstream carries the series' title on season 1 and on the announced season 3 but
+not on season 2.
 
-The remaining 75 sit in 24 series that upstream does not list under their own
+The remaining 207 sit in 76 series that upstream does not list under their own
 title. Those stay authored, and every build prints the split:
 
 ```
@@ -110,11 +112,11 @@ The build then says how much of that surface it could actually see, and how much
 of what it found must not merge:
 
 ```
-anilistId provenance: 225 ids
-  150/225 resolved from the series' own title
-  75/225 read from an override
-  112/225 linked to a sibling installment
-  113/225 unverifiable: the only installment of their series, so nothing to check against
+anilistId provenance: 699 ids
+  492/699 resolved from the series' own title
+  207/699 read from an override
+  299/699 linked to a sibling installment
+  400/699 unverifiable: the only installment of their series, so nothing to check against
 gating findings: 0
 ```
 

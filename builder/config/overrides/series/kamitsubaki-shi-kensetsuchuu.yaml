@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kamitsubaki-shi-kensetsuchuu
+  titles:
+    original: 神椿市建設中。
+    translations: { ja-Latn: Kamitsubaki-shi Kensetsuchuu. }
+  seasons:
+    - id: kamitsubaki-shi-kensetsuchuu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kamitsubaki-shi-kensetsuchuu]

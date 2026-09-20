@@ -1,0 +1,23 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+# Both ids are authored because upstream lists 'ぐらんぶる' on season 1 and
+# on the announced season 3, but not on season 2 — so the resolution pairs
+# season 2 with season 3's entry and reports a disagreement on it. Season 3
+# airs after the window this import covers and is not carried here.
+series:
+  id: grand-blue
+  titles:
+    original: ぐらんぶる
+    translations: { ja-Latn: Grand Blue }
+  seasons:
+    - id: grand-blue-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 100922 } # Grand Blue (Summer 2018)
+    - id: grand-blue-s2
+      number: 2
+      externalIds: { anilistId: 182309 } # Grand Blue Season 2 (Summer 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [grand-blue]

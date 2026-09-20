@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mizu-zokusei-no-mahoutsukai
+  titles:
+    original: 水属性の魔法使い
+    translations: { ja-Latn: Mizu Zokusei no Mahoutsukai }
+  seasons:
+    - id: mizu-zokusei-no-mahoutsukai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mizu-zokusei-no-mahoutsukai]

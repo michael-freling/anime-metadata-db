@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: watashi-wo-tabetai-hitodenashi
+  titles:
+    original: 私を喰べたい、ひとでなし
+    translations: { ja-Latn: "Watashi wo Tabetai, Hitodenashi" }
+  seasons:
+    - id: watashi-wo-tabetai-hitodenashi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [watashi-wo-tabetai-hitodenashi]

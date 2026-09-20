@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shabake
+  titles:
+    original: しゃばけ
+    translations: { ja-Latn: Shabake }
+  seasons:
+    - id: shabake-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shabake]

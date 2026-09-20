@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nohara-hiroshi-hiru-meshi-no-ryuugi
+  titles:
+    original: 野原ひろし 昼メシの流儀
+    translations: { ja-Latn: "Nohara Hiroshi: Hiru Meshi no Ryuugi" }
+  seasons:
+    - id: nohara-hiroshi-hiru-meshi-no-ryuugi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nohara-hiroshi-hiru-meshi-no-ryuugi]

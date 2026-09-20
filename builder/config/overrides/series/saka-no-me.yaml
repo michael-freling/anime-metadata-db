@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: saka-no-me
+  titles:
+    original: さかのめ
+    translations: { ja-Latn: Saka no Me }
+  movies:
+    - id: saka-no-me-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [saka-no-me]

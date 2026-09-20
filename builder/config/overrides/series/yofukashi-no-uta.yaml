@@ -1,0 +1,19 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yofukashi-no-uta
+  titles:
+    original: よふかしのうた
+    translations: { ja-Latn: Yofukashi no Uta }
+  seasons:
+    - id: yofukashi-no-uta-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 141391 } # Yofukashi no Uta (Summer 2022)
+    - id: yofukashi-no-uta-s2
+      number: 2
+      externalIds: { anilistId: 175914 } # Yofukashi no Uta Season 2 (Summer 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yofukashi-no-uta]

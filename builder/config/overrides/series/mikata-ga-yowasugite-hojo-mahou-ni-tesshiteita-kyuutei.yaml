@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mikata-ga-yowasugite-hojo-mahou-ni-tesshiteita-kyuutei
+  titles:
+    original: 味方が弱すぎて補助魔法に徹していた宮廷魔法師、追放されて最強を目指す
+    translations: { ja-Latn: "Mikata ga Yowasugite Hojo Mahou ni Tesshiteita Kyuutei Mahoushi, Tsuihou sarete Saikyou wo Mezasu" }
+  seasons:
+    - id: mikata-ga-yowasugite-hojo-mahou-ni-tesshiteita-kyuutei-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mikata-ga-yowasugite-hojo-mahou-ni-tesshiteita-kyuutei]

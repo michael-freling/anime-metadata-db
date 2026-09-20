@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lupin-the-iiird-the-movie-fujimi-no-ketsuzoku
+  titles:
+    original: LUPIN THE IIIRD THE MOVIE 不死身の血族
+    translations: { ja-Latn: "Lupin the IIIrd the Movie: Fujimi no Ketsuzoku" }
+  movies:
+    - id: lupin-the-iiird-the-movie-fujimi-no-ketsuzoku-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lupin-the-iiird-the-movie-fujimi-no-ketsuzoku]

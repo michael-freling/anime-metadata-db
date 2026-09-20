@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: crayon-shin-chan-movie-33-chou-karei-shakunetsu-no-kasukabe
+  titles:
+    original: クレヨンしんちゃん 超華麗！灼熱のカスカベダンサーズ
+    translations: { ja-Latn: "Crayon Shin-chan Movie 33: Chou Karei! Shakunetsu no Kasukabe Dancers" }
+  movies:
+    - id: crayon-shin-chan-movie-33-chou-karei-shakunetsu-no-kasukabe-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [crayon-shin-chan-movie-33-chou-karei-shakunetsu-no-kasukabe]

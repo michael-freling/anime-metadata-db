@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dragon-heart-reikai-tanbouki
+  titles:
+    original: ドラゴン・ハート―霊界探訪記―
+    translations: { ja-Latn: "Dragon Heart: Reikai Tanbouki" }
+  movies:
+    - id: dragon-heart-reikai-tanbouki-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dragon-heart-reikai-tanbouki]

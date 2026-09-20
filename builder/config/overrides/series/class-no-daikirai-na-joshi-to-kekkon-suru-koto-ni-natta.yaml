@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: class-no-daikirai-na-joshi-to-kekkon-suru-koto-ni-natta
+  titles:
+    original: クラスの大嫌いな女子と結婚することになった。
+    translations: { ja-Latn: Class no Daikirai na Joshi to Kekkon suru Koto ni Natta. }
+  seasons:
+    - id: class-no-daikirai-na-joshi-to-kekkon-suru-koto-ni-natta-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [class-no-daikirai-na-joshi-to-kekkon-suru-koto-ni-natta]

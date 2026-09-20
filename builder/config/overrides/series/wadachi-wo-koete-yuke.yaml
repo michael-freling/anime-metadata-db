@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wadachi-wo-koete-yuke
+  titles:
+    original: 轍を越えてゆけ
+    translations: { ja-Latn: Wadachi wo Koete Yuke }
+  movies:
+    - id: wadachi-wo-koete-yuke-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wadachi-wo-koete-yuke]

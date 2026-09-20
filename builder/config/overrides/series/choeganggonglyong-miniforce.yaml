@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: choeganggonglyong-miniforce
+  titles:
+    original: 최강공룡 미니특공대
+    translations: { ko-Latn: Choeganggonglyong Miniforce }
+  seasons:
+    - id: choeganggonglyong-miniforce-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [choeganggonglyong-miniforce]

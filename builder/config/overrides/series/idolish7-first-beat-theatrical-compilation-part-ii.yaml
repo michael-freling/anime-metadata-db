@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: idolish7-first-beat-theatrical-compilation-part-ii
+  titles:
+    original: アイドリッシュセブン First BEAT! 劇場総集編 後編
+    translations: { ja-Latn: "IDOLiSH7: First BEAT! Theatrical Compilation - Part II" }
+  movies:
+    - id: idolish7-first-beat-theatrical-compilation-part-ii-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [idolish7-first-beat-theatrical-compilation-part-ii]

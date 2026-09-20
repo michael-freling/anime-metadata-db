@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: seishun-buta-yarou-wa-santa-claus-no-yume-wo-minai
+  titles:
+    original: 青春ブタ野郎はサンタクロースの夢を見ない
+    translations: { ja-Latn: Seishun Buta Yarou wa Santa Claus no Yume wo Minai }
+  seasons:
+    - id: seishun-buta-yarou-wa-santa-claus-no-yume-wo-minai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [seishun-buta-yarou-wa-santa-claus-no-yume-wo-minai]

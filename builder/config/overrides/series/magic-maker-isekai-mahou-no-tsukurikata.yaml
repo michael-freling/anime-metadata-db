@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: magic-maker-isekai-mahou-no-tsukurikata
+  titles:
+    original: マジック・メイカー －異世界魔法の作り方－
+    translations: { ja-Latn: "Magic Maker: Isekai Mahou no Tsukurikata" }
+  seasons:
+    - id: magic-maker-isekai-mahou-no-tsukurikata-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [magic-maker-isekai-mahou-no-tsukurikata]

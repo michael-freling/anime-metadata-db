@@ -1,0 +1,15 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: housenka
+  titles:
+    original: ホウセンカ
+    translations: { ja-Latn: Housenka }
+  movies:
+    - id: housenka-film
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 177686 } # Housenka (Fall 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [housenka]

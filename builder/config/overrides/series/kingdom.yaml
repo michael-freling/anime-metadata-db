@@ -1,0 +1,23 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kingdom
+  titles:
+    original: キングダム
+    translations: { ja-Latn: Kingdom }
+  seasons:
+    - id: kingdom-s1
+      number: 1
+    - id: kingdom-s2
+      number: 2
+    - id: kingdom-s3
+      number: 3
+    - id: kingdom-s4
+      number: 4
+    - id: kingdom-s5
+      number: 5
+    - id: kingdom-s6
+      number: 6
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kingdom]

@@ -1,0 +1,11 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: glass-and-kumo
+  titles:
+    original: Glass and Kumo
+  movies:
+    - id: glass-and-kumo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [glass-and-kumo]

@@ -1,0 +1,17 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: binan-koukou-chikyuu-bouei-bu-eternal-love
+  titles:
+    original: 美男高校地球防衛部ETERNAL LOVE！
+    translations: { ja-Latn: "Binan Koukou Chikyuu Bouei-bu Eternal Love!" }
+  movies:
+    - id: binan-koukou-chikyuu-bouei-bu-eternal-love-film
+      # Upstream lists a Chinese title, or a romanization,
+      # ahead of the film's own name.
+      titles:
+        original: 美男高校地球防衛部ETERNAL LOVE！
+        translations: { ja: "美男高校地球防衛部ETERNAL LOVE！", ja-Latn: "Binan Koukou Chikyuu Bouei-bu Eternal Love!" }
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [binan-koukou-chikyuu-bouei-bu-eternal-love]

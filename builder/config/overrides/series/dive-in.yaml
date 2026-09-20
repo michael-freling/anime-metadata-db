@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dive-in
+  titles:
+    original: ダイブイン！
+    translations: { ja-Latn: "Dive In!" }
+  movies:
+    - id: dive-in-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dive-in]

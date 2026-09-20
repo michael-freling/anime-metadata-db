@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ruri-no-houseki
+  titles:
+    original: 瑠璃の宝石
+    translations: { ja-Latn: Ruri no Houseki }
+  seasons:
+    - id: ruri-no-houseki-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ruri-no-houseki]

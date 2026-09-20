@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chuuzenji-sensei-mononoke-kougiroku-sensei-ga-nazo-wo
+  titles:
+    original: 中禅寺先生物怪講義録 先生が謎を解いてしまうから。
+    translations: { ja-Latn: "Chuuzenji-sensei Mononoke Kougiroku: Sensei ga Nazo wo Hodoite Shimau kara." }
+  seasons:
+    - id: chuuzenji-sensei-mononoke-kougiroku-sensei-ga-nazo-wo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chuuzenji-sensei-mononoke-kougiroku-sensei-ga-nazo-wo]

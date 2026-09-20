@@ -23,7 +23,10 @@ reference nothing at all. A special that genuinely belongs to a series can still
 be authored onto it by hand — the exclusion is about bulk import.
 
 Seasons carry a `releaseYear` **and** a `releaseSeason`; movies and specials
-carry only a year, so they share one column.
+carry only a year, so they share one column. A season upstream places in a year
+without naming a quarter falls in none of the four quarter columns, which is why
+the year table totals one fewer work than the Totals table below: *Ramen
+Akaneko*'s second season is the one case.
 
 Every table below is recomputed from `data/` by a test
 (`TestCoveragePageMatchesTheDataset`), which fails and prints the corrected
@@ -36,34 +39,36 @@ which is why the test exists.
 | Year | Winter | Spring | Summer | Fall | Films & specials | Total | Episodes |
 |---:|---:|---:|---:|---:|---:|---:|---:|
 | 2006 | 1 | — | — | — | — | 1 | 24 |
-| 2011 | — | — | — | 1 | — | 1 | 13 |
-| 2012 | — | 1 | — | — | — | 1 | 12 |
-| 2013 | — | — | — | 1 | — | 1 | 75 |
-| 2014 | — | — | — | 1 | — | 1 | 12 |
-| 2015 | — | 1 | — | — | — | 1 | 51 |
-| 2016 | — | 1 | — | — | — | 1 | 25 |
-| 2017 | — | — | 1 | 1 | 1 | 3 | 182 |
-| 2018 | — | 1 | — | 2 | — | 3 | 48 |
-| 2019 | — | 2 | 1 | 2 | — | 5 | 139 |
-| 2020 | — | 1 | 3 | 2 | 1 | 7 | 97 |
-| 2021 | 3 | 1 | 1 | 1 | — | 6 | 76 |
-| 2022 | 1 | 2 | 2 | 2 | — | 7 | 92 |
-| 2023 | 3 | 4 | 4 | 3 | — | 14 | 194 |
-| 2024 | 4 | 4 | 2 | 4 | — | 14 | 209 |
-| 2025 | 3 | 3 | 3 | — | 1 | 10 | 110 |
+| 2008 | — | — | — | 1 | — | 1 | 24 |
+| 2010 | — | — | 1 | — | — | 1 | 12 |
+| 2011 | — | 1 | — | 1 | — | 2 | 38 |
+| 2012 | — | 1 | 1 | — | — | 2 | 50 |
+| 2013 | — | — | 2 | 1 | — | 3 | 127 |
+| 2014 | — | — | 2 | 1 | — | 3 | 35 |
+| 2015 | — | 1 | — | 2 | — | 3 | 88 |
+| 2016 | 1 | 2 | 1 | — | — | 4 | 101 |
+| 2017 | 2 | 1 | 2 | 2 | 1 | 8 | 270 |
+| 2018 | — | 3 | 2 | 2 | — | 7 | 108 |
+| 2019 | 2 | 4 | 3 | 3 | — | 12 | 255 |
+| 2020 | 2 | 3 | 3 | 3 | 1 | 12 | 185 |
+| 2021 | 4 | 5 | 2 | 2 | — | 13 | 185 |
+| 2022 | 2 | 9 | 3 | 7 | — | 21 | 326 |
+| 2023 | 4 | 9 | 7 | 10 | — | 30 | 428 |
+| 2024 | 10 | 16 | 10 | 14 | — | 50 | 760 |
+| 2025 | 58 | 71 | 74 | 70 | 103 | 376 | 4101 |
 | 2026 | 80 | 69 | — | — | — | 149 | 1870 |
-| **Total** | **95** | **90** | **17** | **20** | **3** | **225** | **3229** |
+| **Total** | **166** | **195** | **113** | **119** | **105** | **698** | **8987** |
 
 ## Totals
 
 | | Count |
 |---|---:|
 | Franchises | 1 |
-| Series | 152 |
-| Seasons | 222 |
-| Movies | 3 |
-| Works (seasons + movies + specials) | 225 |
-| Episodes | 3229 |
+| Series | 502 |
+| Seasons | 594 |
+| Movies | 105 |
+| Works (seasons + movies + specials) | 699 |
+| Episodes | 8987 |
 
 ## Cast
 
@@ -73,7 +78,7 @@ build may redistribute) actually records.
 
 | | Count |
 |---|---:|
-| Series with at least one character | 55 of 152 |
+| Series with at least one character | 55 of 502 |
 | Characters | 727 |
 | …of those, with a voice actor | 678 |
 | Staff (voice actors) | 484 |
@@ -105,22 +110,26 @@ appearances.
 
 ## How to read the shape of it
 
-**Winter and Spring 2026 are complete for TV.** Every TV anime the pinned
-sources place in those two seasons is in the dataset — 149 works. Nothing after
-Spring 2026 is included: an announced but unaired season is left out until it
-airs, so the dataset never carries a season with no episodes.
+**Two windows are complete: all of 2025, and Winter+Spring 2026 for TV.** Every
+2025 TV series and film the pinned sources carry an AniList id for is here — 377
+works of the 643 the offline database types `TV` or `MOVIE` for that year, the
+other 266 having no AniList id and so nothing for the builder to resolve facts
+by. Winter and Spring 2026 add 149 TV works. Nothing after Spring 2026 is
+included: an announced but unaired season is left out until it airs, so the
+dataset never carries a season with no episodes.
 
-**Everything before 2026 is there because it is a prior season of something in
-2026** (plus the hand-authored Demon Slayer and Fate entries). That is why the
-earlier years are thin and uneven: 2023 has 14 works not because 2023 was
-sampled, but because fourteen shows running in 2026 started or continued then.
-A show like Frieren pulls its 2023 season in with it.
+**Everything before 2025 is there because it is a prior season of something in
+2025 or 2026**, plus the hand-authored Demon Slayer and Fate entries. That is
+why the earlier years are thin and uneven: 2023 has 30 works not because 2023
+was sampled, but because thirty shows running later started or continued then.
+A show like Frieren pulls its 2023 season in with it, and *Yami Shibai*'s 2025
+run pulls in ten.
 
-**Films and specials are barely covered.** Only three exist, all authored by
-hand. The bulk import is TV-only: of the 580 Winter+Spring 2026 entries in the
-offline database, only 246 carry an AniList id at all — and the OVA/ONA/SPECIAL
-long tail, which the builder resolves facts by AniList id alone, is mostly
-recaps and shorts without one.
+**Films arrived with 2025.** Before it the catalogue held three, all authored by
+hand; it now holds 105, because a year's films are the half of `TV`+`MOVIE` the
+2026 window never reached. Specials are still absent by design — the
+OVA/ONA/SPECIAL long tail is mostly recaps, shorts and promo clips, and most of
+it has no AniList id either.
 
 ## Regenerating this table
 

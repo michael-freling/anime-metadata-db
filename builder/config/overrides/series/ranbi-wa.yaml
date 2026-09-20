@@ -1,0 +1,16 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ranbi-wa
+  titles:
+    original: 燃比娃
+    translations: { zh-Latn: Ranbi Wa }
+  movies:
+    - id: ranbi-wa-film
+      # Stated, or the build reads a Han-only title as Japanese.
+      titles:
+        original: 燃比娃
+        translations: { zh-Latn: Ranbi Wa }
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ranbi-wa]

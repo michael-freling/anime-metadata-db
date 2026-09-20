@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: compass-2-0-sentou-setsuri-kaiseki-system
+  titles:
+    original: "#コンパス2.0 戦闘摂理解析システム ANIMATION PROJECT"
+    translations: { ja-Latn: "#Compass 2.0: Sentou Setsuri Kaiseki System" }
+  seasons:
+    - id: compass-2-0-sentou-setsuri-kaiseki-system-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [compass-2-0-sentou-setsuri-kaiseki-system]

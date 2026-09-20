@@ -1,0 +1,17 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chibi-godzilla-no-gyakushuu
+  titles:
+    original: ちびゴジラの逆襲
+    translations: { ja-Latn: Chibi Godzilla no Gyakushuu }
+  seasons:
+    - id: chibi-godzilla-no-gyakushuu-s1
+      number: 1
+    - id: chibi-godzilla-no-gyakushuu-s2
+      number: 2
+    - id: chibi-godzilla-no-gyakushuu-s3
+      number: 3
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chibi-godzilla-no-gyakushuu]

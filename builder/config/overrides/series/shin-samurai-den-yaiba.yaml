@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shin-samurai-den-yaiba
+  titles:
+    original: 真･侍伝 YAIBA
+    translations: { ja-Latn: Shin Samurai-den Yaiba }
+  seasons:
+    - id: shin-samurai-den-yaiba-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shin-samurai-den-yaiba]

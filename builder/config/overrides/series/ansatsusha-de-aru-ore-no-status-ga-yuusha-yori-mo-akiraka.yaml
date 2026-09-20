@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ansatsusha-de-aru-ore-no-status-ga-yuusha-yori-mo-akiraka
+  titles:
+    original: 暗殺者である俺のステータスが勇者よりも明らかに強いのだが
+    translations: { ja-Latn: Ansatsusha de Aru Ore no Status ga Yuusha yori mo Akiraka ni Tsuyoi no da ga }
+  seasons:
+    - id: ansatsusha-de-aru-ore-no-status-ga-yuusha-yori-mo-akiraka-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ansatsusha-de-aru-ore-no-status-ga-yuusha-yori-mo-akiraka]

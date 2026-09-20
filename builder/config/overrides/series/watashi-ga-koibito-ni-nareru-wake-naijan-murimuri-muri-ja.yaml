@@ -1,13 +1,23 @@
-# Authored override — Winter/Spring 2026 catalogue import. Holds only the
-# structure the open sources cannot express; `builder build` fills the facts
-# into data/. Never hand-edit data/.
+# Authored override — Winter/Spring 2026 catalogue import, extended by the 2025
+# catalogue import. Holds only the structure the open sources cannot express;
+# `builder build` fills the facts into data/. Never hand-edit data/.
+#
+# Corrected: the 2026 import saw only "Next Shine!" and made it season 1, taking
+# the series' title from it. Season 1 aired Summer 2025 and is added here, so
+# Next Shine! becomes season 2 and the series takes the show's own name back.
 series:
   id: watashi-ga-koibito-ni-nareru-wake-naijan-murimuri-muri-ja
   titles:
-    original: "わたしが恋人になれるわけないじゃん、ムリムリ! (※ムリじゃなかった!?) ~Next Shine~"
-    translations: { ja-Latn: "Watashi ga Koibito ni Nareru Wake Naijan, Murimuri! (※Muri ja Nakatta!?): Next Shine!" }
+    original: "わたしが恋人になれるわけないじゃん、ムリムリ! (※ムリじゃなかった!?)"
+    translations: { ja-Latn: "Watashi ga Koibito ni Nareru Wake Nai jan, Muri Muri! (※Muri ja Nakatta!?)" }
   seasons:
     - id: watashi-ga-koibito-ni-nareru-wake-naijan-murimuri-muri-ja-s1
       number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 184591 } # Watashi ga Koibito ni Nareru Wake Nai jan, Muri Muri! (Summer 2025)
+    - id: watashi-ga-koibito-ni-nareru-wake-naijan-murimuri-muri-ja-s2
+      number: 2
+      externalIds: { anilistId: 199112 } # ... : Next Shine! (Winter 2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [watashi-ga-koibito-ni-nareru-wake-naijan-murimuri-muri-ja]

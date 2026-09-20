@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sumikko-gurashi-movie-4-sora-no-oukoku-to-futari-no-ko
+  titles:
+    original: すみっコぐらし 空の王国とふたりのコ
+    translations: { ja-Latn: "Sumikko Gurashi Movie 4: Sora no Oukoku to Futari no Ko" }
+  movies:
+    - id: sumikko-gurashi-movie-4-sora-no-oukoku-to-futari-no-ko-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sumikko-gurashi-movie-4-sora-no-oukoku-to-futari-no-ko]

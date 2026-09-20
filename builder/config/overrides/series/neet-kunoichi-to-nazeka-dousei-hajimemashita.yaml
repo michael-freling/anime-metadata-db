@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: neet-kunoichi-to-nazeka-dousei-hajimemashita
+  titles:
+    original: ニートくノ一となぜか同棲はじめました
+    translations: { ja-Latn: NEET Kunoichi to Nazeka Dousei Hajimemashita }
+  seasons:
+    - id: neet-kunoichi-to-nazeka-dousei-hajimemashita-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [neet-kunoichi-to-nazeka-dousei-hajimemashita]

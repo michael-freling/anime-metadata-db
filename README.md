@@ -44,12 +44,12 @@ still runs and reports a disagreement.
 Every build prints the split, so the hand-authored surface is never a guess:
 
 ```
-anilistId provenance: 225 ids
-  150/225 resolved from the series' own title
-  75/225 read from an override
+anilistId provenance: 699 ids
+  492/699 resolved from the series' own title
+  207/699 read from an override
 ```
 
-The remaining 75 sit in 24 series that upstream does not list under their own
+The remaining 207 sit in 76 series that upstream does not list under their own
 title, so nothing can compute them. That number is meant to fall, and CI checks
 it against the overrides so it cannot drift upward unnoticed. See
 [`NOTICE`](NOTICE) and the

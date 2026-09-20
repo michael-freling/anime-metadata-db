@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: debu-to-love-to-ayamachi-to
+  titles:
+    original: デブとラブと過ちと！
+    translations: { ja-Latn: "Debu to Love to Ayamachi to!" }
+  seasons:
+    - id: debu-to-love-to-ayamachi-to-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [debu-to-love-to-ayamachi-to]

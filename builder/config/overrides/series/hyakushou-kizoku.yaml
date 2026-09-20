@@ -1,0 +1,22 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hyakushou-kizoku
+  titles:
+    original: 百姓貴族
+    translations: { ja-Latn: Hyakushou Kizoku }
+  seasons:
+    - id: hyakushou-kizoku-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 155971 } # Hyakushou Kizoku (Summer 2023)
+    - id: hyakushou-kizoku-s2
+      number: 2
+      externalIds: { anilistId: 171689 } # Hyakushou Kizoku 2nd Season (Fall 2024)
+    - id: hyakushou-kizoku-s3
+      number: 3
+      externalIds: { anilistId: 185694 } # Hyakushou Kizoku 3rd Season (Fall 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hyakushou-kizoku]

@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ginga-tokkyuu-milky-subway
+  titles:
+    original: 銀河特急 ミルキー☆サブウェイ
+    translations: { ja-Latn: "Ginga Tokkyuu Milky☆Subway" }
+  seasons:
+    - id: ginga-tokkyuu-milky-subway-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ginga-tokkyuu-milky-subway]

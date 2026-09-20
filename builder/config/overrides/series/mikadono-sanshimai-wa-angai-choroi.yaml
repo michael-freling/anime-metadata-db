@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mikadono-sanshimai-wa-angai-choroi
+  titles:
+    original: 帝乃三姉妹は案外、チョロい。
+    translations: { ja-Latn: "Mikadono Sanshimai wa Angai, Choroi." }
+  seasons:
+    - id: mikadono-sanshimai-wa-angai-choroi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mikadono-sanshimai-wa-angai-choroi]

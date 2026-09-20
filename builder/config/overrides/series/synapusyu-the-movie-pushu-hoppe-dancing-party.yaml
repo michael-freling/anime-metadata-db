@@ -1,0 +1,17 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: synapusyu-the-movie-pushu-hoppe-dancing-party
+  titles:
+    original: シナぷしゅ THE MOVIE ぷしゅほっぺダンシングPARTY
+    translations: { ja-Latn: "Synapusyu The Movie: Pushu Hoppe Dancing Party" }
+  movies:
+    - id: synapusyu-the-movie-pushu-hoppe-dancing-party-film
+      # Upstream lists a Chinese title, or a romanization,
+      # ahead of the film's own name.
+      titles:
+        original: シナぷしゅ THE MOVIE ぷしゅほっぺダンシングPARTY
+        translations: { ja: "シナぷしゅ THE MOVIE ぷしゅほっぺダンシングPARTY", ja-Latn: "Synapusyu The Movie: Pushu Hoppe Dancing Party" }
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [synapusyu-the-movie-pushu-hoppe-dancing-party]

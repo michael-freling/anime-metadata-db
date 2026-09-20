@@ -1,0 +1,27 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: boku-no-hero-academia
+  titles:
+    original: 僕のヒーローアカデミア
+    translations: { ja-Latn: Boku no Hero Academia }
+  seasons:
+    - id: boku-no-hero-academia-s1
+      number: 1
+    - id: boku-no-hero-academia-s2
+      number: 2
+    - id: boku-no-hero-academia-s3
+      number: 3
+    - id: boku-no-hero-academia-s4
+      number: 4
+    - id: boku-no-hero-academia-s5
+      number: 5
+    - id: boku-no-hero-academia-s6
+      number: 6
+    - id: boku-no-hero-academia-s7
+      number: 7
+    - id: boku-no-hero-academia-s8
+      number: 8
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [boku-no-hero-academia]

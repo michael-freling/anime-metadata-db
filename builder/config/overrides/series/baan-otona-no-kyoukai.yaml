@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: baan-otona-no-kyoukai
+  titles:
+    original: bâan - 大人の彊界
+    translations: { ja-Latn: "Bâan: Otona no Kyoukai" }
+  movies:
+    - id: baan-otona-no-kyoukai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [baan-otona-no-kyoukai]

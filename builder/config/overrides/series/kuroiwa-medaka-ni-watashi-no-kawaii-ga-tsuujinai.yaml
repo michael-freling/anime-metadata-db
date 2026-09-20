@@ -1,0 +1,16 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kuroiwa-medaka-ni-watashi-no-kawaii-ga-tsuujinai
+  titles:
+    original: 黒岩メダカに私の可愛いが通じない
+    translations: { ja-Latn: Kuroiwa Medaka ni Watashi no Kawaii ga Tsuujinai }
+  seasons:
+    - id: kuroiwa-medaka-ni-watashi-no-kawaii-ga-tsuujinai-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 177552 } # Kuroiwa Medaka ni Watashi no Kawaii ga Tsuujinai (Winter 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kuroiwa-medaka-ni-watashi-no-kawaii-ga-tsuujinai]

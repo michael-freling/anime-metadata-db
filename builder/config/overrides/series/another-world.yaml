@@ -1,0 +1,16 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: another-world
+  titles:
+    original: 世外
+    translations: { zh-Latn: Another World }
+  movies:
+    - id: another-world-film
+      # Stated, or the build reads a Han-only title as Japanese.
+      titles:
+        original: 世外
+        translations: { zh-Latn: Another World }
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [another-world]

@@ -1,0 +1,23 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jibaku-shounen-hanako-kun
+  titles:
+    original: 地縛少年花子くん
+    translations: { ja-Latn: Jibaku Shounen Hanako-kun }
+  seasons:
+    - id: jibaku-shounen-hanako-kun-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 108463 } # Jibaku Shounen Hanako-kun (Winter 2020)
+    - id: jibaku-shounen-hanako-kun-s2
+      number: 2
+      externalIds: { anilistId: 170892 } # Jibaku Shounen Hanako-kun 2 (Winter 2025)
+    - id: jibaku-shounen-hanako-kun-s3p2
+      number: 3
+      part: 2
+      externalIds: { anilistId: 189326 } # Jibaku Shounen Hanako-kun 2 Part 2 (Summer 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jibaku-shounen-hanako-kun]

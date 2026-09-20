@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xi-yangyang-yu-hui-tailang-qi-xia-da-yingjiu
+  titles:
+    original: 喜羊羊与灰太狼之奇侠大营救
+    translations: { zh-Latn: "Xi Yangyang Yu Hui Tailang: Qi Xia da Yingjiu" }
+  seasons:
+    - id: xi-yangyang-yu-hui-tailang-qi-xia-da-yingjiu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xi-yangyang-yu-hui-tailang-qi-xia-da-yingjiu]

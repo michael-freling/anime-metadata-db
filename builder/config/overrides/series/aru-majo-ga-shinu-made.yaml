@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aru-majo-ga-shinu-made
+  titles:
+    original: ある魔女が死ぬまで -終わりの言葉と始まりの涙
+    translations: { ja-Latn: Aru Majo ga Shinu Made }
+  seasons:
+    - id: aru-majo-ga-shinu-made-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aru-majo-ga-shinu-made]

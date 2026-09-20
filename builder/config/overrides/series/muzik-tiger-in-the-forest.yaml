@@ -1,0 +1,19 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: muzik-tiger-in-the-forest
+  titles:
+    original: ムジークタイガー
+    translations: { ja-Latn: Muzik Tiger In the Forest }
+  seasons:
+    - id: muzik-tiger-in-the-forest-s1
+      number: 1
+      # Authored: upstream does not list this installment under the series'
+      # own title, so the build cannot resolve it.
+      externalIds: { anilistId: 177633 } # Muzik Tiger In the Forest (Spring 2025)
+    - id: muzik-tiger-in-the-forest-s2
+      number: 2
+      externalIds: { anilistId: 195383 } # MUZIK TIGER In the Forest 2 (Fall 2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [muzik-tiger-in-the-forest]

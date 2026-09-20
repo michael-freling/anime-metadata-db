@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fuguushoku-kanteishi-ga-jitsu-wa-saikyou-datta
+  titles:
+    original: 不遇職【鑑定士】が実は最強だった～奈落で鍛えた最強の【神眼】で無双する～
+    translations: { ja-Latn: "Fuguushoku \"Kanteishi\" ga Jitsu wa Saikyou Datta" }
+  seasons:
+    - id: fuguushoku-kanteishi-ga-jitsu-wa-saikyou-datta-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fuguushoku-kanteishi-ga-jitsu-wa-saikyou-datta]

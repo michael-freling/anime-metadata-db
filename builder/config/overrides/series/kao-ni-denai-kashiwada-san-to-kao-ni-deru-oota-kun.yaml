@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kao-ni-denai-kashiwada-san-to-kao-ni-deru-oota-kun
+  titles:
+    original: 顔に出ない柏田さんと顔に出る太田君
+    translations: { ja-Latn: Kao ni Denai Kashiwada-san to Kao ni Deru Oota-kun }
+  seasons:
+    - id: kao-ni-denai-kashiwada-san-to-kao-ni-deru-oota-kun-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kao-ni-denai-kashiwada-san-to-kao-ni-deru-oota-kun]

@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: clevatess-majuu-no-ou-to-akago-to-shikabane-no-yuusha
+  titles:
+    original: クレバテス-魔獣の王と赤子と屍の勇者
+    translations: { ja-Latn: "Clevatess: Majuu no Ou to Akago to Shikabane no Yuusha" }
+  seasons:
+    - id: clevatess-majuu-no-ou-to-akago-to-shikabane-no-yuusha-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [clevatess-majuu-no-ou-to-akago-to-shikabane-no-yuusha]
