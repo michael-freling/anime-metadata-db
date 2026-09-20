@@ -32,7 +32,7 @@ jobs:
       - name: Run e2e tests (no mocks)
         run: |
           set -euo pipefail
-          for mod in . api builder; do
+          for mod in src/animedb src/api src/builder; do
             echo "--- $mod"
             (cd "$mod" && go test -tags e2e -run E2E -timeout 15m ./...)
           done
@@ -149,7 +149,7 @@ jobs:
           # different inputs, so agreement means the figure the project steers
           # by is measuring the tree rather than restating itself.
           reported=$(sed -n 's|^  \([0-9]*\)/[0-9]* read from an override$|\1|p' /tmp/build.log)
-          actual=$(grep -rho 'anilistId' builder/config/overrides/ | wc -l)
+          actual=$(grep -rho 'anilistId' dataset/overrides/ | wc -l)
           echo "authored ids: $reported reported, $actual in the overrides"
           test "$reported" = "$actual" || {
             echo "::error::the build reports $reported authored anilistIds but the overrides hold $actual"
@@ -180,7 +180,7 @@ jobs:
       - name: ...and a planted one is caught
         run: |
           set -euo pipefail
-          override=builder/config/overrides/series/sousou-no-frieren.yaml
+          override=dataset/overrides/series/sousou-no-frieren.yaml
           # Both of Frieren's ids are resolved, not authored, which is the point
           # of planting here: it tests the one surface still open to a typo.
           # Fail loudly if that stops being true, rather than planting an id
@@ -207,7 +207,7 @@ jobs:
             exit 1
           }
           make build-data 2>&1 | tee /tmp/planted.log || true
-          git checkout -- builder/config/overrides/ data/
+          git checkout -- dataset/overrides/ data/
 
           # By code rather than by message: these are the same three checks as
           # before, but a rewording of what they say can no longer make this
@@ -242,7 +242,7 @@ jobs:
       - name: ...and so is a duplicated one
         run: |
           set -euo pipefail
-          override=builder/config/overrides/series/sousou-no-frieren.yaml
+          override=dataset/overrides/series/sousou-no-frieren.yaml
           # Re-read from the clean build: each step is its own shell, so a
           # variable set in the previous one would be empty here and the
           # comparison below would silently degrade into matching nothing.
@@ -257,7 +257,7 @@ jobs:
             exit 1
           }
           make build-data 2>&1 | tee /tmp/dup.log || true
-          git checkout -- builder/config/overrides/ data/
+          git checkout -- dataset/overrides/ data/
 
           fail=0
           grep -q 'anilist-duplicate' /tmp/dup.log || {

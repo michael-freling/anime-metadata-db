@@ -10,7 +10,7 @@ https://github.com/manami-project/anime-offline-database
 Licensed under the Open Database License (ODbL) v1.0 and the Database Contents
 License (DbCL) v1.0.
 
-Contributes the facts behind every season, movie and special in data/: titles,
+Contributes the facts behind every season, movie and special in dataset/: titles,
 release year and season, episode counts, and the cross-provider ids (AniList,
 AniDB, MyAnimeList, Kitsu) used to join records.
 
@@ -22,7 +22,7 @@ Where an override names an id, the resolution still runs and reports a
 disagreement: a check on this project's own editorial choice, not a fact taken
 from the source.
 
-Because data/ is a derivative database of this source, it is offered under the
+Because dataset/ is a derivative database of this source, it is offered under the
 same ODbL + DbCL terms. See LICENSE-DATA.
 
 --------------------------------------------------------------------------------
@@ -41,7 +41,7 @@ dataset should reach their own view on that.
 Wikidata — https://www.wikidata.org
 Dedicated to the public domain under CC0 1.0.
 
-Contributes two things. The character and staff names in data/, resolved from
+Contributes two things. The character and staff names in dataset/, resolved from
 the entity named by each node's authored wikidataId: the Japanese label becomes
 the original name, the English label the en translation. And the English title
 of a series, from the work's P1476 ("title") claim in English, or its English
@@ -50,7 +50,7 @@ label where it carries no such claim.
 A series has no id to join on, so the work is found by looking its native title
 up as a Japanese Wikipedia article during `builder init`, and is kept only when
 the entity says it is a kind of work. The resulting wikidataId is recorded on
-the series in data/, and an authored one overrides it.
+the series in dataset/, and an authored one overrides it.
 
 That is all it contributes. The cast structure — which character appears in
 which series, and who voices them — is not extracted from Wikidata. Neither is

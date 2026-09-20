@@ -67,7 +67,7 @@ jobs:
             echo 'Both sides rebuilt from their own overrides with their own builder.'
             echo
             echo '```'
-            (cd builder && go run ./cmd/builder diff --base /tmp/base/data)
+            (cd src/builder && go run ./cmd/builder diff --base /tmp/base/data)
             echo '```'
           } > /tmp/diff.md
           cat /tmp/diff.md

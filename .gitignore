@@ -39,7 +39,7 @@ build-report.yaml
 # .vscode/
 
 # Screenshot tooling + output for the verify-docs-layout skill
-web/.screenshots/
+src/web/.screenshots/
 coverage.out
 .vercel
 .env*
@@ -60,6 +60,6 @@ coverage.out
 # Compiled binaries. `go build ./cmd/<name>` writes one named after the package
 # into the directory it is run from, and a bare `git add -A` will commit ten
 # megabytes of it — which is how a 9.8 MB `builder` once reached a pull request.
-/builder/builder
-/api/api
-/api/index
+/src/builder/builder
+/src/api/api
+/src/api/index

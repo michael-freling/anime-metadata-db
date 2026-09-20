@@ -77,8 +77,8 @@ const CONFIG = 'sources:\n    a:\n        url: https://example.com/data.json\n'
 function fixture(overrides = {}) {
   const dir = mkdtempSync(join(tmpdir(), 'provenance-'))
   const files = {
-    'builder/config/schemas/anime.schema.json': JSON.stringify(SCHEMA, null, 2),
-    'web/content/docs/sources-and-licensing.mdx': TABLE,
+    'dataset/schemas/anime.schema.json': JSON.stringify(SCHEMA, null, 2),
+    'src/web/content/docs/sources-and-licensing.mdx': TABLE,
     NOTICE,
     'builder/config.yaml': CONFIG,
     ...overrides,
@@ -105,7 +105,7 @@ function run(dir) {
 const withSchema = (mutate) => {
   const s = structuredClone(SCHEMA)
   mutate(s)
-  return { 'builder/config/schemas/anime.schema.json': JSON.stringify(s, null, 2) }
+  return { 'dataset/schemas/anime.schema.json': JSON.stringify(s, null, 2) }
 }
 
 test('passes when every field is documented under its container', () => {
@@ -141,7 +141,7 @@ test('fails on a name collision across defs', () => {
 test('fails when only one parent of a shared def is documented', () => {
   const table = TABLE.replace('| `*.characters[].externalIds.anidbId` | authored | ODbL |\n', '')
   assert.notEqual(table, TABLE, 'test setup: the row was not removed')
-  const dir = fixture({ 'web/content/docs/sources-and-licensing.mdx': table })
+  const dir = fixture({ 'src/web/content/docs/sources-and-licensing.mdx': table })
   const { code, out } = run(dir)
   assert.equal(code, 1, out)
   assert.match(out, /characters\.externalIds\.anidbId/)
@@ -154,7 +154,7 @@ test('a *. wildcard covers every parent of a shared def', () => {
     '| `*.externalIds.anidbId` | upstream | ODbL |',
   )
   assert.notEqual(table, TABLE, 'test setup: the rows were not replaced')
-  const dir = fixture({ 'web/content/docs/sources-and-licensing.mdx': table })
+  const dir = fixture({ 'src/web/content/docs/sources-and-licensing.mdx': table })
   const { code, out } = run(dir)
   assert.equal(code, 0, out)
   rmSync(dir, { recursive: true, force: true })
@@ -187,7 +187,7 @@ test('fails on a fetched source that NOTICE does not credit', () => {
 test('flags a row for a field no schema defines', () => {
   const table = TABLE.replace('| `series.id`,', '| `seasons[].goneAway`, `series.id`,')
   assert.notEqual(table, TABLE, 'test setup: the row was not modified')
-  const dir = fixture({ 'web/content/docs/sources-and-licensing.mdx': table })
+  const dir = fixture({ 'src/web/content/docs/sources-and-licensing.mdx': table })
   const { code, out } = run(dir)
   assert.equal(code, 1, out)
   assert.match(out, /seasons\.goneAway/)
@@ -196,7 +196,7 @@ test('flags a row for a field no schema defines', () => {
 
 // Exit 2 is "could not compare", which must never be confused with a pass.
 test('aborts with 2 on malformed schema JSON', () => {
-  const dir = fixture({ 'builder/config/schemas/anime.schema.json': '{ "broken": ' })
+  const dir = fixture({ 'dataset/schemas/anime.schema.json': '{ "broken": ' })
   const { code, out } = run(dir)
   assert.equal(code, 2)
   assert.match(out, /not valid JSON/)
@@ -206,7 +206,7 @@ test('aborts with 2 on malformed schema JSON', () => {
 test('aborts with 2 when the table heading is renamed', () => {
   const table = TABLE.replace('## Where each field comes from', '## Field provenance')
   assert.notEqual(table, TABLE, 'test setup: the heading was not renamed')
-  const dir = fixture({ 'web/content/docs/sources-and-licensing.mdx': table })
+  const dir = fixture({ 'src/web/content/docs/sources-and-licensing.mdx': table })
   const { code, out } = run(dir)
   assert.equal(code, 2)
   assert.match(out, /not found/)

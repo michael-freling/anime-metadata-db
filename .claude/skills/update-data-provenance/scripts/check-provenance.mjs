@@ -2,7 +2,7 @@
 // Mechanical drift checks for the data provenance documentation.
 //
 // This script does NOT decide which source fills which field — that is a
-// judgement call that has to be made by reading builder/internal/build. What it does is
+// judgement call that has to be made by reading src/builder/internal/build. What it does is
 // catch the two drifts that are purely mechanical, and therefore the two most
 // likely to slip through review:
 //
@@ -17,11 +17,11 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 
 const ROOT = process.cwd()
-const DOC = 'web/content/docs/sources-and-licensing.mdx'
+const DOC = 'src/web/content/docs/sources-and-licensing.mdx'
 const NOTICE = 'NOTICE'
-const SCHEMA_DIR = 'builder/config/schemas'
-const SOURCES_DIR = 'builder/internal/sources'
-const BUILD_DIR = 'builder/internal/build'
+const SCHEMA_DIR = 'dataset/schemas'
+const SOURCES_DIR = 'src/builder/internal/sources'
+const BUILD_DIR = 'src/builder/internal/build'
 const CONFIG = 'builder/config.yaml'
 const SECTION = '## Where each field comes from'
 
@@ -273,7 +273,7 @@ if (missing.length) {
     fail(`  ${f.path.padEnd(40)} — ${f.file} ${f.def === '(root)' ? 'top level' : `$defs/${f.def}`}`)
   }
   fail(`\n  Each needs a row in "${SECTION}" saying what fills it and under`)
-  fail('  which licence. Read builder/internal/build to find out; do not guess.')
+  fail('  which licence. Read src/builder/internal/build to find out; do not guess.')
   fail('  Use `*.field` only if it is filled the same way under every container.')
 }
 

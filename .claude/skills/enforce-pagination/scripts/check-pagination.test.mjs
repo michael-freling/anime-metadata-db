@@ -153,7 +153,7 @@ run(
 // that no longer resolves.
 run(
   'the committed protos pass',
-  ['api/proto/anime/v1/anime.proto', 'api/proto/browse/v1/browse.proto']
+  ['src/api/proto/anime/v1/anime.proto', 'src/api/proto/browse/v1/browse.proto']
     .map((p) => readFileSync(p, 'utf8'))
     .join('\n'),
   accepts,
