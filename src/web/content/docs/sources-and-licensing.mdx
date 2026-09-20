@@ -142,9 +142,10 @@ Two consequences worth being explicit about:
 - **Sharing a modified dataset publicly means sharing it under ODbL too.** If
   you extend, correct or re-derive `dataset/data/` and make it publicly available, the
   result carries the same licence.
-- **The terms travel with binaries.** `dataset.go` embeds `dataset/data/` with
-  `go:embed`, so a compiled `api/cmd/api` binary — or a deployment of it — contains
-  the database. It is not only the YAML files that are covered.
+- **The terms travel with a deployment.** A deployed API ships `dataset/`
+  beside the binary and reads it from disk, so the deployment distributes the
+  database as surely as a copy of the files does. It is not only a `git clone`
+  that is covered.
 
 A *Produced Work* built from the data — a chart, an article, an app screen — is
 treated differently by ODbL and needs attribution rather than share-alike. The

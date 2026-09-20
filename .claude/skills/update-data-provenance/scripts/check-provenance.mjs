@@ -22,7 +22,7 @@ const NOTICE = 'NOTICE'
 const SCHEMA_DIR = 'dataset/schemas'
 const SOURCES_DIR = 'src/builder/internal/sources'
 const BUILD_DIR = 'src/builder/internal/build'
-const CONFIG = 'builder/config.yaml'
+const CONFIG = 'src/builder/config.yaml'
 const SECTION = '## Where each field comes from'
 
 // Anything that stops the comparison from happening is fatal. Passing because
@@ -310,7 +310,8 @@ if (skipped.length) {
 // 2. Every source the build fetches must be credited in NOTICE.
 // ---------------------------------------------------------------------------
 
-// builder/config.yaml is the authoritative list of what the build actually downloads.
+// src/builder/config.yaml is the authoritative list of what the build actually
+// downloads.
 // A URL added there without a matching NOTICE entry is an attribution gap.
 const notice = read(NOTICE)
 const urls = [...read(CONFIG).matchAll(/^\s*url:\s*(\S+)/gm)].map((m) => m[1])
@@ -347,7 +348,8 @@ if (uncredited.length) {
   console.log(`OK  ${credited.length} fetched sources, all credited in NOTICE`)
 }
 
-// A source adapter with no builder/config.yaml entry would be missed by the check
+// A source adapter with no src/builder/config.yaml entry would be missed by the
+// check
 // above, so surface the package list too.
 if (existsSync(join(ROOT, SOURCES_DIR))) {
   const pkgs = readdirSync(join(ROOT, SOURCES_DIR), { withFileTypes: true })

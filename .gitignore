@@ -30,7 +30,8 @@ go.work.sum
 .env
 
 # builder: downloaded open-data source cache (pulled by `builder init`) and the
-# optional low-confidence build report. The pinned data/ output IS committed.
+# optional low-confidence build report. The pinned dataset/data/ output IS
+# committed.
 .sources/
 build-report.yaml
 
@@ -45,7 +46,7 @@ coverage.out
 .env*
 
 # Local Vercel CLI, installed as a dev tool (not part of the Go build/deploy).
-# Anchored to the repository root: the web app under web/ is a real Next.js
+# Anchored to the repository root: the web app under src/web is a real Next.js
 # project whose manifest and lockfile MUST be committed, and unanchored patterns
 # would swallow them.
 /node_modules/

@@ -1,6 +1,6 @@
 name: Data lint
 
-# Lints the dataset YAML in overrides/ and data/: yamllint for formatting, and
+# Lints the dataset YAML under dataset/: yamllint for formatting, and
 # JSON Schema validation for structure and enum values (e.g. releaseSeason must
 # be WINTER/SPRING/SUMMER/FALL, special format must be OVA/ONA/SPECIAL).
 on:

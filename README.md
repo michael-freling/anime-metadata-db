@@ -19,7 +19,7 @@ can never clobber authored work:
 | [`dataset/overrides/`](dataset/overrides/) | **you** (hand-edited) | Structure + decisions the open sources can't express: Series/Franchise boundaries, ordering, `alternateCutOf`, `WatchOrder`s, which series are linearly `numbered`. |
 | `dataset/data/` | `builder build` (generated) | The full resolved records: overrides **+** facts filled from open data **+** computed `absoluteNumber`. Never hand-edit. |
 
-`builder build` treats `overrides/` as read-only input, so builds are
+`builder build` treats `dataset/overrides/` as read-only input, so builds are
 **deterministic and idempotent**: the same overrides + the same pinned sources
 produce the same `dataset/data/`.
 
@@ -88,7 +88,7 @@ pins deliberately.
 cd src/builder && go build ./cmd/builder   # or: make build-data
 
 ./builder init                 # download the pinned sources into .sources/
-./builder build                # (re)build data/ for all overrides
+./builder build                # (re)build dataset/data/ for all overrides
 ./builder build demon-slayer   # build/rebuild just one franchise or series
 ./builder refresh              # update sources to latest, bump pins, rebuild all
 ```
@@ -109,25 +109,30 @@ The same dataset is served read-only over a [Connect RPC](https://connectrpc.com
 service defined in [`src/api/proto/anime/v1/anime.proto`](src/api/proto/anime/v1/anime.proto).
 Connect speaks the **Connect protocol, gRPC and gRPC-Web over plain HTTP**, so
 clients can call it with an ordinary HTTP `POST` + JSON, no special tooling
-required. The dataset is compiled into the binary with `go:embed`, so the server
-is stateless and self-contained.
+required. The server reads `dataset/` from the filesystem at startup, so a
+deployment ships the directory beside the binary; `-dataset` or
+`ANIME_DATASET_DIR` names it, and otherwise it is found by walking up from the
+working directory and from the executable.
 
-Listings are answered from `dataset/data/index.tsv`, a generated file carrying just the
-fields a browse row shows. The server holds it as a string constant — read-only
-data in the binary, so it costs no heap — and parses a YAML record only when a
-request names a single id. That is what keeps startup flat as the catalogue
-grows; see [`src/api/internal/index`](src/api/internal/index/index.go) for the measurements
+Startup reads exactly one file. Listings are answered from
+`dataset/data/index.tsv`, a generated file carrying just the fields a browse row
+shows, and a YAML record is opened only when a request names a single id — so
+boot stays flat as the catalogue grows however large `dataset/data/` gets; see
+[`src/api/internal/index`](src/api/internal/index/index.go) for the measurements
 behind it. Regenerate it with `make index` after any change under `dataset/data/`.
 
-The repository is three Go modules, so the two programs cannot quietly grow a
+The code is three Go modules, so the two programs cannot quietly grow a
 dependency on each other and neither imposes its dependencies on someone who
 only wants the data:
 
 | Module | Holds | Depends on |
 |---|---|---|
-| `.` (root) | `dataset/data/`, `dataset.go`, `src/animedb/model` — the dataset and the types describing it | nothing but a YAML parser |
-| `api/` | `cmd/api`, `cmd/index`, `internal/api`, `internal/index`, the proto | the root module |
-| `builder/` | `cmd/builder`, `internal/build`, the sources and `config/` | the root module |
+| `src/animedb/` | `model` and the dataset loader — the types describing the records, and how to open them | nothing but a YAML parser |
+| `src/api/` | `cmd/api`, `cmd/index`, `internal/api`, `internal/index`, the proto | `src/animedb` |
+| `src/builder/` | `cmd/builder`, `internal/build`, the sources and `config/` | `src/animedb` |
+
+There is no module at the repository root: the data it used to hold is plain
+files under `dataset/`, which nothing needs to compile.
 
 A full build owns `dataset/data/`: records whose override was deleted are pruned, so
 the tree never keeps a stale one. That also makes a wrong `overridesDir` the
@@ -136,10 +141,11 @@ overrides resolve to nothing and the prune would empty the dataset. CI checks
 the committed configuration both ways — a fast path-resolution test in the
 normal run, and a job that rebuilds `dataset/data/` from the real sources and diffs it.
 
-`builder` **writes** `dataset/data/`; `api/cmd/index` **indexes** it; `api/cmd/api`
-**reads** the embedded copy and serves it. Each module resolves the others with
-a `replace` pointing into the working tree, so no `go.work` is needed and every
-module builds standalone — which is exactly how CI builds them.
+`builder` **writes** `dataset/data/`; `src/api/cmd/index` **indexes** it;
+`src/api/cmd/api` **reads** it from disk and serves it. `src/api` and
+`src/builder` resolve the shared module with a `replace` pointing at their
+sibling, so no `go.work` is needed and every module builds standalone — which is
+exactly how CI builds them.
 
 The public API is `anime.v1.AnimeService`, and it is three methods wide:
 `SearchSeries` finds series by name, `SearchReleases` finds seasons, films and
@@ -188,10 +194,11 @@ curl -X POST localhost:8080/anime.v1.AnimeService/SearchSeries \
 ### Hosting (Vercel)
 
 The service deploys to Vercel's free tier using Vercel's native **Go web-server**
-builder: it compiles [`api/cmd/api`](api/cmd/api) and runs it as a server, injecting the
-listen port via `$PORT` (which the server binds automatically). No `vercel.json`
-or serverless-function wrapper is needed — every request is proxied to the
-server. The browse service's `GetStats` reports `$VERCEL_GIT_COMMIT_SHA` as its
+builder: it compiles [`src/api/cmd/api`](src/api/cmd/api) and runs it as a
+server, injecting the listen port via `$PORT` (which the server binds
+automatically). No `vercel.json` or serverless-function wrapper is needed —
+every request is proxied to the server. `.vercelignore` keeps `dataset/` in the
+upload, which the server now needs at runtime rather than only at build time. The browse service's `GetStats` reports `$VERCEL_GIT_COMMIT_SHA` as its
 `version`.
 
 Connect-protocol, gRPC-Web and JSON clients all work over Vercel; deploy by
@@ -201,7 +208,7 @@ files is needed.
 
 ### Regenerating the protobuf code
 
-The generated Go under `internal/gen/` is committed (and excluded from the
+The generated Go under `src/api/internal/gen/` is committed (and excluded from the
 coverage gate). Regenerate it with [buf](https://buf.build) after editing the
 `.proto`:
 
@@ -210,6 +217,9 @@ make generate                    # buf generate (needs buf + protoc-gen-go + pro
 ```
 
 ## Development
+
+Run these from inside a module — `src/animedb`, `src/api` or `src/builder` —
+since the repository root is not one:
 
 ```sh
 go test ./...                                          # unit tests (no network)
@@ -229,15 +239,20 @@ The code and the data are licensed **separately**:
 
 | | Licence | |
 |---|---|---|
-| Code — everything except `dataset/data/` | MIT | [`LICENSE`](LICENSE) |
-| `dataset/data/` as a database | ODbL v1.0 | [`LICENSE-DATA`](LICENSE-DATA) |
-| `dataset/data/` individual records | DbCL v1.0 | [`LICENSE-DATA`](LICENSE-DATA) |
+| Code — everything except `dataset/` | MIT | [`LICENSE`](LICENSE) |
+| `dataset/` as a database | ODbL v1.0 | [`LICENSE-DATA`](LICENSE-DATA) |
+| `dataset/` individual records | DbCL v1.0 | [`LICENSE-DATA`](LICENSE-DATA) |
 
-`dataset/data/` is a derivative database of `anime-offline-database`, and the ODbL's
+The whole of `dataset/` is covered, not just the generated half:
+`dataset/overrides/` is the authored side of the same database and much of what
+it holds is derived from the same ODbL source, so splitting the licence between
+the two would put those records on the code side of a line they do not belong on.
+
+`dataset/` is a derivative database of `anime-offline-database`, and the ODbL's
 share-alike term reaches derivative databases — so the compiled dataset is
 offered on the terms it was received under. Publishing a modified dataset means
-publishing it under ODbL too, and because [`dataset.go`](dataset.go) embeds
-`dataset/data/`, those terms travel with any binary built from this repository.
+publishing it under ODbL too, and a deployment carries `dataset/` alongside the
+binary, so those terms travel with any copy of the files.
 Attribution for every upstream source is in [`NOTICE`](NOTICE); the full picture
 is in the
 [Sources and licensing](https://anime-metadata-db.vercel.app/docs/sources-and-licensing)

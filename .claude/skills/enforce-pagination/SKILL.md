@@ -112,7 +112,7 @@ turns out to be large costs an outage.
 A bounded API does not give you a truthful page. Wherever the frontend renders a
 collection it must either page it or say what it is not showing:
 
-- Paging a single collection → `Pager` (`web/src/components/browse.tsx`), which
+- Paging a single collection → `Pager` (`src/web/src/components/browse.tsx`), which
   prints `Showing N of M` and links onward.
 - Several collections on one page → one cursor cannot describe them, so preview
   each with an honest count and link to the view that does page it. Both

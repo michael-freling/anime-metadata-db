@@ -47,21 +47,23 @@ else
 fi
 
 # Anchored patterns: what the file should look like.
-run "anchored patterns pass" ok '/docs/' '/api/proto/' '/.sources/' '/builder/' '/coverage.out'
+run "anchored patterns pass" ok '/src/api/proto/' '/.sources/' '/src/builder/' '/coverage.out'
 
 # The outage: unanchored docs/ also matched web/content/docs/ and removed every
-# documentation page from the deployment.
-run "unanchored docs/ is rejected" reject 'docs/' '/proto/'
+# documentation page from the deployment. The Hugo tree it was aimed at is gone
+# — the pattern is not in the file any more — but the trap it fell into is a
+# property of gitignore, so it is still what this asserts against.
+run "unanchored docs/ is rejected" reject 'docs/' '/src/api/proto/' '/src/builder/'
 
 # The earlier failure: excluding the app the web project builds.
-run "excluding web/ is rejected" reject '/docs/' '/api/proto/' 'web/'
+run "excluding web/ is rejected" reject '/src/api/proto/' '/src/builder/' 'web/'
 
 # The same class, one level in.
-run "excluding web/content/ is rejected" reject '/docs/' '/api/proto/' '/web/content/'
+run "excluding src/web/content/ is rejected" reject '/src/api/proto/' '/src/builder/' '/src/web/content/'
 
-# data/** is embedded into the Go function; losing the staff half would break
-# the API without touching the site.
-run "excluding data/staff/ is rejected" reject '/docs/' '/api/proto/' '/data/staff/'
+# dataset/data is read from disk by the Go function; losing the staff half
+# would break the API without touching the site.
+run "excluding dataset/data/staff/ is rejected" reject '/src/api/proto/' '/src/builder/' '/dataset/data/staff/'
 
 # An emptied file keeps everything, which must NOT count as passing: the
 # intended exclusions are part of the contract.
@@ -69,31 +71,32 @@ run "an empty file is rejected" reject ''
 
 # The Go API deploys from this repository too, and its files are a separate
 # failure: the site would keep working while the API function stopped building.
-run "excluding internal/ is rejected" reject '/docs/' '/api/proto/' '/internal/'
-run "excluding api/ is rejected" reject '/docs/' '/api/proto/' '/api/'
-run "excluding go.mod is rejected" reject '/docs/' '/api/proto/' '/go.mod'
+run "excluding src/api/ is rejected" reject '/src/api/proto/' '/src/builder/' '/src/api/'
 
-# The API module resolves the dataset module through `replace ../`, so the
-# repository root's go.mod must reach the upload even though Vercel builds
-# from api/. Dropping it fails the build with an unresolvable module rather
-# than anything that names the real cause.
-run "excluding api/go.mod is rejected" reject '/docs/' '/api/proto/' '/api/go.mod'
+# The API module resolves the shared module through `replace ../animedb`, so
+# src/animedb must reach the upload even though Vercel builds from src/api.
+# Dropping it fails the build with an unresolvable module rather than anything
+# that names the real cause. Its go.mod is named separately from the directory
+# because that is the file the replace resolves against.
+run "excluding src/animedb/ is rejected" reject '/src/api/proto/' '/src/builder/' '/src/animedb/'
+run "excluding src/animedb/go.mod is rejected" reject '/src/api/proto/' '/src/builder/' '/src/animedb/go.mod'
+run "excluding src/api/go.mod is rejected" reject '/src/api/proto/' '/src/builder/' '/src/api/go.mod'
 
 # The listing index is one file inside a directory the check already requires,
-# so excluding just it would leave every other data/ file matching. It is named
-# separately for that reason, and this is what proves the naming works: without
-# the index the API does not boot at all.
-run "excluding data/index.tsv is rejected" reject '/docs/' '/api/proto/' '/config/' '/data/index.tsv'
+# so excluding just it would leave every other dataset/data file matching. It
+# is named separately for that reason, and this is what proves the naming
+# works: without the index the API does not boot at all.
+run "excluding dataset/data/index.tsv is rejected" reject '/src/api/proto/' '/src/builder/' '/dataset/data/index.tsv'
 
-# config/ unanchored repeats the docs/ collision, since internal/config/ exists.
-# The unanchored-pattern trap has a new shape rather than being gone: there
-# are now three internal/ directories, and an unanchored pattern meant for the
-# builder's would take the API's with it.
-run "unanchored internal/ is rejected" reject '/docs/' '/api/proto/' '/builder/' 'internal/'
+# config/ unanchored repeats the docs/ collision, since src/api/internal/config/
+# exists. The unanchored-pattern trap has a new shape rather than being gone:
+# there are now three internal/ directories, and an unanchored pattern meant for
+# the builder's would take the API's with it.
+run "unanchored internal/ is rejected" reject '/src/api/proto/' '/src/builder/' 'internal/'
 
 # Dropping a pattern entirely must not pass: the exclusions are part of the
 # contract, not an optimisation.
-run "dropping /builder/ is rejected" reject '/docs/' '/api/proto/'
+run "dropping /src/builder/ is rejected" reject '/src/api/proto/'
 
 # A wildcard that sweeps up the whole repository.
 run "excluding everything is rejected" reject '*'

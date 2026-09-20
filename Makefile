@@ -1,7 +1,7 @@
 # Makefile for the Go side of the repository: protobuf codegen and the local
 # API server.
 #
-# The documentation site is a Next.js app under web/ with its own npm scripts
+# The documentation site is a Next.js app under src/web with its own npm scripts
 # (`npm run dev` / `npm run build`) and is not driven from here.
 
 .DEFAULT_GOAL := help
@@ -15,7 +15,7 @@ help: ## Show this help
 # --- API: protobuf codegen + local server ----------------------------------
 
 .PHONY: generate
-generate: ## Regenerate the committed Go and TypeScript clients and the API reference (needs buf; run npm install in web/ first)
+generate: ## Regenerate the committed Go and TypeScript clients and the API reference (needs buf; run npm install in src/web first)
 	cd src/api && buf generate
 	cd src/web && npm run generate:api-docs
 

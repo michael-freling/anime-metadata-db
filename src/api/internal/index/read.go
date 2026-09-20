@@ -88,8 +88,8 @@ type creditRow struct {
 	language, series span
 }
 
-// Open parses the index file in blob. blob is retained, not copied: it is meant
-// to be an embedded string, which lives in the binary's read-only data.
+// Open parses the index file in blob. blob is retained, not copied: every row
+// the Index returns is a span into it, so it must outlive the Index.
 func Open(blob string) (*Index, error) {
 	ix := &Index{
 		blob:           blob,

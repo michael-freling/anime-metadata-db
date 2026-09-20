@@ -80,7 +80,7 @@ function fixture(overrides = {}) {
     'dataset/schemas/anime.schema.json': JSON.stringify(SCHEMA, null, 2),
     'src/web/content/docs/sources-and-licensing.mdx': TABLE,
     NOTICE,
-    'builder/config.yaml': CONFIG,
+    'src/builder/config.yaml': CONFIG,
     ...overrides,
   }
   for (const [path, content] of Object.entries(files)) {
@@ -214,7 +214,7 @@ test('aborts with 2 when the table heading is renamed', () => {
 })
 
 test('aborts with 2 when config.yaml declares no sources', () => {
-  const dir = fixture({ 'builder/config.yaml': 'settings:\n    dataDir: data\n' })
+  const dir = fixture({ 'src/builder/config.yaml': 'settings:\n    dataDir: data\n' })
   const { code, out } = run(dir)
   assert.equal(code, 2)
   assert.match(out, /no source URLs/)

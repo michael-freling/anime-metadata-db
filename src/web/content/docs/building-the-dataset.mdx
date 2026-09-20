@@ -151,8 +151,8 @@ exactly the sources it was authored against.)
 
 ## Serving it
 
-The same dataset is compiled into the API binary with `go:embed`, so the server
-is stateless and self-contained:
+The same dataset is read from disk by the API server, which keeps no state of
+its own beyond what it opens from `dataset/`:
 
 ```sh
 cd src/api && go run ./cmd/api                 # listens on :8080

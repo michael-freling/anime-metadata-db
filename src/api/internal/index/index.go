@@ -3,8 +3,8 @@
 //
 // # Why this exists
 //
-// data/ is the product: one reviewable YAML record per series, plus the staff
-// files. The API used to load all of it at startup and keep the whole object
+// dataset/data/ is the product: one reviewable YAML record per series, plus the
+// staff files. The API used to load all of it at startup and keep the whole object
 // graph resident. Measured against a dataset scaled to the full upstream
 // catalogue (~41k works, 97 MB of YAML), that costs 9.7 s of parsing, 2.8 GB of
 // allocation and a 443 MB peak heap — paid on every boot of the server, which
@@ -18,16 +18,16 @@
 //
 // # Why a flat text file
 //
-// The index is embedded with go:embed into a string. A Go string constant lives
-// in the binary's read-only data, so holding it costs no heap and no startup
-// work — the OS pages it in on demand. Boot is one scan that records byte
-// offsets; no field is copied out of the blob until a request materialises the
-// twenty rows it is actually returning.
+// The index is read whole into one string at startup — the only file the server
+// opens before it can answer anything. Boot is a single scan that records byte
+// offsets into that string; no field is copied out of the blob until a request
+// materialises the twenty rows it is actually returning. One file read is the
+// whole cost, and it does not grow with the number of records behind it.
 //
 // It stays text, one record per line, in deterministic order, because it is
 // committed alongside the data it describes and has to survive review: a
 // changed title should show up as a one-line diff. It is generated, never
-// hand-edited, and CI regenerates it to check it still matches data/.
+// hand-edited, and CI regenerates it to check it still matches dataset/data/.
 //
 // # Format
 //
