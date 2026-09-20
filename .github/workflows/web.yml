@@ -11,20 +11,20 @@ name: Web
 on:
   pull_request:
     paths:
-      - "web/**"
-      - "api/**"
-      - "internal/model/**"
-      - "data/**"
+      - "src/web/**"
+      - "src/api/**"
+      - "src/animedb/**"
+      - "dataset/**"
       - ".vercelignore"
       - ".github/scripts/**"
       - ".github/workflows/web.yml"
   push:
     branches: [main]
     paths:
-      - "web/**"
-      - "api/**"
-      - "internal/model/**"
-      - "data/**"
+      - "src/web/**"
+      - "src/api/**"
+      - "src/animedb/**"
+      - "dataset/**"
       - ".vercelignore"
       - ".github/scripts/**"
       - ".github/workflows/web.yml"
@@ -35,7 +35,7 @@ permissions:
 
 defaults:
   run:
-    working-directory: web
+    working-directory: src/web
 
 jobs:
   build:
@@ -50,7 +50,7 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: web/package-lock.json
+          cache-dependency-path: src/web/package-lock.json
 
       - name: Install dependencies
         run: npm ci
@@ -149,37 +149,37 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version-file: go.mod
+          go-version-file: src/animedb/go.mod
 
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: web/package-lock.json
+          cache-dependency-path: src/web/package-lock.json
 
       - name: Install dependencies
         run: npm ci
-        working-directory: web
+        working-directory: src/web
 
       - name: Install Playwright browser
         run: npx playwright install --with-deps chromium
-        working-directory: web
+        working-directory: src/web
 
       - name: Build
         run: npm run build
-        working-directory: web
+        working-directory: src/web
 
       - name: Run end-to-end tests
         run: npm run e2e
-        working-directory: web
+        working-directory: src/web
 
       - name: Upload the report on failure
         if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report
-          path: web/playwright-report/
+          path: src/web/playwright-report/
           retention-days: 7
 
   upload:

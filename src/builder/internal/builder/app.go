@@ -1,0 +1,826 @@
+// Package builder wires the config, sources, build pipeline and writer into the
+// three high-level operations the builder CLI exposes: init, build and refresh.
+// It is kept free of cobra so the operations are unit-testable with a fake
+// fetcher, and is deliberately separate from internal/api (the read-only
+// Connect service that serves the dataset this package produces).
+package builder
+
+import (
+	"context"
+	"fmt"
+	"io"
+	"io/fs"
+	"os"
+	"path/filepath"
+	"sort"
+	"strings"
+
+	"github.com/michael-freling/anime-metadata-db/src/animedb/model"
+	"github.com/michael-freling/anime-metadata-db/src/builder/internal/build"
+	"github.com/michael-freling/anime-metadata-db/src/builder/internal/config"
+	"github.com/michael-freling/anime-metadata-db/src/builder/internal/fetch"
+	"github.com/michael-freling/anime-metadata-db/src/builder/internal/mapkeys"
+	"github.com/michael-freling/anime-metadata-db/src/builder/internal/overrides"
+	"github.com/michael-freling/anime-metadata-db/src/builder/internal/sources/animelists"
+	"github.com/michael-freling/anime-metadata-db/src/builder/internal/sources/offlinedb"
+	"github.com/michael-freling/anime-metadata-db/src/builder/internal/sources/wikidata"
+	"github.com/michael-freling/anime-metadata-db/src/builder/internal/writer"
+)
+
+// Fetcher downloads a source by URL. *fetch.Client satisfies it; tests inject a
+// fake.
+type Fetcher interface {
+	Get(ctx context.Context, url string) ([]byte, error)
+}
+
+// App runs the builder operations against a working directory (the repo root).
+type App struct {
+	Dir     string
+	Fetcher Fetcher
+	Out     io.Writer
+	// AllowPrune permits a build to delete more records than it writes. Off by
+	// default: that shape almost always means the overrides being read are not
+	// the ones the dataset came from, and the cost of being wrong is the
+	// dataset. Deliberately removing a lot of series is the case it exists for.
+	AllowPrune bool
+}
+
+// New returns an App rooted at dir. A nil fetcher defaults to a real HTTP
+// client; a nil writer defaults to os.Stdout.
+func New(dir string, fetcher Fetcher, out io.Writer) *App {
+	if fetcher == nil {
+		fetcher = fetch.NewClient(nil)
+	}
+	if out == nil {
+		out = os.Stdout
+	}
+	return &App{Dir: dir, Fetcher: fetcher, Out: out}
+}
+
+// configPath is the path to the repo's config.yaml.
+func (a *App) configPath() string { return filepath.Join(a.Dir, "config.yaml") }
+
+// loadConfig loads config.yaml, falling back to the built-in defaults when the
+// file does not exist yet.
+func (a *App) loadConfig() (config.Config, error) {
+	if _, err := os.Stat(a.configPath()); os.IsNotExist(err) {
+		return config.Default(), nil
+	}
+	return config.Load(a.configPath())
+}
+
+// Init downloads the pinned sources into the cache, recording checksums for any
+// source that was not yet pinned, and writes config.yaml.
+func (a *App) Init(ctx context.Context) error {
+	cfg, err := a.loadConfig()
+	if err != nil {
+		return err
+	}
+	sourcesDir := filepath.Join(a.Dir, cfg.Settings.SourcesDir)
+	for _, name := range config.SourceNames() {
+		src := cfg.Sources[name]
+		status, err := a.ensureSource(ctx, sourcesDir, &src)
+		if err != nil {
+			return err
+		}
+		cfg.Sources[name] = src
+		switch status {
+		case sourcePinned:
+			fmt.Fprintf(a.Out, "pinned %s @ %s\n", name, shortSHA(src.SHA256))
+		case sourceRepinned:
+			fmt.Fprintf(a.Out, "re-pinned %s @ %s (rolling source %q changed upstream)\n", name, shortSHA(src.SHA256), src.Version)
+		default:
+			fmt.Fprintf(a.Out, "verified %s\n", name)
+		}
+	}
+	if err := a.ensureWikidata(ctx, cfg); err != nil {
+		return err
+	}
+	if err := cfg.Save(a.configPath()); err != nil {
+		return err
+	}
+	fmt.Fprintln(a.Out, "init complete")
+	return nil
+}
+
+// ensureWikidata fetches Wikidata labels for every QID referenced by the
+// overrides into the source cache, and title claims for the works the series
+// name.
+//
+// A series names its work by resolution rather than by an authored id: it has
+// no AniList id to join on — it spans several, one per installment — so its own
+// native title is the only handle it has, and looking that up as a Japanese
+// Wikipedia article is what finds the entity. Doing it here means the dataset
+// stays a product of `init` and `build`, rather than of ids a human pasted into
+// overrides; an authored wikidataId still wins, for the cases the lookup gets
+// wrong or cannot reach.
+//
+// It is a no-op when the source is unconfigured or nothing references a QID.
+func (a *App) ensureWikidata(ctx context.Context, cfg config.Config) error {
+	src, ok := cfg.Sources[config.SourceWikidata]
+	if !ok || src.URL == "" {
+		return nil
+	}
+	bundle, err := overrides.LoadDir(filepath.Join(a.Dir, cfg.Settings.OverridesDir))
+	if err != nil {
+		return err
+	}
+	resolved, err := a.resolveSeriesWorks(ctx, src.URL, bundle)
+	if err != nil {
+		return err
+	}
+	qids := collectQIDs(bundle)
+	works := collectSeriesQIDs(bundle)
+	for _, qid := range resolved {
+		qids = append(qids, qid)
+		works = append(works, qid)
+	}
+	if len(qids) == 0 {
+		return nil
+	}
+	raw, entities, err := wikidata.FetchEntities(ctx, a.Fetcher.Get, src.URL, qids, works, resolved)
+	if err != nil {
+		return err
+	}
+	if err := writeFile(a.wikidataCachePath(cfg), raw); err != nil {
+		return err
+	}
+	fmt.Fprintf(a.Out, "fetched wikidata: %d/%d entities\n", entities.Len(), len(qids))
+	return nil
+}
+
+// resolveSeriesWorks looks up the Wikidata work each series names, for every
+// series whose override authored no wikidataId, and returns the native title →
+// QID map for those that resolved.
+//
+// What did not resolve is printed rather than swallowed. A silent 0 here would
+// read as "no English titles exist", when the truth is that a title matched no
+// article, or matched a disambiguation page — two different problems with two
+// different fixes, and neither visible from the dataset afterwards.
+func (a *App) resolveSeriesWorks(ctx context.Context, apiURL string, bundle overrides.Bundle) (map[string]string, error) {
+	// Keyed by title, because the title is the handle — so a title two series
+	// share is not a handle at all. Resolving it would give both the same work
+	// and one of them the other's English title, silently and with the tally
+	// still reading as if every series had resolved. Collect the ids behind each
+	// title so that case can be refused by name instead.
+	seriesByTitle := map[string][]string{}
+	var titles []string
+	var needing int
+	for _, o := range bundle.Series {
+		o.EachSeries(func(s *model.Series) {
+			if s.ExternalIDs.WikidataID != "" || s.Titles.Original == "" {
+				return
+			}
+			needing++
+			if _, seen := seriesByTitle[s.Titles.Original]; !seen {
+				titles = append(titles, s.Titles.Original)
+			}
+			seriesByTitle[s.Titles.Original] = append(seriesByTitle[s.Titles.Original], s.ID)
+		})
+	}
+	if len(titles) == 0 {
+		return nil, nil
+	}
+
+	var ambiguous []string
+	lookup := make([]string, 0, len(titles))
+	for _, t := range titles {
+		if len(seriesByTitle[t]) > 1 {
+			ambiguous = append(ambiguous, t)
+			continue
+		}
+		lookup = append(lookup, t)
+	}
+
+	results, err := wikidata.ResolveWorks(ctx, a.Fetcher.Get, apiURL, lookup)
+	if err != nil {
+		return nil, err
+	}
+	resolved := make(map[string]string, len(results))
+	unresolved := map[string]int{}
+	seenKinds := map[string]map[string]bool{}
+	for _, r := range results {
+		if r.Resolved() {
+			resolved[r.Title] = r.QID
+			continue
+		}
+		unresolved[r.Kind]++
+		if len(r.InstanceOf) > 0 {
+			if seenKinds[r.Kind] == nil {
+				seenKinds[r.Kind] = map[string]bool{}
+			}
+			for _, id := range r.InstanceOf {
+				seenKinds[r.Kind][id] = true
+			}
+		}
+	}
+	for _, t := range ambiguous {
+		unresolved[fmt.Sprintf("shared by %d series (%s), so the title cannot name one work; author externalIds.wikidataId",
+			len(seriesByTitle[t]), strings.Join(seriesByTitle[t], ", "))]++
+	}
+
+	// The denominator counts series, not titles. Counting distinct titles would
+	// collapse a collision into one and let the line read as complete while two
+	// series went unresolved — the very thing the collision check exists to
+	// surface.
+	fmt.Fprintf(a.Out, "resolved wikidata works: %d/%d series titles\n", len(resolved), needing)
+	for _, kind := range mapkeys.Sorted(unresolved) {
+		fmt.Fprintf(a.Out, "  %d unresolved: %s", unresolved[kind], kind)
+		// Naming the P31 values behind a refusal is what makes the allowlist
+		// extendable from the build output instead of by looking each title up
+		// on Wikidata again.
+		if ids := seenKinds[kind]; len(ids) > 0 {
+			seen := make([]string, 0, len(ids))
+			for id := range ids {
+				seen = append(seen, id)
+			}
+			sort.Strings(seen)
+			fmt.Fprintf(a.Out, " (P31 seen: %s)", strings.Join(seen, ", "))
+		}
+		fmt.Fprintln(a.Out)
+	}
+	return resolved, nil
+}
+
+// collectSeriesQIDs gathers the QIDs a series names — the works whose P1476
+// title claim the build reads. They are a separate list because claims are
+// fetched only where they are read; see wikidata.FetchEntities.
+func collectSeriesQIDs(bundle overrides.Bundle) []string {
+	var qids []string
+	for _, o := range bundle.Series {
+		o.EachSeries(func(s *model.Series) {
+			if s.ExternalIDs.WikidataID != "" {
+				qids = append(qids, s.ExternalIDs.WikidataID)
+			}
+		})
+	}
+	return qids
+}
+
+// collectQIDs gathers every Wikidata QID referenced by the overrides: series,
+// character and per-appearance ids in the series files, and staff ids in the
+// staff files.
+func collectQIDs(bundle overrides.Bundle) []string {
+	var qids []string
+	add := func(id string) {
+		if id != "" {
+			qids = append(qids, id)
+		}
+	}
+	for _, o := range bundle.Series {
+		o.EachSeries(func(s *model.Series) { add(s.ExternalIDs.WikidataID) })
+		for _, c := range o.Cast() {
+			add(c.ExternalIDs.WikidataID)
+			for _, ap := range c.Appearances {
+				add(ap.ExternalIDs.WikidataID)
+			}
+		}
+	}
+	for _, o := range bundle.Staff {
+		for _, s := range o.Staff {
+			add(s.ExternalIDs.WikidataID)
+		}
+	}
+	return qids
+}
+
+// sourceStatus reports what ensureSource did with a source.
+type sourceStatus int
+
+const (
+	sourceVerified sourceStatus = iota // present and matching its pin
+	sourcePinned                       // downloaded and pinned for the first time
+	sourceRepinned                     // a rolling source changed upstream and was re-pinned
+)
+
+// rollingRefs are version strings that name a moving target rather than an
+// immutable release, so a pinned checksum is advisory (it will legitimately
+// change when upstream updates) instead of a hard integrity gate.
+var rollingRefs = map[string]bool{"latest": true, "master": true, "main": true, "head": true}
+
+// isRollingVersion reports whether a source version names a moving ref.
+func isRollingVersion(version string) bool {
+	return rollingRefs[strings.ToLower(strings.TrimSpace(version))]
+}
+
+// shortSHA truncates a hex checksum for display.
+func shortSHA(sha string) string {
+	if len(sha) > 12 {
+		return sha[:12]
+	}
+	return sha
+}
+
+// ensureSource makes the cache file present and consistent with its pin. A
+// cache hit against the pin is a no-op. Otherwise it downloads and, on a
+// checksum mismatch, re-pins rolling sources (with a warning) but fails sources
+// pinned to a fixed version so tampering is still caught.
+func (a *App) ensureSource(ctx context.Context, dir string, src *config.Source) (sourceStatus, error) {
+	path := filepath.Join(dir, src.Filename)
+	if data, err := os.ReadFile(path); err == nil && src.SHA256 != "" {
+		if fetch.Checksum(data) == src.SHA256 {
+			return sourceVerified, nil
+		}
+	}
+	data, err := a.Fetcher.Get(ctx, src.URL)
+	if err != nil {
+		return sourceVerified, err
+	}
+	sum := fetch.Checksum(data)
+	var status sourceStatus
+	switch {
+	case src.SHA256 == "":
+		status = sourcePinned
+	case sum == src.SHA256:
+		status = sourceVerified
+	case isRollingVersion(src.Version):
+		status = sourceRepinned
+	default:
+		return sourceVerified, fmt.Errorf("source %s: checksum mismatch (pinned %s, downloaded %s); run `builder refresh` to update the pin",
+			src.Filename, shortSHA(src.SHA256), shortSHA(sum))
+	}
+	src.SHA256 = sum
+	if err := writeFile(path, data); err != nil {
+		return sourceVerified, err
+	}
+	return status, nil
+}
+
+// Refresh re-downloads every source to its latest version, bumps the pinned
+// checksums, then rebuilds all of data/.
+func (a *App) Refresh(ctx context.Context) error {
+	cfg, err := a.loadConfig()
+	if err != nil {
+		return err
+	}
+	sourcesDir := filepath.Join(a.Dir, cfg.Settings.SourcesDir)
+	for _, name := range config.SourceNames() {
+		src := cfg.Sources[name]
+		data, err := a.Fetcher.Get(ctx, src.URL)
+		if err != nil {
+			return err
+		}
+		path := filepath.Join(sourcesDir, src.Filename)
+		if err := writeFile(path, data); err != nil {
+			return err
+		}
+		src.SHA256 = fetch.Checksum(data)
+		cfg.Sources[name] = src
+		fmt.Fprintf(a.Out, "refreshed %s @ %s\n", name, shortSHA(src.SHA256))
+	}
+	if err := a.ensureWikidata(ctx, cfg); err != nil {
+		return err
+	}
+	if err := cfg.Save(a.configPath()); err != nil {
+		return err
+	}
+	return a.build(cfg, nil)
+}
+
+// Build resolves the overrides into data/. With ids given, only those
+// franchise/series ids are (re)built; otherwise all are. Files are written only
+// when their content changes.
+func (a *App) Build(_ context.Context, ids ...string) error {
+	cfg, err := a.loadConfig()
+	if err != nil {
+		return err
+	}
+	return a.build(cfg, ids)
+}
+
+// resolvedSeries pairs an override with its resolved record and report.
+type resolvedSeries struct {
+	o      overrides.Override
+	rec    model.Record
+	report *build.Report
+}
+
+// resolvedStaff pairs a staff override with its resolved record and report.
+type resolvedStaff struct {
+	o      overrides.StaffOverride
+	rec    model.StaffRecord
+	report *build.Report
+}
+
+// build is the shared body of Build and Refresh. It resolves staff and series
+// records (the latter carry their co-located cast), validates every character's
+// references against the full R1 id universe + declared staff, then writes the
+// changed files. Everything is resolved even under a filter so references always
+// validate against the whole tree; only matching files are written.
+func (a *App) build(cfg config.Config, ids []string) error {
+	sources, err := a.loadSources(cfg)
+	if err != nil {
+		return err
+	}
+	overridesDir := filepath.Join(a.Dir, cfg.Settings.OverridesDir)
+	bundle, err := overrides.LoadDir(overridesDir)
+	if err != nil {
+		return err
+	}
+	filter := make(map[string]bool, len(ids))
+	for _, id := range ids {
+		filter[id] = true
+	}
+
+	builder := build.New(sources)
+	dataDir := filepath.Join(a.Dir, cfg.Settings.DataDir)
+	expected := make(map[string]bool, len(bundle.Series)+len(bundle.Staff))
+
+	// Staff first: resolve names and collect the staff id universe.
+	staffIDs := map[string]bool{}
+	staffOut := make([]resolvedStaff, 0, len(bundle.Staff))
+	for _, o := range bundle.Staff {
+		expected[filepath.FromSlash(o.Path)] = true
+		rec, report, err := builder.BuildStaff(o)
+		if err != nil {
+			return fmt.Errorf("build %s: %w", o.Path, err)
+		}
+		for _, s := range rec.Staff {
+			staffIDs[s.ID] = true
+		}
+		staffOut = append(staffOut, resolvedStaff{o, rec, report})
+	}
+
+	// Series: resolve structure + cast names, collecting the R1 id universe.
+	idx := build.NewIDIndex()
+	seriesOut := make([]resolvedSeries, 0, len(bundle.Series))
+	for _, o := range bundle.Series {
+		expected[filepath.FromSlash(o.Path)] = true
+		rec, report, err := builder.Build(o)
+		if err != nil {
+			return fmt.Errorf("build %s: %w", o.ID(), err)
+		}
+		idx.Collect(rec)
+		seriesOut = append(seriesOut, resolvedSeries{o, rec, report})
+	}
+
+	// Decide whether this build is sane before writing a single file. A full
+	// build owns data/, so a wrong overridesDir does not merely delete records
+	// — it overwrites the ones whose paths happen to collide first. Refusing
+	// after the write phase would leave data/ half-replaced behind an error
+	// that reads as "nothing happened".
+	var doomed []string
+	if len(filter) == 0 {
+		if doomed, err = a.checkPrune(dataDir, overridesDir, expected); err != nil {
+			return err
+		}
+	}
+
+	// Validate every cast against the full id universe, then write what matches.
+	ctx := build.CharacterContext{R1: idx, Staff: staffIDs}
+	updated := 0
+	var coverage build.Coverage
+	// Collected over the same records the coverage is, so a filtered build
+	// reports the findings for what it actually built rather than for the
+	// whole catalogue it happened to load.
+	var findings build.Report
+	for _, s := range seriesOut {
+		if err := build.ValidateCharacters(s.rec.Cast(), ctx); err != nil {
+			return fmt.Errorf("build %s: %w", s.o.ID(), err)
+		}
+		if matchesAny(filter, s.o.IDs()) {
+			wrote, err := writer.WriteIfChanged(dataDir, s.o.Path, s.rec)
+			if err != nil {
+				return err
+			}
+			coverage.Add(s.report.Coverage)
+			findings.Notes = append(findings.Notes, s.report.Notes...)
+			updated += a.reportBuilt(wrote, s.o.Path, s.o.ID(), s.report)
+		}
+	}
+	for _, s := range staffOut {
+		if matchesAny(filter, s.o.IDs()) {
+			wrote, err := writer.WriteStaffIfChanged(dataDir, s.o.Path, s.rec)
+			if err != nil {
+				return err
+			}
+			updated += a.reportBuilt(wrote, s.o.Path, s.o.Path, s.report)
+		}
+	}
+
+	if len(filter) > 0 {
+		for id := range filter {
+			if !knownID(bundle, id) {
+				return fmt.Errorf("build: no override found for id %q", id)
+			}
+		}
+	}
+
+	// A full build owns the whole data tree: remove generated files (and now-empty
+	// directories) whose override was deleted or moved, so data/ never keeps a
+	// stale record. A filtered build only touches the requested ids. The
+	// decision to allow this was made above, before anything was written.
+	if len(filter) == 0 {
+		removed, err := removeRecords(dataDir, doomed)
+		if err != nil {
+			return err
+		}
+		for _, rel := range removed {
+			fmt.Fprintf(a.Out, "removed orphaned %s\n", rel)
+		}
+		updated += len(removed)
+	}
+
+	a.reportCoverage(coverage)
+	a.reportFindings(&findings)
+	fmt.Fprintf(a.Out, "build complete: %d file(s) updated\n", updated)
+	return nil
+}
+
+// reportFindings prints one line naming how many findings CI fails on, and
+// which kinds the build raised.
+//
+// It exists so the gate can assert something positive. Grepping the notes for
+// the message text meant a pattern that matched nothing was indistinguishable
+// from a catalogue with nothing wrong, so a rewording silently retired the
+// gate — which happened twice while this feature was being built. Asserting
+// "gating findings: 0" fails loudly instead: if the line ever stops being
+// printed in that shape, CI goes red rather than quietly stopping.
+//
+// The codes are listed beside the count so the planted-error test can say
+// which check fired without matching on prose either.
+func (a *App) reportFindings(report *build.Report) {
+	gating := report.Gating()
+	fmt.Fprintf(a.Out, "gating findings: %d\n", len(gating))
+	if codes := report.Codes(); len(codes) > 0 {
+		strs := make([]string, len(codes))
+		for i, c := range codes {
+			strs[i] = string(c)
+		}
+		fmt.Fprintf(a.Out, "finding codes: %s\n", strings.Join(strs, " "))
+	}
+}
+
+// reportCoverage prints how many anilistIds the build computed rather than
+// read, how much of the result the checks could actually see, and how many
+// installments upstream gives no anilistId to compute or check.
+//
+// A build whose report is empty is either clean or blind, and from the notes
+// alone the two are indistinguishable — the honest output for an id nothing can
+// corroborate is silence. This says which it was, so "no findings" can be read
+// as a result rather than an absence.
+//
+// The derived/authored split leads, because it is the number this project is
+// actually trying to move: an authored id is a fact typed by hand into a
+// dataset whose whole premise is that facts come from open sources. Printing it
+// every build makes the remaining hand-authored surface impossible to ignore,
+// and makes it obvious when a change grows it.
+func (a *App) reportCoverage(c build.Coverage) {
+	if c.Total() > 0 {
+		// Every figure is a fraction of the same denominator — the ids the
+		// checks were given. They come from independent mechanisms, so sharing
+		// one numerator's denominator with another would compare counts that do
+		// not measure the same population.
+		fmt.Fprintf(a.Out, "anilistId provenance: %d ids\n", c.Total())
+		fmt.Fprintf(a.Out, "  %d/%d resolved from the series' own title\n", c.Derived, c.Total())
+		fmt.Fprintf(a.Out, "  %d/%d read from an override\n", c.Authored(), c.Total())
+		if c.Agreed > 0 {
+			// Only when it happens: an override naming an id the build would have
+			// derived anyway is redundant, not an error, and a permanent "0" would
+			// read as a check that keeps failing.
+			fmt.Fprintf(a.Out, "  %d/%d authored and independently reproduced from the title\n", c.Agreed, c.Total())
+		}
+		fmt.Fprintf(a.Out, "  %d/%d linked to a sibling installment\n", c.Corroborated, c.Total())
+		if c.Alone > 0 {
+			fmt.Fprintf(a.Out, "  %d/%d unverifiable: the only installment of their series, so nothing to check against\n", c.Alone, c.Total())
+		}
+	}
+	// Outside the block above and outside its fractions. These installments
+	// contribute no id to the population it counts, so folding them in would
+	// have the provenance line report a denominator it never measured — and
+	// leaving them out entirely would have a catalogue full of works AniList
+	// does not carry print a line saying nothing was resolved.
+	if c.Unlisted > 0 {
+		fmt.Fprintf(a.Out, "installments with no anilistId: %d resolved from the series' own title to an upstream entry AniList does not list\n", c.Unlisted)
+	}
+}
+
+// reportBuilt prints the built/report lines for one record and returns 1 if it
+// was written (for the updated counter), else 0.
+func (a *App) reportBuilt(wrote bool, path, label string, report *build.Report) int {
+	if wrote {
+		fmt.Fprintf(a.Out, "built %s\n", path)
+	}
+	if !report.Empty() {
+		fmt.Fprintf(a.Out, "report for %s (low-confidence guesses):\n%s", label, report.String())
+	}
+	if wrote {
+		return 1
+	}
+	return 0
+}
+
+// matchesAny reports whether any of ids is selected by the filter (no filter
+// means all).
+func matchesAny(filter map[string]bool, ids []string) bool {
+	if len(filter) == 0 {
+		return true
+	}
+	for _, id := range ids {
+		if filter[id] {
+			return true
+		}
+	}
+	return false
+}
+
+// knownID reports whether id names any series/franchise, character or staff
+// declared in the bundle.
+func knownID(bundle overrides.Bundle, id string) bool {
+	for _, o := range bundle.Series {
+		for _, oid := range o.IDs() {
+			if oid == id {
+				return true
+			}
+		}
+	}
+	for _, o := range bundle.Staff {
+		for _, sid := range o.IDs() {
+			if sid == id {
+				return true
+			}
+		}
+	}
+	return false
+}
+
+// checkPrune refuses a full build that does not recognise the dataset it is
+// about to overwrite.
+//
+// The test is overlap, not volume. Counting deletions against the number of
+// overrides read looks right and is not: an overridesDir pointing at some other
+// tree of comparable size deletes everything while writing a similar number of
+// files, and a magnitude check waves that through. What actually distinguishes
+// the wrong tree is that almost none of what it produces corresponds to what is
+// already there.
+//
+// So: a build may remove records whose overrides were deleted, but not more
+// than it keeps. Deliberately removing most of the dataset is a real thing to
+// want, and that is what AllowPrune is for.
+//
+// This deliberately does not try to be a threshold on "too much deletion".
+// Deleting override files is how records are meant to be removed, so any
+// smaller limit would refuse ordinary work, and any number chosen would be
+// arbitrary. Half the dataset disappearing because half the overrides were
+// deleted is a change visible in the diff of the very commit that causes it;
+// the case this guards is the one that is *not* visible there, where the
+// overrides are fine and the build is reading somewhere else entirely.
+//
+// It compares which records exist, not what is in them. An overridesDir that
+// is a stale copy of the right tree — an old backup, an out-of-date sibling
+// checkout — shares the paths and passes, then rewrites records with older
+// content. That is deliberate: rebuilding from older overrides is a legitimate
+// operation producing a legitimate diff, and the builder cannot know which
+// version was meant. It shows up as content changes in review, which is where
+// that judgement belongs; what it cannot show up as is a silent deletion.
+func (a *App) checkPrune(dataDir, overridesDir string, expected map[string]bool) ([]string, error) {
+	doomed, kept, err := planPrune(dataDir, expected)
+	if err != nil {
+		return nil, err
+	}
+	if len(doomed) <= kept || a.AllowPrune {
+		return doomed, nil
+	}
+	detail := fmt.Sprintf("keeping only %d", kept)
+	if kept == 0 {
+		detail = "recognising none of them"
+	}
+	return nil, fmt.Errorf(
+		"refusing to build: this would delete %d of the %d record(s) under %s, %s — "+
+			"which usually means %s is not the tree this dataset was built from; "+
+			"pass --allow-prune if the removal is intended",
+		len(doomed), len(doomed)+kept, dataDir, detail, overridesDir)
+}
+
+// planPrune surveys dataDir without touching it: which records no override
+// accounts for, and how many the build would rewrite in place.
+func planPrune(dataDir string, expected map[string]bool) (doomed []string, kept int, err error) {
+	err = walkRecords(dataDir, func(rel string) error {
+		if expected[rel] {
+			kept++
+			return nil
+		}
+		doomed = append(doomed, filepath.ToSlash(rel))
+		return nil
+	})
+	if err != nil {
+		return nil, 0, err
+	}
+	sort.Strings(doomed)
+	return doomed, kept, nil
+}
+
+// walkRecords calls fn with the dataDir-relative path of every generated record
+// file. A missing dataDir is a no-op.
+func walkRecords(dataDir string, fn func(rel string) error) error {
+	err := filepath.WalkDir(dataDir, func(path string, d fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+		if d.IsDir() {
+			return nil
+		}
+		if ext := strings.ToLower(filepath.Ext(path)); ext != ".yaml" && ext != ".yml" {
+			return nil
+		}
+		rel, err := filepath.Rel(dataDir, path)
+		if err != nil {
+			return err
+		}
+		return fn(rel)
+	})
+	if err != nil && os.IsNotExist(err) {
+		return nil
+	}
+	return err
+}
+
+// removeRecords deletes the given dataDir-relative records and then any
+// directories left empty, returning what it removed.
+//
+// It takes the list rather than recomputing it: planPrune already walked the
+// tree to decide whether this build was allowed to happen, and nothing has
+// changed since.
+func removeRecords(dataDir string, doomed []string) ([]string, error) {
+	for _, rel := range doomed {
+		if err := os.Remove(filepath.Join(dataDir, filepath.FromSlash(rel))); err != nil {
+			return nil, fmt.Errorf("remove orphaned data file: %w", err)
+		}
+	}
+	if len(doomed) > 0 {
+		removeEmptyDirs(dataDir)
+	}
+	return doomed, nil
+}
+
+// removeEmptyDirs removes empty subdirectories under root (deepest first),
+// leaving root itself in place. Best-effort: errors are ignored.
+func removeEmptyDirs(root string) {
+	var dirs []string
+	_ = filepath.WalkDir(root, func(path string, d fs.DirEntry, err error) error {
+		if err == nil && d.IsDir() && path != root {
+			dirs = append(dirs, path)
+		}
+		return nil
+	})
+	// Deepest paths last lexically is not guaranteed, so remove by descending
+	// length, which removes children before parents.
+	sort.Slice(dirs, func(i, j int) bool { return len(dirs[i]) > len(dirs[j]) })
+	for _, dir := range dirs {
+		_ = os.Remove(dir) // fails (and is skipped) when the directory is non-empty
+	}
+}
+
+// loadSources loads the cached open-data sources, pointing the user at `init`
+// when a source is missing.
+func (a *App) loadSources(cfg config.Config) (build.Sources, error) {
+	dir := filepath.Join(a.Dir, cfg.Settings.SourcesDir)
+	offPath := filepath.Join(dir, cfg.Sources[config.SourceOfflineDatabase].Filename)
+	off, err := offlinedb.Load(offPath)
+	if err != nil {
+		return build.Sources{}, fmt.Errorf("%w (run `builder init`)", err)
+	}
+	al, err := animelists.LoadAnimeList(filepath.Join(dir, cfg.Sources[config.SourceAnimeList].Filename))
+	if err != nil {
+		return build.Sources{}, fmt.Errorf("%w (run `builder init`)", err)
+	}
+	msl, err := animelists.LoadMovieSetList(filepath.Join(dir, cfg.Sources[config.SourceMovieSetList].Filename))
+	if err != nil {
+		return build.Sources{}, fmt.Errorf("%w (run `builder init`)", err)
+	}
+	sources := build.Sources{Offline: off, AnimeList: al, MovieSets: msl}
+
+	// Wikidata (R2 names) is optional: load it when the cache exists, otherwise
+	// leave it nil and let the character build report unfilled names.
+	if wdPath := a.wikidataCachePath(cfg); wdPath != "" {
+		if _, err := os.Stat(wdPath); err == nil {
+			wd, err := wikidata.Load(wdPath)
+			if err != nil {
+				return build.Sources{}, err
+			}
+			sources.Wikidata = wd
+		}
+	}
+	return sources, nil
+}
+
+// wikidataCachePath returns the cache path for the Wikidata source, or "" when
+// the source is not configured.
+func (a *App) wikidataCachePath(cfg config.Config) string {
+	src, ok := cfg.Sources[config.SourceWikidata]
+	if !ok || src.Filename == "" {
+		return ""
+	}
+	return filepath.Join(a.Dir, cfg.Settings.SourcesDir, src.Filename)
+}
+
+// writeFile writes data to path, creating parent directories.
+func writeFile(path string, data []byte) error {
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		return fmt.Errorf("create dir: %w", err)
+	}
+	if err := os.WriteFile(path, data, 0o644); err != nil {
+		return fmt.Errorf("write %s: %w", path, err)
+	}
+	return nil
+}

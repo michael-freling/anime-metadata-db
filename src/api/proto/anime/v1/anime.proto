@@ -1,0 +1,437 @@
+syntax = "proto3";
+
+// Package anime.v1 is the public, read-only Connect API over the committed
+// anime dataset.
+//
+// It is deliberately three calls wide. SearchSeries finds series by name;
+// SearchReleases finds individual releases by when they premiered; GetSeries
+// returns one series whole — every season, episode, film, special and cast
+// member in a single response, with no pagination to thread through a detail
+// view and no second call needed to render a page.
+//
+// Series and releases are separate searches because they are separate units. A
+// series spans years and has no quarter, so "Winter 2026" cannot select one; it
+// selects the seasons, films and specials that premiered then, each of which
+// names the series it belongs to. Folding the two into one call would mean a
+// year filter that silently changed what the results were.
+//
+// A series is the unit. Franchises group series in the dataset, but the only
+// thing this API says about that grouping is GetSeriesResponse.franchise_id: a
+// caller can tell two series share a brand, and nothing more. Franchise detail
+// may be added later; until there is a consumer for it, exposing it would be
+// advertising a shape before knowing what it should be.
+//
+// Only facts are served (ids, names, numbering, the appearance and voice-actor
+// graph). Expression — roles, bios, images — is left to the consumer to fetch
+// live from the external ids. It mirrors internal/model.
+package anime.v1;
+
+option go_package = "github.com/michael-freling/anime-metadata-db/src/api/internal/gen/anime/v1;animev1";
+
+// LocalizedTitle holds a title across languages: the original native-script
+// form plus translations keyed by BCP-47 code (en, ja, ...).
+//
+// Every title-bearing message carries a resolved `title` (a single string for
+// the request's Accept-Language, defaulting to English) plus this full
+// `localized_title`. To keep responses small, `localized_title` is populated
+// ONLY when the client sends `Accept-Language: *`; otherwise just `title` is
+// returned. See AnimeService for the language-resolution rules.
+message LocalizedTitle {
+  string original = 1;
+  map<string, string> translations = 2;
+}
+
+// ExternalIds cross-maps a node to external databases. All fields are optional.
+message ExternalIds {
+  int32 anilist_id = 1;
+  int32 anidb_id = 2;
+  int32 tmdb_id = 3;
+  int32 tvdb_id = 4;
+  string wikidata_id = 5;
+}
+
+// ReleaseSeason is the calendar quarter an installment premiered in.
+//
+// The values are unprefixed so the JSON reads "SPRING" — the same string the
+// dataset stores — rather than "RELEASE_SEASON_SPRING", which every client was
+// left to translate back. Protobuf scopes enum values to the package, so a
+// prefix is added only where the bare word would collide with another enum's
+// (see SpecialFormat).
+// buf:lint:ignore ENUM_VALUE_PREFIX
+enum ReleaseSeason {
+  SEASON_UNSPECIFIED = 0;
+  WINTER = 1;
+  SPRING = 2;
+  SUMMER = 3;
+  FALL = 4;
+}
+
+// SpecialFormat is the kind of side content a Special represents. Prefixed,
+// because SPECIAL alone would collide with the browse API's WorkKind.
+// buf:lint:ignore ENUM_VALUE_PREFIX
+enum SpecialFormat {
+  FORMAT_UNSPECIFIED = 0;
+  FORMAT_OVA = 1;
+  FORMAT_ONA = 2;
+  FORMAT_SPECIAL = 3;
+}
+
+// ReleaseKind distinguishes the three node types that map to a real release. A
+// series is a grouping rather than a release, so it is not one of these.
+//
+// TV_SEASON rather than SEASON, which ReleaseSeason's unspecified value already
+// spells; protobuf scopes enum values to the package, so the two would collide.
+// buf:lint:ignore ENUM_VALUE_PREFIX
+enum ReleaseKind {
+  KIND_UNSPECIFIED = 0;
+  TV_SEASON = 1;
+  MOVIE = 2;
+  SPECIAL = 3;
+}
+
+// Episode is one numbered entry of a season or special.
+//
+// It carries numbering and nothing else. The upstream database publishes an
+// episode *count*, not a list, so the entries are the count expanded to 1..n;
+// aired_number is that position and absolute_number is the franchise-wide
+// running count assignAbsoluteNumbers computes by interleaving installments in
+// release order, which is the one fact here that is not arithmetic.
+//
+// 3 and 4 held release_date and title. Both were declared before there was a
+// source for them and neither was ever populated — 0 of 3,229 episodes — so
+// the API advertised fields that always came back empty. They are removed
+// rather than left as an intention: if an episode-level source is ever added,
+// filling a new field is easier than explaining a permanently blank one.
+message Episode {
+  optional int32 absolute_number = 1;
+  int32 aired_number = 2;
+
+  reserved 3, 4;
+  reserved "release_date", "title";
+}
+
+// Season is one numbered TV installment (one media node / cour).
+message Season {
+  string id = 1;
+  // title is resolved for the request's Accept-Language.
+  string title = 10;
+  // localized_title carries every language; set only for Accept-Language: *.
+  LocalizedTitle localized_title = 2;
+  int32 number = 3;
+  optional int32 part = 4;
+  string release_date = 5;
+  int32 release_year = 6;
+  ReleaseSeason release_season = 7;
+  ExternalIds external_ids = 8;
+  // episodes is every episode of this season, in order.
+  repeated Episode episodes = 9;
+
+  // 11 held episodes_total, the count alongside a capped first page. Episodes
+  // are no longer capped, so len(episodes) is the count.
+  reserved 11;
+  reserved "episodes_total";
+}
+
+// AlternateCutOf links an alternate-cut film to the Season it re-cuts.
+message AlternateCutOf {
+  string season_id = 1;
+  string episodes = 2;
+}
+
+// Movie is one film (one media node).
+message Movie {
+  string id = 1;
+  // title is resolved for the request's Accept-Language.
+  string title = 8;
+  // localized_title carries every language; set only for Accept-Language: *.
+  LocalizedTitle localized_title = 2;
+  string release_date = 3;
+  int32 release_year = 4;
+  ExternalIds external_ids = 5;
+  optional int32 absolute_number = 6;
+  AlternateCutOf alternate_cut_of = 7;
+}
+
+// Special is one OVA / ONA / special (side content, no season number).
+message Special {
+  string id = 1;
+  // title is resolved for the request's Accept-Language.
+  string title = 9;
+  // localized_title carries every language; set only for Accept-Language: *.
+  LocalizedTitle localized_title = 2;
+  SpecialFormat format = 3;
+  string release_date = 4;
+  int32 release_year = 5;
+  ExternalIds external_ids = 6;
+  // episodes is every episode of this special, in order.
+  repeated Episode episodes = 7;
+  optional int32 absolute_number = 8;
+
+  // 10 held episodes_total; see Season.
+  reserved 10;
+  reserved "episodes_total";
+}
+
+// VoiceActor links a Character to the Staff who voices it in one language.
+message VoiceActor {
+  string staff_id = 1;
+  // language is a BCP-47 tag ("ja", "en").
+  string language = 2;
+  // staff_name is the staff member's name resolved for the request's
+  // Accept-Language, denormalized so a client need not look the person up.
+  // Empty when the dataset carries no name for them yet.
+  string staff_name = 3;
+  // throughout marks a credit that comes from the character rather than from
+  // the thing being described — Ayako Kawasumi voices Saber in every Fate
+  // work, so she is `throughout` in each of Saber's appearances while the
+  // English dub cast alongside her is not.
+  //
+  // It is set only on an appearance's cast, where the two are mixed. Ignore it
+  // and you still have the full cast, which is the point of resolving the list
+  // server-side; read it and you can tell what is specific to one series
+  // without diffing two lists yourself.
+  bool throughout = 4;
+}
+
+// ScopeRef narrows a CharacterAppearance to one installment of a Series.
+// Exactly one id field is set.
+message ScopeRef {
+  string season_id = 1;
+  string movie_id = 2;
+  string special_id = 3;
+  // title is that installment's own title resolved for the request's
+  // Accept-Language, denormalized for the same reason series_title is: a client
+  // labelling a scoped appearance should not have to look the installment up.
+  // A numbered season usually has no title of its own, so number carries its
+  // position for a caller composing a label; it is 0 for a movie or special.
+  string title = 4;
+  int32 number = 5;
+}
+
+// CharacterAppearance is a Character <-> Series edge. series_id is the rollup
+// association and scope optionally narrows it to specific installments.
+//
+// A character reached through GetSeries is the full global node, so its
+// appearances may name series other than the one you asked for. That is how a
+// caller learns a character is shared across the catalogue.
+message CharacterAppearance {
+  string series_id = 1;
+  // series_title is that series' title resolved for the request's
+  // Accept-Language, denormalized for the same reason VoiceActor carries
+  // staff_name: a client rendering a character's appearances should not have to
+  // call GetSeries once per appearance to label them.
+  string series_title = 5;
+  repeated ScopeRef scope = 2;
+  // voice_actors is the cast for this appearance, resolved: it is the
+  // character's constant cast plus whoever is specific to that series. Render
+  // it as-is; there is nothing to merge client-side.
+  repeated VoiceActor voice_actors = 3;
+  ExternalIds external_ids = 4;
+}
+
+// Character is a global fictional entity, owned by no Franchise or Series.
+message Character {
+  string id = 1;
+  // name is resolved for the request's Accept-Language, by the same rules as
+  // a title. Empty when the dataset carries no name for the character yet.
+  string name = 2;
+  // localized_name carries every language; set only for Accept-Language: *.
+  LocalizedTitle localized_name = 3;
+  ExternalIds external_ids = 4;
+  // voice_actors is the cast that holds throughout — an original-language role
+  // is nearly always the same person in every adaptation. Cast that varies by
+  // series (English dubs are routinely recast) is not here; it is on the
+  // appearance it belongs to. An appearance's voice_actors already includes
+  // these, so a client showing per-appearance cast never needs this field.
+  repeated VoiceActor voice_actors = 5;
+  // appearances is every series this character appears in.
+  repeated CharacterAppearance appearances = 6;
+
+  // 7 held appearances_total; appearances are no longer capped.
+  reserved 7;
+  reserved "appearances_total";
+}
+
+// Series is the unit of this API: one storyline / continuity, whole.
+//
+// Every collection below is complete — no caps, no page tokens, no companion
+// List calls. One series is bounded by what a series can be: the longest-running
+// show in existence is a four-figure episode count of two integers each, and a
+// large cast is a few hundred names. The thing this API refuses to serialize
+// unbounded is a *collection of series*, which is what SearchSeries pages.
+message Series {
+  string id = 1;
+  // title is resolved for the request's Accept-Language.
+  string title = 6;
+  // localized_title carries every language; set only for Accept-Language: *.
+  LocalizedTitle localized_title = 2;
+  repeated Season seasons = 3;
+  repeated Movie movies = 4;
+  repeated Special specials = 5;
+  // characters is this series' whole cast, in dataset order. Each is the full
+  // global Character node, so its appearances may name other series too.
+  repeated Character characters = 7;
+
+  // 8-11 held seasons_total, movies_total, specials_total and characters_total,
+  // the counts that went alongside capped first pages. Nothing is capped now,
+  // so each collection's length is its count.
+  reserved 8, 9, 10, 11;
+  reserved "seasons_total", "movies_total", "specials_total", "characters_total";
+}
+
+// SeriesSummary is one search hit: enough to render a result row and decide
+// whether to open it, and nothing that would make a page of results expensive.
+//
+// It is deliberately not a Series. A page of 50 whole series would be a bulk
+// export of most of the dataset; this is the shape that keeps SearchSeries a
+// search rather than a download.
+message SeriesSummary {
+  string id = 1;
+  // title is resolved for the request's Accept-Language.
+  string title = 2;
+  // localized_title carries every language; set only for Accept-Language: *.
+  LocalizedTitle localized_title = 3;
+  // franchise_id is the brand this series belongs to, or empty when it stands
+  // alone. Two summaries sharing one are two storylines of the same franchise.
+  string franchise_id = 4;
+  // The span of release years across everything in this series. Both are 0 when
+  // nothing in it carries a year.
+  int32 first_release_year = 5;
+  int32 latest_release_year = 6;
+  // Counts of what is in this series: works is seasons + movies + specials.
+  int32 works = 7;
+  int32 episodes = 8;
+}
+
+message SearchSeriesRequest {
+  // query matches the series' title in any language, case-insensitively, as a
+  // substring. Empty matches every series, which is how a caller walks the
+  // catalogue rather than searching it.
+  string query = 1;
+  // limit caps the page size; <= 0 applies the server default of 50.
+  int32 limit = 4;
+  // page_token continues a previous call; empty starts from the beginning.
+  // Pass the next_page_token from the previous response.
+  string page_token = 5;
+
+  // 2 and 3 held release_year and release_season. A series has neither: it
+  // spans years, and only its individual releases premiere in a quarter. The
+  // filters moved to SearchReleases, where they describe the thing being
+  // returned instead of quietly reinterpreting it.
+  reserved 2, 3;
+  reserved "release_year", "release_season";
+}
+
+message SearchSeriesResponse {
+  repeated SeriesSummary series = 1;
+  // next_page_token is empty when this is the last page.
+  string next_page_token = 2;
+  // total_size counts every match across all pages, not just this page.
+  int32 total_size = 3;
+}
+
+// ReleaseSummary is one release — a season, film or special — flattened out of
+// the hierarchy and carrying enough of its series to stand on its own. This is
+// the unit a seasonal chart lists: "Winter 2026" is a set of releases, not a
+// set of series, and each row needs to name its show.
+message ReleaseSummary {
+  ReleaseKind kind = 1;
+  string id = 2;
+  // title is resolved for the request's Accept-Language.
+  string title = 3;
+  // localized_title carries every language; set only for Accept-Language: *.
+  LocalizedTitle localized_title = 4;
+  // The series this release belongs to, and that series' resolved title, so a
+  // row can name its show without a second call. Pass series_id to GetSeries
+  // for the whole thing.
+  string series_id = 5;
+  string series_title = 6;
+  // number is the season number; set only when kind is TV_SEASON.
+  int32 number = 7;
+  string release_date = 8;
+  int32 release_year = 9;
+  // release_season is set only when kind is TV_SEASON; films and specials carry
+  // a year without a quarter.
+  ReleaseSeason release_season = 10;
+  // format is set only when kind is SPECIAL.
+  SpecialFormat format = 11;
+  int32 episode_count = 12;
+  ExternalIds external_ids = 13;
+}
+
+// SearchReleasesRequest carries three independent filters. Every one is
+// optional and they AND together, so a keyword alone, a year alone, a year with
+// a quarter, or a keyword narrowed by either all work. An empty request walks
+// every release in the catalogue.
+//
+// The one combination refused is a quarter without a year: "Winter" across
+// every year the dataset covers is not a question anyone means to ask, and
+// answering it silently would look like a working filter. It is
+// InvalidArgument.
+message SearchReleasesRequest {
+  // query matches the release's own title or its series' title, in any
+  // language, case-insensitively, as a substring. Empty matches everything.
+  string query = 1;
+  // release_year is the calendar year the release premiered.
+  //
+  // proto3 gives scalars no field presence, so 0 necessarily means "no year
+  // filter" rather than "releases with no year" — a caller wanting a specific
+  // year must send a real one, and a UI must reject 0 before it reaches here
+  // rather than labelling an unfiltered result as year 0.
+  int32 release_year = 2;
+  // release_season narrows release_year to one quarter, and requires it. Only
+  // TV seasons carry a quarter, so setting it excludes every film and special.
+  ReleaseSeason release_season = 3;
+  // limit caps the page size; <= 0 applies the server default of 50.
+  int32 limit = 4;
+  // page_token continues a previous call; empty starts from the beginning.
+  string page_token = 5;
+}
+
+message SearchReleasesResponse {
+  repeated ReleaseSummary releases = 1;
+  // next_page_token is empty when this is the last page.
+  string next_page_token = 2;
+  // total_size counts every match across all pages, not just this page.
+  int32 total_size = 3;
+}
+
+message GetSeriesRequest {
+  string id = 1;
+}
+
+message GetSeriesResponse {
+  Series series = 1;
+  // franchise_id is the brand this series belongs to, or empty for a standalone
+  // series. It is an id and nothing else: this API has no franchise call, so
+  // treat it as a grouping key — two series carrying the same one belong
+  // together — rather than as something to dereference.
+  string franchise_id = 2;
+}
+
+// AnimeService is the public read-only API over the committed dataset.
+//
+// Three calls: find series by name, find releases by when they aired, then open
+// one series. GetSeries returns a series complete, so rendering a page never
+// needs a follow-up request.
+//
+// Title localization: every title-bearing message returns a single resolved
+// `title` string chosen from the request's `Accept-Language` header (default
+// `en`). Resolution per title: the requested language, then — for a non-English
+// request — the native `original`, then English, then the native `original`,
+// then any available translation. Send `Accept-Language: *` to additionally
+// receive the full `localized_title` (every language) on each node.
+service AnimeService {
+  // SearchSeries pages through series matching a keyword. An empty query walks
+  // the whole catalogue in dataset order.
+  rpc SearchSeries(SearchSeriesRequest) returns (SearchSeriesResponse) {}
+  // SearchReleases pages through individual releases — seasons, films and
+  // specials — matching a keyword, a release year and a release quarter. Each
+  // filter is optional and they combine freely; the one rejected request is a
+  // quarter with no year.
+  rpc SearchReleases(SearchReleasesRequest) returns (SearchReleasesResponse) {}
+  // GetSeries returns one series by id with everything under it: every season
+  // and its episodes, every film, every special, and the whole cast with the
+  // voice actors resolved.
+  rpc GetSeries(GetSeriesRequest) returns (GetSeriesResponse) {}
+}

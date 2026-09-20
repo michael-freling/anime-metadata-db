@@ -1,6 +1,6 @@
 name: Pages redirect
 
-# The documentation moved from GitHub Pages to the Next.js app under web/,
+# The documentation moved from GitHub Pages to the Next.js app under src/web,
 # deployed on Vercel. Without this, Pages would keep serving the last Hugo build
 # forever — stale docs on the old URL are worse than no docs. So the Pages site
 # is reduced to a redirector that forwards every old path to its new home.

@@ -1,6 +1,6 @@
 name: Data lint
 
-# Lints the dataset YAML in overrides/ and data/: yamllint for formatting, and
+# Lints the dataset YAML under dataset/: yamllint for formatting, and
 # JSON Schema validation for structure and enum values (e.g. releaseSeason must
 # be WINTER/SPRING/SUMMER/FALL, special format must be OVA/ONA/SPECIAL).
 on:
@@ -33,7 +33,7 @@ jobs:
           set -euo pipefail
           yaml() { find "$@" -type f \( -name '*.yaml' -o -name '*.yml' \) 2>/dev/null | sort; }
 
-          mapfile -t all < <(yaml builder/config/overrides data)
+          mapfile -t all < <(yaml dataset)
           if [ ${#all[@]} -eq 0 ]; then
             echo "No dataset YAML files found; nothing to lint."
             exit 0
@@ -43,11 +43,11 @@ jobs:
 
           # Series files (structure + co-located cast) and global staff files use
           # different schemas.
-          mapfile -t series < <(yaml builder/config/overrides/series data/series)
-          mapfile -t staff < <(yaml builder/config/overrides/staff data/staff)
+          mapfile -t series < <(yaml dataset/overrides/series dataset/data/series)
+          mapfile -t staff < <(yaml dataset/overrides/staff dataset/data/staff)
           if [ ${#series[@]} -gt 0 ]; then
-            check-jsonschema --schemafile builder/config/schemas/anime.schema.json "${series[@]}"
+            check-jsonschema --schemafile dataset/schemas/anime.schema.json "${series[@]}"
           fi
           if [ ${#staff[@]} -gt 0 ]; then
-            check-jsonschema --schemafile builder/config/schemas/staff.schema.json "${staff[@]}"
+            check-jsonschema --schemafile dataset/schemas/staff.schema.json "${staff[@]}"
           fi
