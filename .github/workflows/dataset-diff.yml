@@ -2,14 +2,15 @@ name: Dataset diff
 
 # What a change to the builder does to the dataset, computed rather than
 # claimed. Both sides are rebuilt from their own overrides with their own
-# builder, so a code change that alters the output shows up even when data/ was
-# never recommitted — which a diff of the committed files cannot see.
+# builder, so a code change that alters the output shows up even when
+# dataset/data/ was never recommitted — which a diff of the committed files
+# cannot see.
 on:
   pull_request:
     paths:
-      - 'builder/**'
-      - 'internal/**'
-      - 'data/**'
+      - 'src/builder/**'
+      - 'src/animedb/**'
+      - 'dataset/**'
       - '.github/workflows/dataset-diff.yml'
 
 # One comment, edited in place. Without this a busy pull request accumulates a
@@ -24,7 +25,7 @@ concurrency:
 
 jobs:
   diff:
-    name: What this changes in data/
+    name: What this changes in dataset/data/
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the pull request
@@ -35,7 +36,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version-file: go.mod
+          go-version-file: src/animedb/go.mod
 
       - name: Fetch the sources
         run: make init
@@ -60,6 +61,11 @@ jobs:
       - name: Compare
         run: |
           set -euo pipefail
+          # The base branch may predate the dataset/ + src/ split, in which case
+          # its own Makefile built into data/ at the root. Delete the fallback
+          # once main carries the new layout.
+          base=/tmp/base/dataset/data
+          [ -d "$base" ] || base=/tmp/base/data
           {
             echo '<!-- dataset-diff -->'
             echo '### Dataset diff'
@@ -67,7 +73,7 @@ jobs:
             echo 'Both sides rebuilt from their own overrides with their own builder.'
             echo
             echo '```'
-            (cd builder && go run ./cmd/builder diff --base /tmp/base/data)
+            (cd src/builder && go run ./cmd/builder diff --base "$base")
             echo '```'
           } > /tmp/diff.md
           cat /tmp/diff.md

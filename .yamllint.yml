@@ -1,4 +1,4 @@
-# yamllint config for the dataset YAML in overrides/ and data/.
+# yamllint config for the dataset YAML in dataset/overrides/ and dataset/data/.
 # Relaxes purely stylistic rules (the generated files use a fixed canonical
 # style; the authored files use flow maps and trailing comments) while keeping
 # the structural ones (syntax errors, duplicate keys, trailing spaces).

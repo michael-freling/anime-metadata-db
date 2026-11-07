@@ -31,7 +31,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version-file: go.mod
+          go-version-file: src/animedb/go.mod
 
       - name: Review PR with Claude Code
         uses: anthropics/claude-code-action@v1
@@ -46,16 +46,17 @@ jobs:
 
             Focus on:
             - Correctness and error handling in the builder pipeline.
-            - Determinism and idempotence of the build: data/ output must depend
-              only on overrides/ plus the pinned sources, and the YAML writer
-              must produce clean, stable diffs.
+            - Determinism and idempotence of the build: dataset/data/ output
+              must depend only on dataset/overrides/ plus the pinned sources,
+              and the YAML writer must produce clean, stable diffs.
             - Referential integrity: unknown AniList ids, dangling
               alternateCutOf / WatchOrder refs, and duplicate ids must fail the
               build (the validate step).
             - Test coverage — CI enforces > 95% total; flag new exported
               functions or build/validation branches that lack tests.
-            - Adherence to the design under web/content/docs/development/proposals/ (the two
-              committed layers, and that AniList is never a redistributed source).
+            - Adherence to the design under
+              src/web/content/docs/development/proposals/ (the two committed
+              layers, and that AniList is never a redistributed source).
 
             Leave concise, actionable feedback as inline review comments and a
             short summary comment. Only flag substantive issues — do not nitpick

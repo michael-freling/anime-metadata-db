@@ -43,33 +43,33 @@ fail=0
 # Every tracked file under these paths must reach the deployment. Both Vercel
 # projects build from this repository, so both are covered:
 #
-#   web/**       the app the web project builds, including the MDX it renders
-#   web/openapi  the OpenAPI spec the API reference pages are rendered from.
+#   src/web/**       the app the web project builds, including the MDX it renders
+#   src/web/openapi  the OpenAPI spec the API reference pages are rendered from.
 #                It is imported by src/lib/openapi.ts, so the web build fails
-#                without it — and note api/proto/ IS excluded below: the spec is
-#                generated from the proto, which is why the generated artefact
-#                has to ship even though its source does not.
-#   api/, internal/, go.mod, go.sum, dataset.go
-#                what Vercel's Go builder compiles. The API builds from api/
-#                with Root Directory set there, but it depends on the root
-#                module through a replace directive, so the repository root's
-#                go.mod and internal/ have to reach the upload too — building
-#                from api/ alone would fail to resolve the dataset module.
-#                The whole of internal/ rather than one package: an unanchored
-#                `config/` pattern would sweep up builder/internal/config/ the
-#                same way `docs/` swept up web/content/docs/.
-#   data/**      embedded into that function with go:embed
-#   data/index.tsv
-#                named on its own, not just covered by data/: it is the listing
-#                index every browse and search request is answered from, and
-#                without it the server does not start at all. A pattern that
-#                excluded only this one file would leave the rest of data/
-#                matching and the check passing.
+#                without it — and note src/api/proto/ IS excluded below: the
+#                spec is generated from the proto, which is why the generated
+#                artefact has to ship even though its source does not.
+#   src/api/, src/animedb/
+#                what Vercel's Go builder compiles. The API builds from
+#                src/api with Root Directory set there, but it depends on the
+#                shared module through a replace directive, so src/animedb has
+#                to reach the upload too — building from src/api alone would
+#                fail to resolve the dataset module.
+#                The whole of src/animedb rather than its packages one by one:
+#                its go.mod, the model and the loader are all needed, and
+#                naming the directory cannot fall out of date as it grows.
+#   dataset/data/**  read from the filesystem at runtime by that function
+#   dataset/data/index.tsv
+#                named on its own, not just covered by dataset/data: it is the
+#                listing index every browse and search request is answered
+#                from, and without it the server does not start at all. A
+#                pattern that excluded only this one file would leave the rest
+#                of dataset/data matching and the check passing.
 for required in \
-  'web/package.json' 'web/content/docs' 'web/src' 'web/openapi' \
-  'api/cmd' 'api/internal' 'api/go.mod' 'api/go.sum' \
-  'internal' 'go.mod' 'go.sum' 'dataset.go' \
-  'data' 'data/index.tsv'; do
+  'src/web/package.json' 'src/web/content/docs' 'src/web/src' 'src/web/openapi' \
+  'src/api/cmd' 'src/api/internal' 'src/api/go.mod' 'src/api/go.sum' \
+  'src/animedb' \
+  'dataset/data' 'dataset/data/index.tsv'; do
   matched=0
   while IFS= read -r -d '' f; do
     matched=$((matched + 1))
@@ -86,12 +86,11 @@ for required in \
 done
 
 # And the exclusions that are meant to happen still do, so the file cannot be
-# "fixed" by emptying it. Paths that no longer exist are skipped rather than
-# failing, since the Hugo tree is on its way out.
+# "fixed" by emptying it.
 # Checked against every directory pattern the file carries, not a sample: an
-# unanchored `config/` would collide with internal/config/ exactly as the
-# unanchored `docs/` collided with web/content/docs/.
-for intended in 'api/proto' 'docs' 'builder'; do
+# unanchored `config/` would collide with src/api/internal/config/ exactly as
+# the unanchored `docs/` collided with web/content/docs/.
+for intended in 'src/api/proto' 'src/builder'; do
   first="$(git -C "$REPO" ls-files -- "$intended" | head -1 || true)"
   [ -n "$first" ] || continue
   if ! excluded "$first"; then

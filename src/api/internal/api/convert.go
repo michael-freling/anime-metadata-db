@@ -1,0 +1,663 @@
+package api
+
+import (
+	"sort"
+	"strings"
+
+	"github.com/michael-freling/anime-metadata-db/src/animedb/model"
+	animev1 "github.com/michael-freling/anime-metadata-db/src/api/internal/gen/anime/v1"
+)
+
+// dateLayout is the canonical wire form for dates (matches model.Date).
+const dateLayout = "2006-01-02"
+
+// defaultLang is the fallback language when a request sends no Accept-Language.
+const defaultLang = "en"
+
+// localizer resolves model titles for one request's Accept-Language.
+type localizer struct {
+	lang string // primary language tag, lowercased (e.g. "en", "ja")
+	full bool   // Accept-Language: * — also emit the full multilingual title
+}
+
+// newLocalizer parses an Accept-Language header value. "*" asks for every
+// language; an empty header defaults to English; otherwise the first language
+// tag wins (the q-weight and anything after it are ignored).
+func newLocalizer(acceptLanguage string) localizer {
+	first := strings.TrimSpace(acceptLanguage)
+	if i := strings.IndexByte(first, ','); i >= 0 {
+		first = first[:i]
+	}
+	if i := strings.IndexByte(first, ';'); i >= 0 {
+		first = first[:i]
+	}
+	tag := strings.ToLower(strings.TrimSpace(first))
+	switch tag {
+	case "":
+		return localizer{lang: defaultLang}
+	case "*":
+		return localizer{lang: defaultLang, full: true}
+	default:
+		return localizer{lang: tag}
+	}
+}
+
+// title resolves t to a single display string and, in full mode, the complete
+// multilingual title (nil otherwise).
+func (l localizer) title(t model.Title) (string, *animev1.LocalizedTitle) {
+	name := resolveTitle(t, l.lang)
+	if l.full {
+		return name, toLocalizedTitle(t)
+	}
+	return name, nil
+}
+
+// resolveTitle picks the best single title for lang, in this order:
+//
+//  1. the requested language, exact then by primary subtag;
+//  2. the native original, when the request is in the original's own language;
+//  3. an English title, which is a translation someone actually made;
+//  4. a romanization, which at least the caller can read;
+//  5. the native original, then any translation, deterministically.
+//
+// Three and four are in that order deliberately. Most of this catalogue has no
+// English title and only a romanization, so a French request usually lands on
+// "Kimetsu no Yaiba" — but where a real English title exists it is the better
+// answer, and putting the romanization first quietly preferred a
+// transliteration to a translation for every language except English itself.
+//
+// It returns "" only for an empty title.
+func resolveTitle(t model.Title, lang string) string {
+	if v := translation(t, lang); v != "" {
+		return v
+	}
+	// Asked for a romanization by name ("ja-Latn", "ja-Latn-JP"): any
+	// romanization of that language answers it. Without this the next step
+	// falls back to the bare primary subtag and hands back native script — the
+	// opposite of what was asked for.
+	if model.IsRomanization(lang) {
+		for _, k := range sortedTranslationKeys(t) {
+			if t.Translations[k] != "" && model.IsRomanization(k) &&
+				strings.EqualFold(model.PrimaryTag(k), model.PrimaryTag(lang)) {
+				return t.Translations[k]
+			}
+		}
+	}
+	// Not for a request that named a script: falling back to its bare language
+	// would answer "give me the Latin form" with native script, which is the
+	// one answer it definitely did not want. It carries on to an English title,
+	// then to the original as a last resort.
+	if p := model.PrimaryTag(lang); p != lang && !model.IsRomanization(lang) {
+		if v := translation(t, p); v != "" {
+			return v
+		}
+	}
+	if isOriginalLanguage(t, lang) && t.Original != "" {
+		return t.Original
+	}
+	if v := translation(t, defaultLang); v != "" {
+		return v
+	}
+	if v := romanization(t, lang); v != "" {
+		return v
+	}
+	if t.Original != "" {
+		return t.Original
+	}
+	return firstTranslation(t)
+}
+
+// isOriginalLanguage reports whether lang is the language the title's original
+// is written in — a Japanese request for a Japanese title, where the original
+// is the right answer and an English translation is not. A request that names
+// a script itself ("ja-Latn-JP") is asking for the Latin form, so it is never
+// the original's language however its primary subtag reads.
+//
+// A romanization tells us this outright: a title carrying `ko-Latn` has a
+// Korean original, so a Japanese reader asking for it is no better served by
+// Hangul than an English reader would be. With no romanization to go on, the
+// original's own script decides.
+func isOriginalLanguage(t model.Title, lang string) bool {
+	if model.IsRomanization(lang) {
+		return false
+	}
+	p := model.PrimaryTag(lang)
+	found := false
+	for _, code := range sortedTranslationKeys(t) {
+		if t.Translations[code] == "" || !model.IsRomanization(code) {
+			continue
+		}
+		found = true
+		if strings.EqualFold(model.PrimaryTag(code), p) {
+			return true
+		}
+	}
+	if found {
+		return false
+	}
+	// No romanization to name the language, so read the original's own script.
+	// A whitelist of the request language alone cannot do this: it would tell a
+	// Korean reader that 新田明 is their language — which is how every
+	// character in the dataset came to answer a `ko` request with Japanese
+	// kanji instead of its perfectly good English name.
+	lang, certain := model.NativeLanguage(t.Original)
+	if certain {
+		return lang == p
+	}
+	// Han characters and nothing else: Japanese or Chinese, and a reader of
+	// either can read them. Not Korean, which does not use them.
+	return lang != "" && (p == "ja" || p == "zh")
+}
+
+// translation looks a language tag up case-insensitively: a request header is
+// lowercased on the way in ("ja-latn"), while a tag's script subtag is written
+// in title case by convention ("ja-Latn"), and the two must still meet.
+func translation(t model.Title, lang string) string {
+	if v := t.Translations[lang]; v != "" {
+		return v
+	}
+	for code, v := range t.Translations {
+		if v != "" && strings.EqualFold(code, lang) {
+			return v
+		}
+	}
+	return ""
+}
+
+// romanization returns a Latin-script rendering of a title written in another
+// script, in deterministic key order. A rendering of the language the caller
+// asked in is not one: a Japanese request wants 鬼滅の刃, not "Kimetsu no Yaiba".
+func romanization(t model.Title, lang string) string {
+	for _, k := range sortedTranslationKeys(t) {
+		if t.Translations[k] == "" || !model.IsRomanization(k) {
+			continue
+		}
+		if strings.EqualFold(model.PrimaryTag(k), model.PrimaryTag(lang)) {
+			continue
+		}
+		return t.Translations[k]
+	}
+	return ""
+}
+
+// sortedTranslationKeys returns a title's language tags in a fixed order, so
+// every fallback that has to pick "one of them" picks the same one each time.
+func sortedTranslationKeys(t model.Title) []string {
+	keys := make([]string, 0, len(t.Translations))
+	for k := range t.Translations {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+	return keys
+}
+
+// firstTranslation returns a translation in deterministic key order, or "".
+func firstTranslation(t model.Title) string {
+	for _, k := range sortedTranslationKeys(t) {
+		if t.Translations[k] != "" {
+			return t.Translations[k]
+		}
+	}
+	return ""
+}
+
+// toLocalizedTitle converts a model.Title, returning nil for a zero title.
+func toLocalizedTitle(t model.Title) *animev1.LocalizedTitle {
+	if t.IsZero() {
+		return nil
+	}
+	return &animev1.LocalizedTitle{Original: t.Original, Translations: t.Translations}
+}
+
+// toExternalIDs converts cross-database ids, returning nil when none are set.
+func toExternalIDs(e model.ExternalIDs) *animev1.ExternalIds {
+	if e.IsZero() {
+		return nil
+	}
+	return &animev1.ExternalIds{
+		AnilistId:  int32(e.AnilistID),
+		AnidbId:    int32(e.AnidbID),
+		TmdbId:     int32(e.TmdbID),
+		TvdbId:     int32(e.TvdbID),
+		WikidataId: e.WikidataID,
+	}
+}
+
+// toReleaseSeason maps a model release quarter to its proto enum.
+func toReleaseSeason(s model.ReleaseSeason) animev1.ReleaseSeason {
+	switch s {
+	case model.SeasonWinter:
+		return animev1.ReleaseSeason_WINTER
+	case model.SeasonSpring:
+		return animev1.ReleaseSeason_SPRING
+	case model.SeasonSummer:
+		return animev1.ReleaseSeason_SUMMER
+	case model.SeasonFall:
+		return animev1.ReleaseSeason_FALL
+	default:
+		return animev1.ReleaseSeason_SEASON_UNSPECIFIED
+	}
+}
+
+// toSpecialFormat maps a model special format to its proto enum.
+func toSpecialFormat(f model.SpecialFormat) animev1.SpecialFormat {
+	switch f {
+	case model.FormatOVA:
+		return animev1.SpecialFormat_FORMAT_OVA
+	case model.FormatONA:
+		return animev1.SpecialFormat_FORMAT_ONA
+	case model.FormatSpecial:
+		return animev1.SpecialFormat_FORMAT_SPECIAL
+	default:
+		return animev1.SpecialFormat_FORMAT_UNSPECIFIED
+	}
+}
+
+// toInt32Ptr converts an optional int, preserving nil.
+func toInt32Ptr(v *int) *int32 {
+	if v == nil {
+		return nil
+	}
+	n := int32(*v)
+	return &n
+}
+
+// toDate formats an optional model.Date as YYYY-MM-DD, returning "" for nil.
+func toDate(d *model.Date) string {
+	if d == nil {
+		return ""
+	}
+	return d.Format(dateLayout)
+}
+
+// toEpisode converts one episode.
+//
+// The model still carries a title and a release date; the API no longer does.
+// Neither has ever been populated — no source this build reads publishes
+// episode-level data — so serving them meant advertising fields that always
+// came back empty. They are dropped here rather than in the model, because the
+// model is the dataset's shape and emptying it there is a separate decision
+// about what data/ holds.
+func toEpisode(e model.Episode) *animev1.Episode {
+	return &animev1.Episode{
+		AbsoluteNumber: toInt32Ptr(e.AbsoluteNumber),
+		AiredNumber:    int32(e.AiredNumber),
+	}
+}
+
+// toEpisodes expands an installment's numbering onto the wire.
+//
+// data/ stores the two facts the episodes are computed from, not the episodes
+// themselves (see model.Episodes), so the list a client receives is built here
+// from model.Episodes.Expand. The wire shape is unchanged by that: a caller
+// still gets one Episode per episode, with absoluteNumber present exactly when
+// the series has a linear order.
+func toEpisodes(eps model.Episodes) []*animev1.Episode {
+	return toEpisodeList(eps.Expand())
+}
+
+// toEpisodeList converts already-expanded episodes, returning nil for none.
+func toEpisodeList(in []model.Episode) []*animev1.Episode {
+	if len(in) == 0 {
+		return nil
+	}
+	out := make([]*animev1.Episode, len(in))
+	for i := range in {
+		out[i] = toEpisode(in[i])
+	}
+	return out
+}
+
+// toSeason converts one season, resolving its title via loc.
+func toSeason(loc localizer, s model.Season) *animev1.Season {
+	title, full := loc.title(s.Titles)
+	return &animev1.Season{
+		Id:             s.ID,
+		Title:          title,
+		LocalizedTitle: full,
+		Number:         int32(s.Number),
+		Part:           toInt32Ptr(s.Part),
+		ReleaseDate:    toDate(s.ReleaseDate),
+		ReleaseYear:    int32(s.ReleaseYear),
+		ReleaseSeason:  toReleaseSeason(s.ReleaseSeason),
+		ExternalIds:    toExternalIDs(s.ExternalIDs),
+		Episodes:       toEpisodes(s.Episodes),
+	}
+}
+
+// toMovie converts one movie, resolving its title via loc.
+func toMovie(loc localizer, m model.Movie) *animev1.Movie {
+	title, full := loc.title(m.Titles)
+	var alt *animev1.AlternateCutOf
+	if m.AlternateCutOf != nil {
+		alt = &animev1.AlternateCutOf{SeasonId: m.AlternateCutOf.SeasonID, Episodes: m.AlternateCutOf.Episodes}
+	}
+	return &animev1.Movie{
+		Id:             m.ID,
+		Title:          title,
+		LocalizedTitle: full,
+		ReleaseDate:    toDate(m.ReleaseDate),
+		ReleaseYear:    int32(m.ReleaseYear),
+		ExternalIds:    toExternalIDs(m.ExternalIDs),
+		AbsoluteNumber: toInt32Ptr(m.AbsoluteNumber),
+		AlternateCutOf: alt,
+	}
+}
+
+// toSpecial converts one special, resolving its title via loc.
+func toSpecial(loc localizer, sp model.Special) *animev1.Special {
+	title, full := loc.title(sp.Titles)
+	return &animev1.Special{
+		Id:             sp.ID,
+		Title:          title,
+		LocalizedTitle: full,
+		Format:         toSpecialFormat(sp.Format),
+		ReleaseDate:    toDate(sp.ReleaseDate),
+		ReleaseYear:    int32(sp.ReleaseYear),
+		ExternalIds:    toExternalIDs(sp.ExternalIDs),
+		Episodes:       toEpisodes(sp.Episodes),
+		AbsoluteNumber: toInt32Ptr(sp.AbsoluteNumber),
+	}
+}
+
+// toVoiceActor converts one voice-actor link, denormalizing the staff member's
+// name so a client does not have to call GetStaff to display the cast.
+func toVoiceActor(loc localizer, store *Store, va model.VoiceActor) *animev1.VoiceActor {
+	out := &animev1.VoiceActor{StaffId: va.StaffID, Language: va.Language}
+	if st, ok := store.Staff(va.StaffID); ok {
+		out.StaffName = resolveTitle(st.Names, loc.lang)
+	}
+	return out
+}
+
+// toVoiceActors converts a slice of links, returning nil for an empty input.
+func toVoiceActors(loc localizer, store *Store, in []model.VoiceActor) []*animev1.VoiceActor {
+	if len(in) == 0 {
+		return nil
+	}
+	out := make([]*animev1.VoiceActor, len(in))
+	for i := range in {
+		out[i] = toVoiceActor(loc, store, in[i])
+	}
+	return out
+}
+
+// toAppearance converts one Character <-> Series edge, resolving the cast that
+// actually applies to it: the character's own voice actors, which hold across
+// every appearance, plus any specific to this one.
+//
+// The merge happens here rather than in the caller so a client is handed the
+// answer instead of a rule. Reading the two lists and combining them is easy to
+// get subtly wrong, and getting it wrong means showing someone the wrong actor.
+func toAppearance(loc localizer, store *Store, throughout []model.VoiceActor, a model.CharacterAppearance) *animev1.CharacterAppearance {
+	out := &animev1.CharacterAppearance{
+		SeriesId:    a.SeriesID,
+		SeriesTitle: seriesTitle(loc, store, a.SeriesID),
+		VoiceActors: resolvedCast(loc, store, throughout, a.VoiceActors),
+		ExternalIds: toExternalIDs(a.ExternalIDs),
+	}
+	if len(a.Scope) > 0 {
+		out.Scope = make([]*animev1.ScopeRef, len(a.Scope))
+		for i, sc := range a.Scope {
+			ref := &animev1.ScopeRef{
+				SeasonId:  sc.SeasonID,
+				MovieId:   sc.MovieID,
+				SpecialId: sc.SpecialID,
+			}
+			// Resolve whichever id is set to a label. Without it a client has
+			// only an id to show, and showing a reader an id is the thing this
+			// site's own tests forbid.
+			if id := scopeID(sc); id != "" {
+				if w, ok := store.Work(id); ok {
+					ref.Title, _ = loc.title(w.Titles)
+					ref.Number = int32(w.Number)
+				}
+			}
+			out.Scope[i] = ref
+		}
+	}
+	return out
+}
+
+// scopeID returns whichever installment id a scope ref sets, or "" for a ref
+// that sets none (which the build's validation rejects).
+func scopeID(sc model.ScopeRef) string {
+	switch {
+	case sc.SeasonID != "":
+		return sc.SeasonID
+	case sc.MovieID != "":
+		return sc.MovieID
+	case sc.SpecialID != "":
+		return sc.SpecialID
+	}
+	return ""
+}
+
+// effectiveCast appends the cast specific to one appearance to the cast that
+// holds throughout, keeping the first occurrence of each credit. Order matters:
+// the constant cast (in practice the original-language role) leads, and the
+// series-specific additions — recast dubs — follow.
+func effectiveCast(throughout, specific []model.VoiceActor) []model.VoiceActor {
+	if len(specific) == 0 {
+		return throughout
+	}
+	cast := make([]model.VoiceActor, 0, len(throughout)+len(specific))
+	seen := make(map[model.VoiceActor]bool, len(throughout)+len(specific))
+	for _, va := range throughout {
+		if !seen[va] {
+			seen[va] = true
+			cast = append(cast, va)
+		}
+	}
+	for _, va := range specific {
+		if !seen[va] {
+			seen[va] = true
+			cast = append(cast, va)
+		}
+	}
+	return cast
+}
+
+// resolvedCast converts a merged cast, marking each credit with where it came
+// from. The order effectiveCast produces — the constant cast first, then what
+// is specific to this appearance — is what makes the marking work: a credit
+// restated on an appearance is deduped to its first occurrence, which is the
+// character's, and so is correctly reported as holding throughout.
+func resolvedCast(loc localizer, store *Store, throughout, specific []model.VoiceActor) []*animev1.VoiceActor {
+	cast := effectiveCast(throughout, specific)
+	if len(cast) == 0 {
+		return nil
+	}
+	holds := make(map[model.VoiceActor]bool, len(throughout))
+	for _, va := range throughout {
+		holds[va] = true
+	}
+	out := make([]*animev1.VoiceActor, len(cast))
+	for i, va := range cast {
+		out[i] = toVoiceActor(loc, store, va)
+		out[i].Throughout = holds[va]
+	}
+	return out
+}
+
+// toCharacter converts one character, resolving its name via loc.
+//
+// seriesID, when set, is the series the caller asked about: the character's
+// voice_actors are then the cast for that series, not just the cast that holds
+// throughout. A listing of one series' cast that omitted its own English dub
+// because the dub is per-appearance would be answering a different question
+// than the one asked.
+func toCharacter(loc localizer, store *Store, seriesID string, c *model.Character) *animev1.Character {
+	name, full := loc.title(c.Names)
+	cast := toVoiceActors(loc, store, c.VoiceActors)
+	if seriesID != "" {
+		// One series was named, so its own cast is part of the answer — and
+		// marked, so a caller can still tell which of these actors is specific
+		// to it and which voices the character everywhere.
+		var specific []model.VoiceActor
+		for _, a := range c.Appearances {
+			if a.SeriesID == seriesID {
+				specific = append(specific, a.VoiceActors...)
+			}
+		}
+		if len(specific) > 0 {
+			cast = resolvedCast(loc, store, c.VoiceActors, specific)
+		}
+	}
+	out := &animev1.Character{
+		Id:            c.ID,
+		Name:          name,
+		LocalizedName: full,
+		ExternalIds:   toExternalIDs(c.ExternalIDs),
+		VoiceActors:   cast,
+	}
+	if len(c.Appearances) > 0 {
+		out.Appearances = make([]*animev1.CharacterAppearance, len(c.Appearances))
+		for i := range c.Appearances {
+			out.Appearances[i] = toAppearance(loc, store, c.VoiceActors, c.Appearances[i])
+		}
+	}
+	return out
+}
+
+// toCharacters converts a slice of characters, returning nil for an empty input.
+func toCharacters(loc localizer, store *Store, seriesID string, in []*model.Character) []*animev1.Character {
+	if len(in) == 0 {
+		return nil
+	}
+	out := make([]*animev1.Character, len(in))
+	for i, c := range in {
+		out[i] = toCharacter(loc, store, seriesID, c)
+	}
+	return out
+}
+
+// toSeries converts one series, its installments and the cast appearing in it.
+func toSeries(loc localizer, store *Store, s *model.Series) (*animev1.Series, error) {
+	title, full := loc.title(s.Titles)
+	// The cast is the one collection here not stored inside this record, so it
+	// is fetched rather than read off s. It comes back whole: GetSeries returns
+	// a series complete, and a truncated cast is the bug this used to have.
+	cast, err := store.SeriesCast(s.ID)
+	if err != nil {
+		return nil, err
+	}
+	out := &animev1.Series{
+		Id:             s.ID,
+		Title:          title,
+		LocalizedTitle: full,
+		Characters:     toCharacters(loc, store, s.ID, cast),
+	}
+	if len(s.Seasons) > 0 {
+		out.Seasons = make([]*animev1.Season, len(s.Seasons))
+		for i := range s.Seasons {
+			out.Seasons[i] = toSeason(loc, s.Seasons[i])
+		}
+	}
+	if len(s.Movies) > 0 {
+		out.Movies = make([]*animev1.Movie, len(s.Movies))
+		for i := range s.Movies {
+			out.Movies[i] = toMovie(loc, s.Movies[i])
+		}
+	}
+	if len(s.Specials) > 0 {
+		out.Specials = make([]*animev1.Special, len(s.Specials))
+		for i := range s.Specials {
+			out.Specials[i] = toSpecial(loc, s.Specials[i])
+		}
+	}
+	return out, nil
+}
+
+// toReleaseSummary renders one release, carrying its series' resolved title so
+// a row can name its show without a second call.
+func toReleaseSummary(loc localizer, w Work) *animev1.ReleaseSummary {
+	title, full := loc.title(w.Titles)
+	seriesTitle, _ := loc.title(w.SeriesTitles)
+	return &animev1.ReleaseSummary{
+		Kind:           toReleaseKind(w.Kind),
+		Id:             w.ID,
+		Title:          title,
+		LocalizedTitle: full,
+		SeriesId:       w.SeriesID,
+		SeriesTitle:    seriesTitle,
+		Number:         int32(w.Number),
+		ReleaseDate:    toDate(w.ReleaseDate),
+		ReleaseYear:    int32(w.ReleaseYear),
+		ReleaseSeason:  toReleaseSeason(w.ReleaseSeason),
+		Format:         toSpecialFormat(w.Format),
+		EpisodeCount:   int32(w.EpisodeCount),
+		ExternalIds:    toExternalIDs(w.ExternalIDs),
+	}
+}
+
+// toReleaseKind maps the internal work kind onto the wire enum.
+func toReleaseKind(k WorkKind) animev1.ReleaseKind {
+	switch k {
+	case WorkSeason:
+		return animev1.ReleaseKind_TV_SEASON
+	case WorkMovie:
+		return animev1.ReleaseKind_MOVIE
+	case WorkSpecial:
+		return animev1.ReleaseKind_SPECIAL
+	}
+	return animev1.ReleaseKind_KIND_UNSPECIFIED
+}
+
+// toSeriesSummary renders one series as a search result. Every field comes from
+// the index, so a page of these opens no record files.
+func toSeriesSummary(loc localizer, e SeriesEntry) *animev1.SeriesSummary {
+	title, full := loc.title(e.Titles)
+	return &animev1.SeriesSummary{
+		Id:                e.ID,
+		Title:             title,
+		LocalizedTitle:    full,
+		FranchiseId:       e.FranchiseID,
+		FirstReleaseYear:  int32(e.FirstReleaseYear),
+		LatestReleaseYear: int32(e.LatestReleaseYear),
+		Works:             int32(e.Works),
+		Episodes:          int32(e.Episodes),
+	}
+}
+
+// fromReleaseSeason maps the wire enum back onto the internal release season.
+// UNSPECIFIED becomes the empty season, which matches everything.
+func fromReleaseSeason(s animev1.ReleaseSeason) model.ReleaseSeason {
+	switch s {
+	case animev1.ReleaseSeason_WINTER:
+		return model.SeasonWinter
+	case animev1.ReleaseSeason_SPRING:
+		return model.SeasonSpring
+	case animev1.ReleaseSeason_SUMMER:
+		return model.SeasonSummer
+	case animev1.ReleaseSeason_FALL:
+		return model.SeasonFall
+	}
+	return ""
+}
+
+// seriesTitle resolves a series id to its title for the request's language.
+// Empty when the id names nothing, which the build's referential integrity
+// check should already have prevented.
+func seriesTitle(loc localizer, store *Store, seriesID string) string {
+	titles, ok := store.SeriesTitle(seriesID)
+	if !ok {
+		return ""
+	}
+	title, _ := loc.title(titles)
+	return title
+}
+
+// seriesTitles resolves each id to its title, positionally. An id that names
+// nothing yields an empty string rather than being dropped, so the two slices
+// stay aligned and a caller can always pair them up.
+func seriesTitles(loc localizer, store *Store, ids []string) []string {
+	if len(ids) == 0 {
+		return nil
+	}
+	out := make([]string, len(ids))
+	for i, id := range ids {
+		out[i] = seriesTitle(loc, store, id)
+	}
+	return out
+}

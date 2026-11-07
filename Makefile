@@ -1,7 +1,7 @@
 # Makefile for the Go side of the repository: protobuf codegen and the local
 # API server.
 #
-# The documentation site is a Next.js app under web/ with its own npm scripts
+# The documentation site is a Next.js app under src/web with its own npm scripts
 # (`npm run dev` / `npm run build`) and is not driven from here.
 
 .DEFAULT_GOAL := help
@@ -15,28 +15,28 @@ help: ## Show this help
 # --- API: protobuf codegen + local server ----------------------------------
 
 .PHONY: generate
-generate: ## Regenerate the committed Go and TypeScript clients and the API reference (needs buf; run npm install in web/ first)
-	cd api && buf generate
-	cd web && npm run generate:api-docs
+generate: ## Regenerate the committed Go and TypeScript clients and the API reference (needs buf; run npm install in src/web first)
+	cd src/api && buf generate
+	cd src/web && npm run generate:api-docs
 
 .PHONY: api
 api: ## Run the read-only Connect API server locally (defaults to :8080)
-	cd api && go run ./cmd/api
+	cd src/api && go run ./cmd/api
 
 # --- Dataset: the listing index the API serves ------------------------------
 
 .PHONY: init
 init: ## Download the pinned open-data sources into the cache
-	cd builder && go run ./cmd/builder init
+	cd src/builder && go run ./cmd/builder init
 
 .PHONY: build-data
-build-data: ## Rebuild data/ from the sources and the builder's overrides
-	cd builder && go run ./cmd/builder build
+build-data: ## Rebuild dataset/data/ from the sources and dataset/overrides/
+	cd src/builder && go run ./cmd/builder build
 
 .PHONY: index
-index: ## Regenerate data/index.tsv from data/ (run after any dataset change)
-	cd api && go run ./cmd/index -root ..
+index: ## Regenerate dataset/data/index.tsv (run after any dataset change)
+	cd src/api && go run ./cmd/index -root ../../dataset
 
 .PHONY: index-check
-index-check: ## Fail if data/index.tsv no longer matches data/
-	cd api && go run ./cmd/index -check -root ..
+index-check: ## Fail if dataset/data/index.tsv no longer matches dataset/data/
+	cd src/api && go run ./cmd/index -check -root ../../dataset

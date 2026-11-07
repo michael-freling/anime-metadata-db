@@ -26,32 +26,33 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version-file: go.mod
+          go-version-file: src/animedb/go.mod
 
       # The web app's TypeScript client is generated from the same schema, so
       # its protoc-gen-es plugin has to be present for `buf generate` to run at
-      # all — it lives in web/node_modules, not GOPATH.
+      # all — it lives in src/web/node_modules, not GOPATH.
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: web/package-lock.json
+          cache-dependency-path: src/web/package-lock.json
 
       - name: Install the TypeScript codegen plugin
         run: npm ci
-        working-directory: web
+        working-directory: src/web
 
-      # The plugins are installed from api/, deliberately: an unversioned
+      # The plugins are installed from src/api, deliberately: an unversioned
       # `go install` resolves the version from the current module, and only
-      # api/ requires protobuf and connect. Run from the root — which now
-      # requires neither — it would pick whatever is latest and stamp the
-      # generated files with a version that never matches the committed ones.
+      # src/api requires protobuf and connect. Run from anywhere outside a
+      # module that requires them — the repository root is no longer a module
+      # at all — it would pick whatever is latest and stamp the generated files
+      # with a version that never matches the committed ones.
       - name: Install buf and protoc plugins
         run: |
           go install "github.com/bufbuild/buf/cmd/buf@${BUF_VERSION}"
-          (cd api && go install google.golang.org/protobuf/cmd/protoc-gen-go)
-          (cd api && go install connectrpc.com/connect/cmd/protoc-gen-connect-go)
+          (cd src/api && go install google.golang.org/protobuf/cmd/protoc-gen-go)
+          (cd src/api && go install connectrpc.com/connect/cmd/protoc-gen-connect-go)
           echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
 
       # Checks EVERY generated tree, so a proto change that updates the Go
@@ -65,9 +66,9 @@ jobs:
       # schema while every file in the diff looked current.
       - name: Regenerate and verify no diff
         run: |
-          (cd api && buf generate)
-          (cd web && npm run generate:api-docs)
-          if ! git diff --exit-code -- api/internal/gen web/src/lib/gen web/openapi web/content/docs/api; then
+          (cd src/api && buf generate)
+          (cd src/web && npm run generate:api-docs)
+          if ! git diff --exit-code -- src/api/internal/gen src/web/src/lib/gen src/web/openapi src/web/content/docs/api; then
             echo "::error::generated code is out of date; run 'make generate' and commit the result."
             exit 1
           fi
@@ -90,7 +91,8 @@ jobs:
       # is complete at 150 and ruinous at 150,000 reads identically in review —
       # so it is asserted rather than reviewed.
       # This checks the schema; TestSearchResponsesNeverReturnTheWholeCollection
-      # in internal/api checks the responses the server actually builds. Both
+      # in src/api/internal/api checks the responses the server actually
+      # builds. Both
       # protos are covered — the browse API is private, not exempt from the
       # catalogue growing.
       - name: Test the check itself
@@ -109,17 +111,17 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version-file: go.mod
+          go-version-file: src/animedb/go.mod
 
-      # data/index.tsv is generated from data/ and embedded in the API binary.
-      # Nothing regenerates it at deploy time — Vercel just runs `go build` —
-      # so a dataset change that forgets `make index` would ship a server
-      # describing the previous dataset. Regenerating here and diffing is what
-      # makes that impossible to merge.
-      - name: Verify data/index.tsv is up to date
+      # dataset/data/index.tsv is generated from dataset/data/ and read by the
+      # API at startup. Nothing regenerates it at deploy time — Vercel just runs
+      # `go build` and ships the tree — so a dataset change that forgets
+      # `make index` would deploy a server describing the previous dataset.
+      # Regenerating here and diffing is what makes that impossible to merge.
+      - name: Verify dataset/data/index.tsv is up to date
         run: |
           if ! make index-check; then
-            echo "::error::data/index.tsv is stale; run 'make index' and commit the result."
+            echo "::error::dataset/data/index.tsv is stale; run 'make index' and commit the result."
             exit 1
           fi
 
@@ -133,7 +135,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version-file: go.mod
+          go-version-file: src/animedb/go.mod
 
       - name: Install golangci-lint
         run: |
@@ -145,7 +147,7 @@ jobs:
       # load rather than fail.
       - name: Lint
         run: |
-          for mod in . api builder; do
+          for mod in src/animedb src/api src/builder; do
             echo "--- $mod"
             (cd "$mod" && "${{ runner.temp }}/golangci/golangci-lint" run ./...)
           done
@@ -160,7 +162,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version-file: go.mod
+          go-version-file: src/animedb/go.mod
 
       - name: Verify formatting
         run: |
@@ -173,30 +175,26 @@ jobs:
 
       # One profile per module, merged before the threshold is applied, so the
       # figure means the same thing it did when this was a single module.
-      #
-      # -coverpkg spans all three modules, because a test in one legitimately
-      # covers code in another: api's tests exercise internal/model, and
-      # crediting that only to the module the test lives in would understate
-      # both. It is spelled out subtree by subtree rather than as a single
-      # wildcard: the repo root is a Go module, so a bare .../... also matches
-      # the Go sources that ship inside web/node_modules, which are nobody's
-      # code and drag the total down by six points when npm has run.
       - name: Run tests with coverage
         run: |
           set -euo pipefail
-          M=github.com/michael-freling/anime-metadata-db
-          # A module can only instrument packages it requires. There is no
-          # go.work, so naming api/ from the root module resolves nothing and
-          # the profile comes back empty — which reads as 0% coverage rather
-          # than as an error.
-          root="$M,$M/internal/..."
-          for mod in . api builder; do
+          M=github.com/michael-freling/anime-metadata-db/src
+          # Every module can instrument the shared one, so it is named in each
+          # run's -coverpkg; a test in api or builder legitimately covers the
+          # model and the loader, and crediting that only to animedb's own tests
+          # would understate all three.
+          #
+          # Spelled subtree by subtree rather than as one wildcard because the
+          # modules are siblings: a bare .../... from inside one of them matches
+          # nothing belonging to the others.
+          shared="$M/animedb/..."
+          for mod in animedb api builder; do
             case "$mod" in
-              .) pkgs="$root"; out=root-cover.out ;;
-              *) pkgs="$root,$M/$mod/..."; out="$mod-cover.out" ;;
+              animedb) pkgs="$shared" ;;
+              *) pkgs="$shared,$M/$mod/..." ;;
             esac
-            (cd "$mod" && go test -race -covermode=atomic \
-               -coverpkg="$pkgs" -coverprofile="$out" ./...)
+            (cd "src/$mod" && go test -race -covermode=atomic \
+               -coverpkg="$pkgs" -coverprofile="$mod-cover.out" ./...)
           done
           # Merge by summing each block's hit count. Concatenating would list a
           # block once per module that had it in -coverpkg, and the runs that
@@ -208,7 +206,7 @@ jobs:
               count[key] += $3 }
             END { print "mode: atomic"
                   for (i = 1; i <= n; i++) print order[i], count[order[i]] }
-          ' root-cover.out api/api-cover.out builder/builder-cover.out > coverage.out
+          ' src/animedb/animedb-cover.out src/api/api-cover.out src/builder/builder-cover.out > coverage.out
 
       - name: Enforce coverage threshold
         run: |

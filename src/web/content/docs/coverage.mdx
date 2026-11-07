@@ -1,0 +1,159 @@
+---
+title: Coverage
+description: How much of anime history the dataset manages, by release year and season.
+---
+
+
+How much of anime history this dataset actually manages, by release year and
+release season. Every number below is counted from the committed `dataset/data/`, so it
+describes the dataset as it stands — not what the upstream sources contain.
+
+## What is counted
+
+A **work** is one node that maps to a real anime release: a Season, a Movie or a
+Special. A Series or Franchise is *our* grouping and is never counted as a work,
+so a five-season show contributes five works, not six.
+
+The catalogue carries **TV series and films**. Entries the open sources type as
+`SPECIAL`, `ONA` or `OVA` are not imported: most of them are music videos, OP
+animations, collaboration shorts and promo clips rather than releases, and the
+majority name no parent work, so each would land as a series of its own. Of the
+1,711 entries upstream lists for 2025, 1,067 are side content and 488 of those
+reference nothing at all. A special that genuinely belongs to a series can still
+be authored onto it by hand — the exclusion is about bulk import.
+
+Seasons carry a `releaseYear` **and** a `releaseSeason`; movies and specials
+carry only a year, so they share one column. A season upstream places in a year
+without naming a quarter falls in none of the four quarter columns, which is why
+the year table totals one fewer work than the Totals table below: *Ramen
+Akaneko*'s second season is the one case.
+
+Every table below is recomputed from `dataset/data/` by a test
+(`TestCoveragePageMatchesTheDataset`), which fails and prints the corrected
+markdown when the page and the dataset disagree. They did disagree once — this
+page called the cast Japanese-only two releases after the English cast landed —
+which is why the test exists.
+
+## Works by year and season
+
+| Year | Winter | Spring | Summer | Fall | Films & specials | Total | Episodes |
+|---:|---:|---:|---:|---:|---:|---:|---:|
+| 2006 | 1 | — | — | — | — | 1 | 24 |
+| 2008 | — | — | — | 1 | — | 1 | 24 |
+| 2010 | — | — | 1 | — | — | 1 | 12 |
+| 2011 | — | 1 | — | 1 | — | 2 | 38 |
+| 2012 | — | 1 | 1 | — | — | 2 | 50 |
+| 2013 | — | — | 2 | 1 | — | 3 | 127 |
+| 2014 | — | — | 2 | 1 | — | 3 | 35 |
+| 2015 | — | 1 | — | 2 | — | 3 | 88 |
+| 2016 | 1 | 2 | 1 | — | — | 4 | 101 |
+| 2017 | 2 | 1 | 2 | 2 | 1 | 8 | 270 |
+| 2018 | — | 3 | 2 | 2 | — | 7 | 108 |
+| 2019 | 2 | 4 | 3 | 3 | — | 12 | 255 |
+| 2020 | 2 | 3 | 3 | 3 | 1 | 12 | 185 |
+| 2021 | 4 | 5 | 2 | 2 | — | 13 | 185 |
+| 2022 | 2 | 9 | 3 | 7 | — | 21 | 326 |
+| 2023 | 4 | 9 | 7 | 10 | — | 30 | 428 |
+| 2024 | 10 | 16 | 10 | 14 | — | 50 | 760 |
+| 2025 | 58 | 71 | 74 | 70 | 103 | 376 | 4101 |
+| 2026 | 80 | 69 | — | — | — | 149 | 1870 |
+| **Total** | **166** | **195** | **113** | **119** | **105** | **698** | **8987** |
+
+## Totals
+
+| | Count |
+|---|---:|
+| Franchises | 1 |
+| Series | 502 |
+| Seasons | 594 |
+| Movies | 105 |
+| Works (seasons + movies + specials) | 699 |
+| Episodes | 8987 |
+
+## Cast
+
+The R2 layer — characters and the staff who voice them — is far thinner than the
+structure, because it is bounded by what Wikidata (the only CC0 name source the
+build may redistribute) actually records.
+
+| | Count |
+|---|---:|
+| Series with at least one character | 55 of 502 |
+| Characters | 727 |
+| …of those, with a voice actor | 678 |
+| Staff (voice actors) | 484 |
+| Voice-actor links | 771 — 694 `ja`, 77 `en` |
+
+Coverage is uneven in a way that tracks a title's popularity on Wikidata rather
+than anything about the show: Slime carries 148 characters and Frieren 45, while
+most series carry none at all. A series with no cast is normal, not a gap in the
+build — Wikidata records characters for only 37 of the 79 series this dataset
+can join to it, and nothing for the 73 series it cannot join at all.
+
+**Japanese and English** voice actors are recorded, in a `staff/` file each. A
+language is only trustworthy when Wikidata's `voice actor` (P725) statement says
+so, so a link is taken as Japanese when the statement is either qualified
+`language of work or name` = Japanese, or carries no language qualifier and the
+actor is a Japanese citizen; English requires the qualifier outright. Anything
+qualified to a third language is left out rather than guessed at, and other
+languages can be added the same way.
+
+A credit can also name the adaptation it applies to (`applies to work`, P10663),
+and that qualifier decides where the credit is recorded. One that names a work
+this dataset does not carry is left out entirely — Saber's third English actor
+belongs to a 2010 film that is not here, and the 1985 High School! Kimengumi
+cast does not belong on the 2026 remake. One that names a series here is
+recorded on that appearance, which is why Saber's English cast differs between
+Fate/stay night and Fate/Zero while Ayako Kawasumi holds throughout. An
+unqualified credit is recorded on the character, since nothing distinguishes its
+appearances.
+
+## How to read the shape of it
+
+**Two windows are complete: all of 2025, and Winter+Spring 2026 for TV.** Every
+2025 TV series and film the pinned sources carry an AniList id for is here — 377
+works of the 643 the offline database types `TV` or `MOVIE` for that year, the
+other 266 having no AniList id and so nothing for the builder to resolve facts
+by. Winter and Spring 2026 add 149 TV works. Nothing after Spring 2026 is
+included: an announced but unaired season is left out until it airs, so the
+dataset never carries a season with no episodes.
+
+**Everything before 2025 is there because it is a prior season of something in
+2025 or 2026**, plus the hand-authored Demon Slayer and Fate entries. That is
+why the earlier years are thin and uneven: 2023 has 30 works not because 2023
+was sampled, but because thirty shows running later started or continued then.
+A show like Frieren pulls its 2023 season in with it, and *Yami Shibai*'s 2025
+run pulls in ten.
+
+**Films arrived with 2025.** Before it the catalogue held three, all authored by
+hand; it now holds 105, because a year's films are the half of `TV`+`MOVIE` the
+2026 window never reached. Specials are still absent by design — the
+OVA/ONA/SPECIAL long tail is mostly recaps, shorts and promo clips, and most of
+it has no AniList id either.
+
+## Regenerating this table
+
+The numbers come from `dataset/data/` and nothing else, so they can be recomputed at any
+time:
+
+```python
+import glob, yaml
+from collections import Counter, defaultdict
+
+works, episodes = defaultdict(Counter), defaultdict(int)
+for path in sorted(glob.glob("dataset/data/series/*.yaml")):
+    record = yaml.safe_load(open(path, encoding="utf-8"))
+    series = record["franchise"]["series"] if "franchise" in record else [record["series"]]
+    for one in series:
+        for kind, bucket in (("seasons", None), ("movies", "FILM"), ("specials", "FILM")):
+            for node in one.get(kind) or []:
+                works[node.get("releaseYear")][bucket or node.get("releaseSeason") or "?"] += 1
+                episodes[node.get("releaseYear")] += len(node.get("episodes") or [])
+
+for year in sorted(y for y in works if y):
+    print(year, dict(works[year]), episodes[year])
+```
+
+[`SearchSeries`](/docs/api/search-series) with an empty query reports the number
+of series a running server holds in `totalSize`, and
+[`SearchReleases`](/docs/api/search-releases) does the same for releases.

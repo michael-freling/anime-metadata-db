@@ -2,23 +2,31 @@ LICENSING FOR THE DATA IN THIS REPOSITORY
 
 The source code and the data are licensed separately.
 
-  Code (everything except data/)   MIT License                        see LICENSE
-  data/ as a database              Open Database License (ODbL) v1.0  below
-  data/ individual records         Database Contents License (DbCL) v1.0  below
+  Code (everything except dataset/)  MIT License                        see LICENSE
+  dataset/ as a database             Open Database License (ODbL) v1.0  below
+  dataset/ individual records        Database Contents License (DbCL) v1.0  below
 
-Why the split: data/ is a derivative database of anime-offline-database, which
+The whole of dataset/ is covered, not only the generated records under
+dataset/data/. dataset/overrides/ is the authored half of the same database —
+series boundaries, native titles, the cast graph — and much of what it holds is
+derived from the same ODbL source. Splitting the licence between the two halves
+would put the hand-authored records on the code side of a line they do not
+belong on; that was the arrangement before dataset/ existed, and it was wrong.
+
+Why the split: dataset/ is a derivative database of anime-offline-database, which
 manami-project publishes under ODbL + DbCL. The ODbL's share-alike term reaches
 derivative databases, so the compiled dataset is offered on the same terms it
 was received under. The build's other inputs impose nothing further: Wikidata is
 CC0, and the AniDB/TVDB mappings taken from Anime-Lists are bare identifier
-pairs. See NOTICE for attribution, and docs/content/docs/sources-and-licensing.md
+pairs. See NOTICE for attribution, and src/web/content/docs/sources-and-licensing.mdx
 for what each source contributes.
 
-Note that dataset.go embeds data/ into the binary, so these terms travel with
-any binary or deployment built from this repository, not just with the files.
+A deployment carries dataset/ alongside the binary rather than inside it: the
+server reads the records from disk (see src/animedb/dataset.go). These terms
+travel with any copy of the files, and with any deployment that ships them.
 
 ================================================================================
-Open Database License (ODbL) v1.0 — applies to data/ as a database
+Open Database License (ODbL) v1.0 — applies to dataset/ as a database
 Canonical text: https://opendatacommons.org/licenses/odbl/1-0/
 ================================================================================
 

@@ -9,7 +9,7 @@ set -euo pipefail
 
 HERE="$(cd "$(dirname "$0")" && pwd)"
 REPO="$(git -C "$HERE" rev-parse --show-toplevel)"
-APP="$REPO/web"
+APP="$REPO/src/web"
 WORK="$APP/.screenshots"
 OUT="$WORK/out"
 PORT="${PORT:-8199}"
@@ -24,7 +24,7 @@ ENVF="$(bash "$HERE/setup-browser.sh" "$WORK")"
 source "$ENVF"
 
 # The Development section is excluded from every non-dev build (see
-# web/src/lib/source.ts), so capturing it means running the dev server rather
+# src/web/src/lib/source.ts), so capturing it means running the dev server rather
 # than the production one. Everything else is shot against a real production
 # build, which is what users actually get.
 if [ "$INTERNAL" = 1 ]; then

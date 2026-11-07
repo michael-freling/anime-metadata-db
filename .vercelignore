@@ -9,15 +9,18 @@
 # upload, and the deployed site served 404s for every /docs page while the rest
 # of the app worked. Anchor, or it will happen again to config/ or proto/.
 #
-# For the same reason web/ is not listed at all: excluding it removed the app
-# the web project exists to build. Carrying it in the API project's upload costs
-# a little transfer and nothing else.
+# For the same reason src/web/ is not listed at all: excluding it removed the
+# app the web project exists to build. Carrying it in the API project's upload
+# costs a little transfer and nothing else.
 #
 # The Hugo tree that /docs/ used to exclude is gone; the documentation now lives
-# in web/content/docs/ and must ship.
+# in src/web/content/docs/ and must ship.
 #
-# The dataset under data/ is embedded into the Go function and MUST ship.
-/api/proto/
+# The dataset under dataset/ is READ AT RUNTIME by the Go function and MUST
+# ship. It used to be compiled in with go:embed, so shipping it only mattered at
+# build time; now the deployed function opens it from the filesystem, and
+# excluding it would leave a server that starts and answers nothing.
+/src/api/proto/
 /.sources/
-/builder/
+/src/builder/
 /coverage.out

@@ -23,16 +23,17 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version-file: go.mod
+          go-version-file: src/animedb/go.mod
 
-      # Per module. Run from the repository root this matches only the root
-      # module — which holds the dataset and nothing else — so it passed
-      # vacuously from the moment the Go code moved into api/ and builder/,
-      # reporting success having executed no test at all.
+      # Per module, because there is no module spanning them: run from the
+      # repository root, `go test ./...` has nothing to resolve against at all.
+      # When a root module did exist it held the dataset and nothing else, so
+      # this passed vacuously from the moment the Go code moved out of it,
+      # reporting success having executed no test.
       - name: Run e2e tests (no mocks)
         run: |
           set -euo pipefail
-          for mod in . api builder; do
+          for mod in src/animedb src/api src/builder; do
             echo "--- $mod"
             (cd "$mod" && go test -tags e2e -run E2E -timeout 15m ./...)
           done
@@ -47,19 +48,20 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version-file: go.mod
+          go-version-file: src/animedb/go.mod
 
       # The unit tests build in synthetic temp directories, so nothing else
       # runs the builder against the checked-in config.yaml, overrides and
       # sources. That gap hid a real incident: after the module split,
       # config.yaml's sourcesDir/dataDir pointed at the wrong tree and a full
-      # build deleted every record in data/ as orphaned, exiting 0.
+      # build deleted every record in dataset/data/ as orphaned, exiting 0.
       #
-      # What this job does NOT do is diff the rebuild against data/. The two
-      # large sources are rolling — their URLs name "master" and "latest", and
+      # What this job does NOT do is diff the rebuild against dataset/data/.
+      # The two large sources are rolling — their URLs name "master" and "latest", and
       # config.yaml's sha256 records what was last seen rather than addressing
       # a version that can be fetched again. A clean runner therefore always
-      # downloads newer upstream data than data/ was built from, and `init`
+      # downloads newer upstream data than dataset/data/ was built from, and
+      # `init`
       # re-pins accordingly, so a byte-comparison would fail permanently for
       # reasons no pull request caused. (Asked for one anyway, it produced a
       # 41-file diff on its first run.)
@@ -78,16 +80,16 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .sources
-          key: sources-${{ hashFiles('builder/config.yaml') }}
+          key: sources-${{ hashFiles('src/builder/config.yaml') }}
           restore-keys: sources-
 
       - name: Fetch the sources
         run: make init
 
-      - name: Rebuild data/ from the committed overrides
+      - name: Rebuild dataset/data/ from the committed overrides
         run: make build-data 2>&1 | tee /tmp/build.log
 
-      - name: The rebuild must leave data/ whole
+      - name: The rebuild must leave dataset/data/ whole
         run: |
           set -euo pipefail
           test -s /tmp/build.log || { echo "::error::the build produced no output"; exit 1; }
@@ -99,21 +101,21 @@ jobs:
           # refuses on its own and fails the step above.
           #
           # What is wrong is a deletion relative to what is committed: it means
-          # data/ holds records whose overrides are gone, so somebody removed
-          # overrides without rebuilding.
-          if deleted=$(git diff --diff-filter=D --name-only -- data/) && [ -n "$deleted" ]; then
+          # dataset/data/ holds records whose overrides are gone, so somebody
+          # removed overrides without rebuilding.
+          if deleted=$(git diff --diff-filter=D --name-only -- dataset/data/) && [ -n "$deleted" ]; then
             echo "::error::rebuilding deleted records that are still committed — an override was removed without running 'make build-data'"
             echo "$deleted" | head -20
             exit 1
           fi
-          # Deliberately counts *.yaml under data/series and nothing else.
-          # data/index.tsv would be a tempting thing to check, but the prune
-          # only walks *.yaml/*.yml and `builder build` never touches the index
-          # — it would have survived the original incident untouched and proved
-          # nothing.
-          count=$(find data/series -name '*.yaml' | wc -l)
+          # Deliberately counts *.yaml under dataset/data/series and nothing
+          # else. dataset/data/index.tsv would be a tempting thing to check, but
+          # the prune only walks *.yaml/*.yml and `builder build` never touches
+          # the index — it would have survived the original incident untouched
+          # and proved nothing.
+          count=$(find dataset/data/series -name '*.yaml' | wc -l)
           echo "series records after the rebuild: $count"
-          test "$count" -gt 0 || { echo "::error::the rebuild left data/series empty"; exit 1; }
+          test "$count" -gt 0 || { echo "::error::the rebuild left dataset/data/series empty"; exit 1; }
 
       # The anilistId checks report rather than fail the build, because which
       # installments make up a series is editorial and upstream's links move.
@@ -149,7 +151,7 @@ jobs:
           # different inputs, so agreement means the figure the project steers
           # by is measuring the tree rather than restating itself.
           reported=$(sed -n 's|^  \([0-9]*\)/[0-9]* read from an override$|\1|p' /tmp/build.log)
-          actual=$(grep -rho 'anilistId' builder/config/overrides/ | wc -l)
+          actual=$(grep -rho 'anilistId' dataset/overrides/ | wc -l)
           echo "authored ids: $reported reported, $actual in the overrides"
           test "$reported" = "$actual" || {
             echo "::error::the build reports $reported authored anilistIds but the overrides hold $actual"
@@ -180,7 +182,7 @@ jobs:
       - name: ...and a planted one is caught
         run: |
           set -euo pipefail
-          override=builder/config/overrides/series/sousou-no-frieren.yaml
+          override=dataset/overrides/series/sousou-no-frieren.yaml
           # Both of Frieren's ids are resolved, not authored, which is the point
           # of planting here: it tests the one surface still open to a typo.
           # Fail loudly if that stops being true, rather than planting an id
@@ -207,7 +209,7 @@ jobs:
             exit 1
           }
           make build-data 2>&1 | tee /tmp/planted.log || true
-          git checkout -- builder/config/overrides/ data/
+          git checkout -- dataset/overrides/ dataset/data/
 
           # By code rather than by message: these are the same three checks as
           # before, but a rewording of what they say can no longer make this
@@ -242,7 +244,7 @@ jobs:
       - name: ...and so is a duplicated one
         run: |
           set -euo pipefail
-          override=builder/config/overrides/series/sousou-no-frieren.yaml
+          override=dataset/overrides/series/sousou-no-frieren.yaml
           # Re-read from the clean build: each step is its own shell, so a
           # variable set in the previous one would be empty here and the
           # comparison below would silently degrade into matching nothing.
@@ -257,7 +259,7 @@ jobs:
             exit 1
           }
           make build-data 2>&1 | tee /tmp/dup.log || true
-          git checkout -- builder/config/overrides/ data/
+          git checkout -- dataset/overrides/ dataset/data/
 
           fail=0
           grep -q 'anilist-duplicate' /tmp/dup.log || {
@@ -274,11 +276,11 @@ jobs:
       # Informational: upstream moved, so this is expected to be non-empty and
       # is what a dataset refresh would commit. It is printed rather than
       # asserted for the reason above.
-      - name: Report how far data/ has drifted from upstream
+      - name: Report how far dataset/data/ has drifted from upstream
         run: |
-          if git diff --quiet -- data/; then
-            echo "data/ still matches what today's upstream produces"
+          if git diff --quiet -- dataset/data/; then
+            echo "dataset/data/ still matches what today's upstream produces"
           else
-            git diff --stat -- data/ | tail -5
-            echo "::notice::upstream has moved since data/ was last rebuilt; run 'make init && make build-data' to refresh it"
+            git diff --stat -- dataset/data/ | tail -5
+            echo "::notice::upstream has moved since dataset/data/ was last rebuilt; run 'make init && make build-data' to refresh it"
           fi

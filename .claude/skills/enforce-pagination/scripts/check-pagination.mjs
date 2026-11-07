@@ -5,7 +5,7 @@
 // or a total, and it cannot know whether a collection grows with the catalogue.
 // That judgement lives in SKILL.md, and in BOUNDED_BY_ENTITY below, where each
 // exemption carries its reason. The runtime half is
-// TestSearchResponsesNeverReturnTheWholeCollection in api/internal/api.
+// TestSearchResponsesNeverReturnTheWholeCollection in src/api/internal/api.
 //
 // Usage: node .claude/skills/enforce-pagination/scripts/check-pagination.mjs [proto-path...]
 //
@@ -19,7 +19,7 @@ import { argv, exit } from 'node:process';
 
 const PROTOS = argv.slice(2).length
   ? argv.slice(2)
-  : ['api/proto/anime/v1/anime.proto', 'api/proto/browse/v1/browse.proto'];
+  : ['src/api/proto/anime/v1/anime.proto', 'src/api/proto/browse/v1/browse.proto'];
 
 // Collections bounded by the entity that owns them, not by how large the
 // catalogue grows. Each entry states why, because "it is small today" is not a
