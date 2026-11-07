@@ -61,10 +61,6 @@ run "excluding web/ is rejected" reject '/src/api/proto/' '/src/builder/' 'web/'
 # The same class, one level in.
 run "excluding src/web/content/ is rejected" reject '/src/api/proto/' '/src/builder/' '/src/web/content/'
 
-# dataset/data is read from disk by the Go function; losing the staff half
-# would break the API without touching the site.
-run "excluding dataset/data/staff/ is rejected" reject '/src/api/proto/' '/src/builder/' '/dataset/data/staff/'
-
 # An emptied file keeps everything, which must NOT count as passing: the
 # intended exclusions are part of the contract.
 run "an empty file is rejected" reject ''
@@ -82,11 +78,11 @@ run "excluding src/animedb/ is rejected" reject '/src/api/proto/' '/src/builder/
 run "excluding src/animedb/go.mod is rejected" reject '/src/api/proto/' '/src/builder/' '/src/animedb/go.mod'
 run "excluding src/api/go.mod is rejected" reject '/src/api/proto/' '/src/builder/' '/src/api/go.mod'
 
-# The listing index is one file inside a directory the check already requires,
-# so excluding just it would leave every other dataset/data file matching. It
-# is named separately for that reason, and this is what proves the naming
-# works: without the index the API does not boot at all.
-run "excluding dataset/data/index.tsv is rejected" reject '/src/api/proto/' '/src/builder/' '/dataset/data/index.tsv'
+# dataset/ is NOT required any more, and this is what pins that: the deployed
+# function fetches the records over HTTP and no file in the upload reaches it,
+# so excluding the dataset must NOT fail this check. It asserted the opposite
+# until the day that belief took production down.
+run "excluding the dataset is accepted" ok '/src/api/proto/' '/src/builder/' '/dataset/'
 
 # config/ unanchored repeats the docs/ collision, since src/api/internal/config/
 # exists. The unanchored-pattern trap has a new shape rather than being gone:

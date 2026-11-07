@@ -21,9 +21,11 @@ CC0, and the AniDB/TVDB mappings taken from Anime-Lists are bare identifier
 pairs. See NOTICE for attribution, and src/web/content/docs/sources-and-licensing.mdx
 for what each source contributes.
 
-A deployment carries dataset/ alongside the binary rather than inside it: the
-server reads the records from disk (see src/animedb/dataset.go). These terms
-travel with any copy of the files, and with any deployment that ships them.
+The records are not compiled into the binary. A deployment fetches them over
+HTTP from the commit it was built from (see src/animedb/remote.go), and a
+checkout reads them from disk (src/animedb/dataset.go). Either way the API
+serves this database, so these terms travel with any copy of the files and with
+any deployment that answers from them.
 
 ================================================================================
 Open Database License (ODbL) v1.0 — applies to dataset/ as a database

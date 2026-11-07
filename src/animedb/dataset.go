@@ -2,12 +2,17 @@
 // shape (subpackage model) and the loader that opens a committed dataset
 // directory.
 //
-// The dataset is read from disk rather than compiled in. It used to be embedded
-// with go:embed so a binary carried the data with it and needed no filesystem
-// at runtime; that stops being reasonable as the catalogue grows, because every
-// cold start then ships the whole dataset inside the executable. Reading it
-// means the deployment has to put dataset/ beside the binary — see
-// .vercelignore, which keeps it in the upload for exactly this reason.
+// The dataset is not compiled in. It is opened from a directory (Open) or
+// fetched over HTTP (OpenRemote), and both return the same two things — an
+// fs.FS of records and the listing index — so nothing above this package knows
+// which one it got.
+//
+// Two sources rather than one because the two environments genuinely differ. A
+// checkout has the dataset on disk, which is what every test and local run
+// wants. A Vercel deployment does not: its Go builder ships the compiled
+// binary and nothing else, so the files reach the build and never the
+// function. There the records are fetched from the commit the deployment was
+// built from.
 package animedb
 
 import (

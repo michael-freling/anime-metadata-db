@@ -1,10 +1,13 @@
 // Command api serves the read-only anime dataset over the Connect, gRPC and
-// gRPC-Web protocols. The dataset is read from disk, so the deployment must put
-// dataset/ where the binary can find it (see -dataset).
+// gRPC-Web protocols.
 //
 // Usage:
 //
-//	api [-addr :8080] [-dataset ./dataset]
+//	api [-addr :8080] [-dataset ./dataset] [-dataset-url https://.../dataset]
+//
+// The dataset comes from a directory when there is one and over HTTP when there
+// is not — see resolveDataset, which is the whole of the difference between a
+// checkout and a deployment.
 //
 // This is also the deployment entrypoint on Vercel, whose native Go builder
 // compiles cmd/api and runs it as a web server, injecting the listen port via
@@ -25,19 +28,60 @@ import (
 	"github.com/michael-freling/anime-metadata-db/src/api/internal/api"
 )
 
-// defaultDataset finds the dataset directory.
+// source is where the dataset is read from: exactly one of dir or url is set.
+type source struct {
+	dir string
+	url string
+}
+
+// resolveDataset decides where the records come from, in this order:
 //
-// ANIME_DATASET_DIR wins where it is set — the escape hatch for a deployment
-// whose working directory is not something this can reason about. Otherwise it
-// walks up from the working directory and then from the executable, looking for
-// the index, so `go run ./cmd/api` works from anywhere in the tree and a built
-// binary works beside a deployed dataset/. Failing both it returns "dataset",
-// which produces a clear "read dataset index" error rather than a silent empty
-// catalogue.
-func defaultDataset() string {
-	if dir := os.Getenv("ANIME_DATASET_DIR"); dir != "" {
-		return dir
+//  1. an explicit -dataset-url, or ANIME_DATASET_URL;
+//  2. an explicit -dataset, or a dataset/ directory found by walking up from
+//     the working directory and then from the executable;
+//  3. the commit this deployment was built from, fetched over HTTP.
+//
+// Disk before the platform's own commit is deliberate: in a checkout — a test,
+// `go run ./cmd/api`, the Playwright suite — the working tree is what the
+// author means, and it must win even when Vercel's variables happen to be set.
+// On Vercel step 2 finds nothing, because the Go builder ships the binary and
+// not the repository, so it falls through to step 3 and reads the dataset it
+// was built from.
+func resolveDataset(flagDir, flagURL string) (source, error) {
+	if flagURL != "" {
+		return source{url: flagURL}, nil
 	}
+	if env := os.Getenv("ANIME_DATASET_URL"); env != "" {
+		return source{url: env}, nil
+	}
+	if flagDir != "" {
+		return source{dir: flagDir}, nil
+	}
+	if env := os.Getenv("ANIME_DATASET_DIR"); env != "" {
+		return source{dir: env}, nil
+	}
+	if dir := findDataset(); dir != "" {
+		return source{dir: dir}, nil
+	}
+	// VERCEL_GIT_* are injected by the platform, so the deployed path needs
+	// nothing configured by hand — which is the point: a dashboard variable
+	// somebody has to remember to set is a way for a deployment to read the
+	// wrong commit.
+	owner, repo := os.Getenv("VERCEL_GIT_REPO_OWNER"), os.Getenv("VERCEL_GIT_REPO_SLUG")
+	if sha := os.Getenv("VERCEL_GIT_COMMIT_SHA"); sha != "" && owner != "" && repo != "" {
+		return source{url: animedb.RawGitHubBase(owner, repo, sha)}, nil
+	}
+	return source{}, fmt.Errorf("no dataset: pass -dataset <dir> or -dataset-url <url>, " +
+		"or run where a dataset/ directory is reachable")
+}
+
+// findDataset walks up from the working directory and then from the executable
+// looking for a dataset directory, so `go run ./cmd/api` works from anywhere in
+// the tree and a built binary works beside a deployed copy.
+//
+// It requires the index, not just the directory name, so a half-populated or
+// unrelated dataset/ is not mistaken for the real one.
+func findDataset() string {
 	var roots []string
 	if wd, err := os.Getwd(); err == nil {
 		roots = append(roots, wd)
@@ -58,7 +102,7 @@ func defaultDataset() string {
 			dir = parent
 		}
 	}
-	return "dataset"
+	return ""
 }
 
 // version is overridable at build time with -ldflags "-X main.version=...". At
@@ -89,11 +133,23 @@ func newServer(args []string, out io.Writer) (*http.Server, error) {
 	fs := flag.NewFlagSet("api", flag.ContinueOnError)
 	fs.SetOutput(out)
 	addr := fs.String("addr", defaultAddr(), "listen address (defaults to :$PORT, else :8080)")
-	dir := fs.String("dataset", defaultDataset(), "dataset directory (the one holding data/)")
+	dir := fs.String("dataset", "", "dataset directory (the one holding data/); default: found by walking up")
+	datasetURL := fs.String("dataset-url", "", "dataset base URL (the one holding data/); default: this deployment's commit")
 	if err := fs.Parse(args); err != nil {
 		return nil, err
 	}
-	handler, err := api.New(*dir, resolveVersion())
+	src, err := resolveDataset(*dir, *datasetURL)
+	if err != nil {
+		return nil, err
+	}
+	var handler http.Handler
+	if src.url != "" {
+		fmt.Fprintf(out, "dataset: %s\n", src.url)
+		handler, err = api.NewRemote(src.url, resolveVersion())
+	} else {
+		fmt.Fprintf(out, "dataset: %s\n", src.dir)
+		handler, err = api.New(src.dir, resolveVersion())
+	}
 	if err != nil {
 		return nil, err
 	}

@@ -31,8 +31,11 @@ export default defineConfig({
   webServer: [
     {
       command: `go run ./cmd/api -addr :${API_PORT}`,
-      // The API is its own Go module now; the dataset it serves lives in the
-      // module one level up, which its go.mod resolves with a replace.
+      // Run from inside the checkout, so the server finds dataset/ on disk by
+      // walking up and these tests need no network. That is deliberately NOT
+      // how a deployment reads it — there the records are fetched — and the
+      // deployed shape is covered by TestTheBinaryServesWithNoRepositoryOnDisk
+      // in src/api/cmd/api, which runs the binary with no repository at all.
       cwd: '../api',
       url: `http://127.0.0.1:${API_PORT}/`,
       reuseExistingServer: !process.env.CI,

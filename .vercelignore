@@ -16,10 +16,15 @@
 # The Hugo tree that /docs/ used to exclude is gone; the documentation now lives
 # in src/web/content/docs/ and must ship.
 #
-# The dataset under dataset/ is READ AT RUNTIME by the Go function and MUST
-# ship. It used to be compiled in with go:embed, so shipping it only mattered at
-# build time; now the deployed function opens it from the filesystem, and
-# excluding it would leave a server that starts and answers nothing.
+# The dataset under dataset/ is not needed by either build and is not excluded
+# either. Neither claim it carried before was right for long: it was compiled in
+# with go:embed, then "read at runtime from the filesystem" — which took
+# production down, because Vercel's Go builder ships the compiled binary and
+# nothing else, so these files reach the BUILD and never the function. The
+# deployed server now fetches the records over HTTP from the commit it was built
+# from. Left in the upload because the transfer is cheap and a whole-tree
+# exclusion is a sharper tool than the saving justifies; nothing depends on it
+# being here, and verify-deploy-upload.sh no longer claims anything does.
 /src/api/proto/
 /.sources/
 /src/builder/

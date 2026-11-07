@@ -58,18 +58,19 @@ fail=0
 #                The whole of src/animedb rather than its packages one by one:
 #                its go.mod, the model and the loader are all needed, and
 #                naming the directory cannot fall out of date as it grows.
-#   dataset/data/**  read from the filesystem at runtime by that function
-#   dataset/data/index.tsv
-#                named on its own, not just covered by dataset/data: it is the
-#                listing index every browse and search request is answered
-#                from, and without it the server does not start at all. A
-#                pattern that excluded only this one file would leave the rest
-#                of dataset/data matching and the check passing.
+#
+# dataset/ is deliberately NOT required. It used to be, on the grounds that the
+# function read it from the filesystem — which was wrong, and shipped as an
+# outage: Vercel's Go builder bundles the binary alone, so no file here ever
+# reaches the running function. The deployed server fetches the records from
+# the commit it was built from, so this check has nothing to say about them.
+# The property that replaced this one is asserted where it can actually fail:
+# TestTheBinaryServesWithNoRepositoryOnDisk runs the built binary with no
+# repository on disk at all.
 for required in \
   'src/web/package.json' 'src/web/content/docs' 'src/web/src' 'src/web/openapi' \
   'src/api/cmd' 'src/api/internal' 'src/api/go.mod' 'src/api/go.sum' \
-  'src/animedb' \
-  'dataset/data' 'dataset/data/index.tsv'; do
+  'src/animedb'; do
   matched=0
   while IFS= read -r -d '' f; do
     matched=$((matched + 1))
