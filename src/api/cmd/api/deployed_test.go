@@ -58,7 +58,12 @@ func TestTheBinaryServesWithNoRepositoryOnDisk(t *testing.T) {
 	}
 
 	port := freePort(t)
-	cmd := exec.Command(bin, "-addr", fmt.Sprintf("127.0.0.1:%d", port))
+	// CommandContext so the subprocess is killed on the deadline instead of
+	// outliving the test. A server that neither answers nor exits would
+	// otherwise hang the run, and a hung CI job is worse than a failing one.
+	ctx, cancel := context.WithTimeout(context.Background(), startupBudget)
+	defer cancel()
+	cmd := exec.CommandContext(ctx, bin, "-addr", fmt.Sprintf("127.0.0.1:%d", port))
 	cmd.Dir = workdir
 	// Deliberately not the ambient environment: this states the whole input,
 	// and an inherited ANIME_DATASET_DIR would quietly restore the thing the
@@ -126,6 +131,54 @@ func TestTheBinaryRefusesToStartWithNoDataset(t *testing.T) {
 	}
 }
 
+// TestTheBinaryExitsWhenTheDatasetIsUnreachable covers the startup-failure path
+// itself, and with it the machinery that has to report one.
+//
+// This is the shape the outage took — a source that resolves but cannot be
+// read, so the process dies during startup and every request becomes a 500 —
+// and it is also what proves waitReady reports an early exit promptly instead
+// of waiting out its budget. An earlier draft polled ProcessState, which os/exec
+// only fills in after Wait, so a dead child looked identical to a slow one and
+// the failure took a full minute to surface.
+func TestTheBinaryExitsWhenTheDatasetIsUnreachable(t *testing.T) {
+	if testing.Short() {
+		t.Skip("builds and runs the binary")
+	}
+
+	// Reachable host, no dataset on it: the index fetch 404s.
+	origin := httptest.NewServer(http.NotFoundHandler())
+	defer origin.Close()
+
+	bin := filepath.Join(t.TempDir(), "api")
+	if out, err := exec.Command("go", "build", "-o", bin, ".").CombinedOutput(); err != nil {
+		t.Fatalf("go build: %v\n%s", err, out)
+	}
+
+	workdir := t.TempDir()
+	ctx, cancel := context.WithTimeout(context.Background(), startupBudget)
+	defer cancel()
+	cmd := exec.CommandContext(ctx, bin, "-addr", "127.0.0.1:0")
+	cmd.Dir = workdir
+	cmd.Env = []string{"HOME=" + workdir, "ANIME_DATASET_URL=" + origin.URL + "/dataset"}
+
+	start := time.Now()
+	out, err := cmd.CombinedOutput()
+	if err == nil {
+		t.Fatalf("the binary kept running with an unreadable dataset:\n%s", out)
+	}
+	if ctx.Err() != nil {
+		t.Fatalf("the binary neither served nor exited within %s:\n%s", startupBudget, out)
+	}
+	// Promptly, not eventually: the point is that this is reported rather than
+	// waited out.
+	if elapsed := time.Since(start); elapsed > 10*time.Second {
+		t.Errorf("took %s to fail; a dead server should be reported at once", elapsed)
+	}
+	if !strings.Contains(string(out), "read dataset index") {
+		t.Errorf("output did not name the index it could not read:\n%s", out)
+	}
+}
+
 // datasetAbove reports the first dataset/data/index.tsv at or above dir, so a
 // test can prove its own premise instead of assuming it.
 func datasetAbove(dir string) string {
@@ -154,12 +207,18 @@ func freePort(t *testing.T) int {
 	return l.Addr().(*net.TCPAddr).Port
 }
 
+// startupBudget bounds how long any of these may take. Boot is one fetch of a
+// 286 KB index — well under a second against the real origin and instant
+// against a stub — so this is generous rather than tuned, and it is a budget
+// for the whole subprocess rather than only for the polling loop.
+const startupBudget = 30 * time.Second
+
 // waitReady blocks until the server answers, and fails the moment it exits
 // instead — the failure this test is about is a process that dies during
-// startup, so it is reported in a second rather than timed out on in a minute.
+// startup, so it is reported in a second rather than timed out on.
 func waitReady(t *testing.T, base string, exited <-chan error, log *safeBuffer) {
 	t.Helper()
-	deadline := time.After(60 * time.Second)
+	deadline := time.After(startupBudget)
 	for {
 		select {
 		case err := <-exited:
