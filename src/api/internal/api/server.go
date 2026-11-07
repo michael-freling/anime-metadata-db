@@ -57,8 +57,7 @@ func varyAcceptLanguage() connect.UnaryInterceptorFunc {
 	}
 }
 
-// New opens the dataset rooted at dir and returns the API handler. It is the
-// entrypoint used by cmd/api.
+// New opens the dataset directory at dir and returns the API handler.
 //
 // Only the index is read here. Record files are opened when a request asks for
 // one, so this returns in the time it takes to read a single file however large
@@ -68,6 +67,26 @@ func New(dir, version string) (http.Handler, error) {
 	if err != nil {
 		return nil, err
 	}
+	return newIndexed(fsys, idx, version)
+}
+
+// NewRemote fetches the dataset published at base and returns the API handler.
+//
+// This is the deployed path: Vercel's Go builder ships the binary alone, so
+// there is no dataset directory in the function and the records are fetched
+// from the commit the deployment was built from. Only the index is fetched
+// here, the same single read New does.
+func NewRemote(base, version string) (http.Handler, error) {
+	fsys, idx, err := animedb.OpenRemote(base, nil)
+	if err != nil {
+		return nil, err
+	}
+	return newIndexed(fsys, idx, version)
+}
+
+// newIndexed parses idx and wires the store over fsys. It is what New and
+// NewRemote share, so the two sources cannot drift in how they are served.
+func newIndexed(fsys fs.FS, idx, version string) (http.Handler, error) {
 	ix, err := index.Open(idx)
 	if err != nil {
 		return nil, err

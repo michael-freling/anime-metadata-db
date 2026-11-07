@@ -151,8 +151,9 @@ exactly the sources it was authored against.)
 
 ## Serving it
 
-The same dataset is read from disk by the API server, which keeps no state of
-its own beyond what it opens from `dataset/`:
+The same dataset is served read-only by the API, which keeps no state of its
+own — it reads `dataset/` from disk when there is one and fetches the records
+otherwise:
 
 ```sh
 cd src/api && go run ./cmd/api                 # listens on :8080

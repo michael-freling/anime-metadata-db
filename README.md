@@ -109,15 +109,21 @@ The same dataset is served read-only over a [Connect RPC](https://connectrpc.com
 service defined in [`src/api/proto/anime/v1/anime.proto`](src/api/proto/anime/v1/anime.proto).
 Connect speaks the **Connect protocol, gRPC and gRPC-Web over plain HTTP**, so
 clients can call it with an ordinary HTTP `POST` + JSON, no special tooling
-required. The server reads `dataset/` from the filesystem at startup, so a
-deployment ships the directory beside the binary; `-dataset` or
-`ANIME_DATASET_DIR` names it, and otherwise it is found by walking up from the
-working directory and from the executable.
+required.
+
+The server does not carry the dataset. In a checkout it reads `dataset/` from
+disk, found by walking up from the working directory and from the executable
+(`-dataset`, `ANIME_DATASET_DIR`). Deployed, it fetches the records over HTTP
+from the commit it was built from (`-dataset-url`, `ANIME_DATASET_URL`) —
+because Vercel's Go builder ships the binary and nothing else, so no file in the
+upload reaches the running function. Disk wins where both are available, so a
+working tree is always authoritative locally.
 
 Startup reads exactly one file. Listings are answered from
 `dataset/data/index.tsv`, a generated file carrying just the fields a browse row
-shows, and a YAML record is opened only when a request names a single id — so
-boot stays flat as the catalogue grows however large `dataset/data/` gets; see
+shows, and a YAML record is read only when a request names a single id — so boot
+stays flat as the catalogue grows however large `dataset/data/` gets, and a
+fetched deployment pays for one 286 KB download rather than the whole tree; see
 [`src/api/internal/index`](src/api/internal/index/index.go) for the measurements
 behind it. Regenerate it with `make index` after any change under `dataset/data/`.
 
@@ -197,8 +203,13 @@ The service deploys to Vercel's free tier using Vercel's native **Go web-server*
 builder: it compiles [`src/api/cmd/api`](src/api/cmd/api) and runs it as a
 server, injecting the listen port via `$PORT` (which the server binds
 automatically). No `vercel.json` or serverless-function wrapper is needed —
-every request is proxied to the server. `.vercelignore` keeps `dataset/` in the
-upload, which the server now needs at runtime rather than only at build time. The browse service's `GetStats` reports `$VERCEL_GIT_COMMIT_SHA` as its
+every request is proxied to the server.
+
+The function contains the binary and nothing else — that is what the Go builder
+bundles — so it fetches the dataset from `raw.githubusercontent.com`, pinned to
+`$VERCEL_GIT_COMMIT_SHA`. A deployment therefore serves the dataset it was built
+from for as long as it lives, and a push to `main` cannot change what an older
+deployment answers. The browse service's `GetStats` reports `$VERCEL_GIT_COMMIT_SHA` as its
 `version`.
 
 Connect-protocol, gRPC-Web and JSON clients all work over Vercel; deploy by

@@ -41,9 +41,31 @@ under `src/`, and `src/api` and `src/builder` both `replace` the shared module
 to `../animedb`. `model` is public rather than internal because it crosses a
 module boundary.
 
-The dataset is read from disk, not embedded. `src/api/cmd/api` finds it by
-walking up for `dataset/data/index.tsv`, overridable with `-dataset` or
-`ANIME_DATASET_DIR`.
+## Where the API reads the dataset
+
+Two sources, because the two environments differ:
+
+- **In a checkout** — tests, `go run ./cmd/api`, the Playwright suite — it is
+  read from disk. `src/api/cmd/api` walks up for `dataset/data/index.tsv`;
+  `-dataset` or `ANIME_DATASET_DIR` overrides it.
+- **Deployed** it is fetched over HTTP from the commit the deployment was built
+  from, derived from `VERCEL_GIT_*`. `-dataset-url` or `ANIME_DATASET_URL`
+  overrides it.
+
+Disk wins over the deployed commit, so a working tree is always authoritative
+locally.
+
+**Vercel's Go builder ships the compiled binary and nothing else.** Repository
+files reach the build — that is what `.vercelignore` governs, and why
+`replace ../animedb` resolves — but they never reach the running function. Do
+not write code, comments or checks that assume a deployment can read a file
+beside the executable; that belief took production down once already.
+
+Because a deployed instance fetches, every test that matters must run the binary
+in the shape the deployment runs it. That is
+`TestTheBinaryServesWithNoRepositoryOnDisk` in `src/api/cmd/api`: it builds the
+binary and runs it from an empty directory with no repository anywhere. Every
+other suite runs inside a checkout and cannot see this class of failure.
 
 ## Working on the dataset
 
