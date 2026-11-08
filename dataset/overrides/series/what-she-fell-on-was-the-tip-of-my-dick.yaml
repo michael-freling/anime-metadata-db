@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: what-she-fell-on-was-the-tip-of-my-dick
+  titles:
+    original: "じょしおちっ！〜2階から女の子が…降ってきた!?〜"
+    translations: { ja-Latn: What She Fell on Was the Tip of My Dick }
+  seasons:
+    - id: what-she-fell-on-was-the-tip-of-my-dick-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [what-she-fell-on-was-the-tip-of-my-dick]

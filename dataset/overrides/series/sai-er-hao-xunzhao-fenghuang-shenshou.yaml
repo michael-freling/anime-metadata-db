@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sai-er-hao-xunzhao-fenghuang-shenshou
+  titles:
+    original: "Sai Er Hao: Xunzhao Fenghuang Shenshou"
+    translations: { ja-Latn: "Sai Er Hao: Xunzhao Fenghuang Shenshou" }
+  movies:
+    - id: sai-er-hao-xunzhao-fenghuang-shenshou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sai-er-hao-xunzhao-fenghuang-shenshou]

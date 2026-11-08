@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ciwei-xiao-zi-tiansheng-wo-ci
+  titles:
+    original: "Ciwei Xiao Zi: Tiansheng Wo Ci"
+    translations: { ja-Latn: "Ciwei Xiao Zi: Tiansheng Wo Ci" }
+  movies:
+    - id: ciwei-xiao-zi-tiansheng-wo-ci-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ciwei-xiao-zi-tiansheng-wo-ci]

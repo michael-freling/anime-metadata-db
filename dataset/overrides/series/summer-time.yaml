@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: summer-time
+  titles:
+    original: Summer Time
+    translations: { ja-Latn: Summer Time }
+  movies:
+    - id: summer-time-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [summer-time]

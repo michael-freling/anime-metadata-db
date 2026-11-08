@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kuaile-xiang-qian-chong
+  titles:
+    original: Kuaile Xiang Qian Chong
+    translations: { ja-Latn: Kuaile Xiang Qian Chong }
+  seasons:
+    - id: kuaile-xiang-qian-chong-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kuaile-xiang-qian-chong]

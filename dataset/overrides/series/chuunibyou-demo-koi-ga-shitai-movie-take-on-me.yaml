@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chuunibyou-demo-koi-ga-shitai-movie-take-on-me
+  titles:
+    original: 映画 中二病でも恋がしたい! -Take On Me-
+    translations: { ja-Latn: "Chuunibyou demo Koi ga Shitai! Movie: Take On Me" }
+  movies:
+    - id: chuunibyou-demo-koi-ga-shitai-movie-take-on-me-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chuunibyou-demo-koi-ga-shitai-movie-take-on-me]

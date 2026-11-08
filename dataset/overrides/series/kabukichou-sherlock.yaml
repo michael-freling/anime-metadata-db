@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kabukichou-sherlock
+  titles:
+    original: Kabukichou no Yatsu (歌舞伎町のやつ)
+    translations: { ja-Latn: Kabukichou Sherlock }
+  seasons:
+    - id: kabukichou-sherlock-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kabukichou-sherlock]

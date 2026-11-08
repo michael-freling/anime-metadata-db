@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nil-admirari-no-tenbin
+  titles:
+    original: ニル・アドミラリの天秤 帝都幻惑綺譚
+    translations: { ja-Latn: Nil Admirari no Tenbin }
+  seasons:
+    - id: nil-admirari-no-tenbin-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nil-admirari-no-tenbin]

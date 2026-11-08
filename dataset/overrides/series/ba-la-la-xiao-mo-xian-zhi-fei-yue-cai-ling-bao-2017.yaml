@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ba-la-la-xiao-mo-xian-zhi-fei-yue-cai-ling-bao-2017
+  titles:
+    original: "Ba La La Xiao Mo Xian Zhi: Fei Yue Cai Ling Bao (2017)"
+    translations: { ja-Latn: "Ba La La Xiao Mo Xian Zhi: Fei Yue Cai Ling Bao (2017)" }
+  seasons:
+    - id: ba-la-la-xiao-mo-xian-zhi-fei-yue-cai-ling-bao-2017-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ba-la-la-xiao-mo-xian-zhi-fei-yue-cai-ling-bao-2017]

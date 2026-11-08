@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: girls-und-panzer-the-63rd-national-high-school-sensha-do-games
+  titles:
+    original: "Girls und Panzer: The 63rd National High School Sensha-do Games"
+    translations: { ja-Latn: "Girls und Panzer: The 63rd National High School Sensha-do Games" }
+  movies:
+    - id: girls-und-panzer-the-63rd-national-high-school-sensha-do-games-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [girls-und-panzer-the-63rd-national-high-school-sensha-do-games]

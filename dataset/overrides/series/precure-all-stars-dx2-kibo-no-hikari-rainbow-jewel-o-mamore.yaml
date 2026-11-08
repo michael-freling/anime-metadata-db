@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: precure-all-stars-dx2-kibo-no-hikari-rainbow-jewel-o-mamore
+  titles:
+    original: プリキュアオールスターズDX2 希望の光☆レインボージュエルを守れ！
+    translations: { ja-Latn: "Precure All Stars DX2: Kibō no Hikari—Rainbow Jewel o Mamore!" }
+  movies:
+    - id: precure-all-stars-dx2-kibo-no-hikari-rainbow-jewel-o-mamore-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [precure-all-stars-dx2-kibo-no-hikari-rainbow-jewel-o-mamore]

@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: miss-monochrome-the-animation
+  titles:
+    original: ミス・モノクローム - The Animation
+    translations: { ja-Latn: Miss Monochrome The Animation }
+  seasons:
+    - id: miss-monochrome-the-animation-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [miss-monochrome-the-animation]

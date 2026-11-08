@@ -1,0 +1,15 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fune-wo-amu
+  titles:
+    original: 舟を編む
+    translations: { ja-Latn: Fune wo Amu }
+  seasons:
+    - id: fune-wo-amu-s1
+      number: 1
+    - id: fune-wo-amu-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fune-wo-amu]

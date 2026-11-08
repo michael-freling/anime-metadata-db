@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: toriko-3d-kaimaku-gourmet-adventure
+  titles:
+    original: トリコ3D 開幕!グルメアドベンチャー!!
+    translations: { ja-Latn: "Toriko 3D: Kaimaku Gourmet Adventure!!" }
+  movies:
+    - id: toriko-3d-kaimaku-gourmet-adventure-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [toriko-3d-kaimaku-gourmet-adventure]

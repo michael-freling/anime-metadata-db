@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: flying-witch
+  titles:
+    original: ふらいんぐうぃっち
+    translations: { ja-Latn: Flying Witch }
+  seasons:
+    - id: flying-witch-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [flying-witch]

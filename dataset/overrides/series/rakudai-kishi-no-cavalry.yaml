@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rakudai-kishi-no-cavalry
+  titles:
+    original: "落第騎士の英雄譚[キャバルリィ] A TALE OF WORST ONE"
+    translations: { ja-Latn: Rakudai Kishi no Cavalry }
+  seasons:
+    - id: rakudai-kishi-no-cavalry-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rakudai-kishi-no-cavalry]

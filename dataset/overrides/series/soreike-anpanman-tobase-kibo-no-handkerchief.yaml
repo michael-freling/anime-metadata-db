@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: soreike-anpanman-tobase-kibo-no-handkerchief
+  titles:
+    original: それいけ!アンパンマン とばせ!希望のハンカチ
+    translations: { ja-Latn: "Soreike! Anpanman: Tobase! Kibō no Handkerchief" }
+  movies:
+    - id: soreike-anpanman-tobase-kibo-no-handkerchief-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [soreike-anpanman-tobase-kibo-no-handkerchief]

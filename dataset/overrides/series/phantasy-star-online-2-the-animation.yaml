@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: phantasy-star-online-2-the-animation
+  titles:
+    original: ファンタシースターオンライン2 ジ アニメーション
+    translations: { ja-Latn: Phantasy Star Online 2 The Animation }
+  seasons:
+    - id: phantasy-star-online-2-the-animation-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [phantasy-star-online-2-the-animation]

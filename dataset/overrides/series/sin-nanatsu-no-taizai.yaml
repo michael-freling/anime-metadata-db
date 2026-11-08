@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sin-nanatsu-no-taizai
+  titles:
+    original: sin 七つの大罪
+    translations: { ja-Latn: "Sin: Nanatsu no Taizai" }
+  seasons:
+    - id: sin-nanatsu-no-taizai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sin-nanatsu-no-taizai]

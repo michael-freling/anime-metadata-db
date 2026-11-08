@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: harmonie
+  titles:
+    original: 若手アニメーター育成プロジェクト 2014 1
+    translations: { ja-Latn: Harmonie }
+  movies:
+    - id: harmonie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [harmonie]

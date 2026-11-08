@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: turning-mecard-w-black-mirror-ui-buhwal
+  titles:
+    original: "Turning Mecard W: Black Mirror-ui Buhwal"
+    translations: { ja-Latn: "Turning Mecard W: Black Mirror-ui Buhwal" }
+  movies:
+    - id: turning-mecard-w-black-mirror-ui-buhwal-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [turning-mecard-w-black-mirror-ui-buhwal]

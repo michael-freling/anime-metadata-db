@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sheng-anima
+  titles:
+    original: Sheng ANIMA
+    translations: { ja-Latn: Sheng ANIMA }
+  movies:
+    - id: sheng-anima-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sheng-anima]

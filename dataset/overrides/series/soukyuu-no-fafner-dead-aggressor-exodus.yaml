@@ -1,0 +1,15 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: soukyuu-no-fafner-dead-aggressor-exodus
+  titles:
+    original: 蒼穹のファフナー Dead Aggressor EXODUS
+    translations: { ja-Latn: "Soukyuu no Fafner: Dead Aggressor - Exodus" }
+  seasons:
+    - id: soukyuu-no-fafner-dead-aggressor-exodus-s1
+      number: 1
+    - id: soukyuu-no-fafner-dead-aggressor-exodus-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [soukyuu-no-fafner-dead-aggressor-exodus]

@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sakura-sou-no-pet-na-kanojo
+  titles:
+    original: さくら荘のペットな彼女
+    translations: { ja-Latn: Sakura-sou no Pet na Kanojo }
+  seasons:
+    - id: sakura-sou-no-pet-na-kanojo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sakura-sou-no-pet-na-kanojo]

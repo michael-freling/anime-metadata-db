@@ -1,0 +1,15 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sengoku-choujuu-giga-otsu
+  titles:
+    original: "Sengoku Choujuu Giga: Otsu"
+    translations: { ja-Latn: "Sengoku Choujuu Giga: Otsu" }
+  seasons:
+    - id: sengoku-choujuu-giga-otsu-s1
+      number: 1
+    - id: sengoku-choujuu-giga-otsu-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sengoku-choujuu-giga-otsu]

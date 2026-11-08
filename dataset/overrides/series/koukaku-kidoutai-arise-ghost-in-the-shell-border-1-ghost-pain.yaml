@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: koukaku-kidoutai-arise-ghost-in-the-shell-border-1-ghost-pain
+  titles:
+    original: "Koukaku Kidoutai Arise: Ghost in the Shell - Border:1 Ghost Pain"
+    translations: { ja-Latn: "Koukaku Kidoutai Arise: Ghost in the Shell - Border:1 Ghost Pain" }
+  movies:
+    - id: koukaku-kidoutai-arise-ghost-in-the-shell-border-1-ghost-pain-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [koukaku-kidoutai-arise-ghost-in-the-shell-border-1-ghost-pain]

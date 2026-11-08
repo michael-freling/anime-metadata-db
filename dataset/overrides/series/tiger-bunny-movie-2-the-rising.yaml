@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tiger-bunny-movie-2-the-rising
+  titles:
+    original: "Tiger & Bunny Movie 2: The Rising"
+    translations: { ja-Latn: "Tiger & Bunny Movie 2: The Rising" }
+  movies:
+    - id: tiger-bunny-movie-2-the-rising-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tiger-bunny-movie-2-the-rising]

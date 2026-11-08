@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jimu-wuqian-nian-jimu-chunqiu
+  titles:
+    original: "Jimu Wuqian Nian: Jimu Chunqiu"
+    translations: { ja-Latn: "Jimu Wuqian Nian: Jimu Chunqiu" }
+  seasons:
+    - id: jimu-wuqian-nian-jimu-chunqiu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jimu-wuqian-nian-jimu-chunqiu]

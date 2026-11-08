@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dino-king-3d-journey-to-fire-mountain
+  titles:
+    original: "Dino King 3D: Journey to Fire Mountain"
+    translations: { ja-Latn: "Dino King 3D: Journey to Fire Mountain" }
+  movies:
+    - id: dino-king-3d-journey-to-fire-mountain-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dino-king-3d-journey-to-fire-mountain]

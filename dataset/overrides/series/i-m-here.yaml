@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: i-m-here
+  titles:
+    original: I'm Here
+    translations: { ja-Latn: I'm Here }
+  movies:
+    - id: i-m-here-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [i-m-here]

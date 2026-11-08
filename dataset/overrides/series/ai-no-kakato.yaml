@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ai-no-kakato
+  titles:
+    original: 愛のかかと
+    translations: { ja-Latn: Ai no Kakato }
+  movies:
+    - id: ai-no-kakato-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ai-no-kakato]

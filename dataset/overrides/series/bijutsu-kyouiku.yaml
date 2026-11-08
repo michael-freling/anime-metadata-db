@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bijutsu-kyouiku
+  titles:
+    original: Bijutsu Kyouiku
+    translations: { ja-Latn: Bijutsu Kyouiku }
+  movies:
+    - id: bijutsu-kyouiku-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bijutsu-kyouiku]

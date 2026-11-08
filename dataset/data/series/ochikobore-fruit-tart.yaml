@@ -4,8 +4,11 @@ series:
   titles:
     original: おちこぼれフルーツタルト
     translations:
+      en: Dropout Idol Fruit Tart
       ja-Latn: Ochikobore Fruit Tart
   ordering: absolute
+  externalIds:
+    wikidataId: Q24870821
   seasons:
     - id: ochikobore-fruit-tart-s1
       number: 1

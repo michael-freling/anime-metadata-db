@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: himitsu-kessha-taka-no-tsume-the-movie-4-kaspersky-o-motsu-otoko
+  titles:
+    original: 秘密結社鷹の爪 THE MOVIE4 〜カスペルスキーを持つ男〜
+    translations: { ja-Latn: "Himitsu Kessha Taka no Tsume The Movie 4: Kaspersky o Motsu Otoko" }
+  movies:
+    - id: himitsu-kessha-taka-no-tsume-the-movie-4-kaspersky-o-motsu-otoko-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [himitsu-kessha-taka-no-tsume-the-movie-4-kaspersky-o-motsu-otoko]

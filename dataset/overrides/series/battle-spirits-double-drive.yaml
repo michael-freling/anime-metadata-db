@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: battle-spirits-double-drive
+  titles:
+    original: バトルスピリッツ ダブルドライブ
+    translations: { ja-Latn: "Battle Spirits: Double Drive" }
+  seasons:
+    - id: battle-spirits-double-drive-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [battle-spirits-double-drive]

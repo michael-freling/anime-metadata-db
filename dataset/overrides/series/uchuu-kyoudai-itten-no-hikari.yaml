@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: uchuu-kyoudai-itten-no-hikari
+  titles:
+    original: プラネタリウム 宇宙兄弟 ～一点のひかり～
+    translations: { ja-Latn: "Uchuu Kyoudai: Itten no Hikari" }
+  movies:
+    - id: uchuu-kyoudai-itten-no-hikari-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [uchuu-kyoudai-itten-no-hikari]

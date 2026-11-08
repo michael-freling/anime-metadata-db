@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: princess-aya
+  titles:
+    original: Princess Aya
+    translations: { ja-Latn: Princess Aya }
+  movies:
+    - id: princess-aya-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [princess-aya]

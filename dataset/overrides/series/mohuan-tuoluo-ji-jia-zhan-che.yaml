@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mohuan-tuoluo-ji-jia-zhan-che
+  titles:
+    original: "Mohuan Tuoluo: Ji Jia Zhan Che"
+    translations: { ja-Latn: "Mohuan Tuoluo: Ji Jia Zhan Che" }
+  seasons:
+    - id: mohuan-tuoluo-ji-jia-zhan-che-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mohuan-tuoluo-ji-jia-zhan-che]

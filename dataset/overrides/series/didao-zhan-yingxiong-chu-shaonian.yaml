@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: didao-zhan-yingxiong-chu-shaonian
+  titles:
+    original: "Didao Zhan: Yingxiong Chu Shaonian"
+    translations: { ja-Latn: "Didao Zhan: Yingxiong Chu Shaonian" }
+  seasons:
+    - id: didao-zhan-yingxiong-chu-shaonian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [didao-zhan-yingxiong-chu-shaonian]

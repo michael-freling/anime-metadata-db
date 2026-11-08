@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: inugami-san-to-nekoyama-san
+  titles:
+    original: 犬神さんと猫山さん
+    translations: { ja-Latn: Inugami-san to Nekoyama-san }
+  seasons:
+    - id: inugami-san-to-nekoyama-san-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [inugami-san-to-nekoyama-san]

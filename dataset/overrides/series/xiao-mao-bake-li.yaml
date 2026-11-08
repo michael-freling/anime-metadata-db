@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-mao-bake-li
+  titles:
+    original: Xiao Mao Bake Li
+    translations: { ja-Latn: Xiao Mao Bake Li }
+  movies:
+    - id: xiao-mao-bake-li-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-mao-bake-li]

@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xin-datou-erzi-he-xiaotou-baba-di-er-ji
+  titles:
+    original: Xin Datou Erzi He Xiaotou Baba Di-er Ji
+    translations: { ja-Latn: Xin Datou Erzi He Xiaotou Baba Di-er Ji }
+  seasons:
+    - id: xin-datou-erzi-he-xiaotou-baba-di-er-ji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xin-datou-erzi-he-xiaotou-baba-di-er-ji]

@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dica-tejing-dui-shenghua-weiji
+  titles:
+    original: "Dica Tejing Dui: Shenghua Weiji"
+    translations: { ja-Latn: "Dica Tejing Dui: Shenghua Weiji" }
+  seasons:
+    - id: dica-tejing-dui-shenghua-weiji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dica-tejing-dui-shenghua-weiji]

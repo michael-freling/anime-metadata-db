@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yingxiong-gushi-hui
+  titles:
+    original: Yingxiong Gushi Hui
+    translations: { ja-Latn: Yingxiong Gushi Hui }
+  seasons:
+    - id: yingxiong-gushi-hui-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yingxiong-gushi-hui]

@@ -1,0 +1,15 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gate-jieitai-kanochi-nite-kaku-tatakaeri
+  titles:
+    original: GATE(ゲート) 自衛隊 彼の地にて、斯く戦えり
+    translations: { ja-Latn: "Gate: Jieitai Kanochi nite, Kaku Tatakaeri" }
+  seasons:
+    - id: gate-jieitai-kanochi-nite-kaku-tatakaeri-s1
+      number: 1
+    - id: gate-jieitai-kanochi-nite-kaku-tatakaeri-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gate-jieitai-kanochi-nite-kaku-tatakaeri]

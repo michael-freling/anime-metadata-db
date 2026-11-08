@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ku-bao-jiazu-xiao-tu-xiou
+  titles:
+    original: "Ku Bao Jiazu: Xiao Tu Xiou"
+    translations: { ja-Latn: "Ku Bao Jiazu: Xiao Tu Xiou" }
+  seasons:
+    - id: ku-bao-jiazu-xiao-tu-xiou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ku-bao-jiazu-xiao-tu-xiou]

@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zombie-dumb-2
+  titles:
+    original: Zombie Dumb 2
+    translations: { ja-Latn: Zombie Dumb 2 }
+  seasons:
+    - id: zombie-dumb-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zombie-dumb-2]

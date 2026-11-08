@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zero-no-tsukaima-f
+  titles:
+    original: ゼロの使い魔F
+    translations: { ja-Latn: Zero no Tsukaima F }
+  seasons:
+    - id: zero-no-tsukaima-f-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zero-no-tsukaima-f]

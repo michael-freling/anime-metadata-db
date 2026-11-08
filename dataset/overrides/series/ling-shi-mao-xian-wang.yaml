@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ling-shi-mao-xian-wang
+  titles:
+    original: Ling Shi Mao Xian Wang
+    translations: { ja-Latn: Ling Shi Mao Xian Wang }
+  seasons:
+    - id: ling-shi-mao-xian-wang-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ling-shi-mao-xian-wang]

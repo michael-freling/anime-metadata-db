@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-pu-lin-bian-bian-bian
+  titles:
+    original: Xiao Pu Lin Bian Bian Bian
+    translations: { ja-Latn: Xiao Pu Lin Bian Bian Bian }
+  seasons:
+    - id: xiao-pu-lin-bian-bian-bian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-pu-lin-bian-bian-bian]

@@ -1,0 +1,15 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaijuu-step-wandabada
+  titles:
+    original: かいじゅうステップ ワンダバダ
+    translations: { ja-Latn: Kaijuu Step Wandabada }
+  seasons:
+    - id: kaijuu-step-wandabada-s1
+      number: 1
+    - id: kaijuu-step-wandabada-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaijuu-step-wandabada]

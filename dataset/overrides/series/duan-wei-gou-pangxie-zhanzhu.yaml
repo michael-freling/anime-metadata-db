@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: duan-wei-gou-pangxie-zhanzhu
+  titles:
+    original: "Duan Wei Gou: Pangxie Zhanzhu"
+    translations: { ja-Latn: "Duan Wei Gou: Pangxie Zhanzhu" }
+  seasons:
+    - id: duan-wei-gou-pangxie-zhanzhu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [duan-wei-gou-pangxie-zhanzhu]

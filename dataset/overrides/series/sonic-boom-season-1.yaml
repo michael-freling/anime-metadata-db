@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sonic-boom-season-1
+  titles:
+    original: Sonic Boom Season 1
+    translations: { ja-Latn: Sonic Boom Season 1 }
+  seasons:
+    - id: sonic-boom-season-1-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sonic-boom-season-1]

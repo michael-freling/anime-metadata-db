@@ -1,0 +1,15 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: strange
+  titles:
+    original: ストレンジ・プラス
+    translations: { ja-Latn: Strange+ }
+  seasons:
+    - id: strange-s1
+      number: 1
+    - id: strange-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [strange]

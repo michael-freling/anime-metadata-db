@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Darwin's Game
   ordering: absolute
+  externalIds:
+    wikidataId: Q18214503
   seasons:
     - id: darwin-s-game-s1
       number: 1

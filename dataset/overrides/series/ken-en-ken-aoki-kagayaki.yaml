@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ken-en-ken-aoki-kagayaki
+  titles:
+    original: 軒轅剣 蒼き曜
+    translations: { ja-Latn: "Ken En Ken: Aoki Kagayaki" }
+  seasons:
+    - id: ken-en-ken-aoki-kagayaki-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ken-en-ken-aoki-kagayaki]

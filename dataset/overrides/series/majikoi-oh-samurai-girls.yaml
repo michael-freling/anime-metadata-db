@@ -1,0 +1,15 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: majikoi-oh-samurai-girls
+  titles:
+    original: 真剣で私に恋しなさい！！
+    translations: { ja-Latn: Majikoi - Oh! Samurai Girls }
+  seasons:
+    - id: majikoi-oh-samurai-girls-s1
+      number: 1
+    - id: majikoi-oh-samurai-girls-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [majikoi-oh-samurai-girls]

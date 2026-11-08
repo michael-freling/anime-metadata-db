@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: black-rock-shooter-tv
+  titles:
+    original: ブラック★ロックシューター (TV)
+    translations: { ja-Latn: Black★Rock Shooter (TV) }
+  seasons:
+    - id: black-rock-shooter-tv-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [black-rock-shooter-tv]

@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tong-ge-wawa-dou-hei-feng-guai
+  titles:
+    original: "Tong Ge Wawa: Dou Hei Feng Guai"
+    translations: { ja-Latn: "Tong Ge Wawa: Dou Hei Feng Guai" }
+  seasons:
+    - id: tong-ge-wawa-dou-hei-feng-guai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tong-ge-wawa-dou-hei-feng-guai]

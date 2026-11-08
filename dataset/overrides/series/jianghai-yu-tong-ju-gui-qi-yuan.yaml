@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jianghai-yu-tong-ju-gui-qi-yuan
+  titles:
+    original: "Jianghai Yu Tong: Ju Gui Qi Yuan"
+    translations: { ja-Latn: "Jianghai Yu Tong: Ju Gui Qi Yuan" }
+  movies:
+    - id: jianghai-yu-tong-ju-gui-qi-yuan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jianghai-yu-tong-ju-gui-qi-yuan]

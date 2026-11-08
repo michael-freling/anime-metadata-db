@@ -1,0 +1,15 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shimajiro-no-wow
+  titles:
+    original: しまじろうのわお！
+    translations: { ja-Latn: Shimajirō no Wow! }
+  seasons:
+    - id: shimajiro-no-wow-s1
+      number: 1
+    - id: shimajiro-no-wow-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shimajiro-no-wow]

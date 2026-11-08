@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: magi-sinbad-no-bouken-tv
+  titles:
+    original: マギ シンドバッドの冒険
+    translations: { ja-Latn: "Magi: Sinbad no Bouken (TV)" }
+  seasons:
+    - id: magi-sinbad-no-bouken-tv-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [magi-sinbad-no-bouken-tv]

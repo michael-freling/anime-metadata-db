@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: uchuu-senkan-yamato-2199-movie-2-taiyou-ken-no-shitou
+  titles:
+    original: "Uchuu Senkan Yamato 2199 Movie 2: Taiyou-ken no Shitou"
+    translations: { ja-Latn: "Uchuu Senkan Yamato 2199 Movie 2: Taiyou-ken no Shitou" }
+  movies:
+    - id: uchuu-senkan-yamato-2199-movie-2-taiyou-ken-no-shitou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [uchuu-senkan-yamato-2199-movie-2-taiyou-ken-no-shitou]

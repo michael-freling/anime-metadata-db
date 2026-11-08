@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shen-shou-jin-gang-2-tianshen-de-shou
+  titles:
+    original: "Shen Shou Jin Gang 2: Tianshen De Shou"
+    translations: { ja-Latn: "Shen Shou Jin Gang 2: Tianshen De Shou" }
+  seasons:
+    - id: shen-shou-jin-gang-2-tianshen-de-shou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shen-shou-jin-gang-2-tianshen-de-shou]

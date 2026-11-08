@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chiisana-eiyuu-kani-to-tamago-to-toumei-ningen
+  titles:
+    original: ポノック短編劇場　ちいさな英雄 ―カニとタマゴと透明人間―
+    translations: { ja-Latn: "Chiisana Eiyuu: Kani to Tamago to Toumei Ningen" }
+  movies:
+    - id: chiisana-eiyuu-kani-to-tamago-to-toumei-ningen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chiisana-eiyuu-kani-to-tamago-to-toumei-ningen]

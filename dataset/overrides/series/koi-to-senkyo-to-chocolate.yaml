@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: koi-to-senkyo-to-chocolate
+  titles:
+    original: 恋と選挙とチョコレート
+    translations: { ja-Latn: Koi to Senkyo to Chocolate }
+  seasons:
+    - id: koi-to-senkyo-to-chocolate-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [koi-to-senkyo-to-chocolate]

@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-wukong
+  titles:
+    original: Xiao Wukong
+    translations: { ja-Latn: Xiao Wukong }
+  movies:
+    - id: xiao-wukong-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-wukong]

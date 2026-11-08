@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: da-erduo-tutu-tutu-zhihui-wangguo
+  titles:
+    original: "Da Erduo Tutu: Tutu Zhihui Wangguo"
+    translations: { ja-Latn: "Da Erduo Tutu: Tutu Zhihui Wangguo" }
+  seasons:
+    - id: da-erduo-tutu-tutu-zhihui-wangguo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [da-erduo-tutu-tutu-zhihui-wangguo]

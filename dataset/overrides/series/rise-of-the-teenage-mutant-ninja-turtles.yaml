@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rise-of-the-teenage-mutant-ninja-turtles
+  titles:
+    original: Rise of the Teenage Mutant Ninja Turtles
+    translations: { ja-Latn: Rise of the Teenage Mutant Ninja Turtles }
+  seasons:
+    - id: rise-of-the-teenage-mutant-ninja-turtles-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rise-of-the-teenage-mutant-ninja-turtles]

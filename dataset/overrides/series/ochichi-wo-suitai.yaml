@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ochichi-wo-suitai
+  titles:
+    original: おちちをすいたい
+    translations: { ja-Latn: Ochichi wo Suitai }
+  movies:
+    - id: ochichi-wo-suitai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ochichi-wo-suitai]

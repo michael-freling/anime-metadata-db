@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: toji-no-miko
+  titles:
+    original: 刀使ノ巫女
+    translations: { ja-Latn: Toji no Miko }
+  seasons:
+    - id: toji-no-miko-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [toji-no-miko]

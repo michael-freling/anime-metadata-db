@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gyakkyou-burai-kaiji-hakairoku-hen
+  titles:
+    original: 逆境無頼カイジ 破戒録篇
+    translations: { ja-Latn: "Gyakkyou Burai Kaiji: Hakairoku-hen" }
+  seasons:
+    - id: gyakkyou-burai-kaiji-hakairoku-hen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gyakkyou-burai-kaiji-hakairoku-hen]

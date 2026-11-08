@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: devil-survivor-2-the-animation
+  titles:
+    original: デビルサバイバー 2 The Animation
+    translations: { ja-Latn: Devil Survivor 2 The Animation }
+  seasons:
+    - id: devil-survivor-2-the-animation-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [devil-survivor-2-the-animation]

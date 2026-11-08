@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: byeonsin-jadongcha-ttobot
+  titles:
+    original: Byeonsin Jadongcha Ttobot
+    translations: { ja-Latn: Byeonsin Jadongcha Ttobot }
+  seasons:
+    - id: byeonsin-jadongcha-ttobot-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [byeonsin-jadongcha-ttobot]

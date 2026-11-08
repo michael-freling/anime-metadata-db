@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ejen-ali
+  titles:
+    original: Ejen Ali
+    translations: { ja-Latn: Ejen Ali }
+  seasons:
+    - id: ejen-ali-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ejen-ali]

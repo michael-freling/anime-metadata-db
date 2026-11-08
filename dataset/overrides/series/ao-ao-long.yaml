@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ao-ao-long
+  titles:
+    original: Ao Ao Long
+    translations: { ja-Latn: Ao Ao Long }
+  seasons:
+    - id: ao-ao-long-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ao-ao-long]

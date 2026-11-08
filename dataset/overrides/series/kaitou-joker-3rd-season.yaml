@@ -1,0 +1,17 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaitou-joker-3rd-season
+  titles:
+    original: 怪盗ジョーカー Mysterious Joker
+    translations: { ja-Latn: Kaitou Joker 3rd Season }
+  seasons:
+    - id: kaitou-joker-3rd-season-s1
+      number: 1
+    - id: kaitou-joker-3rd-season-s2
+      number: 2
+    - id: kaitou-joker-3rd-season-s3
+      number: 3
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaitou-joker-3rd-season]

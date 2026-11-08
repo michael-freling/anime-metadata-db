@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lei-su-deng-yi-fei-chong-tian
+  titles:
+    original: "Lei Su Deng: Yi Fei Chong Tian"
+    translations: { ja-Latn: "Lei Su Deng: Yi Fei Chong Tian" }
+  seasons:
+    - id: lei-su-deng-yi-fei-chong-tian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lei-su-deng-yi-fei-chong-tian]

@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: inazuma-eleven-ares-no-tenbin
+  titles:
+    original: イナズマイレブン アレスの天秤
+    translations: { ja-Latn: "Inazuma Eleven: Ares no Tenbin" }
+  seasons:
+    - id: inazuma-eleven-ares-no-tenbin-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [inazuma-eleven-ares-no-tenbin]

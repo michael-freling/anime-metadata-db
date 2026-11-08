@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dahong-yu-xiao-lan
+  titles:
+    original: Dahong Yu Xiao Lan
+    translations: { ja-Latn: Dahong Yu Xiao Lan }
+  movies:
+    - id: dahong-yu-xiao-lan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dahong-yu-xiao-lan]

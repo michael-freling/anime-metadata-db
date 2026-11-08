@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-sakuramoto-broom-workshop
+  titles:
+    original: The Sakuramoto Broom Workshop
+    translations: { ja-Latn: The Sakuramoto Broom Workshop }
+  movies:
+    - id: the-sakuramoto-broom-workshop-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-sakuramoto-broom-workshop]

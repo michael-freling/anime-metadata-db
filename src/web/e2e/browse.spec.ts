@@ -47,19 +47,39 @@ test("a character is findable by name, with its cast shown", async ({
   await expect(body.getByText(/Voiced by .*Natsuki Hanae/)).toBeVisible();
 });
 
-test("the quarter filter reproduces what the Seasons page used to show", async ({
-  page,
-}) => {
-  await page.goto("/browse?year=2026&quarter=winter");
+// matchCount reads the "N matches" the page reports for the current view.
+const matchCount = async (page: import("@playwright/test").Page) =>
+  Number(
+    (
+      await page
+        .locator("main")
+        .getByText(/([\d,]+) matches/)
+        .innerText()
+    )
+      .match(/([\d,]+) matches/)![1]
+      .replace(/,/g, ""),
+  );
 
-  const body = page.locator("main");
-  // 80 is the figure the coverage documentation states for Winter 2026.
-  await expect(body.getByText(/80 matches/)).toBeVisible();
+test("the quarter filter narrows to that quarter alone", async ({ page }) => {
+  // Asserted as a relation, not a number. This test froze Winter 2026 at "80
+  // matches" — the figure the coverage page stated at the time — and broke the
+  // moment an import pulled more 2026 installments in. What matters is that
+  // the filter narrows and that nothing else is listed unasked, and neither
+  // claim needs editing when the catalogue grows.
+  await page.goto("/browse?kind=releases");
+  const all = await matchCount(page);
+
+  await page.goto("/browse?year=2026&quarter=winter");
+  const winter = await matchCount(page);
+
+  expect(winter).toBeGreaterThan(0);
+  expect(winter).toBeLessThan(all);
+
   // Choosing a year or quarter means asking about releases, so the other
   // kinds are not listed unasked.
-  await expect(body.getByRole("heading", { name: "Characters" })).toHaveCount(
-    0,
-  );
+  await expect(
+    page.locator("main").getByRole("heading", { name: "Characters" }),
+  ).toHaveCount(0);
 });
 
 test("a kind chip narrows to one result type and can be paged", async ({
@@ -80,6 +100,7 @@ test("a kind chip narrows to one result type and can be paged", async ({
 
 test("paging a narrowed view keeps its filters", async ({ page }) => {
   await page.goto("/browse?kind=releases&year=2026&quarter=winter");
+  const before = await matchCount(page);
 
   const next = page.getByRole("link", { name: "Next →" });
   await expect(next).toBeVisible();
@@ -87,13 +108,21 @@ test("paging a narrowed view keeps its filters", async ({ page }) => {
 
   await expect(page).toHaveURL(/year=2026/);
   await expect(page).toHaveURL(/quarter=winter/);
-  // A pager that dropped the filter would silently start listing everything.
-  await expect(page.locator("main").getByText(/80 matches/)).toBeVisible();
+  // The count has to be the same count, not a particular one: a pager that
+  // dropped the filter would silently start listing everything, and the total
+  // jumping is how that shows.
+  expect(await matchCount(page)).toBe(before);
 });
 
 test("paging the catalogue yields every entry exactly once", async ({
   page,
 }) => {
+  // One navigation per page, and the catalogue decides how many: 6,382 shows
+  // at 24 a page is 267 of them, which overran Playwright's 30s default. The
+  // budget is deliberately generous rather than tuned, because the cost grows
+  // linearly with every import — if this starts timing out again the answer is
+  // to stop walking every page, not to raise the number once more.
+  test.setTimeout(10 * 60 * 1000);
   await page.goto("/browse?kind=shows");
 
   const total = Number(
@@ -355,19 +384,43 @@ test("no page shows a reader an id it links to", async ({ page }) => {
     await page.goto(path);
     const body = page.locator("main").last();
 
-    const ids = new Set(
-      (
-        await body
-          .locator("a[href]")
-          .evaluateAll((els) =>
-            els.map(
-              (el) => (el as HTMLAnchorElement).getAttribute("href") ?? "",
-            ),
-          )
+    // The link's own text comes along, for the one case where a title cannot
+    // be told from a slug: when it IS one. "18if" is a 2017 series titled
+    // exactly that, so the row showing its title shows its id too, and no
+    // word-boundary care separates them. Titles normally differ from their
+    // slugs in case and punctuation — "Demon Slayer" never matches
+    // /\bdemon-slayer\b/ — which is what makes the check work at all.
+    const links = (
+      await body.locator("a[href]").evaluateAll((els) =>
+        els.map((el) => ({
+          href: (el as HTMLAnchorElement).getAttribute("href") ?? "",
+          text: (el as HTMLAnchorElement).innerText ?? "",
+        })),
       )
-        .filter((href) => /^\/(browse|characters|staff)\/[^?#]+$/.test(href))
-        .map((href) => href.split("/").pop()!),
-    );
+    ).filter(({ href }) => /^\/(browse|characters|staff)\/[^?#]+$/.test(href));
+
+    const ids = new Set<string>();
+    for (const { href, text } of links) {
+      const id = href.split("/").pop()!;
+      // Compared as-is, not slugified. Slugifying would exclude nearly every
+      // link — an id is the slug of its title, so "slug of title equals id"
+      // is true almost always, and a first attempt at this gutted the check:
+      // every id on /characters/tanjiro-kamado was skipped and the guard below
+      // caught it. What is actually indistinguishable is a title that already
+      // reads as a slug.
+      const title = text.split("\n")[0].trim().toLowerCase();
+      if (title === id) continue;
+      // An id that is itself an ordinary token cannot be told from prose
+      // either. "1" is a real series — a 2011 short film titled "1" — and the
+      // pager and counts print bare numerals, so \b1\b matches every page;
+      // "c" and "k" are real series too. Six of the six thousand ids are like
+      // this, so skipping them costs the check nothing and saves it from
+      // permanent noise.
+      if (id.length < 2 || /^\d+$/.test(id)) continue;
+      ids.add(id);
+    }
+    // Asserted after both exclusions, so a page whose every id was skipped
+    // fails here rather than passing having checked nothing.
     expect(ids.size, `${path} links to nothing`).toBeGreaterThan(0);
 
     const text = await body.innerText();

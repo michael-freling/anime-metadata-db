@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fuwafuwa-no-shi
+  titles:
+    original: ふわふわの死
+    translations: { ja-Latn: Fuwafuwa no Shi }
+  movies:
+    - id: fuwafuwa-no-shi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fuwafuwa-no-shi]

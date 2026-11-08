@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ookami-kodomo-no-ame-to-yuki
+  titles:
+    original: おおかみこどもの雨と雪
+    translations: { ja-Latn: Ookami Kodomo no Ame to Yuki }
+  movies:
+    - id: ookami-kodomo-no-ame-to-yuki-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ookami-kodomo-no-ame-to-yuki]

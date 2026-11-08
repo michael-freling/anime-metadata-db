@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: phantom-of-the-kill-zero-kara-no-hangyaku
+  titles:
+    original: ファントム オブ キル -ZEROからの反逆-
+    translations: { ja-Latn: "Phantom of the Kill: Zero kara no Hangyaku" }
+  movies:
+    - id: phantom-of-the-kill-zero-kara-no-hangyaku-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [phantom-of-the-kill-zero-kara-no-hangyaku]

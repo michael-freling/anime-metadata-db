@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chain-chronicle-2016
+  titles:
+    original: "Chain Chronicle ヘクセイタスの閃[ひかり]"
+    translations: { ja-Latn: Chain Chronicle (2016) }
+  movies:
+    - id: chain-chronicle-2016-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chain-chronicle-2016]

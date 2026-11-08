@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gekijoban-meiji-tokyo-renka-yumihari-no-serenade
+  titles:
+    original: 明治東亰恋伽～弦月の小夜曲～
+    translations: { ja-Latn: "Gekijōban Meiji Tokyo Renka: Yumihari no Serenade" }
+  movies:
+    - id: gekijoban-meiji-tokyo-renka-yumihari-no-serenade-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gekijoban-meiji-tokyo-renka-yumihari-no-serenade]

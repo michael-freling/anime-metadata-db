@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: digimon-xros-wars-toki-wo-kakeru-shounen-hunter-tachi
+  titles:
+    original: デジモンクロスウォーズ 時を駆ける少年ハンターたち
+    translations: { ja-Latn: "Digimon Xros Wars: Toki wo Kakeru Shounen Hunter-tachi" }
+  seasons:
+    - id: digimon-xros-wars-toki-wo-kakeru-shounen-hunter-tachi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [digimon-xros-wars-toki-wo-kakeru-shounen-hunter-tachi]

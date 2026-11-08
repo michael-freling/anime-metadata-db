@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiyou-chaoji-fen-2-zhenxin-hua-da-maoxian
+  titles:
+    original: "Xiyou Chaoji Fen 2: Zhenxin Hua Da Maoxian"
+    translations: { ja-Latn: "Xiyou Chaoji Fen 2: Zhenxin Hua Da Maoxian" }
+  movies:
+    - id: xiyou-chaoji-fen-2-zhenxin-hua-da-maoxian-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiyou-chaoji-fen-2-zhenxin-hua-da-maoxian]

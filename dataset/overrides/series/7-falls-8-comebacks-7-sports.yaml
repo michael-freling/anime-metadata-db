@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 7-falls-8-comebacks-7-sports
+  titles:
+    original: 七転び八起き七種目
+    translations: { ja-Latn: "7 falls, 8 comebacks, 7 sports" }
+  movies:
+    - id: 7-falls-8-comebacks-7-sports-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [7-falls-8-comebacks-7-sports]

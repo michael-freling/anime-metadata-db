@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: youkai-watch-planetarium-wa-hoshi-to-youkai-ga-ippai
+  titles:
+    original: 妖怪ウォッチ プラネタリウムは星と妖怪がいっぱい！
+    translations: { ja-Latn: "Youkai Watch: Planetarium wa Hoshi to Youkai ga Ippai!" }
+  movies:
+    - id: youkai-watch-planetarium-wa-hoshi-to-youkai-ga-ippai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [youkai-watch-planetarium-wa-hoshi-to-youkai-ga-ippai]

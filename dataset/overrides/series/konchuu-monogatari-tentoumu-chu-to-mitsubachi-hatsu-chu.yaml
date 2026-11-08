@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: konchuu-monogatari-tentoumu-chu-to-mitsubachi-hatsu-chu
+  titles:
+    original: 昆虫物語 てんとうむChu!とみつばちハッChu!
+    translations: { ja-Latn: Konchuu Monogatari Tentoumu Chu! to Mitsubachi Hatsu Chu! }
+  seasons:
+    - id: konchuu-monogatari-tentoumu-chu-to-mitsubachi-hatsu-chu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [konchuu-monogatari-tentoumu-chu-to-mitsubachi-hatsu-chu]

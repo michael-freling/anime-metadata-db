@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: digimon-adventure-tri-2-ketsui
+  titles:
+    original: デジモンアドベンチャーtri.（トライ）第2章「決意」
+    translations: { ja-Latn: "Digimon Adventure tri. 2: Ketsui" }
+  movies:
+    - id: digimon-adventure-tri-2-ketsui-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [digimon-adventure-tri-2-ketsui]

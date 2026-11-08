@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: da-erduo-tu-tu-meishi-kuangxiangqu
+  titles:
+    original: "Da Erduo Tu Tu: Meishi Kuangxiangqu"
+    translations: { ja-Latn: "Da Erduo Tu Tu: Meishi Kuangxiangqu" }
+  movies:
+    - id: da-erduo-tu-tu-meishi-kuangxiangqu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [da-erduo-tu-tu-meishi-kuangxiangqu]

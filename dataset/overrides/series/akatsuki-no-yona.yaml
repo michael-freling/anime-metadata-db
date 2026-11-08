@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: akatsuki-no-yona
+  titles:
+    original: 暁のヨナ -The girl standing in the blush of dawn-
+    translations: { ja-Latn: Akatsuki no Yona }
+  seasons:
+    - id: akatsuki-no-yona-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [akatsuki-no-yona]

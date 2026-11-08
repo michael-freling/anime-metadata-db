@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: in-search-of-the-blue-sky
+  titles:
+    original: In Search of the Blue Sky
+    translations: { ja-Latn: In Search of the Blue Sky }
+  movies:
+    - id: in-search-of-the-blue-sky-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [in-search-of-the-blue-sky]

@@ -1,0 +1,15 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ketsuekigata-kun
+  titles:
+    original: 血液型くん!
+    translations: { ja-Latn: Ketsuekigata-kun! }
+  seasons:
+    - id: ketsuekigata-kun-s1
+      number: 1
+    - id: ketsuekigata-kun-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ketsuekigata-kun]

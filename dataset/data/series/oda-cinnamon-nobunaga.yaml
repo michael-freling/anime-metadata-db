@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Oda Cinnamon Nobunaga
   ordering: absolute
+  externalIds:
+    wikidataId: Q65706051
   seasons:
     - id: oda-cinnamon-nobunaga-s1
       number: 1

@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: biklonz-3rd-season
+  titles:
+    original: Biklonz 3rd Season
+    translations: { ja-Latn: Biklonz 3rd Season }
+  seasons:
+    - id: biklonz-3rd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [biklonz-3rd-season]

@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sai-er-hao-movie-5-leishen-jue-qi
+  titles:
+    original: "Sai Er Hao Movie 5: Leishen Jue Qi"
+    translations: { ja-Latn: "Sai Er Hao Movie 5: Leishen Jue Qi" }
+  movies:
+    - id: sai-er-hao-movie-5-leishen-jue-qi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sai-er-hao-movie-5-leishen-jue-qi]

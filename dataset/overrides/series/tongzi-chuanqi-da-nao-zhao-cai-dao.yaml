@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tongzi-chuanqi-da-nao-zhao-cai-dao
+  titles:
+    original: "Tongzi Chuanqi: Da Nao Zhao Cai Dao"
+    translations: { ja-Latn: "Tongzi Chuanqi: Da Nao Zhao Cai Dao" }
+  seasons:
+    - id: tongzi-chuanqi-da-nao-zhao-cai-dao-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tongzi-chuanqi-da-nao-zhao-cai-dao]

@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: eiga-crayon-shin-chan-shinkon-ryoko-hurricane
+  titles:
+    original: 映画 クレヨンしんちゃん 新婚旅行ハリケーン 〜失われたひろし〜
+    translations: { ja-Latn: Eiga Crayon Shin-chan Shinkon Ryokō Hurricane }
+  movies:
+    - id: eiga-crayon-shin-chan-shinkon-ryoko-hurricane-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [eiga-crayon-shin-chan-shinkon-ryoko-hurricane]

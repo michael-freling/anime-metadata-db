@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: deadman-wonderland
+  titles:
+    original: デッドマン・ワンダーランド
+    translations: { ja-Latn: Deadman Wonderland }
+  seasons:
+    - id: deadman-wonderland-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [deadman-wonderland]

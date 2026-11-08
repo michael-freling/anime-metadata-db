@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hakata-mentai-pirikarako-chan
+  titles:
+    original: 博多明太! ぴりからこちゃん
+    translations: { ja-Latn: Hakata Mentai! Pirikarako-chan }
+  seasons:
+    - id: hakata-mentai-pirikarako-chan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hakata-mentai-pirikarako-chan]

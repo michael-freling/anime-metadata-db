@@ -1,0 +1,15 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shouwa-monogatari
+  titles:
+    original: テレビまんが 昭和物語
+    translations: { ja-Latn: Shouwa Monogatari }
+  seasons:
+    - id: shouwa-monogatari-s1
+      number: 1
+  movies:
+    - id: shouwa-monogatari-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shouwa-monogatari]

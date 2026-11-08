@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: trinity-seven-movie-2-heavens-library-to-crimson-lord
+  titles:
+    original: 劇場版トリニティセブン 天空図書館と真紅の魔王 HEAVENS LIBRARY & CRIMSON LORD
+    translations: { ja-Latn: "Trinity Seven Movie 2: Heavens Library to Crimson Lord" }
+  movies:
+    - id: trinity-seven-movie-2-heavens-library-to-crimson-lord-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [trinity-seven-movie-2-heavens-library-to-crimson-lord]

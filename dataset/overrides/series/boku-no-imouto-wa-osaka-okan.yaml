@@ -1,0 +1,15 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: boku-no-imouto-wa-osaka-okan
+  titles:
+    original: 僕の妹は「大阪おかん」
+    translations: { ja-Latn: Boku no Imouto wa "Osaka Okan" }
+  seasons:
+    - id: boku-no-imouto-wa-osaka-okan-s1
+      number: 1
+    - id: boku-no-imouto-wa-osaka-okan-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [boku-no-imouto-wa-osaka-okan]

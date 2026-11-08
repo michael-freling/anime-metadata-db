@@ -21,10 +21,11 @@ series:
     - id: otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-s2
       number: 2
       releaseYear: 2026
-      releaseSeason: WINTER
+      releaseSeason: SUMMER
       externalIds:
         anilistId: 159309
         anidbId: 17796
+        tvdbId: 412826
       episodes:
         count: 12
         absoluteFrom: 13

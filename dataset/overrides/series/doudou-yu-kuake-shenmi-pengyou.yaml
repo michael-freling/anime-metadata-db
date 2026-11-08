@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: doudou-yu-kuake-shenmi-pengyou
+  titles:
+    original: "DouDou Yu KuaKe: Shenmi Pengyou"
+    translations: { ja-Latn: "DouDou Yu KuaKe: Shenmi Pengyou" }
+  seasons:
+    - id: doudou-yu-kuake-shenmi-pengyou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [doudou-yu-kuake-shenmi-pengyou]

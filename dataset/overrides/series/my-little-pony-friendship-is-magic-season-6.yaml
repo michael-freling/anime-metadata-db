@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: my-little-pony-friendship-is-magic-season-6
+  titles:
+    original: マイリトルポニー〜トモダチは魔法〜6
+    translations: { ja-Latn: "My Little Pony Friendship is Magic: Season 6" }
+  seasons:
+    - id: my-little-pony-friendship-is-magic-season-6-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [my-little-pony-friendship-is-magic-season-6]

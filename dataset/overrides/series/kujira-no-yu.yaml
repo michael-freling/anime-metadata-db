@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kujira-no-yu
+  titles:
+    original: くじらの湯
+    translations: { ja-Latn: Kujira no Yu }
+  movies:
+    - id: kujira-no-yu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kujira-no-yu]

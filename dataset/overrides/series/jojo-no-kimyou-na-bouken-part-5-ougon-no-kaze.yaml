@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jojo-no-kimyou-na-bouken-part-5-ougon-no-kaze
+  titles:
+    original: ジョジョの奇妙な冒険 黄金の風
+    translations: { ja-Latn: "JoJo no Kimyou na Bouken Part 5: Ougon no Kaze" }
+  seasons:
+    - id: jojo-no-kimyou-na-bouken-part-5-ougon-no-kaze-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jojo-no-kimyou-na-bouken-part-5-ougon-no-kaze]

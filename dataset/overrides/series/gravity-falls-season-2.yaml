@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gravity-falls-season-2
+  titles:
+    original: Gravity Falls Season 2
+    translations: { ja-Latn: Gravity Falls Season 2 }
+  seasons:
+    - id: gravity-falls-season-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gravity-falls-season-2]

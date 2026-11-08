@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yuan-chuang-shijie-xiong-hai-zi-buluo
+  titles:
+    original: "Yuan Chuang Shijie: Xiong Hai Zi Buluo"
+    translations: { ja-Latn: "Yuan Chuang Shijie: Xiong Hai Zi Buluo" }
+  movies:
+    - id: yuan-chuang-shijie-xiong-hai-zi-buluo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yuan-chuang-shijie-xiong-hai-zi-buluo]

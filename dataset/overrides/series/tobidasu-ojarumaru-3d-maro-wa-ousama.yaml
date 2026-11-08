@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tobidasu-ojarumaru-3d-maro-wa-ousama
+  titles:
+    original: とびだす おじゃる丸3D マロは王さま
+    translations: { ja-Latn: "Tobidasu Ojarumaru 3D: Maro wa Ousama" }
+  movies:
+    - id: tobidasu-ojarumaru-3d-maro-wa-ousama-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tobidasu-ojarumaru-3d-maro-wa-ousama]

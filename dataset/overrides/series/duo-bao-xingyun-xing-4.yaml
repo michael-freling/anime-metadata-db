@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: duo-bao-xingyun-xing-4
+  titles:
+    original: Duo Bao Xingyun Xing 4
+    translations: { ja-Latn: Duo Bao Xingyun Xing 4 }
+  seasons:
+    - id: duo-bao-xingyun-xing-4-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [duo-bao-xingyun-xing-4]

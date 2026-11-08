@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yumemi-no-e
+  titles:
+    original: ゆめみのえ
+    translations: { ja-Latn: Yumemi no E }
+  movies:
+    - id: yumemi-no-e-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yumemi-no-e]

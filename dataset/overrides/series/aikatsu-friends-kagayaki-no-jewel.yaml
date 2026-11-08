@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aikatsu-friends-kagayaki-no-jewel
+  titles:
+    original: アイカツフレンズ! ~かがやきのジュエル~
+    translations: { ja-Latn: "Aikatsu Friends!: Kagayaki no Jewel" }
+  seasons:
+    - id: aikatsu-friends-kagayaki-no-jewel-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aikatsu-friends-kagayaki-no-jewel]

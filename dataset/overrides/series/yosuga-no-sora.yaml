@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yosuga-no-sora
+  titles:
+    original: "ヨスガノソラ In solitude, where we are least alone."
+    translations: { ja-Latn: Yosuga no Sora }
+  seasons:
+    - id: yosuga-no-sora-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yosuga-no-sora]

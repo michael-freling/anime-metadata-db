@@ -1,0 +1,17 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tottoko-hamtaro-2012
+  titles:
+    original: とっとこハム太郎
+    translations: { ja-Latn: Tottoko Hamtaro (2012) }
+  seasons:
+    - id: tottoko-hamtaro-2012-s1
+      number: 1
+    - id: tottoko-hamtaro-2012-s2
+      number: 2
+    - id: tottoko-hamtaro-2012-s3
+      number: 3
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tottoko-hamtaro-2012]

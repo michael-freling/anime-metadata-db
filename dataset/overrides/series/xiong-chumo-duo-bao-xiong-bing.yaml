@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiong-chumo-duo-bao-xiong-bing
+  titles:
+    original: "Xiong Chumo: Duo Bao Xiong Bing"
+    translations: { ja-Latn: "Xiong Chumo: Duo Bao Xiong Bing" }
+  movies:
+    - id: xiong-chumo-duo-bao-xiong-bing-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiong-chumo-duo-bao-xiong-bing]

@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: taishou-mebiusline-chicchai-san
+  titles:
+    original: 大正メビウスライン ちっちゃいさん
+    translations: { ja-Latn: "Taishou Mebiusline: Chicchai-san" }
+  seasons:
+    - id: taishou-mebiusline-chicchai-san-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [taishou-mebiusline-chicchai-san]

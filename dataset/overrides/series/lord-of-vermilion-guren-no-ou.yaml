@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lord-of-vermilion-guren-no-ou
+  titles:
+    original: ロード オブ ヴァーミリオン 紅蓮の王
+    translations: { ja-Latn: "Lord of Vermilion: Guren no Ou" }
+  seasons:
+    - id: lord-of-vermilion-guren-no-ou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lord-of-vermilion-guren-no-ou]

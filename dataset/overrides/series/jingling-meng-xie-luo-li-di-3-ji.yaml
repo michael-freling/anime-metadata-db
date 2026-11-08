@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jingling-meng-xie-luo-li-di-3-ji
+  titles:
+    original: Jingling Meng Xie Luo Li Di 3 Ji
+    translations: { ja-Latn: Jingling Meng Xie Luo Li Di 3 Ji }
+  seasons:
+    - id: jingling-meng-xie-luo-li-di-3-ji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jingling-meng-xie-luo-li-di-3-ji]

@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: monster-musume-no-iru-nichijou
+  titles:
+    original: モンスター娘のいる日常
+    translations: { ja-Latn: Monster Musume no Iru Nichijou }
+  seasons:
+    - id: monster-musume-no-iru-nichijou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [monster-musume-no-iru-nichijou]

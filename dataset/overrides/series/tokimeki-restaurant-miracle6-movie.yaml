@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tokimeki-restaurant-miracle6-movie
+  titles:
+    original: 劇場版ときめきレストラン☆☆☆ MIRACLE 6
+    translations: { ja-Latn: Tokimeki Restaurant☆☆☆ MIRACLE6 Movie }
+  movies:
+    - id: tokimeki-restaurant-miracle6-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tokimeki-restaurant-miracle6-movie]

@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: litchi-de-hikari-club
+  titles:
+    original: ライチ DE 光クラブ
+    translations: { ja-Latn: Litchi DE Hikari Club }
+  seasons:
+    - id: litchi-de-hikari-club-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [litchi-de-hikari-club]

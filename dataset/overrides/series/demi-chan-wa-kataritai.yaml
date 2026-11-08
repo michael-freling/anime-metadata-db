@@ -1,0 +1,15 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: demi-chan-wa-kataritai
+  titles:
+    original: 亜人ちゃんは語りたい
+    translations: { ja-Latn: Demi-chan wa Kataritai }
+  seasons:
+    - id: demi-chan-wa-kataritai-s1
+      number: 1
+    - id: demi-chan-wa-kataritai-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [demi-chan-wa-kataritai]

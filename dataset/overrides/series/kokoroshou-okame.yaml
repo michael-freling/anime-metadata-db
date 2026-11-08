@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kokoroshou-okame
+  titles:
+    original: Kokoroshou Okame
+    translations: { ja-Latn: Kokoroshou Okame }
+  movies:
+    - id: kokoroshou-okame-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kokoroshou-okame]

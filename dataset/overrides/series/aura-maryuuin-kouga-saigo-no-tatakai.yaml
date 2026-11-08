@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aura-maryuuin-kouga-saigo-no-tatakai
+  titles:
+    original: AURA ~魔竜院光牙最後の闘い~
+    translations: { ja-Latn: "Aura: Maryuuin Kouga Saigo no Tatakai" }
+  movies:
+    - id: aura-maryuuin-kouga-saigo-no-tatakai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aura-maryuuin-kouga-saigo-no-tatakai]

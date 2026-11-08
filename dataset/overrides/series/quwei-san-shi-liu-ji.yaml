@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: quwei-san-shi-liu-ji
+  titles:
+    original: Quwei San Shi Liu Ji
+    translations: { ja-Latn: Quwei San Shi Liu Ji }
+  seasons:
+    - id: quwei-san-shi-liu-ji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [quwei-san-shi-liu-ji]

@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ginga-eiyuu-densetsu-die-neue-these-2019
+  titles:
+    original: "Ginga Eiyuu Densetsu: Die Neue These (2019)"
+    translations: { ja-Latn: "Ginga Eiyuu Densetsu: Die Neue These (2019)" }
+  movies:
+    - id: ginga-eiyuu-densetsu-die-neue-these-2019-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ginga-eiyuu-densetsu-die-neue-these-2019]

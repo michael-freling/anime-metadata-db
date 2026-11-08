@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: happy-fluffy-time
+  titles:
+    original: Happy fluffy time
+    translations: { ja-Latn: Happy fluffy time }
+  movies:
+    - id: happy-fluffy-time-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [happy-fluffy-time]

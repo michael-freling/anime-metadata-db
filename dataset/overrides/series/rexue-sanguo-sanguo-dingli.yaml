@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rexue-sanguo-sanguo-dingli
+  titles:
+    original: "Rexue Sanguo: Sanguo Dingli"
+    translations: { ja-Latn: "Rexue Sanguo: Sanguo Dingli" }
+  seasons:
+    - id: rexue-sanguo-sanguo-dingli-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rexue-sanguo-sanguo-dingli]

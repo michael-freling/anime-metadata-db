@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: youtai-nuhai-zai-shanghai-2-xianglian-mima
+  titles:
+    original: "Youtai Nuhai Zai Shanghai 2: Xianglian Mima"
+    translations: { ja-Latn: "Youtai Nuhai Zai Shanghai 2: Xianglian Mima" }
+  movies:
+    - id: youtai-nuhai-zai-shanghai-2-xianglian-mima-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [youtai-nuhai-zai-shanghai-2-xianglian-mima]

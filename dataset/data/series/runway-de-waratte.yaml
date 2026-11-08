@@ -4,8 +4,11 @@ series:
   titles:
     original: ランウェイで笑って
     translations:
+      en: Smile Down the Runway
       ja-Latn: Runway de Waratte
   ordering: absolute
+  externalIds:
+    wikidataId: Q48761306
   seasons:
     - id: runway-de-waratte-s1
       number: 1

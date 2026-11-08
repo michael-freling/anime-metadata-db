@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wanhuatong-li-de-shijie
+  titles:
+    original: Wanhuatong Li De Shijie
+    translations: { ja-Latn: Wanhuatong Li De Shijie }
+  seasons:
+    - id: wanhuatong-li-de-shijie-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wanhuatong-li-de-shijie]

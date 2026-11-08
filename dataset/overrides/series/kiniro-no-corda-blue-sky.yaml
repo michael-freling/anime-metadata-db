@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kiniro-no-corda-blue-sky
+  titles:
+    original: 金色のコルダ Blue♪Sky
+    translations: { ja-Latn: "Kiniro no Corda: Blue♪Sky" }
+  seasons:
+    - id: kiniro-no-corda-blue-sky-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kiniro-no-corda-blue-sky]

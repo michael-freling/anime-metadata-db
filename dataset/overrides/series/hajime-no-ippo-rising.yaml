@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hajime-no-ippo-rising
+  titles:
+    original: はじめの一歩 THE FIGHTING! Rising
+    translations: { ja-Latn: "Hajime no Ippo: Rising" }
+  seasons:
+    - id: hajime-no-ippo-rising-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hajime-no-ippo-rising]

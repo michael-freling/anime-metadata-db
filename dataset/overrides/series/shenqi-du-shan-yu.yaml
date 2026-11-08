@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shenqi-du-shan-yu
+  titles:
+    original: Shenqi Du Shan Yu
+    translations: { ja-Latn: Shenqi Du Shan Yu }
+  seasons:
+    - id: shenqi-du-shan-yu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shenqi-du-shan-yu]

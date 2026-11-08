@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: r-15
+  titles:
+    original: あーるじゅうご
+    translations: { ja-Latn: R-15 }
+  seasons:
+    - id: r-15-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [r-15]

@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shinryaku-ika-musume
+  titles:
+    original: "侵略!? イカ娘"
+    translations: { ja-Latn: "Shinryaku!? Ika Musume" }
+  seasons:
+    - id: shinryaku-ika-musume-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shinryaku-ika-musume]

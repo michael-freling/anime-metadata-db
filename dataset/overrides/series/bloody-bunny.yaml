@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bloody-bunny
+  titles:
+    original: Bloody Bunny
+    translations: { ja-Latn: Bloody Bunny }
+  seasons:
+    - id: bloody-bunny-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bloody-bunny]

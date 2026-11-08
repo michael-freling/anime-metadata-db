@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaixin-chaoren-lianmeng-xingji-weiji
+  titles:
+    original: "Kaixin Chaoren Lianmeng: Xingji Weiji"
+    translations: { ja-Latn: "Kaixin Chaoren Lianmeng: Xingji Weiji" }
+  seasons:
+    - id: kaixin-chaoren-lianmeng-xingji-weiji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaixin-chaoren-lianmeng-xingji-weiji]

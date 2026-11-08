@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: doraemon-the-movie-nobita-and-the-space-heroes
+  titles:
+    original: 映画ドラえもん のび太の宇宙英雄記（スペースヒーローズ）
+    translations: { ja-Latn: "Doraemon the Movie: Nobita and the Space Heroes" }
+  movies:
+    - id: doraemon-the-movie-nobita-and-the-space-heroes-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [doraemon-the-movie-nobita-and-the-space-heroes]

@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: deo-luc-lac-cho-meo
+  titles:
+    original: Deo Luc Lac Cho Meo
+    translations: { ja-Latn: Deo Luc Lac Cho Meo }
+  movies:
+    - id: deo-luc-lac-cho-meo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [deo-luc-lac-cho-meo]

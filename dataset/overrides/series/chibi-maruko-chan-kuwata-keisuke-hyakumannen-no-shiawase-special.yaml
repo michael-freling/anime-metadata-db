@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chibi-maruko-chan-kuwata-keisuke-hyakumannen-no-shiawase-special
+  titles:
+    original: ちびまる子ちゃん×桑田佳祐～100万年の幸せ！！ スペシャル
+    translations: { ja-Latn: "Chibi Maruko-chan × Kuwata Keisuke: Hyakumannen no Shiawase!! Special" }
+  seasons:
+    - id: chibi-maruko-chan-kuwata-keisuke-hyakumannen-no-shiawase-special-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chibi-maruko-chan-kuwata-keisuke-hyakumannen-no-shiawase-special]

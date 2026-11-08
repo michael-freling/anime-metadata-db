@@ -1,0 +1,15 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: our-love-has-always-been-10-centimeters-apart
+  titles:
+    original: いつだって僕らの恋は10センチだった。
+    translations: { ja-Latn: Our love has always been 10 centimeters apart. }
+  seasons:
+    - id: our-love-has-always-been-10-centimeters-apart-s1
+      number: 1
+    - id: our-love-has-always-been-10-centimeters-apart-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [our-love-has-always-been-10-centimeters-apart]

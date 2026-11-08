@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: blood-c-the-last-dark
+  titles:
+    original: 劇場版 ブラッドシー ザ ラスト ダーク
+    translations: { ja-Latn: "Blood-C: The Last Dark" }
+  movies:
+    - id: blood-c-the-last-dark-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [blood-c-the-last-dark]

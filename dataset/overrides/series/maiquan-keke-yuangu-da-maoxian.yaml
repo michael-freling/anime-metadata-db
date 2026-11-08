@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: maiquan-keke-yuangu-da-maoxian
+  titles:
+    original: Maiquan Keke Yuangu Da Maoxian
+    translations: { ja-Latn: Maiquan Keke Yuangu Da Maoxian }
+  seasons:
+    - id: maiquan-keke-yuangu-da-maoxian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [maiquan-keke-yuangu-da-maoxian]

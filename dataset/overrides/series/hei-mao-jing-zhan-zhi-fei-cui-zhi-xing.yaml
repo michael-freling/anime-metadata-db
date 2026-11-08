@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hei-mao-jing-zhan-zhi-fei-cui-zhi-xing
+  titles:
+    original: Hei Mao Jing Zhan Zhi Fei Cui Zhi Xing
+    translations: { ja-Latn: Hei Mao Jing Zhan Zhi Fei Cui Zhi Xing }
+  movies:
+    - id: hei-mao-jing-zhan-zhi-fei-cui-zhi-xing-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hei-mao-jing-zhan-zhi-fei-cui-zhi-xing]

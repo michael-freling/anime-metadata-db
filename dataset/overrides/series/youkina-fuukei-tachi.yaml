@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: youkina-fuukei-tachi
+  titles:
+    original: 陽気な風景たち
+    translations: { ja-Latn: Youkina Fuukei-tachi }
+  movies:
+    - id: youkina-fuukei-tachi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [youkina-fuukei-tachi]

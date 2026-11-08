@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: da-zui-tu-shuo-gushi
+  titles:
+    original: Da Zui Tu Shuo Gushi
+    translations: { ja-Latn: Da Zui Tu Shuo Gushi }
+  seasons:
+    - id: da-zui-tu-shuo-gushi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [da-zui-tu-shuo-gushi]

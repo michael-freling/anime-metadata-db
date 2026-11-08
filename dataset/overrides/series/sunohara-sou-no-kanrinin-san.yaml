@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sunohara-sou-no-kanrinin-san
+  titles:
+    original: すのはら荘の管理人さん
+    translations: { ja-Latn: Sunohara-sou no Kanrinin-san }
+  seasons:
+    - id: sunohara-sou-no-kanrinin-san-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sunohara-sou-no-kanrinin-san]

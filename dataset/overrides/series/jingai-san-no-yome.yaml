@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jingai-san-no-yome
+  titles:
+    original: 人外さんの嫁
+    translations: { ja-Latn: Jingai-san no Yome }
+  seasons:
+    - id: jingai-san-no-yome-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jingai-san-no-yome]

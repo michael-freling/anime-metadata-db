@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kimi-no-iru-machi
+  titles:
+    original: 君のいる町
+    translations: { ja-Latn: Kimi no Iru Machi }
+  seasons:
+    - id: kimi-no-iru-machi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kimi-no-iru-machi]

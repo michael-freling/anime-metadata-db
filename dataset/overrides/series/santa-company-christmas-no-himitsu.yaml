@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: santa-company-christmas-no-himitsu
+  titles:
+    original: サンタ・カンパニー ~クリスマスの秘密~
+    translations: { ja-Latn: "Santa Company: Christmas no Himitsu" }
+  movies:
+    - id: santa-company-christmas-no-himitsu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [santa-company-christmas-no-himitsu]

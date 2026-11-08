@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: upin-ipin-musim-7
+  titles:
+    original: Upin & Ipin Musim 7
+    translations: { ja-Latn: Upin & Ipin Musim 7 }
+  seasons:
+    - id: upin-ipin-musim-7-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [upin-ipin-musim-7]

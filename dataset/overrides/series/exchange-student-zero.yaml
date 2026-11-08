@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: exchange-student-zero
+  titles:
+    original: Exchange Student Zero
+    translations: { ja-Latn: Exchange Student Zero }
+  movies:
+    - id: exchange-student-zero-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [exchange-student-zero]

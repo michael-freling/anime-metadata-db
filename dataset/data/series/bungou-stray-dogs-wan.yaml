@@ -21,10 +21,11 @@ series:
     - id: bungou-stray-dogs-wan-s2
       number: 2
       releaseYear: 2026
-      releaseSeason: WINTER
+      releaseSeason: SUMMER
       externalIds:
         anilistId: 201667
         anidbId: 19698
+        tvdbId: 392195
       episodes:
         count: 12
         absoluteFrom: 13

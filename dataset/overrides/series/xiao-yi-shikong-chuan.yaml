@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-yi-shikong-chuan
+  titles:
+    original: Xiao Yi Shikong Chuan
+    translations: { ja-Latn: Xiao Yi Shikong Chuan }
+  seasons:
+    - id: xiao-yi-shikong-chuan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-yi-shikong-chuan]

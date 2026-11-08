@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tegong-tu-xin-de-maoxian
+  titles:
+    original: "Tegong Tu: Xin De Maoxian"
+    translations: { ja-Latn: "Tegong Tu: Xin De Maoxian" }
+  seasons:
+    - id: tegong-tu-xin-de-maoxian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tegong-tu-xin-de-maoxian]

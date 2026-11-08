@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ants-in-the-sky
+  titles:
+    original: 空のアリ
+    translations: { ja-Latn: Ants in the sky }
+  movies:
+    - id: ants-in-the-sky-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ants-in-the-sky]

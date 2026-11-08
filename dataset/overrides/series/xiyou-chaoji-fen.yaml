@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiyou-chaoji-fen
+  titles:
+    original: Xiyou Chaoji Fen
+    translations: { ja-Latn: Xiyou Chaoji Fen }
+  seasons:
+    - id: xiyou-chaoji-fen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiyou-chaoji-fen]

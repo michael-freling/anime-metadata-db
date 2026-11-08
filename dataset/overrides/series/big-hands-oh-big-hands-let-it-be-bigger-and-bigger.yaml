@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: big-hands-oh-big-hands-let-it-be-bigger-and-bigger
+  titles:
+    original: "Big hands oh big hands, let it be bigger and bigger"
+    translations: { ja-Latn: "Big hands oh big hands, let it be bigger and bigger" }
+  movies:
+    - id: big-hands-oh-big-hands-let-it-be-bigger-and-bigger-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [big-hands-oh-big-hands-let-it-be-bigger-and-bigger]

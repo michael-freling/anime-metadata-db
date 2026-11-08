@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bodhi-yu-haoyou-mengxiang-lianmeng
+  titles:
+    original: "Bodhi Yu Haoyou: Mengxiang Lianmeng"
+    translations: { ja-Latn: "Bodhi Yu Haoyou: Mengxiang Lianmeng" }
+  seasons:
+    - id: bodhi-yu-haoyou-mengxiang-lianmeng-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bodhi-yu-haoyou-mengxiang-lianmeng]

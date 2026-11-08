@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tamayura-sotsugyou-shashin-part-4-ashita
+  titles:
+    original: たまゆら～卒業写真～ 第4部 朝-あした-
+    translations: { ja-Latn: "Tamayura: Sotsugyou Shashin Part 4 - Ashita" }
+  movies:
+    - id: tamayura-sotsugyou-shashin-part-4-ashita-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tamayura-sotsugyou-shashin-part-4-ashita]

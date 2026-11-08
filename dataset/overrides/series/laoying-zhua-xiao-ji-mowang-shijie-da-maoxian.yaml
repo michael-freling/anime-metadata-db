@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: laoying-zhua-xiao-ji-mowang-shijie-da-maoxian
+  titles:
+    original: "Laoying Zhua Xiao Ji: Mowang Shijie Da Maoxian"
+    translations: { ja-Latn: "Laoying Zhua Xiao Ji: Mowang Shijie Da Maoxian" }
+  seasons:
+    - id: laoying-zhua-xiao-ji-mowang-shijie-da-maoxian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [laoying-zhua-xiao-ji-mowang-shijie-da-maoxian]

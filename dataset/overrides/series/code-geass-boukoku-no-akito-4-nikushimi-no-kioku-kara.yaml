@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: code-geass-boukoku-no-akito-4-nikushimi-no-kioku-kara
+  titles:
+    original: コードギアス 亡国のアキト 第４章「憎しみの記憶から」
+    translations: { ja-Latn: "Code Geass: Boukoku no Akito 4 - Nikushimi no Kioku kara" }
+  movies:
+    - id: code-geass-boukoku-no-akito-4-nikushimi-no-kioku-kara-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [code-geass-boukoku-no-akito-4-nikushimi-no-kioku-kara]

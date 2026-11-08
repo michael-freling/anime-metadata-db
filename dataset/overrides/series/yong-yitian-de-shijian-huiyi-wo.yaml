@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yong-yitian-de-shijian-huiyi-wo
+  titles:
+    original: Yong Yitian de Shijian Huiyi Wo
+    translations: { ja-Latn: Yong Yitian de Shijian Huiyi Wo }
+  movies:
+    - id: yong-yitian-de-shijian-huiyi-wo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yong-yitian-de-shijian-huiyi-wo]

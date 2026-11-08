@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: a-woman-in-a-fashion-building
+  titles:
+    original: A Woman in a Fashion Building
+    translations: { ja-Latn: A Woman in a Fashion Building }
+  movies:
+    - id: a-woman-in-a-fashion-building-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [a-woman-in-a-fashion-building]

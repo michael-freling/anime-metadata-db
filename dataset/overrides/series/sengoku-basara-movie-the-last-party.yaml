@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sengoku-basara-movie-the-last-party
+  titles:
+    original: "Sengoku Basara Movie: The Last Party"
+    translations: { ja-Latn: "Sengoku Basara Movie: The Last Party" }
+  movies:
+    - id: sengoku-basara-movie-the-last-party-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sengoku-basara-movie-the-last-party]

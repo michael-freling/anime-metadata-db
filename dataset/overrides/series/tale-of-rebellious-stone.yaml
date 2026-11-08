@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tale-of-rebellious-stone
+  titles:
+    original: Tale of Rebellious Stone
+    translations: { ja-Latn: Tale of Rebellious Stone }
+  movies:
+    - id: tale-of-rebellious-stone-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tale-of-rebellious-stone]

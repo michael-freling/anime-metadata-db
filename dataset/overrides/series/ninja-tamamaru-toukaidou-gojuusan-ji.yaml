@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ninja-tamamaru-toukaidou-gojuusan-ji
+  titles:
+    original: "Ninja Tamamaru: Toukaidou Gojuusan-ji"
+    translations: { ja-Latn: "Ninja Tamamaru: Toukaidou Gojuusan-ji" }
+  seasons:
+    - id: ninja-tamamaru-toukaidou-gojuusan-ji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ninja-tamamaru-toukaidou-gojuusan-ji]

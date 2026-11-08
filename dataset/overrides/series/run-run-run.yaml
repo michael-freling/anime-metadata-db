@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: run-run-run
+  titles:
+    original: RUN RUN RUN
+    translations: { ja-Latn: RUN RUN RUN }
+  movies:
+    - id: run-run-run-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [run-run-run]

@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: karakai-jouzu-no-takagi-san-2
+  titles:
+    original: からかい上手の高木さん 2
+    translations: { ja-Latn: Karakai Jouzu no Takagi-san 2 }
+  seasons:
+    - id: karakai-jouzu-no-takagi-san-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [karakai-jouzu-no-takagi-san-2]

@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: midara-na-ao-chan-wa-benkyou-ga-dekinai
+  titles:
+    original: みだらな青ちゃんは勉強ができない
+    translations: { ja-Latn: Midara na Ao-chan wa Benkyou ga Dekinai }
+  seasons:
+    - id: midara-na-ao-chan-wa-benkyou-ga-dekinai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [midara-na-ao-chan-wa-benkyou-ga-dekinai]

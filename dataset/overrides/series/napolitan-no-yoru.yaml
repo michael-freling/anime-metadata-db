@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: napolitan-no-yoru
+  titles:
+    original: ナポリタンの夜
+    translations: { ja-Latn: Napolitan no Yoru }
+  movies:
+    - id: napolitan-no-yoru-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [napolitan-no-yoru]

@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bary-san-no-imabari-ben-kouza
+  titles:
+    original: バリィさんのいまばり弁講座
+    translations: { ja-Latn: Bary-san no Imabari-ben Kouza }
+  seasons:
+    - id: bary-san-no-imabari-ben-kouza-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bary-san-no-imabari-ben-kouza]

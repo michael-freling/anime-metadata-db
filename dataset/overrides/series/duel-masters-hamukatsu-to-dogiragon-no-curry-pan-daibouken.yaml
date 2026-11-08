@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: duel-masters-hamukatsu-to-dogiragon-no-curry-pan-daibouken
+  titles:
+    original: デュエル・マスターズ ハムカツとドギラゴンのカレーパン大冒険
+    translations: { ja-Latn: "Duel Masters: Hamukatsu to Dogiragon no Curry-pan Daibouken" }
+  movies:
+    - id: duel-masters-hamukatsu-to-dogiragon-no-curry-pan-daibouken-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [duel-masters-hamukatsu-to-dogiragon-no-curry-pan-daibouken]

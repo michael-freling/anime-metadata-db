@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jiangziya-zhi-shang-hu-chuanshuo
+  titles:
+    original: Jiangziya Zhi Shang Hu Chuanshuo
+    translations: { ja-Latn: Jiangziya Zhi Shang Hu Chuanshuo }
+  seasons:
+    - id: jiangziya-zhi-shang-hu-chuanshuo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jiangziya-zhi-shang-hu-chuanshuo]

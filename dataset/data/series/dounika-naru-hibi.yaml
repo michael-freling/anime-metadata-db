@@ -4,8 +4,11 @@ series:
   titles:
     original: どうにかなる日々
     translations:
+      en: Happy Go Lucky Days
       ja-Latn: Dounika Naru Hibi
   ordering: absolute
+  externalIds:
+    wikidataId: Q11273697
   movies:
     - id: dounika-naru-hibi-film
       titles:

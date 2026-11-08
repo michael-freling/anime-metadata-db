@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gaikotsu-shotenin-honda-san
+  titles:
+    original: ガイコツ書店員 本田さん
+    translations: { ja-Latn: Gaikotsu Shotenin Honda-san }
+  seasons:
+    - id: gaikotsu-shotenin-honda-san-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gaikotsu-shotenin-honda-san]

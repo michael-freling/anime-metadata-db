@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xingji-xiao-mayi-huanqiu-zhui-meng
+  titles:
+    original: "Xingji Xiao Mayi: Huanqiu Zhui Meng"
+    translations: { ja-Latn: "Xingji Xiao Mayi: Huanqiu Zhui Meng" }
+  seasons:
+    - id: xingji-xiao-mayi-huanqiu-zhui-meng-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xingji-xiao-mayi-huanqiu-zhui-meng]

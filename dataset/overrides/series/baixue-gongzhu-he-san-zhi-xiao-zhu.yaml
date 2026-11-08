@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: baixue-gongzhu-he-san-zhi-xiao-zhu
+  titles:
+    original: Baixue Gongzhu He San Zhi Xiao Zhu
+    translations: { ja-Latn: Baixue Gongzhu He San Zhi Xiao Zhu }
+  movies:
+    - id: baixue-gongzhu-he-san-zhi-xiao-zhu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [baixue-gongzhu-he-san-zhi-xiao-zhu]

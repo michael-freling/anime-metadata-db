@@ -1,0 +1,15 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tantei-opera-milky-holmes-dai-2-maku
+  titles:
+    original: 探偵オペラ ミルキィホームズ 第2幕
+    translations: { ja-Latn: Tantei Opera Milky Holmes Dai 2 Maku }
+  seasons:
+    - id: tantei-opera-milky-holmes-dai-2-maku-s1
+      number: 1
+    - id: tantei-opera-milky-holmes-dai-2-maku-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tantei-opera-milky-holmes-dai-2-maku]

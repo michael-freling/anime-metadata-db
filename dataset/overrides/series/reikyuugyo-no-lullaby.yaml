@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: reikyuugyo-no-lullaby
+  titles:
+    original: 霊柩魚のララバイ
+    translations: { ja-Latn: Reikyuugyo no Lullaby }
+  movies:
+    - id: reikyuugyo-no-lullaby-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [reikyuugyo-no-lullaby]

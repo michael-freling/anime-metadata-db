@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tutu-de-zhihui-wangguo-shuxue-xilie
+  titles:
+    original: Tutu De Zhihui Wangguo Shuxue Xilie
+    translations: { ja-Latn: Tutu De Zhihui Wangguo Shuxue Xilie }
+  seasons:
+    - id: tutu-de-zhihui-wangguo-shuxue-xilie-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tutu-de-zhihui-wangguo-shuxue-xilie]

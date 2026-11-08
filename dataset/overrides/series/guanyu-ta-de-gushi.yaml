@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: guanyu-ta-de-gushi
+  titles:
+    original: Guanyu Ta De Gushi
+    translations: { ja-Latn: Guanyu Ta De Gushi }
+  movies:
+    - id: guanyu-ta-de-gushi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [guanyu-ta-de-gushi]

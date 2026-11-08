@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dabing-jinbao-lixian-ji
+  titles:
+    original: ドラゴン・パンダ
+    translations: { ja-Latn: Dabing Jinbao Lixian Ji }
+  movies:
+    - id: dabing-jinbao-lixian-ji-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dabing-jinbao-lixian-ji]

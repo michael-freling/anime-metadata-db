@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ooya-san-wa-shishunki
+  titles:
+    original: 大家さんは思春期!
+    translations: { ja-Latn: Ooya-san wa Shishunki! }
+  seasons:
+    - id: ooya-san-wa-shishunki-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ooya-san-wa-shishunki]

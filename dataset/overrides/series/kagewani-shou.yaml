@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kagewani-shou
+  titles:
+    original: "Kagewani: Shou"
+    translations: { ja-Latn: "Kagewani: Shou" }
+  seasons:
+    - id: kagewani-shou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kagewani-shou]

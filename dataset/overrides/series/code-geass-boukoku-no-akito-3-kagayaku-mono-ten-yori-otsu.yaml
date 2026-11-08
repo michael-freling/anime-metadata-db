@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: code-geass-boukoku-no-akito-3-kagayaku-mono-ten-yori-otsu
+  titles:
+    original: コードギアス 亡国のアキト 第３章「輝くもの天より堕つ」
+    translations: { ja-Latn: "Code Geass: Boukoku no Akito 3 - Kagayaku Mono Ten yori Otsu" }
+  movies:
+    - id: code-geass-boukoku-no-akito-3-kagayaku-mono-ten-yori-otsu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [code-geass-boukoku-no-akito-3-kagayaku-mono-ten-yori-otsu]

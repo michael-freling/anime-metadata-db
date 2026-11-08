@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: line-soul
+  titles:
+    original: Line Soul
+    translations: { ja-Latn: Line Soul }
+  movies:
+    - id: line-soul-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [line-soul]

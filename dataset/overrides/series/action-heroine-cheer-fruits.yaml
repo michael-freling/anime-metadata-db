@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: action-heroine-cheer-fruits
+  titles:
+    original: アクションヒロイン チアフルーツ
+    translations: { ja-Latn: Action Heroine Cheer Fruits }
+  seasons:
+    - id: action-heroine-cheer-fruits-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [action-heroine-cheer-fruits]

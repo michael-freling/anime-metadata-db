@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yueya-er
+  titles:
+    original: Yueya Er
+    translations: { ja-Latn: Yueya Er }
+  seasons:
+    - id: yueya-er-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yueya-er]

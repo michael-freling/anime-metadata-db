@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shimajirou-no-hoshizora-dice-goroku
+  titles:
+    original: しまじろうの ほしぞらだいすごろく
+    translations: { ja-Latn: Shimajirou no Hoshizora Dice Goroku }
+  movies:
+    - id: shimajirou-no-hoshizora-dice-goroku-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shimajirou-no-hoshizora-dice-goroku]

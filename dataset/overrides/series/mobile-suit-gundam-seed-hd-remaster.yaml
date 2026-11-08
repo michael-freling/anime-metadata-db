@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mobile-suit-gundam-seed-hd-remaster
+  titles:
+    original: 機動戦士ガンダムSEED HDリマスター
+    translations: { ja-Latn: Mobile Suit Gundam Seed HD Remaster }
+  seasons:
+    - id: mobile-suit-gundam-seed-hd-remaster-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mobile-suit-gundam-seed-hd-remaster]

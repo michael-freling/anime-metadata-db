@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hyakuren-no-haou-to-seiyaku-no-valkyria
+  titles:
+    original: "百錬の覇王と聖約の戦乙女[ヴァルキュリア]"
+    translations: { ja-Latn: Hyakuren no Haou to Seiyaku no Valkyria }
+  seasons:
+    - id: hyakuren-no-haou-to-seiyaku-no-valkyria-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hyakuren-no-haou-to-seiyaku-no-valkyria]

@@ -1,0 +1,15 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: konna-watashi-tachi-ga-nariyuki-de-heroine-ni-natta-kekka-www-narihero-www
+  titles:
+    original: こんな私たちがなりゆきでヒロインになった結果www『なりヒロwww』
+    translations: { ja-Latn: Konna Watashi-tachi ga Nariyuki de Heroine ni Natta Kekka www 'Narihero www' }
+  seasons:
+    - id: konna-watashi-tachi-ga-nariyuki-de-heroine-ni-natta-kekka-www-narihero-www-s1
+      number: 1
+  movies:
+    - id: konna-watashi-tachi-ga-nariyuki-de-heroine-ni-natta-kekka-www-narihero-www-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [konna-watashi-tachi-ga-nariyuki-de-heroine-ni-natta-kekka-www-narihero-www]

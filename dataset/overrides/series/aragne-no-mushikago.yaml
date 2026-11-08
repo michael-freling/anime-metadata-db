@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aragne-no-mushikago
+  titles:
+    original: アラーニェの虫籠
+    translations: { ja-Latn: Aragne no Mushikago }
+  movies:
+    - id: aragne-no-mushikago-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aragne-no-mushikago]

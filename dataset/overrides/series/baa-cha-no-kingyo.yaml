@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: baa-cha-no-kingyo
+  titles:
+    original: 婆ちゃの金魚
+    translations: { ja-Latn: Baa-cha no Kingyo }
+  movies:
+    - id: baa-cha-no-kingyo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [baa-cha-no-kingyo]

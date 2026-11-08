@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mushishi-zoku-shou-suzu-no-shizuku
+  titles:
+    original: 蟲師 特別編「鈴の雫」
+    translations: { ja-Latn: "Mushishi Zoku Shou: Suzu no Shizuku" }
+  movies:
+    - id: mushishi-zoku-shou-suzu-no-shizuku-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mushishi-zoku-shou-suzu-no-shizuku]

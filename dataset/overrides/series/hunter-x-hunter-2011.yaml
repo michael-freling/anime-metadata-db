@@ -1,0 +1,15 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hunter-x-hunter-2011
+  titles:
+    original: HUNTER×HUNTER（ハンター×ハンター）
+    translations: { ja-Latn: Hunter x Hunter (2011) }
+  seasons:
+    - id: hunter-x-hunter-2011-s1
+      number: 1
+    - id: hunter-x-hunter-2011-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hunter-x-hunter-2011]

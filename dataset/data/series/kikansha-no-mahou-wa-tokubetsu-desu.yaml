@@ -24,10 +24,11 @@ series:
     - id: kikansha-no-mahou-wa-tokubetsu-desu-s2
       number: 2
       releaseYear: 2026
-      releaseSeason: WINTER
+      releaseSeason: FALL
       externalIds:
         anilistId: 172192
         anidbId: 18345
+        tvdbId: 432815
       episodes:
         count: 12
         absoluteFrom: 13

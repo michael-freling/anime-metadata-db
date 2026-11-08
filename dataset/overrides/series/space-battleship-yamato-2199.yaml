@@ -1,0 +1,15 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: space-battleship-yamato-2199
+  titles:
+    original: 宇宙戦艦ヤマト２１９９ 第一章 「遥かなる旅立ち」
+    translations: { ja-Latn: Space Battleship Yamato 2199 }
+  seasons:
+    - id: space-battleship-yamato-2199-s1
+      number: 1
+  movies:
+    - id: space-battleship-yamato-2199-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [space-battleship-yamato-2199]

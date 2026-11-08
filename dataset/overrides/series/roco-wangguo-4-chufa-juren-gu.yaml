@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: roco-wangguo-4-chufa-juren-gu
+  titles:
+    original: "Roco Wangguo 4: Chufa! Juren Gu"
+    translations: { ja-Latn: "Roco Wangguo 4: Chufa! Juren Gu" }
+  movies:
+    - id: roco-wangguo-4-chufa-juren-gu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [roco-wangguo-4-chufa-juren-gu]

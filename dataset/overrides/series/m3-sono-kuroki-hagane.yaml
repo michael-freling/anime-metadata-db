@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: m3-sono-kuroki-hagane
+  titles:
+    original: M3 ~ソノ黒キ鋼~
+    translations: { ja-Latn: "M3: Sono Kuroki Hagane" }
+  seasons:
+    - id: m3-sono-kuroki-hagane-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [m3-sono-kuroki-hagane]

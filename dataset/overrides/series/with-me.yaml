@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: with-me
+  titles:
+    original: with me.
+    translations: { ja-Latn: with me. }
+  movies:
+    - id: with-me-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [with-me]

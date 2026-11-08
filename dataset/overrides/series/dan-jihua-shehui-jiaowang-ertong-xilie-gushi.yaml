@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dan-jihua-shehui-jiaowang-ertong-xilie-gushi
+  titles:
+    original: "Dan Jihua: Shehui Jiaowang Ertong Xilie Gushi"
+    translations: { ja-Latn: "Dan Jihua: Shehui Jiaowang Ertong Xilie Gushi" }
+  seasons:
+    - id: dan-jihua-shehui-jiaowang-ertong-xilie-gushi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dan-jihua-shehui-jiaowang-ertong-xilie-gushi]

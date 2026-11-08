@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sotsusei-kareshi-san-busaku
+  titles:
+    original: わたしは彼を素材以上に男として愛せていたのか編
+    translations: { ja-Latn: Sotsusei Kareshi-san Busaku }
+  movies:
+    - id: sotsusei-kareshi-san-busaku-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sotsusei-kareshi-san-busaku]

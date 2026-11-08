@@ -1,0 +1,17 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aikatsu-2
+  titles:
+    original: アイカツ! アイドルカツドウ!
+    translations: { ja-Latn: Aikatsu! 2 }
+  seasons:
+    - id: aikatsu-2-s1
+      number: 1
+    - id: aikatsu-2-s2
+      number: 2
+    - id: aikatsu-2-s3
+      number: 3
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aikatsu-2]

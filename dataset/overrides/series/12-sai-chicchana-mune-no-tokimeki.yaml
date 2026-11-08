@@ -1,0 +1,15 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 12-sai-chicchana-mune-no-tokimeki
+  titles:
+    original: 12歳. ~ちっちゃなムネのトキメキ~
+    translations: { ja-Latn: "12-sai.: Chicchana Mune no Tokimeki" }
+  seasons:
+    - id: 12-sai-chicchana-mune-no-tokimeki-s1
+      number: 1
+    - id: 12-sai-chicchana-mune-no-tokimeki-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [12-sai-chicchana-mune-no-tokimeki]

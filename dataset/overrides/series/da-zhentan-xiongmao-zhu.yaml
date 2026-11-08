@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: da-zhentan-xiongmao-zhu
+  titles:
+    original: Da Zhentan Xiongmao Zhu
+    translations: { ja-Latn: Da Zhentan Xiongmao Zhu }
+  seasons:
+    - id: da-zhentan-xiongmao-zhu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [da-zhentan-xiongmao-zhu]

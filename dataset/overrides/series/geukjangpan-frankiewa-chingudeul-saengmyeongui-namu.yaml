@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: geukjangpan-frankiewa-chingudeul-saengmyeongui-namu
+  titles:
+    original: "Geukjangpan Frankiewa Chingudeul: Saengmyeongui Namu"
+    translations: { ja-Latn: "Geukjangpan Frankiewa Chingudeul: Saengmyeongui Namu" }
+  movies:
+    - id: geukjangpan-frankiewa-chingudeul-saengmyeongui-namu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [geukjangpan-frankiewa-chingudeul-saengmyeongui-namu]

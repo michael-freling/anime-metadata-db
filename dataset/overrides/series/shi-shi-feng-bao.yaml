@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shi-shi-feng-bao
+  titles:
+    original: Shi Shi Feng Bao
+    translations: { ja-Latn: Shi Shi Feng Bao }
+  movies:
+    - id: shi-shi-feng-bao-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shi-shi-feng-bao]

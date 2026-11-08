@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: boku-wa-tomodachi-ga-sukunai
+  titles:
+    original: 僕は友達が少ない
+    translations: { ja-Latn: Boku wa Tomodachi ga Sukunai }
+  seasons:
+    - id: boku-wa-tomodachi-ga-sukunai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [boku-wa-tomodachi-ga-sukunai]

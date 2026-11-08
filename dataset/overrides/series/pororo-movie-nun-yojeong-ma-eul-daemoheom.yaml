@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pororo-movie-nun-yojeong-ma-eul-daemoheom
+  titles:
+    original: "Pororo Movie: Nun-yojeong Ma-eul Daemoheom"
+    translations: { ja-Latn: "Pororo Movie: Nun-yojeong Ma-eul Daemoheom" }
+  movies:
+    - id: pororo-movie-nun-yojeong-ma-eul-daemoheom-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pororo-movie-nun-yojeong-ma-eul-daemoheom]

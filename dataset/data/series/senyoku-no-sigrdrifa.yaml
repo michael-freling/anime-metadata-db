@@ -4,8 +4,11 @@ series:
   titles:
     original: 戦翼のシグルドリーヴァ
     translations:
+      en: Warlords of Sigrdrifa
       ja-Latn: Senyoku no Sigrdrifa
   ordering: absolute
+  externalIds:
+    wikidataId: Q86957081
   seasons:
     - id: senyoku-no-sigrdrifa-s1
       number: 1

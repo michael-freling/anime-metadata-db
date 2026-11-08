@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: itsuka-tenma-no-kuro-usagi
+  titles:
+    original: いつか天魔の黒ウサギ
+    translations: { ja-Latn: Itsuka Tenma no Kuro Usagi }
+  seasons:
+    - id: itsuka-tenma-no-kuro-usagi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [itsuka-tenma-no-kuro-usagi]

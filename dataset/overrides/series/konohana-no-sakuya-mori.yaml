@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: konohana-no-sakuya-mori
+  titles:
+    original: 木ノ花ノ咲クヤ森
+    translations: { ja-Latn: Konohana no Sakuya Mori }
+  movies:
+    - id: konohana-no-sakuya-mori-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [konohana-no-sakuya-mori]

@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: teen-titans-go-to-the-movies
+  titles:
+    original: Teen Titans Go! To the Movies
+    translations: { ja-Latn: Teen Titans Go! To the Movies }
+  movies:
+    - id: teen-titans-go-to-the-movies-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [teen-titans-go-to-the-movies]

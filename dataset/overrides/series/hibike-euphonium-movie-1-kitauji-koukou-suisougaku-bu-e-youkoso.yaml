@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hibike-euphonium-movie-1-kitauji-koukou-suisougaku-bu-e-youkoso
+  titles:
+    original: 劇場版 響け! ユーフォニアム ~北宇治高校吹奏楽部へようこそ~
+    translations: { ja-Latn: "Hibike! Euphonium Movie 1: Kitauji Koukou Suisougaku-bu e Youkoso" }
+  movies:
+    - id: hibike-euphonium-movie-1-kitauji-koukou-suisougaku-bu-e-youkoso-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hibike-euphonium-movie-1-kitauji-koukou-suisougaku-bu-e-youkoso]

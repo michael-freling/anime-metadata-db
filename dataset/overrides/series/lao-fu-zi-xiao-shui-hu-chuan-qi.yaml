@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lao-fu-zi-xiao-shui-hu-chuan-qi
+  titles:
+    original: "Lao Fu Zi: Xiao Shui Hu Chuan Qi"
+    translations: { ja-Latn: "Lao Fu Zi: Xiao Shui Hu Chuan Qi" }
+  movies:
+    - id: lao-fu-zi-xiao-shui-hu-chuan-qi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lao-fu-zi-xiao-shui-hu-chuan-qi]

@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: osake-wa-fuufu-ni-natte-kara
+  titles:
+    original: お酒は夫婦になってから
+    translations: { ja-Latn: Osake wa Fuufu ni Natte kara }
+  seasons:
+    - id: osake-wa-fuufu-ni-natte-kara-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [osake-wa-fuufu-ni-natte-kara]

@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shima-kousaku-no-asia-risshi-den
+  titles:
+    original: 島耕作のアジア立志伝
+    translations: { ja-Latn: Shima Kousaku no Asia Risshi-den }
+  seasons:
+    - id: shima-kousaku-no-asia-risshi-den-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shima-kousaku-no-asia-risshi-den]

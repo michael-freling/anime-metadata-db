@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: si-juki-the-movie-panitia-hari-akhir
+  titles:
+    original: "Si Juki: The Movie - Panitia Hari Akhir"
+    translations: { ja-Latn: "Si Juki: The Movie - Panitia Hari Akhir" }
+  movies:
+    - id: si-juki-the-movie-panitia-hari-akhir-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [si-juki-the-movie-panitia-hari-akhir]

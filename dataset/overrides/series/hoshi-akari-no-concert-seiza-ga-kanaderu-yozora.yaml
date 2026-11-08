@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hoshi-akari-no-concert-seiza-ga-kanaderu-yozora
+  titles:
+    original: 星灯りのコンサート -星座が奏でる夜空-
+    translations: { ja-Latn: "Hoshi Akari no Concert: Seiza ga Kanaderu Yozora" }
+  movies:
+    - id: hoshi-akari-no-concert-seiza-ga-kanaderu-yozora-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hoshi-akari-no-concert-seiza-ga-kanaderu-yozora]

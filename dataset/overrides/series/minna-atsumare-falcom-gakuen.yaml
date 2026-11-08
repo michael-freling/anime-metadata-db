@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: minna-atsumare-falcom-gakuen
+  titles:
+    original: みんな集まれ! ファルコム学園
+    translations: { ja-Latn: Minna Atsumare! Falcom Gakuen }
+  seasons:
+    - id: minna-atsumare-falcom-gakuen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [minna-atsumare-falcom-gakuen]

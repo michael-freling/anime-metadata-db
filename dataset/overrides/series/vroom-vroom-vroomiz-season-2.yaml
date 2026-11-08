@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: vroom-vroom-vroomiz-season-2
+  titles:
+    original: Vroom! Vroom! Vroomiz Season 2
+    translations: { ja-Latn: Vroom! Vroom! Vroomiz Season 2 }
+  seasons:
+    - id: vroom-vroom-vroomiz-season-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [vroom-vroom-vroomiz-season-2]

@@ -4,8 +4,11 @@ series:
   titles:
     original: 犬と猫どっちも飼ってると毎日たのしい
     translations:
+      en: With a Dog AND a Cat, Every Day is Fun
       ja-Latn: Inu to Neko Docchi mo Katteru to Mainichi Tanoshii
   ordering: absolute
+  externalIds:
+    wikidataId: Q97184583
   seasons:
     - id: inu-to-neko-docchi-mo-katteru-to-mainichi-tanoshii-s1
       number: 1

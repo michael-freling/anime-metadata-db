@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: cure-miracle-to-mofurun-no-mahou-lesson
+  titles:
+    original: キュアミラクルとモフルンの魔法レッスン!
+    translations: { ja-Latn: Cure Miracle to Mofurun no Mahou Lesson }
+  movies:
+    - id: cure-miracle-to-mofurun-no-mahou-lesson-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [cure-miracle-to-mofurun-no-mahou-lesson]

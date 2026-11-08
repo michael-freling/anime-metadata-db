@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: eun-sil-i
+  titles:
+    original: Eun-sil-i
+    translations: { ja-Latn: Eun-sil-i }
+  movies:
+    - id: eun-sil-i-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [eun-sil-i]

@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dareka-no-manazashi
+  titles:
+    original: だれかのまなざし
+    translations: { ja-Latn: Dareka no Manazashi }
+  movies:
+    - id: dareka-no-manazashi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dareka-no-manazashi]

@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ma-xiaole-zhi-wanju-ye-fengkuang
+  titles:
+    original: Ma Xiaole Zhi Wanju Ye Fengkuang
+    translations: { ja-Latn: Ma Xiaole Zhi Wanju Ye Fengkuang }
+  movies:
+    - id: ma-xiaole-zhi-wanju-ye-fengkuang-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ma-xiaole-zhi-wanju-ye-fengkuang]

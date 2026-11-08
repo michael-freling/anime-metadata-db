@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yuri-on-ice
+  titles:
+    original: ユーリ!!! YURI ON ICE
+    translations: { ja-Latn: Yuri!!! on Ice }
+  seasons:
+    - id: yuri-on-ice-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yuri-on-ice]

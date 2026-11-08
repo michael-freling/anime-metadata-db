@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wasure-tamari
+  titles:
+    original: 忘れ　たまり
+    translations: { ja-Latn: Wasure Tamari }
+  movies:
+    - id: wasure-tamari-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wasure-tamari]

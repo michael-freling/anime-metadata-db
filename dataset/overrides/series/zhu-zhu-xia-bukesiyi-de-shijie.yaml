@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhu-zhu-xia-bukesiyi-de-shijie
+  titles:
+    original: "Zhu Zhu Xia: Bukesiyi de Shijie"
+    translations: { ja-Latn: "Zhu Zhu Xia: Bukesiyi de Shijie" }
+  movies:
+    - id: zhu-zhu-xia-bukesiyi-de-shijie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhu-zhu-xia-bukesiyi-de-shijie]

@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: umeboshi-denka-doraemon-panparopan-no-suppappa
+  titles:
+    original: ウメ星デンカ＆ドラえもん 『パンパロパンのスッパッパ！』
+    translations: { ja-Latn: "Umeboshi Denka & Doraemon: Panparopan no Suppappa!" }
+  movies:
+    - id: umeboshi-denka-doraemon-panparopan-no-suppappa-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [umeboshi-denka-doraemon-panparopan-no-suppappa]

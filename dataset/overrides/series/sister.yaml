@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sister
+  titles:
+    original: Sister
+    translations: { ja-Latn: Sister }
+  movies:
+    - id: sister-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sister]

@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shucai-jingling-da-maoxian
+  titles:
+    original: Shucai Jingling Da Maoxian
+    translations: { ja-Latn: Shucai Jingling Da Maoxian }
+  seasons:
+    - id: shucai-jingling-da-maoxian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shucai-jingling-da-maoxian]

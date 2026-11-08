@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shinkai-no-niji
+  titles:
+    original: 深海の虹
+    translations: { ja-Latn: Shinkai no Niji }
+  movies:
+    - id: shinkai-no-niji-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shinkai-no-niji]

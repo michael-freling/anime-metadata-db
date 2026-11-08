@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wo-shi-da-xiongmao-xiongmao-da-xia
+  titles:
+    original: "Wo Shi Da Xiongmao: Xiongmao Da Xia"
+    translations: { ja-Latn: "Wo Shi Da Xiongmao: Xiongmao Da Xia" }
+  movies:
+    - id: wo-shi-da-xiongmao-xiongmao-da-xia-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wo-shi-da-xiongmao-xiongmao-da-xia]

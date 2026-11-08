@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: koukaku-kidoutai-arise-alternative-architecture
+  titles:
+    original: "Koukaku Kidoutai Arise: Alternative Architecture"
+    translations: { ja-Latn: "Koukaku Kidoutai Arise: Alternative Architecture" }
+  seasons:
+    - id: koukaku-kidoutai-arise-alternative-architecture-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [koukaku-kidoutai-arise-alternative-architecture]

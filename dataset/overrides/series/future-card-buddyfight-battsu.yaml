@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: future-card-buddyfight-battsu
+  titles:
+    original: フューチャーカード バディファイト バッツ
+    translations: { ja-Latn: Future Card Buddyfight Battsu }
+  seasons:
+    - id: future-card-buddyfight-battsu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [future-card-buddyfight-battsu]

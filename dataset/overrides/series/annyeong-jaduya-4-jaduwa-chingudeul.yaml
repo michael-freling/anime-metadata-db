@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: annyeong-jaduya-4-jaduwa-chingudeul
+  titles:
+    original: "Annyeong Jaduya 4: Jaduwa Chingudeul"
+    translations: { ja-Latn: "Annyeong Jaduya 4: Jaduwa Chingudeul" }
+  seasons:
+    - id: annyeong-jaduya-4-jaduwa-chingudeul-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [annyeong-jaduya-4-jaduwa-chingudeul]

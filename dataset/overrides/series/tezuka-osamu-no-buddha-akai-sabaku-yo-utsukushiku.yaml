@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tezuka-osamu-no-buddha-akai-sabaku-yo-utsukushiku
+  titles:
+    original: 手塚治虫のブッダ－赤い砂漠よ！美しく－
+    translations: { ja-Latn: "Tezuka Osamu no Buddha: Akai Sabaku yo! Utsukushiku" }
+  movies:
+    - id: tezuka-osamu-no-buddha-akai-sabaku-yo-utsukushiku-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tezuka-osamu-no-buddha-akai-sabaku-yo-utsukushiku]

@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaijuu-no-kodomo
+  titles:
+    original: 海獣の子供
+    translations: { ja-Latn: Kaijuu no Kodomo }
+  movies:
+    - id: kaijuu-no-kodomo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaijuu-no-kodomo]

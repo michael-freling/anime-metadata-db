@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mormorando
+  titles:
+    original: モルモランド
+    translations: { ja-Latn: Mormorando }
+  movies:
+    - id: mormorando-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mormorando]

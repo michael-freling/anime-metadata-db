@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ro-kyu-bu-ss
+  titles:
+    original: ロウきゅーぶ! SS
+    translations: { ja-Latn: Ro-Kyu-Bu! SS }
+  seasons:
+    - id: ro-kyu-bu-ss-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ro-kyu-bu-ss]

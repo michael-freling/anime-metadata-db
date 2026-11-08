@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chouyaku-hyakuninisshu-uta-koi
+  titles:
+    original: 超訳百人一首 うた恋い.
+    translations: { ja-Latn: "Chouyaku Hyakuninisshu: Uta Koi." }
+  seasons:
+    - id: chouyaku-hyakuninisshu-uta-koi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chouyaku-hyakuninisshu-uta-koi]

@@ -4,8 +4,11 @@ series:
   titles:
     original: 魔王城でおやすみ
     translations:
+      en: Sleepy Princess in the Demon Castle
       ja-Latn: Maoujou de Oyasumi
   ordering: absolute
+  externalIds:
+    wikidataId: Q28684401
   seasons:
     - id: maoujou-de-oyasumi-s1
       number: 1

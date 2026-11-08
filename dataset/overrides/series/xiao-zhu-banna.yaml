@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-zhu-banna
+  titles:
+    original: Xiao Zhu Banna
+    translations: { ja-Latn: Xiao Zhu Banna }
+  seasons:
+    - id: xiao-zhu-banna-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-zhu-banna]

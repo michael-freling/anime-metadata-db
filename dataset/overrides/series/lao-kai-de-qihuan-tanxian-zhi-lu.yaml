@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lao-kai-de-qihuan-tanxian-zhi-lu
+  titles:
+    original: Lao Kai de Qihuan Tanxian Zhi Lu
+    translations: { ja-Latn: Lao Kai de Qihuan Tanxian Zhi Lu }
+  seasons:
+    - id: lao-kai-de-qihuan-tanxian-zhi-lu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lao-kai-de-qihuan-tanxian-zhi-lu]

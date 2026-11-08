@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yotsuya-alpha-beta
+  titles:
+    original: 四ッ谷いろは
+    translations: { ja-Latn: Yotsuya Alpha Beta }
+  movies:
+    - id: yotsuya-alpha-beta-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yotsuya-alpha-beta]

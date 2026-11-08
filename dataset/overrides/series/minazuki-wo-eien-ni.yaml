@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: minazuki-wo-eien-ni
+  titles:
+    original: 水無月を永遠に
+    translations: { ja-Latn: Minazuki wo Eien ni }
+  movies:
+    - id: minazuki-wo-eien-ni-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [minazuki-wo-eien-ni]

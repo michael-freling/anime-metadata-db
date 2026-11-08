@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chio-chan-no-tsuugakuro
+  titles:
+    original: ちおちゃんの通学路
+    translations: { ja-Latn: Chio-chan no Tsuugakuro }
+  seasons:
+    - id: chio-chan-no-tsuugakuro-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chio-chan-no-tsuugakuro]

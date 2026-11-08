@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: umi-kara-no-shisha
+  titles:
+    original: 海からの使者
+    translations: { ja-Latn: Umi kara no Shisha }
+  movies:
+    - id: umi-kara-no-shisha-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [umi-kara-no-shisha]

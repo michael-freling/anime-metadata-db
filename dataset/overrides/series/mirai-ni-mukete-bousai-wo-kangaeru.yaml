@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mirai-ni-mukete-bousai-wo-kangaeru
+  titles:
+    original: 未来に向けて 防災を考える
+    translations: { ja-Latn: "Mirai ni Mukete: Bousai wo Kangaeru" }
+  movies:
+    - id: mirai-ni-mukete-bousai-wo-kangaeru-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mirai-ni-mukete-bousai-wo-kangaeru]

@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shinya-tensai-bakabon
+  titles:
+    original: 深夜! 天才バカボン
+    translations: { ja-Latn: Shinya! Tensai Bakabon }
+  seasons:
+    - id: shinya-tensai-bakabon-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shinya-tensai-bakabon]

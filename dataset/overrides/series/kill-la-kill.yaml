@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kill-la-kill
+  titles:
+    original: キルラキル
+    translations: { ja-Latn: Kill la Kill }
+  seasons:
+    - id: kill-la-kill-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kill-la-kill]

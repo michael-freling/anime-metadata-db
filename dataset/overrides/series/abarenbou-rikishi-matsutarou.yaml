@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: abarenbou-rikishi-matsutarou
+  titles:
+    original: 暴れん坊力士!!松太郎
+    translations: { ja-Latn: Abarenbou Rikishi!! Matsutarou }
+  seasons:
+    - id: abarenbou-rikishi-matsutarou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [abarenbou-rikishi-matsutarou]

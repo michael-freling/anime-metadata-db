@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mizu-no-yume
+  titles:
+    original: 水の夢
+    translations: { ja-Latn: Mizu no Yume }
+  movies:
+    - id: mizu-no-yume-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mizu-no-yume]

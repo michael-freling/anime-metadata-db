@@ -1,0 +1,15 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shimajirou-hesoka
+  titles:
+    original: しまじろう ヘソカ
+    translations: { ja-Latn: Shimajirou Hesoka }
+  seasons:
+    - id: shimajirou-hesoka-s1
+      number: 1
+    - id: shimajirou-hesoka-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shimajirou-hesoka]

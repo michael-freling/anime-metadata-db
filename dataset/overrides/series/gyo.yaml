@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gyo
+  titles:
+    original: ギョ
+    translations: { ja-Latn: Gyo }
+  movies:
+    - id: gyo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gyo]

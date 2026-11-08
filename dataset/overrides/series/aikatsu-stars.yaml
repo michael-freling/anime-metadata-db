@@ -1,0 +1,17 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aikatsu-stars
+  titles:
+    original: アイカツスターズ!
+    translations: { ja-Latn: Aikatsu Stars! }
+  seasons:
+    - id: aikatsu-stars-s1
+      number: 1
+    - id: aikatsu-stars-s2
+      number: 2
+  movies:
+    - id: aikatsu-stars-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aikatsu-stars]

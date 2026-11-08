@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: uchuu-kyoudai-number-zero
+  titles:
+    original: "宇宙兄弟#0　ディレクターズカット版"
+    translations: { ja-Latn: "Uchuu Kyoudai: Number Zero" }
+  movies:
+    - id: uchuu-kyoudai-number-zero-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [uchuu-kyoudai-number-zero]

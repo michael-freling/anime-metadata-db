@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sai-er-hao-movie-2-leiyi-yu-mai-er-si
+  titles:
+    original: "Sai Er Hao Movie 2: Leiyi Yu Mai Er Si"
+    translations: { ja-Latn: "Sai Er Hao Movie 2: Leiyi Yu Mai Er Si" }
+  movies:
+    - id: sai-er-hao-movie-2-leiyi-yu-mai-er-si-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sai-er-hao-movie-2-leiyi-yu-mai-er-si]

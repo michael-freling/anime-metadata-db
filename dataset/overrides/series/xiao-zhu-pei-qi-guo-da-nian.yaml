@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-zhu-pei-qi-guo-da-nian
+  titles:
+    original: Xiao Zhu Pei Qi Guo Da Nian
+    translations: { ja-Latn: Xiao Zhu Pei Qi Guo Da Nian }
+  movies:
+    - id: xiao-zhu-pei-qi-guo-da-nian-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-zhu-pei-qi-guo-da-nian]

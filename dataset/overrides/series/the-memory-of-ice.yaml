@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-memory-of-ice
+  titles:
+    original: The Memory of Ice
+    translations: { ja-Latn: The Memory of Ice }
+  movies:
+    - id: the-memory-of-ice-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-memory-of-ice]

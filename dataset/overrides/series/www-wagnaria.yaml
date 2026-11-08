@@ -1,0 +1,15 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: www-wagnaria
+  titles:
+    original: WWW.WAGNARIA!!
+    translations: { ja-Latn: WWW.WAGNARIA!! }
+  seasons:
+    - id: www-wagnaria-s1
+      number: 1
+    - id: www-wagnaria-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [www-wagnaria]

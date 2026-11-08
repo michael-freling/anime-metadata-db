@@ -1,0 +1,15 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: taoreujima-buster
+  titles:
+    original: Taoreujima Buster
+    translations: { ja-Latn: Taoreujima Buster }
+  seasons:
+    - id: taoreujima-buster-s1
+      number: 1
+    - id: taoreujima-buster-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [taoreujima-buster]

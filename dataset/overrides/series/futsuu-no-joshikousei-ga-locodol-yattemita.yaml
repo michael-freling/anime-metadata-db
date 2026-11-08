@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: futsuu-no-joshikousei-ga-locodol-yattemita
+  titles:
+    original: "普通の女子校生が[ろこどる]やってみた."
+    translations: { ja-Latn: Futsuu no Joshikousei ga "Locodol" Yattemita. }
+  seasons:
+    - id: futsuu-no-joshikousei-ga-locodol-yattemita-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [futsuu-no-joshikousei-ga-locodol-yattemita]

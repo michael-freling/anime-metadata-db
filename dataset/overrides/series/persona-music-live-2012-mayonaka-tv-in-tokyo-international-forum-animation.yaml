@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: persona-music-live-2012-mayonaka-tv-in-tokyo-international-forum-animation
+  titles:
+    original: Persona Music Live 2012 -Mayonaka TV- ~in Tokyo International Forum Animation
+    translations: { ja-Latn: Persona Music Live 2012 -Mayonaka TV- ~in Tokyo International Forum Animation }
+  movies:
+    - id: persona-music-live-2012-mayonaka-tv-in-tokyo-international-forum-animation-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [persona-music-live-2012-mayonaka-tv-in-tokyo-international-forum-animation]

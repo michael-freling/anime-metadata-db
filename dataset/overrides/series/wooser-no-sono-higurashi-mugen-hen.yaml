@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wooser-no-sono-higurashi-mugen-hen
+  titles:
+    original: うーさーのその日暮らし 夢幻編
+    translations: { ja-Latn: "Wooser no Sono Higurashi: Mugen-hen" }
+  seasons:
+    - id: wooser-no-sono-higurashi-mugen-hen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wooser-no-sono-higurashi-mugen-hen]

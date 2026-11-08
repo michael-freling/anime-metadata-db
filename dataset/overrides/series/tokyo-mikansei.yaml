@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tokyo-mikansei
+  titles:
+    original: Tokyo Mikansei
+    translations: { ja-Latn: Tokyo Mikansei }
+  movies:
+    - id: tokyo-mikansei-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tokyo-mikansei]

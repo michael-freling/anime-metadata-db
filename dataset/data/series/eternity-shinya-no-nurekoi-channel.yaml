@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Eternity: Shinya no Nurekoi Channel'
   ordering: absolute
+  externalIds:
+    wikidataId: Q109364678
   seasons:
     - id: eternity-shinya-no-nurekoi-channel-s1
       number: 1

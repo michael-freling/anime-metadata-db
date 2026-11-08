@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tayutaum
+  titles:
+    original: Tayutaum
+    translations: { ja-Latn: Tayutaum }
+  movies:
+    - id: tayutaum-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tayutaum]

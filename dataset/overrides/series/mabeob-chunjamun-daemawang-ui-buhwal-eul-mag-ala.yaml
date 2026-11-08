@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mabeob-chunjamun-daemawang-ui-buhwal-eul-mag-ala
+  titles:
+    original: "Mabeob Chunjamun: Daemawang-ui Buhwal-eul Mag-ala"
+    translations: { ja-Latn: "Mabeob Chunjamun: Daemawang-ui Buhwal-eul Mag-ala" }
+  movies:
+    - id: mabeob-chunjamun-daemawang-ui-buhwal-eul-mag-ala-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mabeob-chunjamun-daemawang-ui-buhwal-eul-mag-ala]

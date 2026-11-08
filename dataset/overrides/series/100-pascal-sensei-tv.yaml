@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 100-pascal-sensei-tv
+  titles:
+    original: 100%パスカル先生 (TV Short)
+    translations: { ja-Latn: 100% Pascal-sensei (TV) }
+  seasons:
+    - id: 100-pascal-sensei-tv-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [100-pascal-sensei-tv]

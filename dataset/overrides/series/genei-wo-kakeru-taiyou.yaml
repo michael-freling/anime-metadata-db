@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: genei-wo-kakeru-taiyou
+  titles:
+    original: 幻影ヲ駆ケル太陽 il sole penetra le illusioni
+    translations: { ja-Latn: Genei wo Kakeru Taiyou }
+  seasons:
+    - id: genei-wo-kakeru-taiyou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [genei-wo-kakeru-taiyou]

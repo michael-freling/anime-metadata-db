@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hibike-euphonium-movie-2-todoketai-melody
+  titles:
+    original: 劇場版 響け! ユーフォニアム~届けたいメロディ~
+    translations: { ja-Latn: "Hibike! Euphonium Movie 2: Todoketai Melody" }
+  movies:
+    - id: hibike-euphonium-movie-2-todoketai-melody-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hibike-euphonium-movie-2-todoketai-melody]

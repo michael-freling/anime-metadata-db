@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ji-jia-shou-shen
+  titles:
+    original: Ji Jia Shou Shen
+    translations: { ja-Latn: Ji Jia Shou Shen }
+  seasons:
+    - id: ji-jia-shou-shen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ji-jia-shou-shen]

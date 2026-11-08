@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: konglong-baobao-man-youji-wenming-baodian
+  titles:
+    original: "Konglong Baobao Man Youji: Wenming Baodian"
+    translations: { ja-Latn: "Konglong Baobao Man Youji: Wenming Baodian" }
+  seasons:
+    - id: konglong-baobao-man-youji-wenming-baodian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [konglong-baobao-man-youji-wenming-baodian]

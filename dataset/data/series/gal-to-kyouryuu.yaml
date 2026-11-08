@@ -4,8 +4,11 @@ series:
   titles:
     original: ギャルと恐竜
     translations:
+      en: My Roomie Is a Dino
       ja-Latn: Gal to Kyouryuu
   ordering: absolute
+  externalIds:
+    wikidataId: Q81329957
   seasons:
     - id: gal-to-kyouryuu-s1
       number: 1

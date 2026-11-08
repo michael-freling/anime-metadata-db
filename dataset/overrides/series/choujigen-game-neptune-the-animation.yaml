@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: choujigen-game-neptune-the-animation
+  titles:
+    original: 超次元ゲイム ネプテューヌ THE ANIMATION
+    translations: { ja-Latn: Choujigen Game Neptune The Animation }
+  seasons:
+    - id: choujigen-game-neptune-the-animation-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [choujigen-game-neptune-the-animation]

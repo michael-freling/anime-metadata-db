@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bishoujo-senshi-sailor-moon-crystal-season-iii
+  titles:
+    original: 美少女戦士セーラームーン Crystal 第3期＜デス・バスターズ編＞
+    translations: { ja-Latn: Bishoujo Senshi Sailor Moon Crystal Season III }
+  seasons:
+    - id: bishoujo-senshi-sailor-moon-crystal-season-iii-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bishoujo-senshi-sailor-moon-crystal-season-iii]

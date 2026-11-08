@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: huoyan-shan-lixian-ji
+  titles:
+    original: Huoyan Shan Lixian Ji
+    translations: { ja-Latn: Huoyan Shan Lixian Ji }
+  movies:
+    - id: huoyan-shan-lixian-ji-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [huoyan-shan-lixian-ji]

@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ushinawareta-mirai-wo-motomete
+  titles:
+    original: 失われた未来を求めて À la recherche du futur perdu
+    translations: { ja-Latn: Ushinawareta Mirai wo Motomete }
+  seasons:
+    - id: ushinawareta-mirai-wo-motomete-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ushinawareta-mirai-wo-motomete]

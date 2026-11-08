@@ -13,3 +13,6 @@ series:
       releaseSeason: SUMMER
       externalIds:
         anilistId: 196227
+      episodes:
+        count: 9
+        absoluteFrom: 1

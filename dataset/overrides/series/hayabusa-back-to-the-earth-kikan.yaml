@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hayabusa-back-to-the-earth-kikan
+  titles:
+    original: はやぶさ HAYABUSA - BACK TO THE EARTH - 帰還
+    translations: { ja-Latn: "Hayabusa: Back to the Earth - Kikan" }
+  movies:
+    - id: hayabusa-back-to-the-earth-kikan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hayabusa-back-to-the-earth-kikan]

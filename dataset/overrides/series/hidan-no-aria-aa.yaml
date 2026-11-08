@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hidan-no-aria-aa
+  titles:
+    original: 緋弾のアリアAA（ダブルエー）
+    translations: { ja-Latn: Hidan no Aria AA }
+  seasons:
+    - id: hidan-no-aria-aa-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hidan-no-aria-aa]

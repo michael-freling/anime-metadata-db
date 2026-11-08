@@ -4,8 +4,11 @@ series:
   titles:
     original: 異種族レビュアーズ
     translations:
+      en: Interspecies Reviewers
       ja-Latn: Ishuzoku Reviewers
   ordering: absolute
+  externalIds:
+    wikidataId: Q60997504
   seasons:
     - id: ishuzoku-reviewers-s1
       number: 1

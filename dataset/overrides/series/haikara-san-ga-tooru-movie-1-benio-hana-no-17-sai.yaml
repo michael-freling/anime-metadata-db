@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: haikara-san-ga-tooru-movie-1-benio-hana-no-17-sai
+  titles:
+    original: 劇場版 はいからさんが通る 前編 ～紅緒、花の17歳～
+    translations: { ja-Latn: "Haikara-san ga Tooru Movie 1: Benio, Hana no 17-sai" }
+  movies:
+    - id: haikara-san-ga-tooru-movie-1-benio-hana-no-17-sai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [haikara-san-ga-tooru-movie-1-benio-hana-no-17-sai]

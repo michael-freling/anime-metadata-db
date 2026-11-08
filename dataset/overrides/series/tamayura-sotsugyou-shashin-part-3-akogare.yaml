@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tamayura-sotsugyou-shashin-part-3-akogare
+  titles:
+    original: たまゆら～卒業写真～ 第3部 憧-あこがれ-
+    translations: { ja-Latn: "Tamayura: Sotsugyou Shashin Part 3 - Akogare" }
+  movies:
+    - id: tamayura-sotsugyou-shashin-part-3-akogare-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tamayura-sotsugyou-shashin-part-3-akogare]

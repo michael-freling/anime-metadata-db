@@ -7,6 +7,11 @@ import (
 
 // Render writes one override file.
 //
+// Every value goes through scalar, ids included. A slug is usually plainly safe
+// — lowercase ASCII and hyphens — but not always: a work titled "663114" slugs
+// to exactly that, and written bare it parses as an integer and fails the
+// schema, which requires a string.
+//
 // Composed as text rather than marshalled from a struct because the authored
 // layer carries comments and flow maps that a round-trip through a YAML encoder
 // would discard, and these files are read and edited by people — the comment
@@ -17,24 +22,24 @@ func Render(s Series, year int) string {
 	b.WriteString("# open sources cannot express; `builder build` fills the facts into data/.\n")
 	b.WriteString("# Never hand-edit data/.\n")
 	b.WriteString("series:\n")
-	fmt.Fprintf(&b, "  id: %s\n", s.ID)
+	fmt.Fprintf(&b, "  id: %s\n", scalar(s.ID))
 	b.WriteString("  titles:\n")
 	fmt.Fprintf(&b, "    original: %s\n", scalar(s.Original))
 	fmt.Fprintf(&b, "    translations: { ja-Latn: %s }\n", scalar(s.Romanized))
 	if len(s.Seasons) > 0 {
 		b.WriteString("  seasons:\n")
 		for i, id := range s.Seasons {
-			fmt.Fprintf(&b, "    - id: %s\n      number: %d\n", id, i+1)
+			fmt.Fprintf(&b, "    - id: %s\n      number: %d\n", scalar(id), i+1)
 		}
 	}
 	if len(s.Movies) > 0 {
 		b.WriteString("  movies:\n")
 		for _, id := range s.Movies {
-			fmt.Fprintf(&b, "    - id: %s\n", id)
+			fmt.Fprintf(&b, "    - id: %s\n", scalar(id))
 		}
 	}
 	b.WriteString("# One linear storyline: episodes carry a continuous absoluteNumber.\n")
-	fmt.Fprintf(&b, "numbered: [%s]\n", s.ID)
+	fmt.Fprintf(&b, "numbered: [%s]\n", scalar(s.ID))
 	return b.String()
 }
 

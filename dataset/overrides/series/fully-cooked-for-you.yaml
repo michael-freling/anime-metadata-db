@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fully-cooked-for-you
+  titles:
+    original: おにしめ おたべ
+    translations: { ja-Latn: Fully cooked for you }
+  movies:
+    - id: fully-cooked-for-you-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fully-cooked-for-you]

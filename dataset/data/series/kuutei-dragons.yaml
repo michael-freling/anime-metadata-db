@@ -4,8 +4,11 @@ series:
   titles:
     original: 空挺ドラゴンズ
     translations:
+      en: Drifting Dragons
       ja-Latn: Kuutei Dragons
   ordering: absolute
+  externalIds:
+    wikidataId: Q62072669
   seasons:
     - id: kuutei-dragons-s1
       number: 1

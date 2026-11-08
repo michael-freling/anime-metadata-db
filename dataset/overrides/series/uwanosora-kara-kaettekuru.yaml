@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: uwanosora-kara-kaettekuru
+  titles:
+    original: うわの空からかえってくる
+    translations: { ja-Latn: Uwanosora kara Kaettekuru }
+  movies:
+    - id: uwanosora-kara-kaettekuru-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [uwanosora-kara-kaettekuru]

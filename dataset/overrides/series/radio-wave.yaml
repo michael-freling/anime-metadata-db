@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: radio-wave
+  titles:
+    original: Radio Wave
+    translations: { ja-Latn: Radio Wave }
+  movies:
+    - id: radio-wave-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [radio-wave]

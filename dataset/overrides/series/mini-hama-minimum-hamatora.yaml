@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mini-hama-minimum-hamatora
+  titles:
+    original: ミニはま -MINIMUM HAMATORA-
+    translations: { ja-Latn: "Mini Hama: Minimum Hamatora" }
+  seasons:
+    - id: mini-hama-minimum-hamatora-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mini-hama-minimum-hamatora]

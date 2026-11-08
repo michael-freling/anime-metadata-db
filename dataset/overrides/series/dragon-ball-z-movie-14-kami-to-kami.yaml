@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dragon-ball-z-movie-14-kami-to-kami
+  titles:
+    original: DRAGON BALL Z 神と神 BATTLE OF GODS
+    translations: { ja-Latn: "Dragon Ball Z Movie 14: Kami to Kami" }
+  movies:
+    - id: dragon-ball-z-movie-14-kami-to-kami-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dragon-ball-z-movie-14-kami-to-kami]

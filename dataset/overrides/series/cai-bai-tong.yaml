@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: cai-bai-tong
+  titles:
+    original: Cai Bai Tong
+    translations: { ja-Latn: Cai Bai Tong }
+  seasons:
+    - id: cai-bai-tong-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [cai-bai-tong]

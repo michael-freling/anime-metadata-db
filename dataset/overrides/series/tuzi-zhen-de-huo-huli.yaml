@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tuzi-zhen-de-huo-huli
+  titles:
+    original: Tuzi Zhen De Huo Huli
+    translations: { ja-Latn: Tuzi Zhen De Huo Huli }
+  movies:
+    - id: tuzi-zhen-de-huo-huli-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tuzi-zhen-de-huo-huli]

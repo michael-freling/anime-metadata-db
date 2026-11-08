@@ -4,8 +4,11 @@ series:
   titles:
     original: ソマリと森の神様
     translations:
+      en: Somali and the Forest Spirit
       ja-Latn: Somali to Mori no Kamisama
   ordering: absolute
+  externalIds:
+    wikidataId: Q62271318
   seasons:
     - id: somali-to-mori-no-kamisama-s1
       number: 1

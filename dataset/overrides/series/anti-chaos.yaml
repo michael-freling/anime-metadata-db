@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: anti-chaos
+  titles:
+    original: 強迫的な秩序についてのカエル
+    translations: { ja-Latn: anti-chaos }
+  movies:
+    - id: anti-chaos-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [anti-chaos]

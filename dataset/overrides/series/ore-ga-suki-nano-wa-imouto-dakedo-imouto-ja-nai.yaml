@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ore-ga-suki-nano-wa-imouto-dakedo-imouto-ja-nai
+  titles:
+    original: 俺が好きなのは妹だけど妹じゃない
+    translations: { ja-Latn: Ore ga Suki nano wa Imouto dakedo Imouto ja Nai }
+  seasons:
+    - id: ore-ga-suki-nano-wa-imouto-dakedo-imouto-ja-nai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ore-ga-suki-nano-wa-imouto-dakedo-imouto-ja-nai]

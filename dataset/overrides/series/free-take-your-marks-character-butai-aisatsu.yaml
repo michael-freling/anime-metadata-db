@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: free-take-your-marks-character-butai-aisatsu
+  titles:
+    original: 特別版 Free!-Take Your Marks- キャラクター舞台挨拶
+    translations: { ja-Latn: "Free! Take Your Marks: Character Butai Aisatsu" }
+  movies:
+    - id: free-take-your-marks-character-butai-aisatsu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [free-take-your-marks-character-butai-aisatsu]

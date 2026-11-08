@@ -1,0 +1,17 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gintama-season-4
+  titles:
+    original: Gintama Season 4
+    translations: { ja-Latn: Gintama Season 4 }
+  seasons:
+    - id: gintama-season-4-s1
+      number: 1
+    - id: gintama-season-4-s2
+      number: 2
+    - id: gintama-season-4-s3
+      number: 3
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gintama-season-4]

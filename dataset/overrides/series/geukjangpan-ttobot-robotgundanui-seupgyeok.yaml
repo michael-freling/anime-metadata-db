@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: geukjangpan-ttobot-robotgundanui-seupgyeok
+  titles:
+    original: "Geukjangpan Ttobot: Robotgundanui Seupgyeok"
+    translations: { ja-Latn: "Geukjangpan Ttobot: Robotgundanui Seupgyeok" }
+  movies:
+    - id: geukjangpan-ttobot-robotgundanui-seupgyeok-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [geukjangpan-ttobot-robotgundanui-seupgyeok]

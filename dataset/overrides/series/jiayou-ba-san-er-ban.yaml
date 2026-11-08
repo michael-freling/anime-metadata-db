@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jiayou-ba-san-er-ban
+  titles:
+    original: Jiayou Ba! San Er Ban
+    translations: { ja-Latn: Jiayou Ba! San Er Ban }
+  seasons:
+    - id: jiayou-ba-san-er-ban-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jiayou-ba-san-er-ban]

@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: crayon-shin-chan-arashi-o-yobu-ora-to-uchu-no-princess
+  titles:
+    original: クレヨンしんちゃん 嵐を呼ぶ！ オラと宇宙のプリンセス
+    translations: { ja-Latn: "Crayon Shin-chan: Arashi o Yobu! Ora to Uchū no Princess" }
+  movies:
+    - id: crayon-shin-chan-arashi-o-yobu-ora-to-uchu-no-princess-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [crayon-shin-chan-arashi-o-yobu-ora-to-uchu-no-princess]

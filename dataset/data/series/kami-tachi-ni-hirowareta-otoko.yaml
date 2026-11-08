@@ -4,8 +4,11 @@ series:
   titles:
     original: 神達に拾われた男
     translations:
+      en: By the Grace of the Gods
       ja-Latn: Kami-tachi ni Hirowareta Otoko
   ordering: absolute
+  externalIds:
+    wikidataId: Q56347170
   seasons:
     - id: kami-tachi-ni-hirowareta-otoko-s1
       number: 1

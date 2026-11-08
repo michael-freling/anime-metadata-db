@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: da-xiang-lin-wang-yi-pao-cheng-ming
+  titles:
+    original: "Da Xiang Lin Wang: Yi Pao Cheng Ming"
+    translations: { ja-Latn: "Da Xiang Lin Wang: Yi Pao Cheng Ming" }
+  movies:
+    - id: da-xiang-lin-wang-yi-pao-cheng-ming-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [da-xiang-lin-wang-yi-pao-cheng-ming]

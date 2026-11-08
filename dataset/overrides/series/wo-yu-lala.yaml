@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wo-yu-lala
+  titles:
+    original: Wo Yu LaLa
+    translations: { ja-Latn: Wo Yu LaLa }
+  movies:
+    - id: wo-yu-lala-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wo-yu-lala]

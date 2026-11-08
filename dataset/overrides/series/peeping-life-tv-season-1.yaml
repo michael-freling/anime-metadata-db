@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: peeping-life-tv-season-1
+  titles:
+    original: "Peeping Life（ピーピングライフ）TV シーズン1 ??"
+    translations: { ja-Latn: "Peeping Life TV: Season 1??" }
+  seasons:
+    - id: peeping-life-tv-season-1-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [peeping-life-tv-season-1]

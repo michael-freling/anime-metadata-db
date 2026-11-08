@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tezuka-osamu-no-buddha-owarinaki-tabi
+  titles:
+    original: "BUDDHA 2: 手塚治虫のブッダ～終わりなき旅～"
+    translations: { ja-Latn: "Tezuka Osamu no Buddha: Owarinaki Tabi" }
+  movies:
+    - id: tezuka-osamu-no-buddha-owarinaki-tabi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tezuka-osamu-no-buddha-owarinaki-tabi]

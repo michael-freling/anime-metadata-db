@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jin-gu-bang-chuang-qi-2-sha-seng-de-ni-xi
+  titles:
+    original: "Jin Gu Bang Chuang Qi 2: Sha Seng De Ni Xi"
+    translations: { ja-Latn: "Jin Gu Bang Chuang Qi 2: Sha Seng De Ni Xi" }
+  movies:
+    - id: jin-gu-bang-chuang-qi-2-sha-seng-de-ni-xi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jin-gu-bang-chuang-qi-2-sha-seng-de-ni-xi]

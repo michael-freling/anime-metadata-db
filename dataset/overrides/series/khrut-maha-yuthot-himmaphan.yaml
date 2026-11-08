@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: khrut-maha-yuthot-himmaphan
+  titles:
+    original: "Khrut: Maha Yuthot Himmaphan"
+    translations: { ja-Latn: "Khrut: Maha Yuthot Himmaphan" }
+  movies:
+    - id: khrut-maha-yuthot-himmaphan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [khrut-maha-yuthot-himmaphan]

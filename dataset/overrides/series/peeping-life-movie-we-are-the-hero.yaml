@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: peeping-life-movie-we-are-the-hero
+  titles:
+    original: ピーピング・ライフ -We Are the Hero-
+    translations: { ja-Latn: "Peeping Life Movie: We Are The Hero" }
+  movies:
+    - id: peeping-life-movie-we-are-the-hero-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [peeping-life-movie-we-are-the-hero]

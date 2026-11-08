@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: one-thousand-buddhas
+  titles:
+    original: One Thousand Buddhas
+    translations: { ja-Latn: One Thousand Buddhas }
+  movies:
+    - id: one-thousand-buddhas-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [one-thousand-buddhas]

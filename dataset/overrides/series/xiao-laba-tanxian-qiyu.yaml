@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-laba-tanxian-qiyu
+  titles:
+    original: "Xiao Laba: Tanxian Qiyu"
+    translations: { ja-Latn: "Xiao Laba: Tanxian Qiyu" }
+  seasons:
+    - id: xiao-laba-tanxian-qiyu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-laba-tanxian-qiyu]

@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hibike-euphonium-movie-photo-session-e-youkoso
+  titles:
+    original: 「劇場版 響け! ユーフォニアム~フォトセッションへようこそ」
+    translations: { ja-Latn: "Hibike! Euphonium Movie: Photo Session e Youkoso" }
+  movies:
+    - id: hibike-euphonium-movie-photo-session-e-youkoso-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hibike-euphonium-movie-photo-session-e-youkoso]

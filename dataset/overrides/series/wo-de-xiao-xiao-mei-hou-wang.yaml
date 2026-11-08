@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wo-de-xiao-xiao-mei-hou-wang
+  titles:
+    original: Wo de Xiao Xiao Mei Hou Wang
+    translations: { ja-Latn: Wo de Xiao Xiao Mei Hou Wang }
+  seasons:
+    - id: wo-de-xiao-xiao-mei-hou-wang-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wo-de-xiao-xiao-mei-hou-wang]

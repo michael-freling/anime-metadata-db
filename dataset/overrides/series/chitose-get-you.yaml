@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chitose-get-you
+  titles:
+    original: ちとせげっちゅ!!
+    translations: { ja-Latn: Chitose Get You!! }
+  seasons:
+    - id: chitose-get-you-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chitose-get-you]

@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: inai-inai-baa-ba
+  titles:
+    original: いないいないばあば
+    translations: { ja-Latn: Inai Inai Baa Ba }
+  movies:
+    - id: inai-inai-baa-ba-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [inai-inai-baa-ba]

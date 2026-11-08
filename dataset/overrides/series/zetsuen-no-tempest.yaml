@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zetsuen-no-tempest
+  titles:
+    original: 絶園のテンペスト ~THE CIVILIZATION BLASTER~
+    translations: { ja-Latn: Zetsuen no Tempest }
+  seasons:
+    - id: zetsuen-no-tempest-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zetsuen-no-tempest]

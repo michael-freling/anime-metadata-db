@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hello-carbot-season-3
+  titles:
+    original: Hello Carbot Season 3
+    translations: { ja-Latn: Hello Carbot Season 3 }
+  seasons:
+    - id: hello-carbot-season-3-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hello-carbot-season-3]

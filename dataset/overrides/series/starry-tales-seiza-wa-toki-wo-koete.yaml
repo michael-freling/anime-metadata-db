@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: starry-tales-seiza-wa-toki-wo-koete
+  titles:
+    original: スターリーテイルズ -星座は時をこえて-
+    translations: { ja-Latn: "Starry Tales: Seiza wa Toki wo Koete" }
+  movies:
+    - id: starry-tales-seiza-wa-toki-wo-koete-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [starry-tales-seiza-wa-toki-wo-koete]

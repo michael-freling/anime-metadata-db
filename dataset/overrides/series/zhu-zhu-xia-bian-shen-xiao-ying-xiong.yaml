@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhu-zhu-xia-bian-shen-xiao-ying-xiong
+  titles:
+    original: "Zhu Zhu Xia: Bian Shen Xiao Ying Xiong"
+    translations: { ja-Latn: "Zhu Zhu Xia: Bian Shen Xiao Ying Xiong" }
+  seasons:
+    - id: zhu-zhu-xia-bian-shen-xiao-ying-xiong-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhu-zhu-xia-bian-shen-xiao-ying-xiong]

@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shaolin-hai-bao
+  titles:
+    original: Shaolin Hai Bao
+    translations: { ja-Latn: Shaolin Hai Bao }
+  seasons:
+    - id: shaolin-hai-bao-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shaolin-hai-bao]

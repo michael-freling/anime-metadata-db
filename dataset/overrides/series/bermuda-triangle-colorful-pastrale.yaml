@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bermuda-triangle-colorful-pastrale
+  titles:
+    original: カラフル・パストラーレ ~from Bermuda△~
+    translations: { ja-Latn: "Bermuda Triangle: Colorful Pastrale" }
+  seasons:
+    - id: bermuda-triangle-colorful-pastrale-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bermuda-triangle-colorful-pastrale]

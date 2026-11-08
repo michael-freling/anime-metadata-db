@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: okashi-no-rocket-de-shuppatsu
+  titles:
+    original: おかしのロケットでしゅっぱ~つ!
+    translations: { ja-Latn: Okashi no Rocket de Shuppatsu! }
+  movies:
+    - id: okashi-no-rocket-de-shuppatsu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [okashi-no-rocket-de-shuppatsu]

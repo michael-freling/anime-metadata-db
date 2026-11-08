@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: high-school-dxd-born
+  titles:
+    original: ハイスクールDxD BorN
+    translations: { ja-Latn: High School DxD BorN }
+  seasons:
+    - id: high-school-dxd-born-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [high-school-dxd-born]

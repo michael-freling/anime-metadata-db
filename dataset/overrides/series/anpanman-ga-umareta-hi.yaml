@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: anpanman-ga-umareta-hi
+  titles:
+    original: アンパンマンが生まれた日
+    translations: { ja-Latn: Anpanman ga Umareta Hi }
+  movies:
+    - id: anpanman-ga-umareta-hi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [anpanman-ga-umareta-hi]

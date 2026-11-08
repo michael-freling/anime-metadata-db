@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pretty-rhythm-movie-all-star-selection-prism-show-best-ten
+  titles:
+    original: 劇場版 プリティーリズム・オールスターセレクション プリズムショー☆ベストテン
+    translations: { ja-Latn: "Pretty Rhythm Movie: All Star Selection - Prism Show☆Best Ten" }
+  movies:
+    - id: pretty-rhythm-movie-all-star-selection-prism-show-best-ten-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pretty-rhythm-movie-all-star-selection-prism-show-best-ten]

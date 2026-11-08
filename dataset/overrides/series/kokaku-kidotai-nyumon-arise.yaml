@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kokaku-kidotai-nyumon-arise
+  titles:
+    original: 攻殻機動隊入門 あらいず
+    translations: { ja-Latn: Kōkaku Kidōtai Nyumon Arise }
+  seasons:
+    - id: kokaku-kidotai-nyumon-arise-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kokaku-kidotai-nyumon-arise]

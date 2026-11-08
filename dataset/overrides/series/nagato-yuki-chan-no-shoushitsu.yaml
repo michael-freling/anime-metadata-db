@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nagato-yuki-chan-no-shoushitsu
+  titles:
+    original: 長門有希ちゃんの消失
+    translations: { ja-Latn: Nagato Yuki-chan no Shoushitsu }
+  seasons:
+    - id: nagato-yuki-chan-no-shoushitsu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nagato-yuki-chan-no-shoushitsu]

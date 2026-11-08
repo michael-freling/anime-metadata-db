@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hong-gil-dong-2084
+  titles:
+    original: Hong Gil Dong 2084
+    translations: { ja-Latn: Hong Gil Dong 2084 }
+  movies:
+    - id: hong-gil-dong-2084-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hong-gil-dong-2084]

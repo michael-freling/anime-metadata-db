@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sora-no-otoshimono-final-eternal-my-master
+  titles:
+    original: "そらのおとしもの Final 永遠の私の鳥籠[エターナルマイマスター]"
+    translations: { ja-Latn: "Sora no Otoshimono Final: Eternal My Master" }
+  movies:
+    - id: sora-no-otoshimono-final-eternal-my-master-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sora-no-otoshimono-final-eternal-my-master]

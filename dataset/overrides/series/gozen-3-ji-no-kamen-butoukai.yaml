@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gozen-3-ji-no-kamen-butoukai
+  titles:
+    original: 午前3時の仮面舞踏会
+    translations: { ja-Latn: Gozen 3-ji no Kamen Butoukai }
+  movies:
+    - id: gozen-3-ji-no-kamen-butoukai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gozen-3-ji-no-kamen-butoukai]

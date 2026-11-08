@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: alps-no-shoujo-heidi-chara-onji
+  titles:
+    original: "アルプスの少女ハイジ? ちゃらおんじ"
+    translations: { ja-Latn: "Alps no Shoujo Heidi? Chara Onji" }
+  seasons:
+    - id: alps-no-shoujo-heidi-chara-onji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [alps-no-shoujo-heidi-chara-onji]

@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: small-people-with-hats
+  titles:
+    original: 帽子をかぶった小さな人々
+    translations: { ja-Latn: Small People with Hats }
+  movies:
+    - id: small-people-with-hats-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [small-people-with-hats]

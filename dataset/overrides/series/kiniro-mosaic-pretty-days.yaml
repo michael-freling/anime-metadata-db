@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kiniro-mosaic-pretty-days
+  titles:
+    original: ハロー!! きんいろモザイク (スペシャルエピソード)
+    translations: { ja-Latn: "Kiniro Mosaic: Pretty Days" }
+  movies:
+    - id: kiniro-mosaic-pretty-days-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kiniro-mosaic-pretty-days]

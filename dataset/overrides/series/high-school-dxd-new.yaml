@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: high-school-dxd-new
+  titles:
+    original: ハイスクールDxD NEW 月光校庭のエクスカリバー
+    translations: { ja-Latn: High School DxD New }
+  seasons:
+    - id: high-school-dxd-new-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [high-school-dxd-new]

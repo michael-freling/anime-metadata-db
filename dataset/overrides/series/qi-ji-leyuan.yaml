@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: qi-ji-leyuan
+  titles:
+    original: Qi Ji Leyuan
+    translations: { ja-Latn: Qi Ji Leyuan }
+  seasons:
+    - id: qi-ji-leyuan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [qi-ji-leyuan]

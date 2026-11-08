@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mao-qiu-daya-qi-qu-lu-zhi-tuo-xian-piaoliu-ji
+  titles:
+    original: "Mao Qiu Daya Qi Qu: Lu Zhi Tuo Xian Piaoliu Ji"
+    translations: { ja-Latn: "Mao Qiu Daya Qi Qu: Lu Zhi Tuo Xian Piaoliu Ji" }
+  seasons:
+    - id: mao-qiu-daya-qi-qu-lu-zhi-tuo-xian-piaoliu-ji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mao-qiu-daya-qi-qu-lu-zhi-tuo-xian-piaoliu-ji]

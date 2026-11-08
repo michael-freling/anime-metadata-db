@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kidou-senshi-gundam-tekketsu-no-orphans-2nd-season
+  titles:
+    original: 機動戦士ガンダム 鉄血のオルフェンズ 第2期
+    translations: { ja-Latn: "Kidou Senshi Gundam: Tekketsu no Orphans 2nd Season" }
+  seasons:
+    - id: kidou-senshi-gundam-tekketsu-no-orphans-2nd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kidou-senshi-gundam-tekketsu-no-orphans-2nd-season]

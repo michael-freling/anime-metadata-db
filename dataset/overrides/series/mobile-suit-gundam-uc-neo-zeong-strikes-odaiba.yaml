@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mobile-suit-gundam-uc-neo-zeong-strikes-odaiba
+  titles:
+    original: 機動戦士ガンダムUC「ネオ・ジオング、お台場に現る！」
+    translations: { ja-Latn: "Mobile Suit Gundam UC: Neo Zeong Strikes Odaiba!" }
+  movies:
+    - id: mobile-suit-gundam-uc-neo-zeong-strikes-odaiba-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mobile-suit-gundam-uc-neo-zeong-strikes-odaiba]

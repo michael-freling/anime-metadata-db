@@ -1,0 +1,15 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: beastars
+  titles:
+    original: BEASTARS ビースターズ
+    translations: { ja-Latn: Beastars }
+  seasons:
+    - id: beastars-s1
+      number: 1
+    - id: beastars-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [beastars]

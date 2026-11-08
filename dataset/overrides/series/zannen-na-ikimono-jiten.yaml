@@ -1,0 +1,21 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zannen-na-ikimono-jiten
+  titles:
+    original: ざんねんないきもの事典
+    translations: { ja-Latn: Zannen na Ikimono Jiten }
+  seasons:
+    - id: zannen-na-ikimono-jiten-s1
+      number: 1
+    - id: zannen-na-ikimono-jiten-s2
+      number: 2
+    - id: zannen-na-ikimono-jiten-s3
+      number: 3
+    - id: zannen-na-ikimono-jiten-s4
+      number: 4
+  movies:
+    - id: zannen-na-ikimono-jiten-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zannen-na-ikimono-jiten]

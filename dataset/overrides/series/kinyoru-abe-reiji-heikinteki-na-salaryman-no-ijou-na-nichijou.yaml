@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kinyoru-abe-reiji-heikinteki-na-salaryman-no-ijou-na-nichijou
+  titles:
+    original: "金夜, 安部礼司 ~平均的サラリーマンの異常な日常~"
+    translations: { ja-Latn: "Kinyoru, Abe Reiji: Heikinteki na Salaryman no Ijou na Nichijou" }
+  seasons:
+    - id: kinyoru-abe-reiji-heikinteki-na-salaryman-no-ijou-na-nichijou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kinyoru-abe-reiji-heikinteki-na-salaryman-no-ijou-na-nichijou]

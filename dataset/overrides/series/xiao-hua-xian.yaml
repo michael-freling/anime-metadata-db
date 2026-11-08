@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-hua-xian
+  titles:
+    original: Xiao Hua Xian
+    translations: { ja-Latn: Xiao Hua Xian }
+  seasons:
+    - id: xiao-hua-xian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-hua-xian]

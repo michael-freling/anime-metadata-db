@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: isekai-cheat-magician
+  titles:
+    original: "異世界チート魔術師[マジシャン]"
+    translations: { ja-Latn: Isekai Cheat Magician }
+  seasons:
+    - id: isekai-cheat-magician-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [isekai-cheat-magician]

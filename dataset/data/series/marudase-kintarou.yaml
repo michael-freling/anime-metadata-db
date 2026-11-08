@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Marudase Kintarou
   ordering: absolute
+  externalIds:
+    wikidataId: Q106093650
   movies:
     - id: marudase-kintarou-film
       titles:

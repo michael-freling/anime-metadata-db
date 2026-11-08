@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mary-to-majo-no-hana
+  titles:
+    original: メアリと魔女の花
+    translations: { ja-Latn: Mary to Majo no Hana }
+  movies:
+    - id: mary-to-majo-no-hana-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mary-to-majo-no-hana]

@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mizuki-shigeru-no-toono-monogatari
+  titles:
+    original: 水木しげるの遠野物語
+    translations: { ja-Latn: Mizuki Shigeru no Toono Monogatari }
+  movies:
+    - id: mizuki-shigeru-no-toono-monogatari-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mizuki-shigeru-no-toono-monogatari]

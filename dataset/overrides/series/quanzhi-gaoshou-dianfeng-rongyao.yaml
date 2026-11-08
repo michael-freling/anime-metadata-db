@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: quanzhi-gaoshou-dianfeng-rongyao
+  titles:
+    original: "Master of Skill: Eiyou no Tame ni (マスターオブスキル ー栄耀のためにー)"
+    translations: { ja-Latn: "Quanzhi Gaoshou: Dianfeng Rongyao" }
+  movies:
+    - id: quanzhi-gaoshou-dianfeng-rongyao-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [quanzhi-gaoshou-dianfeng-rongyao]

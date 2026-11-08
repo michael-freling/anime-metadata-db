@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shimajirou-no-wow-movie-6-mahou-no-shima-no-daibouken
+  titles:
+    original: 映画しまじろう まほうのしまの だいぼうけん
+    translations: { ja-Latn: "Shimajirou no Wow! Movie 6: Mahou no Shima no Daibouken" }
+  movies:
+    - id: shimajirou-no-wow-movie-6-mahou-no-shima-no-daibouken-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shimajirou-no-wow-movie-6-mahou-no-shima-no-daibouken]

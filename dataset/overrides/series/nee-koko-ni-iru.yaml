@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nee-koko-ni-iru
+  titles:
+    original: ねえ、ここに居る。
+    translations: { ja-Latn: "Nee, Koko ni Iru." }
+  movies:
+    - id: nee-koko-ni-iru-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nee-koko-ni-iru]

@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kuusen-madoushi-kouhosei-no-kyoukan
+  titles:
+    original: 空戦魔導士候補生の教官
+    translations: { ja-Latn: Kuusen Madoushi Kouhosei no Kyoukan }
+  seasons:
+    - id: kuusen-madoushi-kouhosei-no-kyoukan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kuusen-madoushi-kouhosei-no-kyoukan]

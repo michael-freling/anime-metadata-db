@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kuroko-no-basket-movie-4-last-game
+  titles:
+    original: 劇場版 黒子のバスケ LAST GAME
+    translations: { ja-Latn: "Kuroko no Basket Movie 4: Last Game" }
+  movies:
+    - id: kuroko-no-basket-movie-4-last-game-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kuroko-no-basket-movie-4-last-game]

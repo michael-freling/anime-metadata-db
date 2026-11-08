@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yu-shen-chuan-wangzhe-shaonian
+  titles:
+    original: "Yu Shen Chuan: Wangzhe Shaonian"
+    translations: { ja-Latn: "Yu Shen Chuan: Wangzhe Shaonian" }
+  movies:
+    - id: yu-shen-chuan-wangzhe-shaonian-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yu-shen-chuan-wangzhe-shaonian]

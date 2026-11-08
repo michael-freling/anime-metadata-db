@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: alan-jiaoshou-de-mofa-zhipai
+  titles:
+    original: Alan Jiaoshou De Mofa Zhipai
+    translations: { ja-Latn: Alan Jiaoshou De Mofa Zhipai }
+  seasons:
+    - id: alan-jiaoshou-de-mofa-zhipai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [alan-jiaoshou-de-mofa-zhipai]

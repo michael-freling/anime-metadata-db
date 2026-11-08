@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sousei-no-onmyouji
+  titles:
+    original: 双星の陰陽師
+    translations: { ja-Latn: Sousei no Onmyouji }
+  seasons:
+    - id: sousei-no-onmyouji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sousei-no-onmyouji]

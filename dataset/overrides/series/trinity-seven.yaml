@@ -1,0 +1,15 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: trinity-seven
+  titles:
+    original: トリニティセブン 7人の魔書使い
+    translations: { ja-Latn: Trinity Seven }
+  seasons:
+    - id: trinity-seven-s1
+      number: 1
+  movies:
+    - id: trinity-seven-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [trinity-seven]

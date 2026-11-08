@@ -1,0 +1,15 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: crane-game-girls-galaxy
+  titles:
+    original: 美少女遊戯ユニット クレーンゲール ギャラクシー
+    translations: { ja-Latn: Crane Game Girls Galaxy }
+  seasons:
+    - id: crane-game-girls-galaxy-s1
+      number: 1
+    - id: crane-game-girls-galaxy-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [crane-game-girls-galaxy]

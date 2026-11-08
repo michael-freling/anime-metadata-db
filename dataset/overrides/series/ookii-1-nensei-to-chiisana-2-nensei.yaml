@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ookii-1-nensei-to-chiisana-2-nensei
+  titles:
+    original: 若手アニメーター育成プロジェクト 2014 2
+    translations: { ja-Latn: Ookii 1-nensei to Chiisana 2-nensei }
+  movies:
+    - id: ookii-1-nensei-to-chiisana-2-nensei-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ookii-1-nensei-to-chiisana-2-nensei]

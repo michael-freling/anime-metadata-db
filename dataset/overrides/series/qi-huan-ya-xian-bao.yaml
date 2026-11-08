@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: qi-huan-ya-xian-bao
+  titles:
+    original: Qi Huan Ya Xian Bao
+    translations: { ja-Latn: Qi Huan Ya Xian Bao }
+  seasons:
+    - id: qi-huan-ya-xian-bao-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [qi-huan-ya-xian-bao]

@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pporongpporong-ppororo-new-1
+  titles:
+    original: Pporongpporong Ppororo New 1
+    translations: { ja-Latn: Pporongpporong Ppororo New 1 }
+  seasons:
+    - id: pporongpporong-ppororo-new-1-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pporongpporong-ppororo-new-1]

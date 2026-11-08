@@ -1,0 +1,15 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: starmyu-2nd-season
+  titles:
+    original: ハイスクールスター・ミュージカル
+    translations: { ja-Latn: Starmyu 2nd Season }
+  seasons:
+    - id: starmyu-2nd-season-s1
+      number: 1
+    - id: starmyu-2nd-season-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [starmyu-2nd-season]

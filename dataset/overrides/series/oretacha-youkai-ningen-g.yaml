@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: oretacha-youkai-ningen-g
+  titles:
+    original: 俺たちゃ妖怪人間G
+    translations: { ja-Latn: Oretacha Youkai Ningen G }
+  seasons:
+    - id: oretacha-youkai-ningen-g-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [oretacha-youkai-ningen-g]

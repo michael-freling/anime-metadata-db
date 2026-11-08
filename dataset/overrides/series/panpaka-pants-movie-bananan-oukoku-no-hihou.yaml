@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: panpaka-pants-movie-bananan-oukoku-no-hihou
+  titles:
+    original: えいがパンパカパンツ バナナン王国の秘宝
+    translations: { ja-Latn: "Panpaka Pants Movie: Bananan Oukoku no Hihou" }
+  movies:
+    - id: panpaka-pants-movie-bananan-oukoku-no-hihou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [panpaka-pants-movie-bananan-oukoku-no-hihou]

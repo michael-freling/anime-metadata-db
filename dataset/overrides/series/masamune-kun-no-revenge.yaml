@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: masamune-kun-no-revenge
+  titles:
+    original: 政宗くんのリベンジ
+    translations: { ja-Latn: Masamune-kun no Revenge }
+  seasons:
+    - id: masamune-kun-no-revenge-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [masamune-kun-no-revenge]

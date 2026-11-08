@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-ji-lu-bi
+  titles:
+    original: Xiao Ji Lu Bi
+    translations: { ja-Latn: Xiao Ji Lu Bi }
+  seasons:
+    - id: xiao-ji-lu-bi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-ji-lu-bi]

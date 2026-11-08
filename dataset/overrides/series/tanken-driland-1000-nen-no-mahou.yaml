@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tanken-driland-1000-nen-no-mahou
+  titles:
+    original: 探検ドリランド-1000年の真宝（まほう）-
+    translations: { ja-Latn: "Tanken Driland: 1000-nen no Mahou" }
+  seasons:
+    - id: tanken-driland-1000-nen-no-mahou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tanken-driland-1000-nen-no-mahou]

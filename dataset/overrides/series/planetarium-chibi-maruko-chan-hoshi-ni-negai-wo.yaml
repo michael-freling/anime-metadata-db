@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: planetarium-chibi-maruko-chan-hoshi-ni-negai-wo
+  titles:
+    original: プラネタリウム ちびまる子ちゃん 星にねがいを
+    translations: { ja-Latn: "Planetarium Chibi Maruko-chan, Hoshi ni Negai wo" }
+  movies:
+    - id: planetarium-chibi-maruko-chan-hoshi-ni-negai-wo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [planetarium-chibi-maruko-chan-hoshi-ni-negai-wo]

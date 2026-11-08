@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sakurako-san-no-ashimoto-ni-wa-shitai-ga-umatteiru
+  titles:
+    original: 櫻子さんの足下には死体が埋まっている
+    translations: { ja-Latn: Sakurako-san no Ashimoto ni wa Shitai ga Umatteiru }
+  seasons:
+    - id: sakurako-san-no-ashimoto-ni-wa-shitai-ga-umatteiru-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sakurako-san-no-ashimoto-ni-wa-shitai-ga-umatteiru]

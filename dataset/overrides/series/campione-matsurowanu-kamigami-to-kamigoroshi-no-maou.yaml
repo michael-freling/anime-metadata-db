@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: campione-matsurowanu-kamigami-to-kamigoroshi-no-maou
+  titles:
+    original: カンピオーネ! ~まつろわぬ神々と神殺しの魔王~
+    translations: { ja-Latn: Campione! Matsurowanu Kamigami to Kamigoroshi no Maou }
+  seasons:
+    - id: campione-matsurowanu-kamigami-to-kamigoroshi-no-maou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [campione-matsurowanu-kamigami-to-kamigoroshi-no-maou]

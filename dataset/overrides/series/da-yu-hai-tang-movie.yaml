@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: da-yu-hai-tang-movie
+  titles:
+    original: Da Yu Hai Tang (Movie)
+    translations: { ja-Latn: Da Yu Hai Tang (Movie) }
+  movies:
+    - id: da-yu-hai-tang-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [da-yu-hai-tang-movie]

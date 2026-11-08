@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: alice-to-zouroku
+  titles:
+    original: アリスと蔵六
+    translations: { ja-Latn: Alice to Zouroku }
+  seasons:
+    - id: alice-to-zouroku-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [alice-to-zouroku]

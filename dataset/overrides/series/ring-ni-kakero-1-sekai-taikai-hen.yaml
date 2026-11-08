@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ring-ni-kakero-1-sekai-taikai-hen
+  titles:
+    original: リングにかけろ1 世界大会編
+    translations: { ja-Latn: "Ring ni Kakero 1: Sekai Taikai-hen" }
+  seasons:
+    - id: ring-ni-kakero-1-sekai-taikai-hen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ring-ni-kakero-1-sekai-taikai-hen]

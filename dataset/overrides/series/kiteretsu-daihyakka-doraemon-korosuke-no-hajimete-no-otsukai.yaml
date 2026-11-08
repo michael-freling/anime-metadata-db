@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kiteretsu-daihyakka-doraemon-korosuke-no-hajimete-no-otsukai
+  titles:
+    original: キテレツ大百科＆ドラえもん コロ助のはじめてのおつかい
+    translations: { ja-Latn: "Kiteretsu Daihyakka & Doraemon: Korosuke no Hajimete no Otsukai" }
+  movies:
+    - id: kiteretsu-daihyakka-doraemon-korosuke-no-hajimete-no-otsukai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kiteretsu-daihyakka-doraemon-korosuke-no-hajimete-no-otsukai]

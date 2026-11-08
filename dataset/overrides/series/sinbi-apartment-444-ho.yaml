@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sinbi-apartment-444-ho
+  titles:
+    original: "Sinbi Apartment: 444 Ho"
+    translations: { ja-Latn: "Sinbi Apartment: 444 Ho" }
+  seasons:
+    - id: sinbi-apartment-444-ho-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sinbi-apartment-444-ho]

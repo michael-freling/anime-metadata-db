@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: concrete-revolutio-choujin-gensou-the-last-song
+  titles:
+    original: コンクリート・レボルティオ～超人幻想～ THE LAST SONG
+    translations: { ja-Latn: "Concrete Revolutio: Choujin Gensou - The Last Song" }
+  seasons:
+    - id: concrete-revolutio-choujin-gensou-the-last-song-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [concrete-revolutio-choujin-gensou-the-last-song]

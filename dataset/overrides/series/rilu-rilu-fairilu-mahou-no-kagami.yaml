@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rilu-rilu-fairilu-mahou-no-kagami
+  titles:
+    original: リルリルフェアリル ~魔法の鏡~
+    translations: { ja-Latn: "Rilu Rilu Fairilu: Mahou no Kagami" }
+  seasons:
+    - id: rilu-rilu-fairilu-mahou-no-kagami-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rilu-rilu-fairilu-mahou-no-kagami]

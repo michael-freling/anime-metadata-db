@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tiny-tot-adventures
+  titles:
+    original: アカベンチャー
+    translations: { ja-Latn: Tiny Tot Adventures }
+  movies:
+    - id: tiny-tot-adventures-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tiny-tot-adventures]

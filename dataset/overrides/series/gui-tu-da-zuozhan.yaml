@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gui-tu-da-zuozhan
+  titles:
+    original: Gui Tu Da Zuozhan
+    translations: { ja-Latn: Gui Tu Da Zuozhan }
+  movies:
+    - id: gui-tu-da-zuozhan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gui-tu-da-zuozhan]

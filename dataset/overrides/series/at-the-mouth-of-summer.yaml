@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: at-the-mouth-of-summer
+  titles:
+    original: 夏の女神の口の中
+    translations: { ja-Latn: At The Mouth Of Summer }
+  movies:
+    - id: at-the-mouth-of-summer-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [at-the-mouth-of-summer]

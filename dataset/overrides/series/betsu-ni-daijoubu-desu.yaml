@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: betsu-ni-daijoubu-desu
+  titles:
+    original: 別に大丈夫です
+    translations: { ja-Latn: Betsu ni Daijoubu desu }
+  movies:
+    - id: betsu-ni-daijoubu-desu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [betsu-ni-daijoubu-desu]

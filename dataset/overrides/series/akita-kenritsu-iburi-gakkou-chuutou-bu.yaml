@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: akita-kenritsu-iburi-gakkou-chuutou-bu
+  titles:
+    original: 秋田県立いぶり学校中等部
+    translations: { ja-Latn: Akita Kenritsu Iburi Gakkou Chuutou-bu }
+  seasons:
+    - id: akita-kenritsu-iburi-gakkou-chuutou-bu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [akita-kenritsu-iburi-gakkou-chuutou-bu]

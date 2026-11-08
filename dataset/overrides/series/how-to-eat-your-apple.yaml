@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: how-to-eat-your-apple
+  titles:
+    original: How to Eat Your Apple
+    translations: { ja-Latn: How to Eat Your Apple }
+  movies:
+    - id: how-to-eat-your-apple-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [how-to-eat-your-apple]

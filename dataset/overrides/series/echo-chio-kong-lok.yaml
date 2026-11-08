@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: echo-chio-kong-lok
+  titles:
+    original: Echo Chio Kong Lok
+    translations: { ja-Latn: Echo Chio Kong Lok }
+  movies:
+    - id: echo-chio-kong-lok-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [echo-chio-kong-lok]

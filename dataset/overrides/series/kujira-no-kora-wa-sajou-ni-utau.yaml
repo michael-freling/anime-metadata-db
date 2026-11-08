@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kujira-no-kora-wa-sajou-ni-utau
+  titles:
+    original: クジラの子らは砂上に歌う
+    translations: { ja-Latn: Kujira no Kora wa Sajou ni Utau }
+  seasons:
+    - id: kujira-no-kora-wa-sajou-ni-utau-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kujira-no-kora-wa-sajou-ni-utau]

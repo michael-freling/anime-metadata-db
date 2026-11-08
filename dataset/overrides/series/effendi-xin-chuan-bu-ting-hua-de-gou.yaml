@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: effendi-xin-chuan-bu-ting-hua-de-gou
+  titles:
+    original: "Effendi Xin Chuan: Bu Ting Hua De Gou"
+    translations: { ja-Latn: "Effendi Xin Chuan: Bu Ting Hua De Gou" }
+  movies:
+    - id: effendi-xin-chuan-bu-ting-hua-de-gou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [effendi-xin-chuan-bu-ting-hua-de-gou]

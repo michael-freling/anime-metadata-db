@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tu-xia-zhi-qing-li-chuanshuo
+  titles:
+    original: Tu Xia Zhi Qing Li Chuanshuo
+    translations: { ja-Latn: Tu Xia Zhi Qing Li Chuanshuo }
+  movies:
+    - id: tu-xia-zhi-qing-li-chuanshuo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tu-xia-zhi-qing-li-chuanshuo]

@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sore-ike-anpanman-chibi-ookami-to-tsuki-no-fushigi
+  titles:
+    original: それいけ！アンパンマン　～ちびおおかみと月のふしぎ～
+    translations: { ja-Latn: "Sore Ike! Anpanman: Chibi Ookami to Tsuki no Fushigi" }
+  movies:
+    - id: sore-ike-anpanman-chibi-ookami-to-tsuki-no-fushigi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sore-ike-anpanman-chibi-ookami-to-tsuki-no-fushigi]

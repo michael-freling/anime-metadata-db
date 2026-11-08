@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: daihao-12348
+  titles:
+    original: Daihao 12348
+    translations: { ja-Latn: Daihao 12348 }
+  seasons:
+    - id: daihao-12348-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [daihao-12348]

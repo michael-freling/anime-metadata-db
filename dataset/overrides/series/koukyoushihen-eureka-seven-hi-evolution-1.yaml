@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: koukyoushihen-eureka-seven-hi-evolution-1
+  titles:
+    original: 交響詩篇エウレカセブン ハイエボリューション 1
+    translations: { ja-Latn: Koukyoushihen Eureka Seven Hi-Evolution 1 }
+  movies:
+    - id: koukyoushihen-eureka-seven-hi-evolution-1-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [koukyoushihen-eureka-seven-hi-evolution-1]

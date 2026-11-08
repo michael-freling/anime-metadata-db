@@ -1,0 +1,17 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bakuman
+  titles:
+    original: バクマン。第1シリーズ
+    translations: { ja-Latn: Bakuman. }
+  seasons:
+    - id: bakuman-s1
+      number: 1
+    - id: bakuman-s2
+      number: 2
+    - id: bakuman-s3
+      number: 3
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bakuman]

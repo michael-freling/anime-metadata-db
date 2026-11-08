@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: geukjangpan-boing-super-byeonsinui-bimil
+  titles:
+    original: "Geukjangpan Boing: Super Byeonsinui Bimil"
+    translations: { ja-Latn: "Geukjangpan Boing: Super Byeonsinui Bimil" }
+  movies:
+    - id: geukjangpan-boing-super-byeonsinui-bimil-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [geukjangpan-boing-super-byeonsinui-bimil]

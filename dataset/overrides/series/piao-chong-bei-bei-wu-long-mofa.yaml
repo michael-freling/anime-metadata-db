@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: piao-chong-bei-bei-wu-long-mofa
+  titles:
+    original: "Piao Chong Bei Bei: Wu Long Mofa"
+    translations: { ja-Latn: "Piao Chong Bei Bei: Wu Long Mofa" }
+  seasons:
+    - id: piao-chong-bei-bei-wu-long-mofa-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [piao-chong-bei-bei-wu-long-mofa]

@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: daijoubu-da-yo
+  titles:
+    original: 大丈夫だよ
+    translations: { ja-Latn: Daijoubu da yo }
+  movies:
+    - id: daijoubu-da-yo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [daijoubu-da-yo]

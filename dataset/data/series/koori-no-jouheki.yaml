@@ -19,7 +19,7 @@ series:
         anidbId: 19139
         tvdbId: 459627
       episodes:
-        count: 12
+        count: 14
         absoluteFrom: 1
   characters:
     - id: akine-atagawa

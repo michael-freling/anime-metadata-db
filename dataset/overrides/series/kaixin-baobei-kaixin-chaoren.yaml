@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaixin-baobei-kaixin-chaoren
+  titles:
+    original: "Kaixin Baobei: Kaixin Chaoren"
+    translations: { ja-Latn: "Kaixin Baobei: Kaixin Chaoren" }
+  seasons:
+    - id: kaixin-baobei-kaixin-chaoren-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaixin-baobei-kaixin-chaoren]

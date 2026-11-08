@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: my-little-goat
+  titles:
+    original: マイリトルゴート
+    translations: { ja-Latn: My Little Goat }
+  movies:
+    - id: my-little-goat-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [my-little-goat]

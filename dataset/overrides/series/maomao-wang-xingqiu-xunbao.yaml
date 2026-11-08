@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: maomao-wang-xingqiu-xunbao
+  titles:
+    original: Maomao Wang Xingqiu Xunbao
+    translations: { ja-Latn: Maomao Wang Xingqiu Xunbao }
+  seasons:
+    - id: maomao-wang-xingqiu-xunbao-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [maomao-wang-xingqiu-xunbao]

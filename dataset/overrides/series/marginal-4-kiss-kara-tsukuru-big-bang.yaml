@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: marginal-4-kiss-kara-tsukuru-big-bang
+  titles:
+    original: "MARGINAL#4 KISSから創造るBig Bang"
+    translations: { ja-Latn: "Marginal#4: Kiss kara Tsukuru Big Bang" }
+  seasons:
+    - id: marginal-4-kiss-kara-tsukuru-big-bang-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [marginal-4-kiss-kara-tsukuru-big-bang]

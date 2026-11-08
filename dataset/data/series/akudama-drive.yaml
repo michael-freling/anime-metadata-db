@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Akudama Drive
   ordering: absolute
+  externalIds:
+    wikidataId: Q96482434
   seasons:
     - id: akudama-drive-s1
       number: 1

@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: free-movie-1-timeless-medley-kizuna-character-butai-aisatsu
+  titles:
+    original: 劇場版 Free!-Timeless Medley- 絆 キャラクター舞台挨拶
+    translations: { ja-Latn: "Free! Movie 1: Timeless Medley - Kizuna - Character Butai Aisatsu" }
+  movies:
+    - id: free-movie-1-timeless-medley-kizuna-character-butai-aisatsu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [free-movie-1-timeless-medley-kizuna-character-butai-aisatsu]

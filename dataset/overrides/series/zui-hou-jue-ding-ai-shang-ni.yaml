@@ -1,0 +1,15 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zui-hou-jue-ding-ai-shang-ni
+  titles:
+    original: Zui Hou Jue Ding Ai Shang Ni
+    translations: { ja-Latn: Zui Hou Jue Ding Ai Shang Ni }
+  seasons:
+    - id: zui-hou-jue-ding-ai-shang-ni-s1
+      number: 1
+    - id: zui-hou-jue-ding-ai-shang-ni-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zui-hou-jue-ding-ai-shang-ni]

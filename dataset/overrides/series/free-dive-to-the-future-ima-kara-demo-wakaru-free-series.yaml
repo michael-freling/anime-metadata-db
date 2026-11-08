@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: free-dive-to-the-future-ima-kara-demo-wakaru-free-series
+  titles:
+    original: Free! Dive to the Future 今からでも分かる Free!シリーズ
+    translations: { ja-Latn: "Free! Dive to the Future: Ima kara demo Wakaru “Free! Series”" }
+  seasons:
+    - id: free-dive-to-the-future-ima-kara-demo-wakaru-free-series-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [free-dive-to-the-future-ima-kara-demo-wakaru-free-series]

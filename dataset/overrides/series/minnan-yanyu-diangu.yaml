@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: minnan-yanyu-diangu
+  titles:
+    original: Minnan Yanyu Diangu
+    translations: { ja-Latn: Minnan Yanyu Diangu }
+  seasons:
+    - id: minnan-yanyu-diangu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [minnan-yanyu-diangu]

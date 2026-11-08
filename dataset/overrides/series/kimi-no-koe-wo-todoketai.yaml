@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kimi-no-koe-wo-todoketai
+  titles:
+    original: キミコエ・プロジェクト (仮)
+    translations: { ja-Latn: Kimi no Koe wo Todoketai }
+  movies:
+    - id: kimi-no-koe-wo-todoketai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kimi-no-koe-wo-todoketai]

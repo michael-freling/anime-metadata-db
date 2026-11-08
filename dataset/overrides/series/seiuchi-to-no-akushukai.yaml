@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: seiuchi-to-no-akushukai
+  titles:
+    original: セイウチとの握手会
+    translations: { ja-Latn: Seiuchi to no Akushukai }
+  movies:
+    - id: seiuchi-to-no-akushukai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [seiuchi-to-no-akushukai]

@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tabisuru-nuigurumi-traveling-daru
+  titles:
+    original: 旅するぬいぐるみ ～Traveling ’Daru’～
+    translations: { ja-Latn: "Tabisuru Nuigurumi: Traveling Daru" }
+  movies:
+    - id: tabisuru-nuigurumi-traveling-daru-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tabisuru-nuigurumi-traveling-daru]

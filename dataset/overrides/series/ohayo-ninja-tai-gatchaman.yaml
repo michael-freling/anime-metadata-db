@@ -1,0 +1,15 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ohayo-ninja-tai-gatchaman
+  titles:
+    original: おはよう忍者隊ガッチャマン
+    translations: { ja-Latn: Ohayō Ninja-Tai Gatchaman }
+  seasons:
+    - id: ohayo-ninja-tai-gatchaman-s1
+      number: 1
+    - id: ohayo-ninja-tai-gatchaman-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ohayo-ninja-tai-gatchaman]

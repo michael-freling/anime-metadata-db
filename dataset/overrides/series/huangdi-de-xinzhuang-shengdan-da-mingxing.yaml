@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: huangdi-de-xinzhuang-shengdan-da-mingxing
+  titles:
+    original: "Huangdi De Xinzhuang: Shengdan Da Mingxing"
+    translations: { ja-Latn: "Huangdi De Xinzhuang: Shengdan Da Mingxing" }
+  movies:
+    - id: huangdi-de-xinzhuang-shengdan-da-mingxing-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [huangdi-de-xinzhuang-shengdan-da-mingxing]

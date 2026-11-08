@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhongguo-qiao-guniang-huangdao-po
+  titles:
+    original: "Zhongguo Qiao Guniang: Huangdao Po"
+    translations: { ja-Latn: "Zhongguo Qiao Guniang: Huangdao Po" }
+  seasons:
+    - id: zhongguo-qiao-guniang-huangdao-po-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhongguo-qiao-guniang-huangdao-po]

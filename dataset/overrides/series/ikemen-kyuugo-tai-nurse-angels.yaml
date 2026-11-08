@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ikemen-kyuugo-tai-nurse-angels
+  titles:
+    original: イケメン救護隊 Nurse Angels
+    translations: { ja-Latn: Ikemen Kyuugo-tai Nurse Angels }
+  seasons:
+    - id: ikemen-kyuugo-tai-nurse-angels-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ikemen-kyuugo-tai-nurse-angels]

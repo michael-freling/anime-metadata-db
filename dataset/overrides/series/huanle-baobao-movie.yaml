@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: huanle-baobao-movie
+  titles:
+    original: Huanle Baobao Movie
+    translations: { ja-Latn: Huanle Baobao Movie }
+  movies:
+    - id: huanle-baobao-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [huanle-baobao-movie]

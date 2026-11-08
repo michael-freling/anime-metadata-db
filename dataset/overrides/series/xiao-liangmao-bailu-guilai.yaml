@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-liangmao-bailu-guilai
+  titles:
+    original: "Xiao Liangmao: Bailu Guilai"
+    translations: { ja-Latn: "Xiao Liangmao: Bailu Guilai" }
+  seasons:
+    - id: xiao-liangmao-bailu-guilai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-liangmao-bailu-guilai]

@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kai-geoul-hosu-ui-jeonseol
+  titles:
+    original: "Kai: Geoul Hosu-ui Jeonseol"
+    translations: { ja-Latn: "Kai: Geoul Hosu-ui Jeonseol" }
+  movies:
+    - id: kai-geoul-hosu-ui-jeonseol-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kai-geoul-hosu-ui-jeonseol]

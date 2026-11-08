@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shinkansen-henkei-robo-shinkalion-the-animation
+  titles:
+    original: 新幹線変形ロボ シンカリオン THE ANIMATION
+    translations: { ja-Latn: Shinkansen Henkei Robo Shinkalion The Animation }
+  seasons:
+    - id: shinkansen-henkei-robo-shinkalion-the-animation-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shinkansen-henkei-robo-shinkalion-the-animation]

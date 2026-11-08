@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: battle-spirits-heroes
+  titles:
+    original: "バトルスピリッツ 覇王 [ヒーローズ]"
+    translations: { ja-Latn: "Battle Spirits: Heroes" }
+  seasons:
+    - id: battle-spirits-heroes-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [battle-spirits-heroes]

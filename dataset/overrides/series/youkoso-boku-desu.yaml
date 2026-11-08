@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: youkoso-boku-desu
+  titles:
+    original: ようこそぼくです選
+    translations: { ja-Latn: Youkoso Boku desu }
+  movies:
+    - id: youkoso-boku-desu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [youkoso-boku-desu]

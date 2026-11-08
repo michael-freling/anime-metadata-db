@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: funassyi-no-funafunafuna-biyori
+  titles:
+    original: ふなっしーのふなふなふな日和
+    translations: { ja-Latn: Funassyi no Funafunafuna Biyori }
+  seasons:
+    - id: funassyi-no-funafunafuna-biyori-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [funassyi-no-funafunafuna-biyori]

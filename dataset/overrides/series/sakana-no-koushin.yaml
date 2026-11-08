@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sakana-no-koushin
+  titles:
+    original: サカナノコウシン
+    translations: { ja-Latn: Sakana no Koushin }
+  movies:
+    - id: sakana-no-koushin-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sakana-no-koushin]

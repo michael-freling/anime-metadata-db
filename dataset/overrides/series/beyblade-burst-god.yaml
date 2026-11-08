@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: beyblade-burst-god
+  titles:
+    original: "ベイブレードバースト 神[ゴッド]"
+    translations: { ja-Latn: Beyblade Burst God }
+  seasons:
+    - id: beyblade-burst-god-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [beyblade-burst-god]

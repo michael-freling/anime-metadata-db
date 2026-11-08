@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chuang-chuang-chuang-wo-shi-chuang-tang-tu
+  titles:
+    original: Chuang Chuang Chuang! Wo Shi Chuang Tang Tu!
+    translations: { ja-Latn: Chuang Chuang Chuang! Wo Shi Chuang Tang Tu! }
+  seasons:
+    - id: chuang-chuang-chuang-wo-shi-chuang-tang-tu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chuang-chuang-chuang-wo-shi-chuang-tang-tu]

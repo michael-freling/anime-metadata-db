@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tu-baobao-he-san-jian-shenqi-baobei
+  titles:
+    original: Tu Baobao He San Jian Shenqi Baobei
+    translations: { ja-Latn: Tu Baobao He San Jian Shenqi Baobei }
+  seasons:
+    - id: tu-baobao-he-san-jian-shenqi-baobei-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tu-baobao-he-san-jian-shenqi-baobei]

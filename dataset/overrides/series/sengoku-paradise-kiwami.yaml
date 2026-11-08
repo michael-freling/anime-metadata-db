@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sengoku-paradise-kiwami
+  titles:
+    original: "戦国☆パラダイス-極-[きわみ]"
+    translations: { ja-Latn: Sengoku☆Paradise Kiwami }
+  seasons:
+    - id: sengoku-paradise-kiwami-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sengoku-paradise-kiwami]

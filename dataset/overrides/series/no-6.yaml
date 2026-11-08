@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: no-6
+  titles:
+    original: NO.6［ナンバー・シックス］
+    translations: { ja-Latn: No.6 }
+  seasons:
+    - id: no-6-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [no-6]

@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gekijouban-kyoukai-no-kanata-i-ll-be-here
+  titles:
+    original: 劇場版 境界の彼方-I'LL BE HERE-
+    translations: { ja-Latn: "Gekijouban Kyoukai no Kanata: I’ll Be Here" }
+  movies:
+    - id: gekijouban-kyoukai-no-kanata-i-ll-be-here-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gekijouban-kyoukai-no-kanata-i-ll-be-here]

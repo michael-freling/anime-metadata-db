@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: takosuchumu-de-odorimasen-ka
+  titles:
+    original: タコスチュームでおどりませんか
+    translations: { ja-Latn: Takosuchumu de odorimasen ka }
+  movies:
+    - id: takosuchumu-de-odorimasen-ka-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [takosuchumu-de-odorimasen-ka]

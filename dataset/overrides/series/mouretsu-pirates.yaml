@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mouretsu-pirates
+  titles:
+    original: "モーレツ宇宙海賊[パイレーツ] BODACIOUS SPACE PIRATES"
+    translations: { ja-Latn: Mouretsu Pirates }
+  seasons:
+    - id: mouretsu-pirates-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mouretsu-pirates]

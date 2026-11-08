@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: meshimase-lodoss-tou-senki-sorette-oishii-no
+  titles:
+    original: 召しませロードス島戦記～それっておいしいの？～
+    translations: { ja-Latn: "Meshimase Lodoss-tou Senki: Sorette Oishii no?" }
+  seasons:
+    - id: meshimase-lodoss-tou-senki-sorette-oishii-no-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [meshimase-lodoss-tou-senki-sorette-oishii-no]

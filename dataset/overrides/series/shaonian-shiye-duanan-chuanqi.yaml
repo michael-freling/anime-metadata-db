@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shaonian-shiye-duanan-chuanqi
+  titles:
+    original: "Shaonian Shiye: Duanan Chuanqi"
+    translations: { ja-Latn: "Shaonian Shiye: Duanan Chuanqi" }
+  seasons:
+    - id: shaonian-shiye-duanan-chuanqi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shaonian-shiye-duanan-chuanqi]

@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sore-ike-anpanman-hoshizora-wo-kaese
+  titles:
+    original: それいけ！アンパンマン～星空をかえせ～
+    translations: { ja-Latn: "Sore Ike! Anpanman: Hoshizora wo Kaese" }
+  movies:
+    - id: sore-ike-anpanman-hoshizora-wo-kaese-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sore-ike-anpanman-hoshizora-wo-kaese]

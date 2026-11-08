@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: udon-no-kuni-no-kiniro-kemari
+  titles:
+    original: うどんの国の金色毛鞠
+    translations: { ja-Latn: Udon no Kuni no Kiniro Kemari }
+  seasons:
+    - id: udon-no-kuni-no-kiniro-kemari-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [udon-no-kuni-no-kiniro-kemari]

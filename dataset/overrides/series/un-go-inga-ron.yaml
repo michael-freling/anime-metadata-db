@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: un-go-inga-ron
+  titles:
+    original: "Un-Go: Inga-ron"
+    translations: { ja-Latn: "Un-Go: Inga-ron" }
+  movies:
+    - id: un-go-inga-ron-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [un-go-inga-ron]

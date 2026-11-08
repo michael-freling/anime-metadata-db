@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: break-blade-movie-4-sanka-no-chi
+  titles:
+    original: ブレイク ブレイド 第四章 惨禍ノ地
+    translations: { ja-Latn: "Break Blade Movie 4: Sanka no Chi" }
+  movies:
+    - id: break-blade-movie-4-sanka-no-chi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [break-blade-movie-4-sanka-no-chi]

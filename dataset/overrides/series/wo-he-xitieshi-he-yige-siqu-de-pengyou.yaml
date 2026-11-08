@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wo-he-xitieshi-he-yige-siqu-de-pengyou
+  titles:
+    original: Wo He Xitieshi He Yige Siqu de Pengyou
+    translations: { ja-Latn: Wo He Xitieshi He Yige Siqu de Pengyou }
+  movies:
+    - id: wo-he-xitieshi-he-yige-siqu-de-pengyou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wo-he-xitieshi-he-yige-siqu-de-pengyou]

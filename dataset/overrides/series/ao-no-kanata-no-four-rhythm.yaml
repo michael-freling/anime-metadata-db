@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ao-no-kanata-no-four-rhythm
+  titles:
+    original: 蒼の彼方のフォーリズム
+    translations: { ja-Latn: Ao no Kanata no Four Rhythm }
+  seasons:
+    - id: ao-no-kanata-no-four-rhythm-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ao-no-kanata-no-four-rhythm]

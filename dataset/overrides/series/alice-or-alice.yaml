@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: alice-or-alice
+  titles:
+    original: ありすorありす ~シスコン兄さんと双子の妹~
+    translations: { ja-Latn: Alice or Alice }
+  seasons:
+    - id: alice-or-alice-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [alice-or-alice]

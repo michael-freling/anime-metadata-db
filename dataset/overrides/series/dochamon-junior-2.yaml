@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dochamon-junior-2
+  titles:
+    original: どちゃもん じゅにあ(第2シリーズ)
+    translations: { ja-Latn: Dochamon Junior 2 }
+  seasons:
+    - id: dochamon-junior-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dochamon-junior-2]

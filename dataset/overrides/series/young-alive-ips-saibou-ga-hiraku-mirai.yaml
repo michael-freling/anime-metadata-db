@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: young-alive-ips-saibou-ga-hiraku-mirai
+  titles:
+    original: Young Alive! ~iPS細胞がひらく未来~
+    translations: { ja-Latn: "Young Alive!: iPS Saibou ga Hiraku Mirai" }
+  movies:
+    - id: young-alive-ips-saibou-ga-hiraku-mirai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [young-alive-ips-saibou-ga-hiraku-mirai]

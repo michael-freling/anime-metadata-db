@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-hua-xian-3rd-season-shou-hu-tian-shi
+  titles:
+    original: "Xiao Hua Xian 3rd Season: Shou Hu Tian Shi"
+    translations: { ja-Latn: "Xiao Hua Xian 3rd Season: Shou Hu Tian Shi" }
+  seasons:
+    - id: xiao-hua-xian-3rd-season-shou-hu-tian-shi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-hua-xian-3rd-season-shou-hu-tian-shi]

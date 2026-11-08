@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tsumamareru-koma
+  titles:
+    original: つままれるコマ
+    translations: { ja-Latn: Tsumamareru Koma }
+  movies:
+    - id: tsumamareru-koma-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tsumamareru-koma]

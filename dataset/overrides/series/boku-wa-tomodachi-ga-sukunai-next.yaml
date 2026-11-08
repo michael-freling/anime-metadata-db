@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: boku-wa-tomodachi-ga-sukunai-next
+  titles:
+    original: 僕は友達が少ない NEXT
+    translations: { ja-Latn: Boku wa Tomodachi ga Sukunai Next }
+  seasons:
+    - id: boku-wa-tomodachi-ga-sukunai-next-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [boku-wa-tomodachi-ga-sukunai-next]

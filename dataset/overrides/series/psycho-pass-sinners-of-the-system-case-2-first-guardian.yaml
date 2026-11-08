@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: psycho-pass-sinners-of-the-system-case-2-first-guardian
+  titles:
+    original: PSYCHO-PASS サイコパス Sinners of the System Case.2 - First Guardian
+    translations: { ja-Latn: "Psycho-Pass: Sinners of the System Case.2 - First Guardian" }
+  movies:
+    - id: psycho-pass-sinners-of-the-system-case-2-first-guardian-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [psycho-pass-sinners-of-the-system-case-2-first-guardian]

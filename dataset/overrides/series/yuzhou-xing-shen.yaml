@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yuzhou-xing-shen
+  titles:
+    original: Yuzhou Xing Shen
+    translations: { ja-Latn: Yuzhou Xing Shen }
+  seasons:
+    - id: yuzhou-xing-shen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yuzhou-xing-shen]

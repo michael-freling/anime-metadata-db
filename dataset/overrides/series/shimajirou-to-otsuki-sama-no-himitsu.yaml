@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shimajirou-to-otsuki-sama-no-himitsu
+  titles:
+    original: しまじろうとおつきさまのひみつ
+    translations: { ja-Latn: Shimajirou to Otsuki-sama no Himitsu }
+  movies:
+    - id: shimajirou-to-otsuki-sama-no-himitsu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shimajirou-to-otsuki-sama-no-himitsu]

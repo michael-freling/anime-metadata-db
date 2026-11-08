@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gals
+  titles:
+    original: 女友だち
+    translations: { ja-Latn: Gals }
+  movies:
+    - id: gals-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gals]

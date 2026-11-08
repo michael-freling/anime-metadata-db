@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fusuma-2
+  titles:
+    original: Fusuma 2
+    translations: { ja-Latn: Fusuma 2 }
+  movies:
+    - id: fusuma-2-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fusuma-2]

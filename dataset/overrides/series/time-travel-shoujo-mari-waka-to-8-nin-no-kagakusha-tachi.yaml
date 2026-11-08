@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: time-travel-shoujo-mari-waka-to-8-nin-no-kagakusha-tachi
+  titles:
+    original: タイムトラベル少女 ~マリ・ワカと8人の科学者たち~
+    translations: { ja-Latn: "Time Travel Shoujo: Mari Waka to 8-nin no Kagakusha-tachi" }
+  seasons:
+    - id: time-travel-shoujo-mari-waka-to-8-nin-no-kagakusha-tachi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [time-travel-shoujo-mari-waka-to-8-nin-no-kagakusha-tachi]

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Odd Taxi
   ordering: absolute
+  externalIds:
+    wikidataId: Q105965081
   seasons:
     - id: odd-taxi-s1
       number: 1

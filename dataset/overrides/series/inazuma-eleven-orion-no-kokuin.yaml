@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: inazuma-eleven-orion-no-kokuin
+  titles:
+    original: イナズマイレブン オリオンの刻印
+    translations: { ja-Latn: "Inazuma Eleven: Orion no Kokuin" }
+  seasons:
+    - id: inazuma-eleven-orion-no-kokuin-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [inazuma-eleven-orion-no-kokuin]

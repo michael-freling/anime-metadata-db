@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sidonia-no-kishi-daikyuu-wakusei-seneki
+  titles:
+    original: シドニアの騎士 第九惑星戦役
+    translations: { ja-Latn: "Sidonia no Kishi: Daikyuu Wakusei Seneki" }
+  seasons:
+    - id: sidonia-no-kishi-daikyuu-wakusei-seneki-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sidonia-no-kishi-daikyuu-wakusei-seneki]

@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-idolm-ster-sidem-wake-atte-mini
+  titles:
+    original: アイドルマスター SideM 理由あってMini!
+    translations: { ja-Latn: "The iDOLM@STER SideM: Wake Atte Mini!" }
+  seasons:
+    - id: the-idolm-ster-sidem-wake-atte-mini-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-idolm-ster-sidem-wake-atte-mini]

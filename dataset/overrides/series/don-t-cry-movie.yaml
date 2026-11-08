@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: don-t-cry-movie
+  titles:
+    original: ドントクライ
+    translations: { ja-Latn: Don't Cry (Movie) }
+  movies:
+    - id: don-t-cry-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [don-t-cry-movie]

@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: do-ji-le
+  titles:
+    original: "Do-ji-le?"
+    translations: { ja-Latn: "Do-ji-le?" }
+  movies:
+    - id: do-ji-le-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [do-ji-le]

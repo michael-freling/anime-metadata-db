@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hello-jadoo-2
+  titles:
+    original: Hello Jadoo 2
+    translations: { ja-Latn: Hello Jadoo 2 }
+  seasons:
+    - id: hello-jadoo-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hello-jadoo-2]

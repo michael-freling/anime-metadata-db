@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: uchuu-senkan-yamato-2199-movie-7-soshite-kan-wa-iku
+  titles:
+    original: "Uchuu Senkan Yamato 2199 Movie 7: Soshite Kan wa Iku"
+    translations: { ja-Latn: "Uchuu Senkan Yamato 2199 Movie 7: Soshite Kan wa Iku" }
+  movies:
+    - id: uchuu-senkan-yamato-2199-movie-7-soshite-kan-wa-iku-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [uchuu-senkan-yamato-2199-movie-7-soshite-kan-wa-iku]

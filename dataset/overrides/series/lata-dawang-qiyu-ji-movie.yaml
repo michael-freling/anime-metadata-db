@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lata-dawang-qiyu-ji-movie
+  titles:
+    original: Lata Dawang Qiyu Ji (Movie)
+    translations: { ja-Latn: Lata Dawang Qiyu Ji (Movie) }
+  movies:
+    - id: lata-dawang-qiyu-ji-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lata-dawang-qiyu-ji-movie]

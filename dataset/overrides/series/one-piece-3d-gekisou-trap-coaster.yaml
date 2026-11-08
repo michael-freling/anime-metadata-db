@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: one-piece-3d-gekisou-trap-coaster
+  titles:
+    original: ONE PIECE 3D 激走! トラップコースター
+    translations: { ja-Latn: "One Piece 3D: Gekisou! Trap Coaster" }
+  movies:
+    - id: one-piece-3d-gekisou-trap-coaster-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [one-piece-3d-gekisou-trap-coaster]

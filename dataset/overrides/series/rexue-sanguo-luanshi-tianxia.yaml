@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rexue-sanguo-luanshi-tianxia
+  titles:
+    original: "Rexue Sanguo: Luanshi Tianxia"
+    translations: { ja-Latn: "Rexue Sanguo: Luanshi Tianxia" }
+  seasons:
+    - id: rexue-sanguo-luanshi-tianxia-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rexue-sanguo-luanshi-tianxia]

@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hane-ga-hoshii
+  titles:
+    original: 羽がほしい
+    translations: { ja-Latn: Hane ga Hoshii }
+  movies:
+    - id: hane-ga-hoshii-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hane-ga-hoshii]

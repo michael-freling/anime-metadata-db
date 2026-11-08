@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shimajiro-to-fufu-no-daiboken-sukue-nanairo-no-hana
+  titles:
+    original: しまじろうと フフの だいぼうけん ～すくえ！七色の花～
+    translations: { ja-Latn: Shimajirō to Fufu no Daibōken ~Sukue! Nanairo no Hana~ }
+  movies:
+    - id: shimajiro-to-fufu-no-daiboken-sukue-nanairo-no-hana-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shimajiro-to-fufu-no-daiboken-sukue-nanairo-no-hana]

@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jinpai-bang-bang-bang-ai-yu-mengxiang
+  titles:
+    original: "Jinpai Bang Bang Bang: Ai Yu Mengxiang"
+    translations: { ja-Latn: "Jinpai Bang Bang Bang: Ai Yu Mengxiang" }
+  seasons:
+    - id: jinpai-bang-bang-bang-ai-yu-mengxiang-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jinpai-bang-bang-bang-ai-yu-mengxiang]

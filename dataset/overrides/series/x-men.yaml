@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: x-men
+  titles:
+    original: エックスメン
+    translations: { ja-Latn: X-Men }
+  seasons:
+    - id: x-men-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [x-men]

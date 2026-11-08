@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shimajirou-no-wow-movie-3-shimajirou-to-ookinaki
+  titles:
+    original: 劇場版しまじろうのわお! しまじろうとおおきなき
+    translations: { ja-Latn: "Shimajirou no Wow! Movie 3: Shimajirou to Ookinaki" }
+  movies:
+    - id: shimajirou-no-wow-movie-3-shimajirou-to-ookinaki-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shimajirou-no-wow-movie-3-shimajirou-to-ookinaki]

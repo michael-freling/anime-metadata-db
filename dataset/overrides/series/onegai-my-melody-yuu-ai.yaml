@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: onegai-my-melody-yuu-ai
+  titles:
+    original: おねがいマイメロディ 友 & 愛
+    translations: { ja-Latn: "Onegai My Melody: Yuu & Ai" }
+  movies:
+    - id: onegai-my-melody-yuu-ai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [onegai-my-melody-yuu-ai]

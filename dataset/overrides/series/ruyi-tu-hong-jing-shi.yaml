@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ruyi-tu-hong-jing-shi
+  titles:
+    original: "Ruyi Tu: Hong Jing Shi"
+    translations: { ja-Latn: "Ruyi Tu: Hong Jing Shi" }
+  seasons:
+    - id: ruyi-tu-hong-jing-shi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ruyi-tu-hong-jing-shi]

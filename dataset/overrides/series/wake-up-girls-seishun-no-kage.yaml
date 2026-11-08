@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wake-up-girls-seishun-no-kage
+  titles:
+    original: "Wake Up, Girls！ 青春の影"
+    translations: { ja-Latn: "Wake Up, Girls! Seishun no Kage" }
+  movies:
+    - id: wake-up-girls-seishun-no-kage-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wake-up-girls-seishun-no-kage]

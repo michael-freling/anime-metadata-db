@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: doby-disy-meimeng-jingling
+  titles:
+    original: "Doby Disy: Meimeng Jingling"
+    translations: { ja-Latn: "Doby Disy: Meimeng Jingling" }
+  seasons:
+    - id: doby-disy-meimeng-jingling-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [doby-disy-meimeng-jingling]

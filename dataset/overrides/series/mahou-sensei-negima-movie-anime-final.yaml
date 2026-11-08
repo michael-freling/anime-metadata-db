@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mahou-sensei-negima-movie-anime-final
+  titles:
+    original: 劇場版 魔法先生ネギま! ANIME FINAL
+    translations: { ja-Latn: "Mahou Sensei Negima! Movie: Anime Final" }
+  movies:
+    - id: mahou-sensei-negima-movie-anime-final-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mahou-sensei-negima-movie-anime-final]

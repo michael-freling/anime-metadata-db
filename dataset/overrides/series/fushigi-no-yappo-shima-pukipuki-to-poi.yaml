@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fushigi-no-yappo-shima-pukipuki-to-poi
+  titles:
+    original: ふしぎのヤッポ島 プキプキとポイ
+    translations: { ja-Latn: "Fushigi no Yappo Shima: Pukipuki to Poi" }
+  seasons:
+    - id: fushigi-no-yappo-shima-pukipuki-to-poi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fushigi-no-yappo-shima-pukipuki-to-poi]

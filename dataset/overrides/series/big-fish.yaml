@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: big-fish
+  titles:
+    original: Big Fish
+    translations: { ja-Latn: Big Fish }
+  movies:
+    - id: big-fish-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [big-fish]

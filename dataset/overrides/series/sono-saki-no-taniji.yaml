@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sono-saki-no-taniji
+  titles:
+    original: その先の旅路
+    translations: { ja-Latn: Sono Saki no Taniji }
+  movies:
+    - id: sono-saki-no-taniji-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sono-saki-no-taniji]

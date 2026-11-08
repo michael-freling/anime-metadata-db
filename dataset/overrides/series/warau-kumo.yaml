@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: warau-kumo
+  titles:
+    original: 笑う蜘蛛
+    translations: { ja-Latn: Warau Kumo }
+  movies:
+    - id: warau-kumo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [warau-kumo]

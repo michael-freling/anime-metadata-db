@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: garo-movie-divine-flame
+  titles:
+    original: "Garo Movie: Divine Flame"
+    translations: { ja-Latn: "Garo Movie: Divine Flame" }
+  movies:
+    - id: garo-movie-divine-flame-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [garo-movie-divine-flame]

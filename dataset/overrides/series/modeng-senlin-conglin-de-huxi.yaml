@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: modeng-senlin-conglin-de-huxi
+  titles:
+    original: "Modeng Senlin: Conglin De Huxi"
+    translations: { ja-Latn: "Modeng Senlin: Conglin De Huxi" }
+  seasons:
+    - id: modeng-senlin-conglin-de-huxi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [modeng-senlin-conglin-de-huxi]

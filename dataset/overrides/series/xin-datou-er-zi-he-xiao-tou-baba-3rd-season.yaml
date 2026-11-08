@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xin-datou-er-zi-he-xiao-tou-baba-3rd-season
+  titles:
+    original: Xin Datou Er Zi He Xiao Tou Baba 3rd Season
+    translations: { ja-Latn: Xin Datou Er Zi He Xiao Tou Baba 3rd Season }
+  seasons:
+    - id: xin-datou-er-zi-he-xiao-tou-baba-3rd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xin-datou-er-zi-he-xiao-tou-baba-3rd-season]

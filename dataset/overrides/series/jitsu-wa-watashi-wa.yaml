@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jitsu-wa-watashi-wa
+  titles:
+    original: じつわた
+    translations: { ja-Latn: Jitsu wa Watashi wa }
+  seasons:
+    - id: jitsu-wa-watashi-wa-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jitsu-wa-watashi-wa]

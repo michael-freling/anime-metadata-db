@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: maken-ki
+  titles:
+    original: マケン姫っ!
+    translations: { ja-Latn: Maken-Ki! }
+  seasons:
+    - id: maken-ki-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [maken-ki]

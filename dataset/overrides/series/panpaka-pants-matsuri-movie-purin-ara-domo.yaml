@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: panpaka-pants-matsuri-movie-purin-ara-domo
+  titles:
+    original: "えいが パンパカパンツまつり -プリン あら, ど~も-"
+    translations: { ja-Latn: "Panpaka Pants Matsuri Movie: Purin Ara, Domo" }
+  movies:
+    - id: panpaka-pants-matsuri-movie-purin-ara-domo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [panpaka-pants-matsuri-movie-purin-ara-domo]

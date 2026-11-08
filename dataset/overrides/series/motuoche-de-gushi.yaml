@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: motuoche-de-gushi
+  titles:
+    original: Motuoche De Gushi
+    translations: { ja-Latn: Motuoche De Gushi }
+  movies:
+    - id: motuoche-de-gushi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [motuoche-de-gushi]

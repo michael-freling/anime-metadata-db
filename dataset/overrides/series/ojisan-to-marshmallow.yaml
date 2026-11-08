@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ojisan-to-marshmallow
+  titles:
+    original: おじさんとマシュマロ
+    translations: { ja-Latn: Ojisan to Marshmallow }
+  seasons:
+    - id: ojisan-to-marshmallow-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ojisan-to-marshmallow]

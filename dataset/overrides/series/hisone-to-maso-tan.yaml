@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hisone-to-maso-tan
+  titles:
+    original: ひそねとまそたん
+    translations: { ja-Latn: Hisone to Maso-tan }
+  seasons:
+    - id: hisone-to-maso-tan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hisone-to-maso-tan]

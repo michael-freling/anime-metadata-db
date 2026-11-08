@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shigatsu-wa-kimi-no-uso
+  titles:
+    original: 四月は君の嘘
+    translations: { ja-Latn: Shigatsu wa Kimi no Uso }
+  seasons:
+    - id: shigatsu-wa-kimi-no-uso-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shigatsu-wa-kimi-no-uso]

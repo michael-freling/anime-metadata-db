@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: madan-no-ou-to-vanadis
+  titles:
+    original: 魔弾の王と戦姫 (ヴァナディース)
+    translations: { ja-Latn: Madan no Ou to Vanadis }
+  seasons:
+    - id: madan-no-ou-to-vanadis-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [madan-no-ou-to-vanadis]

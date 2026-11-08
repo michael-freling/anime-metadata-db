@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: to-love-ru-darkness-2nd
+  titles:
+    original: To Loveる -とらぶる- ダークネス 2nd
+    translations: { ja-Latn: To LOVE-Ru Darkness 2nd }
+  seasons:
+    - id: to-love-ru-darkness-2nd-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [to-love-ru-darkness-2nd]

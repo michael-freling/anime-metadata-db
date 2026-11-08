@@ -4,8 +4,11 @@ series:
   titles:
     original: 映像研には手を出すな!
     translations:
+      en: Keep Your Hands Off Eizouken!
       ja-Latn: Eizouken ni wa Te wo Dasu na!
   ordering: absolute
+  externalIds:
+    wikidataId: Q65068326
   seasons:
     - id: eizouken-ni-wa-te-wo-dasu-na-s1
       number: 1

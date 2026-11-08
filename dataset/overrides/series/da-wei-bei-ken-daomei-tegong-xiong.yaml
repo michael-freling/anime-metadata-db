@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: da-wei-bei-ken-daomei-tegong-xiong
+  titles:
+    original: "Da Wei Bei Ken: Daomei Tegong Xiong"
+    translations: { ja-Latn: "Da Wei Bei Ken: Daomei Tegong Xiong" }
+  movies:
+    - id: da-wei-bei-ken-daomei-tegong-xiong-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [da-wei-bei-ken-daomei-tegong-xiong]

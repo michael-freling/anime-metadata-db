@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: spider-man-into-the-spider-verse
+  titles:
+    original: "Spider-Man: Into The Spider-Verse"
+    translations: { ja-Latn: "Spider-Man: Into The Spider-Verse" }
+  movies:
+    - id: spider-man-into-the-spider-verse-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [spider-man-into-the-spider-verse]

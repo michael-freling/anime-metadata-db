@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: f-chara-all-stars-daishuugou-doraemon-perman-kikiippatsu
+  titles:
+    original: "Fキャラオールスターズ大集合 ドラえもん&パーマン 危機一髪!?"
+    translations: { ja-Latn: "F-Chara All Stars Daishuugou: Doraemon & Perman - Kikiippatsu!?" }
+  movies:
+    - id: f-chara-all-stars-daishuugou-doraemon-perman-kikiippatsu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [f-chara-all-stars-daishuugou-doraemon-perman-kikiippatsu]

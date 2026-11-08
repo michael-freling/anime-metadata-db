@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fujilog-season-2
+  titles:
+    original: フジログ シーズン2
+    translations: { ja-Latn: Fujilog Season 2 }
+  seasons:
+    - id: fujilog-season-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fujilog-season-2]

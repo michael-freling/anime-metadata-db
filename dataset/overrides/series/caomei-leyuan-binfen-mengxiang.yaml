@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: caomei-leyuan-binfen-mengxiang
+  titles:
+    original: "Caomei Leyuan: Binfen Mengxiang"
+    translations: { ja-Latn: "Caomei Leyuan: Binfen Mengxiang" }
+  seasons:
+    - id: caomei-leyuan-binfen-mengxiang-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [caomei-leyuan-binfen-mengxiang]

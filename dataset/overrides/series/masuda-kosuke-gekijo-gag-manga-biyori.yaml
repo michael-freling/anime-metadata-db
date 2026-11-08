@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: masuda-kosuke-gekijo-gag-manga-biyori
+  titles:
+    original: 増田こうすけ劇場 ギャグマンガ日和＋（プラス）
+    translations: { ja-Latn: Masuda Kōsuke Gekijō Gag Manga Biyori+ }
+  seasons:
+    - id: masuda-kosuke-gekijo-gag-manga-biyori-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [masuda-kosuke-gekijo-gag-manga-biyori]

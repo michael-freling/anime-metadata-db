@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shui-shen-wa
+  titles:
+    original: Shui Shen Wa
+    translations: { ja-Latn: Shui Shen Wa }
+  movies:
+    - id: shui-shen-wa-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shui-shen-wa]

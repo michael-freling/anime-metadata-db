@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: reinventing-the-square-wheel
+  titles:
+    original: 四角い車輪の再発明
+    translations: { ja-Latn: Reinventing the Square Wheel }
+  movies:
+    - id: reinventing-the-square-wheel-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [reinventing-the-square-wheel]

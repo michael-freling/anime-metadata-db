@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mumu-xiong-huanqiu-tansuo
+  titles:
+    original: Mumu Xiong Huanqiu Tansuo
+    translations: { ja-Latn: Mumu Xiong Huanqiu Tansuo }
+  seasons:
+    - id: mumu-xiong-huanqiu-tansuo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mumu-xiong-huanqiu-tansuo]

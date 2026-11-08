@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: taka-no-tsume-go-utsukushiki-elleair-shoushuu-plus
+  titles:
+    original: "鷹の爪GO 吉田, 秘密結社やめるってよ."
+    translations: { ja-Latn: "Taka no Tsume GO: Utsukushiki Elleair Shoushuu Plus" }
+  movies:
+    - id: taka-no-tsume-go-utsukushiki-elleair-shoushuu-plus-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [taka-no-tsume-go-utsukushiki-elleair-shoushuu-plus]

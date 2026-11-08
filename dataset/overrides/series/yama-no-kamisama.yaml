@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yama-no-kamisama
+  titles:
+    original: やまのかみさま
+    translations: { ja-Latn: Yama no Kamisama }
+  movies:
+    - id: yama-no-kamisama-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yama-no-kamisama]

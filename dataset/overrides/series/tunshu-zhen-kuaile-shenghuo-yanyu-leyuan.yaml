@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tunshu-zhen-kuaile-shenghuo-yanyu-leyuan
+  titles:
+    original: "Tunshu Zhen Kuaile Shenghuo: Yanyu Leyuan"
+    translations: { ja-Latn: "Tunshu Zhen Kuaile Shenghuo: Yanyu Leyuan" }
+  seasons:
+    - id: tunshu-zhen-kuaile-shenghuo-yanyu-leyuan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tunshu-zhen-kuaile-shenghuo-yanyu-leyuan]

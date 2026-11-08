@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tutu-zhi-zhen-jia-gongzhu
+  titles:
+    original: Tutu Zhi Zhen Jia Gongzhu
+    translations: { ja-Latn: Tutu Zhi Zhen Jia Gongzhu }
+  seasons:
+    - id: tutu-zhi-zhen-jia-gongzhu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tutu-zhi-zhen-jia-gongzhu]

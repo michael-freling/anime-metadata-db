@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mangaka-san-to-assistant-san-to-the-animation
+  titles:
+    original: マンガ家さんとアシスタントさんと THE ANIMATION THE COMIC ARTIST AND ASSISTANTS
+    translations: { ja-Latn: Mangaka-san to Assistant-san to The Animation }
+  seasons:
+    - id: mangaka-san-to-assistant-san-to-the-animation-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mangaka-san-to-assistant-san-to-the-animation]

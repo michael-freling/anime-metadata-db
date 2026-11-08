@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: inu-to-hasami-wa-tsukaiyou
+  titles:
+    original: 犬とハサミは使いよう
+    translations: { ja-Latn: Inu to Hasami wa Tsukaiyou }
+  seasons:
+    - id: inu-to-hasami-wa-tsukaiyou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [inu-to-hasami-wa-tsukaiyou]

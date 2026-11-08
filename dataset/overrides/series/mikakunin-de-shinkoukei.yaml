@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mikakunin-de-shinkoukei
+  titles:
+    original: 未確認で進行形
+    translations: { ja-Latn: Mikakunin de Shinkoukei }
+  seasons:
+    - id: mikakunin-de-shinkoukei-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mikakunin-de-shinkoukei]

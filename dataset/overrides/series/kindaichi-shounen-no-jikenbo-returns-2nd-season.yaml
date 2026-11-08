@@ -1,0 +1,15 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kindaichi-shounen-no-jikenbo-returns-2nd-season
+  titles:
+    original: "金田一少年の事件簿R[リターンズ]"
+    translations: { ja-Latn: Kindaichi Shounen no Jikenbo Returns 2nd Season }
+  seasons:
+    - id: kindaichi-shounen-no-jikenbo-returns-2nd-season-s1
+      number: 1
+    - id: kindaichi-shounen-no-jikenbo-returns-2nd-season-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kindaichi-shounen-no-jikenbo-returns-2nd-season]

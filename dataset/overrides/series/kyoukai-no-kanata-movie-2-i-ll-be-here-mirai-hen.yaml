@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kyoukai-no-kanata-movie-2-i-ll-be-here-mirai-hen
+  titles:
+    original: 劇場版 境界の彼方 －I’LL BE HERE－ 未来篇
+    translations: { ja-Latn: "Kyoukai no Kanata Movie 2: I'll Be Here - Mirai-hen" }
+  movies:
+    - id: kyoukai-no-kanata-movie-2-i-ll-be-here-mirai-hen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kyoukai-no-kanata-movie-2-i-ll-be-here-mirai-hen]

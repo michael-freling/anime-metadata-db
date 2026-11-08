@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-mayi-huanqiu-da-maoxian
+  titles:
+    original: "Xiao Mayi: Huanqiu Da Maoxian"
+    translations: { ja-Latn: "Xiao Mayi: Huanqiu Da Maoxian" }
+  movies:
+    - id: xiao-mayi-huanqiu-da-maoxian-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-mayi-huanqiu-da-maoxian]

@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: makeruna-aku-no-gundan
+  titles:
+    original: まけるな!! あくのぐんだん!
+    translations: { ja-Latn: Makeruna!! Aku no Gundan! }
+  seasons:
+    - id: makeruna-aku-no-gundan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [makeruna-aku-no-gundan]

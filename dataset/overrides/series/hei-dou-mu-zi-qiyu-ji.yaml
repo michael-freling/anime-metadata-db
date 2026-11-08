@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hei-dou-mu-zi-qiyu-ji
+  titles:
+    original: Hei Dou Mu Zi Qiyu Ji
+    translations: { ja-Latn: Hei Dou Mu Zi Qiyu Ji }
+  seasons:
+    - id: hei-dou-mu-zi-qiyu-ji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hei-dou-mu-zi-qiyu-ji]

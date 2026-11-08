@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gangtie-feilong-zaijian-ultraman
+  titles:
+    original: "Gangtie Feilong: Zaijian Ultraman"
+    translations: { ja-Latn: "Gangtie Feilong: Zaijian Ultraman" }
+  movies:
+    - id: gangtie-feilong-zaijian-ultraman-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gangtie-feilong-zaijian-ultraman]

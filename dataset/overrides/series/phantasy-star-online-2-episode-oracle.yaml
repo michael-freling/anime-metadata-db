@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: phantasy-star-online-2-episode-oracle
+  titles:
+    original: ファンタシースターオンライン2 エピソード・オラクル
+    translations: { ja-Latn: "Phantasy Star Online 2: Episode Oracle" }
+  seasons:
+    - id: phantasy-star-online-2-episode-oracle-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [phantasy-star-online-2-episode-oracle]

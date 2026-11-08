@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kakushigoto
   ordering: absolute
+  externalIds:
+    wikidataId: Q24875369
   seasons:
     - id: kakushigoto-s1
       number: 1

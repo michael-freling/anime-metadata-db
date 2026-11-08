@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tantei-opera-milky-holmes-movie-gyakushuu-no-milky-holmes
+  titles:
+    original: 劇場版 探偵オペラ ミルキィホームズ ~逆襲のミルキィホームズ~
+    translations: { ja-Latn: "Tantei Opera Milky Holmes Movie: Gyakushuu no Milky Holmes" }
+  movies:
+    - id: tantei-opera-milky-holmes-movie-gyakushuu-no-milky-holmes-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tantei-opera-milky-holmes-movie-gyakushuu-no-milky-holmes]

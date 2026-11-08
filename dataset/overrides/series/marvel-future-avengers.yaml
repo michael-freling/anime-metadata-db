@@ -1,0 +1,15 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: marvel-future-avengers
+  titles:
+    original: マーベル フューチャー・アベンジャーズ
+    translations: { ja-Latn: Marvel Future Avengers }
+  seasons:
+    - id: marvel-future-avengers-s1
+      number: 1
+    - id: marvel-future-avengers-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [marvel-future-avengers]

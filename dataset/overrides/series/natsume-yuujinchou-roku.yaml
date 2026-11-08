@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: natsume-yuujinchou-roku
+  titles:
+    original: Natsume Yuujinchou Roku
+    translations: { ja-Latn: Natsume Yuujinchou Roku }
+  seasons:
+    - id: natsume-yuujinchou-roku-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [natsume-yuujinchou-roku]

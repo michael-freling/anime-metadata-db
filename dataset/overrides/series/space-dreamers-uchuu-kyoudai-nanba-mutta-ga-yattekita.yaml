@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: space-dreamers-uchuu-kyoudai-nanba-mutta-ga-yattekita
+  titles:
+    original: Space Dreamers 宇宙兄弟 南波六太がやってきた！
+    translations: { ja-Latn: "Space Dreamers: Uchuu Kyoudai Nanba Mutta ga Yattekita!" }
+  movies:
+    - id: space-dreamers-uchuu-kyoudai-nanba-mutta-ga-yattekita-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [space-dreamers-uchuu-kyoudai-nanba-mutta-ga-yattekita]

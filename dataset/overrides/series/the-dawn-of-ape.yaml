@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-dawn-of-ape
+  titles:
+    original: The Dawn of Ape
+    translations: { ja-Latn: The Dawn of Ape }
+  movies:
+    - id: the-dawn-of-ape-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-dawn-of-ape]

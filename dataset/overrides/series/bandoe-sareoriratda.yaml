@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bandoe-sareoriratda
+  titles:
+    original: Bandoe Sareoriratda
+    translations: { ja-Latn: Bandoe Sareoriratda }
+  movies:
+    - id: bandoe-sareoriratda-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bandoe-sareoriratda]

@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: cocomong-3
+  titles:
+    original: れいぞうこのくにのココモン3
+    translations: { ja-Latn: Cocomong 3 }
+  seasons:
+    - id: cocomong-3-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [cocomong-3]

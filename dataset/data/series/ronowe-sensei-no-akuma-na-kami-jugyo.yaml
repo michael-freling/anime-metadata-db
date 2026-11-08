@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Ronowe Sensei no Akuma na Kami Jugyō
   ordering: absolute
+  externalIds:
+    wikidataId: Q97212209
   seasons:
     - id: ronowe-sensei-no-akuma-na-kami-jugyo-s1
       number: 1

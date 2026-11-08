@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: man-on-the-chair
+  titles:
+    original: Man on the Chair
+    translations: { ja-Latn: Man on the Chair }
+  movies:
+    - id: man-on-the-chair-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [man-on-the-chair]

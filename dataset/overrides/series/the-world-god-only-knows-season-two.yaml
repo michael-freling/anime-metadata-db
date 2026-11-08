@@ -1,0 +1,15 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-world-god-only-knows-season-two
+  titles:
+    original: 神のみぞ知るセカイⅡ
+    translations: { ja-Latn: The World God Only Knows Season Two }
+  seasons:
+    - id: the-world-god-only-knows-season-two-s1
+      number: 1
+    - id: the-world-god-only-knows-season-two-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-world-god-only-knows-season-two]

@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: black-fox
+  titles:
+    original: ブラックフォックス
+    translations: { ja-Latn: Black Fox }
+  movies:
+    - id: black-fox-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [black-fox]

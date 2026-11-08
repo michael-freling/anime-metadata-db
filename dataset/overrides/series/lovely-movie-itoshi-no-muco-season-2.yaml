@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lovely-movie-itoshi-no-muco-season-2
+  titles:
+    original: ラブリームービー いとしのムーコ Season 2
+    translations: { ja-Latn: "Lovely Movie: Itoshi no Muco Season 2" }
+  seasons:
+    - id: lovely-movie-itoshi-no-muco-season-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lovely-movie-itoshi-no-muco-season-2]

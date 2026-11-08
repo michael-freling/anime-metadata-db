@@ -1,0 +1,15 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ookami-san-to-shichinin-no-nakama-tachi
+  titles:
+    original: オオカミさんと七人の仲間たち
+    translations: { ja-Latn: Ookami-san to Shichinin no Nakama-tachi }
+  seasons:
+    - id: ookami-san-to-shichinin-no-nakama-tachi-s1
+      number: 1
+    - id: ookami-san-to-shichinin-no-nakama-tachi-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ookami-san-to-shichinin-no-nakama-tachi]

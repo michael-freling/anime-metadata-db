@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dorei-ku-the-animation
+  titles:
+    original: 奴隷区 僕と23人の奴隷 The Animation
+    translations: { ja-Latn: Dorei-ku The Animation }
+  seasons:
+    - id: dorei-ku-the-animation-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dorei-ku-the-animation]

@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sai-er-hao-season-3-guangming-de-jiushu
+  titles:
+    original: "Sai Er Hao Season 3: Guangming De Jiushu"
+    translations: { ja-Latn: "Sai Er Hao Season 3: Guangming De Jiushu" }
+  seasons:
+    - id: sai-er-hao-season-3-guangming-de-jiushu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sai-er-hao-season-3-guangming-de-jiushu]

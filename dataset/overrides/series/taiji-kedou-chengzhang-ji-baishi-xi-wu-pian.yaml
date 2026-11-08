@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: taiji-kedou-chengzhang-ji-baishi-xi-wu-pian
+  titles:
+    original: "Taiji Kedou Chengzhang Ji: Baishi Xi Wu Pian"
+    translations: { ja-Latn: "Taiji Kedou Chengzhang Ji: Baishi Xi Wu Pian" }
+  seasons:
+    - id: taiji-kedou-chengzhang-ji-baishi-xi-wu-pian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [taiji-kedou-chengzhang-ji-baishi-xi-wu-pian]

@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: juugo-shounen-hyouryuuki-kaizokujima-de-daibouken
+  titles:
+    original: "Juugo Shounen Hyouryuuki: Kaizokujima de! Daibouken"
+    translations: { ja-Latn: "Juugo Shounen Hyouryuuki: Kaizokujima de! Daibouken" }
+  movies:
+    - id: juugo-shounen-hyouryuuki-kaizokujima-de-daibouken-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [juugo-shounen-hyouryuuki-kaizokujima-de-daibouken]

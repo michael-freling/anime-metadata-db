@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: carole-tuesday
+  titles:
+    original: キャロル&チューズデイ
+    translations: { ja-Latn: Carole & Tuesday }
+  seasons:
+    - id: carole-tuesday-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [carole-tuesday]

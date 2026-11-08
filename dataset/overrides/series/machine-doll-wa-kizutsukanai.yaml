@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: machine-doll-wa-kizutsukanai
+  titles:
+    original: "機巧少女[マシンドール]は傷つかない"
+    translations: { ja-Latn: Machine-Doll wa Kizutsukanai }
+  seasons:
+    - id: machine-doll-wa-kizutsukanai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [machine-doll-wa-kizutsukanai]

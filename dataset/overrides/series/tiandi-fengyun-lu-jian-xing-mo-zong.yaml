@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tiandi-fengyun-lu-jian-xing-mo-zong
+  titles:
+    original: "Tiandi Fengyun Lu: Jian Xing Mo Zong"
+    translations: { ja-Latn: "Tiandi Fengyun Lu: Jian Xing Mo Zong" }
+  seasons:
+    - id: tiandi-fengyun-lu-jian-xing-mo-zong-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tiandi-fengyun-lu-jian-xing-mo-zong]

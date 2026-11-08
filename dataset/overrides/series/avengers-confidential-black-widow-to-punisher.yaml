@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: avengers-confidential-black-widow-to-punisher
+  titles:
+    original: "アベンジャーズ コンフィデンシャル: ブラック・ウィドウ & パニッシャー"
+    translations: { ja-Latn: "Avengers Confidential: Black Widow to Punisher" }
+  movies:
+    - id: avengers-confidential-black-widow-to-punisher-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [avengers-confidential-black-widow-to-punisher]

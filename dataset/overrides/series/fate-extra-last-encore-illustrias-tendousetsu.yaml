@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fate-extra-last-encore-illustrias-tendousetsu
+  titles:
+    original: Fate/EXTRA Last Encore イルステリアス天動説
+    translations: { ja-Latn: "Fate/Extra: Last Encore - Illustrias Tendousetsu" }
+  seasons:
+    - id: fate-extra-last-encore-illustrias-tendousetsu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fate-extra-last-encore-illustrias-tendousetsu]

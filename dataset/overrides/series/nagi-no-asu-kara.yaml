@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nagi-no-asu-kara
+  titles:
+    original: 凪のあすから
+    translations: { ja-Latn: Nagi no Asu kara }
+  seasons:
+    - id: nagi-no-asu-kara-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nagi-no-asu-kara]

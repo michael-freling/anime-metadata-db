@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chaoji-youeryuan
+  titles:
+    original: Chaoji Youeryuan
+    translations: { ja-Latn: Chaoji Youeryuan }
+  movies:
+    - id: chaoji-youeryuan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chaoji-youeryuan]

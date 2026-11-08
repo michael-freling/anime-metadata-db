@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: free-movie-3-road-to-the-world-yume
+  titles:
+    original: "Free! Movie 3: Road to the World - Yume"
+    translations: { ja-Latn: "Free! Movie 3: Road to the World - Yume" }
+  movies:
+    - id: free-movie-3-road-to-the-world-yume-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [free-movie-3-road-to-the-world-yume]

@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: konglong-baobei-shiluo-de-wenming
+  titles:
+    original: "Konglong Baobei: Shiluo De Wenming"
+    translations: { ja-Latn: "Konglong Baobei: Shiluo De Wenming" }
+  seasons:
+    - id: konglong-baobei-shiluo-de-wenming-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [konglong-baobei-shiluo-de-wenming]

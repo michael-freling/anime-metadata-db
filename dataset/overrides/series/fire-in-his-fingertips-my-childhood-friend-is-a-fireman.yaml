@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fire-in-his-fingertips-my-childhood-friend-is-a-fireman
+  titles:
+    original: 指先から本気の熱情-幼なじみは消防士-
+    translations: { ja-Latn: Fire in His Fingertips -My Childhood Friend is a Fireman- }
+  seasons:
+    - id: fire-in-his-fingertips-my-childhood-friend-is-a-fireman-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fire-in-his-fingertips-my-childhood-friend-is-a-fireman]

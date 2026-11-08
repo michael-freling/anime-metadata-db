@@ -1,0 +1,15 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: frame-arms-girl
+  titles:
+    original: フレームアームズ・ガール
+    translations: { ja-Latn: Frame Arms Girl }
+  seasons:
+    - id: frame-arms-girl-s1
+      number: 1
+  movies:
+    - id: frame-arms-girl-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [frame-arms-girl]

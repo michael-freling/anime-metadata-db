@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kado-beyond-information
+  titles:
+    original: "正解するカド12.5話 KADO:Beyond Information"
+    translations: { ja-Latn: "KADO: Beyond Information" }
+  movies:
+    - id: kado-beyond-information-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kado-beyond-information]

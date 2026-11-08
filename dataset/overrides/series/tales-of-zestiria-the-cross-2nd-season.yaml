@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tales-of-zestiria-the-cross-2nd-season
+  titles:
+    original: テイルズ オブ ゼスティリア ザ クロス 第2期
+    translations: { ja-Latn: Tales of Zestiria the Cross 2nd Season }
+  seasons:
+    - id: tales-of-zestiria-the-cross-2nd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tales-of-zestiria-the-cross-2nd-season]

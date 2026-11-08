@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fruity-samurai
+  titles:
+    original: フルーティー侍
+    translations: { ja-Latn: Fruity Samurai }
+  seasons:
+    - id: fruity-samurai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fruity-samurai]

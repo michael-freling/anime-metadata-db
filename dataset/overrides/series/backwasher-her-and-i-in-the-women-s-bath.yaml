@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: backwasher-her-and-i-in-the-women-s-bath
+  titles:
+    original: 洗い屋さん！～俺とアイツが女湯で！？～
+    translations: { ja-Latn: "Backwasher! -Her and I, in the Women's Bath!?-" }
+  seasons:
+    - id: backwasher-her-and-i-in-the-women-s-bath-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [backwasher-her-and-i-in-the-women-s-bath]

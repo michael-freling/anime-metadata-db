@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: meiji-tokyo-renka-movie-2-hanakagami-no-fantasia
+  titles:
+    original: 劇場版 明治東亰恋伽 〜花鏡の幻想曲〜
+    translations: { ja-Latn: "Meiji Tokyo Renka Movie 2: Hanakagami no Fantasia" }
+  movies:
+    - id: meiji-tokyo-renka-movie-2-hanakagami-no-fantasia-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [meiji-tokyo-renka-movie-2-hanakagami-no-fantasia]

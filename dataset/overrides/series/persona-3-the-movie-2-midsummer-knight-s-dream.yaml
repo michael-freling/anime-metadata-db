@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: persona-3-the-movie-2-midsummer-knight-s-dream
+  titles:
+    original: "劇場版「ペルソナ３」 #2 Midsummer Knight's Dream"
+    translations: { ja-Latn: "Persona 3 the Movie 2: Midsummer Knight's Dream" }
+  movies:
+    - id: persona-3-the-movie-2-midsummer-knight-s-dream-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [persona-3-the-movie-2-midsummer-knight-s-dream]

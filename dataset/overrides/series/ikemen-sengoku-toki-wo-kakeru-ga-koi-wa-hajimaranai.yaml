@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ikemen-sengoku-toki-wo-kakeru-ga-koi-wa-hajimaranai
+  titles:
+    original: イケメン戦国◆時をかけるが恋ははじまらない
+    translations: { ja-Latn: "Ikemen Sengoku: Toki wo Kakeru ga Koi wa Hajimaranai" }
+  seasons:
+    - id: ikemen-sengoku-toki-wo-kakeru-ga-koi-wa-hajimaranai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ikemen-sengoku-toki-wo-kakeru-ga-koi-wa-hajimaranai]

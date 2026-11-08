@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: akabashi-wa-ochita
+  titles:
+    original: あかばしは落ちた
+    translations: { ja-Latn: Akabashi wa Ochita }
+  movies:
+    - id: akabashi-wa-ochita-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [akabashi-wa-ochita]

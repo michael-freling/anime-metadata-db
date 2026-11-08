@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhezhi-zongdongyuan-zhi-bao-qibing
+  titles:
+    original: "Zhezhi Zongdongyuan: Zhi Bao Qibing"
+    translations: { ja-Latn: "Zhezhi Zongdongyuan: Zhi Bao Qibing" }
+  seasons:
+    - id: zhezhi-zongdongyuan-zhi-bao-qibing-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhezhi-zongdongyuan-zhi-bao-qibing]

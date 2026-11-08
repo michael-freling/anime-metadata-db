@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: suzy-s-zoo-daisuki-witzy
+  titles:
+    original: Suzy's Zoo だいすき! ウィッツィー
+    translations: { ja-Latn: "Suzy's Zoo: Daisuki! Witzy" }
+  seasons:
+    - id: suzy-s-zoo-daisuki-witzy-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [suzy-s-zoo-daisuki-witzy]

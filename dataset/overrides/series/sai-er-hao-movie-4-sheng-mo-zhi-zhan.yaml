@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sai-er-hao-movie-4-sheng-mo-zhi-zhan
+  titles:
+    original: "Sai Er Hao Movie 4: Sheng Mo Zhi Zhan"
+    translations: { ja-Latn: "Sai Er Hao Movie 4: Sheng Mo Zhi Zhan" }
+  movies:
+    - id: sai-er-hao-movie-4-sheng-mo-zhi-zhan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sai-er-hao-movie-4-sheng-mo-zhi-zhan]

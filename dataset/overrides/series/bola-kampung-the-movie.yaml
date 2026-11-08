@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bola-kampung-the-movie
+  titles:
+    original: "Bola Kampung: The Movie"
+    translations: { ja-Latn: "Bola Kampung: The Movie" }
+  movies:
+    - id: bola-kampung-the-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bola-kampung-the-movie]

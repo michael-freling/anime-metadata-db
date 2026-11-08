@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kizuna-ichigeki
+  titles:
+    original: 若手アニメーター育成プロジェクト3
+    translations: { ja-Latn: Kizuna Ichigeki }
+  movies:
+    - id: kizuna-ichigeki-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kizuna-ichigeki]

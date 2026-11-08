@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nemure-night
+  titles:
+    original: 眠れナイト
+    translations: { ja-Latn: Nemure Night }
+  movies:
+    - id: nemure-night-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nemure-night]

@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wooser-no-sono-higurashi-kakusei-hen
+  titles:
+    original: うーさーのその日暮らし 覚醒編
+    translations: { ja-Latn: "Wooser no Sono Higurashi: Kakusei-hen" }
+  seasons:
+    - id: wooser-no-sono-higurashi-kakusei-hen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wooser-no-sono-higurashi-kakusei-hen]

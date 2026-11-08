@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wan-ou-qibing
+  titles:
+    original: Wan Ou Qibing
+    translations: { ja-Latn: Wan Ou Qibing }
+  movies:
+    - id: wan-ou-qibing-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wan-ou-qibing]

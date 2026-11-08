@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tenohira-no-haru
+  titles:
+    original: てのひらの春
+    translations: { ja-Latn: Tenohira no Haru }
+  movies:
+    - id: tenohira-no-haru-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tenohira-no-haru]

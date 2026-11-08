@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: absolute-duo
+  titles:
+    original: アブソリュート・デュオ
+    translations: { ja-Latn: Absolute Duo }
+  seasons:
+    - id: absolute-duo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [absolute-duo]

@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gekijo-ban-haikyu-owari-to-hajimari
+  titles:
+    original: 劇場版ハイキュー！！終わりと始まり
+    translations: { ja-Latn: Gekijō-ban Haikyu!! Owari to Hajimari }
+  movies:
+    - id: gekijo-ban-haikyu-owari-to-hajimari-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gekijo-ban-haikyu-owari-to-hajimari]

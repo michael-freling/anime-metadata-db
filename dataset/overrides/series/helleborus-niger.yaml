@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: helleborus-niger
+  titles:
+    original: Helleborus Niger
+    translations: { ja-Latn: Helleborus Niger }
+  movies:
+    - id: helleborus-niger-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [helleborus-niger]

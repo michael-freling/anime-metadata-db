@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mouretsu-pirates-abyss-of-hyperspace
+  titles:
+    original: モーレツ宇宙海賊 ABYSS OF HYPERSPACE -亜空の深淵-
+    translations: { ja-Latn: "Mouretsu Pirates: Abyss of Hyperspace" }
+  movies:
+    - id: mouretsu-pirates-abyss-of-hyperspace-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mouretsu-pirates-abyss-of-hyperspace]

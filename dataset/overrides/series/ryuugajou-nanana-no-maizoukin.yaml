@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ryuugajou-nanana-no-maizoukin
+  titles:
+    original: 龍ヶ嬢七々々の埋蔵金
+    translations: { ja-Latn: Ryuugajou Nanana no Maizoukin }
+  seasons:
+    - id: ryuugajou-nanana-no-maizoukin-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ryuugajou-nanana-no-maizoukin]

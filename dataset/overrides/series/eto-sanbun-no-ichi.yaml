@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: eto-sanbun-no-ichi
+  titles:
+    original: Eto Sanbun no Ichi
+    translations: { ja-Latn: Eto Sanbun no Ichi }
+  movies:
+    - id: eto-sanbun-no-ichi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [eto-sanbun-no-ichi]

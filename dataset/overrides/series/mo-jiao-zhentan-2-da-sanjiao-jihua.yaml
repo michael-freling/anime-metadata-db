@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mo-jiao-zhentan-2-da-sanjiao-jihua
+  titles:
+    original: "Mo Jiao Zhentan 2: Da Sanjiao Jihua"
+    translations: { ja-Latn: "Mo Jiao Zhentan 2: Da Sanjiao Jihua" }
+  seasons:
+    - id: mo-jiao-zhentan-2-da-sanjiao-jihua-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mo-jiao-zhentan-2-da-sanjiao-jihua]

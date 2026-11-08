@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fallen
+  titles:
+    original: FALLEN
+    translations: { ja-Latn: FALLEN }
+  movies:
+    - id: fallen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fallen]

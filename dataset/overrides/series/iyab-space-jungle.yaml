@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: iyab-space-jungle
+  titles:
+    original: Iyab! Space Jungle
+    translations: { ja-Latn: Iyab! Space Jungle }
+  seasons:
+    - id: iyab-space-jungle-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [iyab-space-jungle]

@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bai-bian-bu-lu-ke-2nd-season
+  titles:
+    original: Bai Bian Bu Lu Ke 2nd Season
+    translations: { ja-Latn: Bai Bian Bu Lu Ke 2nd Season }
+  seasons:
+    - id: bai-bian-bu-lu-ke-2nd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bai-bian-bu-lu-ke-2nd-season]

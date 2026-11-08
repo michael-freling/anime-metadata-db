@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kyoshin to Hyōka no Shiro
   ordering: absolute
+  externalIds:
+    wikidataId: Q107525549
   seasons:
     - id: kyoshin-to-hyoka-no-shiro-s1
       number: 1

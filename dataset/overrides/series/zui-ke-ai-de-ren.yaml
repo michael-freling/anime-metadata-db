@@ -1,0 +1,15 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zui-ke-ai-de-ren
+  titles:
+    original: Zui Ke Ai De Ren
+    translations: { ja-Latn: Zui Ke Ai De Ren }
+  seasons:
+    - id: zui-ke-ai-de-ren-s1
+      number: 1
+  movies:
+    - id: zui-ke-ai-de-ren-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zui-ke-ai-de-ren]

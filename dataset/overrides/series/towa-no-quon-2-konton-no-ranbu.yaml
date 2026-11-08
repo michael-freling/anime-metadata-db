@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: towa-no-quon-2-konton-no-ranbu
+  titles:
+    original: トワノクオン 第２章 混沌の乱舞
+    translations: { ja-Latn: "Towa no Quon 2: Konton no Ranbu" }
+  movies:
+    - id: towa-no-quon-2-konton-no-ranbu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [towa-no-quon-2-konton-no-ranbu]

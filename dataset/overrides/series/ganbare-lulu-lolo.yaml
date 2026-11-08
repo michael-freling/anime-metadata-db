@@ -1,0 +1,17 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ganbare-lulu-lolo
+  titles:
+    original: がんばれ! ルルロロ
+    translations: { ja-Latn: Ganbare! Lulu Lolo }
+  seasons:
+    - id: ganbare-lulu-lolo-s1
+      number: 1
+    - id: ganbare-lulu-lolo-s2
+      number: 2
+    - id: ganbare-lulu-lolo-s3
+      number: 3
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ganbare-lulu-lolo]

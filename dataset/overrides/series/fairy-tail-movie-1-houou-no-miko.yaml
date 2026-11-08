@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fairy-tail-movie-1-houou-no-miko
+  titles:
+    original: 劇場版 FAIRY TAIL 鳳凰の巫女
+    translations: { ja-Latn: "Fairy Tail Movie 1: Houou no Miko" }
+  movies:
+    - id: fairy-tail-movie-1-houou-no-miko-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fairy-tail-movie-1-houou-no-miko]

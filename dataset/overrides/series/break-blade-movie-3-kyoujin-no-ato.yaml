@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: break-blade-movie-3-kyoujin-no-ato
+  titles:
+    original: ブレイク ブレイド 第三章 凶刃ノ痕
+    translations: { ja-Latn: "Break Blade Movie 3: Kyoujin no Ato" }
+  movies:
+    - id: break-blade-movie-3-kyoujin-no-ato-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [break-blade-movie-3-kyoujin-no-ato]

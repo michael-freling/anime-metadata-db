@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dou-long-zhanshi-xing-yin-luopan
+  titles:
+    original: "Dou Long Zhanshi: Xing Yin Luopan"
+    translations: { ja-Latn: "Dou Long Zhanshi: Xing Yin Luopan" }
+  movies:
+    - id: dou-long-zhanshi-xing-yin-luopan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dou-long-zhanshi-xing-yin-luopan]

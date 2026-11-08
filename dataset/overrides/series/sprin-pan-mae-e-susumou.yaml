@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sprin-pan-mae-e-susumou
+  titles:
+    original: スプリンパン まえへすすもう!
+    translations: { ja-Latn: "Sprin' Pan: Mae e Susumou!" }
+  movies:
+    - id: sprin-pan-mae-e-susumou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sprin-pan-mae-e-susumou]

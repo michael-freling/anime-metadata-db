@@ -1,0 +1,15 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 3d-kanojo-real-girl
+  titles:
+    original: 3D彼女 リアルガール
+    translations: { ja-Latn: "3D Kanojo: Real Girl" }
+  seasons:
+    - id: 3d-kanojo-real-girl-s1
+      number: 1
+    - id: 3d-kanojo-real-girl-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [3d-kanojo-real-girl]

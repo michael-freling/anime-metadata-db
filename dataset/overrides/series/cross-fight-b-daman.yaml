@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: cross-fight-b-daman
+  titles:
+    original: クロスファイト ビーダマン
+    translations: { ja-Latn: Cross Fight B-Daman }
+  seasons:
+    - id: cross-fight-b-daman-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [cross-fight-b-daman]

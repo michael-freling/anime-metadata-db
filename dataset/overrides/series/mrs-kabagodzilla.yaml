@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mrs-kabagodzilla
+  titles:
+    original: ミセス・カバゴジラ
+    translations: { ja-Latn: Mrs. KABAGOdZILLA }
+  movies:
+    - id: mrs-kabagodzilla-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mrs-kabagodzilla]

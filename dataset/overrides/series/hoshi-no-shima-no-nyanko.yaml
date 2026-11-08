@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hoshi-no-shima-no-nyanko
+  titles:
+    original: ほしの島のにゃんこ
+    translations: { ja-Latn: Hoshi no Shima no Nyanko }
+  seasons:
+    - id: hoshi-no-shima-no-nyanko-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hoshi-no-shima-no-nyanko]

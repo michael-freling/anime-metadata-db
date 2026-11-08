@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: keroro-gunsou-chou-rittai-ban-hoshizora-wo-torimodose-taiyoukei-daitsuiseki-de-arimasu
+  titles:
+    original: ケロロ軍曹 超立体版 星空をとりもどせ！太陽系大追跡であります!!
+    translations: { ja-Latn: "Keroro Gunsou Chou Rittai-ban: Hoshizora wo Torimodose! Taiyoukei Daitsuiseki de Arimasu!!" }
+  movies:
+    - id: keroro-gunsou-chou-rittai-ban-hoshizora-wo-torimodose-taiyoukei-daitsuiseki-de-arimasu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [keroro-gunsou-chou-rittai-ban-hoshizora-wo-torimodose-taiyoukei-daitsuiseki-de-arimasu]

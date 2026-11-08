@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: otaku-boy
+  titles:
+    original: ヲタクボーイ
+    translations: { ja-Latn: Otaku Boy }
+  movies:
+    - id: otaku-boy-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [otaku-boy]

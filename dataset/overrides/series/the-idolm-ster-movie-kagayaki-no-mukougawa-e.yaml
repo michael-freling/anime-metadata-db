@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-idolm-ster-movie-kagayaki-no-mukougawa-e
+  titles:
+    original: THE IDOLM@STER MOVIE 輝きの向こう側へ!
+    translations: { ja-Latn: "The iDOLM@STER Movie: Kagayaki no Mukougawa e!" }
+  movies:
+    - id: the-idolm-ster-movie-kagayaki-no-mukougawa-e-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-idolm-ster-movie-kagayaki-no-mukougawa-e]

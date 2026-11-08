@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jia-you-nanhai
+  titles:
+    original: Jia You Nanhai
+    translations: { ja-Latn: Jia You Nanhai }
+  seasons:
+    - id: jia-you-nanhai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jia-you-nanhai]

@@ -1,0 +1,15 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: boku-dake-ga-inai-machi
+  titles:
+    original: 僕だけがいない街
+    translations: { ja-Latn: Boku dake ga Inai Machi }
+  seasons:
+    - id: boku-dake-ga-inai-machi-s1
+      number: 1
+    - id: boku-dake-ga-inai-machi-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [boku-dake-ga-inai-machi]

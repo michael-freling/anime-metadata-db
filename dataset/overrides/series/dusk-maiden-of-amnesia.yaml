@@ -1,0 +1,15 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dusk-maiden-of-amnesia
+  titles:
+    original: 黄昏乙女×アムネジア
+    translations: { ja-Latn: Dusk maiden of Amnesia }
+  seasons:
+    - id: dusk-maiden-of-amnesia-s1
+      number: 1
+    - id: dusk-maiden-of-amnesia-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dusk-maiden-of-amnesia]

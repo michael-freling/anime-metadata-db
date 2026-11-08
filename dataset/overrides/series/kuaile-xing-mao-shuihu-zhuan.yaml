@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kuaile-xing-mao-shuihu-zhuan
+  titles:
+    original: "Kuaile Xing Mao: Shuihu Zhuan"
+    translations: { ja-Latn: "Kuaile Xing Mao: Shuihu Zhuan" }
+  seasons:
+    - id: kuaile-xing-mao-shuihu-zhuan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kuaile-xing-mao-shuihu-zhuan]

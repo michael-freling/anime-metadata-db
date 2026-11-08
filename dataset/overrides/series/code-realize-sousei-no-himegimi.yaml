@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: code-realize-sousei-no-himegimi
+  titles:
+    original: "Code: Realize ～創世の姫君～"
+    translations: { ja-Latn: "Code:Realize - Sousei no Himegimi" }
+  seasons:
+    - id: code-realize-sousei-no-himegimi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [code-realize-sousei-no-himegimi]

@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhu-zhu-xia-zhong-ji-jue-zhan
+  titles:
+    original: "Zhu Zhu Xia: Zhong Ji Jue Zhan"
+    translations: { ja-Latn: "Zhu Zhu Xia: Zhong Ji Jue Zhan" }
+  movies:
+    - id: zhu-zhu-xia-zhong-ji-jue-zhan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhu-zhu-xia-zhong-ji-jue-zhan]

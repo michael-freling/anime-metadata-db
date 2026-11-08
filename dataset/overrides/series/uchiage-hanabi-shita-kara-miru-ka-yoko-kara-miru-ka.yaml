@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: uchiage-hanabi-shita-kara-miru-ka-yoko-kara-miru-ka
+  titles:
+    original: "打ち上げ花火, 下から見るか? 横から見るか?"
+    translations: { ja-Latn: "Uchiage Hanabi, Shita kara Miru ka? Yoko kara Miru ka?" }
+  movies:
+    - id: uchiage-hanabi-shita-kara-miru-ka-yoko-kara-miru-ka-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [uchiage-hanabi-shita-kara-miru-ka-yoko-kara-miru-ka]

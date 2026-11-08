@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-pang-niu
+  titles:
+    original: Xiao Pang Niu
+    translations: { ja-Latn: Xiao Pang Niu }
+  movies:
+    - id: xiao-pang-niu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-pang-niu]

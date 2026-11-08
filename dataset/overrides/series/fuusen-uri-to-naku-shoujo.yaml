@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fuusen-uri-to-naku-shoujo
+  titles:
+    original: 風船売りと泣く少女
+    translations: { ja-Latn: Fuusen Uri to Naku Shoujo }
+  movies:
+    - id: fuusen-uri-to-naku-shoujo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fuusen-uri-to-naku-shoujo]

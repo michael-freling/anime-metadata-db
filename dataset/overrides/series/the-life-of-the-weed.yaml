@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-life-of-the-weed
+  titles:
+    original: 草の一生
+    translations: { ja-Latn: the life of the weed }
+  movies:
+    - id: the-life-of-the-weed-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-life-of-the-weed]

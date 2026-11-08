@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: silent-smile
+  titles:
+    original: Silent Smile
+    translations: { ja-Latn: Silent Smile }
+  movies:
+    - id: silent-smile-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [silent-smile]

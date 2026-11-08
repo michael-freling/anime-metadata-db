@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: k-on-bangai-hen-houmon
+  titles:
+    original: けいおん！！ 番外編 訪問！
+    translations: { ja-Latn: "K-On!! Bangai-hen: Houmon!" }
+  seasons:
+    - id: k-on-bangai-hen-houmon-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [k-on-bangai-hen-houmon]

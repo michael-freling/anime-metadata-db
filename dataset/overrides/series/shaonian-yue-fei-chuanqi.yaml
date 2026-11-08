@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shaonian-yue-fei-chuanqi
+  titles:
+    original: Shaonian Yue Fei Chuanqi
+    translations: { ja-Latn: Shaonian Yue Fei Chuanqi }
+  movies:
+    - id: shaonian-yue-fei-chuanqi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shaonian-yue-fei-chuanqi]

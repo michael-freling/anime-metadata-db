@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yoiko-no-rekishi-anime-ookina-kabu-kabu
+  titles:
+    original: よい子のれきしアニメ おおきなカブ(株)
+    translations: { ja-Latn: "Yoiko no Rekishi Anime: Ookina Kabu (Kabu)" }
+  movies:
+    - id: yoiko-no-rekishi-anime-ookina-kabu-kabu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yoiko-no-rekishi-anime-ookina-kabu-kabu]

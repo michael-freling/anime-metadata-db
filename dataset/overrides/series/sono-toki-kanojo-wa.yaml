@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sono-toki-kanojo-wa
+  titles:
+    original: "その時, カノジョは."
+    translations: { ja-Latn: "Sono Toki, Kanojo wa." }
+  seasons:
+    - id: sono-toki-kanojo-wa-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sono-toki-kanojo-wa]

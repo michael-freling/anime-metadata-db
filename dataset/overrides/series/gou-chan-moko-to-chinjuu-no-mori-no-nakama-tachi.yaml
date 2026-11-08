@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gou-chan-moko-to-chinjuu-no-mori-no-nakama-tachi
+  titles:
+    original: ゴーちゃん. ~モコとちんじゅうの森の仲間たち~
+    translations: { ja-Latn: "Gou-chan.: Moko to Chinjuu no Mori no Nakama-tachi" }
+  movies:
+    - id: gou-chan-moko-to-chinjuu-no-mori-no-nakama-tachi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gou-chan-moko-to-chinjuu-no-mori-no-nakama-tachi]

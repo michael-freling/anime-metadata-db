@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: feitian-pangxie-datong-wangguo
+  titles:
+    original: "Feitian Pangxie: Datong Wangguo"
+    translations: { ja-Latn: "Feitian Pangxie: Datong Wangguo" }
+  seasons:
+    - id: feitian-pangxie-datong-wangguo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [feitian-pangxie-datong-wangguo]

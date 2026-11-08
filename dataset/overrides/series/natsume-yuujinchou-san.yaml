@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: natsume-yuujinchou-san
+  titles:
+    original: Natsume Yuujinchou San
+    translations: { ja-Latn: Natsume Yuujinchou San }
+  seasons:
+    - id: natsume-yuujinchou-san-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [natsume-yuujinchou-san]

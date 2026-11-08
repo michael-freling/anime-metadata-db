@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mahoutsukai-haley-no-speed-story
+  titles:
+    original: 魔法使いハーレイのスピードストーリー
+    translations: { ja-Latn: Mahoutsukai Haley no Speed Story }
+  movies:
+    - id: mahoutsukai-haley-no-speed-story-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mahoutsukai-haley-no-speed-story]

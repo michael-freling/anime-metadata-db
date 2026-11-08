@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ganbare-yonpey-kun
+  titles:
+    original: がんばれ！よんぺーくん
+    translations: { ja-Latn: Ganbare! Yonpey-kun }
+  movies:
+    - id: ganbare-yonpey-kun-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ganbare-yonpey-kun]

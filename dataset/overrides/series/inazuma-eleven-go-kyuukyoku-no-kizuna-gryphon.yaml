@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: inazuma-eleven-go-kyuukyoku-no-kizuna-gryphon
+  titles:
+    original: 劇場版イナズマイレブンGO 究極の絆 グリフォン
+    translations: { ja-Latn: "Inazuma Eleven Go: Kyuukyoku no Kizuna Gryphon" }
+  movies:
+    - id: inazuma-eleven-go-kyuukyoku-no-kizuna-gryphon-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [inazuma-eleven-go-kyuukyoku-no-kizuna-gryphon]

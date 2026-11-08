@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kongsuni-chengzhang-ji
+  titles:
+    original: Kongsuni Chengzhang Ji
+    translations: { ja-Latn: Kongsuni Chengzhang Ji }
+  seasons:
+    - id: kongsuni-chengzhang-ji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kongsuni-chengzhang-ji]

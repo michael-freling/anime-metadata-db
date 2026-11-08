@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: haha-diqiu-renn
+  titles:
+    original: Haha! Diqiu Renn
+    translations: { ja-Latn: Haha! Diqiu Renn }
+  seasons:
+    - id: haha-diqiu-renn-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [haha-diqiu-renn]

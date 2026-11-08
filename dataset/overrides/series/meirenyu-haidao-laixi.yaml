@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: meirenyu-haidao-laixi
+  titles:
+    original: "Meirenyu: Haidao Laixi"
+    translations: { ja-Latn: "Meirenyu: Haidao Laixi" }
+  movies:
+    - id: meirenyu-haidao-laixi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [meirenyu-haidao-laixi]

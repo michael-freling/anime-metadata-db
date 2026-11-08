@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: au-wei-cengzhang-jia-you
+  titles:
+    original: "AU: Wei Cengzhang Jia You"
+    translations: { ja-Latn: "AU: Wei Cengzhang Jia You" }
+  seasons:
+    - id: au-wei-cengzhang-jia-you-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [au-wei-cengzhang-jia-you]

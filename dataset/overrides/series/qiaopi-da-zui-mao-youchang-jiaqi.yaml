@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: qiaopi-da-zui-mao-youchang-jiaqi
+  titles:
+    original: "Qiaopi Da Zui Mao: Youchang Jiaqi"
+    translations: { ja-Latn: "Qiaopi Da Zui Mao: Youchang Jiaqi" }
+  seasons:
+    - id: qiaopi-da-zui-mao-youchang-jiaqi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [qiaopi-da-zui-mao-youchang-jiaqi]

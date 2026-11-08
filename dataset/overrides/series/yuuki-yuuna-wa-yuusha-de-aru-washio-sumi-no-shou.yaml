@@ -1,0 +1,15 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yuuki-yuuna-wa-yuusha-de-aru-washio-sumi-no-shou
+  titles:
+    original: 結城友奈は勇者である -鷲尾須美の章- ＜第１章＞「ともだち」
+    translations: { ja-Latn: "Yuuki Yuuna wa Yuusha de Aru: Washio Sumi no Shou" }
+  seasons:
+    - id: yuuki-yuuna-wa-yuusha-de-aru-washio-sumi-no-shou-s1
+      number: 1
+  movies:
+    - id: yuuki-yuuna-wa-yuusha-de-aru-washio-sumi-no-shou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yuuki-yuuna-wa-yuusha-de-aru-washio-sumi-no-shou]

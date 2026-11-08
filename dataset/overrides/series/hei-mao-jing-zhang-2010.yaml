@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hei-mao-jing-zhang-2010
+  titles:
+    original: Hei Mao Jing Zhang (2010)
+    translations: { ja-Latn: Hei Mao Jing Zhang (2010) }
+  movies:
+    - id: hei-mao-jing-zhang-2010-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hei-mao-jing-zhang-2010]

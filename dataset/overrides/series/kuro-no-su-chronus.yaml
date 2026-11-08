@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kuro-no-su-chronus
+  titles:
+    original: 若手アニメーター育成プロジェクト 2014 4
+    translations: { ja-Latn: "Kuro no Su: Chronus" }
+  movies:
+    - id: kuro-no-su-chronus-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kuro-no-su-chronus]

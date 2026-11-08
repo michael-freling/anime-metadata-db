@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hobo-15-byou-animation
+  titles:
+    original: ほぼ15秒アニメーション
+    translations: { ja-Latn: Hobo 15-byou Animation }
+  movies:
+    - id: hobo-15-byou-animation-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hobo-15-byou-animation]

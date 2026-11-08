@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: super-lovers-2
+  titles:
+    original: SUPER LOVERS（スーパーラヴァーズ） 2
+    translations: { ja-Latn: Super Lovers 2 }
+  seasons:
+    - id: super-lovers-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [super-lovers-2]

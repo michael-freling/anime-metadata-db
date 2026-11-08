@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaitou-tenshi-twin-angel-kyunkyun-tokimeki-paradise
+  titles:
+    original: 快盗天使ツインエンジェル 〜キュンキュン☆ときめきパラダイス!!〜
+    translations: { ja-Latn: "Kaitou Tenshi Twin Angel: Kyunkyun☆Tokimeki Paradise!!" }
+  seasons:
+    - id: kaitou-tenshi-twin-angel-kyunkyun-tokimeki-paradise-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaitou-tenshi-twin-angel-kyunkyun-tokimeki-paradise]

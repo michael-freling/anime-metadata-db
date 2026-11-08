@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kidou-keisatsu-patlabor-reboot
+  titles:
+    original: 日本アニメ（ーター）見本市 Extra
+    translations: { ja-Latn: "Kidou Keisatsu Patlabor: Reboot" }
+  movies:
+    - id: kidou-keisatsu-patlabor-reboot-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kidou-keisatsu-patlabor-reboot]

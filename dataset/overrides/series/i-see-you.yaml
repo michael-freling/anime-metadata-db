@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: i-see-you
+  titles:
+    original: I SEE YOU
+    translations: { ja-Latn: I SEE YOU }
+  movies:
+    - id: i-see-you-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [i-see-you]

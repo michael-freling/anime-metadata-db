@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: korasho-no-kaitei-wakuwaku-daibouken-movie
+  titles:
+    original: 映画 コラショの海底わくわく大冒険！
+    translations: { ja-Latn: Korasho no Kaitei Wakuwaku Daibouken! Movie }
+  movies:
+    - id: korasho-no-kaitei-wakuwaku-daibouken-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [korasho-no-kaitei-wakuwaku-daibouken-movie]

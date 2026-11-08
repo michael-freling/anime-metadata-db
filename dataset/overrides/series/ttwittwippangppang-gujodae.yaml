@@ -1,0 +1,15 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ttwittwippangppang-gujodae
+  titles:
+    original: Ttwittwippangppang Gujodae
+    translations: { ja-Latn: Ttwittwippangppang Gujodae }
+  seasons:
+    - id: ttwittwippangppang-gujodae-s1
+      number: 1
+    - id: ttwittwippangppang-gujodae-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ttwittwippangppang-gujodae]

@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fengkuang-douniu-chang
+  titles:
+    original: Fengkuang Douniu Chang
+    translations: { ja-Latn: Fengkuang Douniu Chang }
+  movies:
+    - id: fengkuang-douniu-chang-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fengkuang-douniu-chang]

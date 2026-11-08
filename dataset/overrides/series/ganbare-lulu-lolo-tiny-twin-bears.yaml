@@ -1,0 +1,17 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ganbare-lulu-lolo-tiny-twin-bears
+  titles:
+    original: がんばれ！ルルロロ TINY★TWIN★BEARS
+    translations: { ja-Latn: Ganbare! Lulu Lolo - Tiny Twin Bears }
+  seasons:
+    - id: ganbare-lulu-lolo-tiny-twin-bears-s1
+      number: 1
+    - id: ganbare-lulu-lolo-tiny-twin-bears-s2
+      number: 2
+    - id: ganbare-lulu-lolo-tiny-twin-bears-s3
+      number: 3
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ganbare-lulu-lolo-tiny-twin-bears]

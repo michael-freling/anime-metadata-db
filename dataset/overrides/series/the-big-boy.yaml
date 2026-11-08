@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-big-boy
+  titles:
+    original: THE BIG BOY
+    translations: { ja-Latn: THE BIG BOY }
+  movies:
+    - id: the-big-boy-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-big-boy]

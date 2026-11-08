@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: meng-hui-jinsha-cheng
+  titles:
+    original: Meng Hui Jinsha Cheng
+    translations: { ja-Latn: Meng Hui Jinsha Cheng }
+  movies:
+    - id: meng-hui-jinsha-cheng-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [meng-hui-jinsha-cheng]

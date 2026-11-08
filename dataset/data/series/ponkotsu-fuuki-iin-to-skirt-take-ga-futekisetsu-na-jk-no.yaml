@@ -19,7 +19,7 @@ series:
         anidbId: 19277
         tvdbId: 462400
       episodes:
-        count: 1
+        count: 12
         absoluteFrom: 1
   characters:
     - id: poem-kohinata

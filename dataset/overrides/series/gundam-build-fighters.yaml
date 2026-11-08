@@ -1,0 +1,15 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gundam-build-fighters
+  titles:
+    original: ガンダムビルドファイターズ
+    translations: { ja-Latn: Gundam Build Fighters }
+  seasons:
+    - id: gundam-build-fighters-s1
+      number: 1
+    - id: gundam-build-fighters-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gundam-build-fighters]

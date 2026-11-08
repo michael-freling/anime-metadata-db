@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wei-wei-hou-qingchun-fangxian
+  titles:
+    original: "Wei Wei Hou: Qingchun Fangxian"
+    translations: { ja-Latn: "Wei Wei Hou: Qingchun Fangxian" }
+  seasons:
+    - id: wei-wei-hou-qingchun-fangxian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wei-wei-hou-qingchun-fangxian]

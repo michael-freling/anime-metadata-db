@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: daode-sanbai-wen-laozi-dingguagu
+  titles:
+    original: "Daode Sanbai Wen: Laozi Dingguagu"
+    translations: { ja-Latn: "Daode Sanbai Wen: Laozi Dingguagu" }
+  seasons:
+    - id: daode-sanbai-wen-laozi-dingguagu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [daode-sanbai-wen-laozi-dingguagu]

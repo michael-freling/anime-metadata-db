@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xing-xueyuan-2-yue-ling-shou-huan
+  titles:
+    original: "Xing Xueyuan 2: Yue Ling Shou Huan"
+    translations: { ja-Latn: "Xing Xueyuan 2: Yue Ling Shou Huan" }
+  seasons:
+    - id: xing-xueyuan-2-yue-ling-shou-huan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xing-xueyuan-2-yue-ling-shou-huan]

@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: c-the-money-of-soul-and-possibility-control
+  titles:
+    original: "C: The Money of Soul and Possibility Control"
+    translations: { ja-Latn: "C: The Money of Soul and Possibility Control" }
+  seasons:
+    - id: c-the-money-of-soul-and-possibility-control-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [c-the-money-of-soul-and-possibility-control]

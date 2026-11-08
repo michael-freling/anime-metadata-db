@@ -1,0 +1,15 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: touken-ranbu-hanamaru
+  titles:
+    original: "Touken Ranbu: Hanamaru"
+    translations: { ja-Latn: "Touken Ranbu: Hanamaru" }
+  seasons:
+    - id: touken-ranbu-hanamaru-s1
+      number: 1
+    - id: touken-ranbu-hanamaru-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [touken-ranbu-hanamaru]

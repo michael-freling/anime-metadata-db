@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: giovanni-no-shima
+  titles:
+    original: ジョバンニの島
+    translations: { ja-Latn: Giovanni no Shima }
+  movies:
+    - id: giovanni-no-shima-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [giovanni-no-shima]

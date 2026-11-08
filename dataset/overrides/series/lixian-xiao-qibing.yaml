@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lixian-xiao-qibing
+  titles:
+    original: Lixian Xiao Qibing
+    translations: { ja-Latn: Lixian Xiao Qibing }
+  seasons:
+    - id: lixian-xiao-qibing-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lixian-xiao-qibing]

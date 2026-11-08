@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiong-chumo-xiongxiong-huanle-song
+  titles:
+    original: "Xiong Chumo: Xiongxiong Huanle Song"
+    translations: { ja-Latn: "Xiong Chumo: Xiongxiong Huanle Song" }
+  seasons:
+    - id: xiong-chumo-xiongxiong-huanle-song-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiong-chumo-xiongxiong-huanle-song]

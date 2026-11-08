@@ -4,8 +4,11 @@ series:
   titles:
     original: キャッチ!ティニピン
     translations:
+      en: Catch! Teenieping
       ja-Latn: Catch! Tiniping
   ordering: absolute
+  externalIds:
+    wikidataId: Q87728534
   seasons:
     - id: catch-tiniping-s1
       number: 1
@@ -13,6 +16,7 @@ series:
       releaseSeason: SPRING
       externalIds:
         anilistId: 132034
+        anidbId: 19336
       episodes:
         count: 52
         absoluteFrom: 1

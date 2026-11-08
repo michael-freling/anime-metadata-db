@@ -1,0 +1,15 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: huoli-shaonian-wang-you-quan-yingxiong-2
+  titles:
+    original: "Huoli Shaonian Wang: You Quan Yingxiong 2"
+    translations: { ja-Latn: "Huoli Shaonian Wang: You Quan Yingxiong 2" }
+  seasons:
+    - id: huoli-shaonian-wang-you-quan-yingxiong-2-s1
+      number: 1
+    - id: huoli-shaonian-wang-you-quan-yingxiong-2-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [huoli-shaonian-wang-you-quan-yingxiong-2]

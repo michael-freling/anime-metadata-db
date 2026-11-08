@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: angel-inside-a-box
+  titles:
+    original: 箱の中の天使
+    translations: { ja-Latn: Angel inside a box }
+  movies:
+    - id: angel-inside-a-box-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [angel-inside-a-box]

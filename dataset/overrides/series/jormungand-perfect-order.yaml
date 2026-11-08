@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jormungand-perfect-order
+  titles:
+    original: ヨルムンガンド PERFECT ORDER
+    translations: { ja-Latn: "Jormungand: Perfect Order" }
+  seasons:
+    - id: jormungand-perfect-order-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jormungand-perfect-order]

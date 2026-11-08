@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaitou-joker-4th-season
+  titles:
+    original: 怪盗ジョーカー シーズン4
+    translations: { ja-Latn: Kaitou Joker 4th Season }
+  seasons:
+    - id: kaitou-joker-4th-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaitou-joker-4th-season]

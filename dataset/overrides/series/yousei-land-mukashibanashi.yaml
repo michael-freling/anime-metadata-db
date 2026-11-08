@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yousei-land-mukashibanashi
+  titles:
+    original: 妖精ランドむかし話
+    translations: { ja-Latn: Yousei Land Mukashibanashi }
+  seasons:
+    - id: yousei-land-mukashibanashi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yousei-land-mukashibanashi]

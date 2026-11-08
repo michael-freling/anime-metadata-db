@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kamiusagi-rope-tsuka-natsuyasumi-rasuichi-tte-maji-ssuka
+  titles:
+    original: "映画 紙兎ロペ ~つか, 夏休みラスイチってマジっすか!?~"
+    translations: { ja-Latn: "Kamiusagi Rope tsuka, Natsuyasumi Rasuichi tte Maji ssuka!?" }
+  movies:
+    - id: kamiusagi-rope-tsuka-natsuyasumi-rasuichi-tte-maji-ssuka-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kamiusagi-rope-tsuka-natsuyasumi-rasuichi-tte-maji-ssuka]

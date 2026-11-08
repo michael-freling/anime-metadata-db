@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: annyeong-jaduya-seoyugi-eojjeoda-yeongwoong
+  titles:
+    original: "Annyeong Jaduya: Seoyugi - Eojjeoda Yeongwoong"
+    translations: { ja-Latn: "Annyeong Jaduya: Seoyugi - Eojjeoda Yeongwoong" }
+  movies:
+    - id: annyeong-jaduya-seoyugi-eojjeoda-yeongwoong-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [annyeong-jaduya-seoyugi-eojjeoda-yeongwoong]

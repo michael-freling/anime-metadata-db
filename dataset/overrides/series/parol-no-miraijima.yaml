@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: parol-no-miraijima
+  titles:
+    original: 若手アニメーター育成プロジェクト 2014 3
+    translations: { ja-Latn: Parol no Miraijima }
+  movies:
+    - id: parol-no-miraijima-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [parol-no-miraijima]

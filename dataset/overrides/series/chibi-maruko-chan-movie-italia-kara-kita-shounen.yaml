@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chibi-maruko-chan-movie-italia-kara-kita-shounen
+  titles:
+    original: 映画ちびまる子ちゃん イタリアから来た少年
+    translations: { ja-Latn: "Chibi Maruko-chan Movie: Italia kara Kita Shounen" }
+  movies:
+    - id: chibi-maruko-chan-movie-italia-kara-kita-shounen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chibi-maruko-chan-movie-italia-kara-kita-shounen]

@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aura-xing-jinji-sheng-dian
+  titles:
+    original: "Aura Xing: Jinji Sheng Dian"
+    translations: { ja-Latn: "Aura Xing: Jinji Sheng Dian" }
+  movies:
+    - id: aura-xing-jinji-sheng-dian-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aura-xing-jinji-sheng-dian]

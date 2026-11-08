@@ -1,0 +1,15 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bbk-brnk-the-gentle-giants-of-the-galaxy
+  titles:
+    original: ブブキ・ブランキ 星の巨人
+    translations: { ja-Latn: "BBK/BRNK: The Gentle Giants of the Galaxy" }
+  seasons:
+    - id: bbk-brnk-the-gentle-giants-of-the-galaxy-s1
+      number: 1
+    - id: bbk-brnk-the-gentle-giants-of-the-galaxy-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bbk-brnk-the-gentle-giants-of-the-galaxy]

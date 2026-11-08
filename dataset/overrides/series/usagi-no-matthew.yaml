@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: usagi-no-matthew
+  titles:
+    original: うさぎのマシュー
+    translations: { ja-Latn: Usagi no Matthew }
+  seasons:
+    - id: usagi-no-matthew-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [usagi-no-matthew]

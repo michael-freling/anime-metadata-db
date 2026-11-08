@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hana-to-alice-satsujin-jiken
+  titles:
+    original: 花とアリス 殺人事件
+    translations: { ja-Latn: "Hana to Alice: Satsujin Jiken" }
+  movies:
+    - id: hana-to-alice-satsujin-jiken-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hana-to-alice-satsujin-jiken]

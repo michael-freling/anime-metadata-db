@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: toy-cop-2
+  titles:
+    original: Toy Cop 2
+    translations: { ja-Latn: Toy Cop 2 }
+  seasons:
+    - id: toy-cop-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [toy-cop-2]

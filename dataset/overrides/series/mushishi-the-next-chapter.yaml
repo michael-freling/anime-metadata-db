@@ -1,0 +1,15 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mushishi-the-next-chapter
+  titles:
+    original: "Mushishi: The Next Chapter"
+    translations: { ja-Latn: "Mushishi: The Next Chapter" }
+  seasons:
+    - id: mushishi-the-next-chapter-s1
+      number: 1
+    - id: mushishi-the-next-chapter-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mushishi-the-next-chapter]

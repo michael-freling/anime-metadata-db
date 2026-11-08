@@ -1,0 +1,15 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: uchuu-senkan-tiramisu
+  titles:
+    original: 宇宙戦艦ティラミス
+    translations: { ja-Latn: Uchuu Senkan Tiramisù }
+  seasons:
+    - id: uchuu-senkan-tiramisu-s1
+      number: 1
+    - id: uchuu-senkan-tiramisu-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [uchuu-senkan-tiramisu]

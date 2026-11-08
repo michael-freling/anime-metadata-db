@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mimoptera
+  titles:
+    original: キドモモドキ
+    translations: { ja-Latn: Mimoptera }
+  movies:
+    - id: mimoptera-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mimoptera]

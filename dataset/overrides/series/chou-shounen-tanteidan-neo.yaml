@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chou-shounen-tanteidan-neo
+  titles:
+    original: Chou Shounen Tanteidan Neo
+    translations: { ja-Latn: Chou Shounen Tanteidan Neo }
+  seasons:
+    - id: chou-shounen-tanteidan-neo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chou-shounen-tanteidan-neo]

@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: huo-xing-wa-dazhan-ha-lou-guai
+  titles:
+    original: "Huo Xing Wa: Dazhan Ha Lou Guai"
+    translations: { ja-Latn: "Huo Xing Wa: Dazhan Ha Lou Guai" }
+  seasons:
+    - id: huo-xing-wa-dazhan-ha-lou-guai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [huo-xing-wa-dazhan-ha-lou-guai]

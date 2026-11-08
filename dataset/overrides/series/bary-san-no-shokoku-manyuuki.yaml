@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bary-san-no-shokoku-manyuuki
+  titles:
+    original: バリィさんの諸国漫遊記
+    translations: { ja-Latn: Bary-san no Shokoku Manyuuki }
+  seasons:
+    - id: bary-san-no-shokoku-manyuuki-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bary-san-no-shokoku-manyuuki]

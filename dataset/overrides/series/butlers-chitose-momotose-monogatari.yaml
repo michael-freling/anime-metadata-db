@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: butlers-chitose-momotose-monogatari
+  titles:
+    original: "Butlers: Chitose Momotose Monogatari"
+    translations: { ja-Latn: "Butlers: Chitose Momotose Monogatari" }
+  seasons:
+    - id: butlers-chitose-momotose-monogatari-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [butlers-chitose-momotose-monogatari]

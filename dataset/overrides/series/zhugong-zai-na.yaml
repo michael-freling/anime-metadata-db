@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhugong-zai-na
+  titles:
+    original: Zhugong Zai Na
+    translations: { ja-Latn: Zhugong Zai Na }
+  seasons:
+    - id: zhugong-zai-na-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhugong-zai-na]

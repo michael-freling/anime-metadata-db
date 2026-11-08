@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sup-sok-gujodae-myeongtamjeong-peet
+  titles:
+    original: Sup Sok Gujodae Myeongtamjeong Peet
+    translations: { ja-Latn: Sup Sok Gujodae Myeongtamjeong Peet }
+  seasons:
+    - id: sup-sok-gujodae-myeongtamjeong-peet-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sup-sok-gujodae-myeongtamjeong-peet]

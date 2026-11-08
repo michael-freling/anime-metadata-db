@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shuxiang-ji-zhi-tian-yu-chuanqi
+  titles:
+    original: Shuxiang Ji Zhi Tian Yu Chuanqi
+    translations: { ja-Latn: Shuxiang Ji Zhi Tian Yu Chuanqi }
+  seasons:
+    - id: shuxiang-ji-zhi-tian-yu-chuanqi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shuxiang-ji-zhi-tian-yu-chuanqi]

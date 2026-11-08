@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: touken-ranbu-hanamaru-makuai-kaisouroku-manner-movies
+  titles:
+    original: 刀剣乱舞-花丸- ～幕間回想録～ 鑑賞の淀
+    translations: { ja-Latn: "Touken Ranbu: Hanamaru - Makuai Kaisouroku Manner Movies" }
+  movies:
+    - id: touken-ranbu-hanamaru-makuai-kaisouroku-manner-movies-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [touken-ranbu-hanamaru-makuai-kaisouroku-manner-movies]

@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shi-wan-ge-leng-xiaohua-movie-1
+  titles:
+    original: あしたは土曜日
+    translations: { ja-Latn: Shi Wan Ge Leng Xiaohua Movie 1 }
+  movies:
+    - id: shi-wan-ge-leng-xiaohua-movie-1-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shi-wan-ge-leng-xiaohua-movie-1]

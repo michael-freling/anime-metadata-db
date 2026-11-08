@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xingji-paobing-tuan-hu-hua-shizhe
+  titles:
+    original: "Xingji Paobing Tuan: Hu Hua Shizhe"
+    translations: { ja-Latn: "Xingji Paobing Tuan: Hu Hua Shizhe" }
+  seasons:
+    - id: xingji-paobing-tuan-hu-hua-shizhe-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xingji-paobing-tuan-hu-hua-shizhe]

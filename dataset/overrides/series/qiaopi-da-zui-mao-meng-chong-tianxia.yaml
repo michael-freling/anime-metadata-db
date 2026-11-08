@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: qiaopi-da-zui-mao-meng-chong-tianxia
+  titles:
+    original: "Qiaopi Da Zui Mao: Meng Chong Tianxia"
+    translations: { ja-Latn: "Qiaopi Da Zui Mao: Meng Chong Tianxia" }
+  seasons:
+    - id: qiaopi-da-zui-mao-meng-chong-tianxia-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [qiaopi-da-zui-mao-meng-chong-tianxia]

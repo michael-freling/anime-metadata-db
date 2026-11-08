@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yoru-ga-boku-o-oukikusuru
+  titles:
+    original: 夜が僕を大きくする
+    translations: { ja-Latn: Yoru ga boku o oukikusuru }
+  movies:
+    - id: yoru-ga-boku-o-oukikusuru-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yoru-ga-boku-o-oukikusuru]

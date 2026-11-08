@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hotarubi-no-mori-e
+  titles:
+    original: 蛍火の杜へ
+    translations: { ja-Latn: Hotarubi no Mori e }
+  movies:
+    - id: hotarubi-no-mori-e-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hotarubi-no-mori-e]

@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: haishang-si-lu-nan-zhubao-bao
+  titles:
+    original: "Haishang Si Lu: Nan Zhubao Bao"
+    translations: { ja-Latn: "Haishang Si Lu: Nan Zhubao Bao" }
+  seasons:
+    - id: haishang-si-lu-nan-zhubao-bao-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [haishang-si-lu-nan-zhubao-bao]

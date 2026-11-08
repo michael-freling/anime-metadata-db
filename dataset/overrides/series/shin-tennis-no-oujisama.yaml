@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shin-tennis-no-oujisama
+  titles:
+    original: 新テニスの王子様
+    translations: { ja-Latn: Shin Tennis no Oujisama }
+  seasons:
+    - id: shin-tennis-no-oujisama-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shin-tennis-no-oujisama]

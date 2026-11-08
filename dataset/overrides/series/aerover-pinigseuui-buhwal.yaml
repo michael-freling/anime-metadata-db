@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aerover-pinigseuui-buhwal
+  titles:
+    original: "Aerover: Pinigseuui Buhwal"
+    translations: { ja-Latn: "Aerover: Pinigseuui Buhwal" }
+  seasons:
+    - id: aerover-pinigseuui-buhwal-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aerover-pinigseuui-buhwal]

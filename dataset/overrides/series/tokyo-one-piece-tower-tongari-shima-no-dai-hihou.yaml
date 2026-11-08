@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tokyo-one-piece-tower-tongari-shima-no-dai-hihou
+  titles:
+    original: 東京ワンピースタワー トンガリ島の大秘宝
+    translations: { ja-Latn: "Tokyo One Piece Tower: Tongari Shima no Dai Hihou" }
+  movies:
+    - id: tokyo-one-piece-tower-tongari-shima-no-dai-hihou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tokyo-one-piece-tower-tongari-shima-no-dai-hihou]

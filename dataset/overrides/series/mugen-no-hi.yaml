@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mugen-no-hi
+  titles:
+    original: 無限の火
+    translations: { ja-Latn: Mugen no Hi }
+  movies:
+    - id: mugen-no-hi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mugen-no-hi]

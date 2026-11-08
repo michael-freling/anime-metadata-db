@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gekkan-shoujo-nozaki-kun
+  titles:
+    original: 月刊少女野崎くん
+    translations: { ja-Latn: Gekkan Shoujo Nozaki-kun }
+  seasons:
+    - id: gekkan-shoujo-nozaki-kun-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gekkan-shoujo-nozaki-kun]

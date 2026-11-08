@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nananin-no-ayakashi-chimi-chimi-mouryou-gendai-monogatari
+  titles:
+    original: ななにんのあやかし-ちみちみ魍魎!! 現代物語-
+    translations: { ja-Latn: "Nananin no Ayakashi: Chimi Chimi Mouryou!! Gendai Monogatari" }
+  seasons:
+    - id: nananin-no-ayakashi-chimi-chimi-mouryou-gendai-monogatari-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nananin-no-ayakashi-chimi-chimi-mouryou-gendai-monogatari]

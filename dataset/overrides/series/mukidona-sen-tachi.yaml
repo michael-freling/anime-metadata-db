@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mukidona-sen-tachi
+  titles:
+    original: 無軌道な線たち
+    translations: { ja-Latn: Mukidona Sen-tachi }
+  movies:
+    - id: mukidona-sen-tachi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mukidona-sen-tachi]

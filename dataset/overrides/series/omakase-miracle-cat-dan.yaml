@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: omakase-miracle-cat-dan
+  titles:
+    original: おまかせ! みらくるキャット団
+    translations: { ja-Latn: Omakase! Miracle Cat-dan }
+  seasons:
+    - id: omakase-miracle-cat-dan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [omakase-miracle-cat-dan]

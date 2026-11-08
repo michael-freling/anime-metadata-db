@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: siblings
+  titles:
+    original: いつもいっしょ
+    translations: { ja-Latn: SIBLINGS }
+  movies:
+    - id: siblings-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [siblings]

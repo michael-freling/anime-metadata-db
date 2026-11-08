@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kono-sekai-no-katasumi-ni
+  titles:
+    original: この世界の片隅に
+    translations: { ja-Latn: Kono Sekai no Katasumi ni }
+  movies:
+    - id: kono-sekai-no-katasumi-ni-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kono-sekai-no-katasumi-ni]

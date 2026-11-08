@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shenqi-da-maoxian
+  titles:
+    original: Shenqi Da Maoxian
+    translations: { ja-Latn: Shenqi Da Maoxian }
+  seasons:
+    - id: shenqi-da-maoxian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shenqi-da-maoxian]

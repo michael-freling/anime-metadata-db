@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: baobei-nuer-hao-mama-chi-jiyi-de-daxue-qiu
+  titles:
+    original: "Baobei Nuer Hao Mama: Chi Jiyi De Daxue Qiu"
+    translations: { ja-Latn: "Baobei Nuer Hao Mama: Chi Jiyi De Daxue Qiu" }
+  movies:
+    - id: baobei-nuer-hao-mama-chi-jiyi-de-daxue-qiu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [baobei-nuer-hao-mama-chi-jiyi-de-daxue-qiu]

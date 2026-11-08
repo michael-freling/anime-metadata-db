@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gekijoban-cardfight-vanguard
+  titles:
+    original: 劇場版 カードファイト!! ヴァンガード
+    translations: { ja-Latn: Gekijōban Cardfight!! Vanguard }
+  movies:
+    - id: gekijoban-cardfight-vanguard-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gekijoban-cardfight-vanguard]

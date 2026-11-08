@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: steven-universe-the-movie
+  titles:
+    original: "Steven Universe: The Movie"
+    translations: { ja-Latn: "Steven Universe: The Movie" }
+  movies:
+    - id: steven-universe-the-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [steven-universe-the-movie]

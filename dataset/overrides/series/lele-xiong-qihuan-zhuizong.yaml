@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lele-xiong-qihuan-zhuizong
+  titles:
+    original: Lele Xiong Qihuan Zhuizong
+    translations: { ja-Latn: Lele Xiong Qihuan Zhuizong }
+  movies:
+    - id: lele-xiong-qihuan-zhuizong-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lele-xiong-qihuan-zhuizong]

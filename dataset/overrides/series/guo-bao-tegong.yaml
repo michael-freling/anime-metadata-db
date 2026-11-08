@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: guo-bao-tegong
+  titles:
+    original: Guo Bao Tegong
+    translations: { ja-Latn: Guo Bao Tegong }
+  seasons:
+    - id: guo-bao-tegong-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [guo-bao-tegong]

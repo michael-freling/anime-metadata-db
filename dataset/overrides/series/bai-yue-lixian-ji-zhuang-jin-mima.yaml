@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bai-yue-lixian-ji-zhuang-jin-mima
+  titles:
+    original: "Bai Yue Lixian Ji: Zhuang Jin Mima"
+    translations: { ja-Latn: "Bai Yue Lixian Ji: Zhuang Jin Mima" }
+  seasons:
+    - id: bai-yue-lixian-ji-zhuang-jin-mima-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bai-yue-lixian-ji-zhuang-jin-mima]

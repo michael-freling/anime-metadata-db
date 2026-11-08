@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-wan-pi
+  titles:
+    original: Xiao Wan Pi
+    translations: { ja-Latn: Xiao Wan Pi }
+  seasons:
+    - id: xiao-wan-pi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-wan-pi]

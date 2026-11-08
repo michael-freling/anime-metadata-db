@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiongmao-he-xiao-yan-shu
+  titles:
+    original: Xiongmao He Xiao Yan Shu
+    translations: { ja-Latn: Xiongmao He Xiao Yan Shu }
+  seasons:
+    - id: xiongmao-he-xiao-yan-shu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiongmao-he-xiao-yan-shu]

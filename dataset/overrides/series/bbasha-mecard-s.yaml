@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bbasha-mecard-s
+  titles:
+    original: Bbasha Mecard S
+    translations: { ja-Latn: Bbasha Mecard S }
+  seasons:
+    - id: bbasha-mecard-s-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bbasha-mecard-s]

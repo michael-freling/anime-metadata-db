@@ -1,0 +1,17 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gin-no-guardian
+  titles:
+    original: "銀の墓守り[ガーディアン]"
+    translations: { ja-Latn: Gin no Guardian }
+  seasons:
+    - id: gin-no-guardian-s1
+      number: 1
+    - id: gin-no-guardian-s2
+      number: 2
+    - id: gin-no-guardian-s3
+      number: 3
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gin-no-guardian]

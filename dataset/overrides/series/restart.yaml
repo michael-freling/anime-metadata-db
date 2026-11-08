@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: restart
+  titles:
+    original: Restart
+    translations: { ja-Latn: Restart }
+  movies:
+    - id: restart-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [restart]

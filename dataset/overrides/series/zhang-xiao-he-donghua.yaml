@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhang-xiao-he-donghua
+  titles:
+    original: Zhang Xiao He Donghua
+    translations: { ja-Latn: Zhang Xiao He Donghua }
+  seasons:
+    - id: zhang-xiao-he-donghua-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhang-xiao-he-donghua]

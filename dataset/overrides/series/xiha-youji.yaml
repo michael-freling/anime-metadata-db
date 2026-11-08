@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiha-youji
+  titles:
+    original: Xiha Youji
+    translations: { ja-Latn: Xiha Youji }
+  seasons:
+    - id: xiha-youji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiha-youji]

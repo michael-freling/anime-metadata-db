@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: passengers-of-the-night
+  titles:
+    original: Passengers of the night
+    translations: { ja-Latn: Passengers of the night }
+  movies:
+    - id: passengers-of-the-night-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [passengers-of-the-night]

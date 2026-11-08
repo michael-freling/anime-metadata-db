@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: two-under-the-grayish-sky
+  titles:
+    original: 失われた空の下で二人
+    translations: { ja-Latn: Two Under the Grayish Sky }
+  movies:
+    - id: two-under-the-grayish-sky-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [two-under-the-grayish-sky]

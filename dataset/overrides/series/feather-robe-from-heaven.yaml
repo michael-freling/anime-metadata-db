@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: feather-robe-from-heaven
+  titles:
+    original: Feather Robe from Heaven
+    translations: { ja-Latn: Feather Robe from Heaven }
+  movies:
+    - id: feather-robe-from-heaven-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [feather-robe-from-heaven]

@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yuri-kuma-arashi
+  titles:
+    original: ユリ熊嵐
+    translations: { ja-Latn: Yuri Kuma Arashi }
+  seasons:
+    - id: yuri-kuma-arashi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yuri-kuma-arashi]

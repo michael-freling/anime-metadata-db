@@ -23,10 +23,5 @@ series:
         absoluteFrom: 1
     - id: ramen-akaneko-s2
       number: 2
-      releaseYear: 2025
-      externalIds:
-        anilistId: 185699
-        anidbId: 19066
-      episodes:
-        count: 12
-        absoluteFrom: 13
+      releaseYear: 2027
+      releaseSeason: WINTER

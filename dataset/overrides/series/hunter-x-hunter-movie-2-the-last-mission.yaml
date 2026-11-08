@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hunter-x-hunter-movie-2-the-last-mission
+  titles:
+    original: "ハンター X ハンター: ザ・ラスト・ミッション"
+    translations: { ja-Latn: "Hunter x Hunter Movie 2: The Last Mission" }
+  movies:
+    - id: hunter-x-hunter-movie-2-the-last-mission-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hunter-x-hunter-movie-2-the-last-mission]

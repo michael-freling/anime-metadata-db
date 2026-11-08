@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 11-gatsu-umare-no-otokonoko-no-tame-ni
+  titles:
+    original: 11月うまれの男の子のために。
+    translations: { ja-Latn: 11-gatsu Umare no Otokonoko no Tame ni. }
+  movies:
+    - id: 11-gatsu-umare-no-otokonoko-no-tame-ni-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [11-gatsu-umare-no-otokonoko-no-tame-ni]

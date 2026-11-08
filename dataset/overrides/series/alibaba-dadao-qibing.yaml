@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: alibaba-dadao-qibing
+  titles:
+    original: Alibaba Dadao Qibing
+    translations: { ja-Latn: Alibaba Dadao Qibing }
+  movies:
+    - id: alibaba-dadao-qibing-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [alibaba-dadao-qibing]

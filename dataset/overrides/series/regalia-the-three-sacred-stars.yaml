@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: regalia-the-three-sacred-stars
+  titles:
+    original: レガリア The Three Sacred Stars
+    translations: { ja-Latn: "Regalia: The Three Sacred Stars" }
+  seasons:
+    - id: regalia-the-three-sacred-stars-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [regalia-the-three-sacred-stars]

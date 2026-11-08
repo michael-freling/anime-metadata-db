@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bao-shou-lieren
+  titles:
+    original: Bao Shou Lieren
+    translations: { ja-Latn: Bao Shou Lieren }
+  seasons:
+    - id: bao-shou-lieren-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bao-shou-lieren]

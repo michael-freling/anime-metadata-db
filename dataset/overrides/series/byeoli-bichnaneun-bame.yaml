@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: byeoli-bichnaneun-bame
+  titles:
+    original: Byeoli Bichnaneun Bame
+    translations: { ja-Latn: Byeoli Bichnaneun Bame }
+  movies:
+    - id: byeoli-bichnaneun-bame-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [byeoli-bichnaneun-bame]

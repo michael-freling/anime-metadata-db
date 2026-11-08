@@ -1,0 +1,15 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: haiyore-nyaruko-san
+  titles:
+    original: 這いよれ! ニャル子さん
+    translations: { ja-Latn: Haiyore! Nyaruko-san }
+  seasons:
+    - id: haiyore-nyaruko-san-s1
+      number: 1
+    - id: haiyore-nyaruko-san-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [haiyore-nyaruko-san]

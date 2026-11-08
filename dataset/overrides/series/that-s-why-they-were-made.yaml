@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: that-s-why-they-were-made
+  titles:
+    original: That's Why They Were Made
+    translations: { ja-Latn: That's Why They Were Made }
+  movies:
+    - id: that-s-why-they-were-made-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [that-s-why-they-were-made]

@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chuang-tang-tu-2-fengkuang-maxi-tuan
+  titles:
+    original: "Chuang Tang Tu 2: Fengkuang Maxi Tuan"
+    translations: { ja-Latn: "Chuang Tang Tu 2: Fengkuang Maxi Tuan" }
+  movies:
+    - id: chuang-tang-tu-2-fengkuang-maxi-tuan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chuang-tang-tu-2-fengkuang-maxi-tuan]

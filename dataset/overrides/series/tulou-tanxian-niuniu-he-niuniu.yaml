@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tulou-tanxian-niuniu-he-niuniu
+  titles:
+    original: "Tulou Tanxian: Niuniu He Niuniu"
+    translations: { ja-Latn: "Tulou Tanxian: Niuniu He Niuniu" }
+  seasons:
+    - id: tulou-tanxian-niuniu-he-niuniu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tulou-tanxian-niuniu-he-niuniu]

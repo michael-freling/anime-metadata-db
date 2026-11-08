@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: precure-all-stars-dx-3d-theatre
+  titles:
+    original: プリキュアオールスターズDX the DANCE LIVE♥ ～ミラクルダンスステージへようこそ～
+    translations: { ja-Latn: "Precure All Stars DX: 3D Theatre" }
+  movies:
+    - id: precure-all-stars-dx-3d-theatre-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [precure-all-stars-dx-3d-theatre]

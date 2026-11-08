@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: itou-junji-collection
+  titles:
+    original: 伊藤潤二「コレクション」
+    translations: { ja-Latn: "Itou Junji: Collection" }
+  seasons:
+    - id: itou-junji-collection-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [itou-junji-collection]

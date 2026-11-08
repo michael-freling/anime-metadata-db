@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bakemono-no-ko
+  titles:
+    original: バケモノの子
+    translations: { ja-Latn: Bakemono no Ko }
+  movies:
+    - id: bakemono-no-ko-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bakemono-no-ko]

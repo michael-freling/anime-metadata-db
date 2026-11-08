@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aikatsu-stars-hoshi-no-tsubasa
+  titles:
+    original: アイカツスターズ！ 星のツバサ
+    translations: { ja-Latn: Aikatsu Stars! Hoshi no Tsubasa }
+  seasons:
+    - id: aikatsu-stars-hoshi-no-tsubasa-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aikatsu-stars-hoshi-no-tsubasa]

@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wu-long-xiao-zi-yong-chuang-le-huo-dao
+  titles:
+    original: "Wu Long Xiao Zi: Yong Chuang Le Huo Dao"
+    translations: { ja-Latn: "Wu Long Xiao Zi: Yong Chuang Le Huo Dao" }
+  seasons:
+    - id: wu-long-xiao-zi-yong-chuang-le-huo-dao-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wu-long-xiao-zi-yong-chuang-le-huo-dao]

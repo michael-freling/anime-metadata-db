@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ankeeto
+  titles:
+    original: アンケート
+    translations: { ja-Latn: Ankeeto }
+  movies:
+    - id: ankeeto-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ankeeto]

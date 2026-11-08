@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: d-c-iii-da-capo-iii
+  titles:
+    original: D.C.III ~ダ・カーポIII~
+    translations: { ja-Latn: "D.C.III: Da Capo III" }
+  seasons:
+    - id: d-c-iii-da-capo-iii-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [d-c-iii-da-capo-iii]

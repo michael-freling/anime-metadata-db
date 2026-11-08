@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: heroes-legend-of-battle-disks
+  titles:
+    original: ヒーローズ ～バトルディスク伝説～
+    translations: { ja-Latn: Heroes ~Legend of Battle Disks~ }
+  seasons:
+    - id: heroes-legend-of-battle-disks-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [heroes-legend-of-battle-disks]

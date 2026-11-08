@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dan-jihua-zhi-huanle-xingqiu
+  titles:
+    original: Dan Jihua Zhi Huanle Xingqiu
+    translations: { ja-Latn: Dan Jihua Zhi Huanle Xingqiu }
+  seasons:
+    - id: dan-jihua-zhi-huanle-xingqiu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dan-jihua-zhi-huanle-xingqiu]

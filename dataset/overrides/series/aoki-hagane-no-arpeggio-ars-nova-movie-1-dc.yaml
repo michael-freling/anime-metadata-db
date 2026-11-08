@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aoki-hagane-no-arpeggio-ars-nova-movie-1-dc
+  titles:
+    original: 劇場版 蒼き鋼のアルペジオ -アルス・ノヴァ- DC
+    translations: { ja-Latn: "Aoki Hagane no Arpeggio: Ars Nova Movie 1 - DC" }
+  movies:
+    - id: aoki-hagane-no-arpeggio-ars-nova-movie-1-dc-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aoki-hagane-no-arpeggio-ars-nova-movie-1-dc]

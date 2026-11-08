@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pokonyan-doraemon-ponpoko-nyan-de-koko-hore-nyan-nyan
+  titles:
+    original: ポコニャン＆ドラえもん 『ポンポコニャンで ここほれニャンニャン！？』
+    translations: { ja-Latn: "Pokonyan & Doraemon: Ponpoko-nyan de Koko Hore Nyan Nyan!?" }
+  movies:
+    - id: pokonyan-doraemon-ponpoko-nyan-de-koko-hore-nyan-nyan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pokonyan-doraemon-ponpoko-nyan-de-koko-hore-nyan-nyan]

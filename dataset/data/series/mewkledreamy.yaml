@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Mewkledreamy
   ordering: absolute
+  externalIds:
+    wikidataId: Q85874146
   seasons:
     - id: mewkledreamy-s1
       number: 1

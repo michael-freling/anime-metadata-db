@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bokutachi-no-american-football
+  titles:
+    original: 僕たちのアメリカンフットボールを
+    translations: { ja-Latn: Bokutachi no American Football }
+  movies:
+    - id: bokutachi-no-american-football-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bokutachi-no-american-football]

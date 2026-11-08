@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhen-hai-baowei-zhan
+  titles:
+    original: Zhen Hai Baowei Zhan
+    translations: { ja-Latn: Zhen Hai Baowei Zhan }
+  seasons:
+    - id: zhen-hai-baowei-zhan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhen-hai-baowei-zhan]

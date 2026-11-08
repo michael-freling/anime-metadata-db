@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: maomao-wang-kongjian-chao-nengli
+  titles:
+    original: "Maomao Wang: Kongjian Chao Nengli"
+    translations: { ja-Latn: "Maomao Wang: Kongjian Chao Nengli" }
+  seasons:
+    - id: maomao-wang-kongjian-chao-nengli-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [maomao-wang-kongjian-chao-nengli]

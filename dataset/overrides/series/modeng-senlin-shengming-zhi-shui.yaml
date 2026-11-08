@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: modeng-senlin-shengming-zhi-shui
+  titles:
+    original: "Modeng Senlin: Shengming Zhi Shui"
+    translations: { ja-Latn: "Modeng Senlin: Shengming Zhi Shui" }
+  seasons:
+    - id: modeng-senlin-shengming-zhi-shui-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [modeng-senlin-shengming-zhi-shui]

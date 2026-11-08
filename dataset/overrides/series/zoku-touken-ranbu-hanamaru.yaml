@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zoku-touken-ranbu-hanamaru
+  titles:
+    original: "Zoku Touken Ranbu: Hanamaru"
+    translations: { ja-Latn: "Zoku Touken Ranbu: Hanamaru" }
+  seasons:
+    - id: zoku-touken-ranbu-hanamaru-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zoku-touken-ranbu-hanamaru]

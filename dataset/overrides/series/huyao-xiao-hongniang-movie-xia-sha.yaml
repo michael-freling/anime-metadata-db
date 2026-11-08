@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: huyao-xiao-hongniang-movie-xia-sha
+  titles:
+    original: "Huyao Xiao Hongniang Movie: Xia Sha"
+    translations: { ja-Latn: "Huyao Xiao Hongniang Movie: Xia Sha" }
+  movies:
+    - id: huyao-xiao-hongniang-movie-xia-sha-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [huyao-xiao-hongniang-movie-xia-sha]

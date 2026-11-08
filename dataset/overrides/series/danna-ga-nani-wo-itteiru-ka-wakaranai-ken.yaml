@@ -1,0 +1,15 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: danna-ga-nani-wo-itteiru-ka-wakaranai-ken
+  titles:
+    original: 旦那が何を言っているかわからない件
+    translations: { ja-Latn: Danna ga Nani wo Itteiru ka Wakaranai Ken }
+  seasons:
+    - id: danna-ga-nani-wo-itteiru-ka-wakaranai-ken-s1
+      number: 1
+    - id: danna-ga-nani-wo-itteiru-ka-wakaranai-ken-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [danna-ga-nani-wo-itteiru-ka-wakaranai-ken]

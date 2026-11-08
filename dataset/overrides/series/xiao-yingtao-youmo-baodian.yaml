@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-yingtao-youmo-baodian
+  titles:
+    original: "Xiao Yingtao: Youmo Baodian"
+    translations: { ja-Latn: "Xiao Yingtao: Youmo Baodian" }
+  seasons:
+    - id: xiao-yingtao-youmo-baodian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-yingtao-youmo-baodian]

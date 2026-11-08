@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: maji-de-watashi-ni-koi-shinasai
+  titles:
+    original: 真剣で私に恋しなさい!!
+    translations: { ja-Latn: Maji de Watashi ni Koi Shinasai! }
+  seasons:
+    - id: maji-de-watashi-ni-koi-shinasai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [maji-de-watashi-ni-koi-shinasai]

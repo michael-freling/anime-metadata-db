@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: junketsu-no-maria
+  titles:
+    original: "純潔のマリア Sorcière de gré, pucelle de force"
+    translations: { ja-Latn: Junketsu no Maria }
+  seasons:
+    - id: junketsu-no-maria-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [junketsu-no-maria]

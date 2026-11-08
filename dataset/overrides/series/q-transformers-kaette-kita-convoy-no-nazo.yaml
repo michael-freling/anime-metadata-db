@@ -1,0 +1,15 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: q-transformers-kaette-kita-convoy-no-nazo
+  titles:
+    original: キュートランスフォーマー 帰ってきたコンボイの謎
+    translations: { ja-Latn: "Q Transformers: Kaette Kita Convoy no Nazo" }
+  seasons:
+    - id: q-transformers-kaette-kita-convoy-no-nazo-s1
+      number: 1
+    - id: q-transformers-kaette-kita-convoy-no-nazo-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [q-transformers-kaette-kita-convoy-no-nazo]

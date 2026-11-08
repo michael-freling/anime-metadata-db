@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ba-xian-guo-hai-2019
+  titles:
+    original: Ba Xian Guo Hai (2019)
+    translations: { ja-Latn: Ba Xian Guo Hai (2019) }
+  seasons:
+    - id: ba-xian-guo-hai-2019-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ba-xian-guo-hai-2019]

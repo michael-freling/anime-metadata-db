@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: durarara-x2-ketsu
+  titles:
+    original: デュラララ!!x2 結
+    translations: { ja-Latn: Durarara!!x2 Ketsu }
+  seasons:
+    - id: durarara-x2-ketsu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [durarara-x2-ketsu]

@@ -1,0 +1,15 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dou-ding-de-kuaile-riji
+  titles:
+    original: Dou Ding De Kuaile Riji
+    translations: { ja-Latn: Dou Ding De Kuaile Riji }
+  seasons:
+    - id: dou-ding-de-kuaile-riji-s1
+      number: 1
+    - id: dou-ding-de-kuaile-riji-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dou-ding-de-kuaile-riji]

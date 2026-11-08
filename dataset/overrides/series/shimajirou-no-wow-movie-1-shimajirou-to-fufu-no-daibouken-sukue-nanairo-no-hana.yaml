@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shimajirou-no-wow-movie-1-shimajirou-to-fufu-no-daibouken-sukue-nanairo-no-hana
+  titles:
+    original: 劇場版しまじろうのわお! しまじろうとフフのだいぼうけん 〜すくえ!七色の花〜
+    translations: { ja-Latn: "Shimajirou no Wow! Movie 1: Shimajirou to Fufu no Daibouken: Sukue! Nanairo no Hana" }
+  movies:
+    - id: shimajirou-no-wow-movie-1-shimajirou-to-fufu-no-daibouken-sukue-nanairo-no-hana-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shimajirou-no-wow-movie-1-shimajirou-to-fufu-no-daibouken-sukue-nanairo-no-hana]

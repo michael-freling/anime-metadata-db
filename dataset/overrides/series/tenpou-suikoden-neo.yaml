@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tenpou-suikoden-neo
+  titles:
+    original: Tenpou Suikoden Neo
+    translations: { ja-Latn: Tenpou Suikoden Neo }
+  seasons:
+    - id: tenpou-suikoden-neo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tenpou-suikoden-neo]

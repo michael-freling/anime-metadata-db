@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xinnian-lai-la-yong-chuang-mo-shan
+  titles:
+    original: "Xinnian Lai La: Yong Chuang Mo Shan"
+    translations: { ja-Latn: "Xinnian Lai La: Yong Chuang Mo Shan" }
+  seasons:
+    - id: xinnian-lai-la-yong-chuang-mo-shan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xinnian-lai-la-yong-chuang-mo-shan]

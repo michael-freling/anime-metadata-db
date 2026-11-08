@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gakkou-no-kowai-uwasa-shin-hanako-san-ga-kita
+  titles:
+    original: 学校のコワイうわさ 新・花子さんがきた!!
+    translations: { ja-Latn: "Gakkou no Kowai Uwasa Shin: Hanako-san ga Kita!!" }
+  seasons:
+    - id: gakkou-no-kowai-uwasa-shin-hanako-san-ga-kita-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gakkou-no-kowai-uwasa-shin-hanako-san-ga-kita]

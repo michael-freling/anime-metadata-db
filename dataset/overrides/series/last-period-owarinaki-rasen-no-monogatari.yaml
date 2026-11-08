@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: last-period-owarinaki-rasen-no-monogatari
+  titles:
+    original: LAST PERIOD -終わりなき螺旋の物語-
+    translations: { ja-Latn: "Last Period: Owarinaki Rasen no Monogatari" }
+  seasons:
+    - id: last-period-owarinaki-rasen-no-monogatari-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [last-period-owarinaki-rasen-no-monogatari]

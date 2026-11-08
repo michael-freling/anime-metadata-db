@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sewayaki-kitsune-no-senko-san
+  titles:
+    original: 世話やきキツネの仙狐さん
+    translations: { ja-Latn: Sewayaki Kitsune no Senko-san }
+  seasons:
+    - id: sewayaki-kitsune-no-senko-san-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sewayaki-kitsune-no-senko-san]

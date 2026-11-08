@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: da-zhonghua-xunbao-ji
+  titles:
+    original: Da Zhonghua Xunbao Ji
+    translations: { ja-Latn: Da Zhonghua Xunbao Ji }
+  seasons:
+    - id: da-zhonghua-xunbao-ji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [da-zhonghua-xunbao-ji]

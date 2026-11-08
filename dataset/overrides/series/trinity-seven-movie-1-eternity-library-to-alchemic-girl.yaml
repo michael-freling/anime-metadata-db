@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: trinity-seven-movie-1-eternity-library-to-alchemic-girl
+  titles:
+    original: 劇場版 トリニティセブン 悠久図書館と錬金術少女 ETERNITY LIBRARY & ALCHEMIC GIRL
+    translations: { ja-Latn: "Trinity Seven Movie 1: Eternity Library to Alchemic Girl" }
+  movies:
+    - id: trinity-seven-movie-1-eternity-library-to-alchemic-girl-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [trinity-seven-movie-1-eternity-library-to-alchemic-girl]

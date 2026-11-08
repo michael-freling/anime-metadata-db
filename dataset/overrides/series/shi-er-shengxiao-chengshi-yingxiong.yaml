@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shi-er-shengxiao-chengshi-yingxiong
+  titles:
+    original: "Shi Er Shengxiao: Chengshi Yingxiong"
+    translations: { ja-Latn: "Shi Er Shengxiao: Chengshi Yingxiong" }
+  movies:
+    - id: shi-er-shengxiao-chengshi-yingxiong-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shi-er-shengxiao-chengshi-yingxiong]

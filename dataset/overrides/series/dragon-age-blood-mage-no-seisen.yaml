@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dragon-age-blood-mage-no-seisen
+  titles:
+    original: ドラゴンエイジ -ブラッドメイジの聖戦-
+    translations: { ja-Latn: "Dragon Age: Blood Mage no Seisen" }
+  movies:
+    - id: dragon-age-blood-mage-no-seisen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dragon-age-blood-mage-no-seisen]

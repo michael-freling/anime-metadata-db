@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bei-bei-xiong-lixian-ji
+  titles:
+    original: Bei Bei Xiong Lixian Ji
+    translations: { ja-Latn: Bei Bei Xiong Lixian Ji }
+  seasons:
+    - id: bei-bei-xiong-lixian-ji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bei-bei-xiong-lixian-ji]

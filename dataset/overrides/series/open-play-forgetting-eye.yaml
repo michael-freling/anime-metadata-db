@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: open-play-forgetting-eye
+  titles:
+    original: 開かれた遊び、忘れる眼
+    translations: { ja-Latn: "Open Play, Forgetting Eye" }
+  movies:
+    - id: open-play-forgetting-eye-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [open-play-forgetting-eye]

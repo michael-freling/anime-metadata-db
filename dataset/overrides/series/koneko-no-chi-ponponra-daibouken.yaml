@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: koneko-no-chi-ponponra-daibouken
+  titles:
+    original: こねこのチー ポンポンらー大冒険
+    translations: { ja-Latn: "Koneko no Chi: Ponponra Daibouken" }
+  seasons:
+    - id: koneko-no-chi-ponponra-daibouken-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [koneko-no-chi-ponponra-daibouken]

@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mob-psycho-100
+  titles:
+    original: モブサイコ100
+    translations: { ja-Latn: Mob Psycho 100 }
+  seasons:
+    - id: mob-psycho-100-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mob-psycho-100]

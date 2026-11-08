@@ -11,6 +11,8 @@ series:
       number: 1
       releaseYear: 2025
       releaseSeason: SPRING
+      externalIds:
+        anilistId: 213459
       episodes:
         count: 4
         absoluteFrom: 1

@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bai-li-xiong-yunwu-shan-de-mimi
+  titles:
+    original: "Bai Li Xiong: Yunwu Shan De Mimi"
+    translations: { ja-Latn: "Bai Li Xiong: Yunwu Shan De Mimi" }
+  seasons:
+    - id: bai-li-xiong-yunwu-shan-de-mimi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bai-li-xiong-yunwu-shan-de-mimi]

@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: missing-one-player
+  titles:
+    original: Missing one player
+    translations: { ja-Latn: Missing one player }
+  movies:
+    - id: missing-one-player-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [missing-one-player]

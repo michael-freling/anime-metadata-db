@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shinmai-maou-no-testament-burst
+  titles:
+    original: 新妹魔王の契約者 BURST
+    translations: { ja-Latn: Shinmai Maou no Testament Burst }
+  seasons:
+    - id: shinmai-maou-no-testament-burst-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shinmai-maou-no-testament-burst]

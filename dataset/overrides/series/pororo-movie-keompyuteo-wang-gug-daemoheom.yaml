@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pororo-movie-keompyuteo-wang-gug-daemoheom
+  titles:
+    original: "Pororo Movie: Keompyuteo Wang-gug Daemoheom"
+    translations: { ja-Latn: "Pororo Movie: Keompyuteo Wang-gug Daemoheom" }
+  movies:
+    - id: pororo-movie-keompyuteo-wang-gug-daemoheom-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pororo-movie-keompyuteo-wang-gug-daemoheom]

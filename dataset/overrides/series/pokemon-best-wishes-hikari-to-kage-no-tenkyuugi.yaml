@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pokemon-best-wishes-hikari-to-kage-no-tenkyuugi
+  titles:
+    original: ポケットモンスター ベストウイッシュ~光と影のテンキュウギ~
+    translations: { ja-Latn: Pokemon Best Wishes! Hikari to Kage no Tenkyuugi }
+  movies:
+    - id: pokemon-best-wishes-hikari-to-kage-no-tenkyuugi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pokemon-best-wishes-hikari-to-kage-no-tenkyuugi]

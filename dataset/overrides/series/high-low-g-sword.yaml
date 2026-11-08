@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: high-low-g-sword
+  titles:
+    original: "High & Low: G-Sword"
+    translations: { ja-Latn: "High & Low: G-Sword" }
+  seasons:
+    - id: high-low-g-sword-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [high-low-g-sword]

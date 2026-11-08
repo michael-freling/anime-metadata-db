@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dou-long-zhanshi-3-long-yin-zhi-zhan
+  titles:
+    original: "Dou Long Zhanshi 3: Long Yin Zhi Zhan"
+    translations: { ja-Latn: "Dou Long Zhanshi 3: Long Yin Zhi Zhan" }
+  seasons:
+    - id: dou-long-zhanshi-3-long-yin-zhi-zhan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dou-long-zhanshi-3-long-yin-zhi-zhan]

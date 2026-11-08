@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tutu-zhi-shenqi-mogu
+  titles:
+    original: Tutu Zhi Shenqi Mogu
+    translations: { ja-Latn: Tutu Zhi Shenqi Mogu }
+  seasons:
+    - id: tutu-zhi-shenqi-mogu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tutu-zhi-shenqi-mogu]

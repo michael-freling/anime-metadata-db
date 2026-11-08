@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pandora-to-akubi
+  titles:
+    original: パンドラとアクビ
+    translations: { ja-Latn: Pandora to Akubi }
+  movies:
+    - id: pandora-to-akubi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pandora-to-akubi]

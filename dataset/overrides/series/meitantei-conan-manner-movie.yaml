@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: meitantei-conan-manner-movie
+  titles:
+    original: NO MORE映画泥棒×名探偵コナン 業火の向日葵
+    translations: { ja-Latn: Meitantei Conan Manner Movie }
+  movies:
+    - id: meitantei-conan-manner-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [meitantei-conan-manner-movie]

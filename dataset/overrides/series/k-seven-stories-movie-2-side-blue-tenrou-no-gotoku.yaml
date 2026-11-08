@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: k-seven-stories-movie-2-side-blue-tenrou-no-gotoku
+  titles:
+    original: "K SEVEN STORIES Episode 2　「SIDE:BLUE ～天狼の如く～」"
+    translations: { ja-Latn: "K: Seven Stories Movie 2 - Side:Blue - Tenrou no Gotoku" }
+  movies:
+    - id: k-seven-stories-movie-2-side-blue-tenrou-no-gotoku-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [k-seven-stories-movie-2-side-blue-tenrou-no-gotoku]

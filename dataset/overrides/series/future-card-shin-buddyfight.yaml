@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: future-card-shin-buddyfight
+  titles:
+    original: フューチャーカード バディファイト エース
+    translations: { ja-Latn: Future Card Shin Buddyfight }
+  seasons:
+    - id: future-card-shin-buddyfight-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [future-card-shin-buddyfight]

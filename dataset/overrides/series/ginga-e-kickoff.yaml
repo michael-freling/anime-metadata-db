@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ginga-e-kickoff
+  titles:
+    original: 銀河へキックオフ!!
+    translations: { ja-Latn: Ginga e Kickoff!! }
+  seasons:
+    - id: ginga-e-kickoff-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ginga-e-kickoff]

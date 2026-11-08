@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chen-kuro-gakuen
+  titles:
+    original: チェインクロニクル ～ヘクセイタスの閃～「ちぇんくろ学園」
+    translations: { ja-Latn: Chen-Kuro Gakuen }
+  movies:
+    - id: chen-kuro-gakuen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chen-kuro-gakuen]

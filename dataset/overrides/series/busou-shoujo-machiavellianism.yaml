@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: busou-shoujo-machiavellianism
+  titles:
+    original: 武装少女マキャヴェリズム
+    translations: { ja-Latn: Busou Shoujo Machiavellianism }
+  seasons:
+    - id: busou-shoujo-machiavellianism-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [busou-shoujo-machiavellianism]

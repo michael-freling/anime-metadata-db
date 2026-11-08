@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ookiku-furikabutte-natsu-no-taikai-hen
+  titles:
+    original: おおきく振りかぶって ～夏の大会編～
+    translations: { ja-Latn: "Ookiku Furikabutte: Natsu no Taikai-hen" }
+  seasons:
+    - id: ookiku-furikabutte-natsu-no-taikai-hen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ookiku-furikabutte-natsu-no-taikai-hen]

@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sanpou-shoujo
+  titles:
+    original: Sanpou Shoujo
+    translations: { ja-Latn: Sanpou Shoujo }
+  movies:
+    - id: sanpou-shoujo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sanpou-shoujo]

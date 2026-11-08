@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tegamibachi-reverse
+  titles:
+    original: テガミバチ REVERSE
+    translations: { ja-Latn: Tegamibachi Reverse }
+  seasons:
+    - id: tegamibachi-reverse-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tegamibachi-reverse]

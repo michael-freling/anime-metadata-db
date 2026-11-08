@@ -1,0 +1,15 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 3-gatsu-no-lion
+  titles:
+    original: 3月のライオン
+    translations: { ja-Latn: 3-gatsu no Lion }
+  seasons:
+    - id: 3-gatsu-no-lion-s1
+      number: 1
+    - id: 3-gatsu-no-lion-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [3-gatsu-no-lion]

@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shaonian-shiye-ji-yu-shengdian
+  titles:
+    original: "Shaonian Shiye: Ji Yu Shengdian"
+    translations: { ja-Latn: "Shaonian Shiye: Ji Yu Shengdian" }
+  seasons:
+    - id: shaonian-shiye-ji-yu-shengdian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shaonian-shiye-ji-yu-shengdian]

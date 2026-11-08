@@ -1,0 +1,15 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: knights-of-sidonia
+  titles:
+    original: シドニアの騎士
+    translations: { ja-Latn: Knights of Sidonia }
+  seasons:
+    - id: knights-of-sidonia-s1
+      number: 1
+  movies:
+    - id: knights-of-sidonia-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [knights-of-sidonia]

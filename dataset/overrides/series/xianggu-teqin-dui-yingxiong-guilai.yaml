@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xianggu-teqin-dui-yingxiong-guilai
+  titles:
+    original: "Xianggu Teqin Dui: Yingxiong Guilai"
+    translations: { ja-Latn: "Xianggu Teqin Dui: Yingxiong Guilai" }
+  seasons:
+    - id: xianggu-teqin-dui-yingxiong-guilai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xianggu-teqin-dui-yingxiong-guilai]

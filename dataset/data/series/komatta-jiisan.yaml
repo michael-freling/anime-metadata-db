@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Komatta Jiisan
   ordering: absolute
+  externalIds:
+    wikidataId: Q86741213
   seasons:
     - id: komatta-jiisan-s1
       number: 1

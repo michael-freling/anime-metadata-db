@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: starmyu-3rd-season
+  titles:
+    original: "高校星歌劇[スタミュ] 3rdシーズン"
+    translations: { ja-Latn: Starmyu 3rd Season }
+  seasons:
+    - id: starmyu-3rd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [starmyu-3rd-season]

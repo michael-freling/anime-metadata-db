@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shaonian-shiye-gongji-da-yu
+  titles:
+    original: "Shaonian Shiye: Gongji Da Yu"
+    translations: { ja-Latn: "Shaonian Shiye: Gongji Da Yu" }
+  seasons:
+    - id: shaonian-shiye-gongji-da-yu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shaonian-shiye-gongji-da-yu]

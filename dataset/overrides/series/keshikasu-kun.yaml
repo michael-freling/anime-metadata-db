@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: keshikasu-kun
+  titles:
+    original: ケシカスくん
+    translations: { ja-Latn: Keshikasu-kun }
+  seasons:
+    - id: keshikasu-kun-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [keshikasu-kun]

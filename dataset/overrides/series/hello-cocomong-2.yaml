@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hello-cocomong-2
+  titles:
+    original: Hello Cocomong 2
+    translations: { ja-Latn: Hello Cocomong 2 }
+  seasons:
+    - id: hello-cocomong-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hello-cocomong-2]

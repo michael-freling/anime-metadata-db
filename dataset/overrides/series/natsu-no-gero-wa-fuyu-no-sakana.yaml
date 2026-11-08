@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: natsu-no-gero-wa-fuyu-no-sakana
+  titles:
+    original: 夏のゲロは冬の肴
+    translations: { ja-Latn: Natsu no Gero wa Fuyu no Sakana }
+  movies:
+    - id: natsu-no-gero-wa-fuyu-no-sakana-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [natsu-no-gero-wa-fuyu-no-sakana]

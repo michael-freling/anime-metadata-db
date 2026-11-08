@@ -1,0 +1,15 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wakaokami-wa-shougakusei
+  titles:
+    original: 若おかみは小学生!
+    translations: { ja-Latn: Wakaokami wa Shougakusei! }
+  seasons:
+    - id: wakaokami-wa-shougakusei-s1
+      number: 1
+  movies:
+    - id: wakaokami-wa-shougakusei-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wakaokami-wa-shougakusei]

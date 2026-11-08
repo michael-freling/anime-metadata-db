@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mayi-gongzhu
+  titles:
+    original: Mayi Gongzhu
+    translations: { ja-Latn: Mayi Gongzhu }
+  seasons:
+    - id: mayi-gongzhu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mayi-gongzhu]

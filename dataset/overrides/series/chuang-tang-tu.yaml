@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chuang-tang-tu
+  titles:
+    original: Chuang Tang Tu
+    translations: { ja-Latn: Chuang Tang Tu }
+  movies:
+    - id: chuang-tang-tu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chuang-tang-tu]

@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ponkotsu-quest-maou-to-haken-no-mamono-tachi-2016
+  titles:
+    original: ポンコツクエスト〜魔王と派遣の魔物たち〜 シーズン3
+    translations: { ja-Latn: "Ponkotsu Quest: Maou to Haken no Mamono-tachi (2016)" }
+  seasons:
+    - id: ponkotsu-quest-maou-to-haken-no-mamono-tachi-2016-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ponkotsu-quest-maou-to-haken-no-mamono-tachi-2016]

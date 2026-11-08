@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: super-racer-enzy
+  titles:
+    original: Super Racer Enzy
+    translations: { ja-Latn: Super Racer Enzy }
+  movies:
+    - id: super-racer-enzy-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [super-racer-enzy]

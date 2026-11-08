@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: batu-de-qimiao-lucheng
+  titles:
+    original: Batu de Qimiao Lucheng
+    translations: { ja-Latn: Batu de Qimiao Lucheng }
+  seasons:
+    - id: batu-de-qimiao-lucheng-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [batu-de-qimiao-lucheng]

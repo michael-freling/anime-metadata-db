@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: koorookkooroowa-chingoodeul-moojigae-namooeui-soop
+  titles:
+    original: "Koorookkooroowa Chingoodeul: Moojigae Namooeui Soop"
+    translations: { ja-Latn: "Koorookkooroowa Chingoodeul: Moojigae Namooeui Soop" }
+  movies:
+    - id: koorookkooroowa-chingoodeul-moojigae-namooeui-soop-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [koorookkooroowa-chingoodeul-moojigae-namooeui-soop]

@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: friends-mononoke-shima-no-naki
+  titles:
+    original: friends -フレンズ- もののけ島のナキ
+    translations: { ja-Latn: "Friends: Mononoke Shima no Naki" }
+  movies:
+    - id: friends-mononoke-shima-no-naki-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [friends-mononoke-shima-no-naki]

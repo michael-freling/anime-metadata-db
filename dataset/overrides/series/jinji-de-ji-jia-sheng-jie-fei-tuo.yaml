@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jinji-de-ji-jia-sheng-jie-fei-tuo
+  titles:
+    original: "Jinji de Ji Jia: Sheng Jie Fei Tuo"
+    translations: { ja-Latn: "Jinji de Ji Jia: Sheng Jie Fei Tuo" }
+  seasons:
+    - id: jinji-de-ji-jia-sheng-jie-fei-tuo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jinji-de-ji-jia-sheng-jie-fei-tuo]

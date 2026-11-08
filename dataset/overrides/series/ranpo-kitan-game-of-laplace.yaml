@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ranpo-kitan-game-of-laplace
+  titles:
+    original: "Ranpo Kitan: Game of Laplace"
+    translations: { ja-Latn: "Ranpo Kitan: Game of Laplace" }
+  seasons:
+    - id: ranpo-kitan-game-of-laplace-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ranpo-kitan-game-of-laplace]

@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: feichang-xiaozi-ma-ming-jia
+  titles:
+    original: Feichang Xiaozi Ma Ming Jia
+    translations: { ja-Latn: Feichang Xiaozi Ma Ming Jia }
+  seasons:
+    - id: feichang-xiaozi-ma-ming-jia-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [feichang-xiaozi-ma-ming-jia]

@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pokemon-meloetta-no-kirakira-recital
+  titles:
+    original: メロエッタのキラキラリサイタル
+    translations: { ja-Latn: "Pokemon: Meloetta no Kirakira Recital" }
+  movies:
+    - id: pokemon-meloetta-no-kirakira-recital-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pokemon-meloetta-no-kirakira-recital]

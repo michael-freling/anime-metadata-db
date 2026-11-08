@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: koukaku-kidoutai-shin-movie
+  titles:
+    original: "Koukaku Kidoutai: Shin Movie"
+    translations: { ja-Latn: "Koukaku Kidoutai: Shin Movie" }
+  movies:
+    - id: koukaku-kidoutai-shin-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [koukaku-kidoutai-shin-movie]

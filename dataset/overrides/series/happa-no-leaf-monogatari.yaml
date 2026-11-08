@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: happa-no-leaf-monogatari
+  titles:
+    original: 葉っぱのリーフものがたり
+    translations: { ja-Latn: Happa no Leaf Monogatari }
+  movies:
+    - id: happa-no-leaf-monogatari-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [happa-no-leaf-monogatari]

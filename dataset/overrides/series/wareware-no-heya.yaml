@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wareware-no-heya
+  titles:
+    original: われわれの部屋
+    translations: { ja-Latn: Wareware no Heya }
+  movies:
+    - id: wareware-no-heya-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wareware-no-heya]

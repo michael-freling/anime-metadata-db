@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mori-no-densetsu-dai-ni-gakushou
+  titles:
+    original: 森の伝説 第二楽章
+    translations: { ja-Latn: "Mori no Densetsu: Dai Ni Gakushou" }
+  movies:
+    - id: mori-no-densetsu-dai-ni-gakushou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mori-no-densetsu-dai-ni-gakushou]

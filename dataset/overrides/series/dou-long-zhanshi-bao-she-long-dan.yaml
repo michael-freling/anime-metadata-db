@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dou-long-zhanshi-bao-she-long-dan
+  titles:
+    original: "Dou Long Zhanshi: Bao She Long Dan"
+    translations: { ja-Latn: "Dou Long Zhanshi: Bao She Long Dan" }
+  seasons:
+    - id: dou-long-zhanshi-bao-she-long-dan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dou-long-zhanshi-bao-she-long-dan]

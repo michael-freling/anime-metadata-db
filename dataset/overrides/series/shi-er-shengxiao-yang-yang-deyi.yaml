@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shi-er-shengxiao-yang-yang-deyi
+  titles:
+    original: "Shi Er Shengxiao: Yang Yang Deyi"
+    translations: { ja-Latn: "Shi Er Shengxiao: Yang Yang Deyi" }
+  seasons:
+    - id: shi-er-shengxiao-yang-yang-deyi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shi-er-shengxiao-yang-yang-deyi]

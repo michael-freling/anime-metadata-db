@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: uchuu-show-e-youkoso
+  titles:
+    original: 宇宙ショーへようこそ Welcome to THE SPACE SHOW
+    translations: { ja-Latn: Uchuu Show e Youkoso }
+  movies:
+    - id: uchuu-show-e-youkoso-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [uchuu-show-e-youkoso]

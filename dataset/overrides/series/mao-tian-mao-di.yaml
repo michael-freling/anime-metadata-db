@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mao-tian-mao-di
+  titles:
+    original: Mao Tian Mao Di
+    translations: { ja-Latn: Mao Tian Mao Di }
+  movies:
+    - id: mao-tian-mao-di-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mao-tian-mao-di]

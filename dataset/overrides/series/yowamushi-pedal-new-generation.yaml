@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yowamushi-pedal-new-generation
+  titles:
+    original: 弱虫ペダル NEW GENERATION
+    translations: { ja-Latn: "Yowamushi Pedal: New Generation" }
+  seasons:
+    - id: yowamushi-pedal-new-generation-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yowamushi-pedal-new-generation]

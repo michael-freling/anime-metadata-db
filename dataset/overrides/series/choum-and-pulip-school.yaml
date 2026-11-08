@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: choum-and-pulip-school
+  titles:
+    original: Choum and Pulip School
+    translations: { ja-Latn: Choum and Pulip School }
+  seasons:
+    - id: choum-and-pulip-school-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [choum-and-pulip-school]

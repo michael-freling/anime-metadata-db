@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: neko-nanka-yondemo-konai
+  titles:
+    original: 猫なんかよんでもこない.
+    translations: { ja-Latn: Neko nanka Yondemo Konai. }
+  seasons:
+    - id: neko-nanka-yondemo-konai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [neko-nanka-yondemo-konai]

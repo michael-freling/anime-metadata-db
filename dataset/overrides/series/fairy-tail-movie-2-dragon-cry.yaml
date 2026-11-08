@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fairy-tail-movie-2-dragon-cry
+  titles:
+    original: 劇場版フェアリーテイル –DRAGON CRY–
+    translations: { ja-Latn: "Fairy Tail Movie 2: Dragon Cry" }
+  movies:
+    - id: fairy-tail-movie-2-dragon-cry-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fairy-tail-movie-2-dragon-cry]

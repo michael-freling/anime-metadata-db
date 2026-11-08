@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bara-bara-film
+  titles:
+    original: バラバラフィルム
+    translations: { ja-Latn: Bara Bara Film }
+  movies:
+    - id: bara-bara-film-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bara-bara-film]

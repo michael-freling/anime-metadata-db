@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mitsuami-no-kamisama
+  titles:
+    original: みつあみの神様
+    translations: { ja-Latn: Mitsuami no Kamisama }
+  movies:
+    - id: mitsuami-no-kamisama-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mitsuami-no-kamisama]

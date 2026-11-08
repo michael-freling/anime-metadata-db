@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: flower-and-steam
+  titles:
+    original: 花と嫁
+    translations: { ja-Latn: Flower and Steam }
+  movies:
+    - id: flower-and-steam-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [flower-and-steam]

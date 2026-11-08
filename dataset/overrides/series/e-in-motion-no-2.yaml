@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: e-in-motion-no-2
+  titles:
+    original: É in MOTION No.2
+    translations: { ja-Latn: É in MOTION No.2 }
+  movies:
+    - id: e-in-motion-no-2-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [e-in-motion-no-2]

@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: danao-tiangong-3d
+  titles:
+    original: Danao Tiangong 3D
+    translations: { ja-Latn: Danao Tiangong 3D }
+  movies:
+    - id: danao-tiangong-3d-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [danao-tiangong-3d]

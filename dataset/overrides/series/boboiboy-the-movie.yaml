@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: boboiboy-the-movie
+  titles:
+    original: "BoBoiBoy: The Movie"
+    translations: { ja-Latn: "BoBoiBoy: The Movie" }
+  movies:
+    - id: boboiboy-the-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [boboiboy-the-movie]

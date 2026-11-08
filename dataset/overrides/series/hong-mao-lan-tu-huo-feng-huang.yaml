@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hong-mao-lan-tu-huo-feng-huang
+  titles:
+    original: "Hong Mao Lan Tu: Huo Feng Huang"
+    translations: { ja-Latn: "Hong Mao Lan Tu: Huo Feng Huang" }
+  movies:
+    - id: hong-mao-lan-tu-huo-feng-huang-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hong-mao-lan-tu-huo-feng-huang]

@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: acca-13-ku-kansatsu-ka
+  titles:
+    original: "ACCA: 13-ku Kansatsu-ka"
+    translations: { ja-Latn: "ACCA: 13-ku Kansatsu-ka" }
+  seasons:
+    - id: acca-13-ku-kansatsu-ka-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [acca-13-ku-kansatsu-ka]

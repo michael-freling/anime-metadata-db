@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: to-be-heroine
+  titles:
+    original: トゥー・ビー・ヒロイン
+    translations: { ja-Latn: To Be Heroine }
+  seasons:
+    - id: to-be-heroine-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [to-be-heroine]

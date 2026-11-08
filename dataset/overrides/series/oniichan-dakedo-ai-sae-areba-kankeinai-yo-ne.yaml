@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: oniichan-dakedo-ai-sae-areba-kankeinai-yo-ne
+  titles:
+    original: お兄ちゃんだけど愛さえあれば関係ないよねっ
+    translations: { ja-Latn: Oniichan dakedo Ai sae Areba Kankeinai yo ne! }
+  seasons:
+    - id: oniichan-dakedo-ai-sae-areba-kankeinai-yo-ne-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [oniichan-dakedo-ai-sae-areba-kankeinai-yo-ne]

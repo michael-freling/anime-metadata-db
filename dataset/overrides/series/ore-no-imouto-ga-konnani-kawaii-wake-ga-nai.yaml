@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ore-no-imouto-ga-konnani-kawaii-wake-ga-nai
+  titles:
+    original: 俺の妹がこんなに可愛いわけがない.
+    translations: { ja-Latn: Ore no Imouto ga Konnani Kawaii Wake ga Nai. }
+  seasons:
+    - id: ore-no-imouto-ga-konnani-kawaii-wake-ga-nai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ore-no-imouto-ga-konnani-kawaii-wake-ga-nai]

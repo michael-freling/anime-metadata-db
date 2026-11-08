@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: My Exercise
   ordering: absolute
+  externalIds:
+    wikidataId: Q121133446
   movies:
     - id: my-exercise-film
       titles:

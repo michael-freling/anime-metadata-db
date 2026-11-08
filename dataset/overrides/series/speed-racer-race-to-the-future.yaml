@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: speed-racer-race-to-the-future
+  titles:
+    original: "Speed Racer: Race to the Future"
+    translations: { ja-Latn: "Speed Racer: Race to the Future" }
+  movies:
+    - id: speed-racer-race-to-the-future-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [speed-racer-race-to-the-future]

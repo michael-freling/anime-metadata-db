@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-zhuren-zhengyi-lianmeng-2nd-season
+  titles:
+    original: "Xiao Zhuren: Zhengyi Lianmeng 2nd Season"
+    translations: { ja-Latn: "Xiao Zhuren: Zhengyi Lianmeng 2nd Season" }
+  seasons:
+    - id: xiao-zhuren-zhengyi-lianmeng-2nd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-zhuren-zhengyi-lianmeng-2nd-season]

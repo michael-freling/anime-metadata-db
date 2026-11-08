@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tenka-hyakken-meiji-kan-e-youkoso
+  titles:
+    original: 天華百剣 ~めいじ館へようこそ!~
+    translations: { ja-Latn: "Tenka Hyakken: Meiji-kan e Youkoso!" }
+  seasons:
+    - id: tenka-hyakken-meiji-kan-e-youkoso-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tenka-hyakken-meiji-kan-e-youkoso]

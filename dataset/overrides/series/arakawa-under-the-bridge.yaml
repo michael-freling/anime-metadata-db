@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: arakawa-under-the-bridge
+  titles:
+    original: 荒川アンダー ザ ブリッジ
+    translations: { ja-Latn: Arakawa Under the Bridge }
+  seasons:
+    - id: arakawa-under-the-bridge-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [arakawa-under-the-bridge]

@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lance-n-masques
+  titles:
+    original: ランス・アンド・マスクス
+    translations: { ja-Latn: Lance N' Masques }
+  seasons:
+    - id: lance-n-masques-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lance-n-masques]

@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dongwu-hechang-tuan
+  titles:
+    original: Dongwu Hechang Tuan
+    translations: { ja-Latn: Dongwu Hechang Tuan }
+  seasons:
+    - id: dongwu-hechang-tuan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dongwu-hechang-tuan]

@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kidou-senshi-gundam-00-movie-a-wakening-of-the-trailblazer
+  titles:
+    original: "機動戦士ガンダム MOBILE SUIT GUNDAM 00[ダブルオー] -A wakening of the Trailblazer-"
+    translations: { ja-Latn: "Kidou Senshi Gundam 00 Movie: A Wakening of the Trailblazer" }
+  movies:
+    - id: kidou-senshi-gundam-00-movie-a-wakening-of-the-trailblazer-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kidou-senshi-gundam-00-movie-a-wakening-of-the-trailblazer]

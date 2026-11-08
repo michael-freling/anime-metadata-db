@@ -4,8 +4,11 @@ series:
   titles:
     original: 安達としまむら
     translations:
+      en: Adachi and Shimamura
       ja-Latn: Adachi to Shimamura
   ordering: absolute
+  externalIds:
+    wikidataId: Q17191388
   seasons:
     - id: adachi-to-shimamura-s1
       number: 1

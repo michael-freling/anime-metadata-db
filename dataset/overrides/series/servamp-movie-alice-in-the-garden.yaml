@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: servamp-movie-alice-in-the-garden
+  titles:
+    original: "SERVAMP -サーヴァンプ-: Alice in the Garden"
+    translations: { ja-Latn: "Servamp Movie: Alice in the Garden" }
+  movies:
+    - id: servamp-movie-alice-in-the-garden-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [servamp-movie-alice-in-the-garden]

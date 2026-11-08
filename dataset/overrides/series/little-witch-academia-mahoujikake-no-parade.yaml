@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: little-witch-academia-mahoujikake-no-parade
+  titles:
+    original: リトルウィッチアカデミア 魔法仕掛けのパレード
+    translations: { ja-Latn: "Little Witch Academia: Mahoujikake no Parade" }
+  movies:
+    - id: little-witch-academia-mahoujikake-no-parade-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [little-witch-academia-mahoujikake-no-parade]

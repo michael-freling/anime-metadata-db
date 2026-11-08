@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wo-jiao-bi-yun-tao
+  titles:
+    original: Wo Jiao Bi Yun Tao
+    translations: { ja-Latn: Wo Jiao Bi Yun Tao }
+  seasons:
+    - id: wo-jiao-bi-yun-tao-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wo-jiao-bi-yun-tao]

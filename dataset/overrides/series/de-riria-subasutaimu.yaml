@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: de-riria-subasutaimu
+  titles:
+    original: DE_RIRIA_SUBASUTAIMU
+    translations: { ja-Latn: DE_RIRIA_SUBASUTAIMU }
+  movies:
+    - id: de-riria-subasutaimu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [de-riria-subasutaimu]

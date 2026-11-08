@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shouwei-mayi-cun
+  titles:
+    original: Shouwei Mayi Cun
+    translations: { ja-Latn: Shouwei Mayi Cun }
+  seasons:
+    - id: shouwei-mayi-cun-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shouwei-mayi-cun]

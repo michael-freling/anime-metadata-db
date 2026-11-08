@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xingxing-muchang-ban-ni-chengzhang
+  titles:
+    original: "Xingxing Muchang: Ban Ni Chengzhang"
+    translations: { ja-Latn: "Xingxing Muchang: Ban Ni Chengzhang" }
+  seasons:
+    - id: xingxing-muchang-ban-ni-chengzhang-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xingxing-muchang-ban-ni-chengzhang]

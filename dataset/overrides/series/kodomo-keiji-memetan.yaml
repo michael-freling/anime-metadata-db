@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kodomo-keiji-memetan
+  titles:
+    original: こども刑事めめたん
+    translations: { ja-Latn: Kodomo Keiji Memetan }
+  seasons:
+    - id: kodomo-keiji-memetan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kodomo-keiji-memetan]

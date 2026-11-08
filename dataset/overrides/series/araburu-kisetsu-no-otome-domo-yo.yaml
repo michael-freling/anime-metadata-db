@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: araburu-kisetsu-no-otome-domo-yo
+  titles:
+    original: 荒ぶる季節の乙女どもよ.
+    translations: { ja-Latn: Araburu Kisetsu no Otome-domo yo. }
+  seasons:
+    - id: araburu-kisetsu-no-otome-domo-yo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [araburu-kisetsu-no-otome-domo-yo]

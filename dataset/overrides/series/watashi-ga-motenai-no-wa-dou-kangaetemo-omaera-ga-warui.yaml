@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: watashi-ga-motenai-no-wa-dou-kangaetemo-omaera-ga-warui
+  titles:
+    original: 私がモテないのはどう考えてもお前らが悪い!
+    translations: { ja-Latn: Watashi ga Motenai no wa Dou Kangaetemo Omaera ga Warui! }
+  seasons:
+    - id: watashi-ga-motenai-no-wa-dou-kangaetemo-omaera-ga-warui-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [watashi-ga-motenai-no-wa-dou-kangaetemo-omaera-ga-warui]

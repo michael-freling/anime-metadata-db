@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tabetai-my-honey
+  titles:
+    original: たべたいマイハニー
+    translations: { ja-Latn: Tabetai My Honey }
+  movies:
+    - id: tabetai-my-honey-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tabetai-my-honey]

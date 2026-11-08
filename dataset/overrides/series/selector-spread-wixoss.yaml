@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: selector-spread-wixoss
+  titles:
+    original: セレクター spread WIXOSS
+    translations: { ja-Latn: Selector Spread WIXOSS }
+  seasons:
+    - id: selector-spread-wixoss-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [selector-spread-wixoss]

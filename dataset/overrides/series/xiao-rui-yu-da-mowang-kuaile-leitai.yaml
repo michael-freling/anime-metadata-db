@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-rui-yu-da-mowang-kuaile-leitai
+  titles:
+    original: "Xiao Rui Yu Da Mowang: Kuaile Leitai"
+    translations: { ja-Latn: "Xiao Rui Yu Da Mowang: Kuaile Leitai" }
+  seasons:
+    - id: xiao-rui-yu-da-mowang-kuaile-leitai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-rui-yu-da-mowang-kuaile-leitai]

@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: in-this-corner-and-other-corners-of-the-world
+  titles:
+    original: この世界の(さらにいくつもの)片隅に
+    translations: { ja-Latn: In This Corner (and Other Corners) of the World }
+  movies:
+    - id: in-this-corner-and-other-corners-of-the-world-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [in-this-corner-and-other-corners-of-the-world]

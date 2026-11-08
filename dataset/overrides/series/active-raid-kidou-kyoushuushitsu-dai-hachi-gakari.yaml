@@ -1,0 +1,15 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: active-raid-kidou-kyoushuushitsu-dai-hachi-gakari
+  titles:
+    original: アクティヴレイド -機動強襲室第八係-
+    translations: { ja-Latn: "Active Raid: Kidou Kyoushuushitsu Dai Hachi Gakari" }
+  seasons:
+    - id: active-raid-kidou-kyoushuushitsu-dai-hachi-gakari-s1
+      number: 1
+    - id: active-raid-kidou-kyoushuushitsu-dai-hachi-gakari-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [active-raid-kidou-kyoushuushitsu-dai-hachi-gakari]

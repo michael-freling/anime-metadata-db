@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pocket-monsters-xy-z-saikyou-no-futari-citron-to-dent
+  titles:
+    original: ポケットモンスターXY & Z 最強の二人！ シトロンとデント！！
+    translations: { ja-Latn: "Pocket Monsters XY & Z: Saikyou no Futari! Citron to Dent!!" }
+  seasons:
+    - id: pocket-monsters-xy-z-saikyou-no-futari-citron-to-dent-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pocket-monsters-xy-z-saikyou-no-futari-citron-to-dent]

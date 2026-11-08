@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mo-jing-qi-yuan
+  titles:
+    original: Mo Jing Qi Yuan
+    translations: { ja-Latn: Mo Jing Qi Yuan }
+  movies:
+    - id: mo-jing-qi-yuan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mo-jing-qi-yuan]

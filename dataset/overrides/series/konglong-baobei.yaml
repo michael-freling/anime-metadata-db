@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: konglong-baobei
+  titles:
+    original: Konglong Baobei
+    translations: { ja-Latn: Konglong Baobei }
+  movies:
+    - id: konglong-baobei-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [konglong-baobei]

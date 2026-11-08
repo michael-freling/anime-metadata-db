@@ -1,0 +1,15 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jojo-no-kimyou-na-bouken-part-3-stardust-crusaders
+  titles:
+    original: ジョジョの奇妙な冒険 スターダストクルセイダース
+    translations: { ja-Latn: "JoJo no Kimyou na Bouken Part 3: Stardust Crusaders" }
+  seasons:
+    - id: jojo-no-kimyou-na-bouken-part-3-stardust-crusaders-s1
+      number: 1
+    - id: jojo-no-kimyou-na-bouken-part-3-stardust-crusaders-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jojo-no-kimyou-na-bouken-part-3-stardust-crusaders]

@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: toaru-hikuushi-e-no-tsuioku
+  titles:
+    original: とある飛空士への追憶
+    translations: { ja-Latn: Toaru Hikuushi e no Tsuioku }
+  movies:
+    - id: toaru-hikuushi-e-no-tsuioku-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [toaru-hikuushi-e-no-tsuioku]

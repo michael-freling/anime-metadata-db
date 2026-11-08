@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: larva-2nd-season
+  titles:
+    original: Larva 2nd Season
+    translations: { ja-Latn: Larva 2nd Season }
+  seasons:
+    - id: larva-2nd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [larva-2nd-season]

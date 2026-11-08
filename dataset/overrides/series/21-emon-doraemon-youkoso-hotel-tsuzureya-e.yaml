@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 21-emon-doraemon-youkoso-hotel-tsuzureya-e
+  titles:
+    original: 21エモン＆ドラえもん ようこそ！！ホテルつづれ屋へ
+    translations: { ja-Latn: "21 Emon & Doraemon: Youkoso!! Hotel Tsuzureya e" }
+  movies:
+    - id: 21-emon-doraemon-youkoso-hotel-tsuzureya-e-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [21-emon-doraemon-youkoso-hotel-tsuzureya-e]

@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: new-game
+  titles:
+    original: ニューゲーム！！
+    translations: { ja-Latn: New Game!! }
+  seasons:
+    - id: new-game-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [new-game]

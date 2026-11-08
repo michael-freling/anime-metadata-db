@@ -1,0 +1,15 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sword-oratoria-is-it-wrong-to-try-to-pick-up-girls-in-a-dungeon-on-the-side
+  titles:
+    original: ソード・オラトリアダンジョンに出会いを求めるのは間違っているだろうか外伝
+    translations: { ja-Latn: "Sword Oratoria: Is It Wrong to Try to Pick Up Girls in a Dungeon? On the Side" }
+  seasons:
+    - id: sword-oratoria-is-it-wrong-to-try-to-pick-up-girls-in-a-dungeon-on-the-side-s1
+      number: 1
+    - id: sword-oratoria-is-it-wrong-to-try-to-pick-up-girls-in-a-dungeon-on-the-side-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sword-oratoria-is-it-wrong-to-try-to-pick-up-girls-in-a-dungeon-on-the-side]

@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhongguo-jingqi-xiansheng-movie
+  titles:
+    original: Zhongguo Jingqi Xiansheng Movie
+    translations: { ja-Latn: Zhongguo Jingqi Xiansheng Movie }
+  movies:
+    - id: zhongguo-jingqi-xiansheng-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhongguo-jingqi-xiansheng-movie]

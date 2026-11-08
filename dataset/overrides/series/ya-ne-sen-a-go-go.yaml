@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ya-ne-sen-a-go-go
+  titles:
+    original: Ya-Ne-Sen a Go Go
+    translations: { ja-Latn: Ya-Ne-Sen a Go Go }
+  movies:
+    - id: ya-ne-sen-a-go-go-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ya-ne-sen-a-go-go]

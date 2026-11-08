@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nijiiro-hotaru-eien-no-natsuyasumi
+  titles:
+    original: 虹色ほたる ~永遠の夏休み~
+    translations: { ja-Latn: "Nijiiro Hotaru: Eien no Natsuyasumi" }
+  movies:
+    - id: nijiiro-hotaru-eien-no-natsuyasumi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nijiiro-hotaru-eien-no-natsuyasumi]

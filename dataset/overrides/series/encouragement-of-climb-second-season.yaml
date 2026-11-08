@@ -1,0 +1,15 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: encouragement-of-climb-second-season
+  titles:
+    original: ヤマノススメ セカンドシーズン
+    translations: { ja-Latn: Encouragement of Climb Second Season }
+  seasons:
+    - id: encouragement-of-climb-second-season-s1
+      number: 1
+    - id: encouragement-of-climb-second-season-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [encouragement-of-climb-second-season]

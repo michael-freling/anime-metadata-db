@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: marie-s-sugar-plum
+  titles:
+    original: コンペイトウのおまじない
+    translations: { ja-Latn: Marie's Sugar Plum }
+  movies:
+    - id: marie-s-sugar-plum-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [marie-s-sugar-plum]

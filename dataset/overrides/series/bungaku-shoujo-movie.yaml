@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bungaku-shoujo-movie
+  titles:
+    original: "\"Bungaku Shoujo\" Movie"
+    translations: { ja-Latn: "\"Bungaku Shoujo\" Movie" }
+  movies:
+    - id: bungaku-shoujo-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bungaku-shoujo-movie]

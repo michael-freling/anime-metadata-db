@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: luck-logic
+  titles:
+    original: ラクエンロジック
+    translations: { ja-Latn: Luck & Logic }
+  seasons:
+    - id: luck-logic-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [luck-logic]

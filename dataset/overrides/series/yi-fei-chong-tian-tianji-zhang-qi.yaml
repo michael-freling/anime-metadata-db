@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yi-fei-chong-tian-tianji-zhang-qi
+  titles:
+    original: "Yi Fei Chong Tian: Tianji Zhang Qi"
+    translations: { ja-Latn: "Yi Fei Chong Tian: Tianji Zhang Qi" }
+  seasons:
+    - id: yi-fei-chong-tian-tianji-zhang-qi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yi-fei-chong-tian-tianji-zhang-qi]

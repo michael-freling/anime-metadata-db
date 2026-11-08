@@ -4,8 +4,11 @@ series:
   titles:
     original: 体操ザムライ
     translations:
+      en: The Gymnastics Samurai
       ja-Latn: Taisou Zamurai
   ordering: absolute
+  externalIds:
+    wikidataId: Q98381606
   seasons:
     - id: taisou-zamurai-s1
       number: 1

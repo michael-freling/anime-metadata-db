@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: taka-no-tsume-8-yoshida-kun-no-file
+  titles:
+    original: 鷹の爪8 吉田くんの×（バッテン）ファイル
+    translations: { ja-Latn: "Taka no Tsume 8: Yoshida-kun no × File" }
+  movies:
+    - id: taka-no-tsume-8-yoshida-kun-no-file-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [taka-no-tsume-8-yoshida-kun-no-file]

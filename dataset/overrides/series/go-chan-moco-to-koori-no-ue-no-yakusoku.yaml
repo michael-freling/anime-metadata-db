@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: go-chan-moco-to-koori-no-ue-no-yakusoku
+  titles:
+    original: "Gō-chan: Moco to Koori no Ue no Yakusoku"
+    translations: { ja-Latn: "Gō-chan: Moco to Koori no Ue no Yakusoku" }
+  movies:
+    - id: go-chan-moco-to-koori-no-ue-no-yakusoku-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [go-chan-moco-to-koori-no-ue-no-yakusoku]

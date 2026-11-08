@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kuiba-iii-zhanshen-jue-qi
+  titles:
+    original: "Kuiba III: Zhanshen Jue Qi"
+    translations: { ja-Latn: "Kuiba III: Zhanshen Jue Qi" }
+  movies:
+    - id: kuiba-iii-zhanshen-jue-qi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kuiba-iii-zhanshen-jue-qi]

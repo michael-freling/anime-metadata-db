@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kuaile-modeng-you-ai-shenghuo
+  titles:
+    original: "Kuaile Modeng: You Ai Shenghuo"
+    translations: { ja-Latn: "Kuaile Modeng: You Ai Shenghuo" }
+  seasons:
+    - id: kuaile-modeng-you-ai-shenghuo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kuaile-modeng-you-ai-shenghuo]

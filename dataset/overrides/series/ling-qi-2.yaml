@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ling-qi-2
+  titles:
+    original: SPIRITPACT -黄泉の契り-
+    translations: { ja-Latn: Ling Qi 2 }
+  seasons:
+    - id: ling-qi-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ling-qi-2]

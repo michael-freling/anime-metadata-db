@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: watashitachi-luck-logic-bu
+  titles:
+    original: "私たち, らくろじ部!"
+    translations: { ja-Latn: "Watashitachi, Luck Logic-bu!" }
+  seasons:
+    - id: watashitachi-luck-logic-bu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [watashitachi-luck-logic-bu]

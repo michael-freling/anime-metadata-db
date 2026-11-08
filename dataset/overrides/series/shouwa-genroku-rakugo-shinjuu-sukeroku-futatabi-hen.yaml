@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shouwa-genroku-rakugo-shinjuu-sukeroku-futatabi-hen
+  titles:
+    original: 昭和元禄落語心中 ~助六再び篇~
+    translations: { ja-Latn: "Shouwa Genroku Rakugo Shinjuu: Sukeroku Futatabi-hen" }
+  seasons:
+    - id: shouwa-genroku-rakugo-shinjuu-sukeroku-futatabi-hen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shouwa-genroku-rakugo-shinjuu-sukeroku-futatabi-hen]

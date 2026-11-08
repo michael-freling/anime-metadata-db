@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bodhi-yu-haoyou-chao-yuan-neng-xing-zhan
+  titles:
+    original: "Bodhi Yu Haoyou: Chao Yuan Neng Xing Zhan"
+    translations: { ja-Latn: "Bodhi Yu Haoyou: Chao Yuan Neng Xing Zhan" }
+  seasons:
+    - id: bodhi-yu-haoyou-chao-yuan-neng-xing-zhan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bodhi-yu-haoyou-chao-yuan-neng-xing-zhan]

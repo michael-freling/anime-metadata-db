@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: geo-mecha-beast-guardian
+  titles:
+    original: "Geo Mecha: Beast Guardian"
+    translations: { ja-Latn: "Geo Mecha: Beast Guardian" }
+  seasons:
+    - id: geo-mecha-beast-guardian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [geo-mecha-beast-guardian]

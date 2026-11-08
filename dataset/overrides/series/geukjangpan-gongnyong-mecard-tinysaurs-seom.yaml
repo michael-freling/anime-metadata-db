@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: geukjangpan-gongnyong-mecard-tinysaurs-seom
+  titles:
+    original: "Geukjangpan Gongnyong Mecard: Tinysaurs Seom"
+    translations: { ja-Latn: "Geukjangpan Gongnyong Mecard: Tinysaurs Seom" }
+  movies:
+    - id: geukjangpan-gongnyong-mecard-tinysaurs-seom-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [geukjangpan-gongnyong-mecard-tinysaurs-seom]

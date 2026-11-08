@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kuroi-neko
+  titles:
+    original: 黒い猫
+    translations: { ja-Latn: Kuroi Neko }
+  movies:
+    - id: kuroi-neko-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kuroi-neko]

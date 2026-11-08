@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: da-erduo-tutu-4th-season
+  titles:
+    original: Da Erduo Tutu 4th Season
+    translations: { ja-Latn: Da Erduo Tutu 4th Season }
+  seasons:
+    - id: da-erduo-tutu-4th-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [da-erduo-tutu-4th-season]

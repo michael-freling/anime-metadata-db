@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ku-bao-fangkuai-2nd-season
+  titles:
+    original: Ku Bao Fangkuai 2nd Season
+    translations: { ja-Latn: Ku Bao Fangkuai 2nd Season }
+  seasons:
+    - id: ku-bao-fangkuai-2nd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ku-bao-fangkuai-2nd-season]

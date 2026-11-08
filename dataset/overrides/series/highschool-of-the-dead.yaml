@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: highschool-of-the-dead
+  titles:
+    original: Highschool of the Dead
+    translations: { ja-Latn: Highschool of the Dead }
+  seasons:
+    - id: highschool-of-the-dead-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [highschool-of-the-dead]

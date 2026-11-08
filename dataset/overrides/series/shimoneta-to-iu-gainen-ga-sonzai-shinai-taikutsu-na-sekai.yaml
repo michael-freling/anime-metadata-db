@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shimoneta-to-iu-gainen-ga-sonzai-shinai-taikutsu-na-sekai
+  titles:
+    original: 下ネタという概念が存在しない退屈な世界
+    translations: { ja-Latn: Shimoneta to Iu Gainen ga Sonzai Shinai Taikutsu na Sekai }
+  seasons:
+    - id: shimoneta-to-iu-gainen-ga-sonzai-shinai-taikutsu-na-sekai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shimoneta-to-iu-gainen-ga-sonzai-shinai-taikutsu-na-sekai]

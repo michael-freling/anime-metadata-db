@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Ameku Takao no Suiri Karte
   ordering: absolute
+  externalIds:
+    wikidataId: Q135107748
   seasons:
     - id: ameku-takao-no-suiri-karte-s1
       number: 1
