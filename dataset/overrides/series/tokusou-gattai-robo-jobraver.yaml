@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tokusou-gattai-robo-jobraver
+  titles:
+    original: 特装合体ロボ ジョブレイバー
+    translations: { ja-Latn: Tokusou Gattai Robo Jobraver }
+  seasons:
+    - id: tokusou-gattai-robo-jobraver-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tokusou-gattai-robo-jobraver]

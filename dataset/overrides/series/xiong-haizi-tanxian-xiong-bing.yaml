@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiong-haizi-tanxian-xiong-bing
+  titles:
+    original: "Xiong Haizi: Tanxian Xiong Bing"
+    translations: { ja-Latn: "Xiong Haizi: Tanxian Xiong Bing" }
+  movies:
+    - id: xiong-haizi-tanxian-xiong-bing-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiong-haizi-tanxian-xiong-bing]

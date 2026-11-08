@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shinran-jinsei-no-mokuteki
+  titles:
+    original: 親鸞 人生の目的
+    translations: { ja-Latn: "Shinran: Jinsei no Mokuteki" }
+  movies:
+    - id: shinran-jinsei-no-mokuteki-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shinran-jinsei-no-mokuteki]

@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yaku-nara-mug-cup-mo-movie
+  titles:
+    original: 劇場版 やくならマグカップも
+    translations: { ja-Latn: Yaku nara Mug Cup mo Movie }
+  movies:
+    - id: yaku-nara-mug-cup-mo-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yaku-nara-mug-cup-mo-movie]

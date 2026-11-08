@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaixin-chaoren-ni-shi-yingjiu
+  titles:
+    original: "Kaixin Chaoren: Ni Shi Yingjiu"
+    translations: { ja-Latn: "Kaixin Chaoren: Ni Shi Yingjiu" }
+  movies:
+    - id: kaixin-chaoren-ni-shi-yingjiu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaixin-chaoren-ni-shi-yingjiu]

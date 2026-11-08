@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: youqu-de-chengyu-gushi
+  titles:
+    original: Youqu de Chengyu Gushi
+    translations: { ja-Latn: Youqu de Chengyu Gushi }
+  seasons:
+    - id: youqu-de-chengyu-gushi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [youqu-de-chengyu-gushi]

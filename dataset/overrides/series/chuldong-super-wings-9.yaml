@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chuldong-super-wings-9
+  titles:
+    original: Chuldong! Super Wings 9
+    translations: { ja-Latn: Chuldong! Super Wings 9 }
+  seasons:
+    - id: chuldong-super-wings-9-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chuldong-super-wings-9]

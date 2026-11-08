@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: takopi-s-original-sin
+  titles:
+    original: タコピーの原罪
+    translations: { ja-Latn: Takopi's Original Sin }
+  seasons:
+    - id: takopi-s-original-sin-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [takopi-s-original-sin]

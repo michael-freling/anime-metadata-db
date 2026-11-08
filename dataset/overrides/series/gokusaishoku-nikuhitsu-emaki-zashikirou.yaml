@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gokusaishoku-nikuhitsu-emaki-zashikirou
+  titles:
+    original: "Gokusaishoku Nikuhitsu Emaki: Zashikirou"
+    translations: { ja-Latn: "Gokusaishoku Nikuhitsu Emaki: Zashikirou" }
+  movies:
+    - id: gokusaishoku-nikuhitsu-emaki-zashikirou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gokusaishoku-nikuhitsu-emaki-zashikirou]

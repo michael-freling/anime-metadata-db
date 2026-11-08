@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhu-zhu-xia-yi-zhi-lao-zhu-de-ni-xi
+  titles:
+    original: "Zhu Zhu Xia: Yi Zhi Lao Zhu De Ni Xi"
+    translations: { ja-Latn: "Zhu Zhu Xia: Yi Zhi Lao Zhu De Ni Xi" }
+  movies:
+    - id: zhu-zhu-xia-yi-zhi-lao-zhu-de-ni-xi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhu-zhu-xia-yi-zhi-lao-zhu-de-ni-xi]

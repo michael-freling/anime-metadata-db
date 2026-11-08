@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tatsuki-fujimoto-17-26
+  titles:
+    original: 藤本タツキ 17-26
+    translations: { ja-Latn: Tatsuki Fujimoto 17-26 }
+  seasons:
+    - id: tatsuki-fujimoto-17-26-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tatsuki-fujimoto-17-26]

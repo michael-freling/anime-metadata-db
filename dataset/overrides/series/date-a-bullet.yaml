@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: date-a-bullet
+  titles:
+    original: デート・ア・バレット
+    translations: { ja-Latn: Date a Bullet }
+  movies:
+    - id: date-a-bullet-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [date-a-bullet]

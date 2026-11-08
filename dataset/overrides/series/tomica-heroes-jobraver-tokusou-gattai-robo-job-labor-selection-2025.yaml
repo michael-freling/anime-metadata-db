@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tomica-heroes-jobraver-tokusou-gattai-robo-job-labor-selection-2025
+  titles:
+    original: "Tomica Heroes Jobraver: Tokusou Gattai Robo - Job Labor Selection (2025)"
+    translations: { ja-Latn: "Tomica Heroes Jobraver: Tokusou Gattai Robo - Job Labor Selection (2025)" }
+  seasons:
+    - id: tomica-heroes-jobraver-tokusou-gattai-robo-job-labor-selection-2025-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tomica-heroes-jobraver-tokusou-gattai-robo-job-labor-selection-2025]

@@ -1,0 +1,15 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: maho-shojo-madoka-magica-hajimari-no-monogatari-eien-no-monogatari
+  titles:
+    original: 魔法少女まどか☆マギカ 始まりの物語／永遠の物語 TV Edition
+    translations: { ja-Latn: Mahō Shōjo Madoka Magica Hajimari no Monogatari / Eien no Monogatari }
+  seasons:
+    - id: maho-shojo-madoka-magica-hajimari-no-monogatari-eien-no-monogatari-s1
+      number: 1
+    - id: maho-shojo-madoka-magica-hajimari-no-monogatari-eien-no-monogatari-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [maho-shojo-madoka-magica-hajimari-no-monogatari-eien-no-monogatari]

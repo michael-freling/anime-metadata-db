@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kidou-senshi-gundam-tekketsu-no-orphans-urdr-hunt-chiisana-chousensha-no-kiseki
+  titles:
+    original: 機動戦士ガンダム 鉄血のオルフェンズ ウルズハント -小さな挑戦者の軌跡-
+    translations: { ja-Latn: "Kidou Senshi Gundam: Tekketsu no Orphans - Urdr Hunt: Chiisana Chousensha no Kiseki" }
+  movies:
+    - id: kidou-senshi-gundam-tekketsu-no-orphans-urdr-hunt-chiisana-chousensha-no-kiseki-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kidou-senshi-gundam-tekketsu-no-orphans-urdr-hunt-chiisana-chousensha-no-kiseki]

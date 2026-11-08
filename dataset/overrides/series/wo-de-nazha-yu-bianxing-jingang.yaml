@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wo-de-nazha-yu-bianxing-jingang
+  titles:
+    original: Wo De Nazha Yu Bianxing Jingang
+    translations: { ja-Latn: Wo De Nazha Yu Bianxing Jingang }
+  seasons:
+    - id: wo-de-nazha-yu-bianxing-jingang-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wo-de-nazha-yu-bianxing-jingang]

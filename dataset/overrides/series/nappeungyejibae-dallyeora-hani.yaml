@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nappeungyejibae-dallyeora-hani
+  titles:
+    original: "Nappeungyejibae: Dallyeora Hani"
+    translations: { ja-Latn: "Nappeungyejibae: Dallyeora Hani" }
+  movies:
+    - id: nappeungyejibae-dallyeora-hani-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nappeungyejibae-dallyeora-hani]

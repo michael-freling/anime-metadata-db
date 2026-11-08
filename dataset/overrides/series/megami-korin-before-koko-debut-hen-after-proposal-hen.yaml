@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: megami-korin-before-koko-debut-hen-after-proposal-hen
+  titles:
+    original: 女神降臨 Before 高校デビュー編／After プロポーズ編
+    translations: { ja-Latn: Megami Kōrin Before Kōkō Debut-hen / After Proposal-hen }
+  movies:
+    - id: megami-korin-before-koko-debut-hen-after-proposal-hen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [megami-korin-before-koko-debut-hen-after-proposal-hen]

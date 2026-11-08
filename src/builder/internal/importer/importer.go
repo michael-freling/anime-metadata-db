@@ -123,6 +123,24 @@ func Build(db *offlinedb.Database, year int, known map[int]bool) Plan {
 			})
 			continue
 		}
+		// A seed with no AniList id can still belong to a series the catalogue
+		// already carries: `known` is keyed on ids, and a work resolved from
+		// its series' title carries none, so it is invisible there. Checking
+		// the whole pool catches it — if any installment under this title is
+		// already in the catalogue, the series exists and this is a merge.
+		//
+		// Matters for a re-import rather than a fresh year: 2025 was imported
+		// before the builder could carry id-less works, so its gaps sit beside
+		// installments that are already present.
+		if ids := poolKnown(db, a, NativeTitle(a), known); len(ids) > 0 {
+			plan.Merges = append(plan.Merges, Merge{
+				Title:     a.Title,
+				AnilistID: a.AnilistID(),
+				Into:      ids,
+			})
+			continue
+		}
+
 		s, members, err := series(db, a, NativeTitle(a))
 		if err != nil {
 			plan.Unresolvable = append(plan.Unresolvable, Unresolvable{Title: a.Title, Reason: err.Error()})
@@ -166,6 +184,25 @@ func linkedKnown(db *offlinedb.Database, a offlinedb.Anime, known map[int]bool) 
 	}
 	for _, id := range a.RelatedAnilistIDs() {
 		add(id)
+	}
+	out := make([]int, 0, len(seenID))
+	for id := range seenID {
+		out = append(out, id)
+	}
+	sort.Ints(out)
+	return out
+}
+
+// poolKnown returns the known AniList ids carried by the entries sharing this
+// series' title — that is, the installments of it the catalogue already has.
+func poolKnown(db *offlinedb.Database, seed offlinedb.Anime, original string, known map[int]bool) []int {
+	seenID := map[int]bool{}
+	for _, name := range []string{original, seed.Title} {
+		for _, a := range db.Titled(name) {
+			if id := a.AnilistID(); id != 0 && known[id] {
+				seenID[id] = true
+			}
+		}
 	}
 	out := make([]int, 0, len(seenID))
 	for id := range seenID {
@@ -311,10 +348,22 @@ func quarter(s string) int {
 // and katakana are Japanese-only, so a CJK synonym carrying them is not
 // Chinese. Among those the longest wins, which passes over abbreviations
 // ("青ブタ") and arc labels ("青春ブタ野郎 大学生編") in favour of the full title.
+//
+// Candidates upstream has tagged as a different work are skipped first — see
+// disambiguated. Without that, "Date a Bullet" took
+// "デート・ア・ライブ (新アニメ)" over its own "デート・ア・バレット", because the
+// other franchise's name is longer, and the series was written claiming to be
+// Date A Live.
+//
+// Longest-kana remains a heuristic. It has no way to tell a sibling work's name
+// from this one's when neither is tagged, and the backstops are the ones that
+// already exist: the build refuses a series whose installment count does not
+// match what the title resolves to, and poolKnown reports a series whose title
+// reaches an installment the catalogue already has.
 func NativeTitle(a offlinedb.Anime) string {
 	best := ""
 	for _, s := range a.Synonyms {
-		if !hasKana(s) {
+		if !hasKana(s) || disambiguated(s) {
 			continue
 		}
 		if len([]rune(s)) > len([]rune(best)) {
@@ -328,6 +377,39 @@ func NativeTitle(a offlinedb.Anime) string {
 	// or a non-Japanese work. Its own title is then the only native handle
 	// there is, and it is what the build will match on.
 	return a.Title
+}
+
+// bracketed matches a parenthesised segment, half or full width.
+var bracketed = regexp.MustCompile(`[(（]([^)）]*)[)）]`)
+
+// disambiguated reports whether a synonym's parenthesis is upstream telling two
+// works apart rather than part of the title.
+//
+// Narrow on purpose. Most parenthesised native titles are furigana giving the
+// reading — 22/7 （ナナブンノニジュウニ）, 青の祓魔師（エクソシスト） — and those
+// are the fullest form of the name, exactly what should be chosen. Only the
+// markers actually observed are rejected: a bare year, as in
+// ブラッククローバー (2017), and 新アニメ, which is upstream labelling a reboot.
+func disambiguated(s string) bool {
+	for _, m := range bracketed.FindAllStringSubmatch(s, -1) {
+		inner := strings.TrimSpace(m[1])
+		if isYear(inner) || strings.Contains(inner, "新アニメ") {
+			return true
+		}
+	}
+	return false
+}
+
+func isYear(s string) bool {
+	if len(s) != 4 {
+		return false
+	}
+	for _, r := range s {
+		if r < '0' || r > '9' {
+			return false
+		}
+	}
+	return true
 }
 
 func hasKana(s string) bool {

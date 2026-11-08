@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gintama-on-theater-2d-shinsengumi-crisis-arc
+  titles:
+    original: 銀魂オンシアター2D 真選組動乱篇
+    translations: { ja-Latn: "Gintama on Theater 2D: Shinsengumi Crisis Arc" }
+  movies:
+    - id: gintama-on-theater-2d-shinsengumi-crisis-arc-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gintama-on-theater-2d-shinsengumi-crisis-arc]
