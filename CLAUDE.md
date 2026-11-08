@@ -55,6 +55,12 @@ Two sources, because the two environments differ:
 Disk wins over the deployed commit, so a working tree is always authoritative
 locally.
 
+The fetched index is what a cold start pays for: 1.74 MB and about 0.8s at
+6,382 series, against 0.25s when it was 286 KB. It grows with the catalogue,
+and a record is a separate fetch of a few hundred bytes. If that becomes the
+problem, the answer is caching at the edge or a different store — not a smaller
+index, which is what the API serves listings from.
+
 **Vercel's Go builder ships the compiled binary and nothing else.** Repository
 files reach the build — that is what `.vercelignore` governs, and why
 `replace ../animedb` resolves — but they never reach the running function. Do
@@ -94,6 +100,32 @@ entries in one component — Evangelion, Oshi no Ko and brand-collab shorts
 together — because promo specials bridge unrelated franchises. Series boundaries
 are authored here; grouping is by the title the build itself resolves against.
 
+## Checks must fail differently from "nothing happened"
+
+Every figure derived from the dataset grows, and anything that wrote one down
+as a literal broke on the 2010-2019 import — five times, each one reported as
+the wrong problem:
+
+- a paging test capped its loop at 40 pages, so a 41-page catalogue read as
+  "paging lost 23 entries" rather than "the loop stopped early";
+- the coverage page's tables and two e2e match counts froze figures that had
+  since moved, and failed as though the filters were broken;
+- the dataset-diff job built a comment larger than GitHub's 64 KiB limit and
+  failed after the diff had succeeded;
+- a CI poller hit GitHub's unauthenticated 60-requests/hour limit and reported
+  the error body as "0 checks seen", indistinguishable from CI not having
+  started. That one cost the most, because it sent the search in the wrong
+  direction entirely.
+
+So: assert the relation, not the number. A filter narrows (`0 < filtered <
+all`); a pager stops because it ran out of pages, which is a separate assertion
+from the count; a budget derives from the data it measures. And when a check
+cannot do its job, say that — a zero that means "I could not look" has to read
+differently from a zero that means "I looked and found none".
+
+The same applies to reading CI. Use the authenticated GitHub tooling rather
+than bare `curl`: 60 requests an hour is about thirty minutes of polling.
+
 ## Working on the dataset
 
 - `dataset/data/` is generated. Never hand-edit it — edit `dataset/overrides/`
@@ -117,3 +149,8 @@ model or schema change, run all of these, not just the tests:
 - `TestCoveragePageMatchesTheDataset` — regenerates the coverage tables and
   prints the corrected markdown on failure
 - the `-tags e2e` suites, which assert on generated YAML as text
+
+Run them with `-count=1`. These read `dataset/` at run time, which Go's test
+cache does not track, so a pass gets replayed against data that has since
+changed — the coverage page looked current while stale exactly this way. CI is
+unaffected, since it builds from a cold cache.
