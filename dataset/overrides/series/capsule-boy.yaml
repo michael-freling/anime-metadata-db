@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: capsule-boy
+  titles:
+    original: Capsule Boy
+    translations: { ja-Latn: Capsule Boy }
+  seasons:
+    - id: capsule-boy-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [capsule-boy]

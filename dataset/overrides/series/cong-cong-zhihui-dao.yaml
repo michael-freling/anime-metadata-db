@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: cong-cong-zhihui-dao
+  titles:
+    original: Cong Cong Zhihui Dao
+    translations: { ja-Latn: Cong Cong Zhihui Dao }
+  seasons:
+    - id: cong-cong-zhihui-dao-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [cong-cong-zhihui-dao]

@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: oidon-to
+  titles:
+    original: おいどんと
+    translations: { ja-Latn: Oidon to }
+  seasons:
+    - id: oidon-to-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [oidon-to]

@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bang-bang-quwei-yingyu
+  titles:
+    original: Bang Bang Quwei Yingyu
+    translations: { ja-Latn: Bang Bang Quwei Yingyu }
+  seasons:
+    - id: bang-bang-quwei-yingyu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bang-bang-quwei-yingyu]

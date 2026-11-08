@@ -1,0 +1,15 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: daifuku-kun-kin-tele
+  titles:
+    original: 大福くん＠きんてれ
+    translations: { ja-Latn: Daifuku-kun@Kin Tele }
+  seasons:
+    - id: daifuku-kun-kin-tele-s1
+      number: 1
+    - id: daifuku-kun-kin-tele-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [daifuku-kun-kin-tele]

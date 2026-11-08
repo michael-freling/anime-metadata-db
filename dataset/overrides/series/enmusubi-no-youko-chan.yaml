@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: enmusubi-no-youko-chan
+  titles:
+    original: 縁結びの妖狐ちゃん
+    translations: { ja-Latn: Enmusubi no Youko-chan }
+  seasons:
+    - id: enmusubi-no-youko-chan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [enmusubi-no-youko-chan]

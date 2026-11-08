@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shenlong-zhengjiu-dui-yuanqi-xing-hun
+  titles:
+    original: "Shenlong Zhengjiu Dui: Yuanqi Xing Hun"
+    translations: { ja-Latn: "Shenlong Zhengjiu Dui: Yuanqi Xing Hun" }
+  seasons:
+    - id: shenlong-zhengjiu-dui-yuanqi-xing-hun-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shenlong-zhengjiu-dui-yuanqi-xing-hun]

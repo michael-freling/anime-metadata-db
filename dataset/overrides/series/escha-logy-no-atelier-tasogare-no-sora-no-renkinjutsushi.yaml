@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: escha-logy-no-atelier-tasogare-no-sora-no-renkinjutsushi
+  titles:
+    original: エスカ&ロジーのアトリエ ~黄昏の空の錬金術士~
+    translations: { ja-Latn: "Escha & Logy no Atelier: Tasogare no Sora no Renkinjutsushi" }
+  seasons:
+    - id: escha-logy-no-atelier-tasogare-no-sora-no-renkinjutsushi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [escha-logy-no-atelier-tasogare-no-sora-no-renkinjutsushi]

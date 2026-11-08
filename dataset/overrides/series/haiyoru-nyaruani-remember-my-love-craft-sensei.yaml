@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: haiyoru-nyaruani-remember-my-love-craft-sensei
+  titles:
+    original: 這いよる!ニャルアニ リメンバー・マイ・ラブ(クラフト先生)
+    translations: { ja-Latn: "Haiyoru! Nyaruani: Remember My Love(craft-sensei)" }
+  seasons:
+    - id: haiyoru-nyaruani-remember-my-love-craft-sensei-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [haiyoru-nyaruani-remember-my-love-craft-sensei]

@@ -1,0 +1,19 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: usagi-no-mofy-2016
+  titles:
+    original: うさぎのモフィ
+    translations: { ja-Latn: Usagi no Mofy (2016) }
+  seasons:
+    - id: usagi-no-mofy-2016-s1
+      number: 1
+    - id: usagi-no-mofy-2016-s2
+      number: 2
+    - id: usagi-no-mofy-2016-s3
+      number: 3
+    - id: usagi-no-mofy-2016-s4
+      number: 4
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [usagi-no-mofy-2016]

@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jin-gu-bang-chuang-qi
+  titles:
+    original: Jin Gu Bang Chuang Qi
+    translations: { ja-Latn: Jin Gu Bang Chuang Qi }
+  movies:
+    - id: jin-gu-bang-chuang-qi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jin-gu-bang-chuang-qi]

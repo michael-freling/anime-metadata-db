@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ore-twintail-ni-narimasu
+  titles:
+    original: "俺, ツインテールになります."
+    translations: { ja-Latn: "Ore, Twintail ni Narimasu." }
+  seasons:
+    - id: ore-twintail-ni-narimasu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ore-twintail-ni-narimasu]

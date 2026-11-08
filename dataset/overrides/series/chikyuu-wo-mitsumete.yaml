@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chikyuu-wo-mitsumete
+  titles:
+    original: ちきゅうをみつめて
+    translations: { ja-Latn: Chikyuu wo Mitsumete }
+  movies:
+    - id: chikyuu-wo-mitsumete-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chikyuu-wo-mitsumete]

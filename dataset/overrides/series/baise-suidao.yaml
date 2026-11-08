@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: baise-suidao
+  titles:
+    original: Baise Suidao
+    translations: { ja-Latn: Baise Suidao }
+  movies:
+    - id: baise-suidao-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [baise-suidao]

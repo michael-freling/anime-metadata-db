@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: muv-luv-alternative-total-eclipse
+  titles:
+    original: マブラヴ オルタネイティヴ トータル・イクリプス
+    translations: { ja-Latn: "Muv-Luv Alternative: Total Eclipse" }
+  seasons:
+    - id: muv-luv-alternative-total-eclipse-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [muv-luv-alternative-total-eclipse]

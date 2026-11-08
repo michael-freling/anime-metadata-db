@@ -1,0 +1,15 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rozen-maiden-2013
+  titles:
+    original: ローゼンメイデン
+    translations: { ja-Latn: Rozen Maiden (2013) }
+  seasons:
+    - id: rozen-maiden-2013-s1
+      number: 1
+    - id: rozen-maiden-2013-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rozen-maiden-2013]

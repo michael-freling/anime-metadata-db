@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: free-eternal-summer
+  titles:
+    original: フリー！ Eternal Summer
+    translations: { ja-Latn: Free! Eternal Summer }
+  seasons:
+    - id: free-eternal-summer-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [free-eternal-summer]

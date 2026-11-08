@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: guo-guo-qi-xia-chuan
+  titles:
+    original: Guo Guo Qi Xia Chuan
+    translations: { ja-Latn: Guo Guo Qi Xia Chuan }
+  seasons:
+    - id: guo-guo-qi-xia-chuan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [guo-guo-qi-xia-chuan]

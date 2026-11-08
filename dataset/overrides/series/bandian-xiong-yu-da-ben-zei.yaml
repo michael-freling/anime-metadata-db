@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bandian-xiong-yu-da-ben-zei
+  titles:
+    original: Bandian Xiong Yu Da Ben Zei
+    translations: { ja-Latn: Bandian Xiong Yu Da Ben Zei }
+  seasons:
+    - id: bandian-xiong-yu-da-ben-zei-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bandian-xiong-yu-da-ben-zei]

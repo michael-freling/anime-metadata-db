@@ -1,0 +1,15 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: king-of-prism-shiny-seven-stars
+  titles:
+    original: "King of Prism: Shiny Seven Stars"
+    translations: { ja-Latn: "King of Prism: Shiny Seven Stars" }
+  seasons:
+    - id: king-of-prism-shiny-seven-stars-s1
+      number: 1
+  movies:
+    - id: king-of-prism-shiny-seven-stars-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [king-of-prism-shiny-seven-stars]

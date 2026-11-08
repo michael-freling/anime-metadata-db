@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xi-yangyang-yu-hui-tailang-man-jing-tou
+  titles:
+    original: "Xi Yangyang Yu Hui Tailang: Man Jing Tou"
+    translations: { ja-Latn: "Xi Yangyang Yu Hui Tailang: Man Jing Tou" }
+  seasons:
+    - id: xi-yangyang-yu-hui-tailang-man-jing-tou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xi-yangyang-yu-hui-tailang-man-jing-tou]

@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chain-chronicle-haecceitas-no-hikari-part-3
+  titles:
+    original: チェインクロニクル〜ヘクセイタスの閃（ひかり）〜 第３章
+    translations: { ja-Latn: "Chain Chronicle: Haecceitas no Hikari Part 3" }
+  movies:
+    - id: chain-chronicle-haecceitas-no-hikari-part-3-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chain-chronicle-haecceitas-no-hikari-part-3]

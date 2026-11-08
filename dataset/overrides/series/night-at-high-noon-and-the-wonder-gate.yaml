@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: night-at-high-noon-and-the-wonder-gate
+  titles:
+    original: シンドバッド ～真昼の夜とふしぎの門～
+    translations: { ja-Latn: Night at High Noon and the Wonder Gate }
+  movies:
+    - id: night-at-high-noon-and-the-wonder-gate-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [night-at-high-noon-and-the-wonder-gate]

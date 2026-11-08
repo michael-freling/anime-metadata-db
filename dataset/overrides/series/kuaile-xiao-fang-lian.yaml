@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kuaile-xiao-fang-lian
+  titles:
+    original: Kuaile Xiao Fang Lian
+    translations: { ja-Latn: Kuaile Xiao Fang Lian }
+  seasons:
+    - id: kuaile-xiao-fang-lian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kuaile-xiao-fang-lian]

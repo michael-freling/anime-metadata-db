@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hello-kitty-twinkle-moonlight-cuterium-with-sanrio-characters
+  titles:
+    original: ハローキティ トゥインクル☆ムーンライト 　～CUTErium with SANRIO characters～
+    translations: { ja-Latn: "Hello Kitty Twinkle☆Moonlight: Cuterium with Sanrio Characters" }
+  movies:
+    - id: hello-kitty-twinkle-moonlight-cuterium-with-sanrio-characters-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hello-kitty-twinkle-moonlight-cuterium-with-sanrio-characters]

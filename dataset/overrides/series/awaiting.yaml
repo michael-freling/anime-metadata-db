@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: awaiting
+  titles:
+    original: Awaiting
+    translations: { ja-Latn: Awaiting }
+  movies:
+    - id: awaiting-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [awaiting]

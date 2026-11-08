@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: die-di-baobei-shenqi-ha-ku
+  titles:
+    original: "Die Di Baobei: Shenqi Ha Ku"
+    translations: { ja-Latn: "Die Di Baobei: Shenqi Ha Ku" }
+  seasons:
+    - id: die-di-baobei-shenqi-ha-ku-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [die-di-baobei-shenqi-ha-ku]

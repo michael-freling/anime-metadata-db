@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: eve-no-jikan-movie
+  titles:
+    original: イヴの時間 劇場版
+    translations: { ja-Latn: Eve no Jikan (Movie) }
+  movies:
+    - id: eve-no-jikan-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [eve-no-jikan-movie]

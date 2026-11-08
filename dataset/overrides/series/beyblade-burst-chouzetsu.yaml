@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: beyblade-burst-chouzetsu
+  titles:
+    original: ベイブレードバースト 超ゼツ
+    translations: { ja-Latn: Beyblade Burst Chouzetsu }
+  seasons:
+    - id: beyblade-burst-chouzetsu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [beyblade-burst-chouzetsu]

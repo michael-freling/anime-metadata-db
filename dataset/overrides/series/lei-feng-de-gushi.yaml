@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lei-feng-de-gushi
+  titles:
+    original: Lei Feng De Gushi
+    translations: { ja-Latn: Lei Feng De Gushi }
+  seasons:
+    - id: lei-feng-de-gushi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lei-feng-de-gushi]

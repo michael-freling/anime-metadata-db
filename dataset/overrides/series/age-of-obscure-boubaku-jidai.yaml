@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: age-of-obscure-boubaku-jidai
+  titles:
+    original: "Age of Obscure: Boubaku Jidai"
+    translations: { ja-Latn: "Age of Obscure: Boubaku Jidai" }
+  movies:
+    - id: age-of-obscure-boubaku-jidai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [age-of-obscure-boubaku-jidai]

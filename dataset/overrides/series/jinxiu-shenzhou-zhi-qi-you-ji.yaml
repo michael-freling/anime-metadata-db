@@ -1,0 +1,15 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jinxiu-shenzhou-zhi-qi-you-ji
+  titles:
+    original: Jinxiu Shenzhou Zhi Qi You Ji
+    translations: { ja-Latn: Jinxiu Shenzhou Zhi Qi You Ji }
+  seasons:
+    - id: jinxiu-shenzhou-zhi-qi-you-ji-s1
+      number: 1
+    - id: jinxiu-shenzhou-zhi-qi-you-ji-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jinxiu-shenzhou-zhi-qi-you-ji]

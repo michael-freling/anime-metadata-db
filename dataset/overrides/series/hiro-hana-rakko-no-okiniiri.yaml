@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hiro-hana-rakko-no-okiniiri
+  titles:
+    original: ヒロ＆ハナ　ラッコのお気に入り
+    translations: { ja-Latn: "Hiro & Hana: Rakko no Okiniiri" }
+  movies:
+    - id: hiro-hana-rakko-no-okiniiri-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hiro-hana-rakko-no-okiniiri]

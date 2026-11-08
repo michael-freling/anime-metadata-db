@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: buffett-shenmi-julebu
+  titles:
+    original: Buffett Shenmi Julebu
+    translations: { ja-Latn: Buffett Shenmi Julebu }
+  seasons:
+    - id: buffett-shenmi-julebu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [buffett-shenmi-julebu]

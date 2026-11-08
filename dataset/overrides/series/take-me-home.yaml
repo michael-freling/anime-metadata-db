@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: take-me-home
+  titles:
+    original: Take Me Home
+    translations: { ja-Latn: Take Me Home }
+  movies:
+    - id: take-me-home-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [take-me-home]

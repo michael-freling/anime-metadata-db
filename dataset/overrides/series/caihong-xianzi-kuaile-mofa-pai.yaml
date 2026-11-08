@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: caihong-xianzi-kuaile-mofa-pai
+  titles:
+    original: "Caihong Xianzi: Kuaile Mofa Pai"
+    translations: { ja-Latn: "Caihong Xianzi: Kuaile Mofa Pai" }
+  seasons:
+    - id: caihong-xianzi-kuaile-mofa-pai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [caihong-xianzi-kuaile-mofa-pai]

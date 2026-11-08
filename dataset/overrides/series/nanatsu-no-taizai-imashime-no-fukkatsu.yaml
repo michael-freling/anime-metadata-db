@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nanatsu-no-taizai-imashime-no-fukkatsu
+  titles:
+    original: 七つの大罪 The Seven Deadly Sins 戒めの復活
+    translations: { ja-Latn: "Nanatsu no Taizai: Imashime no Fukkatsu" }
+  seasons:
+    - id: nanatsu-no-taizai-imashime-no-fukkatsu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nanatsu-no-taizai-imashime-no-fukkatsu]

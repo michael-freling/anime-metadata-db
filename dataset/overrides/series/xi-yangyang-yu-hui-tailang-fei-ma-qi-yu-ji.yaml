@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xi-yangyang-yu-hui-tailang-fei-ma-qi-yu-ji
+  titles:
+    original: "Xi Yangyang Yu Hui Tailang: Fei Ma Qi Yu Ji"
+    translations: { ja-Latn: "Xi Yangyang Yu Hui Tailang: Fei Ma Qi Yu Ji" }
+  movies:
+    - id: xi-yangyang-yu-hui-tailang-fei-ma-qi-yu-ji-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xi-yangyang-yu-hui-tailang-fei-ma-qi-yu-ji]

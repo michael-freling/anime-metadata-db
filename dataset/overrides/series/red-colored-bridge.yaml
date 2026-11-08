@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: red-colored-bridge
+  titles:
+    original: 赤い太鼓橋
+    translations: { ja-Latn: Red Colored Bridge }
+  movies:
+    - id: red-colored-bridge-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [red-colored-bridge]

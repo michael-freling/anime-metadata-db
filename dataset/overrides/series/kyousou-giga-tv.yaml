@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kyousou-giga-tv
+  titles:
+    original: Kyousou Giga (TV)
+    translations: { ja-Latn: Kyousou Giga (TV) }
+  seasons:
+    - id: kyousou-giga-tv-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kyousou-giga-tv]

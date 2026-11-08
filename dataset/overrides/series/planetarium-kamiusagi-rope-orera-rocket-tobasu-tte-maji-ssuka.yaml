@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: planetarium-kamiusagi-rope-orera-rocket-tobasu-tte-maji-ssuka
+  titles:
+    original: "プラネタリウム 紙兎ロペ おれらロケット飛ばすってマジっすか!?"
+    translations: { ja-Latn: "Planetarium Kamiusagi Rope: Orera Rocket Tobasu tte Maji ssuka!?" }
+  movies:
+    - id: planetarium-kamiusagi-rope-orera-rocket-tobasu-tte-maji-ssuka-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [planetarium-kamiusagi-rope-orera-rocket-tobasu-tte-maji-ssuka]

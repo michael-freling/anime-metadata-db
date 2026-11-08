@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hong-mao-lan-tu-qi-xia-waizhuan
+  titles:
+    original: "Hong Mao Lan Tu: Qi Xia Waizhuan"
+    translations: { ja-Latn: "Hong Mao Lan Tu: Qi Xia Waizhuan" }
+  seasons:
+    - id: hong-mao-lan-tu-qi-xia-waizhuan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hong-mao-lan-tu-qi-xia-waizhuan]

@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ye-che
+  titles:
+    original: 夜行バス
+    translations: { ja-Latn: Ye Che }
+  movies:
+    - id: ye-che-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ye-che]

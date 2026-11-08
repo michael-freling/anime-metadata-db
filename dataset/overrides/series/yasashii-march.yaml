@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yasashii-march
+  titles:
+    original: やさしいマーチ-The Tender March-
+    translations: { ja-Latn: Yasashii March }
+  movies:
+    - id: yasashii-march-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yasashii-march]

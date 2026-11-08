@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kara-no-kyoukai-movie-mirai-fukuin-manner-movie
+  titles:
+    original: 劇場版 空の境界 未来福音 劇場用マナーCM
+    translations: { ja-Latn: "Kara no Kyoukai Movie: Mirai Fukuin - Manner Movie" }
+  movies:
+    - id: kara-no-kyoukai-movie-mirai-fukuin-manner-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kara-no-kyoukai-movie-mirai-fukuin-manner-movie]

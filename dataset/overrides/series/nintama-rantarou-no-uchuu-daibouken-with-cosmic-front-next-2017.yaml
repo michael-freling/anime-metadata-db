@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nintama-rantarou-no-uchuu-daibouken-with-cosmic-front-next-2017
+  titles:
+    original: 忍たま乱太郎の宇宙大冒険 with コズミックフロント☆NEXT(第3弾)
+    translations: { ja-Latn: Nintama Rantarou no Uchuu Daibouken with Cosmic Front Next (2017) }
+  seasons:
+    - id: nintama-rantarou-no-uchuu-daibouken-with-cosmic-front-next-2017-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nintama-rantarou-no-uchuu-daibouken-with-cosmic-front-next-2017]

@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ame-iro-cocoa-series-ame-con
+  titles:
+    original: 「雨色ココアシリーズ　『あめこん!!』
+    translations: { ja-Latn: "Ame-iro Cocoa Series: Ame-con!!" }
+  seasons:
+    - id: ame-iro-cocoa-series-ame-con-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ame-iro-cocoa-series-ame-con]

@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: space-battleship-yamato-2199-chapter-5-bokyo-no-gingakan-kukan
+  titles:
+    original: 宇宙戦艦ヤマト2199 第五章「望郷の銀河間空間」
+    translations: { ja-Latn: "Space Battleship Yamato 2199 Chapter 5: Bōkyō no Gingakan Kūkan" }
+  movies:
+    - id: space-battleship-yamato-2199-chapter-5-bokyo-no-gingakan-kukan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [space-battleship-yamato-2199-chapter-5-bokyo-no-gingakan-kukan]

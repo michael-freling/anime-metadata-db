@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kdu-anime-festa-2011-opening-animation
+  titles:
+    original: KDU ANIME FESTA 2011　オープニング
+    translations: { ja-Latn: KDU Anime Festa 2011 Opening Animation }
+  movies:
+    - id: kdu-anime-festa-2011-opening-animation-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kdu-anime-festa-2011-opening-animation]

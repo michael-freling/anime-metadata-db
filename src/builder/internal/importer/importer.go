@@ -76,7 +76,15 @@ type Plan struct {
 // known is the set of AniList ids the catalogue already carries. It is what
 // makes the refusal above possible, so passing an empty set does not merely
 // lose a safety net — it turns every existing series into a duplicate.
-func Build(db *offlinedb.Database, year int, known map[int]bool) Plan {
+//
+// claimedTitles is the native titles the authored layer already declares. It
+// catches what known cannot: a series whose records are not built yet, and a
+// second upstream entry for the same series under a different romanisation.
+// Both appeared the first time ten years were imported before building — 19
+// duplicate pairs, among them Knights of Sidonia beside Sidonia no Kishi, and
+// Gin no Saji beside its second season, each pair declaring the same
+// installments under two ids.
+func Build(db *offlinedb.Database, year int, known map[int]bool, claimedTitles map[string]bool) Plan {
 	plan := Plan{Year: year}
 
 	var pool []offlinedb.Anime
@@ -132,7 +140,16 @@ func Build(db *offlinedb.Database, year int, known map[int]bool) Plan {
 		// Matters for a re-import rather than a fresh year: 2025 was imported
 		// before the builder could carry id-less works, so its gaps sit beside
 		// installments that are already present.
-		if ids := poolKnown(db, a, NativeTitle(a), known); len(ids) > 0 {
+		original := NativeTitle(a)
+		// An override already declares this series. It declares everything the
+		// title resolves to, which is this same set, so there is nothing here
+		// to add — and adding it would be a second series claiming the same
+		// installments, which the build then rejects as duplicate ids.
+		if claimedTitles[original] {
+			plan.Present = append(plan.Present, a.Title)
+			continue
+		}
+		if ids := poolKnown(db, a, original, known); len(ids) > 0 {
 			plan.Merges = append(plan.Merges, Merge{
 				Title:     a.Title,
 				AnilistID: a.AnilistID(),
@@ -141,7 +158,7 @@ func Build(db *offlinedb.Database, year int, known map[int]bool) Plan {
 			continue
 		}
 
-		s, members, err := series(db, a, NativeTitle(a))
+		s, members, err := series(db, a, original)
 		if err != nil {
 			plan.Unresolvable = append(plan.Unresolvable, Unresolvable{Title: a.Title, Reason: err.Error()})
 			// Claimed even on refusal: the other installments of a series this
@@ -155,6 +172,9 @@ func Build(db *offlinedb.Database, year int, known map[int]bool) Plan {
 		for _, k := range members {
 			claimed[k] = true
 		}
+		// Claimed for the rest of this run too, so two entries sharing a title
+		// within one year behave the same as across years.
+		claimedTitles[original] = true
 		plan.New = append(plan.New, s)
 	}
 	sort.Slice(plan.New, func(i, j int) bool { return plan.New[i].ID < plan.New[j].ID })
@@ -270,6 +290,16 @@ func series(db *offlinedb.Database, seed offlinedb.Anime, original string) (Seri
 			break
 		}
 	}
+	// Two unrelated works can share a name, and a title pool cannot tell them
+	// apart: "Colorful" is a 1999 TV series and an unrelated 2010 film, and
+	// grouping them produces a series whose installments upstream never links.
+	// The build gates on exactly that — "anilistId N is not linked to any other
+	// installment" — so the same question is asked here, and the series is left
+	// for a person instead of written as a file that cannot merge.
+	if stranger := unlinked(db, releasedOnly(pool)); stranger != "" {
+		return Series{}, members, fmt.Errorf("upstream does not link %q to the other installments "+
+			"under this title, so they are probably different works sharing a name", stranger)
+	}
 	sort.SliceStable(tv, func(i, j int) bool { return airedEarlier(tv[i], tv[j]) })
 	sort.SliceStable(films, func(i, j int) bool { return airedEarlier(films[i], films[j]) })
 
@@ -309,6 +339,56 @@ func series(db *offlinedb.Database, seed offlinedb.Anime, original string) (Seri
 // alone waved it into the catalogue as a work released in year zero.
 func released(a offlinedb.Anime) bool {
 	return a.Episodes > 0 && a.Status != "UPCOMING" && a.AnimeSeason.Year > 0
+}
+
+// releasedOnly is pool restricted to entries that have actually aired, so an
+// announcement — which is dropped from the declared installments anyway —
+// cannot make a real series look unconnected.
+func releasedOnly(pool map[offlinedb.Key]offlinedb.Anime) map[offlinedb.Key]offlinedb.Anime {
+	out := make(map[offlinedb.Key]offlinedb.Anime, len(pool))
+	for k, a := range pool {
+		if released(a) {
+			out[k] = a
+		}
+	}
+	return out
+}
+
+// unlinked returns the title of a pool member upstream relates to no other
+// member, or "" when every one is connected.
+//
+// Only members carrying an AniList id are judged, which mirrors the build's own
+// check: an entry upstream lists on no AniList page makes no claim about which
+// work it is, and routinely is a second un-cross-linked record of one already
+// in the pool. A pool of one is connected by definition.
+func unlinked(db *offlinedb.Database, pool map[offlinedb.Key]offlinedb.Anime) string {
+	// Fewer than two id-bearing members and there is nothing a link could be
+	// to. One AniList entry beside upstream's un-cross-linked second record of
+	// the same work is the common shape, and demanding a link there would
+	// refuse a perfectly good series.
+	judged := make([]offlinedb.Key, 0, len(pool))
+	for k, a := range pool {
+		if a.AnilistID() != 0 {
+			judged = append(judged, k)
+		}
+	}
+	if len(judged) < 2 {
+		return ""
+	}
+	for _, k := range judged {
+		a := pool[k]
+		linked := false
+		for _, rel := range db.Related(a) {
+			if _, ok := pool[rel.Key()]; ok && rel.Key() != k {
+				linked = true
+				break
+			}
+		}
+		if !linked {
+			return a.Title
+		}
+	}
+	return ""
 }
 
 // airedEarlier orders two entries by airing year then quarter, so season

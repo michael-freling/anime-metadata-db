@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kung-fu-si-xia-yong-chuang-digong
+  titles:
+    original: "Kung Fu Si Xia: Yong Chuang Digong"
+    translations: { ja-Latn: "Kung Fu Si Xia: Yong Chuang Digong" }
+  movies:
+    - id: kung-fu-si-xia-yong-chuang-digong-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kung-fu-si-xia-yong-chuang-digong]

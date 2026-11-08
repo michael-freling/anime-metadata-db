@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sora-no-otoshimono-forte
+  titles:
+    original: そらのおとしもの f （フォルテ）
+    translations: { ja-Latn: Sora no Otoshimono Forte }
+  seasons:
+    - id: sora-no-otoshimono-forte-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sora-no-otoshimono-forte]

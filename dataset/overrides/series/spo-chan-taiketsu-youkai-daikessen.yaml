@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: spo-chan-taiketsu-youkai-daikessen
+  titles:
+    original: スポチャン対決~妖怪大決戦~
+    translations: { ja-Latn: "Spo-chan Taiketsu: Youkai Daikessen" }
+  movies:
+    - id: spo-chan-taiketsu-youkai-daikessen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [spo-chan-taiketsu-youkai-daikessen]

@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiong-zi-fei-xiong-buke
+  titles:
+    original: "Xiong Zi: Fei Xiong Buke"
+    translations: { ja-Latn: "Xiong Zi: Fei Xiong Buke" }
+  seasons:
+    - id: xiong-zi-fei-xiong-buke-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiong-zi-fei-xiong-buke]

@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: k-seven-stories-movie-6-circle-vision-nameless-song
+  titles:
+    original: "K: Seven Stories Movie 6 - Circle Vision - Nameless Song"
+    translations: { ja-Latn: "K: Seven Stories Movie 6 - Circle Vision - Nameless Song" }
+  movies:
+    - id: k-seven-stories-movie-6-circle-vision-nameless-song-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [k-seven-stories-movie-6-circle-vision-nameless-song]

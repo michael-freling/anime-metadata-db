@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: qian-ting-zong-dong-yuan-haidi-liang-wanli
+  titles:
+    original: "Qian Ting Zong Dong Yuan: Haidi Liang Wanli"
+    translations: { ja-Latn: "Qian Ting Zong Dong Yuan: Haidi Liang Wanli" }
+  movies:
+    - id: qian-ting-zong-dong-yuan-haidi-liang-wanli-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [qian-ting-zong-dong-yuan-haidi-liang-wanli]

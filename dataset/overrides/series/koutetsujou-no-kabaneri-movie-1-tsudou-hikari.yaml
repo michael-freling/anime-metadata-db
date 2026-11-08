@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: koutetsujou-no-kabaneri-movie-1-tsudou-hikari
+  titles:
+    original: 甲鉄城のカバネリ 総集編「前編 集う光」
+    translations: { ja-Latn: "Koutetsujou no Kabaneri Movie 1: Tsudou Hikari" }
+  movies:
+    - id: koutetsujou-no-kabaneri-movie-1-tsudou-hikari-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [koutetsujou-no-kabaneri-movie-1-tsudou-hikari]

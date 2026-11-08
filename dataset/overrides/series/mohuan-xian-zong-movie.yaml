@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mohuan-xian-zong-movie
+  titles:
+    original: Mohuan Xian Zong (Movie)
+    translations: { ja-Latn: Mohuan Xian Zong (Movie) }
+  movies:
+    - id: mohuan-xian-zong-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mohuan-xian-zong-movie]

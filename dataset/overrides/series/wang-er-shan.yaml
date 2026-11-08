@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wang-er-shan
+  titles:
+    original: Wang Er Shan
+    translations: { ja-Latn: Wang Er Shan }
+  seasons:
+    - id: wang-er-shan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wang-er-shan]

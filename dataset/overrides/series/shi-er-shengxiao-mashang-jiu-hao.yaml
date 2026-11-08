@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shi-er-shengxiao-mashang-jiu-hao
+  titles:
+    original: "Shi Er Shengxiao: Mashang Jiu Hao"
+    translations: { ja-Latn: "Shi Er Shengxiao: Mashang Jiu Hao" }
+  seasons:
+    - id: shi-er-shengxiao-mashang-jiu-hao-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shi-er-shengxiao-mashang-jiu-hao]

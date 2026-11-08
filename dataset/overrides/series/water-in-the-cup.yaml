@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: water-in-the-cup
+  titles:
+    original: Water in the Cup
+    translations: { ja-Latn: Water in the Cup }
+  movies:
+    - id: water-in-the-cup-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [water-in-the-cup]

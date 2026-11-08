@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiyou-xin-chuan-qingshaonian-ziwo-fanghu
+  titles:
+    original: "Xiyou Xin Chuan: Qingshaonian Ziwo Fanghu"
+    translations: { ja-Latn: "Xiyou Xin Chuan: Qingshaonian Ziwo Fanghu" }
+  seasons:
+    - id: xiyou-xin-chuan-qingshaonian-ziwo-fanghu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiyou-xin-chuan-qingshaonian-ziwo-fanghu]

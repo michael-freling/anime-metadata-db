@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: early-summer-dust-in-the-wind
+  titles:
+    original: "early summer, dust in the wind"
+    translations: { ja-Latn: "early summer, dust in the wind" }
+  movies:
+    - id: early-summer-dust-in-the-wind-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [early-summer-dust-in-the-wind]

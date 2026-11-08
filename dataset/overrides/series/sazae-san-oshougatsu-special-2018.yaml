@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sazae-san-oshougatsu-special-2018
+  titles:
+    original: Sazae-san Oshougatsu Special (2018)
+    translations: { ja-Latn: Sazae-san Oshougatsu Special (2018) }
+  seasons:
+    - id: sazae-san-oshougatsu-special-2018-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sazae-san-oshougatsu-special-2018]

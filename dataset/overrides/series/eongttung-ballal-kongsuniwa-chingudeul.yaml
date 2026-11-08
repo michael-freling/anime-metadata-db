@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: eongttung-ballal-kongsuniwa-chingudeul
+  titles:
+    original: Eongttung Ballal Kongsuniwa Chingudeul
+    translations: { ja-Latn: Eongttung Ballal Kongsuniwa Chingudeul }
+  seasons:
+    - id: eongttung-ballal-kongsuniwa-chingudeul-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [eongttung-ballal-kongsuniwa-chingudeul]

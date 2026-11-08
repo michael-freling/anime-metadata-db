@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wizard-barristers-benmashi-cecil
+  titles:
+    original: ウィザード・バリスターズ 弁魔士セシル
+    translations: { ja-Latn: "Wizard Barristers: Benmashi Cecil" }
+  seasons:
+    - id: wizard-barristers-benmashi-cecil-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wizard-barristers-benmashi-cecil]

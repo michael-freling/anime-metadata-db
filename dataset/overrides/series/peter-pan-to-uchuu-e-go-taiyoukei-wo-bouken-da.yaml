@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: peter-pan-to-uchuu-e-go-taiyoukei-wo-bouken-da
+  titles:
+    original: ピーターパンと宇宙へGO！ －太陽系をぼうけんだ－
+    translations: { ja-Latn: Peter Pan to Uchuu e GO! Taiyoukei wo Bouken da }
+  movies:
+    - id: peter-pan-to-uchuu-e-go-taiyoukei-wo-bouken-da-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [peter-pan-to-uchuu-e-go-taiyoukei-wo-bouken-da]

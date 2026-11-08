@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: love-kome-we-love-rice
+  titles:
+    original: ラブ米（ラブコメ）-WE LOVE RICE-
+    translations: { ja-Latn: "Love Kome: We Love Rice" }
+  seasons:
+    - id: love-kome-we-love-rice-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [love-kome-we-love-rice]

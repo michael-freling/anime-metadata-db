@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sushi-samurai
+  titles:
+    original: すし侍
+    translations: { ja-Latn: Sushi Samurai }
+  movies:
+    - id: sushi-samurai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sushi-samurai]

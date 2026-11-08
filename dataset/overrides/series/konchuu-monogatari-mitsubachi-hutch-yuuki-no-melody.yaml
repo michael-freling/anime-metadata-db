@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: konchuu-monogatari-mitsubachi-hutch-yuuki-no-melody
+  titles:
+    original: 昆虫物語 みつばちハッチ ～勇気のメロディ～
+    translations: { ja-Latn: "Konchuu Monogatari Mitsubachi Hutch: Yuuki no Melody" }
+  movies:
+    - id: konchuu-monogatari-mitsubachi-hutch-yuuki-no-melody-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [konchuu-monogatari-mitsubachi-hutch-yuuki-no-melody]

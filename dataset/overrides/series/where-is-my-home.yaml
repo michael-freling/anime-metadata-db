@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: where-is-my-home
+  titles:
+    original: "Where is my home?"
+    translations: { ja-Latn: "Where is my home?" }
+  movies:
+    - id: where-is-my-home-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [where-is-my-home]

@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: imouto-sae-ireba-ii
+  titles:
+    original: 妹さえいればいい.
+    translations: { ja-Latn: Imouto sae Ireba Ii. }
+  seasons:
+    - id: imouto-sae-ireba-ii-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [imouto-sae-ireba-ii]

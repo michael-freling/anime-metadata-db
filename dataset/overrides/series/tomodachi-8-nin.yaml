@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tomodachi-8-nin
+  titles:
+    original: ともだち8にん
+    translations: { ja-Latn: Tomodachi 8-nin }
+  seasons:
+    - id: tomodachi-8-nin-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tomodachi-8-nin]

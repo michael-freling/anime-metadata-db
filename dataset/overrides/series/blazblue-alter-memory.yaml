@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: blazblue-alter-memory
+  titles:
+    original: ブレイブルー オルター・メモリー
+    translations: { ja-Latn: "BlazBlue: Alter Memory" }
+  seasons:
+    - id: blazblue-alter-memory-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [blazblue-alter-memory]

@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xianggu-teqin-dui-huluobo-ruqin
+  titles:
+    original: "Xianggu Teqin Dui: Huluobo Ruqin"
+    translations: { ja-Latn: "Xianggu Teqin Dui: Huluobo Ruqin" }
+  seasons:
+    - id: xianggu-teqin-dui-huluobo-ruqin-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xianggu-teqin-dui-huluobo-ruqin]

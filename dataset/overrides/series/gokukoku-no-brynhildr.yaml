@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gokukoku-no-brynhildr
+  titles:
+    original: 極黒のブリュンヒルデ
+    translations: { ja-Latn: Gokukoku no Brynhildr }
+  seasons:
+    - id: gokukoku-no-brynhildr-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gokukoku-no-brynhildr]

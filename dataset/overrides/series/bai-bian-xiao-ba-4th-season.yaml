@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bai-bian-xiao-ba-4th-season
+  titles:
+    original: Bai Bian Xiao Ba 4th Season
+    translations: { ja-Latn: Bai Bian Xiao Ba 4th Season }
+  seasons:
+    - id: bai-bian-xiao-ba-4th-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bai-bian-xiao-ba-4th-season]

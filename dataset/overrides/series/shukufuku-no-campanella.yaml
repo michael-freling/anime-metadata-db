@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shukufuku-no-campanella
+  titles:
+    original: 祝福のカンパネラ -la campanella della benedizione-
+    translations: { ja-Latn: Shukufuku no Campanella }
+  seasons:
+    - id: shukufuku-no-campanella-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shukufuku-no-campanella]

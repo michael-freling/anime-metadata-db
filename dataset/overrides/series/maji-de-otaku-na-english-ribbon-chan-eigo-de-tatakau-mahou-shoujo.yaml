@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: maji-de-otaku-na-english-ribbon-chan-eigo-de-tatakau-mahou-shoujo
+  titles:
+    original: マジでオタクなイングリッシュ! りぼんちゃん ~英語で戦う魔法少女~
+    translations: { ja-Latn: "Maji de Otaku na English! Ribbon-chan: Eigo de Tatakau Mahou Shoujo" }
+  seasons:
+    - id: maji-de-otaku-na-english-ribbon-chan-eigo-de-tatakau-mahou-shoujo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [maji-de-otaku-na-english-ribbon-chan-eigo-de-tatakau-mahou-shoujo]

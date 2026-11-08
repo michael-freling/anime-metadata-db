@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: meili-jiayuan-zhengjiu-weiji
+  titles:
+    original: "Meili Jiayuan: Zhengjiu Weiji"
+    translations: { ja-Latn: "Meili Jiayuan: Zhengjiu Weiji" }
+  seasons:
+    - id: meili-jiayuan-zhengjiu-weiji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [meili-jiayuan-zhengjiu-weiji]

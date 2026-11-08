@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gothicmade-hana-no-utame
+  titles:
+    original: GOTHICMADE -ゴティックメード 花の詩女-
+    translations: { ja-Latn: "Gothicmade: Hana no Utame" }
+  movies:
+    - id: gothicmade-hana-no-utame-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gothicmade-hana-no-utame]

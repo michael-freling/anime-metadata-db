@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: battle-of-surabaya
+  titles:
+    original: Battle of Surabaya
+    translations: { ja-Latn: Battle of Surabaya }
+  movies:
+    - id: battle-of-surabaya-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [battle-of-surabaya]

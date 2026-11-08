@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: anklet-to-aoi-umi
+  titles:
+    original: アンクレットと蒼い海
+    translations: { ja-Latn: Anklet to Aoi Umi }
+  movies:
+    - id: anklet-to-aoi-umi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [anklet-to-aoi-umi]

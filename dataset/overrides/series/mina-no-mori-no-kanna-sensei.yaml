@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mina-no-mori-no-kanna-sensei
+  titles:
+    original: ミナの森のカンナ先生
+    translations: { ja-Latn: Mina no Mori no Kanna-sensei }
+  movies:
+    - id: mina-no-mori-no-kanna-sensei-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mina-no-mori-no-kanna-sensei]

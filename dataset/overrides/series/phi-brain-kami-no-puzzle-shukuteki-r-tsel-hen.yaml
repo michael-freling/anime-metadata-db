@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: phi-brain-kami-no-puzzle-shukuteki-r-tsel-hen
+  titles:
+    original: ファイ・ブレイン 〜神のパズル 宿敵！レイツェル編
+    translations: { ja-Latn: "Phi Brain: Kami no Puzzle - Shukuteki! Rätsel-hen" }
+  seasons:
+    - id: phi-brain-kami-no-puzzle-shukuteki-r-tsel-hen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [phi-brain-kami-no-puzzle-shukuteki-r-tsel-hen]

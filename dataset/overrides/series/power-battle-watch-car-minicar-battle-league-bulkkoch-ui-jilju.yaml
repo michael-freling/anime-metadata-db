@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: power-battle-watch-car-minicar-battle-league-bulkkoch-ui-jilju
+  titles:
+    original: "Power Battle Watch Car: Minicar Battle League - Bulkkoch-ui Jilju"
+    translations: { ja-Latn: "Power Battle Watch Car: Minicar Battle League - Bulkkoch-ui Jilju" }
+  movies:
+    - id: power-battle-watch-car-minicar-battle-league-bulkkoch-ui-jilju-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [power-battle-watch-car-minicar-battle-league-bulkkoch-ui-jilju]

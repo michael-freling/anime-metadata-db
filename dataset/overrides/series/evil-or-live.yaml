@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: evil-or-live
+  titles:
+    original: Evil or Live
+    translations: { ja-Latn: Evil or Live }
+  seasons:
+    - id: evil-or-live-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [evil-or-live]

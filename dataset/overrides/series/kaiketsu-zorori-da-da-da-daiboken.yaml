@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaiketsu-zorori-da-da-da-daiboken
+  titles:
+    original: かいけつゾロリだ・だ・だ・だいぼうけん！
+    translations: { ja-Latn: Kaiketsu Zorori Da-Da-Da-Daibōken! }
+  movies:
+    - id: kaiketsu-zorori-da-da-da-daiboken-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaiketsu-zorori-da-da-da-daiboken]

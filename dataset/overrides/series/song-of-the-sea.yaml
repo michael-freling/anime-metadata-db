@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: song-of-the-sea
+  titles:
+    original: Song of the Sea
+    translations: { ja-Latn: Song of the Sea }
+  movies:
+    - id: song-of-the-sea-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [song-of-the-sea]

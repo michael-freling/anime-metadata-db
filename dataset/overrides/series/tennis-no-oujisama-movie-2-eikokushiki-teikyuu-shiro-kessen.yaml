@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tennis-no-oujisama-movie-2-eikokushiki-teikyuu-shiro-kessen
+  titles:
+    original: 劇場版テニスの王子様 英国式庭球城決戦!
+    translations: { ja-Latn: "Tennis no Oujisama Movie 2: Eikokushiki Teikyuu Shiro Kessen!" }
+  movies:
+    - id: tennis-no-oujisama-movie-2-eikokushiki-teikyuu-shiro-kessen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tennis-no-oujisama-movie-2-eikokushiki-teikyuu-shiro-kessen]

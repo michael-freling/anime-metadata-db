@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rewrite-2nd-season
+  titles:
+    original: リライト 2nd Season Moon編 ／ Terra編
+    translations: { ja-Latn: Rewrite 2nd Season }
+  seasons:
+    - id: rewrite-2nd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rewrite-2nd-season]

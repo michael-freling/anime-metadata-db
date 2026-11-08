@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ba-min-jingling-duo-bao-ji
+  titles:
+    original: Ba Min Jingling Duo Bao Ji
+    translations: { ja-Latn: Ba Min Jingling Duo Bao Ji }
+  seasons:
+    - id: ba-min-jingling-duo-bao-ji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ba-min-jingling-duo-bao-ji]

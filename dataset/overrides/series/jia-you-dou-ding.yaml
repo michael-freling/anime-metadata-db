@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jia-you-dou-ding
+  titles:
+    original: Jia You Dou Ding
+    translations: { ja-Latn: Jia You Dou Ding }
+  seasons:
+    - id: jia-you-dou-ding-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jia-you-dou-ding]

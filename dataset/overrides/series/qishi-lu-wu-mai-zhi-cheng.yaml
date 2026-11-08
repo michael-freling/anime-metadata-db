@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: qishi-lu-wu-mai-zhi-cheng
+  titles:
+    original: Qishi Lu Wu Mai Zhi Cheng
+    translations: { ja-Latn: Qishi Lu Wu Mai Zhi Cheng }
+  movies:
+    - id: qishi-lu-wu-mai-zhi-cheng-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [qishi-lu-wu-mai-zhi-cheng]

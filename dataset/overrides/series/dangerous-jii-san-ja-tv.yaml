@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dangerous-jii-san-ja-tv
+  titles:
+    original: でんぢゃらすじーさん邪 TV
+    translations: { ja-Latn: Dangerous Jii-san Ja TV }
+  seasons:
+    - id: dangerous-jii-san-ja-tv-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dangerous-jii-san-ja-tv]

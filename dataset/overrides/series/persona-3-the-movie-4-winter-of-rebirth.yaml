@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: persona-3-the-movie-4-winter-of-rebirth
+  titles:
+    original: "劇場版「ペルソナ３」 #4 Winter of Rebirth"
+    translations: { ja-Latn: "Persona 3 the Movie 4: Winter of Rebirth" }
+  movies:
+    - id: persona-3-the-movie-4-winter-of-rebirth-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [persona-3-the-movie-4-winter-of-rebirth]

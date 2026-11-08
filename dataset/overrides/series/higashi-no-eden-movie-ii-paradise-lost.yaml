@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: higashi-no-eden-movie-ii-paradise-lost
+  titles:
+    original: 東のエデン 劇場版II Paradise Lost
+    translations: { ja-Latn: "Higashi no Eden Movie II: Paradise Lost" }
+  movies:
+    - id: higashi-no-eden-movie-ii-paradise-lost-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [higashi-no-eden-movie-ii-paradise-lost]

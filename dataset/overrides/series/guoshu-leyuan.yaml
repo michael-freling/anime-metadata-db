@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: guoshu-leyuan
+  titles:
+    original: Guoshu Leyuan
+    translations: { ja-Latn: Guoshu Leyuan }
+  seasons:
+    - id: guoshu-leyuan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [guoshu-leyuan]

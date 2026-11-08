@@ -1,0 +1,15 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fist-of-the-north-star-strawberry-flavor
+  titles:
+    original: 北斗の拳 イチゴ味
+    translations: { ja-Latn: "Fist of the North Star: Strawberry Flavor" }
+  seasons:
+    - id: fist-of-the-north-star-strawberry-flavor-s1
+      number: 1
+    - id: fist-of-the-north-star-strawberry-flavor-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fist-of-the-north-star-strawberry-flavor]

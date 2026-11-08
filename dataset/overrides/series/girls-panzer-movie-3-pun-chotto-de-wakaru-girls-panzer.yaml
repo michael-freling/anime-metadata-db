@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: girls-panzer-movie-3-pun-chotto-de-wakaru-girls-panzer
+  titles:
+    original: ガールズ&パンツァー 劇場版 3分ちょっとでわかる!! ガールズ&パンツァー
+    translations: { ja-Latn: "Girls & Panzer Movie: 3-pun Chotto de Wakaru!! Girls & Panzer" }
+  movies:
+    - id: girls-panzer-movie-3-pun-chotto-de-wakaru-girls-panzer-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [girls-panzer-movie-3-pun-chotto-de-wakaru-girls-panzer]

@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bai-hua-yuan-li-de-gushi
+  titles:
+    original: Bai Hua Yuan Li De Gushi
+    translations: { ja-Latn: Bai Hua Yuan Li De Gushi }
+  seasons:
+    - id: bai-hua-yuan-li-de-gushi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bai-hua-yuan-li-de-gushi]

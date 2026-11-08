@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lei-su-deng-shandian-chong-xian-2
+  titles:
+    original: Lei Su Deng Shandian Chong Xian 2
+    translations: { ja-Latn: Lei Su Deng Shandian Chong Xian 2 }
+  seasons:
+    - id: lei-su-deng-shandian-chong-xian-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lei-su-deng-shandian-chong-xian-2]

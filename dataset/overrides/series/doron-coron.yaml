@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: doron-coron
+  titles:
+    original: ドロンコロン
+    translations: { ja-Latn: Doron Coron }
+  movies:
+    - id: doron-coron-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [doron-coron]

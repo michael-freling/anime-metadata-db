@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: oshiri-kajiri-mushi-tv-3rd-season
+  titles:
+    original: おしりかじり虫　第３シリーズ
+    translations: { ja-Latn: Oshiri Kajiri Mushi (TV) 3rd Season }
+  seasons:
+    - id: oshiri-kajiri-mushi-tv-3rd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [oshiri-kajiri-mushi-tv-3rd-season]

@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shoujo-to-fushigi-na-koya
+  titles:
+    original: 少女と不思議な小屋
+    translations: { ja-Latn: Shoujo to Fushigi na Koya }
+  movies:
+    - id: shoujo-to-fushigi-na-koya-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shoujo-to-fushigi-na-koya]

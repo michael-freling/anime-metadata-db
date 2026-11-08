@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 3-nen-d-gumi-glass-no-kamen-tobidase-watashitachi-no-victory-road
+  titles:
+    original: 3ねんDぐみガラスの仮面～とびだせ! 私たちのVR（ヴィクトリーロード）～
+    translations: { ja-Latn: "3-nen D-gumi Glass no Kamen: Tobidase! Watashitachi no Victory Road" }
+  movies:
+    - id: 3-nen-d-gumi-glass-no-kamen-tobidase-watashitachi-no-victory-road-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [3-nen-d-gumi-glass-no-kamen-tobidase-watashitachi-no-victory-road]

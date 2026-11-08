@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ring-ni-kakero-1-shadow-hen
+  titles:
+    original: リングにかけろ1 影道編
+    translations: { ja-Latn: "Ring ni Kakero 1: Shadow-hen" }
+  seasons:
+    - id: ring-ni-kakero-1-shadow-hen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ring-ni-kakero-1-shadow-hen]

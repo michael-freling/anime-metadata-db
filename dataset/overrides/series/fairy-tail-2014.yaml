@@ -1,0 +1,15 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fairy-tail-2014
+  titles:
+    original: FAIRY TAIL（フェアリーテイル）
+    translations: { ja-Latn: Fairy Tail (2014) }
+  seasons:
+    - id: fairy-tail-2014-s1
+      number: 1
+    - id: fairy-tail-2014-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fairy-tail-2014]

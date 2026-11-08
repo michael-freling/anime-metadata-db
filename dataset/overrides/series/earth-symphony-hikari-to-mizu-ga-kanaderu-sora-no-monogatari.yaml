@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: earth-symphony-hikari-to-mizu-ga-kanaderu-sora-no-monogatari
+  titles:
+    original: アースシンフォニー 光と水が奏でる空の物語
+    translations: { ja-Latn: "Earth Symphony: Hikari to Mizu ga Kanaderu Sora no Monogatari" }
+  movies:
+    - id: earth-symphony-hikari-to-mizu-ga-kanaderu-sora-no-monogatari-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [earth-symphony-hikari-to-mizu-ga-kanaderu-sora-no-monogatari]

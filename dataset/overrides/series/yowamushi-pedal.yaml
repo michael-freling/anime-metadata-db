@@ -1,0 +1,19 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yowamushi-pedal
+  titles:
+    original: 弱虫ペダル
+    translations: { ja-Latn: Yowamushi Pedal }
+  seasons:
+    - id: yowamushi-pedal-s1
+      number: 1
+    - id: yowamushi-pedal-s2
+      number: 2
+    - id: yowamushi-pedal-s3
+      number: 3
+  movies:
+    - id: yowamushi-pedal-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yowamushi-pedal]

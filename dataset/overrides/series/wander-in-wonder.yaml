@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wander-in-wonder
+  titles:
+    original: Wander in Wonder
+    translations: { ja-Latn: Wander in Wonder }
+  movies:
+    - id: wander-in-wonder-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wander-in-wonder]

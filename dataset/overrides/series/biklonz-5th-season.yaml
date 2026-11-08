@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: biklonz-5th-season
+  titles:
+    original: Biklonz 5th Season
+    translations: { ja-Latn: Biklonz 5th Season }
+  seasons:
+    - id: biklonz-5th-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [biklonz-5th-season]

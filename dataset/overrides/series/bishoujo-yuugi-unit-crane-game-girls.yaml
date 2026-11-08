@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bishoujo-yuugi-unit-crane-game-girls
+  titles:
+    original: 美少女遊戯ユニットクレーンゲール Crane Game Girls
+    translations: { ja-Latn: Bishoujo Yuugi Unit Crane Game Girls }
+  seasons:
+    - id: bishoujo-yuugi-unit-crane-game-girls-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bishoujo-yuugi-unit-crane-game-girls]

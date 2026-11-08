@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: an-de-tie-dan-an-de-wa
+  titles:
+    original: An de Tie Dan An de Wa
+    translations: { ja-Latn: An de Tie Dan An de Wa }
+  seasons:
+    - id: an-de-tie-dan-an-de-wa-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [an-de-tie-dan-an-de-wa]

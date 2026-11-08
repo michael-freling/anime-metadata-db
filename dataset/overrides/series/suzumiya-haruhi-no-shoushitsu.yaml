@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: suzumiya-haruhi-no-shoushitsu
+  titles:
+    original: 涼宮ハルヒの消失
+    translations: { ja-Latn: Suzumiya Haruhi no Shoushitsu }
+  movies:
+    - id: suzumiya-haruhi-no-shoushitsu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [suzumiya-haruhi-no-shoushitsu]

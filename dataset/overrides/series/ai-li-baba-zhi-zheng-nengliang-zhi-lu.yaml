@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ai-li-baba-zhi-zheng-nengliang-zhi-lu
+  titles:
+    original: Ai Li Baba Zhi Zheng Nengliang Zhi Lu
+    translations: { ja-Latn: Ai Li Baba Zhi Zheng Nengliang Zhi Lu }
+  seasons:
+    - id: ai-li-baba-zhi-zheng-nengliang-zhi-lu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ai-li-baba-zhi-zheng-nengliang-zhi-lu]

@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: alibaba-2-solomon-fengyin
+  titles:
+    original: "Alibaba 2: Solomon Fengyin"
+    translations: { ja-Latn: "Alibaba 2: Solomon Fengyin" }
+  movies:
+    - id: alibaba-2-solomon-fengyin-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [alibaba-2-solomon-fengyin]

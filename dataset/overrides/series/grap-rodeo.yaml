@@ -1,0 +1,15 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: grap-rodeo
+  titles:
+    original: ぐらＰ＆ろで夫
+    translations: { ja-Latn: GraP & RodeO }
+  seasons:
+    - id: grap-rodeo-s1
+      number: 1
+    - id: grap-rodeo-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [grap-rodeo]

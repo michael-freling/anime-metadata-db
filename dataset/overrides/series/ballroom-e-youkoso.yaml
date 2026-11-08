@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ballroom-e-youkoso
+  titles:
+    original: ボールルームへようこそ
+    translations: { ja-Latn: Ballroom e Youkoso }
+  seasons:
+    - id: ballroom-e-youkoso-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ballroom-e-youkoso]

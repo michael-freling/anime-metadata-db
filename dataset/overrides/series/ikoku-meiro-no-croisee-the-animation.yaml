@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ikoku-meiro-no-croisee-the-animation
+  titles:
+    original: 異国迷路のクロワーゼ The Animation La croisée dans un labyrinthe étranger
+    translations: { ja-Latn: Ikoku Meiro no Croisée The Animation }
+  seasons:
+    - id: ikoku-meiro-no-croisee-the-animation-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ikoku-meiro-no-croisee-the-animation]

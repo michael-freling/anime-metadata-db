@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kemamire-heaven
+  titles:
+    original: 毛まみれヘブン
+    translations: { ja-Latn: Kemamire Heaven }
+  movies:
+    - id: kemamire-heaven-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kemamire-heaven]

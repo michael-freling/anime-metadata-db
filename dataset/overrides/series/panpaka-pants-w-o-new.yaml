@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: panpaka-pants-w-o-new
+  titles:
+    original: パンパカパンツ WおNEW!
+    translations: { ja-Latn: Panpaka Pants W-O-New! }
+  seasons:
+    - id: panpaka-pants-w-o-new-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [panpaka-pants-w-o-new]

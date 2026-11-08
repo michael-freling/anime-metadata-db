@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sanqi-xiao-fuxing-duo-bao-qibing
+  titles:
+    original: "Sanqi Xiao Fuxing: Duo Bao Qibing"
+    translations: { ja-Latn: "Sanqi Xiao Fuxing: Duo Bao Qibing" }
+  seasons:
+    - id: sanqi-xiao-fuxing-duo-bao-qibing-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sanqi-xiao-fuxing-duo-bao-qibing]

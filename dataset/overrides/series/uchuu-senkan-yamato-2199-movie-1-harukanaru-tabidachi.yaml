@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: uchuu-senkan-yamato-2199-movie-1-harukanaru-tabidachi
+  titles:
+    original: "Uchuu Senkan Yamato 2199 Movie 1: Harukanaru Tabidachi"
+    translations: { ja-Latn: "Uchuu Senkan Yamato 2199 Movie 1: Harukanaru Tabidachi" }
+  movies:
+    - id: uchuu-senkan-yamato-2199-movie-1-harukanaru-tabidachi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [uchuu-senkan-yamato-2199-movie-1-harukanaru-tabidachi]

@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yondemasu-yo-azazel-san-tv
+  titles:
+    original: よんでますよ、アザゼルさん。
+    translations: { ja-Latn: "Yondemasu yo, Azazel-san. (TV)" }
+  seasons:
+    - id: yondemasu-yo-azazel-san-tv-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yondemasu-yo-azazel-san-tv]

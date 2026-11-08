@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hidamari-sketch-x-honeycomb
+  titles:
+    original: ひだまりスケッチxハニカム
+    translations: { ja-Latn: Hidamari Sketch x Honeycomb }
+  seasons:
+    - id: hidamari-sketch-x-honeycomb-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hidamari-sketch-x-honeycomb]

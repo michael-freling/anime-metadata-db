@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: koukaku-kidoutai-stand-alone-complex-solid-state-society-3d
+  titles:
+    original: "Koukaku Kidoutai: Stand Alone Complex - Solid State Society 3D"
+    translations: { ja-Latn: "Koukaku Kidoutai: Stand Alone Complex - Solid State Society 3D" }
+  movies:
+    - id: koukaku-kidoutai-stand-alone-complex-solid-state-society-3d-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [koukaku-kidoutai-stand-alone-complex-solid-state-society-3d]

@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaze-no-hi
+  titles:
+    original: かぜの日
+    translations: { ja-Latn: Kaze no Hi }
+  movies:
+    - id: kaze-no-hi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaze-no-hi]

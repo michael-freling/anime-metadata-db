@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pipiru-anjeon-teukgongdae
+  titles:
+    original: Pipiru Anjeon Teukgongdae
+    translations: { ja-Latn: Pipiru Anjeon Teukgongdae }
+  seasons:
+    - id: pipiru-anjeon-teukgongdae-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pipiru-anjeon-teukgongdae]

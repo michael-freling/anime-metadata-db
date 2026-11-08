@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: uq-holder-mahou-sensei-negima-2
+  titles:
+    original: UQ HOLDER! ~魔法先生ネギま! 2~
+    translations: { ja-Latn: UQ Holder! Mahou Sensei Negima! 2 }
+  seasons:
+    - id: uq-holder-mahou-sensei-negima-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [uq-holder-mahou-sensei-negima-2]

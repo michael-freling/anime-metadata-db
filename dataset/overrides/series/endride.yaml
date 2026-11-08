@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: endride
+  titles:
+    original: エンドライド
+    translations: { ja-Latn: Endride }
+  seasons:
+    - id: endride-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [endride]

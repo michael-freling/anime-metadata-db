@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: baba-bao-bao
+  titles:
+    original: Baba Bao Bao
+    translations: { ja-Latn: Baba Bao Bao }
+  seasons:
+    - id: baba-bao-bao-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [baba-bao-bao]

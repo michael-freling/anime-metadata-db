@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hitorijime-my-hero
+  titles:
+    original: ひとりじめマイヒーロー
+    translations: { ja-Latn: Hitorijime My Hero }
+  seasons:
+    - id: hitorijime-my-hero-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hitorijime-my-hero]

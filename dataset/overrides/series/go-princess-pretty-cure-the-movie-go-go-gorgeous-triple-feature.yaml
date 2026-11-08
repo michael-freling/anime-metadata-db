@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: go-princess-pretty-cure-the-movie-go-go-gorgeous-triple-feature
+  titles:
+    original: 映画Ｇｏ！プリンセスプリキュア Ｇｏ！Ｇｏ！！豪華３本立て！！！
+    translations: { ja-Latn: Go! Princess Pretty Cure the Movie Go! Go!! Gorgeous Triple Feature!!! }
+  movies:
+    - id: go-princess-pretty-cure-the-movie-go-go-gorgeous-triple-feature-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [go-princess-pretty-cure-the-movie-go-go-gorgeous-triple-feature]

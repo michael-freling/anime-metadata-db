@@ -1,0 +1,15 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-first-step
+  titles:
+    original: The First Step
+    translations: { ja-Latn: The First Step }
+  seasons:
+    - id: the-first-step-s1
+      number: 1
+  movies:
+    - id: the-first-step-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-first-step]

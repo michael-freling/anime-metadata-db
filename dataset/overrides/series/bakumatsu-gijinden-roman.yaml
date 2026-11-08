@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bakumatsu-gijinden-roman
+  titles:
+    original: Bakumatsu Gijinden Roman
+    translations: { ja-Latn: Bakumatsu Gijinden Roman }
+  seasons:
+    - id: bakumatsu-gijinden-roman-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bakumatsu-gijinden-roman]

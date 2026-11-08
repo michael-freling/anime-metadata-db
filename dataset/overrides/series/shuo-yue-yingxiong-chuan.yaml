@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shuo-yue-yingxiong-chuan
+  titles:
+    original: Shuo Yue Yingxiong Chuan
+    translations: { ja-Latn: Shuo Yue Yingxiong Chuan }
+  seasons:
+    - id: shuo-yue-yingxiong-chuan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shuo-yue-yingxiong-chuan]

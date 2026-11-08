@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: on-a-lustful-night-mingling-with-a-priest
+  titles:
+    original: 僧侶と交わる色欲の夜に…
+    translations: { ja-Latn: On a Lustful Night Mingling with a Priest }
+  seasons:
+    - id: on-a-lustful-night-mingling-with-a-priest-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [on-a-lustful-night-mingling-with-a-priest]

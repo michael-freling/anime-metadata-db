@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mahou-shoujo-tokushusen-asuka
+  titles:
+    original: 魔法少女特殊戦あすか
+    translations: { ja-Latn: Mahou Shoujo Tokushusen Asuka }
+  seasons:
+    - id: mahou-shoujo-tokushusen-asuka-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mahou-shoujo-tokushusen-asuka]

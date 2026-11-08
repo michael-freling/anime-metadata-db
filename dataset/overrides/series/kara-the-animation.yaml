@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kara-the-animation
+  titles:
+    original: Kara The Animation
+    translations: { ja-Latn: Kara The Animation }
+  seasons:
+    - id: kara-the-animation-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kara-the-animation]

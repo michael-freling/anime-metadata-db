@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nora-to-oujo-to-noraneko-heart
+  titles:
+    original: ノラと皇女と野良猫ハート
+    translations: { ja-Latn: Nora to Oujo to Noraneko Heart }
+  seasons:
+    - id: nora-to-oujo-to-noraneko-heart-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nora-to-oujo-to-noraneko-heart]

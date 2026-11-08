@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xin-datou-er-zi-he-xiao-tou-baba-3-eluosi-qiyu-ji
+  titles:
+    original: "Xin Datou Er Zi He Xiao Tou Baba 3: Eluosi Qiyu Ji"
+    translations: { ja-Latn: "Xin Datou Er Zi He Xiao Tou Baba 3: Eluosi Qiyu Ji" }
+  movies:
+    - id: xin-datou-er-zi-he-xiao-tou-baba-3-eluosi-qiyu-ji-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xin-datou-er-zi-he-xiao-tou-baba-3-eluosi-qiyu-ji]

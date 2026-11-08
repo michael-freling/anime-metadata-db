@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yozakura-quartet-hana-no-uta
+  titles:
+    original: 夜桜四重奏 ~ハナノウタ~
+    translations: { ja-Latn: "Yozakura Quartet: Hana no Uta" }
+  seasons:
+    - id: yozakura-quartet-hana-no-uta-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yozakura-quartet-hana-no-uta]

@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shiro-no-kokyuu
+  titles:
+    original: 白の故郷
+    translations: { ja-Latn: Shiro no Kokyuu }
+  movies:
+    - id: shiro-no-kokyuu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shiro-no-kokyuu]

@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kimi-to-nami-ni-noretara
+  titles:
+    original: "きみと, 波にのれたら"
+    translations: { ja-Latn: "Kimi to, Nami ni Noretara" }
+  movies:
+    - id: kimi-to-nami-ni-noretara-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kimi-to-nami-ni-noretara]

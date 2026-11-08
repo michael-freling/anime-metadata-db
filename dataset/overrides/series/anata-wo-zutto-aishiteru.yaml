@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: anata-wo-zutto-aishiteru
+  titles:
+    original: あなたをずっとあいしてる
+    translations: { ja-Latn: Anata wo Zutto Aishiteru }
+  movies:
+    - id: anata-wo-zutto-aishiteru-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [anata-wo-zutto-aishiteru]

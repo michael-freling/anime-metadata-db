@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zang-ling-wangzhixue-yu-jingling
+  titles:
+    original: Zang Ling Wangzhixue Yu Jingling
+    translations: { ja-Latn: Zang Ling Wangzhixue Yu Jingling }
+  movies:
+    - id: zang-ling-wangzhixue-yu-jingling-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zang-ling-wangzhixue-yu-jingling]

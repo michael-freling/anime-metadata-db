@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ebiten-ebisugawa-public-high-school-s-tenmonbu
+  titles:
+    original: えびてん 公立海老栖川高校天悶部
+    translations: { ja-Latn: "Ebiten: Ebisugawa Public High School's Tenmonbu" }
+  seasons:
+    - id: ebiten-ebisugawa-public-high-school-s-tenmonbu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ebiten-ebisugawa-public-high-school-s-tenmonbu]

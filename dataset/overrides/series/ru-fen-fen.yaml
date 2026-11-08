@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ru-fen-fen
+  titles:
+    original: Ru Fen Fen
+    translations: { ja-Latn: Ru Fen Fen }
+  movies:
+    - id: ru-fen-fen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ru-fen-fen]

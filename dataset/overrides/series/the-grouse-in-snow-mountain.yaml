@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-grouse-in-snow-mountain
+  titles:
+    original: 雪山のライチョウ
+    translations: { ja-Latn: The Grouse in Snow Mountain }
+  movies:
+    - id: the-grouse-in-snow-mountain-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-grouse-in-snow-mountain]

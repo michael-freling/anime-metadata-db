@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xingji-xiao-mayi-wuhang-guilai
+  titles:
+    original: "Xingji Xiao Mayi: Wuhang Guilai"
+    translations: { ja-Latn: "Xingji Xiao Mayi: Wuhang Guilai" }
+  seasons:
+    - id: xingji-xiao-mayi-wuhang-guilai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xingji-xiao-mayi-wuhang-guilai]

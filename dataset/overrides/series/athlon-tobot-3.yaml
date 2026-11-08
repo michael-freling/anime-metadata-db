@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: athlon-tobot-3
+  titles:
+    original: Athlon Tobot 3
+    translations: { ja-Latn: Athlon Tobot 3 }
+  seasons:
+    - id: athlon-tobot-3-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [athlon-tobot-3]

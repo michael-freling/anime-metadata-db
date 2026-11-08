@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mu-qi-ling-lu-ying-zhan-ling
+  titles:
+    original: "Mu Qi Ling: Lu Ying Zhan Ling"
+    translations: { ja-Latn: "Mu Qi Ling: Lu Ying Zhan Ling" }
+  seasons:
+    - id: mu-qi-ling-lu-ying-zhan-ling-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mu-qi-ling-lu-ying-zhan-ling]

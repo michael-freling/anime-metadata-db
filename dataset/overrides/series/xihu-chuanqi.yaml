@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xihu-chuanqi
+  titles:
+    original: Xihu Chuanqi
+    translations: { ja-Latn: Xihu Chuanqi }
+  movies:
+    - id: xihu-chuanqi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xihu-chuanqi]

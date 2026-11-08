@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dear-little-tim
+  titles:
+    original: Dear Little Tim
+    translations: { ja-Latn: Dear Little Tim }
+  movies:
+    - id: dear-little-tim-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dear-little-tim]

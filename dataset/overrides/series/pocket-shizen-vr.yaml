@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pocket-shizen-vr
+  titles:
+    original: ぽけっと自然VR
+    translations: { ja-Latn: Pocket Shizen VR }
+  movies:
+    - id: pocket-shizen-vr-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pocket-shizen-vr]

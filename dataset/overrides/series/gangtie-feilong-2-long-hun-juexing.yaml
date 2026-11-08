@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gangtie-feilong-2-long-hun-juexing
+  titles:
+    original: "Gangtie Feilong 2: Long Hun Juexing"
+    translations: { ja-Latn: "Gangtie Feilong 2: Long Hun Juexing" }
+  seasons:
+    - id: gangtie-feilong-2-long-hun-juexing-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gangtie-feilong-2-long-hun-juexing]

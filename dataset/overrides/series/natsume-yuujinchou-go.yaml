@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: natsume-yuujinchou-go
+  titles:
+    original: Natsume Yuujinchou Go
+    translations: { ja-Latn: Natsume Yuujinchou Go }
+  seasons:
+    - id: natsume-yuujinchou-go-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [natsume-yuujinchou-go]

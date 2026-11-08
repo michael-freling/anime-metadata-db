@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-shu-ping-ping-zhi-chengyu-dadian-2
+  titles:
+    original: Xiao Shu Ping Ping Zhi Chengyu Dadian 2
+    translations: { ja-Latn: Xiao Shu Ping Ping Zhi Chengyu Dadian 2 }
+  seasons:
+    - id: xiao-shu-ping-ping-zhi-chengyu-dadian-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-shu-ping-ping-zhi-chengyu-dadian-2]

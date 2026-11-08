@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaijuu-girls-kuro-ultra-kaijuu-gijinka-keikaku
+  titles:
+    original: "怪獣娘[かいじゅうがーるず](黒) ~ウルトラ怪獣擬人化計画~"
+    translations: { ja-Latn: "Kaijuu Girls Kuro: Ultra Kaijuu Gijinka Keikaku" }
+  movies:
+    - id: kaijuu-girls-kuro-ultra-kaijuu-gijinka-keikaku-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaijuu-girls-kuro-ultra-kaijuu-gijinka-keikaku]

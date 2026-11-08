@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: long-taizi-yanre-xingqiu-zhi-mi
+  titles:
+    original: "Long Taizi: Yanre Xingqiu Zhi Mi"
+    translations: { ja-Latn: "Long Taizi: Yanre Xingqiu Zhi Mi" }
+  seasons:
+    - id: long-taizi-yanre-xingqiu-zhi-mi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [long-taizi-yanre-xingqiu-zhi-mi]

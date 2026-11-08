@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kami-nomi-zo-shiru-sekai-megami-hen
+  titles:
+    original: 神のみぞ知るセカイ 女神篇
+    translations: { ja-Latn: "Kami nomi zo Shiru Sekai: Megami-hen" }
+  seasons:
+    - id: kami-nomi-zo-shiru-sekai-megami-hen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kami-nomi-zo-shiru-sekai-megami-hen]

@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: senki-zesshou-symphogear-xv
+  titles:
+    original: "戦姫絶唱シンフォギア XV Create a history, with the light God could not know"
+    translations: { ja-Latn: Senki Zesshou Symphogear XV }
+  seasons:
+    - id: senki-zesshou-symphogear-xv-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [senki-zesshou-symphogear-xv]

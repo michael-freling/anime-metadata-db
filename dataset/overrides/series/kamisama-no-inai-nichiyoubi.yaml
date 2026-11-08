@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kamisama-no-inai-nichiyoubi
+  titles:
+    original: 神さまのいない日曜日
+    translations: { ja-Latn: Kamisama no Inai Nichiyoubi }
+  seasons:
+    - id: kamisama-no-inai-nichiyoubi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kamisama-no-inai-nichiyoubi]

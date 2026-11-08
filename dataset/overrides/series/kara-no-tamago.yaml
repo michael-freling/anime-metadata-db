@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kara-no-tamago
+  titles:
+    original: 空の卵
+    translations: { ja-Latn: Kara no Tamago }
+  movies:
+    - id: kara-no-tamago-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kara-no-tamago]

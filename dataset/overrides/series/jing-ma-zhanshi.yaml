@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jing-ma-zhanshi
+  titles:
+    original: Jing Ma Zhanshi
+    translations: { ja-Latn: Jing Ma Zhanshi }
+  seasons:
+    - id: jing-ma-zhanshi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jing-ma-zhanshi]

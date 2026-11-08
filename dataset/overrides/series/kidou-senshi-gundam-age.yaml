@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kidou-senshi-gundam-age
+  titles:
+    original: 機動戦士ガンダムAGE <エイジ>
+    translations: { ja-Latn: Kidou Senshi Gundam AGE }
+  seasons:
+    - id: kidou-senshi-gundam-age-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kidou-senshi-gundam-age]

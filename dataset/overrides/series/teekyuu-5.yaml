@@ -1,0 +1,15 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: teekyuu-5
+  titles:
+    original: てーきゅう 5期
+    translations: { ja-Latn: Teekyuu 5 }
+  seasons:
+    - id: teekyuu-5-s1
+      number: 1
+    - id: teekyuu-5-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [teekyuu-5]

@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wo-shi-zhi-xiao-xiaoniao-2013
+  titles:
+    original: Wo Shi Zhi Xiao Xiaoniao (2013)
+    translations: { ja-Latn: Wo Shi Zhi Xiao Xiaoniao (2013) }
+  movies:
+    - id: wo-shi-zhi-xiao-xiaoniao-2013-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wo-shi-zhi-xiao-xiaoniao-2013]

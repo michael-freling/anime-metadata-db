@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: doraemon-the-movie-nobita-and-the-last-haven-animal-adventure
+  titles:
+    original: 映画ドラえもん のび太と奇跡の島 〜アニマル アドベンチャー〜
+    translations: { ja-Latn: "Doraemon the Movie: Nobita and the Last Haven - Animal Adventure" }
+  movies:
+    - id: doraemon-the-movie-nobita-and-the-last-haven-animal-adventure-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [doraemon-the-movie-nobita-and-the-last-haven-animal-adventure]

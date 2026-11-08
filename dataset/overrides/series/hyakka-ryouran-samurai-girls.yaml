@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hyakka-ryouran-samurai-girls
+  titles:
+    original: 百花繚乱 サムライガールズ
+    translations: { ja-Latn: "Hyakka Ryouran: Samurai Girls" }
+  seasons:
+    - id: hyakka-ryouran-samurai-girls-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hyakka-ryouran-samurai-girls]

@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: uchuu-icchokusen
+  titles:
+    original: Uchuu Icchokusen
+    translations: { ja-Latn: Uchuu Icchokusen }
+  movies:
+    - id: uchuu-icchokusen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [uchuu-icchokusen]

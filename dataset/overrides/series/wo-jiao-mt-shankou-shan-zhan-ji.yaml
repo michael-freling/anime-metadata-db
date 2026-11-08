@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wo-jiao-mt-shankou-shan-zhan-ji
+  titles:
+    original: "Wo Jiao MT: Shankou Shan Zhan Ji"
+    translations: { ja-Latn: "Wo Jiao MT: Shankou Shan Zhan Ji" }
+  movies:
+    - id: wo-jiao-mt-shankou-shan-zhan-ji-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wo-jiao-mt-shankou-shan-zhan-ji]

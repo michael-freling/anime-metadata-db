@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: island-of-man
+  titles:
+    original: 人の島
+    translations: { ja-Latn: Island of Man }
+  movies:
+    - id: island-of-man-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [island-of-man]

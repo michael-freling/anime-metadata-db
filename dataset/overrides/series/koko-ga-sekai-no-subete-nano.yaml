@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: koko-ga-sekai-no-subete-nano
+  titles:
+    original: ここが世界のすべてなの
+    translations: { ja-Latn: Koko ga Sekai no Subete nano }
+  movies:
+    - id: koko-ga-sekai-no-subete-nano-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [koko-ga-sekai-no-subete-nano]

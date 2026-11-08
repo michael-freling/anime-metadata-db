@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shingeki-no-kyojin-in-the-dome-heishi-tachi-no-hoshizora
+  titles:
+    original: 進撃の巨人 IN THE DOME -兵士たちの星空-
+    translations: { ja-Latn: "Shingeki no Kyojin in the Dome: Heishi-tachi no Hoshizora" }
+  movies:
+    - id: shingeki-no-kyojin-in-the-dome-heishi-tachi-no-hoshizora-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shingeki-no-kyojin-in-the-dome-heishi-tachi-no-hoshizora]

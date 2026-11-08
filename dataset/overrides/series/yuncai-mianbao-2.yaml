@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yuncai-mianbao-2
+  titles:
+    original: Yuncai Mianbao 2
+    translations: { ja-Latn: Yuncai Mianbao 2 }
+  seasons:
+    - id: yuncai-mianbao-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yuncai-mianbao-2]

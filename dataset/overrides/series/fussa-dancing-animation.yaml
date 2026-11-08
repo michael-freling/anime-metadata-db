@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fussa-dancing-animation
+  titles:
+    original: 福生ダンシングアニメーション
+    translations: { ja-Latn: Fussa Dancing Animation }
+  movies:
+    - id: fussa-dancing-animation-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fussa-dancing-animation]

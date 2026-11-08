@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hanzi-da-zuozhan
+  titles:
+    original: Hanzi Da Zuozhan
+    translations: { ja-Latn: Hanzi Da Zuozhan }
+  seasons:
+    - id: hanzi-da-zuozhan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hanzi-da-zuozhan]

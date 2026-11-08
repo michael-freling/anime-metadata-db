@@ -1,0 +1,15 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ao-oni-the-animation
+  titles:
+    original: あおおに ~じ・あにめぇしょん~
+    translations: { ja-Latn: Ao Oni The Animation }
+  seasons:
+    - id: ao-oni-the-animation-s1
+      number: 1
+  movies:
+    - id: ao-oni-the-animation-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ao-oni-the-animation]

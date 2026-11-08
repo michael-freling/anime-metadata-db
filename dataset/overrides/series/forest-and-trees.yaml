@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: forest-and-trees
+  titles:
+    original: Forest and Trees
+    translations: { ja-Latn: Forest and Trees }
+  movies:
+    - id: forest-and-trees-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [forest-and-trees]

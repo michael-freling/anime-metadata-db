@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kyoukai-no-rinne-3rd-season
+  titles:
+    original: 境界のRINNE 第3シリーズ
+    translations: { ja-Latn: Kyoukai no Rinne 3rd Season }
+  seasons:
+    - id: kyoukai-no-rinne-3rd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kyoukai-no-rinne-3rd-season]

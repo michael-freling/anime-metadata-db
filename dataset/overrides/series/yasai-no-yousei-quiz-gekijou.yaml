@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yasai-no-yousei-quiz-gekijou
+  titles:
+    original: やさいのようせい クイズげきじょう
+    translations: { ja-Latn: "Yasai no Yousei: Quiz Gekijou" }
+  movies:
+    - id: yasai-no-yousei-quiz-gekijou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yasai-no-yousei-quiz-gekijou]

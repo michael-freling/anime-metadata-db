@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: s-watch
+  titles:
+    original: S-Watch
+    translations: { ja-Latn: S-Watch }
+  movies:
+    - id: s-watch-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [s-watch]

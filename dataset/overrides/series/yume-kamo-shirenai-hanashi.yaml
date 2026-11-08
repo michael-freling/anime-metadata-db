@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yume-kamo-shirenai-hanashi
+  titles:
+    original: 夢かもしれない話
+    translations: { ja-Latn: Yume Kamo Shirenai Hanashi }
+  movies:
+    - id: yume-kamo-shirenai-hanashi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yume-kamo-shirenai-hanashi]

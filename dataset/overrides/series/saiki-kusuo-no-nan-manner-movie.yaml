@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: saiki-kusuo-no-nan-manner-movie
+  titles:
+    original: Saiki Kusuo no Ψ-nan Manner Movie
+    translations: { ja-Latn: Saiki Kusuo no Ψ-nan Manner Movie }
+  movies:
+    - id: saiki-kusuo-no-nan-manner-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [saiki-kusuo-no-nan-manner-movie]

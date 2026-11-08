@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sai-er-hao-season-9-pili-jiuchong-tian
+  titles:
+    original: "Sai Er Hao Season 9: Pili Jiuchong Tian"
+    translations: { ja-Latn: "Sai Er Hao Season 9: Pili Jiuchong Tian" }
+  seasons:
+    - id: sai-er-hao-season-9-pili-jiuchong-tian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sai-er-hao-season-9-pili-jiuchong-tian]

@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: code-geass-boukoku-no-akito-2-hikisakareshi-yokuryuu
+  titles:
+    original: コードギアス 亡国のアキト 第２章「引き裂かれし翼竜」
+    translations: { ja-Latn: "Code Geass: Boukoku no Akito 2 - Hikisakareshi Yokuryuu" }
+  movies:
+    - id: code-geass-boukoku-no-akito-2-hikisakareshi-yokuryuu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [code-geass-boukoku-no-akito-2-hikisakareshi-yokuryuu]

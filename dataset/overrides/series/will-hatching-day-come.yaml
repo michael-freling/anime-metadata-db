@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: will-hatching-day-come
+  titles:
+    original: "Will Hatching Day Come?"
+    translations: { ja-Latn: "Will Hatching Day Come?" }
+  movies:
+    - id: will-hatching-day-come-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [will-hatching-day-come]

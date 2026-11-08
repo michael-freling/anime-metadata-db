@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bakuman-3rd-season
+  titles:
+    original: バクマン。(第3シリーズ)
+    translations: { ja-Latn: Bakuman. 3rd Season }
+  seasons:
+    - id: bakuman-3rd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bakuman-3rd-season]

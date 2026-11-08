@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: travelling-through-brush-and-ink
+  titles:
+    original: Travelling Through Brush and Ink
+    translations: { ja-Latn: Travelling Through Brush and Ink }
+  movies:
+    - id: travelling-through-brush-and-ink-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [travelling-through-brush-and-ink]

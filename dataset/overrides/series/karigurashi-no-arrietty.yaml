@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: karigurashi-no-arrietty
+  titles:
+    original: 借りぐらしのアリエッティ
+    translations: { ja-Latn: Karigurashi no Arrietty }
+  movies:
+    - id: karigurashi-no-arrietty-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [karigurashi-no-arrietty]

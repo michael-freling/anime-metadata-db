@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ojiisan-no-lamp
+  titles:
+    original: 若手アニメーター育成プロジェクト2
+    translations: { ja-Latn: Ojiisan no Lamp }
+  movies:
+    - id: ojiisan-no-lamp-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ojiisan-no-lamp]

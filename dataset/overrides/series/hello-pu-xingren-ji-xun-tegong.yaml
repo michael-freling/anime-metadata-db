@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hello-pu-xingren-ji-xun-tegong
+  titles:
+    original: "Hello! Pu Xingren: Ji Xun Tegong"
+    translations: { ja-Latn: "Hello! Pu Xingren: Ji Xun Tegong" }
+  seasons:
+    - id: hello-pu-xingren-ji-xun-tegong-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hello-pu-xingren-ji-xun-tegong]

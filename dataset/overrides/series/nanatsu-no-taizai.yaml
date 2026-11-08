@@ -1,0 +1,15 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nanatsu-no-taizai
+  titles:
+    original: 七つの大罪 The Seven Deadly Sins
+    translations: { ja-Latn: Nanatsu no Taizai }
+  seasons:
+    - id: nanatsu-no-taizai-s1
+      number: 1
+    - id: nanatsu-no-taizai-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nanatsu-no-taizai]

@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: norman-the-snowman-kita-no-kuni-no-aurora
+  titles:
+    original: ノーマン・ザ・スノーマン ~北の国のオーロラ(仮)~
+    translations: { ja-Latn: "Norman the Snowman: Kita no Kuni no Aurora" }
+  movies:
+    - id: norman-the-snowman-kita-no-kuni-no-aurora-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [norman-the-snowman-kita-no-kuni-no-aurora]

@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dragon-ball-super-broly
+  titles:
+    original: "DRAGON BALL超[スーパー] ブロリー"
+    translations: { ja-Latn: "Dragon Ball Super: Broly" }
+  movies:
+    - id: dragon-ball-super-broly-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dragon-ball-super-broly]

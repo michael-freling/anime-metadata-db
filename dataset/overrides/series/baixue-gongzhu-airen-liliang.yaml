@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: baixue-gongzhu-airen-liliang
+  titles:
+    original: "Baixue Gongzhu: Airen Liliang"
+    translations: { ja-Latn: "Baixue Gongzhu: Airen Liliang" }
+  movies:
+    - id: baixue-gongzhu-airen-liliang-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [baixue-gongzhu-airen-liliang]

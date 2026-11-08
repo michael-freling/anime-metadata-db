@@ -1,0 +1,15 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jojo-no-kimyou-na-bouken-part-4-diamond-wa-kudakenai
+  titles:
+    original: ジョジョの奇妙な冒険 ダイヤモンドは砕けない
+    translations: { ja-Latn: "JoJo no Kimyou na Bouken Part 4: Diamond wa Kudakenai" }
+  seasons:
+    - id: jojo-no-kimyou-na-bouken-part-4-diamond-wa-kudakenai-s1
+      number: 1
+    - id: jojo-no-kimyou-na-bouken-part-4-diamond-wa-kudakenai-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jojo-no-kimyou-na-bouken-part-4-diamond-wa-kudakenai]

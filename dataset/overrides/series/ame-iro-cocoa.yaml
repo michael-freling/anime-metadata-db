@@ -1,0 +1,17 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ame-iro-cocoa
+  titles:
+    original: 雨色ココア
+    translations: { ja-Latn: Ame-iro Cocoa }
+  seasons:
+    - id: ame-iro-cocoa-s1
+      number: 1
+    - id: ame-iro-cocoa-s2
+      number: 2
+    - id: ame-iro-cocoa-s3
+      number: 3
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ame-iro-cocoa]

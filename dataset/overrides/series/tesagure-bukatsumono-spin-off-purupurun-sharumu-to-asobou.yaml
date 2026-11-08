@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tesagure-bukatsumono-spin-off-purupurun-sharumu-to-asobou
+  titles:
+    original: てさぐれ! 部活もの すぴんおふ プルプルんシャルムと遊ぼう
+    translations: { ja-Latn: Tesagure! Bukatsumono Spin-off Purupurun Sharumu to Asobou }
+  seasons:
+    - id: tesagure-bukatsumono-spin-off-purupurun-sharumu-to-asobou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tesagure-bukatsumono-spin-off-purupurun-sharumu-to-asobou]

@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shentan-si-dou-xing
+  titles:
+    original: Shentan Si Dou Xing
+    translations: { ja-Latn: Shentan Si Dou Xing }
+  seasons:
+    - id: shentan-si-dou-xing-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shentan-si-dou-xing]

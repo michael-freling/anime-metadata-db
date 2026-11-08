@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sirius
+  titles:
+    original: 天狼〈シリウス〉 Sirius the Jaeger
+    translations: { ja-Latn: Sirius }
+  seasons:
+    - id: sirius-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sirius]

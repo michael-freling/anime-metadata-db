@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tick-tack
+  titles:
+    original: Tick Tack
+    translations: { ja-Latn: Tick Tack }
+  movies:
+    - id: tick-tack-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tick-tack]

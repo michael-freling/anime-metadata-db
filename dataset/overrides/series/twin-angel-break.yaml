@@ -1,0 +1,15 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: twin-angel-break
+  titles:
+    original: Kaitou Tenshi Twin Angel 2017 (快盗天使ツインエンジェル 2017)
+    translations: { ja-Latn: Twin Angel Break }
+  seasons:
+    - id: twin-angel-break-s1
+      number: 1
+    - id: twin-angel-break-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [twin-angel-break]

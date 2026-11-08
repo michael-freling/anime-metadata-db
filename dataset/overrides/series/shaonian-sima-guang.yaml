@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shaonian-sima-guang
+  titles:
+    original: Shaonian Sima Guang
+    translations: { ja-Latn: Shaonian Sima Guang }
+  seasons:
+    - id: shaonian-sima-guang-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shaonian-sima-guang]

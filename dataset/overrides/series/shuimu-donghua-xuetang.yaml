@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shuimu-donghua-xuetang
+  titles:
+    original: Shuimu Donghua Xuetang
+    translations: { ja-Latn: Shuimu Donghua Xuetang }
+  seasons:
+    - id: shuimu-donghua-xuetang-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shuimu-donghua-xuetang]

@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tenshi-no-3p
+  titles:
+    original: "天使の3P[スリーピース]!"
+    translations: { ja-Latn: Tenshi no 3P! }
+  seasons:
+    - id: tenshi-no-3p-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tenshi-no-3p]

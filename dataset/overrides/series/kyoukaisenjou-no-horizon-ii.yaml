@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kyoukaisenjou-no-horizon-ii
+  titles:
+    original: 境界線上のホライゾン II
+    translations: { ja-Latn: Kyoukaisenjou no Horizon II }
+  seasons:
+    - id: kyoukaisenjou-no-horizon-ii-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kyoukaisenjou-no-horizon-ii]

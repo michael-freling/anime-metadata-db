@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: choukadou-girl
+  titles:
+    original: 超可動ガール1/6 AMAZING STRANGER
+    translations: { ja-Latn: Choukadou Girl ⅙ }
+  seasons:
+    - id: choukadou-girl-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [choukadou-girl]

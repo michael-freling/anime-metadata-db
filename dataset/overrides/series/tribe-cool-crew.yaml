@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tribe-cool-crew
+  titles:
+    original: トライブクルクル
+    translations: { ja-Latn: Tribe Cool Crew }
+  seasons:
+    - id: tribe-cool-crew-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tribe-cool-crew]

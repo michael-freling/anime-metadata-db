@@ -1,0 +1,17 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 5-toubun-no-hanayome
+  titles:
+    original: 五等分の花嫁
+    translations: { ja-Latn: 5-toubun no Hanayome }
+  seasons:
+    - id: 5-toubun-no-hanayome-s1
+      number: 1
+    - id: 5-toubun-no-hanayome-s2
+      number: 2
+  movies:
+    - id: 5-toubun-no-hanayome-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [5-toubun-no-hanayome]

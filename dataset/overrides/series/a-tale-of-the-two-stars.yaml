@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: a-tale-of-the-two-stars
+  titles:
+    original: 空星と海星
+    translations: { ja-Latn: A Tale of the Two Stars }
+  movies:
+    - id: a-tale-of-the-two-stars-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [a-tale-of-the-two-stars]

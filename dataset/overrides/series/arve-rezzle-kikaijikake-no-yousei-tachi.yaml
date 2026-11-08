@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: arve-rezzle-kikaijikake-no-yousei-tachi
+  titles:
+    original: 若手アニメーター育成プロジェクト 2013 3
+    translations: { ja-Latn: "Arve Rezzle: Kikaijikake no Yousei-tachi" }
+  movies:
+    - id: arve-rezzle-kikaijikake-no-yousei-tachi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [arve-rezzle-kikaijikake-no-yousei-tachi]

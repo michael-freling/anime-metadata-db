@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wakfu-season-2
+  titles:
+    original: Wakfu Season 2
+    translations: { ja-Latn: Wakfu Season 2 }
+  seasons:
+    - id: wakfu-season-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wakfu-season-2]

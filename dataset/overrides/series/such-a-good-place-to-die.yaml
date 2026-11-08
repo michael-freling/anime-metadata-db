@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: such-a-good-place-to-die
+  titles:
+    original: Such a Good Place to Die
+    translations: { ja-Latn: Such a Good Place to Die }
+  movies:
+    - id: such-a-good-place-to-die-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [such-a-good-place-to-die]

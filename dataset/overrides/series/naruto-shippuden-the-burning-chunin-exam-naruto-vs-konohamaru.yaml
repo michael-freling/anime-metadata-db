@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: naruto-shippuden-the-burning-chunin-exam-naruto-vs-konohamaru
+  titles:
+    original: 炎の中忍試験！ナルトVS木ノ葉丸!!
+    translations: { ja-Latn: "Naruto Shippūden: The Burning Chūnin Exam! Naruto vs. Konohamaru!!" }
+  movies:
+    - id: naruto-shippuden-the-burning-chunin-exam-naruto-vs-konohamaru-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [naruto-shippuden-the-burning-chunin-exam-naruto-vs-konohamaru]

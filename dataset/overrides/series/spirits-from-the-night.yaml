@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: spirits-from-the-night
+  titles:
+    original: 夜から来た人たち
+    translations: { ja-Latn: Spirits from the Night }
+  movies:
+    - id: spirits-from-the-night-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [spirits-from-the-night]

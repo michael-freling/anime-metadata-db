@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hazamatsuri
+  titles:
+    original: はざまつり
+    translations: { ja-Latn: Hazamatsuri }
+  movies:
+    - id: hazamatsuri-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hazamatsuri]

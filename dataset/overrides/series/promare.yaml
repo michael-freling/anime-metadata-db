@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: promare
+  titles:
+    original: PROMARE（プロメア）
+    translations: { ja-Latn: Promare }
+  movies:
+    - id: promare-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [promare]

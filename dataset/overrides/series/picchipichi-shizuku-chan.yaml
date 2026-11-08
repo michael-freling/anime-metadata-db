@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: picchipichi-shizuku-chan
+  titles:
+    original: ぴっちぴち♪しずくちゃん
+    translations: { ja-Latn: Picchipichi Shizuku-chan }
+  seasons:
+    - id: picchipichi-shizuku-chan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [picchipichi-shizuku-chan]

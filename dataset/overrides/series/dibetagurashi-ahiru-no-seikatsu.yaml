@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dibetagurashi-ahiru-no-seikatsu
+  titles:
+    original: ぢべたぐらし あひるの生活
+    translations: { ja-Latn: "Dibetagurashi: Ahiru no Seikatsu" }
+  seasons:
+    - id: dibetagurashi-ahiru-no-seikatsu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dibetagurashi-ahiru-no-seikatsu]

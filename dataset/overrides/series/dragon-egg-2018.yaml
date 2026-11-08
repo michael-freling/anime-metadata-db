@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dragon-egg-2018
+  titles:
+    original: Dragon Egg (2018)
+    translations: { ja-Latn: Dragon Egg (2018) }
+  seasons:
+    - id: dragon-egg-2018-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dragon-egg-2018]

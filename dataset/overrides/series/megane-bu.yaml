@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: megane-bu
+  titles:
+    original: メガネブ!
+    translations: { ja-Latn: Megane-bu! }
+  seasons:
+    - id: megane-bu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [megane-bu]

@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: annyeong-tyrano-yeong-wonhi-hamkke
+  titles:
+    original: "さよなら, ティラノ"
+    translations: { ja-Latn: "Annyeong, Tyrano: Yeong-wonhi, Hamkke" }
+  movies:
+    - id: annyeong-tyrano-yeong-wonhi-hamkke-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [annyeong-tyrano-yeong-wonhi-hamkke]

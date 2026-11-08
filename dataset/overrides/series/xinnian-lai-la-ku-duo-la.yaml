@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xinnian-lai-la-ku-duo-la
+  titles:
+    original: "Xinnian Lai La: Ku Duo La"
+    translations: { ja-Latn: "Xinnian Lai La: Ku Duo La" }
+  seasons:
+    - id: xinnian-lai-la-ku-duo-la-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xinnian-lai-la-ku-duo-la]

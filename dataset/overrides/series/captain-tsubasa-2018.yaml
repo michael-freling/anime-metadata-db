@@ -1,0 +1,17 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: captain-tsubasa-2018
+  titles:
+    original: キャプテン翼
+    translations: { ja-Latn: Captain Tsubasa (2018) }
+  seasons:
+    - id: captain-tsubasa-2018-s1
+      number: 1
+    - id: captain-tsubasa-2018-s2
+      number: 2
+    - id: captain-tsubasa-2018-s3
+      number: 3
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [captain-tsubasa-2018]

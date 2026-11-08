@@ -1,0 +1,15 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yuuki-yuuna-wa-yuusha-de-aru-yuusha-no-shou
+  titles:
+    original: 結城友奈は勇者である -勇者の章-
+    translations: { ja-Latn: "Yuuki Yuuna wa Yuusha de Aru: Yuusha no Shou" }
+  seasons:
+    - id: yuuki-yuuna-wa-yuusha-de-aru-yuusha-no-shou-s1
+      number: 1
+    - id: yuuki-yuuna-wa-yuusha-de-aru-yuusha-no-shou-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yuuki-yuuna-wa-yuusha-de-aru-yuusha-no-shou]

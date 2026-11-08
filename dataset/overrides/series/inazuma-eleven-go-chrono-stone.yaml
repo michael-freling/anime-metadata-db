@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: inazuma-eleven-go-chrono-stone
+  titles:
+    original: イナズマイレブンGO 2 クロノ・ストーン
+    translations: { ja-Latn: "Inazuma Eleven Go: Chrono Stone" }
+  seasons:
+    - id: inazuma-eleven-go-chrono-stone-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [inazuma-eleven-go-chrono-stone]

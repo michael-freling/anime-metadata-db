@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yang-jia-jiang-pan-yang-an
+  titles:
+    original: "Yang Jia Jiang: Pan Yang An"
+    translations: { ja-Latn: "Yang Jia Jiang: Pan Yang An" }
+  seasons:
+    - id: yang-jia-jiang-pan-yang-an-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yang-jia-jiang-pan-yang-an]

@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: isekai-maou-to-shoukan-shoujo-no-dorei-majutsu
+  titles:
+    original: 異世界魔王と召喚少女の奴隷魔術
+    translations: { ja-Latn: Isekai Maou to Shoukan Shoujo no Dorei Majutsu }
+  seasons:
+    - id: isekai-maou-to-shoukan-shoujo-no-dorei-majutsu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [isekai-maou-to-shoukan-shoujo-no-dorei-majutsu]

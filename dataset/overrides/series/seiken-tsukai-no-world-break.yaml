@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: seiken-tsukai-no-world-break
+  titles:
+    original: 聖剣使いの禁呪詠唱〈ワールドブレイク〉
+    translations: { ja-Latn: Seiken Tsukai no World Break }
+  seasons:
+    - id: seiken-tsukai-no-world-break-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [seiken-tsukai-no-world-break]

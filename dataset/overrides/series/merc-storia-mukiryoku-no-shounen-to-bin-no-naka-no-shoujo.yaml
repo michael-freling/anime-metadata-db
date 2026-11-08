@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: merc-storia-mukiryoku-no-shounen-to-bin-no-naka-no-shoujo
+  titles:
+    original: メルクストーリア - 無気力少年と瓶の中の少女 -
+    translations: { ja-Latn: "Merc Storia: Mukiryoku no Shounen to Bin no Naka no Shoujo" }
+  seasons:
+    - id: merc-storia-mukiryoku-no-shounen-to-bin-no-naka-no-shoujo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [merc-storia-mukiryoku-no-shounen-to-bin-no-naka-no-shoujo]

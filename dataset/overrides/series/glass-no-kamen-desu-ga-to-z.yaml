@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: glass-no-kamen-desu-ga-to-z
+  titles:
+    original: ガラスの仮面ですが と Z
+    translations: { ja-Latn: Glass no Kamen desu ga to Z }
+  seasons:
+    - id: glass-no-kamen-desu-ga-to-z-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [glass-no-kamen-desu-ga-to-z]

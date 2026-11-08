@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zero-kara-hajimeru-mahou-no-sho
+  titles:
+    original: ゼロから始める魔法の書
+    translations: { ja-Latn: Zero kara Hajimeru Mahou no Sho }
+  seasons:
+    - id: zero-kara-hajimeru-mahou-no-sho-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zero-kara-hajimeru-mahou-no-sho]

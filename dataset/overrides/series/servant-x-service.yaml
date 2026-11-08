@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: servant-x-service
+  titles:
+    original: サーバントxサービス
+    translations: { ja-Latn: Servant x Service }
+  seasons:
+    - id: servant-x-service-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [servant-x-service]

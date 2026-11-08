@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jiu-cang-miao-wo
+  titles:
+    original: ネコのクラちゃん 〜 クラレ王国 大陸のLutte Amor 〜
+    translations: { ja-Latn: Jiu Cang Miao Wo }
+  seasons:
+    - id: jiu-cang-miao-wo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jiu-cang-miao-wo]

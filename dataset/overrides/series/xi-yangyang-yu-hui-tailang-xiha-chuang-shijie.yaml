@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xi-yangyang-yu-hui-tailang-xiha-chuang-shijie
+  titles:
+    original: "Xi Yangyang Yu Hui Tailang: Xiha Chuang Shijie"
+    translations: { ja-Latn: "Xi Yangyang Yu Hui Tailang: Xiha Chuang Shijie" }
+  seasons:
+    - id: xi-yangyang-yu-hui-tailang-xiha-chuang-shijie-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xi-yangyang-yu-hui-tailang-xiha-chuang-shijie]

@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mitsuboshi-colors
+  titles:
+    original: 三ツ星カラーズ
+    translations: { ja-Latn: Mitsuboshi Colors }
+  seasons:
+    - id: mitsuboshi-colors-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mitsuboshi-colors]

@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kimi-to-rendezvous
+  titles:
+    original: 君とランデブー
+    translations: { ja-Latn: Kimi to Rendezvous }
+  movies:
+    - id: kimi-to-rendezvous-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kimi-to-rendezvous]

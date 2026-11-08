@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ore-ga-ojousama-gakkou-ni-shomin-sample-toshite-gets-sareta-ken
+  titles:
+    original: 俺がお嬢様学校に「庶民サンプル」としてゲッツされた件
+    translations: { ja-Latn: Ore ga Ojousama Gakkou ni "Shomin Sample" Toshite Gets♥Sareta Ken }
+  seasons:
+    - id: ore-ga-ojousama-gakkou-ni-shomin-sample-toshite-gets-sareta-ken-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ore-ga-ojousama-gakkou-ni-shomin-sample-toshite-gets-sareta-ken]

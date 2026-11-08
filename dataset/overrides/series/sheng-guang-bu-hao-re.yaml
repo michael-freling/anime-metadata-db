@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sheng-guang-bu-hao-re
+  titles:
+    original: Sheng Guang Bu Hao Re
+    translations: { ja-Latn: Sheng Guang Bu Hao Re }
+  seasons:
+    - id: sheng-guang-bu-hao-re-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sheng-guang-bu-hao-re]

@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: of-mice-and-clockworks
+  titles:
+    original: ねじ巻き劇場とねずみ
+    translations: { ja-Latn: Of Mice and Clockworks }
+  movies:
+    - id: of-mice-and-clockworks-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [of-mice-and-clockworks]

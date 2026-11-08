@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nejimaki-seirei-senki-tenkyou-no-alderamin
+  titles:
+    original: ねじ巻き精霊戦記 天鏡のアルデラミン
+    translations: { ja-Latn: "Nejimaki Seirei Senki: Tenkyou no Alderamin" }
+  seasons:
+    - id: nejimaki-seirei-senki-tenkyou-no-alderamin-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nejimaki-seirei-senki-tenkyou-no-alderamin]

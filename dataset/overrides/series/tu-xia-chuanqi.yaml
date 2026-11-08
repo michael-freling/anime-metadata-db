@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tu-xia-chuanqi
+  titles:
+    original: Tu Xia Chuanqi
+    translations: { ja-Latn: Tu Xia Chuanqi }
+  movies:
+    - id: tu-xia-chuanqi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tu-xia-chuanqi]

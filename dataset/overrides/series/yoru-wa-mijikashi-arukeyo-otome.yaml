@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yoru-wa-mijikashi-arukeyo-otome
+  titles:
+    original: 夜は短し歩けよ乙女
+    translations: { ja-Latn: Yoru wa Mijikashi Arukeyo Otome }
+  movies:
+    - id: yoru-wa-mijikashi-arukeyo-otome-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yoru-wa-mijikashi-arukeyo-otome]

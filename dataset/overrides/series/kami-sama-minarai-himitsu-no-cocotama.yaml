@@ -1,0 +1,21 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kami-sama-minarai-himitsu-no-cocotama
+  titles:
+    original: かみさまみならい ヒミツのここたま
+    translations: { ja-Latn: "Kami-sama Minarai: Himitsu no Cocotama" }
+  seasons:
+    - id: kami-sama-minarai-himitsu-no-cocotama-s1
+      number: 1
+    - id: kami-sama-minarai-himitsu-no-cocotama-s2
+      number: 2
+    - id: kami-sama-minarai-himitsu-no-cocotama-s3
+      number: 3
+    - id: kami-sama-minarai-himitsu-no-cocotama-s4
+      number: 4
+  movies:
+    - id: kami-sama-minarai-himitsu-no-cocotama-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kami-sama-minarai-himitsu-no-cocotama]

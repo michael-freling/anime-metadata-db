@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aru-nihon-no-ekaki-shounen
+  titles:
+    original: ある日本の絵描き少年
+    translations: { ja-Latn: Aru Nihon no Ekaki Shounen }
+  movies:
+    - id: aru-nihon-no-ekaki-shounen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aru-nihon-no-ekaki-shounen]

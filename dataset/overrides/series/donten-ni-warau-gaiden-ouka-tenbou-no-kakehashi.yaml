@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: donten-ni-warau-gaiden-ouka-tenbou-no-kakehashi
+  titles:
+    original: 曇天に笑う<外伝> ~桜華、天望の架橋~
+    translations: { ja-Latn: "Donten ni Warau Gaiden: Ouka, Tenbou no Kakehashi" }
+  movies:
+    - id: donten-ni-warau-gaiden-ouka-tenbou-no-kakehashi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [donten-ni-warau-gaiden-ouka-tenbou-no-kakehashi]

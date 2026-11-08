@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: can-wa-yu-tianchi-guaishou-ruixue-zhao-fengnian
+  titles:
+    original: "Can Wa Yu Tianchi Guaishou: Ruixue Zhao Fengnian"
+    translations: { ja-Latn: "Can Wa Yu Tianchi Guaishou: Ruixue Zhao Fengnian" }
+  movies:
+    - id: can-wa-yu-tianchi-guaishou-ruixue-zhao-fengnian-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [can-wa-yu-tianchi-guaishou-ruixue-zhao-fengnian]

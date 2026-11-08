@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: star-driver-the-movie
+  titles:
+    original: スタードライバー THE MOVIE
+    translations: { ja-Latn: Star Driver the Movie }
+  movies:
+    - id: star-driver-the-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [star-driver-the-movie]

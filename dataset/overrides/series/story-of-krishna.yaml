@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: story-of-krishna
+  titles:
+    original: Story of Krishna
+    translations: { ja-Latn: Story of Krishna }
+  movies:
+    - id: story-of-krishna-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [story-of-krishna]

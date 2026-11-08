@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: youtai-nuhai-zai-shanghai
+  titles:
+    original: Youtai Nuhai Zai Shanghai
+    translations: { ja-Latn: Youtai Nuhai Zai Shanghai }
+  movies:
+    - id: youtai-nuhai-zai-shanghai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [youtai-nuhai-zai-shanghai]

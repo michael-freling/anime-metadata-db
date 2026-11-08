@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: b-gata-h-kei
+  titles:
+    original: B-gata H-kei
+    translations: { ja-Latn: B-gata H-kei }
+  seasons:
+    - id: b-gata-h-kei-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [b-gata-h-kei]

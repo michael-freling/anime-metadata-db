@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chiruran-nibun-no-ichi
+  titles:
+    original: ちるらん 新撰組鎮魂歌
+    translations: { ja-Latn: "Chiruran: Nibun no Ichi" }
+  seasons:
+    - id: chiruran-nibun-no-ichi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chiruran-nibun-no-ichi]

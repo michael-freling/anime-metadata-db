@@ -1,0 +1,15 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: arslan-senki-tv
+  titles:
+    original: アルスラーン戦記 THE HEROIC LEGEND OF ARSLAN
+    translations: { ja-Latn: Arslan Senki (TV) }
+  seasons:
+    - id: arslan-senki-tv-s1
+      number: 1
+    - id: arslan-senki-tv-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [arslan-senki-tv]

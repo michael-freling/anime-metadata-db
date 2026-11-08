@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: duel-masters-hono-no-kizuna-xx
+  titles:
+    original: デュエル・マスターズ 炎のキズナXX
+    translations: { ja-Latn: "Duel Masters: Honō no Kizuna XX" }
+  movies:
+    - id: duel-masters-hono-no-kizuna-xx-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [duel-masters-hono-no-kizuna-xx]

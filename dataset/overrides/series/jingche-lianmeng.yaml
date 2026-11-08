@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jingche-lianmeng
+  titles:
+    original: Jingche Lianmeng
+    translations: { ja-Latn: Jingche Lianmeng }
+  movies:
+    - id: jingche-lianmeng-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jingche-lianmeng]

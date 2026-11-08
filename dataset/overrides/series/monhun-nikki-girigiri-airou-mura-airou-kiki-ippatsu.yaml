@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: monhun-nikki-girigiri-airou-mura-airou-kiki-ippatsu
+  titles:
+    original: モンハン日記 ぎりぎりアイルー村☆アイルー危機一髪☆
+    translations: { ja-Latn: "MonHun Nikki Girigiri Airou Mura: Airou Kiki Ippatsu" }
+  seasons:
+    - id: monhun-nikki-girigiri-airou-mura-airou-kiki-ippatsu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [monhun-nikki-girigiri-airou-mura-airou-kiki-ippatsu]

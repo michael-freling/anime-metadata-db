@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pokemon-pikachu-kore-nan-no-kagi
+  titles:
+    original: "ポケモン・ザ・ムービーXY『ピカチュウ, これなんのカギ?』"
+    translations: { ja-Latn: "Pokemon: Pikachu, Kore Nan no Kagi?" }
+  movies:
+    - id: pokemon-pikachu-kore-nan-no-kagi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pokemon-pikachu-kore-nan-no-kagi]

@@ -1,0 +1,15 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hime-chen-otogi-chikku-idol-lilpri-2011
+  titles:
+    original: ひめチェン! おとぎちっくアイドル リルぷりっ
+    translations: { ja-Latn: Hime Chen! Otogi Chikku Idol Lilpri (2011) }
+  seasons:
+    - id: hime-chen-otogi-chikku-idol-lilpri-2011-s1
+      number: 1
+    - id: hime-chen-otogi-chikku-idol-lilpri-2011-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hime-chen-otogi-chikku-idol-lilpri-2011]

@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: poyopoyo-kansatsu-nikki
+  titles:
+    original: ポヨポヨ観察日記
+    translations: { ja-Latn: Poyopoyo Kansatsu Nikki }
+  seasons:
+    - id: poyopoyo-kansatsu-nikki-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [poyopoyo-kansatsu-nikki]

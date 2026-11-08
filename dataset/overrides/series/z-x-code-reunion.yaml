@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: z-x-code-reunion
+  titles:
+    original: ゼクス コード リユニオン
+    translations: { ja-Latn: "Z/X: Code Reunion" }
+  seasons:
+    - id: z-x-code-reunion-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [z-x-code-reunion]

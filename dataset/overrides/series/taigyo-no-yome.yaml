@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: taigyo-no-yome
+  titles:
+    original: 大魚の嫁
+    translations: { ja-Latn: Taigyo no Yome }
+  movies:
+    - id: taigyo-no-yome-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [taigyo-no-yome]

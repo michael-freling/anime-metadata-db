@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gaotie-xia
+  titles:
+    original: Gaotie Xia
+    translations: { ja-Latn: Gaotie Xia }
+  seasons:
+    - id: gaotie-xia-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gaotie-xia]

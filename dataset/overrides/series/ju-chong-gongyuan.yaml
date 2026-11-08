@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ju-chong-gongyuan
+  titles:
+    original: Ju Chong Gongyuan
+    translations: { ja-Latn: Ju Chong Gongyuan }
+  seasons:
+    - id: ju-chong-gongyuan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ju-chong-gongyuan]

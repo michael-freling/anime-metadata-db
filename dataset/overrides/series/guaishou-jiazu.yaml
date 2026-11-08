@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: guaishou-jiazu
+  titles:
+    original: Guaishou Jiazu
+    translations: { ja-Latn: Guaishou Jiazu }
+  seasons:
+    - id: guaishou-jiazu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [guaishou-jiazu]

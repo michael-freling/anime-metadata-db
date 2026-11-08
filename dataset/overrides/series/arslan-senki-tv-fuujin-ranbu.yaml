@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: arslan-senki-tv-fuujin-ranbu
+  titles:
+    original: アルスラーン戦記 THE HEROIC LEGEND OF ARSLAN 風塵乱舞
+    translations: { ja-Latn: "Arslan Senki (TV): Fuujin Ranbu" }
+  seasons:
+    - id: arslan-senki-tv-fuujin-ranbu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [arslan-senki-tv-fuujin-ranbu]

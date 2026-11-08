@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: winx-club-season-7
+  titles:
+    original: Winx Club Season 7
+    translations: { ja-Latn: Winx Club Season 7 }
+  seasons:
+    - id: winx-club-season-7-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [winx-club-season-7]

@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: haha-da-maoxian-3rd-season
+  titles:
+    original: Haha Da Maoxian 3rd Season
+    translations: { ja-Latn: Haha Da Maoxian 3rd Season }
+  seasons:
+    - id: haha-da-maoxian-3rd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [haha-da-maoxian-3rd-season]

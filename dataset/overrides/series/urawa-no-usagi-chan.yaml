@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: urawa-no-usagi-chan
+  titles:
+    original: 浦和の調ちゃん
+    translations: { ja-Latn: Urawa no Usagi-chan }
+  seasons:
+    - id: urawa-no-usagi-chan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [urawa-no-usagi-chan]

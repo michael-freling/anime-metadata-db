@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: deban-desu-yo-onigirizu
+  titles:
+    original: 出番ですよ! オニギリズ
+    translations: { ja-Latn: Deban desu yo! Onigirizu }
+  seasons:
+    - id: deban-desu-yo-onigirizu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [deban-desu-yo-onigirizu]

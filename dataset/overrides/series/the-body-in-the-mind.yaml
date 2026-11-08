@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-body-in-the-mind
+  titles:
+    original: あたまのからだ
+    translations: { ja-Latn: The Body in the Mind }
+  movies:
+    - id: the-body-in-the-mind-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-body-in-the-mind]

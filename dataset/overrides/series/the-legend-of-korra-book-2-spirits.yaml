@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-legend-of-korra-book-2-spirits
+  titles:
+    original: "The Legend of Korra Book 2: Spirits"
+    translations: { ja-Latn: "The Legend of Korra Book 2: Spirits" }
+  seasons:
+    - id: the-legend-of-korra-book-2-spirits-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-legend-of-korra-book-2-spirits]

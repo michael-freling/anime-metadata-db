@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: susume-roboket-doraemon-kessen-kumo-no-ue-no-tatsumakijou
+  titles:
+    original: すすめロボケット&ドラえもん「決戦!雲の上の竜巻城」
+    translations: { ja-Latn: "Susume Roboket & Doraemon: Kessen! Kumo no Ue no Tatsumakijou" }
+  movies:
+    - id: susume-roboket-doraemon-kessen-kumo-no-ue-no-tatsumakijou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [susume-roboket-doraemon-kessen-kumo-no-ue-no-tatsumakijou]

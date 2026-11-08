@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chunko-no-nande
+  titles:
+    original: チュン子のなんで？
+    translations: { ja-Latn: "Chunko no Nande?" }
+  movies:
+    - id: chunko-no-nande-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chunko-no-nande]

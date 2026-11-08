@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tian-tian-hao-haizi
+  titles:
+    original: Tian Tian Hao Haizi
+    translations: { ja-Latn: Tian Tian Hao Haizi }
+  seasons:
+    - id: tian-tian-hao-haizi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tian-tian-hao-haizi]

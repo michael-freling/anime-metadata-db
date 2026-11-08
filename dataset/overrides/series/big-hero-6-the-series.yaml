@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: big-hero-6-the-series
+  titles:
+    original: "Big Hero 6: The Series"
+    translations: { ja-Latn: "Big Hero 6: The Series" }
+  seasons:
+    - id: big-hero-6-the-series-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [big-hero-6-the-series]

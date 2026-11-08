@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: teen-titans-go-vs-teen-titans
+  titles:
+    original: Teen Titans Go! vs. Teen Titans
+    translations: { ja-Latn: Teen Titans Go! vs. Teen Titans }
+  movies:
+    - id: teen-titans-go-vs-teen-titans-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [teen-titans-go-vs-teen-titans]

@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sengoku-night-blood
+  titles:
+    original: 戦刻ナイトブラッド
+    translations: { ja-Latn: Sengoku Night Blood }
+  seasons:
+    - id: sengoku-night-blood-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sengoku-night-blood]

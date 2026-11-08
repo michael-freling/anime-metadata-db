@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: caribadix-2nd-season
+  titles:
+    original: "Deeky & Carina: 2nd Season (ディッキー&カリーナ 2ndシーズン)"
+    translations: { ja-Latn: Caribadix 2nd Season }
+  seasons:
+    - id: caribadix-2nd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [caribadix-2nd-season]

@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chongwu-lianmeng-pets-united
+  titles:
+    original: "Chongwu Lianmeng: Pets United"
+    translations: { ja-Latn: "Chongwu Lianmeng: Pets United" }
+  movies:
+    - id: chongwu-lianmeng-pets-united-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chongwu-lianmeng-pets-united]

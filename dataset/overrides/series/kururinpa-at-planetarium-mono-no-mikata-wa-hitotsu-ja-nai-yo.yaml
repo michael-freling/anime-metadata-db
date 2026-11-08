@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kururinpa-at-planetarium-mono-no-mikata-wa-hitotsu-ja-nai-yo
+  titles:
+    original: くるりんぱ at プラネタリウム もののみかたはひとつじゃないよ！
+    translations: { ja-Latn: "Kururinpa at Planetarium: Mono no Mikata wa Hitotsu ja Nai yo!" }
+  movies:
+    - id: kururinpa-at-planetarium-mono-no-mikata-wa-hitotsu-ja-nai-yo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kururinpa-at-planetarium-mono-no-mikata-wa-hitotsu-ja-nai-yo]

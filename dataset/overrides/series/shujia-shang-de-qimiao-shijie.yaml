@@ -1,0 +1,15 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shujia-shang-de-qimiao-shijie
+  titles:
+    original: Shujia Shang De Qimiao Shijie
+    translations: { ja-Latn: Shujia Shang De Qimiao Shijie }
+  seasons:
+    - id: shujia-shang-de-qimiao-shijie-s1
+      number: 1
+    - id: shujia-shang-de-qimiao-shijie-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shujia-shang-de-qimiao-shijie]

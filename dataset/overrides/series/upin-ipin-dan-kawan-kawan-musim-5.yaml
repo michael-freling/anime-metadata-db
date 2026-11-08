@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: upin-ipin-dan-kawan-kawan-musim-5
+  titles:
+    original: Upin & Ipin dan Kawan-kawan Musim 5
+    translations: { ja-Latn: Upin & Ipin dan Kawan-kawan Musim 5 }
+  seasons:
+    - id: upin-ipin-dan-kawan-kawan-musim-5-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [upin-ipin-dan-kawan-kawan-musim-5]

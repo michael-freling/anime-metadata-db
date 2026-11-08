@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: momonga-to-hanabishi
+  titles:
+    original: ももんがと花火師
+    translations: { ja-Latn: Momonga to Hanabishi }
+  movies:
+    - id: momonga-to-hanabishi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [momonga-to-hanabishi]

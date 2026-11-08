@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: heart-no-kuni-no-alice-wonderful-wonder-world
+  titles:
+    original: 劇場版ハートの国のアリス～Wonderful Wonder World～
+    translations: { ja-Latn: "Heart no Kuni no Alice: Wonderful Wonder World" }
+  movies:
+    - id: heart-no-kuni-no-alice-wonderful-wonder-world-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [heart-no-kuni-no-alice-wonderful-wonder-world]

@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: books-on-books
+  titles:
+    original: Books on books
+    translations: { ja-Latn: Books on books }
+  movies:
+    - id: books-on-books-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [books-on-books]

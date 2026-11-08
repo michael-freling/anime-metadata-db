@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sanzijing-li-de-gushi-part-ii
+  titles:
+    original: "Sanzijing Li De Gushi: Part II"
+    translations: { ja-Latn: "Sanzijing Li De Gushi: Part II" }
+  seasons:
+    - id: sanzijing-li-de-gushi-part-ii-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sanzijing-li-de-gushi-part-ii]

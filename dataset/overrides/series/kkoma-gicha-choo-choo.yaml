@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kkoma-gicha-choo-choo
+  titles:
+    original: Kkoma Gicha Choo Choo
+    translations: { ja-Latn: Kkoma Gicha Choo Choo }
+  seasons:
+    - id: kkoma-gicha-choo-choo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kkoma-gicha-choo-choo]

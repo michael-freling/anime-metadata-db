@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tico-shuqi-de-weiji
+  titles:
+    original: "Tico: Shuqi de Weiji"
+    translations: { ja-Latn: "Tico: Shuqi de Weiji" }
+  seasons:
+    - id: tico-shuqi-de-weiji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tico-shuqi-de-weiji]

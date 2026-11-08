@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: turning-mecard-r
+  titles:
+    original: Turning Mecard R
+    translations: { ja-Latn: Turning Mecard R }
+  seasons:
+    - id: turning-mecard-r-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [turning-mecard-r]

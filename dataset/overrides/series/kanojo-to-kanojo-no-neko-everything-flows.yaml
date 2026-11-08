@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kanojo-to-kanojo-no-neko-everything-flows
+  titles:
+    original: 彼女と彼女の猫 -Everything Flows-
+    translations: { ja-Latn: "Kanojo to Kanojo no Neko: Everything Flows" }
+  seasons:
+    - id: kanojo-to-kanojo-no-neko-everything-flows-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kanojo-to-kanojo-no-neko-everything-flows]

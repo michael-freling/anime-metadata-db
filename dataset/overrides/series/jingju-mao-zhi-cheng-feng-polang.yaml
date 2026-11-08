@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jingju-mao-zhi-cheng-feng-polang
+  titles:
+    original: Jingju Mao Zhi Cheng Feng Polang
+    translations: { ja-Latn: Jingju Mao Zhi Cheng Feng Polang }
+  seasons:
+    - id: jingju-mao-zhi-cheng-feng-polang-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jingju-mao-zhi-cheng-feng-polang]

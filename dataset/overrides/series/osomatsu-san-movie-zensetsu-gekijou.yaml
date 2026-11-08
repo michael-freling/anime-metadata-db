@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: osomatsu-san-movie-zensetsu-gekijou
+  titles:
+    original: えいがのおそ松さん　前説劇場
+    translations: { ja-Latn: "Osomatsu-san Movie: Zensetsu Gekijou" }
+  movies:
+    - id: osomatsu-san-movie-zensetsu-gekijou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [osomatsu-san-movie-zensetsu-gekijou]

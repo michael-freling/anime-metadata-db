@@ -1,0 +1,15 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fairy-gone
+  titles:
+    original: Fairy gone フェアリーゴーン
+    translations: { ja-Latn: Fairy Gone }
+  seasons:
+    - id: fairy-gone-s1
+      number: 1
+    - id: fairy-gone-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fairy-gone]

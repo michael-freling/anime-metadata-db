@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dansai-bunri-no-crime-edge
+  titles:
+    original: 断裁分離のクライムエッジ
+    translations: { ja-Latn: Dansai Bunri no Crime Edge }
+  seasons:
+    - id: dansai-bunri-no-crime-edge-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dansai-bunri-no-crime-edge]

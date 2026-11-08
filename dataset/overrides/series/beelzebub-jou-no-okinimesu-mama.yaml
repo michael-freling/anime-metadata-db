@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: beelzebub-jou-no-okinimesu-mama
+  titles:
+    original: ベルゼブブ嬢のお気に召すまま.
+    translations: { ja-Latn: Beelzebub-jou no Okinimesu mama. }
+  seasons:
+    - id: beelzebub-jou-no-okinimesu-mama-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [beelzebub-jou-no-okinimesu-mama]

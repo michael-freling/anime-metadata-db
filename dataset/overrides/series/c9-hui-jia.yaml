@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: c9-hui-jia
+  titles:
+    original: C9 Hui Jia
+    translations: { ja-Latn: C9 Hui Jia }
+  movies:
+    - id: c9-hui-jia-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [c9-hui-jia]

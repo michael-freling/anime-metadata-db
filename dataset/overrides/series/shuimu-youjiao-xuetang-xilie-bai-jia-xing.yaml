@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shuimu-youjiao-xuetang-xilie-bai-jia-xing
+  titles:
+    original: "Shuimu Youjiao: Xuetang Xilie - Bai Jia Xing"
+    translations: { ja-Latn: "Shuimu Youjiao: Xuetang Xilie - Bai Jia Xing" }
+  seasons:
+    - id: shuimu-youjiao-xuetang-xilie-bai-jia-xing-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shuimu-youjiao-xuetang-xilie-bai-jia-xing]

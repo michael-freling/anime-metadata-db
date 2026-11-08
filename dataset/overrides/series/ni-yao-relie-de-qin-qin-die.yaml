@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ni-yao-relie-de-qin-qin-die
+  titles:
+    original: Ni Yao Relie de Qin Qin Die
+    translations: { ja-Latn: Ni Yao Relie de Qin Qin Die }
+  movies:
+    - id: ni-yao-relie-de-qin-qin-die-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ni-yao-relie-de-qin-qin-die]

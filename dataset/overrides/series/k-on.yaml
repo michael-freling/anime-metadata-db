@@ -1,0 +1,15 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: k-on
+  titles:
+    original: けいおん！
+    translations: { ja-Latn: K-ON! }
+  seasons:
+    - id: k-on-s1
+      number: 1
+  movies:
+    - id: k-on-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [k-on]

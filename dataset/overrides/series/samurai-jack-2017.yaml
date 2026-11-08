@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: samurai-jack-2017
+  titles:
+    original: Samurai Jack (2017)
+    translations: { ja-Latn: Samurai Jack (2017) }
+  seasons:
+    - id: samurai-jack-2017-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [samurai-jack-2017]

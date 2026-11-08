@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jm-xiong-tianxin-jijie-hao
+  titles:
+    original: "JM Xiong: Tianxin Jijie Hao"
+    translations: { ja-Latn: "JM Xiong: Tianxin Jijie Hao" }
+  seasons:
+    - id: jm-xiong-tianxin-jijie-hao-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jm-xiong-tianxin-jijie-hao]

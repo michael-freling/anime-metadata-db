@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mcdull-xiang-dang-dang-ban-wo-xin
+  titles:
+    original: "McDull: Xiang Dang Dang Ban Wo Xin"
+    translations: { ja-Latn: "McDull: Xiang Dang Dang Ban Wo Xin" }
+  movies:
+    - id: mcdull-xiang-dang-dang-ban-wo-xin-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mcdull-xiang-dang-dang-ban-wo-xin]

@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ore-no-nounai-sentakushi-ga-gakuen-love-comedy-wo-zenryoku-de-jama-shiteiru
+  titles:
+    original: "俺の脳内選択肢が, 学園ラブコメを全力で邪魔している"
+    translations: { ja-Latn: "Ore no Nounai Sentakushi ga, Gakuen Love Comedy wo Zenryoku de Jama Shiteiru" }
+  seasons:
+    - id: ore-no-nounai-sentakushi-ga-gakuen-love-comedy-wo-zenryoku-de-jama-shiteiru-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ore-no-nounai-sentakushi-ga-gakuen-love-comedy-wo-zenryoku-de-jama-shiteiru]

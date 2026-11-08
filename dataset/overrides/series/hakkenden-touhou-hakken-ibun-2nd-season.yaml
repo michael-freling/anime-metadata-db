@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hakkenden-touhou-hakken-ibun-2nd-season
+  titles:
+    original: "Hakkenden: Touhou Hakken Ibun 2nd Season"
+    translations: { ja-Latn: "Hakkenden: Touhou Hakken Ibun 2nd Season" }
+  seasons:
+    - id: hakkenden-touhou-hakken-ibun-2nd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hakkenden-touhou-hakken-ibun-2nd-season]

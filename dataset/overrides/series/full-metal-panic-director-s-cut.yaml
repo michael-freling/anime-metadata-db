@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: full-metal-panic-director-s-cut
+  titles:
+    original: フルメタル・パニック! (ディレクターズカット)
+    translations: { ja-Latn: Full Metal Panic! (Director’s Cut) }
+  movies:
+    - id: full-metal-panic-director-s-cut-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [full-metal-panic-director-s-cut]

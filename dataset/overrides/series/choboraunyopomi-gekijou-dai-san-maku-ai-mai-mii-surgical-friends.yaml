@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: choboraunyopomi-gekijou-dai-san-maku-ai-mai-mii-surgical-friends
+  titles:
+    original: ちょぼらうにょぽみ劇場第三幕「あいまいみー~Surgical Friends~」
+    translations: { ja-Latn: "Choboraunyopomi Gekijou Dai San Maku Ai Mai Mii: Surgical Friends" }
+  seasons:
+    - id: choboraunyopomi-gekijou-dai-san-maku-ai-mai-mii-surgical-friends-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [choboraunyopomi-gekijou-dai-san-maku-ai-mai-mii-surgical-friends]

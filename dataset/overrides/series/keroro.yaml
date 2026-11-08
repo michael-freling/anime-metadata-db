@@ -1,0 +1,15 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: keroro
+  titles:
+    original: ☆ケロロ☆
+    translations: { ja-Latn: Keroro }
+  seasons:
+    - id: keroro-s1
+      number: 1
+    - id: keroro-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [keroro]

@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gokujo-gokurakuin-joshikou-ryou-monogatari
+  titles:
+    original: ゴクジョッ. ~極楽院女子高寮物語~
+    translations: { ja-Latn: "Gokujo.: Gokurakuin Joshikou Ryou Monogatari" }
+  seasons:
+    - id: gokujo-gokurakuin-joshikou-ryou-monogatari-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gokujo-gokurakuin-joshikou-ryou-monogatari]

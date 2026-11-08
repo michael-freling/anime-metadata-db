@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pripri-chii-chan
+  titles:
+    original: プリプリちぃちゃん!!
+    translations: { ja-Latn: PriPri Chii-chan!! }
+  seasons:
+    - id: pripri-chii-chan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pripri-chii-chan]

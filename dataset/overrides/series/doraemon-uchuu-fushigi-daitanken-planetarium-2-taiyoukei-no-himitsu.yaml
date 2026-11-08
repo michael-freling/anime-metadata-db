@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: doraemon-uchuu-fushigi-daitanken-planetarium-2-taiyoukei-no-himitsu
+  titles:
+    original: ドラえもん 宇宙ふしぎ大探検 プラネタリウム 2 〜太陽系のひみつ〜
+    translations: { ja-Latn: "Doraemon: Uchuu Fushigi Daitanken Planetarium 2 - Taiyoukei no Himitsu" }
+  movies:
+    - id: doraemon-uchuu-fushigi-daitanken-planetarium-2-taiyoukei-no-himitsu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [doraemon-uchuu-fushigi-daitanken-planetarium-2-taiyoukei-no-himitsu]

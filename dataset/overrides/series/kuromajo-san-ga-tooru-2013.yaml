@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kuromajo-san-ga-tooru-2013
+  titles:
+    original: Kuromajo-san ga Tooru!! (2013)
+    translations: { ja-Latn: Kuromajo-san ga Tooru!! (2013) }
+  seasons:
+    - id: kuromajo-san-ga-tooru-2013-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kuromajo-san-ga-tooru-2013]

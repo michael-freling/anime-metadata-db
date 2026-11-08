@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 30-sai-no-hoken-taiiku
+  titles:
+    original: 30歳の保健体育
+    translations: { ja-Latn: 30-sai no Hoken Taiiku }
+  seasons:
+    - id: 30-sai-no-hoken-taiiku-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [30-sai-no-hoken-taiiku]

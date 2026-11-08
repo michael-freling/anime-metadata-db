@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: persona-3-the-movie-3-falling-down
+  titles:
+    original: "劇場版「ペルソナ３」 #3 Falling Down"
+    translations: { ja-Latn: "Persona 3 the Movie 3: Falling Down" }
+  movies:
+    - id: persona-3-the-movie-3-falling-down-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [persona-3-the-movie-3-falling-down]

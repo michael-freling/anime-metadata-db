@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bai-li-xiong-meili-de-da-senlin
+  titles:
+    original: "Bai Li Xiong: Meili de Da Senlin"
+    translations: { ja-Latn: "Bai Li Xiong: Meili de Da Senlin" }
+  seasons:
+    - id: bai-li-xiong-meili-de-da-senlin-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bai-li-xiong-meili-de-da-senlin]

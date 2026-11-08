@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: te-gong-mingxing
+  titles:
+    original: Te Gong Mingxing
+    translations: { ja-Latn: Te Gong Mingxing }
+  movies:
+    - id: te-gong-mingxing-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [te-gong-mingxing]

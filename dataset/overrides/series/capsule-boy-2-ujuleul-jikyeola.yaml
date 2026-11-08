@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: capsule-boy-2-ujuleul-jikyeola
+  titles:
+    original: "Capsule Boy 2: Ujuleul Jikyeola"
+    translations: { ja-Latn: "Capsule Boy 2: Ujuleul Jikyeola" }
+  seasons:
+    - id: capsule-boy-2-ujuleul-jikyeola-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [capsule-boy-2-ujuleul-jikyeola]

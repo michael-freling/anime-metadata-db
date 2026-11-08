@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yi-shi-jie-da-mao-xian
+  titles:
+    original: Yi Shi Jie Da Mao Xian
+    translations: { ja-Latn: Yi Shi Jie Da Mao Xian }
+  movies:
+    - id: yi-shi-jie-da-mao-xian-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yi-shi-jie-da-mao-xian]

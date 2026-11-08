@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yu-gi-oh-duel-monsters-battle-city-hen
+  titles:
+    original: 遊☆戯☆王デュエルモンスターズ バトル・シティ編
+    translations: { ja-Latn: Yu-Gi-Oh! Duel Monsters Battle City Hen }
+  seasons:
+    - id: yu-gi-oh-duel-monsters-battle-city-hen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yu-gi-oh-duel-monsters-battle-city-hen]

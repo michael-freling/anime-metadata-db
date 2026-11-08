@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rabbit-s-blood
+  titles:
+    original: ウサギの血
+    translations: { ja-Latn: Rabbit's Blood }
+  movies:
+    - id: rabbit-s-blood-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rabbit-s-blood]

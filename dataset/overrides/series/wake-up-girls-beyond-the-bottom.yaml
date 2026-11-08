@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wake-up-girls-beyond-the-bottom
+  titles:
+    original: "Wake Up, Girls! Beyond the Bottom"
+    translations: { ja-Latn: "Wake Up, Girls! Beyond the Bottom" }
+  movies:
+    - id: wake-up-girls-beyond-the-bottom-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wake-up-girls-beyond-the-bottom]

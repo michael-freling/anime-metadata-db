@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wolfgang-the-sonic-show
+  titles:
+    original: Wolfgang the Sonic Show
+    translations: { ja-Latn: Wolfgang the Sonic Show }
+  movies:
+    - id: wolfgang-the-sonic-show-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wolfgang-the-sonic-show]

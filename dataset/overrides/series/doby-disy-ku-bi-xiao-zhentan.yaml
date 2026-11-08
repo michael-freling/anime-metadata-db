@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: doby-disy-ku-bi-xiao-zhentan
+  titles:
+    original: "Doby Disy: Ku Bi Xiao Zhentan"
+    translations: { ja-Latn: "Doby Disy: Ku Bi Xiao Zhentan" }
+  seasons:
+    - id: doby-disy-ku-bi-xiao-zhentan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [doby-disy-ku-bi-xiao-zhentan]

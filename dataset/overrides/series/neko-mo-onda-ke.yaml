@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: neko-mo-onda-ke
+  titles:
+    original: "猫も, オンダケ"
+    translations: { ja-Latn: "Neko mo, Onda-ke" }
+  seasons:
+    - id: neko-mo-onda-ke-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [neko-mo-onda-ke]

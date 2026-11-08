@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: toshokan-sensou-kakumei-no-tsubasa
+  titles:
+    original: 図書館戦争 革命のつばさ
+    translations: { ja-Latn: "Toshokan Sensou: Kakumei no Tsubasa" }
+  movies:
+    - id: toshokan-sensou-kakumei-no-tsubasa-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [toshokan-sensou-kakumei-no-tsubasa]

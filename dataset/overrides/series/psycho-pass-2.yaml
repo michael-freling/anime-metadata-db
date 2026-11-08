@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: psycho-pass-2
+  titles:
+    original: PSYCHO-PASS サイコパス 2
+    translations: { ja-Latn: Psycho-Pass 2 }
+  seasons:
+    - id: psycho-pass-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [psycho-pass-2]

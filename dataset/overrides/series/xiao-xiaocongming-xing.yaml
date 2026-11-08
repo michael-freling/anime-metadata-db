@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-xiaocongming-xing
+  titles:
+    original: Xiao Xiaocongming Xing
+    translations: { ja-Latn: Xiao Xiaocongming Xing }
+  seasons:
+    - id: xiao-xiaocongming-xing-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-xiaocongming-xing]

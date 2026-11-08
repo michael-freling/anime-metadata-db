@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: glamorous-heroes
+  titles:
+    original: グラマラスヒーローズ
+    translations: { ja-Latn: Glamorous Heroes }
+  seasons:
+    - id: glamorous-heroes-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [glamorous-heroes]

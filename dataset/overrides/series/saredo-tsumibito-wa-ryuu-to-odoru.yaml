@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: saredo-tsumibito-wa-ryuu-to-odoru
+  titles:
+    original: されど罪人は竜と踊る Dances with the Dragons
+    translations: { ja-Latn: Saredo Tsumibito wa Ryuu to Odoru }
+  seasons:
+    - id: saredo-tsumibito-wa-ryuu-to-odoru-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [saredo-tsumibito-wa-ryuu-to-odoru]

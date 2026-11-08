@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: that-s-hanakappa-musical-pan-to-gohan-docchi-nano
+  titles:
+    original: "ザッツ・はなかっぱミュージカル パンとごはん、どっちなの!?"
+    translations: { ja-Latn: "That's Hanakappa Musical: Pan to Gohan, Docchi nano!?" }
+  movies:
+    - id: that-s-hanakappa-musical-pan-to-gohan-docchi-nano-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [that-s-hanakappa-musical-pan-to-gohan-docchi-nano]

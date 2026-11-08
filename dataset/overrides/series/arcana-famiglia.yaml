@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: arcana-famiglia
+  titles:
+    original: アルカナ・ファミリア －La storia della Arcana Famiglia－
+    translations: { ja-Latn: Arcana Famiglia }
+  seasons:
+    - id: arcana-famiglia-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [arcana-famiglia]

@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rasen-no-qualia
+  titles:
+    original: 螺旋のクオリア
+    translations: { ja-Latn: Rasen no Qualia }
+  movies:
+    - id: rasen-no-qualia-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rasen-no-qualia]

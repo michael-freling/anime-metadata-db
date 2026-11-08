@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ca-foscari-cinema
+  titles:
+    original: ベネチア大学映画先付
+    translations: { ja-Latn: Ca' Foscari Cinema }
+  movies:
+    - id: ca-foscari-cinema-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ca-foscari-cinema]

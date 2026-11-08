@@ -1,0 +1,17 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ajin
+  titles:
+    original: Ajin
+    translations: { ja-Latn: Ajin }
+  seasons:
+    - id: ajin-s1
+      number: 1
+    - id: ajin-s2
+      number: 2
+  movies:
+    - id: ajin-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ajin]

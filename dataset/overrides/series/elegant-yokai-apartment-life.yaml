@@ -1,0 +1,15 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: elegant-yokai-apartment-life
+  titles:
+    original: 妖怪アパートの幽雅な日常
+    translations: { ja-Latn: Elegant Yokai Apartment Life }
+  seasons:
+    - id: elegant-yokai-apartment-life-s1
+      number: 1
+    - id: elegant-yokai-apartment-life-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [elegant-yokai-apartment-life]

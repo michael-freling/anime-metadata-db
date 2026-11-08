@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kamiusagi-rope-warau-asa-ni-wa-fukuraitaru-tte-maji-ssuka
+  titles:
+    original: "紙兎ロペ 〜笑う朝には福来たるってマジっすか!?"
+    translations: { ja-Latn: "Kamiusagi Rope: Warau Asa ni wa Fukuraitaru tte Maji ssuka!?" }
+  seasons:
+    - id: kamiusagi-rope-warau-asa-ni-wa-fukuraitaru-tte-maji-ssuka-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kamiusagi-rope-warau-asa-ni-wa-fukuraitaru-tte-maji-ssuka]

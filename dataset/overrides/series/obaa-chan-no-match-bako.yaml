@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: obaa-chan-no-match-bako
+  titles:
+    original: おばあちゃんのマッチ箱
+    translations: { ja-Latn: Obaa-chan no Match-bako }
+  movies:
+    - id: obaa-chan-no-match-bako-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [obaa-chan-no-match-bako]

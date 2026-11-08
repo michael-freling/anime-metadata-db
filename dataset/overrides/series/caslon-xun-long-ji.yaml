@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: caslon-xun-long-ji
+  titles:
+    original: "Caslon: Xun Long Ji"
+    translations: { ja-Latn: "Caslon: Xun Long Ji" }
+  seasons:
+    - id: caslon-xun-long-ji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [caslon-xun-long-ji]

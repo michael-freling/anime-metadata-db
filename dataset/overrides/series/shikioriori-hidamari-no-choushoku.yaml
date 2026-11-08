@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shikioriori-hidamari-no-choushoku
+  titles:
+    original: 詩季織々 陽だまりの朝食
+    translations: { ja-Latn: "Shikioriori: Hidamari no Choushoku" }
+  movies:
+    - id: shikioriori-hidamari-no-choushoku-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shikioriori-hidamari-no-choushoku]

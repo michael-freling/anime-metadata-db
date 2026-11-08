@@ -94,7 +94,7 @@ func TestBuildTakesOnlyTVAndFilmsThatAired(t *testing.T) {
 		// Another year entirely.
 		entry{title: "Last Year", typ: "TV", episodes: 12, year: 2019, sources: []string{al("7")}},
 	)
-	plan := Build(db, 2020, map[int]bool{999: true})
+	plan := Build(db, 2020, map[int]bool{999: true}, map[string]bool{})
 
 	var got []string
 	for _, s := range plan.New {
@@ -116,7 +116,7 @@ func TestBuildSkipsWorksTheCatalogueAlreadyHas(t *testing.T) {
 		entry{title: "Already Here", typ: "TV", episodes: 12, year: 2020, sources: []string{al("100")}},
 		entry{title: "Brand New", typ: "TV", episodes: 12, year: 2020, sources: []string{al("101")}},
 	)
-	plan := Build(db, 2020, map[int]bool{100: true})
+	plan := Build(db, 2020, map[int]bool{100: true}, map[string]bool{})
 
 	if len(plan.Present) != 1 || plan.Present[0] != "Already Here" {
 		t.Errorf("Present = %v, want [Already Here]", plan.Present)
@@ -140,7 +140,7 @@ func TestBuildReportsAMergeLinkedByANonAnilistURL(t *testing.T) {
 		entry{title: "Existing Season 2", typ: "TV", episodes: 12, year: 2020,
 			sources: []string{al("501")}, related: []string{mal("900")}},
 	)
-	plan := Build(db, 2020, map[int]bool{500: true})
+	plan := Build(db, 2020, map[int]bool{500: true}, map[string]bool{})
 
 	if len(plan.New) != 0 {
 		t.Errorf("wrote %d new series for an installment of an existing one: %+v", len(plan.New), plan.New)
@@ -156,11 +156,11 @@ func TestBuildReportsAMergeLinkedByANonAnilistURL(t *testing.T) {
 func TestBuildGroupsInstallmentsSharingTheSeriesTitle(t *testing.T) {
 	db := load(t,
 		entry{title: "Show Second Cour", typ: "TV", episodes: 12, year: 2020, season: "FALL",
-			sources: []string{al("11")}, synonyms: []string{"Show"}},
+			sources: []string{al("11")}, synonyms: []string{"Show"}, related: []string{al("10")}},
 		entry{title: "Show", typ: "TV", episodes: 12, year: 2020, season: "SPRING",
-			sources: []string{al("10")}},
+			sources: []string{al("10")}, related: []string{al("11")}},
 	)
-	plan := Build(db, 2020, map[int]bool{999: true})
+	plan := Build(db, 2020, map[int]bool{999: true}, map[string]bool{})
 
 	if len(plan.New) != 1 {
 		t.Fatalf("got %d series, want the two cours joined into one: %+v", len(plan.New), plan.New)
@@ -199,7 +199,7 @@ func TestBuildDeclaresExactlyWhatItsOwnTitleResolvesTo(t *testing.T) {
 			entry{title: "Long Runner 2nd Season", typ: "TV", episodes: 12, year: 2020, season: "SPRING",
 				sources: []string{al("21")}},
 		)
-		plan := Build(db, 2020, map[int]bool{999: true})
+		plan := Build(db, 2020, map[int]bool{999: true}, map[string]bool{})
 		if len(plan.New) != 1 {
 			t.Fatalf("New = %+v, want one series", plan.New)
 		}
@@ -215,7 +215,7 @@ func TestBuildDeclaresExactlyWhatItsOwnTitleResolvesTo(t *testing.T) {
 			entry{title: "Shared Title 2nd Season", typ: "TV", episodes: 12, year: 2020, season: "SPRING",
 				sources: []string{al("23")}, synonyms: []string{"Shared Title"}},
 		)
-		plan := Build(db, 2020, map[int]bool{999: true})
+		plan := Build(db, 2020, map[int]bool{999: true}, map[string]bool{})
 		if len(plan.New) != 1 {
 			t.Fatalf("New = %+v, want one series", plan.New)
 		}
@@ -236,11 +236,11 @@ func TestBuildDeclaresExactlyWhatItsOwnTitleResolvesTo(t *testing.T) {
 		shared := "いちまんの命"
 		db := load(t,
 			entry{title: "Ichiman", typ: "TV", episodes: 12, year: 2020, season: "FALL",
-				sources: []string{al("24")}, synonyms: []string{shared}},
+				sources: []string{al("24")}, synonyms: []string{shared}, related: []string{al("25")}},
 			entry{title: "Ichiman 2nd Season", typ: "TV", episodes: 12, year: 2021, season: "SUMMER",
-				sources: []string{al("25")}, synonyms: []string{shared}},
+				sources: []string{al("25")}, synonyms: []string{shared}, related: []string{al("24")}},
 		)
-		plan := Build(db, 2020, map[int]bool{999: true})
+		plan := Build(db, 2020, map[int]bool{999: true}, map[string]bool{})
 		if len(plan.New) != 1 {
 			t.Fatalf("New = %+v, want one series", plan.New)
 		}
@@ -261,11 +261,11 @@ func TestBuildDeclaresExactlyWhatItsOwnTitleResolvesTo(t *testing.T) {
 func TestBuildRefusesSeveralFilmsSharingATitle(t *testing.T) {
 	db := load(t,
 		entry{title: "Double Bill", typ: "MOVIE", episodes: 1, year: 2020, season: "WINTER",
-			sources: []string{al("30")}},
+			sources: []string{al("30")}, related: []string{al("31")}},
 		entry{title: "Double Bill Part Two", typ: "MOVIE", episodes: 1, year: 2020, season: "SUMMER",
-			sources: []string{al("31")}, synonyms: []string{"Double Bill"}},
+			sources: []string{al("31")}, synonyms: []string{"Double Bill"}, related: []string{al("30")}},
 	)
-	plan := Build(db, 2020, map[int]bool{999: true})
+	plan := Build(db, 2020, map[int]bool{999: true}, map[string]bool{})
 
 	if len(plan.New) != 0 {
 		t.Errorf("wrote %+v, want nothing: two films under one title cannot resolve", plan.New)
@@ -288,7 +288,7 @@ func TestBuildRefusesAnUnairedInstallment(t *testing.T) {
 		entry{title: "Airing Now Season 2", typ: "TV", episodes: 0, year: 2021,
 			sources: []string{al("41")}, synonyms: []string{"Airing Now"}},
 	)
-	plan := Build(db, 2020, map[int]bool{999: true})
+	plan := Build(db, 2020, map[int]bool{999: true}, map[string]bool{})
 
 	if len(plan.New) != 0 {
 		t.Errorf("wrote %+v, want nothing", plan.New)
@@ -313,7 +313,7 @@ func TestBuildDropsAnUnreleasedFilmRatherThanTheSeries(t *testing.T) {
 		entry{title: "Majo no Tabitabi Movie", typ: "MOVIE", episodes: 1, season: "UNDEFINED",
 			status: "UPCOMING", sources: []string{al("51")}, synonyms: []string{"Majo no Tabitabi"}},
 	)
-	plan := Build(db, 2020, map[int]bool{999: true})
+	plan := Build(db, 2020, map[int]bool{999: true}, map[string]bool{})
 
 	if len(plan.New) != 1 {
 		t.Fatalf("New = %+v, want the series kept", plan.New)
@@ -451,6 +451,8 @@ func TestRenderRoundTripsEveryAwkwardTitle(t *testing.T) {
 		"trailing colon:",
 		"  padded  ",
 		"100%",
+		"663114", // a real 2011 short film; slugs to a bare number
+		"1",
 		"&anchor",
 		"*alias",
 		"[bracketed]",
@@ -459,14 +461,27 @@ func TestRenderRoundTripsEveryAwkwardTitle(t *testing.T) {
 		"null",
 	}
 	for _, title := range titles {
-		out := Render(Series{ID: "x", Original: title, Romanized: title, Seasons: []string{"x-s1"}}, 2020)
+		// The id is exercised with the same values: a work titled "663114"
+		// slugs to exactly that, and an unquoted numeric id parses as an
+		// integer and fails the schema, which requires a string. The first
+		// ten-year import shipped two such files.
+		id := Slug(title)
+		if id == "" {
+			id = "x"
+		}
+		out := Render(Series{ID: id, Original: title, Romanized: title, Seasons: []string{id + "-s1"}}, 2020)
 		var got struct {
 			Series struct {
+				ID     string `yaml:"id"`
 				Titles struct {
 					Original     string            `yaml:"original"`
 					Translations map[string]string `yaml:"translations"`
 				} `yaml:"titles"`
+				Seasons []struct {
+					ID string `yaml:"id"`
+				} `yaml:"seasons"`
 			} `yaml:"series"`
+			Numbered []string `yaml:"numbered"`
 		}
 		if err := yaml.Unmarshal([]byte(out), &got); err != nil {
 			t.Errorf("title %q rendered unparseable YAML: %v\n%s", title, err, out)
@@ -477,6 +492,17 @@ func TestRenderRoundTripsEveryAwkwardTitle(t *testing.T) {
 		}
 		if got.Series.Titles.Translations["ja-Latn"] != title {
 			t.Errorf("ja-Latn round-tripped to %q, want %q", got.Series.Titles.Translations["ja-Latn"], title)
+		}
+		// Typed as string throughout: an id that decodes as anything else is
+		// the schema violation this covers.
+		if got.Series.ID != id {
+			t.Errorf("id round-tripped to %q, want %q", got.Series.ID, id)
+		}
+		if len(got.Numbered) != 1 || got.Numbered[0] != id {
+			t.Errorf("numbered round-tripped to %v, want [%q]", got.Numbered, id)
+		}
+		if len(got.Series.Seasons) != 1 || got.Series.Seasons[0].ID != id+"-s1" {
+			t.Errorf("season id round-tripped to %+v, want %q", got.Series.Seasons, id+"-s1")
 		}
 	}
 }
@@ -539,5 +565,155 @@ func TestNativeTitleSkipsUpstreamsDisambiguators(t *testing.T) {
 				t.Errorf("NativeTitle() = %q, want %q", got, tc.want)
 			}
 		})
+	}
+}
+
+// TestBuildSkipsASeriesTheAuthoredLayerAlreadyDeclares covers what `known`
+// cannot see.
+//
+// Ten years imported back to back, before any build, produced 19 duplicate
+// pairs: `known` is read from data/, which those runs never regenerated, and
+// the id check only catches identical slugs. Two shapes appeared — a second
+// upstream entry for one series under a different romanisation (Knights of
+// Sidonia beside Sidonia no Kishi), and a sequel seeded in a different year
+// (Gin no Saji beside its second season). Both pairs declared the same
+// installments under two ids, which the build then rejects as duplicates.
+func TestBuildSkipsASeriesTheAuthoredLayerAlreadyDeclares(t *testing.T) {
+	shared := "シドニアの騎士"
+	db := load(t,
+		entry{title: "Sidonia no Kishi", typ: "TV", episodes: 12, year: 2014, season: "SPRING",
+			status: "FINISHED", sources: []string{al("80")}, synonyms: []string{shared}},
+	)
+
+	t.Run("unclaimed: written", func(t *testing.T) {
+		plan := Build(db, 2014, map[int]bool{999: true}, map[string]bool{})
+		if len(plan.New) != 1 {
+			t.Fatalf("New = %+v, want the series", plan.New)
+		}
+	})
+
+	t.Run("already declared: skipped", func(t *testing.T) {
+		plan := Build(db, 2014, map[int]bool{999: true}, map[string]bool{shared: true})
+		if len(plan.New) != 0 {
+			t.Errorf("New = %+v, want nothing: an override already declares this title", plan.New)
+		}
+		if len(plan.Present) != 1 {
+			t.Errorf("Present = %v, want the series reported as already there", plan.Present)
+		}
+	})
+}
+
+// TestBuildClaimsTitlesAsItGoes keeps one run consistent with the next: a
+// second entry for the same series, seeded later in the same year, must see the
+// title the first one took.
+func TestBuildClaimsTitlesAsItGoes(t *testing.T) {
+	shared := "シドニアの騎士"
+	db := load(t,
+		entry{title: "Knights of Sidonia", typ: "TV", episodes: 12, year: 2014, season: "SPRING",
+			status: "FINISHED", sources: []string{al("81")}, synonyms: []string{shared}},
+		// A separate upstream record for the same series, un-merged, under
+		// another romanisation. It carries the same kana title and — as these
+		// un-cross-linked records typically do — no AniList page, which is why
+		// the linkage check passes over it instead of calling it a stranger.
+		entry{title: "Sidonia no Kishi", typ: "TV", episodes: 12, year: 2014, season: "SPRING",
+			status: "FINISHED", sources: []string{mal("9002")}, synonyms: []string{shared}},
+	)
+	claimed := map[string]bool{}
+	plan := Build(db, 2014, map[int]bool{999: true}, claimed)
+
+	if len(plan.New) != 1 {
+		t.Errorf("New = %+v, want one series for the two records", plan.New)
+	}
+	if !claimed[shared] {
+		t.Error("the run did not record the title it claimed, so the next year would duplicate it")
+	}
+}
+
+// TestBuildRefusesWorksThatOnlyShareAName covers the homonym case. The first
+// ten-year import wrote eight such series and the build gated all sixteen of
+// their installments: "Colorful" is a 1999 TV series and an unrelated 2010
+// film, and a title pool cannot tell them apart. Asking upstream whether it
+// links them can.
+func TestBuildRefusesWorksThatOnlyShareAName(t *testing.T) {
+	shared := "カラフル"
+	db := load(t,
+		entry{title: "Colorful", typ: "TV", episodes: 16, year: 1999, season: "SUMMER",
+			status: "FINISHED", sources: []string{al("841")}, synonyms: []string{shared}},
+		// Same name, same kana, no relation upstream — a different work.
+		entry{title: "Colorful Movie", typ: "MOVIE", episodes: 1, year: 2010, season: "SUMMER",
+			status: "FINISHED", sources: []string{al("8142")}, synonyms: []string{shared}},
+	)
+	plan := Build(db, 2010, map[int]bool{999: true}, map[string]bool{})
+
+	if len(plan.New) != 0 {
+		t.Errorf("New = %+v, want nothing: these only share a name", plan.New)
+	}
+	if len(plan.Unresolvable) != 1 {
+		t.Fatalf("Unresolvable = %+v, want one", plan.Unresolvable)
+	}
+	if !strings.Contains(plan.Unresolvable[0].Reason, "does not link") {
+		t.Errorf("reason = %q, want it to name the missing link", plan.Unresolvable[0].Reason)
+	}
+}
+
+// TestBuildKeepsAProperlyLinkedMultiSeasonSeries is the other side: the check
+// must not refuse a real series. Over-refusing would quietly shrink every
+// year's import and look like upstream having less than it does.
+func TestBuildKeepsAProperlyLinkedMultiSeasonSeries(t *testing.T) {
+	shared := "ほんとうのシリーズ"
+	db := load(t,
+		entry{title: "Real Series", typ: "TV", episodes: 12, year: 2014, season: "SPRING",
+			status: "FINISHED", sources: []string{al("90")}, synonyms: []string{shared},
+			related: []string{al("91")}},
+		entry{title: "Real Series 2nd Season", typ: "TV", episodes: 12, year: 2015, season: "SPRING",
+			status: "FINISHED", sources: []string{al("91")}, synonyms: []string{shared},
+			related: []string{al("90")}},
+	)
+	plan := Build(db, 2014, map[int]bool{999: true}, map[string]bool{})
+	if len(plan.New) != 1 {
+		t.Fatalf("New = %+v, want the series kept", plan.New)
+	}
+	if got := plan.New[0].Seasons; len(got) != 2 {
+		t.Errorf("Seasons = %v, want both", got)
+	}
+}
+
+func TestIsYearRejectsNonDigits(t *testing.T) {
+	// Guards the disambiguator rule: only a bare four-digit year counts, so a
+	// four-character reading like "ナナブ" is not mistaken for one.
+	for _, s := range []string{"2017", "0000"} {
+		if !isYear(s) {
+			t.Errorf("isYear(%q) = false, want true", s)
+		}
+	}
+	for _, s := range []string{"", "201", "20177", "20a7", "ナナブン", "TV S"} {
+		if isYear(s) {
+			t.Errorf("isYear(%q) = true, want false", s)
+		}
+	}
+}
+
+func TestPoolKnownFindsAnInstallmentUnderEitherTitleForm(t *testing.T) {
+	// The pool is assembled from both the native title and the romanisation,
+	// so an installment already in the catalogue must be found under either.
+	shared := "きょうゆうたいとる"
+	db := load(t,
+		entry{title: "Shared", typ: "TV", episodes: 12, year: 2014, season: "SPRING",
+			status: "FINISHED", sources: []string{al("700")}, synonyms: []string{shared}},
+		entry{title: "Shared 2nd Season", typ: "TV", episodes: 12, year: 2015, season: "SPRING",
+			status: "FINISHED", sources: []string{al("701")}, synonyms: []string{shared},
+			related: []string{al("700")}},
+	)
+	var seed offlinedb.Anime
+	for a := range db.All() {
+		if a.Title == "Shared 2nd Season" {
+			seed = a
+		}
+	}
+	if got := poolKnown(db, seed, shared, map[int]bool{700: true}); len(got) != 1 || got[0] != 700 {
+		t.Errorf("poolKnown = %v, want [700]", got)
+	}
+	if got := poolKnown(db, seed, shared, map[int]bool{999: true}); len(got) != 0 {
+		t.Errorf("poolKnown = %v, want none", got)
 	}
 }

@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: evangelion-movie-3-q
+  titles:
+    original: "ヱヴァンゲリヲン新劇場版:Q Quickening"
+    translations: { ja-Latn: "Evangelion Movie 3: Q" }
+  movies:
+    - id: evangelion-movie-3-q-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [evangelion-movie-3-q]

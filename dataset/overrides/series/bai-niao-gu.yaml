@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bai-niao-gu
+  titles:
+    original: Bai Niao Gu
+    translations: { ja-Latn: Bai Niao Gu }
+  movies:
+    - id: bai-niao-gu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bai-niao-gu]

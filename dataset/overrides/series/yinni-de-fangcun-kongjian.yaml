@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yinni-de-fangcun-kongjian
+  titles:
+    original: Yinni De Fangcun Kongjian
+    translations: { ja-Latn: Yinni De Fangcun Kongjian }
+  movies:
+    - id: yinni-de-fangcun-kongjian-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yinni-de-fangcun-kongjian]

@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaeru-ouji-to-imomushi-henry
+  titles:
+    original: カエル王子といもむしヘンリー
+    translations: { ja-Latn: Kaeru Ouji to Imomushi Henry }
+  seasons:
+    - id: kaeru-ouji-to-imomushi-henry-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaeru-ouji-to-imomushi-henry]

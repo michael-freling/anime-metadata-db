@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: d-gray-man-hallow
+  titles:
+    original: ディー・グレイマン HALLOW
+    translations: { ja-Latn: D.Gray-man Hallow }
+  seasons:
+    - id: d-gray-man-hallow-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [d-gray-man-hallow]

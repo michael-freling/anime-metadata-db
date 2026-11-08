@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: haha-da-maoxian-2nd-season
+  titles:
+    original: Haha Da Maoxian 2nd Season
+    translations: { ja-Latn: Haha Da Maoxian 2nd Season }
+  seasons:
+    - id: haha-da-maoxian-2nd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [haha-da-maoxian-2nd-season]

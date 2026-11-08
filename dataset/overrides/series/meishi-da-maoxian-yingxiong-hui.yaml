@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: meishi-da-maoxian-yingxiong-hui
+  titles:
+    original: "Meishi Da Maoxian: Yingxiong Hui"
+    translations: { ja-Latn: "Meishi Da Maoxian: Yingxiong Hui" }
+  movies:
+    - id: meishi-da-maoxian-yingxiong-hui-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [meishi-da-maoxian-yingxiong-hui]

@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gekijo-ban-anime-nintama-rantaro-ninjutsu-gakuen-zenin-shutsudo-no-dan
+  titles:
+    original: 劇場版アニメ 忍たま乱太郎 忍術学園 全員出動！の段
+    translations: { ja-Latn: Gekijō-ban Anime Nintama Rantaro Ninjutsu Gakuen Zenin Shutsudō! no Dan }
+  movies:
+    - id: gekijo-ban-anime-nintama-rantaro-ninjutsu-gakuen-zenin-shutsudo-no-dan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gekijo-ban-anime-nintama-rantaro-ninjutsu-gakuen-zenin-shutsudo-no-dan]

@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: baobei-nuer-hao-mama-kuaile-de-jiating
+  titles:
+    original: "Baobei Nuer Hao Mama: Kuaile De Jiating"
+    translations: { ja-Latn: "Baobei Nuer Hao Mama: Kuaile De Jiating" }
+  seasons:
+    - id: baobei-nuer-hao-mama-kuaile-de-jiating-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [baobei-nuer-hao-mama-kuaile-de-jiating]

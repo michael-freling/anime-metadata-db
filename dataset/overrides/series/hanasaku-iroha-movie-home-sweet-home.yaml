@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hanasaku-iroha-movie-home-sweet-home
+  titles:
+    original: 劇場版 花咲くいろは HOME SWEET HOME
+    translations: { ja-Latn: "Hanasaku Iroha Movie: Home Sweet Home" }
+  movies:
+    - id: hanasaku-iroha-movie-home-sweet-home-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hanasaku-iroha-movie-home-sweet-home]

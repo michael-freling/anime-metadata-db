@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: counting-with-paula-season-2
+  titles:
+    original: Counting with Paula Season 2
+    translations: { ja-Latn: Counting with Paula Season 2 }
+  seasons:
+    - id: counting-with-paula-season-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [counting-with-paula-season-2]

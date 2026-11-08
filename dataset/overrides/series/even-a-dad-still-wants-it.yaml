@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: even-a-dad-still-wants-it
+  titles:
+    original: パパだって、したい
+    translations: { ja-Latn: Even a Dad Still Wants It... }
+  seasons:
+    - id: even-a-dad-still-wants-it-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [even-a-dad-still-wants-it]

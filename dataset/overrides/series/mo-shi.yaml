@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mo-shi
+  titles:
+    original: Mo Shi
+    translations: { ja-Latn: Mo Shi }
+  movies:
+    - id: mo-shi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mo-shi]

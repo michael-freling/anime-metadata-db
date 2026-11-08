@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: non-non-biyori-repeat
+  titles:
+    original: のんのんびより りぴーと
+    translations: { ja-Latn: Non Non Biyori Repeat }
+  seasons:
+    - id: non-non-biyori-repeat-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [non-non-biyori-repeat]

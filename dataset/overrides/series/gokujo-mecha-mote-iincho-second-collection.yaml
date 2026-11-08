@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gokujo-mecha-mote-iincho-second-collection
+  titles:
+    original: 極上！！めちゃモテ委員長 セカンドコレクション
+    translations: { ja-Latn: Gokujō!! Mecha Mote Iinchō Second Collection }
+  seasons:
+    - id: gokujo-mecha-mote-iincho-second-collection-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gokujo-mecha-mote-iincho-second-collection]

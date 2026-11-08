@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nyuru-nyuru-kakusen-kun
+  titles:
+    original: にゅるにゅる！！ Kakusen くん
+    translations: { ja-Latn: Nyuru Nyuru!! Kakusen-kun }
+  seasons:
+    - id: nyuru-nyuru-kakusen-kun-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nyuru-nyuru-kakusen-kun]

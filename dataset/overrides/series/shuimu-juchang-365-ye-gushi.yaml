@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shuimu-juchang-365-ye-gushi
+  titles:
+    original: Shuimu Juchang 365 Ye Gushi
+    translations: { ja-Latn: Shuimu Juchang 365 Ye Gushi }
+  seasons:
+    - id: shuimu-juchang-365-ye-gushi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shuimu-juchang-365-ye-gushi]

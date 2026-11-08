@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: appleseed-xiii-remix-movie-1-yuigon
+  titles:
+    original: 劇場リミックス版 APPLESEED XIII ～遺言～
+    translations: { ja-Latn: "Appleseed XIII Remix Movie 1: Yuigon" }
+  movies:
+    - id: appleseed-xiii-remix-movie-1-yuigon-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [appleseed-xiii-remix-movie-1-yuigon]

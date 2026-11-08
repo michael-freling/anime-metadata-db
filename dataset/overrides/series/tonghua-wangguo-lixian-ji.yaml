@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tonghua-wangguo-lixian-ji
+  titles:
+    original: Tonghua Wangguo Lixian Ji
+    translations: { ja-Latn: Tonghua Wangguo Lixian Ji }
+  seasons:
+    - id: tonghua-wangguo-lixian-ji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tonghua-wangguo-lixian-ji]

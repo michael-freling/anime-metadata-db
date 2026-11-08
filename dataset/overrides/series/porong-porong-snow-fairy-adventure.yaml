@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: porong-porong-snow-fairy-adventure
+  titles:
+    original: "Porong Porong: Snow Fairy Adventure"
+    translations: { ja-Latn: "Porong Porong: Snow Fairy Adventure" }
+  movies:
+    - id: porong-porong-snow-fairy-adventure-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [porong-porong-snow-fairy-adventure]

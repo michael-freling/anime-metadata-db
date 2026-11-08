@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tonari-no-kyuuketsuki-san
+  titles:
+    original: となりの吸血鬼さん
+    translations: { ja-Latn: Tonari no Kyuuketsuki-san }
+  seasons:
+    - id: tonari-no-kyuuketsuki-san-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tonari-no-kyuuketsuki-san]

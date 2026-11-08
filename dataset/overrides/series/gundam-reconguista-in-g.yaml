@@ -1,0 +1,15 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gundam-reconguista-in-g
+  titles:
+    original: Gのレコンギスタ I 行け！コア・ファイター
+    translations: { ja-Latn: Gundam Reconguista in G }
+  seasons:
+    - id: gundam-reconguista-in-g-s1
+      number: 1
+  movies:
+    - id: gundam-reconguista-in-g-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gundam-reconguista-in-g]

@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lulin-da-maoxian-tangguo-shijie
+  titles:
+    original: "Lulin Da Maoxian: Tangguo Shijie"
+    translations: { ja-Latn: "Lulin Da Maoxian: Tangguo Shijie" }
+  movies:
+    - id: lulin-da-maoxian-tangguo-shijie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lulin-da-maoxian-tangguo-shijie]

@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ikkitousen-xtreme-xecutor
+  titles:
+    original: "Ikkitousen: Xtreme Xecutor"
+    translations: { ja-Latn: "Ikkitousen: Xtreme Xecutor" }
+  seasons:
+    - id: ikkitousen-xtreme-xecutor-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ikkitousen-xtreme-xecutor]

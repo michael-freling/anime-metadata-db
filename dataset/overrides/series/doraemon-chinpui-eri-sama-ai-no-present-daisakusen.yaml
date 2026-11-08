@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: doraemon-chinpui-eri-sama-ai-no-present-daisakusen
+  titles:
+    original: ドラえもん&チンプイ「エリ様 愛のプレゼント大作戦」
+    translations: { ja-Latn: "Doraemon & Chinpui: Eri-sama Ai no Present Daisakusen" }
+  movies:
+    - id: doraemon-chinpui-eri-sama-ai-no-present-daisakusen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [doraemon-chinpui-eri-sama-ai-no-present-daisakusen]

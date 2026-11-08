@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: robotech-love-live-alive
+  titles:
+    original: "Robotech: Love Live Alive"
+    translations: { ja-Latn: "Robotech: Love Live Alive" }
+  movies:
+    - id: robotech-love-live-alive-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [robotech-love-live-alive]

@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gangtie-feilong-movie
+  titles:
+    original: Gangtie Feilong (Movie)
+    translations: { ja-Latn: Gangtie Feilong (Movie) }
+  movies:
+    - id: gangtie-feilong-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gangtie-feilong-movie]

@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhangyu-ge
+  titles:
+    original: Zhangyu Ge
+    translations: { ja-Latn: Zhangyu Ge }
+  movies:
+    - id: zhangyu-ge-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhangyu-ge]

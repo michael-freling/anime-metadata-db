@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shikong-bowu-ka
+  titles:
+    original: Shikong Bowu Ka
+    translations: { ja-Latn: Shikong Bowu Ka }
+  seasons:
+    - id: shikong-bowu-ka-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shikong-bowu-ka]

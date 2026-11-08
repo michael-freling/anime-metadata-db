@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gou-gou-shangxin-zhi
+  titles:
+    original: Gou Gou Shangxin Zhi
+    translations: { ja-Latn: Gou Gou Shangxin Zhi }
+  movies:
+    - id: gou-gou-shangxin-zhi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gou-gou-shangxin-zhi]

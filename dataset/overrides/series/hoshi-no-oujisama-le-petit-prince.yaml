@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hoshi-no-oujisama-le-petit-prince
+  titles:
+    original: 星の王子さま～Le Petit Prince～
+    translations: { ja-Latn: "Hoshi no Oujisama: Le Petit Prince" }
+  movies:
+    - id: hoshi-no-oujisama-le-petit-prince-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hoshi-no-oujisama-le-petit-prince]

@@ -1,0 +1,15 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: koroshiya-san
+  titles:
+    original: 殺し屋さん
+    translations: { ja-Latn: Koroshiya-san }
+  seasons:
+    - id: koroshiya-san-s1
+      number: 1
+    - id: koroshiya-san-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [koroshiya-san]

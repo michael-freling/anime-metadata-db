@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: battle-spirits-burning-soul
+  titles:
+    original: "バトルスピリッツ烈火魂[バーニングソウル]"
+    translations: { ja-Latn: "Battle Spirits: Burning Soul" }
+  seasons:
+    - id: battle-spirits-burning-soul-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [battle-spirits-burning-soul]

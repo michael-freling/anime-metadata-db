@@ -1,0 +1,17 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: berserk
+  titles:
+    original: ベルセルク
+    translations: { ja-Latn: Berserk }
+  seasons:
+    - id: berserk-s1
+      number: 1
+    - id: berserk-s2
+      number: 2
+    - id: berserk-s3
+      number: 3
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [berserk]

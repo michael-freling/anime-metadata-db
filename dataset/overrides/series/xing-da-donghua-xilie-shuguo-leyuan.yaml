@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xing-da-donghua-xilie-shuguo-leyuan
+  titles:
+    original: "Xing Da Donghua Xilie: Shuguo Leyuan"
+    translations: { ja-Latn: "Xing Da Donghua Xilie: Shuguo Leyuan" }
+  seasons:
+    - id: xing-da-donghua-xilie-shuguo-leyuan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xing-da-donghua-xilie-shuguo-leyuan]

@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: inazuma-eleven-chou-jigen-dream-match
+  titles:
+    original: イナズマイレブン 超次元ドリームマッチ
+    translations: { ja-Latn: "Inazuma Eleven: Chou Jigen Dream Match" }
+  movies:
+    - id: inazuma-eleven-chou-jigen-dream-match-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [inazuma-eleven-chou-jigen-dream-match]

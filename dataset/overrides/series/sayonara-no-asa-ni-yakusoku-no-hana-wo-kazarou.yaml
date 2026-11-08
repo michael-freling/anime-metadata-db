@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sayonara-no-asa-ni-yakusoku-no-hana-wo-kazarou
+  titles:
+    original: さよならの朝に約束の花をかざろう
+    translations: { ja-Latn: Sayonara no Asa ni Yakusoku no Hana wo Kazarou }
+  movies:
+    - id: sayonara-no-asa-ni-yakusoku-no-hana-wo-kazarou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sayonara-no-asa-ni-yakusoku-no-hana-wo-kazarou]

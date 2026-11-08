@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sinbad-yu-meirenyu-gongzhu
+  titles:
+    original: Sinbad Yu Meirenyu Gongzhu
+    translations: { ja-Latn: Sinbad Yu Meirenyu Gongzhu }
+  movies:
+    - id: sinbad-yu-meirenyu-gongzhu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sinbad-yu-meirenyu-gongzhu]

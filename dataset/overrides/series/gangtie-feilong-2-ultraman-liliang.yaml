@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gangtie-feilong-2-ultraman-liliang
+  titles:
+    original: "Gangtie Feilong 2: Ultraman Liliang"
+    translations: { ja-Latn: "Gangtie Feilong 2: Ultraman Liliang" }
+  seasons:
+    - id: gangtie-feilong-2-ultraman-liliang-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gangtie-feilong-2-ultraman-liliang]

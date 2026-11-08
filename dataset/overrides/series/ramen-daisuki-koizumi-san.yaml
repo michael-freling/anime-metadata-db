@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ramen-daisuki-koizumi-san
+  titles:
+    original: ラーメン大好き小泉さん
+    translations: { ja-Latn: Ramen Daisuki Koizumi-san }
+  seasons:
+    - id: ramen-daisuki-koizumi-san-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ramen-daisuki-koizumi-san]

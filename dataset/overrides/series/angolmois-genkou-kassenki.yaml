@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: angolmois-genkou-kassenki
+  titles:
+    original: アンゴルモア～元寇合戦記～
+    translations: { ja-Latn: "Angolmois: Genkou Kassenki" }
+  seasons:
+    - id: angolmois-genkou-kassenki-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [angolmois-genkou-kassenki]

@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yamakawa-keiko-san-wa-furimukanai
+  titles:
+    original: 山川景子は振り向かない
+    translations: { ja-Latn: Yamakawa Keiko-san wa Furimukanai }
+  movies:
+    - id: yamakawa-keiko-san-wa-furimukanai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yamakawa-keiko-san-wa-furimukanai]

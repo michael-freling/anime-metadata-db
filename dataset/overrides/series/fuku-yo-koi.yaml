@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fuku-yo-koi
+  titles:
+    original: 福よ来い！
+    translations: { ja-Latn: Fuku yo Koi }
+  movies:
+    - id: fuku-yo-koi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fuku-yo-koi]

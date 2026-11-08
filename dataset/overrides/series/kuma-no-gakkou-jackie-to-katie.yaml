@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kuma-no-gakkou-jackie-to-katie
+  titles:
+    original: くまのがっこう ～ジャッキーとケイティ～
+    translations: { ja-Latn: "Kuma no Gakkou: Jackie to Katie" }
+  movies:
+    - id: kuma-no-gakkou-jackie-to-katie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kuma-no-gakkou-jackie-to-katie]

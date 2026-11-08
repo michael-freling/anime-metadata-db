@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: taiji-xiao-zi
+  titles:
+    original: Taiji Xiao Zi
+    translations: { ja-Latn: Taiji Xiao Zi }
+  seasons:
+    - id: taiji-xiao-zi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [taiji-xiao-zi]

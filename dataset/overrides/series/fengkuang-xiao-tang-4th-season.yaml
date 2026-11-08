@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fengkuang-xiao-tang-4th-season
+  titles:
+    original: Fengkuang Xiao Tang 4th Season
+    translations: { ja-Latn: Fengkuang Xiao Tang 4th Season }
+  seasons:
+    - id: fengkuang-xiao-tang-4th-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fengkuang-xiao-tang-4th-season]

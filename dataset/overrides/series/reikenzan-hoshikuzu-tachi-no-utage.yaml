@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: reikenzan-hoshikuzu-tachi-no-utage
+  titles:
+    original: 霊剣山 星屑たちの宴
+    translations: { ja-Latn: "Reikenzan: Hoshikuzu-tachi no Utage" }
+  seasons:
+    - id: reikenzan-hoshikuzu-tachi-no-utage-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [reikenzan-hoshikuzu-tachi-no-utage]

@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-old-man-and-the-sea-2011
+  titles:
+    original: The Old Man and the Sea (2011)
+    translations: { ja-Latn: The Old Man and the Sea (2011) }
+  movies:
+    - id: the-old-man-and-the-sea-2011-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-old-man-and-the-sea-2011]

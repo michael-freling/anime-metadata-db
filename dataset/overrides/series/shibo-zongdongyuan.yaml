@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shibo-zongdongyuan
+  titles:
+    original: Shibo Zongdongyuan
+    translations: { ja-Latn: Shibo Zongdongyuan }
+  movies:
+    - id: shibo-zongdongyuan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shibo-zongdongyuan]

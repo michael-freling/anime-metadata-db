@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nanatsu-no-taizai-movie-1-tenkuu-no-torawarebito
+  titles:
+    original: 劇場版 七つの大罪 The Seven Deadly Sins 天空の囚われ人
+    translations: { ja-Latn: "Nanatsu no Taizai Movie 1: Tenkuu no Torawarebito" }
+  movies:
+    - id: nanatsu-no-taizai-movie-1-tenkuu-no-torawarebito-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nanatsu-no-taizai-movie-1-tenkuu-no-torawarebito]

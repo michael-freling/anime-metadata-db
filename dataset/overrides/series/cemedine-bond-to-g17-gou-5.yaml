@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: cemedine-bond-to-g17-gou-5
+  titles:
+    original: セメダイン・ボンドとG-17号♡５
+    translations: { ja-Latn: Cemedine Bond to G17-gou ♡ 5 }
+  movies:
+    - id: cemedine-bond-to-g17-gou-5-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [cemedine-bond-to-g17-gou-5]

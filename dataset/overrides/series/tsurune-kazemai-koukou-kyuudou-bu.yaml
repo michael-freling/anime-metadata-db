@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tsurune-kazemai-koukou-kyuudou-bu
+  titles:
+    original: ツルネ -風舞高校弓道部-
+    translations: { ja-Latn: "Tsurune: Kazemai Koukou Kyuudou-bu" }
+  seasons:
+    - id: tsurune-kazemai-koukou-kyuudou-bu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tsurune-kazemai-koukou-kyuudou-bu]

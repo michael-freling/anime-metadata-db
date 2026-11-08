@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: love-hate-relationship
+  titles:
+    original: LOVE-HATE RELATIONSHIP
+    translations: { ja-Latn: LOVE-HATE RELATIONSHIP }
+  movies:
+    - id: love-hate-relationship-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [love-hate-relationship]

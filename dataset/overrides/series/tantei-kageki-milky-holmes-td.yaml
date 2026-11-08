@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tantei-kageki-milky-holmes-td
+  titles:
+    original: 探偵歌劇 ミルキィホームズ TD
+    translations: { ja-Latn: Tantei Kageki Milky Holmes TD }
+  seasons:
+    - id: tantei-kageki-milky-holmes-td-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tantei-kageki-milky-holmes-td]

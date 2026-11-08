@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xin-datou-erzi-he-xiaotou-baba-yingxiong-meng
+  titles:
+    original: "Xin Datou Erzi He Xiaotou Baba: Yingxiong Meng"
+    translations: { ja-Latn: "Xin Datou Erzi He Xiaotou Baba: Yingxiong Meng" }
+  seasons:
+    - id: xin-datou-erzi-he-xiaotou-baba-yingxiong-meng-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xin-datou-erzi-he-xiaotou-baba-yingxiong-meng]

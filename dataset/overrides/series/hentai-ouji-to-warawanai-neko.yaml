@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hentai-ouji-to-warawanai-neko
+  titles:
+    original: 変態王子と笑わない猫.
+    translations: { ja-Latn: Hentai Ouji to Warawanai Neko. }
+  seasons:
+    - id: hentai-ouji-to-warawanai-neko-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hentai-ouji-to-warawanai-neko]

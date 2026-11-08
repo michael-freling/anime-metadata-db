@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: specimens-of-obsessions
+  titles:
+    original: 標本の塔
+    translations: { ja-Latn: specimens of obsessions }
+  movies:
+    - id: specimens-of-obsessions-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [specimens-of-obsessions]

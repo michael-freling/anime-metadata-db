@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: evangelion-shito-hakata-shuurai
+  titles:
+    original: エヴァンゲリオン 使徒、博多襲来
+    translations: { ja-Latn: "Evangelion Shito, Hakata Shuurai" }
+  movies:
+    - id: evangelion-shito-hakata-shuurai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [evangelion-shito-hakata-shuurai]

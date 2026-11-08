@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ichiban-ushiro-no-daimaou
+  titles:
+    original: いちばんうしろの大魔王
+    translations: { ja-Latn: Ichiban Ushiro no Daimaou }
+  seasons:
+    - id: ichiban-ushiro-no-daimaou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ichiban-ushiro-no-daimaou]

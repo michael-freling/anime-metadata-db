@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: canimals
+  titles:
+    original: Canimals
+    translations: { ja-Latn: Canimals }
+  seasons:
+    - id: canimals-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [canimals]

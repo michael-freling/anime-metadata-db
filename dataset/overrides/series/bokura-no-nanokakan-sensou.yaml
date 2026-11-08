@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bokura-no-nanokakan-sensou
+  titles:
+    original: ぼくらの7日間戦争
+    translations: { ja-Latn: Bokura no Nanokakan Sensou }
+  movies:
+    - id: bokura-no-nanokakan-sensou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bokura-no-nanokakan-sensou]

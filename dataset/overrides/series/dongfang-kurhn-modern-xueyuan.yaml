@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dongfang-kurhn-modern-xueyuan
+  titles:
+    original: "Dongfang Kurhn: Modern Xueyuan"
+    translations: { ja-Latn: "Dongfang Kurhn: Modern Xueyuan" }
+  seasons:
+    - id: dongfang-kurhn-modern-xueyuan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dongfang-kurhn-modern-xueyuan]

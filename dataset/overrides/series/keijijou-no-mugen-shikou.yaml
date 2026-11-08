@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: keijijou-no-mugen-shikou
+  titles:
+    original: 形而上の無限思考
+    translations: { ja-Latn: Keijijou no Mugen Shikou }
+  movies:
+    - id: keijijou-no-mugen-shikou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [keijijou-no-mugen-shikou]

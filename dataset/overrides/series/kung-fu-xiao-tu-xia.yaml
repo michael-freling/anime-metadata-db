@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kung-fu-xiao-tu-xia
+  titles:
+    original: Kung Fu Xiao Tu Xia
+    translations: { ja-Latn: Kung Fu Xiao Tu Xia }
+  movies:
+    - id: kung-fu-xiao-tu-xia-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kung-fu-xiao-tu-xia]

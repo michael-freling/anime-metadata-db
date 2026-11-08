@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: saenai-heroine-no-sodatekata
+  titles:
+    original: "冴えない彼女[ヒロイン]の育てかた♭"
+    translations: { ja-Latn: Saenai Heroine no Sodatekata ♭ }
+  seasons:
+    - id: saenai-heroine-no-sodatekata-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [saenai-heroine-no-sodatekata]

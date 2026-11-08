@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: senba-xingfu-dao
+  titles:
+    original: Senba Xingfu Dao
+    translations: { ja-Latn: Senba Xingfu Dao }
+  seasons:
+    - id: senba-xingfu-dao-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [senba-xingfu-dao]

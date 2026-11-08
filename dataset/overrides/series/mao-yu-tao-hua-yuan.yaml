@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mao-yu-tao-hua-yuan
+  titles:
+    original: Mao Yu Tao Hua Yuan
+    translations: { ja-Latn: Mao Yu Tao Hua Yuan }
+  movies:
+    - id: mao-yu-tao-hua-yuan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mao-yu-tao-hua-yuan]

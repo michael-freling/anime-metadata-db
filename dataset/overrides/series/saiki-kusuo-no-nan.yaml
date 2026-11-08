@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: saiki-kusuo-no-nan
+  titles:
+    original: 斉木楠雄のΨ難 TV
+    translations: { ja-Latn: Saiki Kusuo no Ψ-nan }
+  seasons:
+    - id: saiki-kusuo-no-nan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [saiki-kusuo-no-nan]

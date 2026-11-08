@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: matierica
+  titles:
+    original: マチェーリカ
+    translations: { ja-Latn: Matierica }
+  movies:
+    - id: matierica-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [matierica]

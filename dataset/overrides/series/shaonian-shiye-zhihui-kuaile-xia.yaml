@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shaonian-shiye-zhihui-kuaile-xia
+  titles:
+    original: "Shaonian Shiye: Zhihui Kuaile Xia"
+    translations: { ja-Latn: "Shaonian Shiye: Zhihui Kuaile Xia" }
+  seasons:
+    - id: shaonian-shiye-zhihui-kuaile-xia-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shaonian-shiye-zhihui-kuaile-xia]

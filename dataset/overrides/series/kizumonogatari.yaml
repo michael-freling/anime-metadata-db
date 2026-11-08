@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kizumonogatari
+  titles:
+    original: Kizumonogatari
+    translations: { ja-Latn: Kizumonogatari }
+  movies:
+    - id: kizumonogatari-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kizumonogatari]

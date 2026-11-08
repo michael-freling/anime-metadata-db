@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pecoross-no-haha-ni-ai-ni-iku
+  titles:
+    original: ペコロスの母に会いに行く
+    translations: { ja-Latn: Pecoross no Haha ni Ai ni Iku }
+  seasons:
+    - id: pecoross-no-haha-ni-ai-ni-iku-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pecoross-no-haha-ni-ai-ni-iku]

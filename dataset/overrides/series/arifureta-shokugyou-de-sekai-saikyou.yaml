@@ -1,0 +1,17 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: arifureta-shokugyou-de-sekai-saikyou
+  titles:
+    original: ありふれた職業で世界最強
+    translations: { ja-Latn: Arifureta Shokugyou de Sekai Saikyou }
+  seasons:
+    - id: arifureta-shokugyou-de-sekai-saikyou-s1
+      number: 1
+    - id: arifureta-shokugyou-de-sekai-saikyou-s2
+      number: 2
+    - id: arifureta-shokugyou-de-sekai-saikyou-s3
+      number: 3
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [arifureta-shokugyou-de-sekai-saikyou]

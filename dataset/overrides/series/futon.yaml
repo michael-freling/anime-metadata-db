@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: futon
+  titles:
+    original: Futon
+    translations: { ja-Latn: Futon }
+  movies:
+    - id: futon-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [futon]

@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ben-ben-yu-jiling
+  titles:
+    original: Ben Ben Yu Jiling
+    translations: { ja-Latn: Ben Ben Yu Jiling }
+  seasons:
+    - id: ben-ben-yu-jiling-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ben-ben-yu-jiling]

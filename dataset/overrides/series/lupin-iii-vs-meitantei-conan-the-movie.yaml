@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lupin-iii-vs-meitantei-conan-the-movie
+  titles:
+    original: ルパン三世 vs 名探偵コナン THE MOVIE
+    translations: { ja-Latn: "Lupin III vs. Meitantei Conan: The Movie" }
+  movies:
+    - id: lupin-iii-vs-meitantei-conan-the-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lupin-iii-vs-meitantei-conan-the-movie]

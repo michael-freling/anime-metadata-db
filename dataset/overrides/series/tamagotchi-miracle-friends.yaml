@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tamagotchi-miracle-friends
+  titles:
+    original: たまごっち! ~みらくるフレンズ~
+    translations: { ja-Latn: Tamagotchi! Miracle Friends }
+  seasons:
+    - id: tamagotchi-miracle-friends-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tamagotchi-miracle-friends]

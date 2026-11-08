@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sakana-no-iu-koto-wo-kiku
+  titles:
+    original: 魚のいうことを聞く
+    translations: { ja-Latn: Sakana no Iu Koto wo Kiku }
+  movies:
+    - id: sakana-no-iu-koto-wo-kiku-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sakana-no-iu-koto-wo-kiku]

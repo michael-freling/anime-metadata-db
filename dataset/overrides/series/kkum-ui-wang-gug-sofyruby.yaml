@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kkum-ui-wang-gug-sofyruby
+  titles:
+    original: Kkum-ui Wang-gug SofyRuby
+    translations: { ja-Latn: Kkum-ui Wang-gug SofyRuby }
+  seasons:
+    - id: kkum-ui-wang-gug-sofyruby-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kkum-ui-wang-gug-sofyruby]

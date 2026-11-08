@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: love-live-sunshine-photo-session
+  titles:
+    original: ラブライブ！サンシャイン!!フォトセッション
+    translations: { ja-Latn: Love Live! Sunshine!! Photo Session }
+  movies:
+    - id: love-live-sunshine-photo-session-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [love-live-sunshine-photo-session]

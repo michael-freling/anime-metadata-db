@@ -1,0 +1,15 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shounen-hollywood-holly-stage-for-50
+  titles:
+    original: 少年ハリウッド -HOLLY STAGE FOR 50-
+    translations: { ja-Latn: "Shounen Hollywood: Holly Stage for 50" }
+  seasons:
+    - id: shounen-hollywood-holly-stage-for-50-s1
+      number: 1
+    - id: shounen-hollywood-holly-stage-for-50-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shounen-hollywood-holly-stage-for-50]

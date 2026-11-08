@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: cofun-gal-no-coffy-cofunderella
+  titles:
+    original: 古墳ギャルのコフィー ～コフンデレラ～
+    translations: { ja-Latn: "Cofun Gal no Coffy: Cofunderella" }
+  movies:
+    - id: cofun-gal-no-coffy-cofunderella-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [cofun-gal-no-coffy-cofunderella]

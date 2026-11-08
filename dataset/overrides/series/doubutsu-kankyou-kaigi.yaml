@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: doubutsu-kankyou-kaigi
+  titles:
+    original: 動物かんきょう会議
+    translations: { ja-Latn: Doubutsu Kankyou Kaigi }
+  seasons:
+    - id: doubutsu-kankyou-kaigi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [doubutsu-kankyou-kaigi]

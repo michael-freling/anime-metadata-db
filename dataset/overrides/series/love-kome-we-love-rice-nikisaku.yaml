@@ -1,0 +1,15 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: love-kome-we-love-rice-nikisaku
+  titles:
+    original: ラブ米 -WE LOVE RICE- 二期作
+    translations: { ja-Latn: "Love Kome: We Love Rice Nikisaku" }
+  seasons:
+    - id: love-kome-we-love-rice-nikisaku-s1
+      number: 1
+    - id: love-kome-we-love-rice-nikisaku-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [love-kome-we-love-rice-nikisaku]

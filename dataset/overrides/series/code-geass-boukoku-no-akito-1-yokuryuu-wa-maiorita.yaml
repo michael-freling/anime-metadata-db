@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: code-geass-boukoku-no-akito-1-yokuryuu-wa-maiorita
+  titles:
+    original: コードギアス 亡国のアキト 第１章「翼竜は舞い降りた」
+    translations: { ja-Latn: "Code Geass: Boukoku no Akito 1 - Yokuryuu wa Maiorita" }
+  movies:
+    - id: code-geass-boukoku-no-akito-1-yokuryuu-wa-maiorita-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [code-geass-boukoku-no-akito-1-yokuryuu-wa-maiorita]

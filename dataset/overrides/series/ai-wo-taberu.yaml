@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ai-wo-taberu
+  titles:
+    original: 「あい」をたべる
+    translations: { ja-Latn: "\"Ai\" wo Taberu" }
+  movies:
+    - id: ai-wo-taberu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ai-wo-taberu]

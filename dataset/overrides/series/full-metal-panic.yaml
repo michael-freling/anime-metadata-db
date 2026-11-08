@@ -1,0 +1,15 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: full-metal-panic
+  titles:
+    original: フルメタル・パニック！
+    translations: { ja-Latn: Full Metal Panic! }
+  seasons:
+    - id: full-metal-panic-s1
+      number: 1
+  movies:
+    - id: full-metal-panic-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [full-metal-panic]

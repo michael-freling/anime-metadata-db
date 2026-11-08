@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: parade-de-satie
+  titles:
+    original: サティの「パラード」
+    translations: { ja-Latn: "\"Parade\" de Satie" }
+  movies:
+    - id: parade-de-satie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [parade-de-satie]

@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: full-metal-panic-movie-2-one-night-stand
+  titles:
+    original: フルメタル・パニック！　ディレクターズカット版　ワン・ナイト・スタンド編
+    translations: { ja-Latn: "Full Metal Panic! Movie 2: One Night Stand" }
+  movies:
+    - id: full-metal-panic-movie-2-one-night-stand-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [full-metal-panic-movie-2-one-night-stand]

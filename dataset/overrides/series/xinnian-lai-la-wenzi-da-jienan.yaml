@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xinnian-lai-la-wenzi-da-jienan
+  titles:
+    original: "Xinnian Lai La: Wenzi Da Jienan"
+    translations: { ja-Latn: "Xinnian Lai La: Wenzi Da Jienan" }
+  seasons:
+    - id: xinnian-lai-la-wenzi-da-jienan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xinnian-lai-la-wenzi-da-jienan]

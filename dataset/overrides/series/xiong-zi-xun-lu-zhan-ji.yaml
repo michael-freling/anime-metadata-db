@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiong-zi-xun-lu-zhan-ji
+  titles:
+    original: "Xiong Zi: Xun Lu Zhan Ji"
+    translations: { ja-Latn: "Xiong Zi: Xun Lu Zhan Ji" }
+  seasons:
+    - id: xiong-zi-xun-lu-zhan-ji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiong-zi-xun-lu-zhan-ji]

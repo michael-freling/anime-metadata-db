@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: cross-ange-tenshi-to-ryuu-no-rondo
+  titles:
+    original: "クロスアンジュ 天使と竜の輪舞[ロンド]"
+    translations: { ja-Latn: "Cross Ange: Tenshi to Ryuu no Rondo" }
+  seasons:
+    - id: cross-ange-tenshi-to-ryuu-no-rondo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [cross-ange-tenshi-to-ryuu-no-rondo]

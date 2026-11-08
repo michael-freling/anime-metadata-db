@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hello-carbot-kung
+  titles:
+    original: Hello Carbot Kung
+    translations: { ja-Latn: Hello Carbot Kung }
+  seasons:
+    - id: hello-carbot-kung-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hello-carbot-kung]

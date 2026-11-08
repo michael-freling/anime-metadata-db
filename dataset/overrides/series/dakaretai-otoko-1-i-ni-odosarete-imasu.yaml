@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dakaretai-otoko-1-i-ni-odosarete-imasu
+  titles:
+    original: 抱かれたい男1位に脅されています.
+    translations: { ja-Latn: Dakaretai Otoko 1-i ni Odosarete Imasu. }
+  seasons:
+    - id: dakaretai-otoko-1-i-ni-odosarete-imasu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dakaretai-otoko-1-i-ni-odosarete-imasu]

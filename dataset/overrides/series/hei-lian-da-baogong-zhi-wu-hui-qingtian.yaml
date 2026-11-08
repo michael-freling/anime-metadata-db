@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hei-lian-da-baogong-zhi-wu-hui-qingtian
+  titles:
+    original: Hei Lian Da Baogong Zhi Wu Hui Qingtian
+    translations: { ja-Latn: Hei Lian Da Baogong Zhi Wu Hui Qingtian }
+  seasons:
+    - id: hei-lian-da-baogong-zhi-wu-hui-qingtian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hei-lian-da-baogong-zhi-wu-hui-qingtian]

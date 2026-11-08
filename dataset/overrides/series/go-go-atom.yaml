@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: go-go-atom
+  titles:
+    original: GO!GO!アトム
+    translations: { ja-Latn: Go! Go! Atom }
+  seasons:
+    - id: go-go-atom-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [go-go-atom]

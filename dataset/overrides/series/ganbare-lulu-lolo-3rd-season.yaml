@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ganbare-lulu-lolo-3rd-season
+  titles:
+    original: がんばれ！ルルロロ 第3シリーズ
+    translations: { ja-Latn: Ganbare! Lulu Lolo 3rd Season }
+  seasons:
+    - id: ganbare-lulu-lolo-3rd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ganbare-lulu-lolo-3rd-season]

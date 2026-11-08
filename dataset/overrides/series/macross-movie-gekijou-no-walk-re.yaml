@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: macross-movie-gekijou-no-walk-re
+  titles:
+    original: "劇場版マクロスΔ[デルタ] 激情のワルキューレ"
+    translations: { ja-Latn: "Macross Δ Movie: Gekijou no Walküre" }
+  movies:
+    - id: macross-movie-gekijou-no-walk-re-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [macross-movie-gekijou-no-walk-re]

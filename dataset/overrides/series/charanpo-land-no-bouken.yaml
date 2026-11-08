@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: charanpo-land-no-bouken
+  titles:
+    original: ちゃらんぽ島(ランド)の冒険
+    translations: { ja-Latn: Charanpo Land no Bouken }
+  movies:
+    - id: charanpo-land-no-bouken-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [charanpo-land-no-bouken]

@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ninja-hattori-kun-2012
+  titles:
+    original: 忍者ハットリくん (2012年版)
+    translations: { ja-Latn: Ninja Hattori-kun (2012) }
+  seasons:
+    - id: ninja-hattori-kun-2012-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ninja-hattori-kun-2012]

@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: berserk-ougon-jidai-hen-i-haou-no-tamago
+  titles:
+    original: ベルセルク 黄金時代篇Ⅰ 覇王の卵
+    translations: { ja-Latn: "Berserk: Ougon Jidai-hen I - Haou no Tamago" }
+  movies:
+    - id: berserk-ougon-jidai-hen-i-haou-no-tamago-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [berserk-ougon-jidai-hen-i-haou-no-tamago]

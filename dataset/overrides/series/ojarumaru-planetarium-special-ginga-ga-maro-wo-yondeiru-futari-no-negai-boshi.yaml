@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ojarumaru-planetarium-special-ginga-ga-maro-wo-yondeiru-futari-no-negai-boshi
+  titles:
+    original: おじゃる丸プラネタリウムスペシャル　銀河がマロを呼んでいる ～ふたりの願い星～
+    translations: { ja-Latn: "Ojarumaru Planetarium Special: Ginga ga Maro wo Yondeiru - Futari no Negai Boshi" }
+  movies:
+    - id: ojarumaru-planetarium-special-ginga-ga-maro-wo-yondeiru-futari-no-negai-boshi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ojarumaru-planetarium-special-ginga-ga-maro-wo-yondeiru-futari-no-negai-boshi]

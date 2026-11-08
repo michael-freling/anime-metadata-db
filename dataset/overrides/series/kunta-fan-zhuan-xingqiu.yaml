@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kunta-fan-zhuan-xingqiu
+  titles:
+    original: "Kunta: Fan Zhuan Xingqiu"
+    translations: { ja-Latn: "Kunta: Fan Zhuan Xingqiu" }
+  movies:
+    - id: kunta-fan-zhuan-xingqiu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kunta-fan-zhuan-xingqiu]

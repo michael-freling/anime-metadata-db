@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lao-xiao-effendi
+  titles:
+    original: Lao Xiao Effendi
+    translations: { ja-Latn: Lao Xiao Effendi }
+  seasons:
+    - id: lao-xiao-effendi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lao-xiao-effendi]

@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: taberu-hito-tachi
+  titles:
+    original: 食べる人たち
+    translations: { ja-Latn: Taberu Hito-tachi }
+  movies:
+    - id: taberu-hito-tachi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [taberu-hito-tachi]

@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: robot-trains-season-2
+  titles:
+    original: Robot Trains Season 2
+    translations: { ja-Latn: Robot Trains Season 2 }
+  seasons:
+    - id: robot-trains-season-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [robot-trains-season-2]

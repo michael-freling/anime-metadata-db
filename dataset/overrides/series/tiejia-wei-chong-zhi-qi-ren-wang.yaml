@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tiejia-wei-chong-zhi-qi-ren-wang
+  titles:
+    original: Tiejia Wei Chong Zhi Qi Ren Wang
+    translations: { ja-Latn: Tiejia Wei Chong Zhi Qi Ren Wang }
+  seasons:
+    - id: tiejia-wei-chong-zhi-qi-ren-wang-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tiejia-wei-chong-zhi-qi-ren-wang]

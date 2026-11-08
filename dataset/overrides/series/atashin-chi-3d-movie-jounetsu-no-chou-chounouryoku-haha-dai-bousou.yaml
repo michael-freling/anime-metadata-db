@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: atashin-chi-3d-movie-jounetsu-no-chou-chounouryoku-haha-dai-bousou
+  titles:
+    original: 劇場版3D あたしンち 情熱のちょ~超能力♪母大暴走!
+    translations: { ja-Latn: "Atashin'chi 3D Movie: Jounetsu no Chou Chounouryoku Haha Dai Bousou" }
+  movies:
+    - id: atashin-chi-3d-movie-jounetsu-no-chou-chounouryoku-haha-dai-bousou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [atashin-chi-3d-movie-jounetsu-no-chou-chounouryoku-haha-dai-bousou]

@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shenqi-a-you-zui-qiang-liuxing-ren
+  titles:
+    original: "Shenqi A You: Zui Qiang Liuxing Ren"
+    translations: { ja-Latn: "Shenqi A You: Zui Qiang Liuxing Ren" }
+  seasons:
+    - id: shenqi-a-you-zui-qiang-liuxing-ren-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shenqi-a-you-zui-qiang-liuxing-ren]

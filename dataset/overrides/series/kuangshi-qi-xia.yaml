@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kuangshi-qi-xia
+  titles:
+    original: Kuangshi Qi Xia
+    translations: { ja-Latn: Kuangshi Qi Xia }
+  seasons:
+    - id: kuangshi-qi-xia-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kuangshi-qi-xia]

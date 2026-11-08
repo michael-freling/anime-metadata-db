@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: uchuu-senkan-yamato-2202-ai-no-senshi-tachi-movie-1-koushi-hen
+  titles:
+    original: 宇宙戦艦ヤマト2202　愛の戦士たち　第一章　嚆矢篇
+    translations: { ja-Latn: "Uchuu Senkan Yamato 2202: Ai no Senshi-tachi Movie 1: Koushi-hen" }
+  movies:
+    - id: uchuu-senkan-yamato-2202-ai-no-senshi-tachi-movie-1-koushi-hen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [uchuu-senkan-yamato-2202-ai-no-senshi-tachi-movie-1-koushi-hen]

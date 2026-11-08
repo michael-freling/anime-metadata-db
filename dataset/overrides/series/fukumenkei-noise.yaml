@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fukumenkei-noise
+  titles:
+    original: 覆面系ノイズ
+    translations: { ja-Latn: Fukumenkei Noise }
+  seasons:
+    - id: fukumenkei-noise-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fukumenkei-noise]

@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: stella-jogakuin-koutou-ka-c-bu
+  titles:
+    original: "ステラ女学院高等科C3部[しーきゅーぶ]"
+    translations: { ja-Latn: Stella Jogakuin Koutou-ka C³-bu }
+  seasons:
+    - id: stella-jogakuin-koutou-ka-c-bu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [stella-jogakuin-koutou-ka-c-bu]

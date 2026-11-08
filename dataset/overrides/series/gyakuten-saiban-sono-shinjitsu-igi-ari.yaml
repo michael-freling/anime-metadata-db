@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gyakuten-saiban-sono-shinjitsu-igi-ari
+  titles:
+    original: 逆転裁判 ～その「真実」、異議あり！～
+    translations: { ja-Latn: "Gyakuten Saiban: Sono \"Shinjitsu\", Igi Ari!" }
+  seasons:
+    - id: gyakuten-saiban-sono-shinjitsu-igi-ari-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gyakuten-saiban-sono-shinjitsu-igi-ari]

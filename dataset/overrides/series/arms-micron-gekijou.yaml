@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: arms-micron-gekijou
+  titles:
+    original: アームズマイクロン劇場
+    translations: { ja-Latn: Arms Micron Gekijou }
+  seasons:
+    - id: arms-micron-gekijou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [arms-micron-gekijou]

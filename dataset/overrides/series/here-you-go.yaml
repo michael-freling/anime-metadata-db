@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: here-you-go
+  titles:
+    original: Here you go
+    translations: { ja-Latn: Here you go }
+  movies:
+    - id: here-you-go-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [here-you-go]

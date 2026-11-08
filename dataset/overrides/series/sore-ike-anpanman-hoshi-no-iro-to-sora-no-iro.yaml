@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sore-ike-anpanman-hoshi-no-iro-to-sora-no-iro
+  titles:
+    original: それいけ！アンパンマン～星の色と空の色～
+    translations: { ja-Latn: "Sore Ike! Anpanman: Hoshi no Iro to Sora no Iro" }
+  movies:
+    - id: sore-ike-anpanman-hoshi-no-iro-to-sora-no-iro-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sore-ike-anpanman-hoshi-no-iro-to-sora-no-iro]

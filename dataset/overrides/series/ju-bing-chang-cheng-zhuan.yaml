@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ju-bing-chang-cheng-zhuan
+  titles:
+    original: Ju Bing Chang Cheng Zhuan
+    translations: { ja-Latn: Ju Bing Chang Cheng Zhuan }
+  seasons:
+    - id: ju-bing-chang-cheng-zhuan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ju-bing-chang-cheng-zhuan]

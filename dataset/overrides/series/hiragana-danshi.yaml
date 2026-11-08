@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hiragana-danshi
+  titles:
+    original: 劇場版 ひらがな男子 ~序~
+    translations: { ja-Latn: Hiragana Danshi }
+  movies:
+    - id: hiragana-danshi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hiragana-danshi]

@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rolling-seutajeu-movie
+  titles:
+    original: Rolling Seutajeu (Movie)
+    translations: { ja-Latn: Rolling Seutajeu (Movie) }
+  movies:
+    - id: rolling-seutajeu-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rolling-seutajeu-movie]

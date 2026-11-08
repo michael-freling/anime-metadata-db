@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kidou-senshi-gundam-san-movie
+  titles:
+    original: 機動戦士ガンダムさん WALL-G
+    translations: { ja-Latn: Kidou Senshi Gundam-san (Movie) }
+  movies:
+    - id: kidou-senshi-gundam-san-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kidou-senshi-gundam-san-movie]

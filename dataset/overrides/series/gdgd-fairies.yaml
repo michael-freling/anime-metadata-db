@@ -1,0 +1,15 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gdgd-fairies
+  titles:
+    original: "Gdgd 妖精s [ぐだぐだフェアリーズ]"
+    translations: { ja-Latn: gdgd Fairies }
+  seasons:
+    - id: gdgd-fairies-s1
+      number: 1
+    - id: gdgd-fairies-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gdgd-fairies]

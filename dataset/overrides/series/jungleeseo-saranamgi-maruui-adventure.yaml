@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jungleeseo-saranamgi-maruui-adventure
+  titles:
+    original: "Jungleeseo Saranamgi: Maruui Adventure"
+    translations: { ja-Latn: "Jungleeseo Saranamgi: Maruui Adventure" }
+  seasons:
+    - id: jungleeseo-saranamgi-maruui-adventure-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jungleeseo-saranamgi-maruui-adventure]

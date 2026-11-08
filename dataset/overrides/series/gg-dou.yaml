@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gg-dou
+  titles:
+    original: GG Dou
+    translations: { ja-Latn: GG Dou }
+  seasons:
+    - id: gg-dou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gg-dou]

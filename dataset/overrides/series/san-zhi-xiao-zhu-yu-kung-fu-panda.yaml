@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: san-zhi-xiao-zhu-yu-kung-fu-panda
+  titles:
+    original: San Zhi Xiao Zhu Yu Kung Fu Panda
+    translations: { ja-Latn: San Zhi Xiao Zhu Yu Kung Fu Panda }
+  movies:
+    - id: san-zhi-xiao-zhu-yu-kung-fu-panda-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [san-zhi-xiao-zhu-yu-kung-fu-panda]

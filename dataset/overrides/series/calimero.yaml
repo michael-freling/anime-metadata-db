@@ -1,0 +1,19 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: calimero
+  titles:
+    original: カリメロ
+    translations: { ja-Latn: Calimero }
+  seasons:
+    - id: calimero-s1
+      number: 1
+    - id: calimero-s2
+      number: 2
+    - id: calimero-s3
+      number: 3
+    - id: calimero-s4
+      number: 4
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [calimero]

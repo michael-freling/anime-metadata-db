@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sai-er-hao
+  titles:
+    original: Sai Er Hao
+    translations: { ja-Latn: Sai Er Hao }
+  seasons:
+    - id: sai-er-hao-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sai-er-hao]

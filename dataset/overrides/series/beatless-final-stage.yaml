@@ -1,0 +1,15 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: beatless-final-stage
+  titles:
+    original: Beatless Final Stage
+    translations: { ja-Latn: Beatless Final Stage }
+  seasons:
+    - id: beatless-final-stage-s1
+      number: 1
+    - id: beatless-final-stage-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [beatless-final-stage]

@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sai-er-hao-season-5-lie-tian-kun-shou
+  titles:
+    original: "Sai Er Hao Season 5: Lie Tian Kun Shou"
+    translations: { ja-Latn: "Sai Er Hao Season 5: Lie Tian Kun Shou" }
+  seasons:
+    - id: sai-er-hao-season-5-lie-tian-kun-shou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sai-er-hao-season-5-lie-tian-kun-shou]

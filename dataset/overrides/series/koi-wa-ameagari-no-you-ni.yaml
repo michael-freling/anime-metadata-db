@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: koi-wa-ameagari-no-you-ni
+  titles:
+    original: 恋は雨上がりのように
+    translations: { ja-Latn: Koi wa Ameagari no You ni }
+  seasons:
+    - id: koi-wa-ameagari-no-you-ni-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [koi-wa-ameagari-no-you-ni]

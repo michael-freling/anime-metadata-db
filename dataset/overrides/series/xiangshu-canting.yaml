@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiangshu-canting
+  titles:
+    original: Xiangshu Canting
+    translations: { ja-Latn: Xiangshu Canting }
+  seasons:
+    - id: xiangshu-canting-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiangshu-canting]

@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tatsumi
+  titles:
+    original: TATSUMI マンガに革命を起こした男
+    translations: { ja-Latn: Tatsumi }
+  movies:
+    - id: tatsumi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tatsumi]

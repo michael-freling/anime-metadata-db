@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gekijouban-tiger-bunny
+  titles:
+    original: Gekijouban Tiger & Bunny
+    translations: { ja-Latn: Gekijouban Tiger & Bunny }
+  movies:
+    - id: gekijouban-tiger-bunny-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gekijouban-tiger-bunny]

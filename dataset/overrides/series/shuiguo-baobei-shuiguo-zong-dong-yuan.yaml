@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shuiguo-baobei-shuiguo-zong-dong-yuan
+  titles:
+    original: "Shuiguo Baobei: Shuiguo Zong Dong Yuan"
+    translations: { ja-Latn: "Shuiguo Baobei: Shuiguo Zong Dong Yuan" }
+  movies:
+    - id: shuiguo-baobei-shuiguo-zong-dong-yuan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shuiguo-baobei-shuiguo-zong-dong-yuan]

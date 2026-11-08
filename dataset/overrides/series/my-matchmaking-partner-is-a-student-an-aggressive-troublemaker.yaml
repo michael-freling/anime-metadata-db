@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: my-matchmaking-partner-is-a-student-an-aggressive-troublemaker
+  titles:
+    original: お見合い相手は教え子、強気な、問題児。
+    translations: { ja-Latn: "My Matchmaking Partner is a Student, An Aggressive Troublemaker" }
+  seasons:
+    - id: my-matchmaking-partner-is-a-student-an-aggressive-troublemaker-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [my-matchmaking-partner-is-a-student-an-aggressive-troublemaker]

@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: little-charo-2
+  titles:
+    original: リトル・チャロ2
+    translations: { ja-Latn: Little Charo 2 }
+  seasons:
+    - id: little-charo-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [little-charo-2]

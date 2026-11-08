@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chieri-to-cherry
+  titles:
+    original: ちえりとチェリー
+    translations: { ja-Latn: Chieri to Cherry }
+  movies:
+    - id: chieri-to-cherry-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chieri-to-cherry]

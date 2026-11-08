@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: teritory
+  titles:
+    original: テリトリー
+    translations: { ja-Latn: Teritory }
+  movies:
+    - id: teritory-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [teritory]

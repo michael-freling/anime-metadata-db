@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shu-lao-san-jin-cheng-ji
+  titles:
+    original: Shu Lao San Jin Cheng Ji
+    translations: { ja-Latn: Shu Lao San Jin Cheng Ji }
+  movies:
+    - id: shu-lao-san-jin-cheng-ji-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shu-lao-san-jin-cheng-ji]

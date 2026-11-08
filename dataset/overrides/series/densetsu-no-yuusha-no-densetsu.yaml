@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: densetsu-no-yuusha-no-densetsu
+  titles:
+    original: 伝説の勇者の伝説
+    translations: { ja-Latn: Densetsu no Yuusha no Densetsu }
+  seasons:
+    - id: densetsu-no-yuusha-no-densetsu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [densetsu-no-yuusha-no-densetsu]

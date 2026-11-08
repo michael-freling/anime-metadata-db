@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: queen-s-blade-rebellion
+  titles:
+    original: クイーンズブレイド リベリオン
+    translations: { ja-Latn: "Queen's Blade: Rebellion" }
+  seasons:
+    - id: queen-s-blade-rebellion-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [queen-s-blade-rebellion]

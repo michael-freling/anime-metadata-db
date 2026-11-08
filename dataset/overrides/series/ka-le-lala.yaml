@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ka-le-lala
+  titles:
+    original: Ka Le Lala
+    translations: { ja-Latn: Ka Le Lala }
+  seasons:
+    - id: ka-le-lala-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ka-le-lala]

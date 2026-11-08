@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: geo-mecha-captain-dino
+  titles:
+    original: "Geo Mecha: Captain Dino"
+    translations: { ja-Latn: "Geo Mecha: Captain Dino" }
+  seasons:
+    - id: geo-mecha-captain-dino-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [geo-mecha-captain-dino]

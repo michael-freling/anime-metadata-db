@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bonjour-sweet-love-patisserie
+  titles:
+    original: Bonjour♪恋味パティスリー
+    translations: { ja-Latn: BONJOUR Sweet Love Patisserie }
+  seasons:
+    - id: bonjour-sweet-love-patisserie-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bonjour-sweet-love-patisserie]

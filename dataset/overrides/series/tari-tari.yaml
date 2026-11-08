@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tari-tari
+  titles:
+    original: タリ タリ
+    translations: { ja-Latn: Tari Tari }
+  seasons:
+    - id: tari-tari-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tari-tari]

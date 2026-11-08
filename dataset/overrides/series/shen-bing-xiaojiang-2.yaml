@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shen-bing-xiaojiang-2
+  titles:
+    original: Shen Bing Xiaojiang 2
+    translations: { ja-Latn: Shen Bing Xiaojiang 2 }
+  seasons:
+    - id: shen-bing-xiaojiang-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shen-bing-xiaojiang-2]

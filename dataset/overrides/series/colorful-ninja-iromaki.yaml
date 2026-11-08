@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: colorful-ninja-iromaki
+  titles:
+    original: カラフル忍者いろまき
+    translations: { ja-Latn: Colorful Ninja Iromaki }
+  movies:
+    - id: colorful-ninja-iromaki-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [colorful-ninja-iromaki]

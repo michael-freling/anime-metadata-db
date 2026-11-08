@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shen-bi-ma-liang
+  titles:
+    original: Shen Bi Ma Liang
+    translations: { ja-Latn: Shen Bi Ma Liang }
+  movies:
+    - id: shen-bi-ma-liang-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shen-bi-ma-liang]

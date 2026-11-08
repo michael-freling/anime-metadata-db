@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: uchi-no-oochopus
+  titles:
+    original: うちのウッチョパス
+    translations: { ja-Latn: Uchi no Oochopus }
+  seasons:
+    - id: uchi-no-oochopus-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [uchi-no-oochopus]

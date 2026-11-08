@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: teddy-xiong-wanju-dazhan
+  titles:
+    original: "Teddy Xiong: Wanju Dazhan"
+    translations: { ja-Latn: "Teddy Xiong: Wanju Dazhan" }
+  movies:
+    - id: teddy-xiong-wanju-dazhan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [teddy-xiong-wanju-dazhan]

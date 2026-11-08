@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: conglin-lixian
+  titles:
+    original: Conglin Lixian
+    translations: { ja-Latn: Conglin Lixian }
+  seasons:
+    - id: conglin-lixian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [conglin-lixian]

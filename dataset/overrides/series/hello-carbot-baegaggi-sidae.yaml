@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hello-carbot-baegaggi-sidae
+  titles:
+    original: "Hello Carbot: Baegaggi Sidae"
+    translations: { ja-Latn: "Hello Carbot: Baegaggi Sidae" }
+  movies:
+    - id: hello-carbot-baegaggi-sidae-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hello-carbot-baegaggi-sidae]

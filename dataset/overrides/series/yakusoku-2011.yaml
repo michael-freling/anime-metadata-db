@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yakusoku-2011
+  titles:
+    original: Yakusoku (2011)
+    translations: { ja-Latn: Yakusoku (2011) }
+  movies:
+    - id: yakusoku-2011-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yakusoku-2011]

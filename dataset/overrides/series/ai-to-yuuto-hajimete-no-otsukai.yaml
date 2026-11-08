@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ai-to-yuuto-hajimete-no-otsukai
+  titles:
+    original: 愛と勇斗〜はじめてのおつかい〜
+    translations: { ja-Latn: "Ai to Yuuto: Hajimete no Otsukai" }
+  movies:
+    - id: ai-to-yuuto-hajimete-no-otsukai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ai-to-yuuto-hajimete-no-otsukai]

@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dou-dou-hu-huihua-xiaotiandi
+  titles:
+    original: Dou Dou Hu Huihua Xiaotiandi
+    translations: { ja-Latn: Dou Dou Hu Huihua Xiaotiandi }
+  seasons:
+    - id: dou-dou-hu-huihua-xiaotiandi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dou-dou-hu-huihua-xiaotiandi]

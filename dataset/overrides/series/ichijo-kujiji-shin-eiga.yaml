@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ichijo-kujiji-shin-eiga
+  titles:
+    original: Ichijo Kujiji☆Shin Eiga
+    translations: { ja-Latn: Ichijo Kujiji☆Shin Eiga }
+  movies:
+    - id: ichijo-kujiji-shin-eiga-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ichijo-kujiji-shin-eiga]

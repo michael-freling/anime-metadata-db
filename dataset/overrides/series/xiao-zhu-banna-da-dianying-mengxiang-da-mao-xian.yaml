@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-zhu-banna-da-dianying-mengxiang-da-mao-xian
+  titles:
+    original: "Xiao Zhu Banna Da Dianying: Mengxiang Da \"Mao\" Xian"
+    translations: { ja-Latn: "Xiao Zhu Banna Da Dianying: Mengxiang Da \"Mao\" Xian" }
+  movies:
+    - id: xiao-zhu-banna-da-dianying-mengxiang-da-mao-xian-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-zhu-banna-da-dianying-mengxiang-da-mao-xian]

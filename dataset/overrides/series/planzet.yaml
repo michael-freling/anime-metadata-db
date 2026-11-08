@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: planzet
+  titles:
+    original: プランゼット
+    translations: { ja-Latn: Planzet }
+  movies:
+    - id: planzet-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [planzet]

@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pupa-movie
+  titles:
+    original: Pupa (Movie)
+    translations: { ja-Latn: Pupa (Movie) }
+  movies:
+    - id: pupa-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pupa-movie]

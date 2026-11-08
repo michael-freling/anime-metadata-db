@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zettai-15-byou-animation
+  titles:
+    original: 絶対15秒アニメーション！
+    translations: { ja-Latn: Zettai 15-byou Animation! }
+  movies:
+    - id: zettai-15-byou-animation-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zettai-15-byou-animation]

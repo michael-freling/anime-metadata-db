@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mai-zhu
+  titles:
+    original: Mai Zhu
+    translations: { ja-Latn: Mai Zhu }
+  movies:
+    - id: mai-zhu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mai-zhu]

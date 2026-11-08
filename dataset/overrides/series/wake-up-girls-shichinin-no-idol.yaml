@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wake-up-girls-shichinin-no-idol
+  titles:
+    original: "Wake Up, Girls! 七人のアイドル"
+    translations: { ja-Latn: "Wake Up, Girls! Shichinin no Idol" }
+  movies:
+    - id: wake-up-girls-shichinin-no-idol-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wake-up-girls-shichinin-no-idol]

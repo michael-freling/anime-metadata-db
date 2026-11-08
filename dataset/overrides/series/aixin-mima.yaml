@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aixin-mima
+  titles:
+    original: Aixin Mima
+    translations: { ja-Latn: Aixin Mima }
+  seasons:
+    - id: aixin-mima-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aixin-mima]

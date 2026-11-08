@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yi-kong-zhi-dian
+  titles:
+    original: Yi Kong Zhi Dian
+    translations: { ja-Latn: Yi Kong Zhi Dian }
+  seasons:
+    - id: yi-kong-zhi-dian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yi-kong-zhi-dian]

@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: taoleujima-beoseuteo-beullaeg-eosseolteuui-gwihwan
+  titles:
+    original: "Taoleujima Beoseuteo: Beullaeg-Eosseolteuui Gwihwan"
+    translations: { ja-Latn: "Taoleujima Beoseuteo: Beullaeg-Eosseolteuui Gwihwan" }
+  movies:
+    - id: taoleujima-beoseuteo-beullaeg-eosseolteuui-gwihwan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [taoleujima-beoseuteo-beullaeg-eosseolteuui-gwihwan]

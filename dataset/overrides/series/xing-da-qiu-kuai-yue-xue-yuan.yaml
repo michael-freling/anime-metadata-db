@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xing-da-qiu-kuai-yue-xue-yuan
+  titles:
+    original: Xing Da Qiu Kuai Yue Xue Yuan
+    translations: { ja-Latn: Xing Da Qiu Kuai Yue Xue Yuan }
+  seasons:
+    - id: xing-da-qiu-kuai-yue-xue-yuan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xing-da-qiu-kuai-yue-xue-yuan]

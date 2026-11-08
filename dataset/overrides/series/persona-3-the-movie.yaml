@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: persona-3-the-movie
+  titles:
+    original: 劇場版「ペルソナ3」
+    translations: { ja-Latn: Persona 3 The Movie }
+  movies:
+    - id: persona-3-the-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [persona-3-the-movie]

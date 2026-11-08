@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zuori-qing-kong
+  titles:
+    original: Zuori Qing Kong
+    translations: { ja-Latn: Zuori Qing Kong }
+  movies:
+    - id: zuori-qing-kong-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zuori-qing-kong]

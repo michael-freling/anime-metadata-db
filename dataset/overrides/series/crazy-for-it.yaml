@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: crazy-for-it
+  titles:
+    original: Crazy for It
+    translations: { ja-Latn: Crazy for It }
+  movies:
+    - id: crazy-for-it-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [crazy-for-it]

@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kingsglaive-final-fantasy-xv
+  titles:
+    original: "Kingsglaive: Final Fantasy XV"
+    translations: { ja-Latn: "Kingsglaive: Final Fantasy XV" }
+  movies:
+    - id: kingsglaive-final-fantasy-xv-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kingsglaive-final-fantasy-xv]

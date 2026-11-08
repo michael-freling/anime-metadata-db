@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: namida-wa-mou-yakiagaru
+  titles:
+    original: 涙はもう、 焼きあがる
+    translations: { ja-Latn: "Namida wa Mou, Yakiagaru" }
+  movies:
+    - id: namida-wa-mou-yakiagaru-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [namida-wa-mou-yakiagaru]

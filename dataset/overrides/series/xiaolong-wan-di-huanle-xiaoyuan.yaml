@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiaolong-wan-di-huanle-xiaoyuan
+  titles:
+    original: "Xiaolong Wan Di: Huanle Xiaoyuan"
+    translations: { ja-Latn: "Xiaolong Wan Di: Huanle Xiaoyuan" }
+  seasons:
+    - id: xiaolong-wan-di-huanle-xiaoyuan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiaolong-wan-di-huanle-xiaoyuan]

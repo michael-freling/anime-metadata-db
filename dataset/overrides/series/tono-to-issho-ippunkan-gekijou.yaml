@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tono-to-issho-ippunkan-gekijou
+  titles:
+    original: 殿といっしょ 1分間劇場
+    translations: { ja-Latn: "Tono to Issho: Ippunkan Gekijou" }
+  seasons:
+    - id: tono-to-issho-ippunkan-gekijou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tono-to-issho-ippunkan-gekijou]

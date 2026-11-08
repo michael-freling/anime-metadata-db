@@ -1,0 +1,21 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bottom-biting-bug
+  titles:
+    original: おしりかじり虫
+    translations: { ja-Latn: Bottom Biting Bug }
+  seasons:
+    - id: bottom-biting-bug-s1
+      number: 1
+    - id: bottom-biting-bug-s2
+      number: 2
+    - id: bottom-biting-bug-s3
+      number: 3
+    - id: bottom-biting-bug-s4
+      number: 4
+    - id: bottom-biting-bug-s5
+      number: 5
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bottom-biting-bug]

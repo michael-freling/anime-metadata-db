@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xin-chenglong-lixian-ji-mengjing-shouhu-zhe-2nd-season
+  titles:
+    original: "Xin Chenglong Lixian Ji: Mengjing Shouhu Zhe 2nd Season"
+    translations: { ja-Latn: "Xin Chenglong Lixian Ji: Mengjing Shouhu Zhe 2nd Season" }
+  seasons:
+    - id: xin-chenglong-lixian-ji-mengjing-shouhu-zhe-2nd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xin-chenglong-lixian-ji-mengjing-shouhu-zhe-2nd-season]

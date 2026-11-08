@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yubi-wo-nusunda-onna
+  titles:
+    original: 指を盗んだ女
+    translations: { ja-Latn: Yubi wo Nusunda Onna }
+  movies:
+    - id: yubi-wo-nusunda-onna-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yubi-wo-nusunda-onna]

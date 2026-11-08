@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ishi-kara
+  titles:
+    original: 石から
+    translations: { ja-Latn: Ishi kara }
+  movies:
+    - id: ishi-kara-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ishi-kara]

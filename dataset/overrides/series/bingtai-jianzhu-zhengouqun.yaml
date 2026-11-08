@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bingtai-jianzhu-zhengouqun
+  titles:
+    original: Bingtai Jianzhu Zhengouqun
+    translations: { ja-Latn: Bingtai Jianzhu Zhengouqun }
+  movies:
+    - id: bingtai-jianzhu-zhengouqun-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bingtai-jianzhu-zhengouqun]

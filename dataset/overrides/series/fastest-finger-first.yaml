@@ -1,0 +1,15 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fastest-finger-first
+  titles:
+    original: ナナマル サンバツ
+    translations: { ja-Latn: Fastest Finger First }
+  seasons:
+    - id: fastest-finger-first-s1
+      number: 1
+    - id: fastest-finger-first-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fastest-finger-first]

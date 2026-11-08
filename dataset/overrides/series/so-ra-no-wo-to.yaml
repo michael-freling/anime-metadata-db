@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: so-ra-no-wo-to
+  titles:
+    original: ソ・ラ・ノ・ヲ・ト
+    translations: { ja-Latn: So Ra No Wo To }
+  seasons:
+    - id: so-ra-no-wo-to-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [so-ra-no-wo-to]

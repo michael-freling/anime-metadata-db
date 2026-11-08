@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sakasama-no-patema
+  titles:
+    original: サカサマのパテマ
+    translations: { ja-Latn: Sakasama no Patema }
+  movies:
+    - id: sakasama-no-patema-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sakasama-no-patema]

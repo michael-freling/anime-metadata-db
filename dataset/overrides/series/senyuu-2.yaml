@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: senyuu-2
+  titles:
+    original: Senyuu. 2
+    translations: { ja-Latn: Senyuu. 2 }
+  seasons:
+    - id: senyuu-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [senyuu-2]

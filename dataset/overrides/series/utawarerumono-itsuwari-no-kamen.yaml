@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: utawarerumono-itsuwari-no-kamen
+  titles:
+    original: うたわれるもの 偽りの仮面
+    translations: { ja-Latn: "Utawarerumono: Itsuwari no Kamen" }
+  seasons:
+    - id: utawarerumono-itsuwari-no-kamen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [utawarerumono-itsuwari-no-kamen]

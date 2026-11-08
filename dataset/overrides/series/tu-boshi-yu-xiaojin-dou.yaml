@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tu-boshi-yu-xiaojin-dou
+  titles:
+    original: Tu Boshi Yu Xiaojin Dou
+    translations: { ja-Latn: Tu Boshi Yu Xiaojin Dou }
+  seasons:
+    - id: tu-boshi-yu-xiaojin-dou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tu-boshi-yu-xiaojin-dou]

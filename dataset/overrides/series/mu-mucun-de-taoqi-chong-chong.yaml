@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mu-mucun-de-taoqi-chong-chong
+  titles:
+    original: Mu Mucun De Taoqi Chong Chong
+    translations: { ja-Latn: Mu Mucun De Taoqi Chong Chong }
+  seasons:
+    - id: mu-mucun-de-taoqi-chong-chong-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mu-mucun-de-taoqi-chong-chong]

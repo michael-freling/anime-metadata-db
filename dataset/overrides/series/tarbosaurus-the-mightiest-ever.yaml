@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tarbosaurus-the-mightiest-ever
+  titles:
+    original: "Tarbosaurus, The Mightiest Ever"
+    translations: { ja-Latn: "Tarbosaurus, The Mightiest Ever" }
+  movies:
+    - id: tarbosaurus-the-mightiest-ever-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tarbosaurus-the-mightiest-ever]

@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: out-of-sight-out-of-mind
+  titles:
+    original: 空とぶハエも星のよう
+    translations: { ja-Latn: "Out of Sight, Out of Mind" }
+  movies:
+    - id: out-of-sight-out-of-mind-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [out-of-sight-out-of-mind]

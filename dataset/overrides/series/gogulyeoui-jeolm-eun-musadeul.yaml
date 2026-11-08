@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gogulyeoui-jeolm-eun-musadeul
+  titles:
+    original: Gogulyeoui Jeolm-eun Musadeul
+    translations: { ja-Latn: Gogulyeoui Jeolm-eun Musadeul }
+  seasons:
+    - id: gogulyeoui-jeolm-eun-musadeul-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gogulyeoui-jeolm-eun-musadeul]

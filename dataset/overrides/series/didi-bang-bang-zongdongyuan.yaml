@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: didi-bang-bang-zongdongyuan
+  titles:
+    original: DiDi Bang Bang Zongdongyuan
+    translations: { ja-Latn: DiDi Bang Bang Zongdongyuan }
+  seasons:
+    - id: didi-bang-bang-zongdongyuan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [didi-bang-bang-zongdongyuan]

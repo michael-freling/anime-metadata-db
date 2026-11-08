@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: danganronpa-3-the-end-of-kibougamine-gakuen-mirai-hen
+  titles:
+    original: ダンガンロンパ3 -The End of 希望ヶ峰学園- 未来編
+    translations: { ja-Latn: "Danganronpa 3: The End of Kibougamine Gakuen - Mirai-hen" }
+  seasons:
+    - id: danganronpa-3-the-end-of-kibougamine-gakuen-mirai-hen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [danganronpa-3-the-end-of-kibougamine-gakuen-mirai-hen]

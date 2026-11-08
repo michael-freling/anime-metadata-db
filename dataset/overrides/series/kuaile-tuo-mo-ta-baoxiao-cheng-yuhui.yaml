@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kuaile-tuo-mo-ta-baoxiao-cheng-yuhui
+  titles:
+    original: "Kuaile Tuo Mo Ta: Baoxiao Cheng Yuhui"
+    translations: { ja-Latn: "Kuaile Tuo Mo Ta: Baoxiao Cheng Yuhui" }
+  seasons:
+    - id: kuaile-tuo-mo-ta-baoxiao-cheng-yuhui-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kuaile-tuo-mo-ta-baoxiao-cheng-yuhui]

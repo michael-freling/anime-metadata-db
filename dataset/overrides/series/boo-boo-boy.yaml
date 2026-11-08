@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: boo-boo-boy
+  titles:
+    original: ブーブーボーイだっぷ
+    translations: { ja-Latn: Boo Boo Boy }
+  seasons:
+    - id: boo-boo-boy-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [boo-boo-boy]

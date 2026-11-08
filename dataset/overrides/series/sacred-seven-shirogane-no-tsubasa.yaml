@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sacred-seven-shirogane-no-tsubasa
+  titles:
+    original: セイクリッドセブン 銀月の翼
+    translations: { ja-Latn: "Sacred Seven: Shirogane no Tsubasa" }
+  movies:
+    - id: sacred-seven-shirogane-no-tsubasa-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sacred-seven-shirogane-no-tsubasa]

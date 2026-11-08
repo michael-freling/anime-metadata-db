@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dou-long-zhanshi-2-xing-long-sheng-yu
+  titles:
+    original: "Dou Long Zhanshi 2: Xing Long Sheng Yu"
+    translations: { ja-Latn: "Dou Long Zhanshi 2: Xing Long Sheng Yu" }
+  seasons:
+    - id: dou-long-zhanshi-2-xing-long-sheng-yu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dou-long-zhanshi-2-xing-long-sheng-yu]

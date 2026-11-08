@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sora-no-otoshimono-tokeijikake-no-angeloid
+  titles:
+    original: "劇場版 そらのおとしもの 時計じかけの哀女神[エンジェロイド]"
+    translations: { ja-Latn: "Sora no Otoshimono: Tokeijikake no Angeloid" }
+  movies:
+    - id: sora-no-otoshimono-tokeijikake-no-angeloid-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sora-no-otoshimono-tokeijikake-no-angeloid]

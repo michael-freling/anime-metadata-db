@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-snack-world-tv
+  titles:
+    original: スナックワールド (TV)
+    translations: { ja-Latn: The Snack World (TV) }
+  seasons:
+    - id: the-snack-world-tv-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-snack-world-tv]

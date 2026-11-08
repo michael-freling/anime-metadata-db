@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shimajirou-no-wow-movie-2-shimajirou-to-kujira-no-uta
+  titles:
+    original: 劇場版しまじろうのわお! しまじろうとくじらのうた
+    translations: { ja-Latn: "Shimajirou no Wow! Movie 2: Shimajirou to Kujira no Uta" }
+  movies:
+    - id: shimajirou-no-wow-movie-2-shimajirou-to-kujira-no-uta-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shimajirou-no-wow-movie-2-shimajirou-to-kujira-no-uta]

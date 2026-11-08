@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: k-seven-stories-the-idol-k
+  titles:
+    original: K SEVEN STORIES Spin-off Short Movie「ザ・アイドルK」
+    translations: { ja-Latn: "K: Seven Stories - The Idol K" }
+  movies:
+    - id: k-seven-stories-the-idol-k-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [k-seven-stories-the-idol-k]

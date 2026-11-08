@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: uwabaki-cook-no-tekitou-uranai
+  titles:
+    original: うわばきクックのテキトー占い!
+    translations: { ja-Latn: Uwabaki Cook no Tekitou Uranai! }
+  seasons:
+    - id: uwabaki-cook-no-tekitou-uranai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [uwabaki-cook-no-tekitou-uranai]

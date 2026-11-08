@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ai-jingling-lelia
+  titles:
+    original: Ai Jingling Lelia
+    translations: { ja-Latn: Ai Jingling Lelia }
+  seasons:
+    - id: ai-jingling-lelia-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ai-jingling-lelia]

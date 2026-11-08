@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: la-chambre-noire
+  titles:
+    original: La Chambre Noire
+    translations: { ja-Latn: La Chambre Noire }
+  movies:
+    - id: la-chambre-noire-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [la-chambre-noire]

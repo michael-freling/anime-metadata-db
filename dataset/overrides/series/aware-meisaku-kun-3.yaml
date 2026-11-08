@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aware-meisaku-kun-3
+  titles:
+    original: あはれ！名作くん(第3期)
+    translations: { ja-Latn: Aware! Meisaku-kun 3 }
+  seasons:
+    - id: aware-meisaku-kun-3-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aware-meisaku-kun-3]

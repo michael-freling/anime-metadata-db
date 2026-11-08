@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: blue-eyes-in-harbor-tale
+  titles:
+    original: ブルーアイズ イン ハーバーテイル
+    translations: { ja-Latn: "Blue Eyes: In Harbor Tale" }
+  movies:
+    - id: blue-eyes-in-harbor-tale-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [blue-eyes-in-harbor-tale]

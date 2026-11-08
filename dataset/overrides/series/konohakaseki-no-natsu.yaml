@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: konohakaseki-no-natsu
+  titles:
+    original: 木の葉化石の夏
+    translations: { ja-Latn: Konohakaseki no Natsu }
+  movies:
+    - id: konohakaseki-no-natsu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [konohakaseki-no-natsu]

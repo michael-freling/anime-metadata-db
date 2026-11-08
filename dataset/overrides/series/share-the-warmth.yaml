@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: share-the-warmth
+  titles:
+    original: 象印マホービン グローバルブランドムービー “Share the Warmth”
+    translations: { ja-Latn: Share the Warmth }
+  movies:
+    - id: share-the-warmth-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [share-the-warmth]

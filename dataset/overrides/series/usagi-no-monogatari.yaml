@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: usagi-no-monogatari
+  titles:
+    original: ウサギの物語
+    translations: { ja-Latn: Usagi no Monogatari }
+  movies:
+    - id: usagi-no-monogatari-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [usagi-no-monogatari]

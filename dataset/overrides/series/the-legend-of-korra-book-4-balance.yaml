@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-legend-of-korra-book-4-balance
+  titles:
+    original: "The Legend of Korra Book 4: Balance"
+    translations: { ja-Latn: "The Legend of Korra Book 4: Balance" }
+  seasons:
+    - id: the-legend-of-korra-book-4-balance-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-legend-of-korra-book-4-balance]

@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: momoku-no-satou
+  titles:
+    original: 盲目の砂糖
+    translations: { ja-Latn: Momoku no Satou }
+  movies:
+    - id: momoku-no-satou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [momoku-no-satou]

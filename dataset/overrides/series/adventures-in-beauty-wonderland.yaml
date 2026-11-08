@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: adventures-in-beauty-wonderland
+  titles:
+    original: Adventures in Beauty Wonderland
+    translations: { ja-Latn: Adventures in Beauty Wonderland }
+  movies:
+    - id: adventures-in-beauty-wonderland-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [adventures-in-beauty-wonderland]

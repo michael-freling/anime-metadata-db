@@ -1,0 +1,17 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kuroko-no-basket
+  titles:
+    original: 黒子のバスケ
+    translations: { ja-Latn: Kuroko no Basket }
+  seasons:
+    - id: kuroko-no-basket-s1
+      number: 1
+    - id: kuroko-no-basket-s2
+      number: 2
+    - id: kuroko-no-basket-s3
+      number: 3
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kuroko-no-basket]

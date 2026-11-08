@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: choboraunyopomi-gekijou-dai-ni-maku-ai-mai-mii-mousou-catastrophe
+  titles:
+    original: ちょぼらうにょぽみ劇場第二幕 あいまいみー ~妄想カタストロフ~
+    translations: { ja-Latn: "Choboraunyopomi Gekijou Dai Ni Maku Ai Mai Mii: Mousou Catastrophe" }
+  seasons:
+    - id: choboraunyopomi-gekijou-dai-ni-maku-ai-mai-mii-mousou-catastrophe-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [choboraunyopomi-gekijou-dai-ni-maku-ai-mai-mii-mousou-catastrophe]

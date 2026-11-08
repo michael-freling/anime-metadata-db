@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: doraemon-uchuu-fushigi-daitanken-planetarium-3-ukyuu-no-fushigi
+  titles:
+    original: ドラえもん 宇宙ふしぎ大探検 プラネタリウム 3 〜地球のふしぎ〜
+    translations: { ja-Latn: "Doraemon: Uchuu Fushigi Daitanken Planetarium 3 - Ukyuu no Fushigi" }
+  movies:
+    - id: doraemon-uchuu-fushigi-daitanken-planetarium-3-ukyuu-no-fushigi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [doraemon-uchuu-fushigi-daitanken-planetarium-3-ukyuu-no-fushigi]

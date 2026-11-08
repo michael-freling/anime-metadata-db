@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: another-time
+  titles:
+    original: ジージとバーバ
+    translations: { ja-Latn: Another Time }
+  movies:
+    - id: another-time-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [another-time]

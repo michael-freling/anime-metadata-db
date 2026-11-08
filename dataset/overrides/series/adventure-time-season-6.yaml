@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: adventure-time-season-6
+  titles:
+    original: Adventure Time Season 6
+    translations: { ja-Latn: Adventure Time Season 6 }
+  seasons:
+    - id: adventure-time-season-6-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [adventure-time-season-6]

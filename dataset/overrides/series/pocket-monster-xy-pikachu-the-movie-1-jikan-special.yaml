@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pocket-monster-xy-pikachu-the-movie-1-jikan-special
+  titles:
+    original: ポケットモンスター ＸＹ ピカチュウ・ザ・ムービー１時間スペシャル
+    translations: { ja-Latn: Pocket Monster XY Pikachu the Movie 1 Jikan Special }
+  movies:
+    - id: pocket-monster-xy-pikachu-the-movie-1-jikan-special-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pocket-monster-xy-pikachu-the-movie-1-jikan-special]

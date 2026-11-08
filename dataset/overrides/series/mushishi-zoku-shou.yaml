@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mushishi-zoku-shou
+  titles:
+    original: Mushishi Zoku Shou
+    translations: { ja-Latn: Mushishi Zoku Shou }
+  seasons:
+    - id: mushishi-zoku-shou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mushishi-zoku-shou]

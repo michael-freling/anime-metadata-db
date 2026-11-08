@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pai-le-meng-qi
+  titles:
+    original: Pai Le Meng Qi
+    translations: { ja-Latn: Pai Le Meng Qi }
+  seasons:
+    - id: pai-le-meng-qi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pai-le-meng-qi]

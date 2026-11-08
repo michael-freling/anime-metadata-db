@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ansoku-no-basho
+  titles:
+    original: 安息の場所
+    translations: { ja-Latn: Ansoku no Basho }
+  movies:
+    - id: ansoku-no-basho-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ansoku-no-basho]

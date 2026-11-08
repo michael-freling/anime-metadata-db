@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gg-dou-2nd-season
+  titles:
+    original: GG Dou 2nd Season
+    translations: { ja-Latn: GG Dou 2nd Season }
+  seasons:
+    - id: gg-dou-2nd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gg-dou-2nd-season]

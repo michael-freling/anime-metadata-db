@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: uchi-no-3-shimai-movie
+  titles:
+    original: えいが うちの3姉妹
+    translations: { ja-Latn: Uchi no 3 Shimai Movie }
+  movies:
+    - id: uchi-no-3-shimai-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [uchi-no-3-shimai-movie]

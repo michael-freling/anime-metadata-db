@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: how-to-paint-your-rainbow
+  titles:
+    original: How to Paint Your Rainbow
+    translations: { ja-Latn: How to Paint Your Rainbow }
+  movies:
+    - id: how-to-paint-your-rainbow-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [how-to-paint-your-rainbow]

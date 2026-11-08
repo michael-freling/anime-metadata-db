@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jueshi-tu-ii-yongheng-zhi-qu
+  titles:
+    original: "Jueshi Tu II: Yongheng Zhi Qu"
+    translations: { ja-Latn: "Jueshi Tu II: Yongheng Zhi Qu" }
+  seasons:
+    - id: jueshi-tu-ii-yongheng-zhi-qu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jueshi-tu-ii-yongheng-zhi-qu]

@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-ji-bu-hao-re-xian-dan-si
+  titles:
+    original: "Xiao Ji Bu Hao Re: Xian Dan Si"
+    translations: { ja-Latn: "Xiao Ji Bu Hao Re: Xian Dan Si" }
+  seasons:
+    - id: xiao-ji-bu-hao-re-xian-dan-si-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-ji-bu-hao-re-xian-dan-si]

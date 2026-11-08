@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: cheburashka-doubutsuen-e-iku
+  titles:
+    original: チェブラーシカ 動物園へ行く
+    translations: { ja-Latn: "Cheburashka: Doubutsuen e Iku" }
+  movies:
+    - id: cheburashka-doubutsuen-e-iku-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [cheburashka-doubutsuen-e-iku]

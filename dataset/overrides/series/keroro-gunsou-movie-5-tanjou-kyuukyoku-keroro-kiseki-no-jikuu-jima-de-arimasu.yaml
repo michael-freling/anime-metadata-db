@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: keroro-gunsou-movie-5-tanjou-kyuukyoku-keroro-kiseki-no-jikuu-jima-de-arimasu
+  titles:
+    original: 超劇場版ケロロ軍曹 誕生!究極ケロロ 奇跡の時空島であります!!
+    translations: { ja-Latn: "Keroro Gunsou Movie 5: Tanjou! Kyuukyoku Keroro, Kiseki no Jikuu-jima, de Arimasu!!" }
+  movies:
+    - id: keroro-gunsou-movie-5-tanjou-kyuukyoku-keroro-kiseki-no-jikuu-jima-de-arimasu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [keroro-gunsou-movie-5-tanjou-kyuukyoku-keroro-kiseki-no-jikuu-jima-de-arimasu]

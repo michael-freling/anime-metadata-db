@@ -1,0 +1,19 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: monsuno-combat-chaos
+  titles:
+    original: 獣旋バトル モンスーノ
+    translations: { ja-Latn: "Monsuno: Combat Chaos" }
+  seasons:
+    - id: monsuno-combat-chaos-s1
+      number: 1
+    - id: monsuno-combat-chaos-s2
+      number: 2
+    - id: monsuno-combat-chaos-s3
+      number: 3
+    - id: monsuno-combat-chaos-s4
+      number: 4
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [monsuno-combat-chaos]

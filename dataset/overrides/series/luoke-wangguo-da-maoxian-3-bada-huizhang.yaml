@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: luoke-wangguo-da-maoxian-3-bada-huizhang
+  titles:
+    original: "Luoke Wangguo Da Maoxian 3: Bada Huizhang"
+    translations: { ja-Latn: "Luoke Wangguo Da Maoxian 3: Bada Huizhang" }
+  seasons:
+    - id: luoke-wangguo-da-maoxian-3-bada-huizhang-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [luoke-wangguo-da-maoxian-3-bada-huizhang]

@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhu-zhu-xia-yong-chuang-juren-dao
+  titles:
+    original: "Zhu Zhu Xia: Yong Chuang Juren Dao"
+    translations: { ja-Latn: "Zhu Zhu Xia: Yong Chuang Juren Dao" }
+  movies:
+    - id: zhu-zhu-xia-yong-chuang-juren-dao-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhu-zhu-xia-yong-chuang-juren-dao]

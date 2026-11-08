@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tsukuru-no-daisuki-nendo-kun-to-nakamatachi
+  titles:
+    original: つくるのだいすき! ねんどぅーくんとなかまたち
+    translations: { ja-Latn: Tsukuru no Daisuki! NenDo!-kun to Nakamatachi }
+  seasons:
+    - id: tsukuru-no-daisuki-nendo-kun-to-nakamatachi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tsukuru-no-daisuki-nendo-kun-to-nakamatachi]

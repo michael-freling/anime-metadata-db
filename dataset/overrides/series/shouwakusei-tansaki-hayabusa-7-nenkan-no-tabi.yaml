@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shouwakusei-tansaki-hayabusa-7-nenkan-no-tabi
+  titles:
+    original: 小惑星探査機はやぶさ　7年間の旅
+    translations: { ja-Latn: "Shouwakusei Tansaki Hayabusa: 7-nenkan no Tabi" }
+  movies:
+    - id: shouwakusei-tansaki-hayabusa-7-nenkan-no-tabi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shouwakusei-tansaki-hayabusa-7-nenkan-no-tabi]

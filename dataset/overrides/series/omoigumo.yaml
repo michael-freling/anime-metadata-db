@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: omoigumo
+  titles:
+    original: 想い雲
+    translations: { ja-Latn: Omoigumo }
+  movies:
+    - id: omoigumo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [omoigumo]

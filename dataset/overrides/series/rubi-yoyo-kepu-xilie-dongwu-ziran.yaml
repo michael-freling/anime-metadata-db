@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rubi-yoyo-kepu-xilie-dongwu-ziran
+  titles:
+    original: "Rubi Yoyo Kepu Xilie: Dongwu Ziran"
+    translations: { ja-Latn: "Rubi Yoyo Kepu Xilie: Dongwu Ziran" }
+  seasons:
+    - id: rubi-yoyo-kepu-xilie-dongwu-ziran-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rubi-yoyo-kepu-xilie-dongwu-ziran]

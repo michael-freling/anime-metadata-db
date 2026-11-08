@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sup-sok-chingu-stonyz
+  titles:
+    original: Sup Sok Chingu Stonyz
+    translations: { ja-Latn: Sup Sok Chingu Stonyz }
+  seasons:
+    - id: sup-sok-chingu-stonyz-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sup-sok-chingu-stonyz]

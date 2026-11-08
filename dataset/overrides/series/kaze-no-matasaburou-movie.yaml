@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaze-no-matasaburou-movie
+  titles:
+    original: 風の又三郎 (Movie)
+    translations: { ja-Latn: Kaze no Matasaburou (Movie) }
+  movies:
+    - id: kaze-no-matasaburou-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaze-no-matasaburou-movie]

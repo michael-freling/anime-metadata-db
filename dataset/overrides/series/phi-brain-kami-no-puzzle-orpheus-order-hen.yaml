@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: phi-brain-kami-no-puzzle-orpheus-order-hen
+  titles:
+    original: ファイ・ブレイン ～神のパズル オルペウス・オーダー編
+    translations: { ja-Latn: "Phi Brain: Kami no Puzzle - Orpheus Order-hen" }
+  seasons:
+    - id: phi-brain-kami-no-puzzle-orpheus-order-hen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [phi-brain-kami-no-puzzle-orpheus-order-hen]

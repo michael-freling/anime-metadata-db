@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: taiyang-liu-zhu-wo
+  titles:
+    original: Taiyang Liu Zhu Wo
+    translations: { ja-Latn: Taiyang Liu Zhu Wo }
+  movies:
+    - id: taiyang-liu-zhu-wo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [taiyang-liu-zhu-wo]

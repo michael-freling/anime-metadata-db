@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ange-vierge
+  titles:
+    original: "アンジュ・ヴィエルジュ \"Progress\": Girls facing destiny against Worlds’ Ending"
+    translations: { ja-Latn: Ange Vierge }
+  seasons:
+    - id: ange-vierge-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ange-vierge]

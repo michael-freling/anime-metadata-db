@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lao-fu-zi-3
+  titles:
+    original: Lao Fu Zi 3
+    translations: { ja-Latn: Lao Fu Zi 3 }
+  seasons:
+    - id: lao-fu-zi-3-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lao-fu-zi-3]

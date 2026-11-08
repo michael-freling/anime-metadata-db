@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yurumates-3d
+  titles:
+    original: ゆるめいつ 3でぃ
+    translations: { ja-Latn: Yurumates 3D }
+  seasons:
+    - id: yurumates-3d-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yurumates-3d]

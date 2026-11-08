@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ding-laotou-he-jiong-gg
+  titles:
+    original: Ding Laotou He Jiong GG
+    translations: { ja-Latn: Ding Laotou He Jiong GG }
+  seasons:
+    - id: ding-laotou-he-jiong-gg-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ding-laotou-he-jiong-gg]

@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhen-gyi-hong-shi
+  titles:
+    original: Zhen Gyi Hong Shi
+    translations: { ja-Latn: Zhen Gyi Hong Shi }
+  seasons:
+    - id: zhen-gyi-hong-shi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhen-gyi-hong-shi]

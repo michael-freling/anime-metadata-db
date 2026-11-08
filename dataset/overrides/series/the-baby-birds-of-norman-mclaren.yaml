@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-baby-birds-of-norman-mclaren
+  titles:
+    original: The Baby Birds of Norman McLaren
+    translations: { ja-Latn: The Baby Birds of Norman McLaren }
+  movies:
+    - id: the-baby-birds-of-norman-mclaren-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-baby-birds-of-norman-mclaren]

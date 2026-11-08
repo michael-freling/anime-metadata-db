@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rudolf-to-ippaiattena
+  titles:
+    original: ルドルフとイッパイアッテナ」フ
+    translations: { ja-Latn: Rudolf to Ippaiattena }
+  movies:
+    - id: rudolf-to-ippaiattena-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rudolf-to-ippaiattena]

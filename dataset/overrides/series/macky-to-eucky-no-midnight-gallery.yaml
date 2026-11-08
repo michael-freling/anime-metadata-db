@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: macky-to-eucky-no-midnight-gallery
+  titles:
+    original: マッキーとユッキーのミッドナイト・ギャラリ
+    translations: { ja-Latn: Macky to Eucky no Midnight Gallery }
+  movies:
+    - id: macky-to-eucky-no-midnight-gallery-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [macky-to-eucky-no-midnight-gallery]

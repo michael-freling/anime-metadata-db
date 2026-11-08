@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zheng-he-1405-mo-hai-xun-zong
+  titles:
+    original: "Zheng He 1405: Mo Hai Xun Zong"
+    translations: { ja-Latn: "Zheng He 1405: Mo Hai Xun Zong" }
+  movies:
+    - id: zheng-he-1405-mo-hai-xun-zong-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zheng-he-1405-mo-hai-xun-zong]

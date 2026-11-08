@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lele-xiong-shengcun-da-maoxian
+  titles:
+    original: Lele Xiong Shengcun Da Maoxian
+    translations: { ja-Latn: Lele Xiong Shengcun Da Maoxian }
+  seasons:
+    - id: lele-xiong-shengcun-da-maoxian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lele-xiong-shengcun-da-maoxian]

@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tiger-bunny-movie-1-the-beginning
+  titles:
+    original: "Tiger & Bunny Movie 1: The Beginning"
+    translations: { ja-Latn: "Tiger & Bunny Movie 1: The Beginning" }
+  movies:
+    - id: tiger-bunny-movie-1-the-beginning-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tiger-bunny-movie-1-the-beginning]

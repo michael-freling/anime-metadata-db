@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: precure-super-stars-movie
+  titles:
+    original: 映画プリキュアスーパースターズ!
+    translations: { ja-Latn: Precure Super Stars! Movie }
+  movies:
+    - id: precure-super-stars-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [precure-super-stars-movie]

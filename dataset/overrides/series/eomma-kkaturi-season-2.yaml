@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: eomma-kkaturi-season-2
+  titles:
+    original: Eomma Kkaturi Season 2
+    translations: { ja-Latn: Eomma Kkaturi Season 2 }
+  seasons:
+    - id: eomma-kkaturi-season-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [eomma-kkaturi-season-2]

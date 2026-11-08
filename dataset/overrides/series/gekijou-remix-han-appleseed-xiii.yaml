@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gekijou-remix-han-appleseed-xiii
+  titles:
+    original: 劇場リミックス版 APPLESEED XIII
+    translations: { ja-Latn: Gekijou Remix Han Appleseed XIII }
+  movies:
+    - id: gekijou-remix-han-appleseed-xiii-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gekijou-remix-han-appleseed-xiii]

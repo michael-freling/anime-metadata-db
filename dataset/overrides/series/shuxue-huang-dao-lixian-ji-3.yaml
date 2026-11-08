@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shuxue-huang-dao-lixian-ji-3
+  titles:
+    original: Shuxue Huang Dao Lixian Ji 3
+    translations: { ja-Latn: Shuxue Huang Dao Lixian Ji 3 }
+  seasons:
+    - id: shuxue-huang-dao-lixian-ji-3-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shuxue-huang-dao-lixian-ji-3]

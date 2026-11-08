@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: okusama-ga-seitokaichou
+  titles:
+    original: おくさまが生徒会長! 2
+    translations: { ja-Latn: Okusama ga Seitokaichou!+! }
+  seasons:
+    - id: okusama-ga-seitokaichou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [okusama-ga-seitokaichou]

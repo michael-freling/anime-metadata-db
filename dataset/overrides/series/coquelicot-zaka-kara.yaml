@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: coquelicot-zaka-kara
+  titles:
+    original: コクリコ坂から
+    translations: { ja-Latn: Coquelicot-zaka kara }
+  movies:
+    - id: coquelicot-zaka-kara-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [coquelicot-zaka-kara]

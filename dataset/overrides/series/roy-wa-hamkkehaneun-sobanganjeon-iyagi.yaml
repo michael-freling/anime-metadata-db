@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: roy-wa-hamkkehaneun-sobanganjeon-iyagi
+  titles:
+    original: Roy wa Hamkkehaneun Sobanganjeon Iyagi
+    translations: { ja-Latn: Roy wa Hamkkehaneun Sobanganjeon Iyagi }
+  seasons:
+    - id: roy-wa-hamkkehaneun-sobanganjeon-iyagi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [roy-wa-hamkkehaneun-sobanganjeon-iyagi]

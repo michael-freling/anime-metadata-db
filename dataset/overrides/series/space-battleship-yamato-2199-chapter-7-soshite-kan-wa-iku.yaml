@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: space-battleship-yamato-2199-chapter-7-soshite-kan-wa-iku
+  titles:
+    original: 宇宙戦艦ヤマト２１９９ 第七章「そして艦は行く」
+    translations: { ja-Latn: "Space Battleship Yamato 2199 Chapter 7: Soshite Kan wa Iku" }
+  movies:
+    - id: space-battleship-yamato-2199-chapter-7-soshite-kan-wa-iku-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [space-battleship-yamato-2199-chapter-7-soshite-kan-wa-iku]

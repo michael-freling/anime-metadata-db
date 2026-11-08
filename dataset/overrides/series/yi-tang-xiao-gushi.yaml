@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yi-tang-xiao-gushi
+  titles:
+    original: Yi Tang Xiao Gushi
+    translations: { ja-Latn: Yi Tang Xiao Gushi }
+  seasons:
+    - id: yi-tang-xiao-gushi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yi-tang-xiao-gushi]

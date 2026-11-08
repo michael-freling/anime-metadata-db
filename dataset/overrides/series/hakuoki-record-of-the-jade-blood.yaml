@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hakuoki-record-of-the-jade-blood
+  titles:
+    original: "Hakuōki: Record of the Jade Blood"
+    translations: { ja-Latn: "Hakuōki: Record of the Jade Blood" }
+  seasons:
+    - id: hakuoki-record-of-the-jade-blood-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hakuoki-record-of-the-jade-blood]

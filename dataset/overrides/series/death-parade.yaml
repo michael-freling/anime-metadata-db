@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: death-parade
+  titles:
+    original: デス・パレード
+    translations: { ja-Latn: Death Parade }
+  seasons:
+    - id: death-parade-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [death-parade]

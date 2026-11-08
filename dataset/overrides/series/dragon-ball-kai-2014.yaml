@@ -1,0 +1,15 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dragon-ball-kai-2014
+  titles:
+    original: ドラゴンボール改 魔人ブウ編
+    translations: { ja-Latn: Dragon Ball Kai (2014) }
+  seasons:
+    - id: dragon-ball-kai-2014-s1
+      number: 1
+    - id: dragon-ball-kai-2014-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dragon-ball-kai-2014]

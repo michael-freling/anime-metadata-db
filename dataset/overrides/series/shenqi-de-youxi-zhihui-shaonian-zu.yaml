@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shenqi-de-youxi-zhihui-shaonian-zu
+  titles:
+    original: "Shenqi de Youxi: Zhihui Shaonian Zu"
+    translations: { ja-Latn: "Shenqi de Youxi: Zhihui Shaonian Zu" }
+  seasons:
+    - id: shenqi-de-youxi-zhihui-shaonian-zu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shenqi-de-youxi-zhihui-shaonian-zu]

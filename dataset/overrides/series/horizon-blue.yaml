@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: horizon-blue
+  titles:
+    original: "Toshi Touei Gekiga: Horizon Blue (都市投影劇画 ホライズンブルー)"
+    translations: { ja-Latn: Horizon Blue }
+  movies:
+    - id: horizon-blue-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [horizon-blue]

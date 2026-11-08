@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: touken-ranbu-hanamaru-makuai-kaisoroku
+  titles:
+    original: "Touken Ranbu: Hanamaru ~Makuai Kaisōroku~"
+    translations: { ja-Latn: "Touken Ranbu: Hanamaru ~Makuai Kaisōroku~" }
+  movies:
+    - id: touken-ranbu-hanamaru-makuai-kaisoroku-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [touken-ranbu-hanamaru-makuai-kaisoroku]

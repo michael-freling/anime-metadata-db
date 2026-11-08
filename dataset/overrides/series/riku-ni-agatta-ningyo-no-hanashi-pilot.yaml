@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: riku-ni-agatta-ningyo-no-hanashi-pilot
+  titles:
+    original: 陸にあがった人魚のはなし (パイロット版)
+    translations: { ja-Latn: Riku ni Agatta Ningyo no Hanashi Pilot }
+  movies:
+    - id: riku-ni-agatta-ningyo-no-hanashi-pilot-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [riku-ni-agatta-ningyo-no-hanashi-pilot]

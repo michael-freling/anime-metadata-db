@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ganbare-bu-next
+  titles:
+    original: ガンバレー部NEXT!
+    translations: { ja-Latn: Ganbare-bu Next! }
+  seasons:
+    - id: ganbare-bu-next-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ganbare-bu-next]

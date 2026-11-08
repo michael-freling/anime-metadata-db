@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: saenai-heroine-no-sodatekata-fine
+  titles:
+    original: 劇場版 冴えない彼女の育てかた Fine
+    translations: { ja-Latn: Saenai Heroine no Sodatekata Fine }
+  movies:
+    - id: saenai-heroine-no-sodatekata-fine-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [saenai-heroine-no-sodatekata-fine]

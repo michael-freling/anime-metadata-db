@@ -1,0 +1,15 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: norasco-movie
+  titles:
+    original: 野良スコ
+    translations: { ja-Latn: Norasco (Movie) }
+  seasons:
+    - id: norasco-movie-s1
+      number: 1
+  movies:
+    - id: norasco-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [norasco-movie]

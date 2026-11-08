@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: liang-zhi-xiao-zhu-yong-chuang-shenmi-dao
+  titles:
+    original: "Liang Zhi Xiao Zhu: Yong Chuang Shenmi Dao"
+    translations: { ja-Latn: "Liang Zhi Xiao Zhu: Yong Chuang Shenmi Dao" }
+  movies:
+    - id: liang-zhi-xiao-zhu-yong-chuang-shenmi-dao-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [liang-zhi-xiao-zhu-yong-chuang-shenmi-dao]

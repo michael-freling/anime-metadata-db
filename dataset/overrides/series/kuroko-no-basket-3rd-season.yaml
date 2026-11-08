@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kuroko-no-basket-3rd-season
+  titles:
+    original: 黒子のバスケ 3rd SEASON
+    translations: { ja-Latn: Kuroko no Basket 3rd Season }
+  seasons:
+    - id: kuroko-no-basket-3rd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kuroko-no-basket-3rd-season]

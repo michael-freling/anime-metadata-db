@@ -1,0 +1,15 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gakusen-toshi-asterisk
+  titles:
+    original: 学戦都市アスタリスク
+    translations: { ja-Latn: Gakusen Toshi Asterisk }
+  seasons:
+    - id: gakusen-toshi-asterisk-s1
+      number: 1
+    - id: gakusen-toshi-asterisk-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gakusen-toshi-asterisk]

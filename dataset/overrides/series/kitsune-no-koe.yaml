@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kitsune-no-koe
+  titles:
+    original: 狐狸の声
+    translations: { ja-Latn: Kitsune no Koe }
+  seasons:
+    - id: kitsune-no-koe-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kitsune-no-koe]

@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: battle-spirits-sword-eyes-gekitouden
+  titles:
+    original: バトルスピリッツ ソードアイズ激闘伝
+    translations: { ja-Latn: "Battle Spirits: Sword Eyes Gekitouden" }
+  seasons:
+    - id: battle-spirits-sword-eyes-gekitouden-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [battle-spirits-sword-eyes-gekitouden]

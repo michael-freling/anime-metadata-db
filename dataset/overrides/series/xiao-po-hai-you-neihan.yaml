@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-po-hai-you-neihan
+  titles:
+    original: "Xiao Po Hai: You Neihan"
+    translations: { ja-Latn: "Xiao Po Hai: You Neihan" }
+  seasons:
+    - id: xiao-po-hai-you-neihan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-po-hai-you-neihan]

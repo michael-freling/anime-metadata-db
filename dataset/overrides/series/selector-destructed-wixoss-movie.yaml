@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: selector-destructed-wixoss-movie
+  titles:
+    original: Selector Destructed WIXOSS Movie
+    translations: { ja-Latn: Selector Destructed WIXOSS Movie }
+  movies:
+    - id: selector-destructed-wixoss-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [selector-destructed-wixoss-movie]

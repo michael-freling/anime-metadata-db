@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hoshiai-no-sora
+  titles:
+    original: 星合の空
+    translations: { ja-Latn: Hoshiai no Sora }
+  seasons:
+    - id: hoshiai-no-sora-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hoshiai-no-sora]

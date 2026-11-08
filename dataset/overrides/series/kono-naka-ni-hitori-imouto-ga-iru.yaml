@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kono-naka-ni-hitori-imouto-ga-iru
+  titles:
+    original: "この中に1人, 妹がいる!"
+    translations: { ja-Latn: "Kono Naka ni Hitori, Imouto ga Iru!" }
+  seasons:
+    - id: kono-naka-ni-hitori-imouto-ga-iru-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kono-naka-ni-hitori-imouto-ga-iru]

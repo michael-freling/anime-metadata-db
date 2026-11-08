@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ano-hi-mita-hana-no-namae-wo-bokutachi-wa-mada-shiranai
+  titles:
+    original: あの日見た花の名前を僕達はまだ知らない.
+    translations: { ja-Latn: Ano Hi Mita Hana no Namae wo Bokutachi wa Mada Shiranai. }
+  seasons:
+    - id: ano-hi-mita-hana-no-namae-wo-bokutachi-wa-mada-shiranai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ano-hi-mita-hana-no-namae-wo-bokutachi-wa-mada-shiranai]

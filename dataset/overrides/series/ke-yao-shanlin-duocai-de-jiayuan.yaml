@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ke-yao-shanlin-duocai-de-jiayuan
+  titles:
+    original: "Ke Yao Shanlin: Duocai de Jiayuan"
+    translations: { ja-Latn: "Ke Yao Shanlin: Duocai de Jiayuan" }
+  movies:
+    - id: ke-yao-shanlin-duocai-de-jiayuan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ke-yao-shanlin-duocai-de-jiayuan]

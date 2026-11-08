@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: piaoyi-dao-tiankong-lixian-ji
+  titles:
+    original: "Piaoyi Dao: Tiankong Lixian Ji"
+    translations: { ja-Latn: "Piaoyi Dao: Tiankong Lixian Ji" }
+  seasons:
+    - id: piaoyi-dao-tiankong-lixian-ji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [piaoyi-dao-tiankong-lixian-ji]

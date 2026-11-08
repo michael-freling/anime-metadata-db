@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: umiushi-shimai-gekijou-tanabata-hen
+  titles:
+    original: うみうし姉妹劇場～七夕編～
+    translations: { ja-Latn: "Umiushi Shimai Gekijou: Tanabata-hen" }
+  movies:
+    - id: umiushi-shimai-gekijou-tanabata-hen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [umiushi-shimai-gekijou-tanabata-hen]

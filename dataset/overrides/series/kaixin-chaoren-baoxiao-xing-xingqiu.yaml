@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaixin-chaoren-baoxiao-xing-xingqiu
+  titles:
+    original: "Kaixin Chaoren: Baoxiao Xing Xingqiu"
+    translations: { ja-Latn: "Kaixin Chaoren: Baoxiao Xing Xingqiu" }
+  seasons:
+    - id: kaixin-chaoren-baoxiao-xing-xingqiu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaixin-chaoren-baoxiao-xing-xingqiu]

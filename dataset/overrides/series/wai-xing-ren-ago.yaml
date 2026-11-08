@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wai-xing-ren-ago
+  titles:
+    original: Wai Xing Ren Ago
+    translations: { ja-Latn: Wai Xing Ren Ago }
+  seasons:
+    - id: wai-xing-ren-ago-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wai-xing-ren-ago]

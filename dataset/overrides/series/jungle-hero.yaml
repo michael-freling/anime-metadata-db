@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jungle-hero
+  titles:
+    original: Jungle Hero
+    translations: { ja-Latn: Jungle Hero }
+  movies:
+    - id: jungle-hero-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jungle-hero]

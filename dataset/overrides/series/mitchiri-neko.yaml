@@ -1,0 +1,15 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mitchiri-neko
+  titles:
+    original: みっちりねこ
+    translations: { ja-Latn: Mitchiri Neko }
+  seasons:
+    - id: mitchiri-neko-s1
+      number: 1
+    - id: mitchiri-neko-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mitchiri-neko]

@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiong-zi-xiongxin-zhuangzhi
+  titles:
+    original: "Xiong Zi: Xiongxin Zhuangzhi"
+    translations: { ja-Latn: "Xiong Zi: Xiongxin Zhuangzhi" }
+  seasons:
+    - id: xiong-zi-xiongxin-zhuangzhi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiong-zi-xiongxin-zhuangzhi]

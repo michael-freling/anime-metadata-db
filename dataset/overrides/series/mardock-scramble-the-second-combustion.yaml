@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mardock-scramble-the-second-combustion
+  titles:
+    original: マルドゥック・スクランブル 燃焼
+    translations: { ja-Latn: "Mardock Scramble: The Second Combustion" }
+  movies:
+    - id: mardock-scramble-the-second-combustion-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mardock-scramble-the-second-combustion]

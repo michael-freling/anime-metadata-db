@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: inazuma-eleven-saikyou-gundan-ogre-shuurai
+  titles:
+    original: 劇場版イナズマイレブン 最強軍団オーガ襲来
+    translations: { ja-Latn: "Inazuma Eleven: Saikyou Gundan Ogre Shuurai" }
+  movies:
+    - id: inazuma-eleven-saikyou-gundan-ogre-shuurai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [inazuma-eleven-saikyou-gundan-ogre-shuurai]

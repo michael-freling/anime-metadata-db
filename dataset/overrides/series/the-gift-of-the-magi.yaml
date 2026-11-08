@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-gift-of-the-magi
+  titles:
+    original: 賢者の贈り物
+    translations: { ja-Latn: The Gift of the Magi }
+  movies:
+    - id: the-gift-of-the-magi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-gift-of-the-magi]

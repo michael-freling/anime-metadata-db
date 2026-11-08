@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: one-piece-water-spectacle-2
+  titles:
+    original: ワンピース ウォータースペクタクル2
+    translations: { ja-Latn: One Piece Water Spectacle 2 }
+  movies:
+    - id: one-piece-water-spectacle-2-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [one-piece-water-spectacle-2]

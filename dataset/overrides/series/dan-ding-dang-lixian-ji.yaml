@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dan-ding-dang-lixian-ji
+  titles:
+    original: Dan Ding Dang Lixian Ji
+    translations: { ja-Latn: Dan Ding Dang Lixian Ji }
+  seasons:
+    - id: dan-ding-dang-lixian-ji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dan-ding-dang-lixian-ji]

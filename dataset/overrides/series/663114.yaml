@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: "663114"
+  titles:
+    original: "663114"
+    translations: { ja-Latn: "663114" }
+  movies:
+    - id: 663114-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: ["663114"]

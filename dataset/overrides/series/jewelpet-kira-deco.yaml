@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jewelpet-kira-deco
+  titles:
+    original: ジュエルペット きら☆デコッ！
+    translations: { ja-Latn: Jewelpet Kira☆Deco! }
+  seasons:
+    - id: jewelpet-kira-deco-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jewelpet-kira-deco]

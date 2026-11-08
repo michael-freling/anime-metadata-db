@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yokohama-tale
+  titles:
+    original: YOKOHAMA TALE
+    translations: { ja-Latn: YOKOHAMA TALE }
+  movies:
+    - id: yokohama-tale-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yokohama-tale]

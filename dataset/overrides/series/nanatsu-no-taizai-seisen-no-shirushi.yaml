@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nanatsu-no-taizai-seisen-no-shirushi
+  titles:
+    original: "七つの大罪 The Seven Deadly Sins 聖戦の予兆[しるし]"
+    translations: { ja-Latn: "Nanatsu no Taizai: Seisen no Shirushi" }
+  seasons:
+    - id: nanatsu-no-taizai-seisen-no-shirushi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nanatsu-no-taizai-seisen-no-shirushi]

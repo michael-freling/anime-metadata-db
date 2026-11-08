@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tanaka-kun-wa-itsumo-kedaruge
+  titles:
+    original: 田中くんはいつもけだるげ
+    translations: { ja-Latn: Tanaka-kun wa Itsumo Kedaruge }
+  seasons:
+    - id: tanaka-kun-wa-itsumo-kedaruge-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tanaka-kun-wa-itsumo-kedaruge]

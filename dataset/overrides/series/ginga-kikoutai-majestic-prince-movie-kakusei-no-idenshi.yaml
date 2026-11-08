@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ginga-kikoutai-majestic-prince-movie-kakusei-no-idenshi
+  titles:
+    original: 劇場版 銀河機攻隊 マジェスティックプリンス 覚醒の遺伝子
+    translations: { ja-Latn: "Ginga Kikoutai Majestic Prince Movie: Kakusei no Idenshi" }
+  movies:
+    - id: ginga-kikoutai-majestic-prince-movie-kakusei-no-idenshi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ginga-kikoutai-majestic-prince-movie-kakusei-no-idenshi]

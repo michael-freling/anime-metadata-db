@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: time-driver-bokura-ga-kaita-mirai
+  titles:
+    original: "TIME DRIVER: 僕らが描いた未来"
+    translations: { ja-Latn: "Time Driver: Bokura ga Kaita Mirai" }
+  movies:
+    - id: time-driver-bokura-ga-kaita-mirai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [time-driver-bokura-ga-kaita-mirai]

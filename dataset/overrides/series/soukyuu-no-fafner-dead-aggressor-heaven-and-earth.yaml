@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: soukyuu-no-fafner-dead-aggressor-heaven-and-earth
+  titles:
+    original: 蒼穹のファフナー Dead Aggressor - Heaven and Earth
+    translations: { ja-Latn: "Soukyuu no Fafner: Dead Aggressor - Heaven and Earth" }
+  movies:
+    - id: soukyuu-no-fafner-dead-aggressor-heaven-and-earth-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [soukyuu-no-fafner-dead-aggressor-heaven-and-earth]

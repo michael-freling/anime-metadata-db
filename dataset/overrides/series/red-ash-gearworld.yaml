@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: red-ash-gearworld
+  titles:
+    original: "Red Ash: Gearworld"
+    translations: { ja-Latn: "Red Ash: Gearworld" }
+  movies:
+    - id: red-ash-gearworld-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [red-ash-gearworld]

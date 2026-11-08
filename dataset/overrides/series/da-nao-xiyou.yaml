@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: da-nao-xiyou
+  titles:
+    original: Da Nao Xiyou
+    translations: { ja-Latn: Da Nao Xiyou }
+  movies:
+    - id: da-nao-xiyou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [da-nao-xiyou]

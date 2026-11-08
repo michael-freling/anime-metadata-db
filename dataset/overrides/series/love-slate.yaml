@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: love-slate
+  titles:
+    original: Love Slate
+    translations: { ja-Latn: Love Slate }
+  movies:
+    - id: love-slate-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [love-slate]

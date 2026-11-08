@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: liu-gong-dao-zhi-yue
+  titles:
+    original: Liu Gong Dao Zhi Yue
+    translations: { ja-Latn: Liu Gong Dao Zhi Yue }
+  seasons:
+    - id: liu-gong-dao-zhi-yue-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [liu-gong-dao-zhi-yue]

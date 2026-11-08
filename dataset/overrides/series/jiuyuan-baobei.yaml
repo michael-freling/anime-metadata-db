@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jiuyuan-baobei
+  titles:
+    original: Jiuyuan Baobei
+    translations: { ja-Latn: Jiuyuan Baobei }
+  seasons:
+    - id: jiuyuan-baobei-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jiuyuan-baobei]

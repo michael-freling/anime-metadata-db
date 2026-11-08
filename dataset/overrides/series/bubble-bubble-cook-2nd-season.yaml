@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bubble-bubble-cook-2nd-season
+  titles:
+    original: Bubble Bubble Cook 2nd Season
+    translations: { ja-Latn: Bubble Bubble Cook 2nd Season }
+  seasons:
+    - id: bubble-bubble-cook-2nd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bubble-bubble-cook-2nd-season]

@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: inazuma-eleven-go-galaxy
+  titles:
+    original: イナズマイレブンGO ギャラクシー
+    translations: { ja-Latn: "Inazuma Eleven Go: Galaxy" }
+  seasons:
+    - id: inazuma-eleven-go-galaxy-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [inazuma-eleven-go-galaxy]

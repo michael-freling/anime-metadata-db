@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaixin-dongwuyuan
+  titles:
+    original: Kaixin Dongwuyuan
+    translations: { ja-Latn: Kaixin Dongwuyuan }
+  seasons:
+    - id: kaixin-dongwuyuan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaixin-dongwuyuan]

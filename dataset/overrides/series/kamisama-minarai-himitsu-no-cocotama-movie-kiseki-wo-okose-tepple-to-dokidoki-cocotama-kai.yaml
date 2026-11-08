@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kamisama-minarai-himitsu-no-cocotama-movie-kiseki-wo-okose-tepple-to-dokidoki-cocotama-kai
+  titles:
+    original: 映画 かみさまみならい ヒミツのここたま 奇跡をおこせ♪テップルとドキドキここたま界
+    translations: { ja-Latn: "Kamisama Minarai: Himitsu no Cocotama Movie - Kiseki wo Okose♪ Tepple to Dokidoki Cocotama-kai" }
+  movies:
+    - id: kamisama-minarai-himitsu-no-cocotama-movie-kiseki-wo-okose-tepple-to-dokidoki-cocotama-kai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kamisama-minarai-himitsu-no-cocotama-movie-kiseki-wo-okose-tepple-to-dokidoki-cocotama-kai]

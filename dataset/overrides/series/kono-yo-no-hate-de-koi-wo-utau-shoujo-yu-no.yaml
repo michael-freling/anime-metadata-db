@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kono-yo-no-hate-de-koi-wo-utau-shoujo-yu-no
+  titles:
+    original: この世の果てで恋を唄う少女YU-NO
+    translations: { ja-Latn: Kono Yo no Hate de Koi wo Utau Shoujo YU-NO }
+  seasons:
+    - id: kono-yo-no-hate-de-koi-wo-utau-shoujo-yu-no-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kono-yo-no-hate-de-koi-wo-utau-shoujo-yu-no]

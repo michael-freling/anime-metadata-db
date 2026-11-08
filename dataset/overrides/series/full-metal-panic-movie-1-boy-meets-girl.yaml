@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: full-metal-panic-movie-1-boy-meets-girl
+  titles:
+    original: フルメタル・パニック！　ディレクターズカット版　ボーイ・ミーツ・ガール編
+    translations: { ja-Latn: "Full Metal Panic! Movie 1: Boy Meets Girl" }
+  movies:
+    - id: full-metal-panic-movie-1-boy-meets-girl-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [full-metal-panic-movie-1-boy-meets-girl]

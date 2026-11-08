@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tao-wa-yuan-ji
+  titles:
+    original: Tao Wa Yuan Ji
+    translations: { ja-Latn: Tao Wa Yuan Ji }
+  movies:
+    - id: tao-wa-yuan-ji-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tao-wa-yuan-ji]

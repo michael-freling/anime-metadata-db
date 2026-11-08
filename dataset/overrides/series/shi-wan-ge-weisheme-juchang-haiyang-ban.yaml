@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shi-wan-ge-weisheme-juchang-haiyang-ban
+  titles:
+    original: "Shi Wan Ge Weisheme Juchang: Haiyang Ban"
+    translations: { ja-Latn: "Shi Wan Ge Weisheme Juchang: Haiyang Ban" }
+  seasons:
+    - id: shi-wan-ge-weisheme-juchang-haiyang-ban-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shi-wan-ge-weisheme-juchang-haiyang-ban]

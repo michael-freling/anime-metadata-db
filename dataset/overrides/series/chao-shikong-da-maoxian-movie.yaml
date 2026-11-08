@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chao-shikong-da-maoxian-movie
+  titles:
+    original: Chao Shikong Da Maoxian (Movie)
+    translations: { ja-Latn: Chao Shikong Da Maoxian (Movie) }
+  movies:
+    - id: chao-shikong-da-maoxian-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chao-shikong-da-maoxian-movie]

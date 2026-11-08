@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yuragi-sou-no-yuuna-san
+  titles:
+    original: ゆらぎ荘の幽奈さん
+    translations: { ja-Latn: Yuragi-sou no Yuuna-san }
+  seasons:
+    - id: yuragi-sou-no-yuuna-san-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yuragi-sou-no-yuuna-san]

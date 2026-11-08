@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: transformers-cyberverse-chapter-1
+  titles:
+    original: "Transformers: Cyberverse Chapter 1"
+    translations: { ja-Latn: "Transformers: Cyberverse Chapter 1" }
+  seasons:
+    - id: transformers-cyberverse-chapter-1-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [transformers-cyberverse-chapter-1]

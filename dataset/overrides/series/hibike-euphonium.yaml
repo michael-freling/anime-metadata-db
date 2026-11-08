@@ -1,0 +1,15 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hibike-euphonium
+  titles:
+    original: 響け! ユーフォニアム~北宇治高校吹奏楽部へようこそ~
+    translations: { ja-Latn: Hibike! Euphonium }
+  seasons:
+    - id: hibike-euphonium-s1
+      number: 1
+    - id: hibike-euphonium-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hibike-euphonium]

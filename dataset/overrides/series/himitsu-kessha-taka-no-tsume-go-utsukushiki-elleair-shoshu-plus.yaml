@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: himitsu-kessha-taka-no-tsume-go-utsukushiki-elleair-shoshu-plus
+  titles:
+    original: 秘密結社鷹の爪 鷹の爪GO 〜美しきエリエール消臭プラス〜
+    translations: { ja-Latn: "Himitsu Kessha Taka no Tsume GO: Utsukushiki Elleair Shōshū Plus" }
+  movies:
+    - id: himitsu-kessha-taka-no-tsume-go-utsukushiki-elleair-shoshu-plus-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [himitsu-kessha-taka-no-tsume-go-utsukushiki-elleair-shoshu-plus]

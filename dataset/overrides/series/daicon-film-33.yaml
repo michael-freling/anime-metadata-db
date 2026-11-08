@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: daicon-film-33
+  titles:
+    original: Daicon Film 33
+    translations: { ja-Latn: Daicon Film 33 }
+  movies:
+    - id: daicon-film-33-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [daicon-film-33]

@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: talking-tom-and-friends-minis
+  titles:
+    original: Talking Tom and Friends Minis
+    translations: { ja-Latn: Talking Tom and Friends Minis }
+  seasons:
+    - id: talking-tom-and-friends-minis-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [talking-tom-and-friends-minis]

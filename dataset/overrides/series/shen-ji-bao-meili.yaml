@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shen-ji-bao-meili
+  titles:
+    original: Shen Ji Bao Meili
+    translations: { ja-Latn: Shen Ji Bao Meili }
+  seasons:
+    - id: shen-ji-bao-meili-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shen-ji-bao-meili]

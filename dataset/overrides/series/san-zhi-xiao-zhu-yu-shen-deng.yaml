@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: san-zhi-xiao-zhu-yu-shen-deng
+  titles:
+    original: San Zhi Xiao Zhu Yu Shen Deng
+    translations: { ja-Latn: San Zhi Xiao Zhu Yu Shen Deng }
+  movies:
+    - id: san-zhi-xiao-zhu-yu-shen-deng-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [san-zhi-xiao-zhu-yu-shen-deng]

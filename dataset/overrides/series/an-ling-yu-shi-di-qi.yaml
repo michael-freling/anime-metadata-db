@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: an-ling-yu-shi-di-qi
+  titles:
+    original: An Ling Yu Shi Di Qi
+    translations: { ja-Latn: An Ling Yu Shi Di Qi }
+  seasons:
+    - id: an-ling-yu-shi-di-qi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [an-ling-yu-shi-di-qi]

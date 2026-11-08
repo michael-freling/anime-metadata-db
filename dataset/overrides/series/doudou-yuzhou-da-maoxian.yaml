@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: doudou-yuzhou-da-maoxian
+  titles:
+    original: Doudou Yuzhou Da Maoxian
+    translations: { ja-Latn: Doudou Yuzhou Da Maoxian }
+  seasons:
+    - id: doudou-yuzhou-da-maoxian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [doudou-yuzhou-da-maoxian]

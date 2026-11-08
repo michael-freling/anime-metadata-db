@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: long-gui-long-xing-tianxia
+  titles:
+    original: "Long Gui: Long Xing Tianxia"
+    translations: { ja-Latn: "Long Gui: Long Xing Tianxia" }
+  seasons:
+    - id: long-gui-long-xing-tianxia-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [long-gui-long-xing-tianxia]

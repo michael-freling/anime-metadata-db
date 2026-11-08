@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bingxue-dong-aocun
+  titles:
+    original: Bingxue Dong Aocun
+    translations: { ja-Latn: Bingxue Dong Aocun }
+  seasons:
+    - id: bingxue-dong-aocun-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bingxue-dong-aocun]

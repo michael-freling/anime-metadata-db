@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: oshiete-mahou-no-pendulum-rilu-rilu-fairilu
+  titles:
+    original: おしえて魔法のペンデュラム ~リルリルフェアリル~
+    translations: { ja-Latn: "Oshiete Mahou no Pendulum: Rilu Rilu Fairilu" }
+  seasons:
+    - id: oshiete-mahou-no-pendulum-rilu-rilu-fairilu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [oshiete-mahou-no-pendulum-rilu-rilu-fairilu]

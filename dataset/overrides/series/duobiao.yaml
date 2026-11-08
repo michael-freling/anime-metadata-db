@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: duobiao
+  titles:
+    original: Duobiao
+    translations: { ja-Latn: Duobiao }
+  movies:
+    - id: duobiao-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [duobiao]

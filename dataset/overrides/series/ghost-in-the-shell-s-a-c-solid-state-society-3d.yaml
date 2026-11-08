@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ghost-in-the-shell-s-a-c-solid-state-society-3d
+  titles:
+    original: Ghost in the Shell S.A.C. Solid State Society 3D
+    translations: { ja-Latn: Ghost in the Shell S.A.C. Solid State Society 3D }
+  movies:
+    - id: ghost-in-the-shell-s-a-c-solid-state-society-3d-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ghost-in-the-shell-s-a-c-solid-state-society-3d]

@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ruyi-ku-bao-fei-li-niu
+  titles:
+    original: "Ruyi Ku Bao: Fei Li Niu"
+    translations: { ja-Latn: "Ruyi Ku Bao: Fei Li Niu" }
+  seasons:
+    - id: ruyi-ku-bao-fei-li-niu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ruyi-ku-bao-fei-li-niu]

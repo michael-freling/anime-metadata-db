@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: coop-nichichi-kusa-no-kurashi
+  titles:
+    original: コーポにちにち草のくらし
+    translations: { ja-Latn: Coop Nichichi Kusa no Kurashi }
+  movies:
+    - id: coop-nichichi-kusa-no-kurashi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [coop-nichichi-kusa-no-kurashi]

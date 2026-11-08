@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: medaka-box-abnormal
+  titles:
+    original: めだかボックス アブノ ーマル
+    translations: { ja-Latn: Medaka Box Abnormal }
+  seasons:
+    - id: medaka-box-abnormal-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [medaka-box-abnormal]

@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: meishi-da-maoxian
+  titles:
+    original: Meishi Da Maoxian
+    translations: { ja-Latn: Meishi Da Maoxian }
+  seasons:
+    - id: meishi-da-maoxian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [meishi-da-maoxian]

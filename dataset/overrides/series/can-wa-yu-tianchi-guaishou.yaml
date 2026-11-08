@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: can-wa-yu-tianchi-guaishou
+  titles:
+    original: Can Wa Yu Tianchi Guaishou
+    translations: { ja-Latn: Can Wa Yu Tianchi Guaishou }
+  seasons:
+    - id: can-wa-yu-tianchi-guaishou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [can-wa-yu-tianchi-guaishou]

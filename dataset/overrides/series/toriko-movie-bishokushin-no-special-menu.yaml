@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: toriko-movie-bishokushin-no-special-menu
+  titles:
+    original: 劇場版トリコ 美食神の超食宝 (スペシャル・メニュー)
+    translations: { ja-Latn: "Toriko Movie: Bishokushin no Special Menu" }
+  movies:
+    - id: toriko-movie-bishokushin-no-special-menu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [toriko-movie-bishokushin-no-special-menu]

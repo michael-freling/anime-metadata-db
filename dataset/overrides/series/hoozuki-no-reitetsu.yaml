@@ -1,0 +1,17 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hoozuki-no-reitetsu
+  titles:
+    original: 鬼灯の冷徹
+    translations: { ja-Latn: Hoozuki no Reitetsu }
+  seasons:
+    - id: hoozuki-no-reitetsu-s1
+      number: 1
+    - id: hoozuki-no-reitetsu-s2
+      number: 2
+    - id: hoozuki-no-reitetsu-s3
+      number: 3
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hoozuki-no-reitetsu]

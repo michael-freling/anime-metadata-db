@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mahou-shoujo-naria-girls
+  titles:
+    original: "魔法少女? なりあ☆がーるず"
+    translations: { ja-Latn: "Mahou Shoujo? Naria☆Girls" }
+  seasons:
+    - id: mahou-shoujo-naria-girls-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mahou-shoujo-naria-girls]

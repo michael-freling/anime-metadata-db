@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: digimon-adventure-tri-5-kyousei
+  titles:
+    original: デジモンアドベンチャーtri.（トライ）第5章「共生」
+    translations: { ja-Latn: "Digimon Adventure tri. 5: Kyousei" }
+  movies:
+    - id: digimon-adventure-tri-5-kyousei-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [digimon-adventure-tri-5-kyousei]

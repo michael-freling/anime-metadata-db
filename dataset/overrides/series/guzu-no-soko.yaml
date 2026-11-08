@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: guzu-no-soko
+  titles:
+    original: 愚図の底
+    translations: { ja-Latn: Guzu no Soko }
+  movies:
+    - id: guzu-no-soko-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [guzu-no-soko]

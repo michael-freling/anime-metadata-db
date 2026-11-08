@@ -1,0 +1,15 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: beyblade-shogun-steel
+  titles:
+    original: メタルファイト ベイブレード ZERO-G
+    translations: { ja-Latn: "Beyblade: Shogun Steel" }
+  seasons:
+    - id: beyblade-shogun-steel-s1
+      number: 1
+    - id: beyblade-shogun-steel-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [beyblade-shogun-steel]

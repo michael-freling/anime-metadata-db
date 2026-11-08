@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shaonian-shiye-zhongyi-man-qiankun
+  titles:
+    original: "Shaonian Shiye: Zhongyi Man Qiankun"
+    translations: { ja-Latn: "Shaonian Shiye: Zhongyi Man Qiankun" }
+  seasons:
+    - id: shaonian-shiye-zhongyi-man-qiankun-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shaonian-shiye-zhongyi-man-qiankun]

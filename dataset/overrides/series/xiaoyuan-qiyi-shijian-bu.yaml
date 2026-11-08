@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiaoyuan-qiyi-shijian-bu
+  titles:
+    original: Xiaoyuan Qiyi Shijian Bu
+    translations: { ja-Latn: Xiaoyuan Qiyi Shijian Bu }
+  seasons:
+    - id: xiaoyuan-qiyi-shijian-bu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiaoyuan-qiyi-shijian-bu]

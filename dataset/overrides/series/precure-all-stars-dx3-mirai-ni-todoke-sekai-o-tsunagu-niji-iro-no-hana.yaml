@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: precure-all-stars-dx3-mirai-ni-todoke-sekai-o-tsunagu-niji-iro-no-hana
+  titles:
+    original: プリキュアオールスターズDX3 未来にとどけ！世界をつなぐ☆虹色の花
+    translations: { ja-Latn: Precure All-Stars DX3 Mirai ni Todoke! Sekai o Tsunagu Niji-Iro no Hana }
+  movies:
+    - id: precure-all-stars-dx3-mirai-ni-todoke-sekai-o-tsunagu-niji-iro-no-hana-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [precure-all-stars-dx3-mirai-ni-todoke-sekai-o-tsunagu-niji-iro-no-hana]

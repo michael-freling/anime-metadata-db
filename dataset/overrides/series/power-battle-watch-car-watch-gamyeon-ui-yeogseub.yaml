@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: power-battle-watch-car-watch-gamyeon-ui-yeogseub
+  titles:
+    original: "Power Battle Watch Car: Watch Gamyeon-ui Yeogseub"
+    translations: { ja-Latn: "Power Battle Watch Car: Watch Gamyeon-ui Yeogseub" }
+  movies:
+    - id: power-battle-watch-car-watch-gamyeon-ui-yeogseub-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [power-battle-watch-car-watch-gamyeon-ui-yeogseub]

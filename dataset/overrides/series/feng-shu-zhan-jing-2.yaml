@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: feng-shu-zhan-jing-2
+  titles:
+    original: Feng Shu Zhan Jing 2
+    translations: { ja-Latn: Feng Shu Zhan Jing 2 }
+  seasons:
+    - id: feng-shu-zhan-jing-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [feng-shu-zhan-jing-2]

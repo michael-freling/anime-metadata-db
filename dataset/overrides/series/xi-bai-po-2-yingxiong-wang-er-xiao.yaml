@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xi-bai-po-2-yingxiong-wang-er-xiao
+  titles:
+    original: "Xi Bai Po 2: Yingxiong Wang Er Xiao"
+    translations: { ja-Latn: "Xi Bai Po 2: Yingxiong Wang Er Xiao" }
+  movies:
+    - id: xi-bai-po-2-yingxiong-wang-er-xiao-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xi-bai-po-2-yingxiong-wang-er-xiao]

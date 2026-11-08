@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kuaile-dongxi-4
+  titles:
+    original: Kuaile Dongxi 4
+    translations: { ja-Latn: Kuaile Dongxi 4 }
+  seasons:
+    - id: kuaile-dongxi-4-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kuaile-dongxi-4]

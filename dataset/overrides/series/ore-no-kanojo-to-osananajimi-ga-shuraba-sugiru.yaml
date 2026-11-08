@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ore-no-kanojo-to-osananajimi-ga-shuraba-sugiru
+  titles:
+    original: 俺の彼女と幼なじみが修羅場すぎる
+    translations: { ja-Latn: Ore no Kanojo to Osananajimi ga Shuraba Sugiru }
+  seasons:
+    - id: ore-no-kanojo-to-osananajimi-ga-shuraba-sugiru-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ore-no-kanojo-to-osananajimi-ga-shuraba-sugiru]

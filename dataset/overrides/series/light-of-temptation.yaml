@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: light-of-temptation
+  titles:
+    original: light of temptation
+    translations: { ja-Latn: light of temptation }
+  movies:
+    - id: light-of-temptation-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [light-of-temptation]

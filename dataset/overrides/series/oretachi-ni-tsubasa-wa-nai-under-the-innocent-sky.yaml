@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: oretachi-ni-tsubasa-wa-nai-under-the-innocent-sky
+  titles:
+    original: 俺たちに翼はない -under the innocent sky.
+    translations: { ja-Latn: "Oretachi ni Tsubasa wa Nai: Under the Innocent Sky." }
+  seasons:
+    - id: oretachi-ni-tsubasa-wa-nai-under-the-innocent-sky-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [oretachi-ni-tsubasa-wa-nai-under-the-innocent-sky]

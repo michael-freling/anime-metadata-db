@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kkoma-sillang-kung-do-ryeong-2
+  titles:
+    original: Kkoma Sillang Kung Do-Ryeong 2
+    translations: { ja-Latn: Kkoma Sillang Kung Do-Ryeong 2 }
+  seasons:
+    - id: kkoma-sillang-kung-do-ryeong-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kkoma-sillang-kung-do-ryeong-2]

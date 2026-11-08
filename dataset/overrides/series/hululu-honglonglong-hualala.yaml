@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hululu-honglonglong-hualala
+  titles:
+    original: Hululu Honglonglong Hualala
+    translations: { ja-Latn: Hululu Honglonglong Hualala }
+  movies:
+    - id: hululu-honglonglong-hualala-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hululu-honglonglong-hualala]

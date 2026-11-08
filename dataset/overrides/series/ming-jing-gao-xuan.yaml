@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ming-jing-gao-xuan
+  titles:
+    original: Ming Jing Gao Xuan
+    translations: { ja-Latn: Ming Jing Gao Xuan }
+  movies:
+    - id: ming-jing-gao-xuan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ming-jing-gao-xuan]

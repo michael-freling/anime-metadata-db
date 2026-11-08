@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: congming-de-yixiu-zhi-fan-dou-gongzhu
+  titles:
+    original: Congming de Yixiu Zhi Fan Dou Gongzhu
+    translations: { ja-Latn: Congming de Yixiu Zhi Fan Dou Gongzhu }
+  movies:
+    - id: congming-de-yixiu-zhi-fan-dou-gongzhu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [congming-de-yixiu-zhi-fan-dou-gongzhu]

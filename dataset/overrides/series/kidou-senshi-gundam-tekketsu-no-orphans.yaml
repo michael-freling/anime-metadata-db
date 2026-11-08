@@ -1,0 +1,17 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kidou-senshi-gundam-tekketsu-no-orphans
+  titles:
+    original: 機動戦士ガンダム 鉄血のオルフェンズ
+    translations: { ja-Latn: "Kidou Senshi Gundam: Tekketsu no Orphans" }
+  seasons:
+    - id: kidou-senshi-gundam-tekketsu-no-orphans-s1
+      number: 1
+    - id: kidou-senshi-gundam-tekketsu-no-orphans-s2
+      number: 2
+    - id: kidou-senshi-gundam-tekketsu-no-orphans-s3
+      number: 3
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kidou-senshi-gundam-tekketsu-no-orphans]

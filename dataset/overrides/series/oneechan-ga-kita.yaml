@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: oneechan-ga-kita
+  titles:
+    original: お姉ちゃんが来た
+    translations: { ja-Latn: Oneechan ga Kita }
+  seasons:
+    - id: oneechan-ga-kita-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [oneechan-ga-kita]

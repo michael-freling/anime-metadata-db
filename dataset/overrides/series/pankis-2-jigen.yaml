@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pankis-2-jigen
+  titles:
+    original: ぱんきす! 2次元
+    translations: { ja-Latn: Pankis! 2-jigen }
+  seasons:
+    - id: pankis-2-jigen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pankis-2-jigen]

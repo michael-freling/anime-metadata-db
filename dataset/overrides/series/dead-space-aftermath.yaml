@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dead-space-aftermath
+  titles:
+    original: "Dead Space: Aftermath"
+    translations: { ja-Latn: "Dead Space: Aftermath" }
+  movies:
+    - id: dead-space-aftermath-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dead-space-aftermath]

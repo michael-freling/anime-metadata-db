@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: usuzumizakura-garo
+  titles:
+    original: "劇場版 牙狼[GARO]-紅蓮ノ月-"
+    translations: { ja-Latn: "Usuzumizakura: Garo" }
+  movies:
+    - id: usuzumizakura-garo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [usuzumizakura-garo]

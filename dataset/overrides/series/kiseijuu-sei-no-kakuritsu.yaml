@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kiseijuu-sei-no-kakuritsu
+  titles:
+    original: 寄生獣 セイの格率
+    translations: { ja-Latn: "Kiseijuu: Sei no Kakuritsu" }
+  seasons:
+    - id: kiseijuu-sei-no-kakuritsu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kiseijuu-sei-no-kakuritsu]

@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: denpa-onna-to-seishun-otoko
+  titles:
+    original: 電波女と青春男
+    translations: { ja-Latn: Denpa Onna to Seishun Otoko }
+  seasons:
+    - id: denpa-onna-to-seishun-otoko-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [denpa-onna-to-seishun-otoko]

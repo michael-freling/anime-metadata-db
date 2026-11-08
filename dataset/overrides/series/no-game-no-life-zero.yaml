@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: no-game-no-life-zero
+  titles:
+    original: ノーゲーム・ノーライフ 劇場版
+    translations: { ja-Latn: "No Game No Life: Zero" }
+  movies:
+    - id: no-game-no-life-zero-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [no-game-no-life-zero]

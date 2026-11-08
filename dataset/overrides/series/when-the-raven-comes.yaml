@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: when-the-raven-comes
+  titles:
+    original: When the raven comes
+    translations: { ja-Latn: When the raven comes }
+  movies:
+    - id: when-the-raven-comes-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [when-the-raven-comes]

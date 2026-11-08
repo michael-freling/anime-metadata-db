@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wo-shi-na-zha
+  titles:
+    original: ないせん!
+    translations: { ja-Latn: Wo Shi Na Zha }
+  movies:
+    - id: wo-shi-na-zha-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wo-shi-na-zha]

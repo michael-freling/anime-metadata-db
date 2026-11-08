@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: roco-wangguo-da-maoxian-2-en-zuo-riji
+  titles:
+    original: "Roco Wangguo Da Maoxian 2: En Zuo Riji"
+    translations: { ja-Latn: "Roco Wangguo Da Maoxian 2: En Zuo Riji" }
+  seasons:
+    - id: roco-wangguo-da-maoxian-2-en-zuo-riji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [roco-wangguo-da-maoxian-2-en-zuo-riji]

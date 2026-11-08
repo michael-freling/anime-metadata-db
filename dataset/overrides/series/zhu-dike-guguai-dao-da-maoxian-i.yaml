@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhu-dike-guguai-dao-da-maoxian-i
+  titles:
+    original: "Zhu Dike: Guguai Dao Da Maoxian I"
+    translations: { ja-Latn: "Zhu Dike: Guguai Dao Da Maoxian I" }
+  seasons:
+    - id: zhu-dike-guguai-dao-da-maoxian-i-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhu-dike-guguai-dao-da-maoxian-i]

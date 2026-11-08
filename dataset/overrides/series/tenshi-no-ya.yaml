@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tenshi-no-ya
+  titles:
+    original: 天使の矢
+    translations: { ja-Latn: Tenshi no Ya }
+  movies:
+    - id: tenshi-no-ya-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tenshi-no-ya]

@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shenmi-shijie-lixian-ji-4
+  titles:
+    original: Shenmi Shijie Lixian Ji 4
+    translations: { ja-Latn: Shenmi Shijie Lixian Ji 4 }
+  movies:
+    - id: shenmi-shijie-lixian-ji-4-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shenmi-shijie-lixian-ji-4]

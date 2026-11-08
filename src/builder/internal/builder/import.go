@@ -6,6 +6,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"strings"
 
 	"github.com/michael-freling/anime-metadata-db/src/builder/internal/importer"
 )
@@ -51,7 +52,16 @@ func (a *App) Import(year int, dryRun bool) error {
 		return err
 	}
 
-	plan := importer.Build(sources.Offline, year, known)
+	// The native titles the authored layer already declares, read from the
+	// overrides rather than from data/ so a year imported but not yet built is
+	// still visible. Ten years imported back to back before any build produced
+	// 19 duplicate pairs without this.
+	claimedTitles, err := declaredTitles(filepath.Join(a.Dir, cfg.Settings.OverridesDir))
+	if err != nil {
+		return err
+	}
+
+	plan := importer.Build(sources.Offline, year, known, claimedTitles)
 
 	fmt.Fprintf(a.Out, "import %d: %d new series, %d to merge by hand, %d unresolvable, %d already present, %d out of scope\n",
 		plan.Year, len(plan.New), len(plan.Merges), len(plan.Unresolvable), len(plan.Present), plan.Skipped)
@@ -127,8 +137,9 @@ func (a *App) Import(year int, dryRun bool) error {
 }
 
 var (
-	anilistLine = regexp.MustCompile(`(?m)^\s*anilistId:\s*(\d+)\s*$`)
-	idLine      = regexp.MustCompile(`(?m)^\s*(?:-\s+)?id:\s*(\S+)\s*$`)
+	anilistLine  = regexp.MustCompile(`(?m)^\s*anilistId:\s*(\d+)\s*$`)
+	idLine       = regexp.MustCompile(`(?m)^\s*(?:-\s+)?id:\s*(\S+)\s*$`)
+	originalLine = regexp.MustCompile(`(?m)^\s*original:\s*(.+?)\s*$`)
 )
 
 // existingIDs collects every id the authored layer declares, at any level.
@@ -158,6 +169,47 @@ func existingIDs(overridesDir string) (map[string]bool, error) {
 		return taken, nil
 	}
 	return taken, err
+}
+
+// declaredTitles collects every native title the authored layer declares.
+//
+// Matched by line rather than decoded, like the ids above: the titles are all
+// that is wanted, and the value is compared against what Render wrote, so the
+// quoting has to be undone the same way it was applied.
+func declaredTitles(overridesDir string) (map[string]bool, error) {
+	titles := map[string]bool{}
+	err := filepath.WalkDir(overridesDir, func(path string, d fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+		if d.IsDir() || filepath.Ext(path) != ".yaml" {
+			return nil
+		}
+		body, err := os.ReadFile(path)
+		if err != nil {
+			return err
+		}
+		for _, m := range originalLine.FindAllSubmatch(body, -1) {
+			if t := unquoteYAML(string(m[1])); t != "" {
+				titles[t] = true
+			}
+		}
+		return nil
+	})
+	if os.IsNotExist(err) {
+		return titles, nil
+	}
+	return titles, err
+}
+
+// unquoteYAML reverses the double-quoting Render applies, so a title compares
+// equal to the one NativeTitle would choose for it.
+func unquoteYAML(v string) string {
+	v = strings.TrimSpace(v)
+	if len(v) < 2 || v[0] != '"' || v[len(v)-1] != '"' {
+		return v
+	}
+	return strings.NewReplacer(`\"`, `"`, `\\`, `\`).Replace(v[1 : len(v)-1])
 }
 
 // firstTaken returns the first id of s that is already in use, or "".

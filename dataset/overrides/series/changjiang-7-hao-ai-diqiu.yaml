@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: changjiang-7-hao-ai-diqiu
+  titles:
+    original: Changjiang 7 Hao Ai Diqiu
+    translations: { ja-Latn: Changjiang 7 Hao Ai Diqiu }
+  movies:
+    - id: changjiang-7-hao-ai-diqiu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [changjiang-7-hao-ai-diqiu]

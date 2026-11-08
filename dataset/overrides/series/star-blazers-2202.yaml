@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: star-blazers-2202
+  titles:
+    original: 宇宙戦艦ヤマト2202 愛の戦士たち
+    translations: { ja-Latn: Star Blazers 2202 }
+  movies:
+    - id: star-blazers-2202-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [star-blazers-2202]

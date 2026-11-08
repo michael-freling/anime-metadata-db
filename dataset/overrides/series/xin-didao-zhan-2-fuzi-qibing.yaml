@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xin-didao-zhan-2-fuzi-qibing
+  titles:
+    original: "Xin Didao Zhan 2: Fuzi Qibing"
+    translations: { ja-Latn: "Xin Didao Zhan 2: Fuzi Qibing" }
+  movies:
+    - id: xin-didao-zhan-2-fuzi-qibing-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xin-didao-zhan-2-fuzi-qibing]

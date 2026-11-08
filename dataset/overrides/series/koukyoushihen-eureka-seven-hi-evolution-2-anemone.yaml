@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: koukyoushihen-eureka-seven-hi-evolution-2-anemone
+  titles:
+    original: ANEMONE／交響詩篇エウレカセブン ハイエボリューション
+    translations: { ja-Latn: "Koukyoushihen Eureka Seven Hi-Evolution 2: Anemone" }
+  movies:
+    - id: koukyoushihen-eureka-seven-hi-evolution-2-anemone-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [koukyoushihen-eureka-seven-hi-evolution-2-anemone]

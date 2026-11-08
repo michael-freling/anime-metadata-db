@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: oshie-to-tabi-suru-otoko
+  titles:
+    original: 押絵ト旅スル男
+    translations: { ja-Latn: Oshie to Tabi Suru Otoko }
+  movies:
+    - id: oshie-to-tabi-suru-otoko-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [oshie-to-tabi-suru-otoko]

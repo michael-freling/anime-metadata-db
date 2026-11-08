@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhuanzhan-zhi-chao-xuan-doushi
+  titles:
+    original: Zhuanzhan Zhi Chao Xuan Doushi
+    translations: { ja-Latn: Zhuanzhan Zhi Chao Xuan Doushi }
+  seasons:
+    - id: zhuanzhan-zhi-chao-xuan-doushi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhuanzhan-zhi-chao-xuan-doushi]

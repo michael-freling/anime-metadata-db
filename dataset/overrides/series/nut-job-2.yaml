@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nut-job-2
+  titles:
+    original: Nut Job 2
+    translations: { ja-Latn: Nut Job 2 }
+  movies:
+    - id: nut-job-2-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nut-job-2]

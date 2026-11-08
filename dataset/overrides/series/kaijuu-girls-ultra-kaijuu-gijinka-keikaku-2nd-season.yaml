@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaijuu-girls-ultra-kaijuu-gijinka-keikaku-2nd-season
+  titles:
+    original: "怪獣娘[かいじゅうがーるず] ~ウルトラ怪獣擬人化計画~ 第2シリーズ"
+    translations: { ja-Latn: "Kaijuu Girls: Ultra Kaijuu Gijinka Keikaku 2nd Season" }
+  seasons:
+    - id: kaijuu-girls-ultra-kaijuu-gijinka-keikaku-2nd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaijuu-girls-ultra-kaijuu-gijinka-keikaku-2nd-season]

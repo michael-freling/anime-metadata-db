@@ -1,0 +1,15 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kantai-collection-kancolle
+  titles:
+    original: 艦隊これくしょん -艦これ-
+    translations: { ja-Latn: "Kantai Collection: KanColle" }
+  seasons:
+    - id: kantai-collection-kancolle-s1
+      number: 1
+  movies:
+    - id: kantai-collection-kancolle-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kantai-collection-kancolle]

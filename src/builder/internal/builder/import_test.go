@@ -191,13 +191,18 @@ func TestImportReportsASeriesTheBuildCouldNotFill(t *testing.T) {
 	// Two films under one title: a film carries no number, so the build
 	// declines the kind and nothing resolves.
 	src := filepath.Join(dir, ".sources", "anime-offline-database.json")
+	// Related to each other on purpose: they are two parts of one work, so the
+	// refusal under test is the one about ordering films, not the one about
+	// unrelated works sharing a name.
 	if err := os.WriteFile(src, []byte(`{"data":[
       {"sources":["https://anilist.co/anime/910001"],"title":"Twin Bill",
        "type":"MOVIE","episodes":1,"status":"FINISHED",
-       "animeSeason":{"season":"WINTER","year":2020}},
+       "animeSeason":{"season":"WINTER","year":2020},
+       "relatedAnime":["https://anilist.co/anime/910002"]},
       {"sources":["https://anilist.co/anime/910002"],"title":"Twin Bill Part Two",
        "type":"MOVIE","episodes":1,"status":"FINISHED",
-       "animeSeason":{"season":"SUMMER","year":2020},"synonyms":["Twin Bill"]}
+       "animeSeason":{"season":"SUMMER","year":2020},"synonyms":["Twin Bill"],
+       "relatedAnime":["https://anilist.co/anime/910001"]}
     ]}`), 0o644); err != nil {
 		t.Fatal(err)
 	}

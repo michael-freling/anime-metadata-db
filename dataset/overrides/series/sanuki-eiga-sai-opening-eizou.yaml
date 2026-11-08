@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sanuki-eiga-sai-opening-eizou
+  titles:
+    original: さぬき映画祭オープニング映像
+    translations: { ja-Latn: Sanuki Eiga-sai Opening Eizou }
+  movies:
+    - id: sanuki-eiga-sai-opening-eizou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sanuki-eiga-sai-opening-eizou]

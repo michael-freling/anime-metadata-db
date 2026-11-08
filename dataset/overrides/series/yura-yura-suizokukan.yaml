@@ -1,0 +1,15 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yura-yura-suizokukan
+  titles:
+    original: ユラユラすいぞくかん
+    translations: { ja-Latn: Yura Yura Suizokukan }
+  seasons:
+    - id: yura-yura-suizokukan-s1
+      number: 1
+    - id: yura-yura-suizokukan-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yura-yura-suizokukan]

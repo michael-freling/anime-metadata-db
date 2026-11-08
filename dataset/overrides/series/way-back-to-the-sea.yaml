@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: way-back-to-the-sea
+  titles:
+    original: なまずは海に還る
+    translations: { ja-Latn: Way back to the Sea }
+  movies:
+    - id: way-back-to-the-sea-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [way-back-to-the-sea]

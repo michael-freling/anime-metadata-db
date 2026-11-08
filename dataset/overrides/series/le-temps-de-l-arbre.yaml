@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: le-temps-de-l-arbre
+  titles:
+    original: Le Temps de L'arbre
+    translations: { ja-Latn: Le Temps de L'arbre }
+  movies:
+    - id: le-temps-de-l-arbre-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [le-temps-de-l-arbre]

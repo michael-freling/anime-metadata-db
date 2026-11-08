@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: peter-pan-no-bouken-movie
+  titles:
+    original: ピーターパンのぼうけん
+    translations: { ja-Latn: Peter Pan no Bouken (Movie) }
+  movies:
+    - id: peter-pan-no-bouken-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [peter-pan-no-bouken-movie]

@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ejen-ali-musim-2
+  titles:
+    original: "Ejen Ali: Musim 2"
+    translations: { ja-Latn: "Ejen Ali: Musim 2" }
+  seasons:
+    - id: ejen-ali-musim-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ejen-ali-musim-2]

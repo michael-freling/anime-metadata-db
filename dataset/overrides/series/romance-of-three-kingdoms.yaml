@@ -1,0 +1,13 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: romance-of-three-kingdoms
+  titles:
+    original: Romance of Three Kingdoms
+    translations: { ja-Latn: Romance of Three Kingdoms }
+  seasons:
+    - id: romance-of-three-kingdoms-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [romance-of-three-kingdoms]

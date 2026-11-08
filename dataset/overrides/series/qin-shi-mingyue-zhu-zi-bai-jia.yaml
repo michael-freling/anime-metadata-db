@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: qin-shi-mingyue-zhu-zi-bai-jia
+  titles:
+    original: "Qin Shi Mingyue: Zhu Zi Bai Jia"
+    translations: { ja-Latn: "Qin Shi Mingyue: Zhu Zi Bai Jia" }
+  seasons:
+    - id: qin-shi-mingyue-zhu-zi-bai-jia-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [qin-shi-mingyue-zhu-zi-bai-jia]

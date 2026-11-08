@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: katasumi-no-uroko
+  titles:
+    original: かたすみの鱗
+    translations: { ja-Latn: Katasumi no Uroko }
+  movies:
+    - id: katasumi-no-uroko-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [katasumi-no-uroko]

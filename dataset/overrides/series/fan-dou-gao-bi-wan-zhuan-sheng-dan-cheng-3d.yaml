@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fan-dou-gao-bi-wan-zhuan-sheng-dan-cheng-3d
+  titles:
+    original: Fan Dou Gao Bi Wan Zhuan Sheng Dan Cheng 3D
+    translations: { ja-Latn: Fan Dou Gao Bi Wan Zhuan Sheng Dan Cheng 3D }
+  movies:
+    - id: fan-dou-gao-bi-wan-zhuan-sheng-dan-cheng-3d-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fan-dou-gao-bi-wan-zhuan-sheng-dan-cheng-3d]

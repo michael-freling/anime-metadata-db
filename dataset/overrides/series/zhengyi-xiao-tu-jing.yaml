@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhengyi-xiao-tu-jing
+  titles:
+    original: Zhengyi Xiao Tu Jing
+    translations: { ja-Latn: Zhengyi Xiao Tu Jing }
+  seasons:
+    - id: zhengyi-xiao-tu-jing-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhengyi-xiao-tu-jing]

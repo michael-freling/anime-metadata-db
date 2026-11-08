@@ -1,0 +1,12 @@
+# Authored override — 2010 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aru-kokoro-no-tabi
+  titles:
+    original: ある心の旅
+    translations: { ja-Latn: Aru Kokoro no Tabi }
+  movies:
+    - id: aru-kokoro-no-tabi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aru-kokoro-no-tabi]

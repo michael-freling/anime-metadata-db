@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kangaeru-jikan
+  titles:
+    original: 考える時間
+    translations: { ja-Latn: Kangaeru Jikan }
+  movies:
+    - id: kangaeru-jikan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kangaeru-jikan]

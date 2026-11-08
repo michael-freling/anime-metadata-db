@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 81-hao-nongchang-baowei-mai-ji
+  titles:
+    original: "81 Hao Nongchang: Baowei Mai Ji"
+    translations: { ja-Latn: "81 Hao Nongchang: Baowei Mai Ji" }
+  movies:
+    - id: 81-hao-nongchang-baowei-mai-ji-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [81-hao-nongchang-baowei-mai-ji]

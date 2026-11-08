@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gulu-gulu-meirenyu-2
+  titles:
+    original: Gulu Gulu Meirenyu 2
+    translations: { ja-Latn: Gulu Gulu Meirenyu 2 }
+  movies:
+    - id: gulu-gulu-meirenyu-2-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gulu-gulu-meirenyu-2]

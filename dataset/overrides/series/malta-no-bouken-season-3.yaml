@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: malta-no-bouken-season-3
+  titles:
+    original: マルタの冒険　シーズン3
+    translations: { ja-Latn: Malta no Bouken Season 3 }
+  seasons:
+    - id: malta-no-bouken-season-3-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [malta-no-bouken-season-3]

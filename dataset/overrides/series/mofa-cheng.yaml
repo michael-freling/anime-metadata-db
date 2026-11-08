@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mofa-cheng
+  titles:
+    original: Mofa Cheng
+    translations: { ja-Latn: Mofa Cheng }
+  seasons:
+    - id: mofa-cheng-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mofa-cheng]

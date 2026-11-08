@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ousama-game-the-animation
+  titles:
+    original: 王様ゲーム The Animation
+    translations: { ja-Latn: Ousama Game The Animation }
+  seasons:
+    - id: ousama-game-the-animation-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ousama-game-the-animation]

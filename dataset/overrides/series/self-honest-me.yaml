@@ -1,0 +1,12 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: self-honest-me
+  titles:
+    original: 死ぬほどつまらない映画
+    translations: { ja-Latn: Self-Honest Me }
+  movies:
+    - id: self-honest-me-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [self-honest-me]

@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: galilei-donna
+  titles:
+    original: ガリレイドンナ Storia di tre sorelle a caccia di un mistero
+    translations: { ja-Latn: Galilei Donna }
+  seasons:
+    - id: galilei-donna-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [galilei-donna]

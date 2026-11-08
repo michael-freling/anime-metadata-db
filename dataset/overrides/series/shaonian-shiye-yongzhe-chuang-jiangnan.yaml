@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shaonian-shiye-yongzhe-chuang-jiangnan
+  titles:
+    original: "Shaonian Shiye: Yongzhe Chuang Jiangnan"
+    translations: { ja-Latn: "Shaonian Shiye: Yongzhe Chuang Jiangnan" }
+  seasons:
+    - id: shaonian-shiye-yongzhe-chuang-jiangnan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shaonian-shiye-yongzhe-chuang-jiangnan]

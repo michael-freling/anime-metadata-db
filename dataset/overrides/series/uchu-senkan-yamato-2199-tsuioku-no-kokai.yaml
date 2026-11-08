@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: uchu-senkan-yamato-2199-tsuioku-no-kokai
+  titles:
+    original: 宇宙戦艦ヤマト2199「追憶の航海」
+    translations: { ja-Latn: "Uchū Senkan Yamato 2199: Tsuioku no Kōkai" }
+  movies:
+    - id: uchu-senkan-yamato-2199-tsuioku-no-kokai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [uchu-senkan-yamato-2199-tsuioku-no-kokai]

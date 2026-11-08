@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tenohira-no-niwa
+  titles:
+    original: てのひらのにわ
+    translations: { ja-Latn: Tenohira no Niwa }
+  movies:
+    - id: tenohira-no-niwa-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tenohira-no-niwa]

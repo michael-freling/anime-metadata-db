@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: roco-wangguo-sheng-long-qishi
+  titles:
+    original: "Roco Wangguo: Sheng Long Qishi"
+    translations: { ja-Latn: "Roco Wangguo: Sheng Long Qishi" }
+  movies:
+    - id: roco-wangguo-sheng-long-qishi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [roco-wangguo-sheng-long-qishi]

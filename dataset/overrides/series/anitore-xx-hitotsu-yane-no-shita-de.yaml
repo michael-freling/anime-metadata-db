@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: anitore-xx-hitotsu-yane-no-shita-de
+  titles:
+    original: あにトレ!!XX ~ひとつ屋根の下で~
+    translations: { ja-Latn: "Anitore! XX: Hitotsu Yane no Shita de" }
+  seasons:
+    - id: anitore-xx-hitotsu-yane-no-shita-de-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [anitore-xx-hitotsu-yane-no-shita-de]

@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ulibyeol-ilhowa-eollugso
+  titles:
+    original: Ulibyeol Ilhowa Eollugso
+    translations: { ja-Latn: Ulibyeol Ilhowa Eollugso }
+  movies:
+    - id: ulibyeol-ilhowa-eollugso-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ulibyeol-ilhowa-eollugso]

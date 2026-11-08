@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: maomao-wang-lixian-ji
+  titles:
+    original: Maomao Wang Lixian Ji
+    translations: { ja-Latn: Maomao Wang Lixian Ji }
+  seasons:
+    - id: maomao-wang-lixian-ji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [maomao-wang-lixian-ji]

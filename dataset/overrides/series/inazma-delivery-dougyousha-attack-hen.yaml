@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: inazma-delivery-dougyousha-attack-hen
+  titles:
+    original: イナズマデリバリー 同業者アタック編
+    translations: { ja-Latn: "Inazma Delivery: Dougyousha Attack-hen" }
+  seasons:
+    - id: inazma-delivery-dougyousha-attack-hen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [inazma-delivery-dougyousha-attack-hen]

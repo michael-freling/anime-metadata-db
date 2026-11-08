@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yi-wan-nian-yi-hou
+  titles:
+    original: Yi Wan Nian Yi Hou
+    translations: { ja-Latn: Yi Wan Nian Yi Hou }
+  movies:
+    - id: yi-wan-nian-yi-hou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yi-wan-nian-yi-hou]

@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: diqiu-shang-zuihou-yige-nanren
+  titles:
+    original: Diqiu Shang Zuihou Yige Nanren
+    translations: { ja-Latn: Diqiu Shang Zuihou Yige Nanren }
+  movies:
+    - id: diqiu-shang-zuihou-yige-nanren-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [diqiu-shang-zuihou-yige-nanren]

@@ -1,0 +1,15 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: danboru-senki-wars
+  titles:
+    original: ダンボール戦機ウォーズ
+    translations: { ja-Latn: Danbōru Senki Wars }
+  seasons:
+    - id: danboru-senki-wars-s1
+      number: 1
+    - id: danboru-senki-wars-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [danboru-senki-wars]

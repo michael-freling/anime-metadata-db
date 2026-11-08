@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: simgyeong
+  titles:
+    original: Simgyeong
+    translations: { ja-Latn: Simgyeong }
+  movies:
+    - id: simgyeong-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [simgyeong]

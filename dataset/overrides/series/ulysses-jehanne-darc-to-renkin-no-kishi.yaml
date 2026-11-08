@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ulysses-jehanne-darc-to-renkin-no-kishi
+  titles:
+    original: ユリシーズ ジャンヌ・ダルクと錬金の騎士
+    translations: { ja-Latn: "Ulysses: Jehanne Darc to Renkin no Kishi" }
+  seasons:
+    - id: ulysses-jehanne-darc-to-renkin-no-kishi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ulysses-jehanne-darc-to-renkin-no-kishi]

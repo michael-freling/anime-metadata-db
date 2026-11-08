@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ajin-part-2-shoutotsu
+  titles:
+    original: "Ajin Part 2: Shoutotsu"
+    translations: { ja-Latn: "Ajin Part 2: Shoutotsu" }
+  movies:
+    - id: ajin-part-2-shoutotsu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ajin-part-2-shoutotsu]

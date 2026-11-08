@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gifuu-doudou-kanetsugu-to-keiji
+  titles:
+    original: 義風堂々!! 兼続と慶次
+    translations: { ja-Latn: "Gifuu Doudou!!: Kanetsugu to Keiji" }
+  seasons:
+    - id: gifuu-doudou-kanetsugu-to-keiji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gifuu-doudou-kanetsugu-to-keiji]

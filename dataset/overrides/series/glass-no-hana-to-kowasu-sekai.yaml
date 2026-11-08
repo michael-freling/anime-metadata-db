@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: glass-no-hana-to-kowasu-sekai
+  titles:
+    original: ガラスの花と壊す世界
+    translations: { ja-Latn: Glass no Hana to Kowasu Sekai }
+  movies:
+    - id: glass-no-hana-to-kowasu-sekai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [glass-no-hana-to-kowasu-sekai]

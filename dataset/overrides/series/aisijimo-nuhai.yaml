@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aisijimo-nuhai
+  titles:
+    original: Aisijimo Nuhai
+    translations: { ja-Latn: Aisijimo Nuhai }
+  seasons:
+    - id: aisijimo-nuhai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aisijimo-nuhai]

@@ -1,0 +1,12 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: through-the-windows
+  titles:
+    original: Through the Windows
+    translations: { ja-Latn: Through the Windows }
+  movies:
+    - id: through-the-windows-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [through-the-windows]

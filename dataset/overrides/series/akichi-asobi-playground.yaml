@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: akichi-asobi-playground
+  titles:
+    original: "PLAYGROUND: あきちあそび"
+    translations: { ja-Latn: "Akichi Asobi: Playground" }
+  movies:
+    - id: akichi-asobi-playground-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [akichi-asobi-playground]

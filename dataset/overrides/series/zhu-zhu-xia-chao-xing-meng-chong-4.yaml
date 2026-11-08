@@ -1,0 +1,13 @@
+# Authored override — 2017 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhu-zhu-xia-chao-xing-meng-chong-4
+  titles:
+    original: "Zhu Zhu Xia: Chao Xing Meng Chong 4"
+    translations: { ja-Latn: "Zhu Zhu Xia: Chao Xing Meng Chong 4" }
+  seasons:
+    - id: zhu-zhu-xia-chao-xing-meng-chong-4-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhu-zhu-xia-chao-xing-meng-chong-4]

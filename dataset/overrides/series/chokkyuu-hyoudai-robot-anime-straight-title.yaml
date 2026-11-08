@@ -1,0 +1,13 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chokkyuu-hyoudai-robot-anime-straight-title
+  titles:
+    original: 直球表題 ロボットアニメ -Straight Title-
+    translations: { ja-Latn: "Chokkyuu Hyoudai Robot Anime: Straight Title" }
+  seasons:
+    - id: chokkyuu-hyoudai-robot-anime-straight-title-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chokkyuu-hyoudai-robot-anime-straight-title]

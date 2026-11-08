@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gyuunyuu-no-fumoto
+  titles:
+    original: 牛乳の麓
+    translations: { ja-Latn: Gyuunyuu no Fumoto }
+  movies:
+    - id: gyuunyuu-no-fumoto-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gyuunyuu-no-fumoto]

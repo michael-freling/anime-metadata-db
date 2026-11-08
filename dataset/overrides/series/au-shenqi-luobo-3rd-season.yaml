@@ -1,0 +1,13 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: au-shenqi-luobo-3rd-season
+  titles:
+    original: "AU: Shenqi Luobo 3rd Season"
+    translations: { ja-Latn: "AU: Shenqi Luobo 3rd Season" }
+  seasons:
+    - id: au-shenqi-luobo-3rd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [au-shenqi-luobo-3rd-season]

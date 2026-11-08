@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dou-dou-hu-wen-zhang-zhi-mi
+  titles:
+    original: Dou Dou Hu Wen Zhang Zhi Mi
+    translations: { ja-Latn: Dou Dou Hu Wen Zhang Zhi Mi }
+  seasons:
+    - id: dou-dou-hu-wen-zhang-zhi-mi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dou-dou-hu-wen-zhang-zhi-mi]

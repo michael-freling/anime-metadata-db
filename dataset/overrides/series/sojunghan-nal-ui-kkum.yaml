@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sojunghan-nal-ui-kkum
+  titles:
+    original: Sojunghan Nal-ui Kkum
+    translations: { ja-Latn: Sojunghan Nal-ui Kkum }
+  movies:
+    - id: sojunghan-nal-ui-kkum-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sojunghan-nal-ui-kkum]

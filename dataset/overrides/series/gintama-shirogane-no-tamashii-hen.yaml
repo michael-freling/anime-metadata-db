@@ -1,0 +1,13 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gintama-shirogane-no-tamashii-hen
+  titles:
+    original: 銀魂。 銀ノ魂篇 前半戦
+    translations: { ja-Latn: Gintama. Shirogane no Tamashii-hen }
+  seasons:
+    - id: gintama-shirogane-no-tamashii-hen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gintama-shirogane-no-tamashii-hen]

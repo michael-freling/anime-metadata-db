@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shimajirou-no-wow-movie-4-shimajirou-to-ehon-no-kuni
+  titles:
+    original: 劇場版 しまじろうのわお！しまじろうと えほんのくに
+    translations: { ja-Latn: "Shimajirou no Wow! Movie 4: Shimajirou to Ehon no Kuni" }
+  movies:
+    - id: shimajirou-no-wow-movie-4-shimajirou-to-ehon-no-kuni-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shimajirou-no-wow-movie-4-shimajirou-to-ehon-no-kuni]

@@ -1,0 +1,13 @@
+# Authored override — 2014 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kanojo-ga-flag-wo-oraretara
+  titles:
+    original: 彼女がフラグをおられたら
+    translations: { ja-Latn: Kanojo ga Flag wo Oraretara }
+  seasons:
+    - id: kanojo-ga-flag-wo-oraretara-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kanojo-ga-flag-wo-oraretara]

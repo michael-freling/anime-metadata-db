@@ -1,0 +1,12 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yamanashi
+  titles:
+    original: やまなし
+    translations: { ja-Latn: Yamanashi }
+  movies:
+    - id: yamanashi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yamanashi]

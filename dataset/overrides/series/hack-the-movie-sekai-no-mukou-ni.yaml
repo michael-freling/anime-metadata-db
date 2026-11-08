@@ -1,0 +1,12 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hack-the-movie-sekai-no-mukou-ni
+  titles:
+    original: .hack//The Movie セカイの向こうに
+    translations: { ja-Latn: ".hack//The Movie: Sekai no Mukou ni" }
+  movies:
+    - id: hack-the-movie-sekai-no-mukou-ni-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hack-the-movie-sekai-no-mukou-ni]

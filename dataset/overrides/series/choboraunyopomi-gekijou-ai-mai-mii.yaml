@@ -1,0 +1,15 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: choboraunyopomi-gekijou-ai-mai-mii
+  titles:
+    original: ちょぼらうにょぽみ劇場 あいまいみー
+    translations: { ja-Latn: Choboraunyopomi Gekijou Ai Mai Mii }
+  seasons:
+    - id: choboraunyopomi-gekijou-ai-mai-mii-s1
+      number: 1
+    - id: choboraunyopomi-gekijou-ai-mai-mii-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [choboraunyopomi-gekijou-ai-mai-mii]

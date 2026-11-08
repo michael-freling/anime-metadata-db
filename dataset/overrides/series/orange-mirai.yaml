@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: orange-mirai
+  titles:
+    original: オレソジ -未来-
+    translations: { ja-Latn: "Orange: Mirai" }
+  movies:
+    - id: orange-mirai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [orange-mirai]

@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: astarotte-no-omocha
+  titles:
+    original: アスタロッテのおもちゃ!
+    translations: { ja-Latn: Astarotte no Omocha! }
+  seasons:
+    - id: astarotte-no-omocha-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [astarotte-no-omocha]

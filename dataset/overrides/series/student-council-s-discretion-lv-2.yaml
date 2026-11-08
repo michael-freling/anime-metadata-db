@@ -1,0 +1,13 @@
+# Authored override — 2012 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: student-council-s-discretion-lv-2
+  titles:
+    original: 生徒会の一存 Lv.2
+    translations: { ja-Latn: Student Council's Discretion Lv. 2 }
+  seasons:
+    - id: student-council-s-discretion-lv-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [student-council-s-discretion-lv-2]

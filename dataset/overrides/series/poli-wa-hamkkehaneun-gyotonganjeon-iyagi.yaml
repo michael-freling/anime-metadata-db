@@ -1,0 +1,13 @@
+# Authored override — 2011 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: poli-wa-hamkkehaneun-gyotonganjeon-iyagi
+  titles:
+    original: Poli wa Hamkkehaneun Gyotonganjeon Iyagi
+    translations: { ja-Latn: Poli wa Hamkkehaneun Gyotonganjeon Iyagi }
+  seasons:
+    - id: poli-wa-hamkkehaneun-gyotonganjeon-iyagi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [poli-wa-hamkkehaneun-gyotonganjeon-iyagi]

@@ -1,0 +1,13 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dance-with-devils
+  titles:
+    original: ダンス ウィズ デビルス
+    translations: { ja-Latn: Dance with Devils }
+  seasons:
+    - id: dance-with-devils-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dance-with-devils]

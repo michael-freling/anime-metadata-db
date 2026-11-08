@@ -1,0 +1,12 @@
+# Authored override — 2015 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gekijo-ban-haikyu-shosha-to-haisha
+  titles:
+    original: 劇場版総集編 後編 ハイキュー!! 勝者と敗者
+    translations: { ja-Latn: Gekijō-ban Haikyu!! Shōsha to Haisha }
+  movies:
+    - id: gekijo-ban-haikyu-shosha-to-haisha-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gekijo-ban-haikyu-shosha-to-haisha]

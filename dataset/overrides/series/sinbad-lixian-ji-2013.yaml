@@ -1,0 +1,12 @@
+# Authored override — 2013 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sinbad-lixian-ji-2013
+  titles:
+    original: Sinbad Lixian Ji 2013
+    translations: { ja-Latn: Sinbad Lixian Ji 2013 }
+  movies:
+    - id: sinbad-lixian-ji-2013-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sinbad-lixian-ji-2013]

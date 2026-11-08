@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: taikong-xiongmao-yingxiong-guilai
+  titles:
+    original: Taikong Xiongmao Yingxiong Guilai
+    translations: { ja-Latn: Taikong Xiongmao Yingxiong Guilai }
+  movies:
+    - id: taikong-xiongmao-yingxiong-guilai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [taikong-xiongmao-yingxiong-guilai]

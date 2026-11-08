@@ -1,0 +1,12 @@
+# Authored override — 2018 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: planetarium-hanakappa-hanasake-pakkaan-uchuu-ryokou
+  titles:
+    original: プラネタリウム はなかっぱ　花さけ！パッカ～ん 宇宙旅行
+    translations: { ja-Latn: "Planetarium Hanakappa: Hanasake! Pakkaan Uchuu Ryokou" }
+  movies:
+    - id: planetarium-hanakappa-hanasake-pakkaan-uchuu-ryokou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [planetarium-hanakappa-hanasake-pakkaan-uchuu-ryokou]

@@ -1,0 +1,12 @@
+# Authored override — 2016 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: minna-to-manner-wo-manabou
+  titles:
+    original: みんなとマナーを学ぼう
+    translations: { ja-Latn: Minna to Manner wo Manabou }
+  movies:
+    - id: minna-to-manner-wo-manabou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [minna-to-manner-wo-manabou]
