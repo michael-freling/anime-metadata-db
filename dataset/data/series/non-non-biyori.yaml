@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Non Non Biyori
   ordering: absolute
+  externalIds:
+    wikidataId: Q5364072
   seasons:
     - id: non-non-biyori-s1
       number: 1

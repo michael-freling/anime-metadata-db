@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Ladies versus Butlers!
   ordering: absolute
+  externalIds:
+    wikidataId: Q1210223
   seasons:
     - id: ladies-versus-butlers-s1
       number: 1

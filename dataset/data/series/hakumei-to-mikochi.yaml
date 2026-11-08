@@ -4,8 +4,11 @@ series:
   titles:
     original: ハクメイとミコチ
     translations:
+      en: Hakumei and Mikochi
       ja-Latn: Hakumei to Mikochi
   ordering: absolute
+  externalIds:
+    wikidataId: Q11326305
   seasons:
     - id: hakumei-to-mikochi-s1
       number: 1

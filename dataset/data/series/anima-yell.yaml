@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Anima Yell!
   ordering: absolute
+  externalIds:
+    wikidataId: Q38277693
   seasons:
     - id: anima-yell-s1
       number: 1

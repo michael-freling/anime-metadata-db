@@ -4,8 +4,11 @@ series:
   titles:
     original: アリスと蔵六
     translations:
+      en: Alice & Zoroku
       ja-Latn: Alice to Zouroku
   ordering: absolute
+  externalIds:
+    wikidataId: Q28687020
   seasons:
     - id: alice-to-zouroku-s1
       number: 1

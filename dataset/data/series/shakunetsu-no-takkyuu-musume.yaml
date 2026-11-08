@@ -4,8 +4,11 @@ series:
   titles:
     original: 灼熱の卓球娘
     translations:
+      en: Scorching Ping Pong Girls
       ja-Latn: Shakunetsu no Takkyuu Musume
   ordering: absolute
+  externalIds:
+    wikidataId: Q23843627
   seasons:
     - id: shakunetsu-no-takkyuu-musume-s1
       number: 1

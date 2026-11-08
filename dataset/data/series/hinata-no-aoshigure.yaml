@@ -4,8 +4,11 @@ series:
   titles:
     original: 陽なたのアオシグレ
     translations:
+      en: Rain in the Sunshine
       ja-Latn: Hinata no Aoshigure
   ordering: absolute
+  externalIds:
+    wikidataId: Q22125942
   movies:
     - id: hinata-no-aoshigure-film
       titles:

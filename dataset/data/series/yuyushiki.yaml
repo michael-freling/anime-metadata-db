@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Yuyushiki
   ordering: absolute
+  externalIds:
+    wikidataId: Q7480931
   seasons:
     - id: yuyushiki-s1
       number: 1

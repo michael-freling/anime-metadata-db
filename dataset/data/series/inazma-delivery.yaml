@@ -4,8 +4,11 @@ series:
   titles:
     original: イナズマデリバリー
     translations:
+      en: Inazuma Delivery
       ja-Latn: Inazma Delivery
   ordering: absolute
+  externalIds:
+    wikidataId: Q30929693
   seasons:
     - id: inazma-delivery-s1
       number: 1

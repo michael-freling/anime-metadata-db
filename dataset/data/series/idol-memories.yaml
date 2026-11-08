@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Idol Memories
   ordering: absolute
+  externalIds:
+    wikidataId: Q25807484
   seasons:
     - id: idol-memories-s1
       number: 1

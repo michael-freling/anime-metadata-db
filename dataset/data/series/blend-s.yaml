@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Blend S
   ordering: absolute
+  externalIds:
+    wikidataId: Q22126791
   seasons:
     - id: blend-s-s1
       number: 1

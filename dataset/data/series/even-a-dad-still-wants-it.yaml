@@ -4,8 +4,11 @@ series:
   titles:
     original: パパだって、したい
     translations:
+      en: Papa Datte, Shitai
       ja-Latn: Even a Dad Still Wants It...
   ordering: absolute
+  externalIds:
+    wikidataId: Q60602742
   seasons:
     - id: even-a-dad-still-wants-it-s1
       number: 1

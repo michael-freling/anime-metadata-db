@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Nobunagun
   ordering: absolute
+  externalIds:
+    wikidataId: Q11325725
   seasons:
     - id: nobunagun-s1
       number: 1

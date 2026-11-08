@@ -4,8 +4,11 @@ series:
   titles:
     original: ちるらん 新撰組鎮魂歌
     translations:
+      en: 'Chiruran: Shinsengumi Requiem'
       ja-Latn: 'Chiruran: Nibun no Ichi'
   ordering: absolute
+  externalIds:
+    wikidataId: Q17214939
   seasons:
     - id: chiruran-nibun-no-ichi-s1
       number: 1

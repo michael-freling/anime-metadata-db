@@ -4,8 +4,11 @@ series:
   titles:
     original: 不思議なソメラちゃん
     translations:
+      en: Magical Somera-chan
       ja-Latn: Fushigi na Somera-chan
   ordering: absolute
+  externalIds:
+    wikidataId: Q20856904
   seasons:
     - id: fushigi-na-somera-chan-s1
       number: 1

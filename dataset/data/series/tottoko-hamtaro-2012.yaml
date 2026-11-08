@@ -4,8 +4,11 @@ series:
   titles:
     original: とっとこハム太郎
     translations:
+      en: Hamtaro
       ja-Latn: Tottoko Hamtaro (2012)
   ordering: absolute
+  externalIds:
+    wikidataId: Q696310
   seasons:
     - id: tottoko-hamtaro-2012-s1
       number: 1

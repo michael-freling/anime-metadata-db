@@ -4,8 +4,11 @@ series:
   titles:
     original: 叛逆性ミリオンアーサー
     translations:
+      en: Operation Han-Gyaku-Sei Million Arthur
       ja-Latn: Hangyakusei Million Arthur
   ordering: absolute
+  externalIds:
+    wikidataId: Q60494979
   seasons:
     - id: hangyakusei-million-arthur-s1
       number: 1

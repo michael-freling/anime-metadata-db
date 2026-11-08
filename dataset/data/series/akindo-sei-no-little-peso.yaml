@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Akindo Sei no Little Peso
   ordering: absolute
+  externalIds:
+    wikidataId: Q30928113
   seasons:
     - id: akindo-sei-no-little-peso-s1
       number: 1

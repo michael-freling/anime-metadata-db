@@ -4,8 +4,11 @@ series:
   titles:
     original: 猫神やおよろず
     translations:
+      en: The Everyday Tales of a Cat God
       ja-Latn: Nekogami Yaoyorozu
   ordering: absolute
+  externalIds:
+    wikidataId: Q486623
   seasons:
     - id: nekogami-yaoyorozu-s1
       number: 1

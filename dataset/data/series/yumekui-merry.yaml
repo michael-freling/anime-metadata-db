@@ -4,8 +4,11 @@ series:
   titles:
     original: 夢喰いメリー
     translations:
+      en: Dream Eater Merry
       ja-Latn: Yumekui Merry
   ordering: absolute
+  externalIds:
+    wikidataId: Q482863
   seasons:
     - id: yumekui-merry-s1
       number: 1

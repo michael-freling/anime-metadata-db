@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Gundam Build Fighters
   ordering: absolute
+  externalIds:
+    wikidataId: Q14092000
   seasons:
     - id: gundam-build-fighters-s1
       number: 1

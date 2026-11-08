@@ -4,8 +4,11 @@ series:
   titles:
     original: オレん家のフロ事情
     translations:
+      en: Merman in My Tub
       ja-Latn: Orenchi no Furo Jijou
   ordering: absolute
+  externalIds:
+    wikidataId: Q11292890
   seasons:
     - id: orenchi-no-furo-jijou-s1
       number: 1

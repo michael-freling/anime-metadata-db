@@ -4,8 +4,11 @@ series:
   titles:
     original: グランクレスト戦記
     translations:
+      en: Record of Grancrest War
       ja-Latn: Grancrest Senki
   ordering: absolute
+  externalIds:
+    wikidataId: Q27536990
   seasons:
     - id: grancrest-senki-s1
       number: 1

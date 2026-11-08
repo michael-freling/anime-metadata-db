@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Ookamikakushi
   ordering: absolute
+  externalIds:
+    wikidataId: Q1204015
   seasons:
     - id: ookamikakushi-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 殺戮の天使
     translations:
+      en: Angels of Death
       ja-Latn: Satsuriku no Tenshi
   ordering: absolute
+  externalIds:
+    wikidataId: Q48847238
   seasons:
     - id: satsuriku-no-tenshi-s1
       number: 1

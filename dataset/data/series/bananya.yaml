@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Bananya
   ordering: absolute
+  externalIds:
+    wikidataId: Q24876611
   seasons:
     - id: bananya-s1
       number: 1

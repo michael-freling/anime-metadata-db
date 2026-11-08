@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Muv-Luv Alternative: Total Eclipse'
   ordering: absolute
+  externalIds:
+    wikidataId: Q3868777
   seasons:
     - id: muv-luv-alternative-total-eclipse-s1
       number: 1

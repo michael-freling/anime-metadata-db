@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Shokupan Mimi
   ordering: absolute
+  externalIds:
+    wikidataId: Q11666012
   seasons:
     - id: shokupan-mimi-s1
       number: 1

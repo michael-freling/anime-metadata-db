@@ -4,8 +4,11 @@ series:
   titles:
     original: サンリオ男子
     translations:
+      en: Sanrio Boys
       ja-Latn: Sanrio Danshi
   ordering: absolute
+  externalIds:
+    wikidataId: Q28690097
   seasons:
     - id: sanrio-danshi-s1
       number: 1

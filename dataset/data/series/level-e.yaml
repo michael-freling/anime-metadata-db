@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Level E
   ordering: absolute
+  externalIds:
+    wikidataId: Q483557
   seasons:
     - id: level-e-s1
       number: 1

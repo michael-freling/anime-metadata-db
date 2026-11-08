@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kabuki-bu!
   ordering: absolute
+  externalIds:
+    wikidataId: Q28146831
   seasons:
     - id: kabuki-bu-s1
       number: 1

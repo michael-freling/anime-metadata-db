@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Phantasy Star Online 2 The Animation
   ordering: absolute
+  externalIds:
+    wikidataId: Q55130872
   seasons:
     - id: phantasy-star-online-2-the-animation-s1
       number: 1

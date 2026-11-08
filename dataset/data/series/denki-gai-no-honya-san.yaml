@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Denki-gai no Honya-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q128156
   seasons:
     - id: denki-gai-no-honya-san-s1
       number: 1

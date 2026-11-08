@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Himote House
   ordering: absolute
+  externalIds:
+    wikidataId: Q58624229
   seasons:
     - id: himote-house-s1
       number: 1

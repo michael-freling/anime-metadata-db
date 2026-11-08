@@ -4,8 +4,11 @@ series:
   titles:
     original: うどんの国の金色毛鞠
     translations:
+      en: Poco's Udon World
       ja-Latn: Udon no Kuni no Kiniro Kemari
   ordering: absolute
+  externalIds:
+    wikidataId: Q20043264
   seasons:
     - id: udon-no-kuni-no-kiniro-kemari-s1
       number: 1

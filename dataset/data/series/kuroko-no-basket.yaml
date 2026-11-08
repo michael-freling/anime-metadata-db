@@ -4,8 +4,11 @@ series:
   titles:
     original: 黒子のバスケ
     translations:
+      en: Kuroko's Basketball
       ja-Latn: Kuroko no Basket
   ordering: absolute
+  externalIds:
+    wikidataId: Q482715
   seasons:
     - id: kuroko-no-basket-s1
       number: 1

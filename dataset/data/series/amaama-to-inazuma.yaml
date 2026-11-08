@@ -4,8 +4,11 @@ series:
   titles:
     original: 甘々と稲妻
     translations:
+      en: Sweetness and Lightning
       ja-Latn: Amaama to Inazuma
   ordering: absolute
+  externalIds:
+    wikidataId: Q17191738
   seasons:
     - id: amaama-to-inazuma-s1
       number: 1

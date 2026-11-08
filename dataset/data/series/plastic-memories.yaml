@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Plastic Memories
   ordering: absolute
+  externalIds:
+    wikidataId: Q18392631
   seasons:
     - id: plastic-memories-s1
       number: 1

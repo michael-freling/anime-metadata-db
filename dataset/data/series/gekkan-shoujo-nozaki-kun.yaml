@@ -4,8 +4,11 @@ series:
   titles:
     original: 月刊少女野崎くん
     translations:
+      en: Monthly Girls' Nozaki-kun
       ja-Latn: Gekkan Shoujo Nozaki-kun
   ordering: absolute
+  externalIds:
+    wikidataId: Q11515981
   seasons:
     - id: gekkan-shoujo-nozaki-kun-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Pupipo!
   ordering: absolute
+  externalIds:
+    wikidataId: Q11335329
   seasons:
     - id: pupipo-s1
       number: 1

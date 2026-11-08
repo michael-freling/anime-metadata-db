@@ -4,8 +4,11 @@ series:
   titles:
     original: 俺の彼女と幼なじみが修羅場すぎる
     translations:
+      en: Oreshura
       ja-Latn: Ore no Kanojo to Osananajimi ga Shuraba Sugiru
   ordering: absolute
+  externalIds:
+    wikidataId: Q184352
   seasons:
     - id: ore-no-kanojo-to-osananajimi-ga-shuraba-sugiru-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Amagi Brilliant Park
   ordering: absolute
+  externalIds:
+    wikidataId: Q11574256
   seasons:
     - id: amagi-brilliant-park-s1
       number: 1

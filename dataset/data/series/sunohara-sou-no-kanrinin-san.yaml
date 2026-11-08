@@ -4,8 +4,11 @@ series:
   titles:
     original: すのはら荘の管理人さん
     translations:
+      en: Miss Caretaker of Sunohara-Sou
       ja-Latn: Sunohara-sou no Kanrinin-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q22130341
   seasons:
     - id: sunohara-sou-no-kanrinin-san-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 五等分の花嫁
     translations:
+      en: The Quintessential Quintuplets
       ja-Latn: 5-toubun no Hanayome
   ordering: absolute
+  externalIds:
+    wikidataId: Q38277250
   seasons:
     - id: 5-toubun-no-hanayome-s1
       number: 1

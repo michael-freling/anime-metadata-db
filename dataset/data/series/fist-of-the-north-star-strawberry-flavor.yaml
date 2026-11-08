@@ -4,8 +4,11 @@ series:
   titles:
     original: 北斗の拳 イチゴ味
     translations:
+      en: 'Hokuto no Ken: Ichigo Aji'
       ja-Latn: 'Fist of the North Star: Strawberry Flavor'
   ordering: absolute
+  externalIds:
+    wikidataId: Q17230221
   seasons:
     - id: fist-of-the-north-star-strawberry-flavor-s1
       number: 1

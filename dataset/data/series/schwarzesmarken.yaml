@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Schwarzesmarken
   ordering: absolute
+  externalIds:
+    wikidataId: Q17212178
   seasons:
     - id: schwarzesmarken-s1
       number: 1

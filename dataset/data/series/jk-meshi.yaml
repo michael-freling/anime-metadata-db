@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: JK Meshi!
   ordering: absolute
+  externalIds:
+    wikidataId: Q22128246
   seasons:
     - id: jk-meshi-s1
       number: 1

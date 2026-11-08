@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Fragtime
   ordering: absolute
+  externalIds:
+    wikidataId: Q17213926
   movies:
     - id: fragtime-film
       titles:

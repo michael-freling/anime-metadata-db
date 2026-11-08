@@ -4,8 +4,11 @@ series:
   titles:
     original: 血液型くん!
     translations:
+      en: A Simple Thinking About Blood Type
       ja-Latn: Ketsuekigata-kun!
   ordering: absolute
+  externalIds:
+    wikidataId: Q11625954
   seasons:
     - id: ketsuekigata-kun-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Mob Psycho 100
   ordering: absolute
+  externalIds:
+    wikidataId: Q11344543
   seasons:
     - id: mob-psycho-100-s1
       number: 1

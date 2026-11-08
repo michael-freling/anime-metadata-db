@@ -4,8 +4,11 @@ series:
   titles:
     original: 学戦都市アスタリスク
     translations:
+      en: The Asterisk War
       ja-Latn: Gakusen Toshi Asterisk
   ordering: absolute
+  externalIds:
+    wikidataId: Q11448208
   seasons:
     - id: gakusen-toshi-asterisk-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 坂本ですが?
     translations:
+      en: Haven't You Heard? I'm Sakamoto
       ja-Latn: Sakamoto desu ga?
   ordering: absolute
+  externalIds:
+    wikidataId: Q15077272
   seasons:
     - id: sakamoto-desu-ga-s1
       number: 1

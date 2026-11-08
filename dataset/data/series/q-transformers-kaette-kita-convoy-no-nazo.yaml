@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Q Transformers: Kaette Kita Convoy no Nazo'
   ordering: absolute
+  externalIds:
+    wikidataId: Q18701209
   seasons:
     - id: q-transformers-kaette-kita-convoy-no-nazo-s1
       number: 1

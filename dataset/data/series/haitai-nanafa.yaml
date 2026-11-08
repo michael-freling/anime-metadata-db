@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Haitai Nanafa
   ordering: absolute
+  externalIds:
+    wikidataId: Q596608
   seasons:
     - id: haitai-nanafa-s1
       number: 1

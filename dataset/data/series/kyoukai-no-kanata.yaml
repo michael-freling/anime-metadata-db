@@ -4,8 +4,11 @@ series:
   titles:
     original: 境界の彼方
     translations:
+      en: Beyond the Boundary
       ja-Latn: Kyoukai no Kanata
   ordering: absolute
+  externalIds:
+    wikidataId: Q9385099
   seasons:
     - id: kyoukai-no-kanata-s1
       number: 1

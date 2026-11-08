@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Say "I love you."
   ordering: absolute
+  externalIds:
+    wikidataId: Q1580513
   seasons:
     - id: say-i-love-you-s1
       number: 1

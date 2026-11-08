@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hanayamata
   ordering: absolute
+  externalIds:
+    wikidataId: Q15407839
   seasons:
     - id: hanayamata-s1
       number: 1

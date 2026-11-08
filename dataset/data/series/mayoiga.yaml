@@ -4,8 +4,11 @@ series:
   titles:
     original: 迷家-マヨイガ-
     translations:
+      en: The Lost Village
       ja-Latn: Mayoiga
   ordering: absolute
+  externalIds:
+    wikidataId: Q21998224
   seasons:
     - id: mayoiga-s1
       number: 1

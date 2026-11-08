@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hyouge Mono
   ordering: absolute
+  externalIds:
+    wikidataId: Q2584230
   seasons:
     - id: hyouge-mono-s1
       number: 1

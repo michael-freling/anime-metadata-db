@@ -4,8 +4,11 @@ series:
   titles:
     original: 1日外出録ハンチョウ
     translations:
+      en: 1-nichi Gaishutsuroku Hanchō
       ja-Latn: Chuukan Kanriroku Tonegawa
   ordering: absolute
+  externalIds:
+    wikidataId: Q30922413
   seasons:
     - id: chuukan-kanriroku-tonegawa-s1
       number: 1

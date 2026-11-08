@@ -4,8 +4,11 @@ series:
   titles:
     original: 電波女と青春男
     translations:
+      en: Ground Control to Psychoelectric Girl
       ja-Latn: Denpa Onna to Seishun Otoko
   ordering: absolute
+  externalIds:
+    wikidataId: Q483585
   seasons:
     - id: denpa-onna-to-seishun-otoko-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: ねじ巻き精霊戦記 天鏡のアルデラミン
     translations:
+      en: Alderamin on the Sky
       ja-Latn: 'Nejimaki Seirei Senki: Tenkyou no Alderamin'
   ordering: absolute
+  externalIds:
+    wikidataId: Q17013721
   seasons:
     - id: nejimaki-seirei-senki-tenkyou-no-alderamin-s1
       number: 1

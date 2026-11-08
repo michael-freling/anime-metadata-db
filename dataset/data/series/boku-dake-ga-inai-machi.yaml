@@ -4,8 +4,11 @@ series:
   titles:
     original: 僕だけがいない街
     translations:
+      en: Erased
       ja-Latn: Boku dake ga Inai Machi
   ordering: absolute
+  externalIds:
+    wikidataId: Q17230217
   seasons:
     - id: boku-dake-ga-inai-machi-s1
       number: 1

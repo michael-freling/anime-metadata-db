@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Fairy Gone
   ordering: absolute
+  externalIds:
+    wikidataId: Q61041655
   seasons:
     - id: fairy-gone-s1
       number: 1

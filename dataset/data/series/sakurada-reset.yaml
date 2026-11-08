@@ -4,8 +4,11 @@ series:
   titles:
     original: サクラダリセット
     translations:
+      en: Sagrada Reset
       ja-Latn: Sakurada Reset
   ordering: absolute
+  externalIds:
+    wikidataId: Q11304514
   seasons:
     - id: sakurada-reset-s1
       number: 1

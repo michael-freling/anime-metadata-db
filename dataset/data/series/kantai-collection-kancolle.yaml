@@ -4,8 +4,11 @@ series:
   titles:
     original: 艦隊これくしょん -艦これ-
     translations:
+      en: Kantai Collection
       ja-Latn: 'Kantai Collection: KanColle'
   ordering: absolute
+  externalIds:
+    wikidataId: Q14785138
   seasons:
     - id: kantai-collection-kancolle-s1
       number: 1

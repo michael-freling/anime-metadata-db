@@ -4,8 +4,11 @@ series:
   titles:
     original: 怪盗レーニャ
     translations:
+      en: Phanton Thief Reinya
       ja-Latn: Kaitou Reinya
   ordering: absolute
+  externalIds:
+    wikidataId: Q1062501
   seasons:
     - id: kaitou-reinya-s1
       number: 1

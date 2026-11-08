@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tsuki ga Kirei
   ordering: absolute
+  externalIds:
+    wikidataId: Q28790213
   seasons:
     - id: tsuki-ga-kirei-s1
       number: 1

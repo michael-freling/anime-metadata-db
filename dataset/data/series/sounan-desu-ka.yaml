@@ -4,8 +4,11 @@ series:
   titles:
     original: ソウナンですか?
     translations:
+      en: Are You Lost?
       ja-Latn: Sounan desu ka?
   ordering: absolute
+  externalIds:
+    wikidataId: Q48748655
   seasons:
     - id: sounan-desu-ka-s1
       number: 1

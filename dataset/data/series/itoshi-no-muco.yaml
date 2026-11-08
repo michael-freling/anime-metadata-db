@@ -4,8 +4,11 @@ series:
   titles:
     original: いとしのムーコ
     translations:
+      en: Lovely Muco
       ja-Latn: Itoshi no Muco
   ordering: absolute
+  externalIds:
+    wikidataId: Q11259822
   seasons:
     - id: itoshi-no-muco-s1
       number: 1

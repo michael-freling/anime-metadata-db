@@ -4,8 +4,11 @@ series:
   titles:
     original: 男子高校生の日常
     translations:
+      en: Daily Lives of High School Boys
       ja-Latn: Danshi Koukousei no Nichijou
   ordering: absolute
+  externalIds:
+    wikidataId: Q483803
   seasons:
     - id: danshi-koukousei-no-nichijou-s1
       number: 1

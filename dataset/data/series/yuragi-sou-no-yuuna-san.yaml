@@ -4,8 +4,11 @@ series:
   titles:
     original: ゆらぎ荘の幽奈さん
     translations:
+      en: Yuuna and the Haunted Hot Springs
       ja-Latn: Yuragi-sou no Yuuna-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q24876869
   seasons:
     - id: yuragi-sou-no-yuuna-san-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Slow Start
   ordering: absolute
+  externalIds:
+    wikidataId: Q20045166
   seasons:
     - id: slow-start-s1
       number: 1

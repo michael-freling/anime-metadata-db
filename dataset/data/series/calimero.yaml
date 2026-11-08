@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Calimero
   ordering: absolute
+  externalIds:
+    wikidataId: Q128969
   seasons:
     - id: calimero-s1
       number: 1

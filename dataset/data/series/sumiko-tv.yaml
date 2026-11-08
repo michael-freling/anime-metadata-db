@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Sumiko (TV)
   ordering: absolute
+  externalIds:
+    wikidataId: Q17994588
   seasons:
     - id: sumiko-tv-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Conception
   ordering: absolute
+  externalIds:
+    wikidataId: Q5158407
   seasons:
     - id: conception-s1
       number: 1

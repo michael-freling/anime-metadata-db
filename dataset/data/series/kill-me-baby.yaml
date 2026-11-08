@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kill Me Baby
   ordering: absolute
+  externalIds:
+    wikidataId: Q402595
   seasons:
     - id: kill-me-baby-s1
       number: 1

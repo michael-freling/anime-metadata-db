@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hana Kappa
   ordering: absolute
+  externalIds:
+    wikidataId: Q11275662
   seasons:
     - id: hana-kappa-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: D-Frag!
   ordering: absolute
+  externalIds:
+    wikidataId: Q11320196
   seasons:
     - id: d-frag-s1
       number: 1

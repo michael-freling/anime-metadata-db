@@ -4,8 +4,11 @@ series:
   titles:
     original: やがて君になる
     translations:
+      en: Bloom Into You
       ja-Latn: Yagate Kimi ni Naru
   ordering: absolute
+  externalIds:
+    wikidataId: Q22932761
   seasons:
     - id: yagate-kimi-ni-naru-s1
       number: 1

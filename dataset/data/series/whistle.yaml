@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Whistle!
   ordering: absolute
+  externalIds:
+    wikidataId: Q699103
   seasons:
     - id: whistle-s1
       number: 1

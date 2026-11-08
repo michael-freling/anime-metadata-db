@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kokoro Connect
   ordering: absolute
+  externalIds:
+    wikidataId: Q488438
   seasons:
     - id: kokoro-connect-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Danchigai
   ordering: absolute
+  externalIds:
+    wikidataId: Q11271635
   seasons:
     - id: danchigai-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Dusk maiden of Amnesia
   ordering: absolute
+  externalIds:
+    wikidataId: Q2613581
   seasons:
     - id: dusk-maiden-of-amnesia-s1
       number: 1

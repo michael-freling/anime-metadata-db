@@ -4,8 +4,11 @@ series:
   titles:
     original: 徒然チルドレン
     translations:
+      en: Tsuredure Children
       ja-Latn: Tsurezure Children
   ordering: absolute
+  externalIds:
+    wikidataId: Q28753446
   seasons:
     - id: tsurezure-children-s1
       number: 1

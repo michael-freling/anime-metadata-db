@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Sparrow's Hotel
   ordering: absolute
+  externalIds:
+    wikidataId: Q5162301
   seasons:
     - id: sparrow-s-hotel-s1
       number: 1

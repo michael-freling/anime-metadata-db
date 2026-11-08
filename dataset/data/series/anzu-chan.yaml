@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Anzu-chan
   ordering: absolute
+  externalIds:
+    wikidataId: Q11258831
   movies:
     - id: anzu-chan-film
       titles:

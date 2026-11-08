@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Devils Line
   ordering: absolute
+  externalIds:
+    wikidataId: Q48670984
   seasons:
     - id: devils-line-s1
       number: 1

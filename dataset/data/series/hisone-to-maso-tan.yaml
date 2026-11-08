@@ -4,8 +4,11 @@ series:
   titles:
     original: ひそねとまそたん
     translations:
+      en: 'Dragon Pilot: Hisone and Masotan'
       ja-Latn: Hisone to Maso-tan
   ordering: absolute
+  externalIds:
+    wikidataId: Q45034714
   seasons:
     - id: hisone-to-maso-tan-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: メロエッタのキラキラリサイタル
     translations:
+      en: Meloetta`s Glittery Recital
       ja-Latn: 'Pokemon: Meloetta no Kirakira Recital'
   ordering: absolute
+  externalIds:
+    wikidataId: Q11240260
   movies:
     - id: pokemon-meloetta-no-kirakira-recital-film
       titles:

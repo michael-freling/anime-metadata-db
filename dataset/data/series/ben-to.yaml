@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Ben-To
   ordering: absolute
+  externalIds:
+    wikidataId: Q488467
   seasons:
     - id: ben-to-s1
       number: 1

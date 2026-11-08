@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Omamori Himari
   ordering: absolute
+  externalIds:
+    wikidataId: Q1203079
   seasons:
     - id: omamori-himari-s1
       number: 1

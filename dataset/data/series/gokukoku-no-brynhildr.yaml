@@ -4,8 +4,11 @@ series:
   titles:
     original: 極黒のブリュンヒルデ
     translations:
+      en: Brynhildr in the Darkness
       ja-Latn: Gokukoku no Brynhildr
   ordering: absolute
+  externalIds:
+    wikidataId: Q589874
   seasons:
     - id: gokukoku-no-brynhildr-s1
       number: 1

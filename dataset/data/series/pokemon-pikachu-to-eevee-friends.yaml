@@ -4,8 +4,11 @@ series:
   titles:
     original: ピカチュウとイーブイ☆フレンズ
     translations:
+      en: Eevee & Friends
       ja-Latn: 'Pokemon: Pikachu to Eevee Friends'
   ordering: absolute
+  externalIds:
+    wikidataId: Q4542466
   movies:
     - id: pokemon-pikachu-to-eevee-friends-film
       titles:

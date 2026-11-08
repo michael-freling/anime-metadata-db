@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Yowamushi Pedal
   ordering: absolute
+  externalIds:
+    wikidataId: Q1661633
   seasons:
     - id: yowamushi-pedal-s1
       number: 1

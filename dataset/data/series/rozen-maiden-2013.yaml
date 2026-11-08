@@ -4,8 +4,11 @@ series:
   titles:
     original: ローゼンメイデン
     translations:
+      en: Rozen Maiden
       ja-Latn: Rozen Maiden (2013)
   ordering: absolute
+  externalIds:
+    wikidataId: Q865487
   seasons:
     - id: rozen-maiden-2013-s1
       number: 1

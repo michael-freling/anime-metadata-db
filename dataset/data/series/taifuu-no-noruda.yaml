@@ -4,8 +4,11 @@ series:
   titles:
     original: 台風のノルダ
     translations:
+      en: Typhoon Noruda
       ja-Latn: Taifuu no Noruda
   ordering: absolute
+  externalIds:
+    wikidataId: Q20037071
   movies:
     - id: taifuu-no-noruda-film
       titles:

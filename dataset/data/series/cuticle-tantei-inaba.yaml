@@ -4,8 +4,11 @@ series:
   titles:
     original: キューティクル探偵因幡
     translations:
+      en: Cuticle Detective Inaba
       ja-Latn: Cuticle Tantei Inaba
   ordering: absolute
+  externalIds:
+    wikidataId: Q199224
   seasons:
     - id: cuticle-tantei-inaba-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Mizuki Shigeru no Toono Monogatari
   ordering: absolute
+  externalIds:
+    wikidataId: Q11548748
   movies:
     - id: mizuki-shigeru-no-toono-monogatari-film
       titles:

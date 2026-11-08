@@ -4,8 +4,11 @@ series:
   titles:
     original: 石田とあさくら
     translations:
+      en: Ishida & Asakura
       ja-Latn: Ishida to Asakura
   ordering: absolute
+  externalIds:
+    wikidataId: Q200225
   seasons:
     - id: ishida-to-asakura-s1
       number: 1

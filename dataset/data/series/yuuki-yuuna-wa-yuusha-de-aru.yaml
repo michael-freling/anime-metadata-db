@@ -4,8 +4,11 @@ series:
   titles:
     original: 結城友奈は勇者である
     translations:
+      en: Yuki Yuna is a Hero
       ja-Latn: Yuuki Yuuna wa Yuusha de Aru
   ordering: absolute
+  externalIds:
+    wikidataId: Q17465338
   seasons:
     - id: yuuki-yuuna-wa-yuusha-de-aru-s1
       number: 1

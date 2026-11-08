@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Inuyashiki
   ordering: absolute
+  externalIds:
+    wikidataId: Q18700625
   seasons:
     - id: inuyashiki-s1
       number: 1

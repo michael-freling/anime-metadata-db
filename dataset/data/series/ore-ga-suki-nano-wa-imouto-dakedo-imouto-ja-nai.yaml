@@ -4,8 +4,11 @@ series:
   titles:
     original: 俺が好きなのは妹だけど妹じゃない
     translations:
+      en: My Sister, My Writer
       ja-Latn: Ore ga Suki nano wa Imouto dakedo Imouto ja Nai
   ordering: absolute
+  externalIds:
+    wikidataId: Q42298146
   seasons:
     - id: ore-ga-suki-nano-wa-imouto-dakedo-imouto-ja-nai-s1
       number: 1

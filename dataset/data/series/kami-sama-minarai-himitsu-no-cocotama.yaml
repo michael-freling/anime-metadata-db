@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Kami-sama Minarai: Himitsu no Cocotama'
   ordering: absolute
+  externalIds:
+    wikidataId: Q21011084
   seasons:
     - id: kami-sama-minarai-himitsu-no-cocotama-s1
       number: 1

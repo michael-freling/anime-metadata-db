@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Gakkatsu!
   ordering: absolute
+  externalIds:
+    wikidataId: Q10862509
   seasons:
     - id: gakkatsu-s1
       number: 1

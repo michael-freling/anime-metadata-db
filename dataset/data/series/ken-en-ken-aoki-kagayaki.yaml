@@ -4,8 +4,11 @@ series:
   titles:
     original: 軒轅剣 蒼き曜
     translations:
+      en: Xuan Yuan Sword Luminary
       ja-Latn: 'Ken En Ken: Aoki Kagayaki'
   ordering: absolute
+  externalIds:
+    wikidataId: Q56877043
   seasons:
     - id: ken-en-ken-aoki-kagayaki-s1
       number: 1

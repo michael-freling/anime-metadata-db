@@ -4,8 +4,11 @@ series:
   titles:
     original: 真夜中のオカルト公務員
     translations:
+      en: Midnight Occult Civil Servants
       ja-Latn: Mayonaka no Occult Koumuin
   ordering: absolute
+  externalIds:
+    wikidataId: Q55391811
   seasons:
     - id: mayonaka-no-occult-koumuin-s1
       number: 1

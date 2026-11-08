@@ -4,8 +4,11 @@ series:
   titles:
     original: 京都寺町三条のホームズ
     translations:
+      en: Holmes of Kyoto
       ja-Latn: Kyoto Teramachi Sanjou no Holmes
   ordering: absolute
+  externalIds:
+    wikidataId: Q24863026
   seasons:
     - id: kyoto-teramachi-sanjou-no-holmes-s1
       number: 1

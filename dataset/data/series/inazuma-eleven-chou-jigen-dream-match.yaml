@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Inazuma Eleven: Chou Jigen Dream Match'
   ordering: absolute
+  externalIds:
+    wikidataId: Q17193395
   movies:
     - id: inazuma-eleven-chou-jigen-dream-match-film
       titles:

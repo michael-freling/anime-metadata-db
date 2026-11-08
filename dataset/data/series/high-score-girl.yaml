@@ -4,8 +4,11 @@ series:
   titles:
     original: ハイスコアガール
     translations:
+      en: Hi Score Girl
       ja-Latn: High Score Girl
   ordering: absolute
+  externalIds:
+    wikidataId: Q181357
   seasons:
     - id: high-score-girl-s1
       number: 1

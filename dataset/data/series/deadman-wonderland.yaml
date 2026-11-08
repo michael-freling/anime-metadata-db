@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Deadman Wonderland
   ordering: absolute
+  externalIds:
+    wikidataId: Q482790
   seasons:
     - id: deadman-wonderland-s1
       number: 1

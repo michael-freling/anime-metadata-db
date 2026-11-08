@@ -4,8 +4,11 @@ series:
   titles:
     original: 魔法使いの嫁
     translations:
+      en: The Ancient Magus' Bride
       ja-Latn: Mahoutsukai no Yome
   ordering: absolute
+  externalIds:
+    wikidataId: Q18460519
   seasons:
     - id: mahoutsukai-no-yome-s1
       number: 1

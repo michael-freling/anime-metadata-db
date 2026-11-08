@@ -4,8 +4,11 @@ series:
   titles:
     original: まちカドまぞく
     translations:
+      en: The Demon Girl Next Door
       ja-Latn: Machikado Mazoku
   ordering: absolute
+  externalIds:
+    wikidataId: Q22131597
   seasons:
     - id: machikado-mazoku-s1
       number: 1

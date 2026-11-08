@@ -4,8 +4,11 @@ series:
   titles:
     original: ウィザード・バリスターズ 弁魔士セシル
     translations:
+      en: Wizard Barristers
       ja-Latn: 'Wizard Barristers: Benmashi Cecil'
   ordering: absolute
+  externalIds:
+    wikidataId: Q15176855
   seasons:
     - id: wizard-barristers-benmashi-cecil-s1
       number: 1

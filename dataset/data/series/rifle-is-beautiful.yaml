@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Rifle Is Beautiful
   ordering: absolute
+  externalIds:
+    wikidataId: Q22126075
   seasons:
     - id: rifle-is-beautiful-s1
       number: 1

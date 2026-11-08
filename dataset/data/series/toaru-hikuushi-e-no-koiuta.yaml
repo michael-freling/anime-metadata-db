@@ -4,8 +4,11 @@ series:
   titles:
     original: とある飛空士への恋歌
     translations:
+      en: The Pilot's Love Song
       ja-Latn: Toaru Hikuushi e no Koiuta
   ordering: absolute
+  externalIds:
+    wikidataId: Q11272884
   seasons:
     - id: toaru-hikuushi-e-no-koiuta-s1
       number: 1

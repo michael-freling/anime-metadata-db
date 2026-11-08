@@ -4,8 +4,11 @@ series:
   titles:
     original: 四月は君の嘘
     translations:
+      en: Your Lie in April
       ja-Latn: Shigatsu wa Kimi no Uso
   ordering: absolute
+  externalIds:
+    wikidataId: Q11419997
   seasons:
     - id: shigatsu-wa-kimi-no-uso-s1
       number: 1

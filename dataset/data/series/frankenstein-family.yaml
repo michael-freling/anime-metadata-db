@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Frankenstein Family
   ordering: absolute
+  externalIds:
+    wikidataId: Q48918863
   seasons:
     - id: frankenstein-family-s1
       number: 1

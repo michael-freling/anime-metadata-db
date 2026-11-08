@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Action Heroine Cheer Fruits
   ordering: absolute
+  externalIds:
+    wikidataId: Q29169326
   seasons:
     - id: action-heroine-cheer-fruits-s1
       number: 1

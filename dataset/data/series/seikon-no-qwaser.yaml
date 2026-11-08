@@ -4,8 +4,11 @@ series:
   titles:
     original: 聖痕のクェイサー
     translations:
+      en: The Qwaser of Stigmata
       ja-Latn: Seikon no Qwaser
   ordering: absolute
+  externalIds:
+    wikidataId: Q281062
   seasons:
     - id: seikon-no-qwaser-s1
       number: 1

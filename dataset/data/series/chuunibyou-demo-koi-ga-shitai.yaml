@@ -4,8 +4,11 @@ series:
   titles:
     original: 中二病でも恋がしたい!
     translations:
+      en: Love, Chunibyo & Other Delusions
       ja-Latn: Chuunibyou demo Koi ga Shitai!
   ordering: absolute
+  externalIds:
+    wikidataId: Q302647
   seasons:
     - id: chuunibyou-demo-koi-ga-shitai-s1
       number: 1

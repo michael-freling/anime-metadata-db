@@ -4,8 +4,11 @@ series:
   titles:
     original: ゼロから始める魔法の書
     translations:
+      en: Grimoire of Zero
       ja-Latn: Zero kara Hajimeru Mahou no Sho
   ordering: absolute
+  externalIds:
+    wikidataId: Q21015425
   seasons:
     - id: zero-kara-hajimeru-mahou-no-sho-s1
       number: 1

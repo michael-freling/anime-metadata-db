@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Knight's & Magic
   ordering: absolute
+  externalIds:
+    wikidataId: Q26978736
   seasons:
     - id: knight-s-magic-s1
       number: 1

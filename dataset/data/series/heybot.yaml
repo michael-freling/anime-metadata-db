@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Heybot!
   ordering: absolute
+  externalIds:
+    wikidataId: Q28966632
   seasons:
     - id: heybot-s1
       number: 1

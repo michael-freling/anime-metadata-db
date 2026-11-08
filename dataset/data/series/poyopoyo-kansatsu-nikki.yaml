@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Poyopoyo Kansatsu Nikki
   ordering: absolute
+  externalIds:
+    wikidataId: Q3274352
   seasons:
     - id: poyopoyo-kansatsu-nikki-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Rokuhou-dou Yotsuiro Biyori
   ordering: absolute
+  externalIds:
+    wikidataId: Q30932743
   seasons:
     - id: rokuhou-dou-yotsuiro-biyori-s1
       number: 1

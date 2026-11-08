@@ -4,8 +4,11 @@ series:
   titles:
     original: りゅうおうのおしごと!
     translations:
+      en: The Ryuo's Work is Never Done!
       ja-Latn: Ryuuou no Oshigoto!
   ordering: absolute
+  externalIds:
+    wikidataId: Q24868819
   seasons:
     - id: ryuuou-no-oshigoto-s1
       number: 1

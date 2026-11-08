@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Happy Sugar Life
   ordering: absolute
+  externalIds:
+    wikidataId: Q24860074
   seasons:
     - id: happy-sugar-life-s1
       number: 1

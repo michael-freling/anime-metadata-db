@@ -4,8 +4,11 @@ series:
   titles:
     original: 幸腹グラフィティ
     translations:
+      en: Gourmet Girl Graffiti
       ja-Latn: Koufuku Graffiti
   ordering: absolute
+  externalIds:
+    wikidataId: Q17388958
   seasons:
     - id: koufuku-graffiti-s1
       number: 1

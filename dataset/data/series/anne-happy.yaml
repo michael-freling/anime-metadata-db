@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Anne Happy♪
   ordering: absolute
+  externalIds:
+    wikidataId: Q20706561
   seasons:
     - id: anne-happy-s1
       number: 1

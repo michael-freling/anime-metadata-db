@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Chara to Otamajakushi Shima
   ordering: absolute
+  externalIds:
+    wikidataId: Q55526575
   seasons:
     - id: chara-to-otamajakushi-shima-s1
       number: 1

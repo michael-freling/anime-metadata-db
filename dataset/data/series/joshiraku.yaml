@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Joshiraku
   ordering: absolute
+  externalIds:
+    wikidataId: Q519798
   seasons:
     - id: joshiraku-s1
       number: 1

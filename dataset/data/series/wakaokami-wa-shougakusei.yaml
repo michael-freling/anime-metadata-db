@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Wakaokami wa Shougakusei!
   ordering: absolute
+  externalIds:
+    wikidataId: Q11616160
   seasons:
     - id: wakaokami-wa-shougakusei-s1
       number: 1

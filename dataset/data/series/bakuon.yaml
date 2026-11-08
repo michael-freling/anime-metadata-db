@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Bakuon!!
   ordering: absolute
+  externalIds:
+    wikidataId: Q11275956
   seasons:
     - id: bakuon-s1
       number: 1

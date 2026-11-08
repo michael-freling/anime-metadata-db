@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hitoribocchi no Marumaru Seikatsu
   ordering: absolute
+  externalIds:
+    wikidataId: Q47087063
   seasons:
     - id: hitoribocchi-no-marumaru-seikatsu-s1
       number: 1

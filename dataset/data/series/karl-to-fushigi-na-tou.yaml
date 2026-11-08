@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Karl to Fushigi na Tou
   ordering: absolute
+  externalIds:
+    wikidataId: Q11295181
   seasons:
     - id: karl-to-fushigi-na-tou-s1
       number: 1

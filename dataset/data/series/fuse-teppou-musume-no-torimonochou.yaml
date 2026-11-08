@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Fuse: Teppou Musume no Torimonochou'
   ordering: absolute
+  externalIds:
+    wikidataId: Q3754885
   movies:
     - id: fuse-teppou-musume-no-torimonochou-film
       titles:

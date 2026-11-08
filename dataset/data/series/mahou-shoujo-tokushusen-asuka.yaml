@@ -4,8 +4,11 @@ series:
   titles:
     original: 魔法少女特殊戦あすか
     translations:
+      en: Magical Girl Spec-Ops Asuka
       ja-Latn: Mahou Shoujo Tokushusen Asuka
   ordering: absolute
+  externalIds:
+    wikidataId: Q55621722
   seasons:
     - id: mahou-shoujo-tokushusen-asuka-s1
       number: 1

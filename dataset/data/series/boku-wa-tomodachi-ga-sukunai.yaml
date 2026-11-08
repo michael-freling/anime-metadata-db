@@ -4,8 +4,11 @@ series:
   titles:
     original: 僕は友達が少ない
     translations:
+      en: Haganai
       ja-Latn: Boku wa Tomodachi ga Sukunai
   ordering: absolute
+  externalIds:
+    wikidataId: Q482870
   seasons:
     - id: boku-wa-tomodachi-ga-sukunai-s1
       number: 1

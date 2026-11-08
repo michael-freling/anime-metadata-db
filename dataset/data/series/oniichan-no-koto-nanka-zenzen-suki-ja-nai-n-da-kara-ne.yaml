@@ -4,8 +4,11 @@ series:
   titles:
     original: お兄ちゃんのことなんかぜんぜん好きじゃないんだからねっ!!
     translations:
+      en: I Don't Like You at All, Big Brother!
       ja-Latn: Oniichan no Koto nanka Zenzen Suki ja Nai n da kara ne!!
   ordering: absolute
+  externalIds:
+    wikidataId: Q1317227
   seasons:
     - id: oniichan-no-koto-nanka-zenzen-suki-ja-nai-n-da-kara-ne-s1
       number: 1

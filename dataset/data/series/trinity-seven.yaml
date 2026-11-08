@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Trinity Seven
   ordering: absolute
+  externalIds:
+    wikidataId: Q11321983
   seasons:
     - id: trinity-seven-s1
       number: 1

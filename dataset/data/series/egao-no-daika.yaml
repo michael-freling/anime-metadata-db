@@ -4,8 +4,11 @@ series:
   titles:
     original: エガオノダイカ
     translations:
+      en: The Price of Smiles
       ja-Latn: Egao no Daika
   ordering: absolute
+  externalIds:
+    wikidataId: Q57676120
   seasons:
     - id: egao-no-daika-s1
       number: 1

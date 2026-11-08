@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hand Shakers
   ordering: absolute
+  externalIds:
+    wikidataId: Q25915278
   seasons:
     - id: hand-shakers-s1
       number: 1

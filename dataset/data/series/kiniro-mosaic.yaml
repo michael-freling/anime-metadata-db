@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kiniro Mosaic
   ordering: absolute
+  externalIds:
+    wikidataId: Q81426
   seasons:
     - id: kiniro-mosaic-s1
       number: 1

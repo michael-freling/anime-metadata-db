@@ -4,8 +4,11 @@ series:
   titles:
     original: 棺姫のチャイカ
     translations:
+      en: 'Chaika: The Coffin Princess'
       ja-Latn: Hitsugi no Chaika
   ordering: absolute
+  externalIds:
+    wikidataId: Q10855446
   seasons:
     - id: hitsugi-no-chaika-s1
       number: 1

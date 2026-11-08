@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Luck & Logic
   ordering: absolute
+  externalIds:
+    wikidataId: Q21517265
   seasons:
     - id: luck-logic-s1
       number: 1

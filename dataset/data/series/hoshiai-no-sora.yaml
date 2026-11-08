@@ -4,8 +4,11 @@ series:
   titles:
     original: 星合の空
     translations:
+      en: Stars Align
       ja-Latn: Hoshiai no Sora
   ordering: absolute
+  externalIds:
+    wikidataId: Q56279074
   seasons:
     - id: hoshiai-no-sora-s1
       number: 1

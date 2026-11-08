@@ -4,8 +4,11 @@ series:
   titles:
     original: それが声優!
     translations:
+      en: Seiyu's Life!
       ja-Latn: Sore ga Seiyuu!
   ordering: absolute
+  externalIds:
+    wikidataId: Q18711417
   seasons:
     - id: sore-ga-seiyuu-s1
       number: 1

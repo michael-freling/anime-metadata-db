@@ -4,8 +4,11 @@ series:
   titles:
     original: プリプリちぃちゃん!!
     translations:
+      en: PriPri Chi-chan!!
       ja-Latn: PriPri Chii-chan!!
   ordering: absolute
+  externalIds:
+    wikidataId: Q22124851
   seasons:
     - id: pripri-chii-chan-s1
       number: 1

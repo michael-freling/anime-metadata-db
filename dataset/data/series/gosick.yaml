@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Gosick
   ordering: absolute
+  externalIds:
+    wikidataId: Q420892
   seasons:
     - id: gosick-s1
       number: 1

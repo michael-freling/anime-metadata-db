@@ -4,8 +4,11 @@ series:
   titles:
     original: 六花の勇者
     translations:
+      en: 'Rokka: Braves of the Six Flowers'
       ja-Latn: Rokka no Yuusha
   ordering: absolute
+  externalIds:
+    wikidataId: Q11392504
   seasons:
     - id: rokka-no-yuusha-s1
       number: 1

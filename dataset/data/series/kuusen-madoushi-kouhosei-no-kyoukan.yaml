@@ -4,8 +4,11 @@ series:
   titles:
     original: 空戦魔導士候補生の教官
     translations:
+      en: Sky Wizards Academy
       ja-Latn: Kuusen Madoushi Kouhosei no Kyoukan
   ordering: absolute
+  externalIds:
+    wikidataId: Q17352108
   seasons:
     - id: kuusen-madoushi-kouhosei-no-kyoukan-s1
       number: 1

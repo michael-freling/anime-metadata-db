@@ -4,8 +4,11 @@ series:
   titles:
     original: ドメスティックな彼女
     translations:
+      en: Domestic Girlfriend
       ja-Latn: Domestic na Kanojo
   ordering: absolute
+  externalIds:
+    wikidataId: Q18339562
   seasons:
     - id: domestic-na-kanojo-s1
       number: 1

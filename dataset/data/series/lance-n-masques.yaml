@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Lance N' Masques
   ordering: absolute
+  externalIds:
+    wikidataId: Q16800824
   seasons:
     - id: lance-n-masques-s1
       number: 1

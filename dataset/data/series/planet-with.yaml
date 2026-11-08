@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Planet With
   ordering: absolute
+  externalIds:
+    wikidataId: Q53242303
   seasons:
     - id: planet-with-s1
       number: 1

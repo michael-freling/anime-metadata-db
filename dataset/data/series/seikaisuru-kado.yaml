@@ -4,8 +4,11 @@ series:
   titles:
     original: 正解するカド
     translations:
+      en: 'Kado: The Right Answer'
       ja-Latn: Seikaisuru Kado
   ordering: absolute
+  externalIds:
+    wikidataId: Q24877212
   seasons:
     - id: seikaisuru-kado-s1
       number: 1

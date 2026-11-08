@@ -4,8 +4,11 @@ series:
   titles:
     original: となりの関くん
     translations:
+      en: My Neighbor Seki
       ja-Latn: Tonari no Seki-kun
   ordering: absolute
+  externalIds:
+    wikidataId: Q4403765
   seasons:
     - id: tonari-no-seki-kun-s1
       number: 1

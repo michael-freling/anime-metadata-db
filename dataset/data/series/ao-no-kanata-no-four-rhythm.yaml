@@ -4,8 +4,11 @@ series:
   titles:
     original: 蒼の彼方のフォーリズム
     translations:
+      en: Aokana - Four Rhythms Across the Blue
       ja-Latn: Ao no Kanata no Four Rhythm
   ordering: absolute
+  externalIds:
+    wikidataId: Q18536873
   seasons:
     - id: ao-no-kanata-no-four-rhythm-s1
       number: 1

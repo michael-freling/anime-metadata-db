@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Chihayafuru
   ordering: absolute
+  externalIds:
+    wikidataId: Q182469
   seasons:
     - id: chihayafuru-s1
       number: 1

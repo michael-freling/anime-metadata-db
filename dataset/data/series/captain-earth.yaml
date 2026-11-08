@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Captain Earth
   ordering: absolute
+  externalIds:
+    wikidataId: Q15405896
   seasons:
     - id: captain-earth-s1
       number: 1

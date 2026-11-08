@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Blood Lad
   ordering: absolute
+  externalIds:
+    wikidataId: Q182443
   seasons:
     - id: blood-lad-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: みりたり!
     translations:
+      en: Miritari!
       ja-Latn: Military!
   ordering: absolute
+  externalIds:
+    wikidataId: Q11279366
   seasons:
     - id: military-s1
       number: 1

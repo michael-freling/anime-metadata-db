@@ -4,8 +4,11 @@ series:
   titles:
     original: ぬらりひょんの孫
     translations:
+      en: 'Nura: Rise of the Yokai Clan'
       ja-Latn: Nurarihyon no Mago
   ordering: absolute
+  externalIds:
+    wikidataId: Q1194085
   seasons:
     - id: nurarihyon-no-mago-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: お見合い相手は教え子、強気な、問題児。
     translations:
+      en: My Matchmaking Partner Is My Student and a Troublemaker
       ja-Latn: My Matchmaking Partner is a Student, An Aggressive Troublemaker
   ordering: absolute
+  externalIds:
+    wikidataId: Q41702328
   seasons:
     - id: my-matchmaking-partner-is-a-student-an-aggressive-troublemaker-s1
       number: 1

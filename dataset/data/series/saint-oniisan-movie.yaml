@@ -4,8 +4,11 @@ series:
   titles:
     original: 聖☆おにいさん
     translations:
+      en: Saint Young Men
       ja-Latn: Saint☆Oniisan (Movie)
   ordering: absolute
+  externalIds:
+    wikidataId: Q2701621
   movies:
     - id: saint-oniisan-movie-film
       titles:

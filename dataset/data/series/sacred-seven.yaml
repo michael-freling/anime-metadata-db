@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Sacred Seven
   ordering: absolute
+  externalIds:
+    wikidataId: Q268512
   seasons:
     - id: sacred-seven-s1
       number: 1

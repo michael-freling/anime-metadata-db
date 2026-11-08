@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hanebado!
   ordering: absolute
+  externalIds:
+    wikidataId: Q24872706
   seasons:
     - id: hanebado-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Donyatsu
   ordering: absolute
+  externalIds:
+    wikidataId: Q11274012
   movies:
     - id: donyatsu-film
       titles:

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Mitsudomoe
   ordering: absolute
+  externalIds:
+    wikidataId: Q483547
   seasons:
     - id: mitsudomoe-s1
       number: 1

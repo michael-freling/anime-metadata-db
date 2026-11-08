@@ -4,8 +4,11 @@ series:
   titles:
     original: 刀使ノ巫女
     translations:
+      en: 'Katana Maidens: Toji No Miko'
       ja-Latn: Toji no Miko
   ordering: absolute
+  externalIds:
+    wikidataId: Q30530502
   seasons:
     - id: toji-no-miko-s1
       number: 1

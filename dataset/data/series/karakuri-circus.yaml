@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Karakuri Circus
   ordering: absolute
+  externalIds:
+    wikidataId: Q1002695
   seasons:
     - id: karakuri-circus-s1
       number: 1

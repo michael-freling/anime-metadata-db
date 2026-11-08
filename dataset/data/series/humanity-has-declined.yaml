@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Humanity Has Declined
   ordering: absolute
+  externalIds:
+    wikidataId: Q1837327
   seasons:
     - id: humanity-has-declined-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: ノラガミ
     translations:
+      en: 'Noragami: Stray God'
       ja-Latn: Noragami
   ordering: absolute
+  externalIds:
+    wikidataId: Q11147846
   seasons:
     - id: noragami-s1
       number: 1

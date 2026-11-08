@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Trickster: Edogawa Ranpo "Shounen Tanteidan" yori'
   ordering: absolute
+  externalIds:
+    wikidataId: Q25209023
   seasons:
     - id: trickster-edogawa-ranpo-shounen-tanteidan-yori-s1
       number: 1

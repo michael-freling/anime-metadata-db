@@ -4,8 +4,11 @@ series:
   titles:
     original: 信長の忍び
     translations:
+      en: Ninja Girl & Samurai Master
       ja-Latn: Nobunaga no Shinobi
   ordering: absolute
+  externalIds:
+    wikidataId: Q11386281
   seasons:
     - id: nobunaga-no-shinobi-s1
       number: 1

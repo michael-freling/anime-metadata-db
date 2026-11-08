@@ -4,8 +4,11 @@ series:
   titles:
     original: うたわれるもの 偽りの仮面
     translations:
+      en: 'Utawarerumono: Mask of Deception'
       ja-Latn: 'Utawarerumono: Itsuwari no Kamen'
   ordering: absolute
+  externalIds:
+    wikidataId: Q20043255
   seasons:
     - id: utawarerumono-itsuwari-no-kamen-s1
       number: 1

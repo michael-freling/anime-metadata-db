@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Oneechan ga Kita
   ordering: absolute
+  externalIds:
+    wikidataId: Q15193755
   seasons:
     - id: oneechan-ga-kita-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Try Knights
   ordering: absolute
+  externalIds:
+    wikidataId: Q65040161
   seasons:
     - id: try-knights-s1
       number: 1

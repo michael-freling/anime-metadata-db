@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Mangirl!
   ordering: absolute
+  externalIds:
+    wikidataId: Q6749037
   seasons:
     - id: mangirl-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Gundam Build Fighters Try
   ordering: absolute
+  externalIds:
+    wikidataId: Q18059408
   seasons:
     - id: gundam-build-fighters-try-s1
       number: 1

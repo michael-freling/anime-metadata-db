@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kyoukai no Rinne
   ordering: absolute
+  externalIds:
+    wikidataId: Q370132
   seasons:
     - id: kyoukai-no-rinne-s1
       number: 1

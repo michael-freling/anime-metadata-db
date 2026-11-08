@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Occultic;Nine
   ordering: absolute
+  externalIds:
+    wikidataId: Q23309230
   seasons:
     - id: occultic-nine-s1
       number: 1

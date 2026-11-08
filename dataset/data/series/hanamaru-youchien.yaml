@@ -4,8 +4,11 @@ series:
   titles:
     original: はなまる幼稚園
     translations:
+      en: Hanamaru Kindergarten
       ja-Latn: Hanamaru Youchien
   ordering: absolute
+  externalIds:
+    wikidataId: Q1205030
   seasons:
     - id: hanamaru-youchien-s1
       number: 1

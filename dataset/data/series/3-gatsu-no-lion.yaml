@@ -4,8 +4,11 @@ series:
   titles:
     original: 3月のライオン
     translations:
+      en: March Comes in Like a Lion
       ja-Latn: 3-gatsu no Lion
   ordering: absolute
+  externalIds:
+    wikidataId: Q4049046
   seasons:
     - id: 3-gatsu-no-lion-s1
       number: 1

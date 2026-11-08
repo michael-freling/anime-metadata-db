@@ -4,8 +4,11 @@ series:
   titles:
     original: 異能バトルは日常系のなかで
     translations:
+      en: When Supernatural Battles Became Commonplace
       ja-Latn: Inou-Battle wa Nichijou-kei no Naka de
   ordering: absolute
+  externalIds:
+    wikidataId: Q11578842
   seasons:
     - id: inou-battle-wa-nichijou-kei-no-naka-de-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: ビッグオーダー
     translations:
+      en: Big Order
       ja-Latn: Big Order (TV)
   ordering: absolute
+  externalIds:
+    wikidataId: Q5728424
   seasons:
     - id: big-order-tv-s1
       number: 1

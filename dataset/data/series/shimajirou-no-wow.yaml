@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Shimajirou no Wow!
   ordering: absolute
+  externalIds:
+    wikidataId: Q11275582
   seasons:
     - id: shimajirou-no-wow-s1
       number: 1

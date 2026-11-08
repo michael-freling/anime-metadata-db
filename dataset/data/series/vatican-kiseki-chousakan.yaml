@@ -4,8 +4,11 @@ series:
   titles:
     original: バチカン奇跡調査官
     translations:
+      en: Vatican Miracle Examiner
       ja-Latn: Vatican Kiseki Chousakan
   ordering: absolute
+  externalIds:
+    wikidataId: Q22123907
   seasons:
     - id: vatican-kiseki-chousakan-s1
       number: 1

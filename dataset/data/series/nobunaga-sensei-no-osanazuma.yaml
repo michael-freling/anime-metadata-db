@@ -4,8 +4,11 @@ series:
   titles:
     original: ノブナガ先生の幼な妻
     translations:
+      en: Nobunaga Teacher's Young Bride
       ja-Latn: Nobunaga-sensei no Osanazuma
   ordering: absolute
+  externalIds:
+    wikidataId: Q60762073
   seasons:
     - id: nobunaga-sensei-no-osanazuma-s1
       number: 1

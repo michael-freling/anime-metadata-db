@@ -4,8 +4,11 @@ series:
   titles:
     original: アクティヴレイド -機動強襲室第八係-
     translations:
+      en: Active Raid
       ja-Latn: 'Active Raid: Kidou Kyoushuushitsu Dai Hachi Gakari'
   ordering: absolute
+  externalIds:
+    wikidataId: Q21152149
   seasons:
     - id: active-raid-kidou-kyoushuushitsu-dai-hachi-gakari-s1
       number: 1

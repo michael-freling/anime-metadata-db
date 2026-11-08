@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Gakuen Handsome
   ordering: absolute
+  externalIds:
+    wikidataId: Q24865745
   seasons:
     - id: gakuen-handsome-s1
       number: 1

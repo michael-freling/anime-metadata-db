@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Little Busters!
   ordering: absolute
+  externalIds:
+    wikidataId: Q683502
   seasons:
     - id: little-busters-s1
       number: 1

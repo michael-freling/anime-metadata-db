@@ -4,8 +4,11 @@ series:
   titles:
     original: ほしの島のにゃんこ
     translations:
+      en: Nyanko on the Star Island
       ja-Latn: Hoshi no Shima no Nyanko
   ordering: absolute
+  externalIds:
+    wikidataId: Q60989472
   seasons:
     - id: hoshi-no-shima-no-nyanko-s1
       number: 1

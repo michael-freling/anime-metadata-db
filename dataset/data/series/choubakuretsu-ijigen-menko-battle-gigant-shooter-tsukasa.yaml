@@ -4,8 +4,11 @@ series:
   titles:
     original: 超爆裂異次元メンコバトル ギガントシューター つかさ
     translations:
+      en: Gigant Big-Shot Tsukasa
       ja-Latn: 'Choubakuretsu Ijigen Menko Battle: Gigant Shooter Tsukasa'
   ordering: absolute
+  externalIds:
+    wikidataId: Q16351638
   seasons:
     - id: choubakuretsu-ijigen-menko-battle-gigant-shooter-tsukasa-s1
       number: 1

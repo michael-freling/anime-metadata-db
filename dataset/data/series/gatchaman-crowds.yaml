@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Gatchaman Crowds
   ordering: absolute
+  externalIds:
+    wikidataId: Q13828292
   seasons:
     - id: gatchaman-crowds-s1
       number: 1

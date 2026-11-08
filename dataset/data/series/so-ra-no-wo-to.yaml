@@ -4,8 +4,11 @@ series:
   titles:
     original: ソ・ラ・ノ・ヲ・ト
     translations:
+      en: Sound of the Sky
       ja-Latn: So Ra No Wo To
   ordering: absolute
+  externalIds:
+    wikidataId: Q1348637
   seasons:
     - id: so-ra-no-wo-to-s1
       number: 1

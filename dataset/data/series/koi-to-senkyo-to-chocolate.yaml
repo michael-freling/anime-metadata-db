@@ -4,8 +4,11 @@ series:
   titles:
     original: 恋と選挙とチョコレート
     translations:
+      en: Love, Election and Chocolate
       ja-Latn: Koi to Senkyo to Chocolate
   ordering: absolute
+  externalIds:
+    wikidataId: Q1059839
   seasons:
     - id: koi-to-senkyo-to-chocolate-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: GO!GO!アトム
     translations:
+      en: Go Astro Boy Go!
       ja-Latn: Go! Go! Atom
   ordering: absolute
+  externalIds:
+    wikidataId: Q74107759
   seasons:
     - id: go-go-atom-s1
       number: 1

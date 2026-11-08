@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Mayoi Neko Overrun!
   ordering: absolute
+  externalIds:
+    wikidataId: Q485753
   seasons:
     - id: mayoi-neko-overrun-s1
       number: 1

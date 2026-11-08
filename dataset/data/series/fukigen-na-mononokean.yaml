@@ -4,8 +4,11 @@ series:
   titles:
     original: 不機嫌なモノノケ庵
     translations:
+      en: The Morose Mononokean
       ja-Latn: Fukigen na Mononokean
   ordering: absolute
+  externalIds:
+    wikidataId: Q22123801
   seasons:
     - id: fukigen-na-mononokean-s1
       number: 1

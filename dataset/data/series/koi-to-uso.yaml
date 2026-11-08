@@ -4,8 +4,11 @@ series:
   titles:
     original: 恋と嘘
     translations:
+      en: Love and Lies
       ja-Latn: Koi to Uso
   ordering: absolute
+  externalIds:
+    wikidataId: Q28797366
   seasons:
     - id: koi-to-uso-s1
       number: 1

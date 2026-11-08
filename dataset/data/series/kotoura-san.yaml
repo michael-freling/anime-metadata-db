@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kotoura-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q2855256
   seasons:
     - id: kotoura-san-s1
       number: 1

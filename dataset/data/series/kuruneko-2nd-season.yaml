@@ -4,8 +4,11 @@ series:
   titles:
     original: くるねこ
     translations:
+      en: Kuruneko
       ja-Latn: Kuruneko 2nd Season
   ordering: absolute
+  externalIds:
+    wikidataId: Q5972118
   seasons:
     - id: kuruneko-2nd-season-s1
       number: 1

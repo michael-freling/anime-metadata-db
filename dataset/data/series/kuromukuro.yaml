@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kuromukuro
   ordering: absolute
+  externalIds:
+    wikidataId: Q21780576
   seasons:
     - id: kuromukuro-s1
       number: 1

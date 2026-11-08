@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Teekyuu
   ordering: absolute
+  externalIds:
+    wikidataId: Q2083163
   seasons:
     - id: teekyuu-s1
       number: 1

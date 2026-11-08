@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Ladyspo
   ordering: absolute
+  externalIds:
+    wikidataId: Q51081751
   seasons:
     - id: ladyspo-s1
       number: 1

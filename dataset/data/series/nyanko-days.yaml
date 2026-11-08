@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Nyanko Days
   ordering: absolute
+  externalIds:
+    wikidataId: Q24835658
   seasons:
     - id: nyanko-days-s1
       number: 1

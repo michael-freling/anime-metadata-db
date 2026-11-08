@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Uchi no Maid ga Uzasugiru!
   ordering: absolute
+  externalIds:
+    wikidataId: Q51740753
   seasons:
     - id: uchi-no-maid-ga-uzasugiru-s1
       number: 1

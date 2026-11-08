@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Danchi Tomoo
   ordering: absolute
+  externalIds:
+    wikidataId: Q2596097
   seasons:
     - id: danchi-tomoo-s1
       number: 1

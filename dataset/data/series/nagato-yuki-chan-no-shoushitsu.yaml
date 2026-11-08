@@ -4,8 +4,11 @@ series:
   titles:
     original: 長門有希ちゃんの消失
     translations:
+      en: The Disappearance of Nagato Yuki-chan
       ja-Latn: Nagato Yuki-chan no Shoushitsu
   ordering: absolute
+  externalIds:
+    wikidataId: Q11654890
   seasons:
     - id: nagato-yuki-chan-no-shoushitsu-s1
       number: 1

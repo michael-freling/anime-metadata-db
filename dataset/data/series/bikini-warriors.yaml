@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Bikini Warriors
   ordering: absolute
+  externalIds:
+    wikidataId: Q19954356
   seasons:
     - id: bikini-warriors-s1
       number: 1

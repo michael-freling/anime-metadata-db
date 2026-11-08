@@ -4,8 +4,11 @@ series:
   titles:
     original: ジョバンニの島
     translations:
+      en: Giovanni's Island
       ja-Latn: Giovanni no Shima
   ordering: absolute
+  externalIds:
+    wikidataId: Q15733151
   movies:
     - id: giovanni-no-shima-film
       titles:

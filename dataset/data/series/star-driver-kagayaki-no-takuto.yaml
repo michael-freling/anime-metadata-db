@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Star Driver: Kagayaki no Takuto'
   ordering: absolute
+  externalIds:
+    wikidataId: Q1185099
   seasons:
     - id: star-driver-kagayaki-no-takuto-s1
       number: 1

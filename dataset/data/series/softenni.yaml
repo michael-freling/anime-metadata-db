@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Softenni
   ordering: absolute
+  externalIds:
+    wikidataId: Q1135764
   seasons:
     - id: softenni-s1
       number: 1

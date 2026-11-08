@@ -4,8 +4,11 @@ series:
   titles:
     original: まじもじるるも
     translations:
+      en: Magimoji Rurumo
       ja-Latn: Majimoji Rurumo
   ordering: absolute
+  externalIds:
+    wikidataId: Q11278263
   seasons:
     - id: majimoji-rurumo-s1
       number: 1

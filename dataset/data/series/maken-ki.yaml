@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Maken-Ki!
   ordering: absolute
+  externalIds:
+    wikidataId: Q2478327
   seasons:
     - id: maken-ki-s1
       number: 1

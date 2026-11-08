@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Eureka Seven AO
   ordering: absolute
+  externalIds:
+    wikidataId: Q2699327
   seasons:
     - id: eureka-seven-ao-s1
       number: 1

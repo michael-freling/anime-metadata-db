@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hiyokoi
   ordering: absolute
+  externalIds:
+    wikidataId: Q2095040
   seasons:
     - id: hiyokoi-s1
       number: 1

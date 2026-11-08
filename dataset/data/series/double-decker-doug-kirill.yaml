@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Double Decker! Doug & Kirill
   ordering: absolute
+  externalIds:
+    wikidataId: Q56347408
   seasons:
     - id: double-decker-doug-kirill-s1
       number: 1

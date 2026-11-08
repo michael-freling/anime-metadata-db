@@ -4,8 +4,11 @@ series:
   titles:
     original: 問題児たちが異世界から来るそうですよ?
     translations:
+      en: Problem Children Are Coming from Another World, Aren't They?
       ja-Latn: Mondaiji-tachi ga Isekai kara Kuru Sou desu yo?
   ordering: absolute
+  externalIds:
+    wikidataId: Q185012
   seasons:
     - id: mondaiji-tachi-ga-isekai-kara-kuru-sou-desu-yo-s1
       number: 1

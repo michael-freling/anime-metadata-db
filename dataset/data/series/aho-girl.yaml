@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Aho Girl
   ordering: absolute
+  externalIds:
+    wikidataId: Q5042484
   seasons:
     - id: aho-girl-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Wagamama High Spec
   ordering: absolute
+  externalIds:
+    wikidataId: Q22078423
   seasons:
     - id: wagamama-high-spec-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Dagashi Kashi
   ordering: absolute
+  externalIds:
+    wikidataId: Q20043638
   seasons:
     - id: dagashi-kashi-s1
       number: 1

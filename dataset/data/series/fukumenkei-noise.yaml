@@ -4,8 +4,11 @@ series:
   titles:
     original: 覆面系ノイズ
     translations:
+      en: Anonymous Noise
       ja-Latn: Fukumenkei Noise
   ordering: absolute
+  externalIds:
+    wikidataId: Q24868017
   seasons:
     - id: fukumenkei-noise-s1
       number: 1

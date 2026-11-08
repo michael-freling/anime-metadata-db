@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Gingitsune
   ordering: absolute
+  externalIds:
+    wikidataId: Q11265297
   seasons:
     - id: gingitsune-s1
       number: 1

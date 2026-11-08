@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Sakura Quest
   ordering: absolute
+  externalIds:
+    wikidataId: Q27971247
   seasons:
     - id: sakura-quest-s1
       number: 1

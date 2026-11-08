@@ -4,8 +4,11 @@ series:
   titles:
     original: 終末なにしてますか? 忙しいですか? 救ってもらっていいですか?
     translations:
+      en: 'WorldEnd: What Do You Do at the End of the World? Are You Busy? Will You Save Us?'
       ja-Latn: Shuumatsu Nani Shitemasu ka? Isogashii desu ka? Sukutte Moratte Ii desu ka?
   ordering: absolute
+  externalIds:
+    wikidataId: Q20044893
   seasons:
     - id: shuumatsu-nani-shitemasu-ka-isogashii-desu-ka-sukutte-moratte-ii-desu-ka-s1
       number: 1

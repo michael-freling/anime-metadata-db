@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Elegant Yokai Apartment Life
   ordering: absolute
+  externalIds:
+    wikidataId: Q11446789
   seasons:
     - id: elegant-yokai-apartment-life-s1
       number: 1

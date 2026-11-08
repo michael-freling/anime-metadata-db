@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Eromanga-sensei
   ordering: absolute
+  externalIds:
+    wikidataId: Q21015198
   seasons:
     - id: eromanga-sensei-s1
       number: 1

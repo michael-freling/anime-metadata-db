@@ -4,8 +4,11 @@ series:
   titles:
     original: ナナマル サンバツ
     translations:
+      en: Nana Maru San Batsu
       ja-Latn: Fastest Finger First
   ordering: absolute
+  externalIds:
+    wikidataId: Q11323928
   seasons:
     - id: fastest-finger-first-s1
       number: 1

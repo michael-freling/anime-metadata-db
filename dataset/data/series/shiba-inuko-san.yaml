@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Shiba Inuko-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q3959438
   seasons:
     - id: shiba-inuko-san-s1
       number: 1

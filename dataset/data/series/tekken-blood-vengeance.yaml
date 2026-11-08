@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Tekken: Blood Vengeance'
   ordering: absolute
+  externalIds:
+    wikidataId: Q594882
   movies:
     - id: tekken-blood-vengeance-film
       titles:

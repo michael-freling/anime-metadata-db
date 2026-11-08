@@ -4,8 +4,11 @@ series:
   titles:
     original: デジモンクロスウォーズ
     translations:
+      en: Digimon Fusion
       ja-Latn: Digimon Xros Wars
   ordering: absolute
+  externalIds:
+    wikidataId: Q275676
   seasons:
     - id: digimon-xros-wars-s1
       number: 1

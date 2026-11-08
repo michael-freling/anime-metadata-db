@@ -4,8 +4,11 @@ series:
   titles:
     original: となりの怪物くん
     translations:
+      en: My Little Monster
       ja-Latn: Tonari no Kaibutsu-kun
   ordering: absolute
+  externalIds:
+    wikidataId: Q2699762
   seasons:
     - id: tonari-no-kaibutsu-kun-s1
       number: 1

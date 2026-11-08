@@ -4,8 +4,11 @@ series:
   titles:
     original: 旦那が何を言っているかわからない件
     translations:
+      en: I Can't Understand What My Husband is Saying
       ja-Latn: Danna ga Nani wo Itteiru ka Wakaranai Ken
   ordering: absolute
+  externalIds:
+    wikidataId: Q17151016
   seasons:
     - id: danna-ga-nani-wo-itteiru-ka-wakaranai-ken-s1
       number: 1

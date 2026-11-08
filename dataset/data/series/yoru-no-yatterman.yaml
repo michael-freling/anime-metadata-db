@@ -4,8 +4,11 @@ series:
   titles:
     original: 夜ノヤッターマン
     translations:
+      en: Yatterman Night
       ja-Latn: Yoru no Yatterman
   ordering: absolute
+  externalIds:
+    wikidataId: Q18753652
   seasons:
     - id: yoru-no-yatterman-s1
       number: 1

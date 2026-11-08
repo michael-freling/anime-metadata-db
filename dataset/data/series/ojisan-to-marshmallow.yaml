@@ -4,8 +4,11 @@ series:
   titles:
     original: おじさんとマシュマロ
     translations:
+      en: Ojisan and Marshmallow
       ja-Latn: Ojisan to Marshmallow
   ordering: absolute
+  externalIds:
+    wikidataId: Q21480406
   seasons:
     - id: ojisan-to-marshmallow-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: あかねさす少女
     translations:
+      en: The Girl in Twilight
       ja-Latn: Akanesasu Shoujo
   ordering: absolute
+  externalIds:
+    wikidataId: Q56276962
   seasons:
     - id: akanesasu-shoujo-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kakko Kawaii Sengen!
   ordering: absolute
+  externalIds:
+    wikidataId: Q11060142
   seasons:
     - id: kakko-kawaii-sengen-s1
       number: 1

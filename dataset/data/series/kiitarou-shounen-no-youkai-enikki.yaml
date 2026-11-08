@@ -4,8 +4,11 @@ series:
   titles:
     original: 奇異太郎少年の妖怪絵日記
     translations:
+      en: Kiitaro's Yokai Picture Diary
       ja-Latn: Kiitarou Shounen no Youkai Enikki
   ordering: absolute
+  externalIds:
+    wikidataId: Q17222603
   seasons:
     - id: kiitarou-shounen-no-youkai-enikki-s1
       number: 1

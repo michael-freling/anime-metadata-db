@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Doamaiger D
   ordering: absolute
+  externalIds:
+    wikidataId: Q22127920
   seasons:
     - id: doamaiger-d-s1
       number: 1

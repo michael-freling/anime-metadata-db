@@ -4,8 +4,11 @@ series:
   titles:
     original: 超人高校生たちは異世界でも余裕で生き抜くようです!
     translations:
+      en: High School Prodigies Have It Easy Even In Another World
       ja-Latn: Choujin Koukousei-tachi wa Isekai demo Yoyuu de Ikinuku you desu!
   ordering: absolute
+  externalIds:
+    wikidataId: Q38276065
   seasons:
     - id: choujin-koukousei-tachi-wa-isekai-demo-yoyuu-de-ikinuku-you-desu-s1
       number: 1

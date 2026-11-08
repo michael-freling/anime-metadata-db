@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Brave Beats
   ordering: absolute
+  externalIds:
+    wikidataId: Q21011055
   seasons:
     - id: brave-beats-s1
       number: 1

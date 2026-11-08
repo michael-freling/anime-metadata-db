@@ -4,8 +4,11 @@ series:
   titles:
     original: からかい上手の高木さん
     translations:
+      en: Teasing Master Takagi-san
       ja-Latn: Karakai Jouzu no Takagi-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q24862454
   seasons:
     - id: karakai-jouzu-no-takagi-san-s1
       number: 1

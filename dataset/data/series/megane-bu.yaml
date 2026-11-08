@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Megane-bu!
   ordering: absolute
+  externalIds:
+    wikidataId: Q15154814
   seasons:
     - id: megane-bu-s1
       number: 1

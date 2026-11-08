@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Guilty Crown
   ordering: absolute
+  externalIds:
+    wikidataId: Q494610
   seasons:
     - id: guilty-crown-s1
       number: 1

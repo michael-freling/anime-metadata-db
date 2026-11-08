@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Jewelpet Twinkle☆
   ordering: absolute
+  externalIds:
+    wikidataId: Q28714363
   seasons:
     - id: jewelpet-twinkle-s1
       number: 1

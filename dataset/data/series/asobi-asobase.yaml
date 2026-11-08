@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Asobi Asobase
   ordering: absolute
+  externalIds:
+    wikidataId: Q48937390
   seasons:
     - id: asobi-asobase-s1
       number: 1

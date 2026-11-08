@@ -4,8 +4,11 @@ series:
   titles:
     original: 七つの美徳
     translations:
+      en: The Seven Heavenly Virtues
       ja-Latn: Nanatsu no Bitoku
   ordering: absolute
+  externalIds:
+    wikidataId: Q55521531
   seasons:
     - id: nanatsu-no-bitoku-s1
       number: 1

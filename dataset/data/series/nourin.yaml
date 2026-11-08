@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Nourin
   ordering: absolute
+  externalIds:
+    wikidataId: Q5356268
   seasons:
     - id: nourin-s1
       number: 1

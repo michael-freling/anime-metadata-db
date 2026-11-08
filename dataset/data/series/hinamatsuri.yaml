@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hinamatsuri
   ordering: absolute
+  externalIds:
+    wikidataId: Q11330133
   seasons:
     - id: hinamatsuri-s1
       number: 1

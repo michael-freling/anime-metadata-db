@@ -4,8 +4,11 @@ series:
   titles:
     original: ぼくたちは勉強ができない
     translations:
+      en: We Never Learn
       ja-Latn: Bokutachi wa Benkyou ga Dekinai
   ordering: absolute
+  externalIds:
+    wikidataId: Q30922423
   seasons:
     - id: bokutachi-wa-benkyou-ga-dekinai-s1
       number: 1

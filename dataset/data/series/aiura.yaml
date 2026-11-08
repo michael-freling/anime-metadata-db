@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Aiura
   ordering: absolute
+  externalIds:
+    wikidataId: Q4185891
   seasons:
     - id: aiura-s1
       number: 1

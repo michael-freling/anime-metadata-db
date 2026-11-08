@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'SoniAni: Super Sonico The Animation'
   ordering: absolute
+  externalIds:
+    wikidataId: Q15980148
   seasons:
     - id: soniani-super-sonico-the-animation-s1
       number: 1

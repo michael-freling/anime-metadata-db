@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hero Bank
   ordering: absolute
+  externalIds:
+    wikidataId: Q15733572
   seasons:
     - id: hero-bank-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Gurazeni
   ordering: absolute
+  externalIds:
+    wikidataId: Q11300178
   seasons:
     - id: gurazeni-s1
       number: 1

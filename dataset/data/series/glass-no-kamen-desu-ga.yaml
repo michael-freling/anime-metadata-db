@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Glass no Kamen desu ga
   ordering: absolute
+  externalIds:
+    wikidataId: Q11296186
   seasons:
     - id: glass-no-kamen-desu-ga-s1
       number: 1

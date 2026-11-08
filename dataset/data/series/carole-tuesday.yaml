@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Carole & Tuesday
   ordering: absolute
+  externalIds:
+    wikidataId: Q55080167
   seasons:
     - id: carole-tuesday-s1
       number: 1

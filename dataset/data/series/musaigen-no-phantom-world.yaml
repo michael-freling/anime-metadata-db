@@ -4,8 +4,11 @@ series:
   titles:
     original: 無彩限のファントム・ワールド
     translations:
+      en: Myriad Colors Phantom World
       ja-Latn: Musaigen no Phantom World
   ordering: absolute
+  externalIds:
+    wikidataId: Q20856118
   seasons:
     - id: musaigen-no-phantom-world-s1
       number: 1

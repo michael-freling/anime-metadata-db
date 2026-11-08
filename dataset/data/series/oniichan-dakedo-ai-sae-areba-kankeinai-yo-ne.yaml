@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Oniichan dakedo Ai sae Areba Kankeinai yo ne!
   ordering: absolute
+  externalIds:
+    wikidataId: Q491823
   seasons:
     - id: oniichan-dakedo-ai-sae-areba-kankeinai-yo-ne-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: この世の果てで恋を唄う少女YU-NO
     translations:
+      en: 'YU-NO: A girl who chants love at the bound of this world'
       ja-Latn: Kono Yo no Hate de Koi wo Utau Shoujo YU-NO
   ordering: absolute
+  externalIds:
+    wikidataId: Q8046054
   seasons:
     - id: kono-yo-no-hate-de-koi-wo-utau-shoujo-yu-no-s1
       number: 1

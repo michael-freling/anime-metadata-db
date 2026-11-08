@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Killing Bites
   ordering: absolute
+  externalIds:
+    wikidataId: Q17990471
   seasons:
     - id: killing-bites-s1
       number: 1

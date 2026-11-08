@@ -4,8 +4,11 @@ series:
   titles:
     original: この美術部には問題がある!
     translations:
+      en: This Art Club Has a Problem!
       ja-Latn: Kono Bijutsu-bu ni wa Mondai ga Aru!
   ordering: absolute
+  externalIds:
+    wikidataId: Q21015371
   seasons:
     - id: kono-bijutsu-bu-ni-wa-mondai-ga-aru-s1
       number: 1

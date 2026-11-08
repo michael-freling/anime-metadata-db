@@ -4,8 +4,11 @@ series:
   titles:
     original: この世界の片隅に
     translations:
+      en: In This Corner of the World
       ja-Latn: Kono Sekai no Katasumi ni
   ordering: absolute
+  externalIds:
+    wikidataId: Q11143918
   movies:
     - id: kono-sekai-no-katasumi-ni-film
       titles:

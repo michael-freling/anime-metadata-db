@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Endride
   ordering: absolute
+  externalIds:
+    wikidataId: Q22670457
   seasons:
     - id: endride-s1
       number: 1

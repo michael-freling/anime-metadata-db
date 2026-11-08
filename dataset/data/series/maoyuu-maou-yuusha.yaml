@@ -4,8 +4,11 @@ series:
   titles:
     original: まおゆう魔王勇者
     translations:
+      en: Maoyu
       ja-Latn: Maoyuu Maou Yuusha
   ordering: absolute
+  externalIds:
+    wikidataId: Q1105832
   seasons:
     - id: maoyuu-maou-yuusha-s1
       number: 1

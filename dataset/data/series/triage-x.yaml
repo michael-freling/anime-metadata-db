@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Triage X
   ordering: absolute
+  externalIds:
+    wikidataId: Q11202197
   seasons:
     - id: triage-x-s1
       number: 1

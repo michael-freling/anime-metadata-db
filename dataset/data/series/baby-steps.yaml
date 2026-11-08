@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Baby Steps
   ordering: absolute
+  externalIds:
+    wikidataId: Q4838408
   seasons:
     - id: baby-steps-s1
       number: 1

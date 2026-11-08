@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Gamers!
   ordering: absolute
+  externalIds:
+    wikidataId: Q27731433
   seasons:
     - id: gamers-s1
       number: 1

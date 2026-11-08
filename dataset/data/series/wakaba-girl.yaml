@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Wakaba*Girl
   ordering: absolute
+  externalIds:
+    wikidataId: Q19931479
   seasons:
     - id: wakaba-girl-s1
       number: 1

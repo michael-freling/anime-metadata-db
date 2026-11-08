@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hato no Oyome-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q11326519
   seasons:
     - id: hato-no-oyome-san-s1
       number: 1

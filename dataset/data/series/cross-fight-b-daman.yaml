@@ -4,8 +4,11 @@ series:
   titles:
     original: クロスファイト ビーダマン
     translations:
+      en: B-Daman Crossfire
       ja-Latn: Cross Fight B-Daman
   ordering: absolute
+  externalIds:
+    wikidataId: Q11299756
   seasons:
     - id: cross-fight-b-daman-s1
       number: 1

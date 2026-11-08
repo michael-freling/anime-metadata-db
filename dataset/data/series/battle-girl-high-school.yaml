@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Battle Girl High School
   ordering: absolute
+  externalIds:
+    wikidataId: Q21694307
   seasons:
     - id: battle-girl-high-school-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Chiisana Ojisan
   ordering: absolute
+  externalIds:
+    wikidataId: Q138454325
   seasons:
     - id: chiisana-ojisan-s1
       number: 1

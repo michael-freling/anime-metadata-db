@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Gyo
   ordering: absolute
+  externalIds:
+    wikidataId: Q1060045
   movies:
     - id: gyo-film
       titles:

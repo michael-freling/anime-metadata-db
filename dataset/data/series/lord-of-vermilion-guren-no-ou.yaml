@@ -4,8 +4,11 @@ series:
   titles:
     original: ロード オブ ヴァーミリオン 紅蓮の王
     translations:
+      en: 'Lord of Vermilion: The Crimson King'
       ja-Latn: 'Lord of Vermilion: Guren no Ou'
   ordering: absolute
+  externalIds:
+    wikidataId: Q55529976
   seasons:
     - id: lord-of-vermilion-guren-no-ou-s1
       number: 1

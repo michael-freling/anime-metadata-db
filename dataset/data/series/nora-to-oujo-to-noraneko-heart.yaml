@@ -4,8 +4,11 @@ series:
   titles:
     original: ノラと皇女と野良猫ハート
     translations:
+      en: The Princess, the Stray Cat, and Matters of the Heart
       ja-Latn: Nora to Oujo to Noraneko Heart
   ordering: absolute
+  externalIds:
+    wikidataId: Q24876613
   seasons:
     - id: nora-to-oujo-to-noraneko-heart-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Bunny Drop
   ordering: absolute
+  externalIds:
+    wikidataId: Q1070567
   seasons:
     - id: bunny-drop-s1
       number: 1

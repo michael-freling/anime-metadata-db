@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Dibetagurashi: Ahiru no Seikatsu'
   ordering: absolute
+  externalIds:
+    wikidataId: Q11272110
   seasons:
     - id: dibetagurashi-ahiru-no-seikatsu-s1
       number: 1

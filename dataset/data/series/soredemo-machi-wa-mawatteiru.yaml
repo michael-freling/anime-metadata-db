@@ -4,8 +4,11 @@ series:
   titles:
     original: それでも町は廻っている
     translations:
+      en: And Yet The Town Moves
       ja-Latn: Soredemo Machi wa Mawatteiru
   ordering: absolute
+  externalIds:
+    wikidataId: Q1186554
   seasons:
     - id: soredemo-machi-wa-mawatteiru-s1
       number: 1

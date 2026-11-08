@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Battle Spirits: Brave'
   ordering: absolute
+  externalIds:
+    wikidataId: Q3636855
   seasons:
     - id: battle-spirits-brave-s1
       number: 1

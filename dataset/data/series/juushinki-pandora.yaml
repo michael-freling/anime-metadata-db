@@ -4,8 +4,11 @@ series:
   titles:
     original: 重神機パンドーラ
     translations:
+      en: Last Hope
       ja-Latn: Juushinki Pandora
   ordering: absolute
+  externalIds:
+    wikidataId: Q43034288
   seasons:
     - id: juushinki-pandora-s1
       number: 1

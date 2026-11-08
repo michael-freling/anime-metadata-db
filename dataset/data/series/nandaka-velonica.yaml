@@ -4,8 +4,11 @@ series:
   titles:
     original: ナンダカベロニカ
     translations:
+      en: Velonica
       ja-Latn: Nandaka Velonica
   ordering: absolute
+  externalIds:
+    wikidataId: Q17209408
   seasons:
     - id: nandaka-velonica-s1
       number: 1

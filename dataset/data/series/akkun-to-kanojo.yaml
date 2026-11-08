@@ -4,8 +4,11 @@ series:
   titles:
     original: あっくんとカノジョ
     translations:
+      en: My Sweet Tyrant
       ja-Latn: Akkun to Kanojo
   ordering: absolute
+  externalIds:
+    wikidataId: Q43797285
   seasons:
     - id: akkun-to-kanojo-s1
       number: 1

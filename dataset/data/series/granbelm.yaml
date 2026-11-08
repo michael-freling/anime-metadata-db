@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Granbelm
   ordering: absolute
+  externalIds:
+    wikidataId: Q62271441
   seasons:
     - id: granbelm-s1
       number: 1

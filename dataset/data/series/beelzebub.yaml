@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Beelzebub
   ordering: absolute
+  externalIds:
+    wikidataId: Q696986
   seasons:
     - id: beelzebub-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: おしえて! ギャル子ちゃん
     translations:
+      en: Please Tell Me! Galko-chan
       ja-Latn: Oshiete! Galko-chan
   ordering: absolute
+  externalIds:
+    wikidataId: Q18991235
   seasons:
     - id: oshiete-galko-chan-s1
       number: 1

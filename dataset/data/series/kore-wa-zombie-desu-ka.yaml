@@ -4,8 +4,11 @@ series:
   titles:
     original: これはゾンビですか?
     translations:
+      en: Is This a Zombie?
       ja-Latn: Kore wa Zombie desu ka?
   ordering: absolute
+  externalIds:
+    wikidataId: Q196214
   seasons:
     - id: kore-wa-zombie-desu-ka-s1
       number: 1

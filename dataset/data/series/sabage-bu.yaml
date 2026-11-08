@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Sabage-bu!
   ordering: absolute
+  externalIds:
+    wikidataId: Q11268213
   seasons:
     - id: sabage-bu-s1
       number: 1

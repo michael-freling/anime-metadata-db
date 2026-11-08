@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Space☆Dandy
   ordering: absolute
+  externalIds:
+    wikidataId: Q14831173
   seasons:
     - id: space-dandy-s1
       number: 1

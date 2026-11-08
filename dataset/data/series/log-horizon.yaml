@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Log Horizon
   ordering: absolute
+  externalIds:
+    wikidataId: Q1195326
   seasons:
     - id: log-horizon-s1
       number: 1

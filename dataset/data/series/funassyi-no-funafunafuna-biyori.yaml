@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Funassyi no Funafunafuna Biyori
   ordering: absolute
+  externalIds:
+    wikidataId: Q22128137
   seasons:
     - id: funassyi-no-funafunafuna-biyori-s1
       number: 1

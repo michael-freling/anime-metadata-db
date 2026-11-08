@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Vividred Operation
   ordering: absolute
+  externalIds:
+    wikidataId: Q2783497
   seasons:
     - id: vividred-operation-s1
       number: 1

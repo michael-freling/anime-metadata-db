@@ -4,8 +4,11 @@ series:
   titles:
     original: スーパーロボット大戦OG -ジ・インスペクター-
     translations:
+      en: 'Super Robot Wars Original Generation: The Inspector'
       ja-Latn: 'Super Robot Taisen OG: The Inspector'
   ordering: absolute
+  externalIds:
+    wikidataId: Q1091042
   seasons:
     - id: super-robot-taisen-og-the-inspector-s1
       number: 1

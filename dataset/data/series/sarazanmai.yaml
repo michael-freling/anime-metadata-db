@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Sarazanmai
   ordering: absolute
+  externalIds:
+    wikidataId: Q55074957
   seasons:
     - id: sarazanmai-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 初恋モンスター
     translations:
+      en: First Love Monster
       ja-Latn: Hatsukoi Monster
   ordering: absolute
+  externalIds:
+    wikidataId: Q20707086
   seasons:
     - id: hatsukoi-monster-s1
       number: 1

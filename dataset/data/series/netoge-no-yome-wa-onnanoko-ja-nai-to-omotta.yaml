@@ -4,8 +4,11 @@ series:
   titles:
     original: ネトゲの嫁は女の子じゃないと思った?
     translations:
+      en: And You Thought There Is Never a Girl Online?
       ja-Latn: Netoge no Yome wa Onnanoko ja Nai to Omotta?
   ordering: absolute
+  externalIds:
+    wikidataId: Q20771067
   seasons:
     - id: netoge-no-yome-wa-onnanoko-ja-nai-to-omotta-s1
       number: 1

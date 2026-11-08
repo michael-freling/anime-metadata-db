@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Nanairo Kakumei
   ordering: absolute
+  externalIds:
+    wikidataId: Q24862620
   seasons:
     - id: nanairo-kakumei-s1
       number: 1

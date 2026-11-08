@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Heavy Object
   ordering: absolute
+  externalIds:
+    wikidataId: Q492798
   seasons:
     - id: heavy-object-s1
       number: 1

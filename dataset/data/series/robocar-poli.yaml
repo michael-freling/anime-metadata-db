@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Robocar Poli
   ordering: absolute
+  externalIds:
+    wikidataId: Q492339
   seasons:
     - id: robocar-poli-s1
       number: 1

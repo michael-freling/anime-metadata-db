@@ -4,8 +4,11 @@ series:
   titles:
     original: いつか天魔の黒ウサギ
     translations:
+      en: A Dark Rabbit Has Seven Lives
       ja-Latn: Itsuka Tenma no Kuro Usagi
   ordering: absolute
+  externalIds:
+    wikidataId: Q2977205
   seasons:
     - id: itsuka-tenma-no-kuro-usagi-s1
       number: 1

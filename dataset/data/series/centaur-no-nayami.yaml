@@ -4,8 +4,11 @@ series:
   titles:
     original: セントールの悩み
     translations:
+      en: A Centaur's Life
       ja-Latn: Centaur no Nayami
   ordering: absolute
+  externalIds:
+    wikidataId: Q11314834
   seasons:
     - id: centaur-no-nayami-s1
       number: 1

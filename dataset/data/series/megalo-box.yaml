@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Megalo Box
   ordering: absolute
+  externalIds:
+    wikidataId: Q51720111
   seasons:
     - id: megalo-box-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: ミカグラ学園組曲
     translations:
+      en: Mikagura School Suite
       ja-Latn: Mikagura Gakuen Kumikyoku (TV)
   ordering: absolute
+  externalIds:
+    wikidataId: Q16481621
   seasons:
     - id: mikagura-gakuen-kumikyoku-tv-s1
       number: 1

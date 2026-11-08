@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Comic Girls
   ordering: absolute
+  externalIds:
+    wikidataId: Q20044385
   seasons:
     - id: comic-girls-s1
       number: 1

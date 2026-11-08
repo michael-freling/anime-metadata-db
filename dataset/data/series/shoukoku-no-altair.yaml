@@ -4,8 +4,11 @@ series:
   titles:
     original: 将国のアルタイル
     translations:
+      en: 'Altair: A Record of Battles'
       ja-Latn: Shoukoku no Altair
   ordering: absolute
+  externalIds:
+    wikidataId: Q11458573
   seasons:
     - id: shoukoku-no-altair-s1
       number: 1

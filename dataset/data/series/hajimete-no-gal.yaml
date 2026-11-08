@@ -4,8 +4,11 @@ series:
   titles:
     original: はじめてのギャル
     translations:
+      en: My First Girlfriend Is a Gal
       ja-Latn: Hajimete no Gal
   ordering: absolute
+  externalIds:
+    wikidataId: Q28416286
   seasons:
     - id: hajimete-no-gal-s1
       number: 1

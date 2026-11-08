@@ -4,8 +4,11 @@ series:
   titles:
     original: 放課後ミッドナイターズ
     translations:
+      en: After School Midnighters
       ja-Latn: Houkago Midnighters
   ordering: absolute
+  externalIds:
+    wikidataId: Q904644
   movies:
     - id: houkago-midnighters-film
       titles:

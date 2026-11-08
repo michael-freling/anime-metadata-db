@@ -4,8 +4,11 @@ series:
   titles:
     original: パズル&ドラゴンズ
     translations:
+      en: Puzzle & Dragons
       ja-Latn: Puzzle & Dragons Cross
   ordering: absolute
+  externalIds:
+    wikidataId: Q11280991
   seasons:
     - id: puzzle-dragons-cross-s1
       number: 1

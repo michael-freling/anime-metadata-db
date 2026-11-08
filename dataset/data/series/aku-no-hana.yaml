@@ -4,8 +4,11 @@ series:
   titles:
     original: 惡の華
     translations:
+      en: The Flowers of Evil
       ja-Latn: Aku no Hana
   ordering: absolute
+  externalIds:
+    wikidataId: Q182662
   seasons:
     - id: aku-no-hana-s1
       number: 1

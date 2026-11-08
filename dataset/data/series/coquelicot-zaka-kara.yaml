@@ -4,8 +4,11 @@ series:
   titles:
     original: コクリコ坂から
     translations:
+      en: Kokurikozaka kara
       ja-Latn: Coquelicot-zaka kara
   ordering: absolute
+  externalIds:
+    wikidataId: Q1319658
   movies:
     - id: coquelicot-zaka-kara-film
       titles:

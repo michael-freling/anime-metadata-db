@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Boku no Imouto wa "Osaka Okan"
   ordering: absolute
+  externalIds:
+    wikidataId: Q1655082
   seasons:
     - id: boku-no-imouto-wa-osaka-okan-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Witch Craft Works
   ordering: absolute
+  externalIds:
+    wikidataId: Q8027902
   seasons:
     - id: witch-craft-works-s1
       number: 1

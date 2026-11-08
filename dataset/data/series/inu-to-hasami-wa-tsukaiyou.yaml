@@ -4,8 +4,11 @@ series:
   titles:
     original: 犬とハサミは使いよう
     translations:
+      en: Dog & Scissors
       ja-Latn: Inu to Hasami wa Tsukaiyou
   ordering: absolute
+  externalIds:
+    wikidataId: Q3391085
   seasons:
     - id: inu-to-hasami-wa-tsukaiyou-s1
       number: 1

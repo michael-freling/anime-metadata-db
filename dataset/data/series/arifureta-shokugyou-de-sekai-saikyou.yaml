@@ -4,8 +4,11 @@ series:
   titles:
     original: ありふれた職業で世界最強
     translations:
+      en: Arifureta
       ja-Latn: Arifureta Shokugyou de Sekai Saikyou
   ordering: absolute
+  externalIds:
+    wikidataId: Q24835550
   seasons:
     - id: arifureta-shokugyou-de-sekai-saikyou-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 雨色ココア
     translations:
+      en: Rainy Cocoa
       ja-Latn: Ame-iro Cocoa
   ordering: absolute
+  externalIds:
+    wikidataId: Q19766063
   seasons:
     - id: ame-iro-cocoa-s1
       number: 1

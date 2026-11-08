@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Märchen Mädchen
   ordering: absolute
+  externalIds:
+    wikidataId: Q34553687
   seasons:
     - id: m-rchen-m-dchen-s1
       number: 1

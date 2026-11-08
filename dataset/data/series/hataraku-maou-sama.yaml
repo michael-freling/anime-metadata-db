@@ -4,8 +4,11 @@ series:
   titles:
     original: はたらく魔王さま!
     translations:
+      en: The Devil Is a Part-Timer!
       ja-Latn: Hataraku Maou-sama!
   ordering: absolute
+  externalIds:
+    wikidataId: Q5680972
   seasons:
     - id: hataraku-maou-sama-s1
       number: 1

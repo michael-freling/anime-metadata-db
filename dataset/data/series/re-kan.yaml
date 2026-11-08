@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Re-Kan!
   ordering: absolute
+  externalIds:
+    wikidataId: Q11350026
   seasons:
     - id: re-kan-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Mikocchaken.
   ordering: absolute
+  externalIds:
+    wikidataId: Q48761343
   seasons:
     - id: mikocchaken-s1
       number: 1

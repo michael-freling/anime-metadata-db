@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Battle Spirits: Double Drive'
   ordering: absolute
+  externalIds:
+    wikidataId: Q23802883
   seasons:
     - id: battle-spirits-double-drive-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Gaist Crusher
   ordering: absolute
+  externalIds:
+    wikidataId: Q14957209
   seasons:
     - id: gaist-crusher-s1
       number: 1

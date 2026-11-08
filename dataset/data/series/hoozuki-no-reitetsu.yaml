@@ -4,8 +4,11 @@ series:
   titles:
     original: 鬼灯の冷徹
     translations:
+      en: Hozuki's Coolheadedness
       ja-Latn: Hoozuki no Reitetsu
   ordering: absolute
+  externalIds:
+    wikidataId: Q11673513
   seasons:
     - id: hoozuki-no-reitetsu-s1
       number: 1

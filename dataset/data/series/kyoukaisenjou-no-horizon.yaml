@@ -4,8 +4,11 @@ series:
   titles:
     original: 境界線上のホライゾン
     translations:
+      en: Horizon in the Middle of Nowhere
       ja-Latn: Kyoukaisenjou no Horizon
   ordering: absolute
+  externalIds:
+    wikidataId: Q553827
   seasons:
     - id: kyoukaisenjou-no-horizon-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 大図書館の羊飼い
     translations:
+      en: A Good Librarian Like a Good Shepherd
       ja-Latn: Daitoshokan no Hitsujikai
   ordering: absolute
+  externalIds:
+    wikidataId: Q2756880
   seasons:
     - id: daitoshokan-no-hitsujikai-s1
       number: 1

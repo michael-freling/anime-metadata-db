@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Toriko
   ordering: absolute
+  externalIds:
+    wikidataId: Q1200095
   seasons:
     - id: toriko-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 双星の陰陽師
     translations:
+      en: Twin Star Exorcists
       ja-Latn: Sousei no Onmyouji
   ordering: absolute
+  externalIds:
+    wikidataId: Q17228961
   seasons:
     - id: sousei-no-onmyouji-s1
       number: 1

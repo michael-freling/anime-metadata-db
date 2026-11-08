@@ -4,8 +4,11 @@ series:
   titles:
     original: アイドルマスター SideM
     translations:
+      en: IDOLM@STER SideM
       ja-Latn: The iDOLM@STER SideM
   ordering: absolute
+  externalIds:
+    wikidataId: Q17190725
   seasons:
     - id: the-idolm-ster-sidem-s1
       number: 1

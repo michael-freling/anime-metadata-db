@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Ro-Kyu-Bu!
   ordering: absolute
+  externalIds:
+    wikidataId: Q485958
   seasons:
     - id: ro-kyu-bu-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tamako Market
   ordering: absolute
+  externalIds:
+    wikidataId: Q211183
   seasons:
     - id: tamako-market-s1
       number: 1

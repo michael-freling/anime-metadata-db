@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Akame ga Kill!
   ordering: absolute
+  externalIds:
+    wikidataId: Q1525793
   seasons:
     - id: akame-ga-kill-s1
       number: 1

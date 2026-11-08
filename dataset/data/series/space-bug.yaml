@@ -4,8 +4,11 @@ series:
   titles:
     original: スペースバグ
     translations:
+      en: The Journey Home
       ja-Latn: Space Bug
   ordering: absolute
+  externalIds:
+    wikidataId: Q85871914
   seasons:
     - id: space-bug-s1
       number: 1

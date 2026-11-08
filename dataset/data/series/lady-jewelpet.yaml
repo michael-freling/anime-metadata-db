@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Lady Jewelpet
   ordering: absolute
+  externalIds:
+    wikidataId: Q16019901
   seasons:
     - id: lady-jewelpet-s1
       number: 1

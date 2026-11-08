@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Nemure Omoigo, Sora no Shitone ni
   ordering: absolute
+  externalIds:
+    wikidataId: Q141991744
   movies:
     - id: nemure-omoigo-sora-no-shitone-ni-film
       titles:

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Animegatari
   ordering: absolute
+  externalIds:
+    wikidataId: Q30102603
   movies:
     - id: animegatari-film
       titles:

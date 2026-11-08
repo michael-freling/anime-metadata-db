@@ -4,8 +4,11 @@ series:
   titles:
     original: アグレッシブ烈子
     translations:
+      en: Aggretsuko
       ja-Latn: Aggressive Retsuko
   ordering: absolute
+  externalIds:
+    wikidataId: Q30324232
   seasons:
     - id: aggressive-retsuko-s1
       number: 1

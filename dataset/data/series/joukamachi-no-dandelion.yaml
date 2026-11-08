@@ -4,8 +4,11 @@ series:
   titles:
     original: 城下町のダンデライオン
     translations:
+      en: Castle Town Dandelion
       ja-Latn: Joukamachi no Dandelion
   ordering: absolute
+  externalIds:
+    wikidataId: Q17215325
   seasons:
     - id: joukamachi-no-dandelion-s1
       number: 1

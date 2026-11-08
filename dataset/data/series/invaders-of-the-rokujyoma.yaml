@@ -4,8 +4,11 @@ series:
   titles:
     original: 六畳間の侵略者!?
     translations:
+      en: Invaders of the Rokujouma!?
       ja-Latn: Invaders of the Rokujyōma!?
   ordering: absolute
+  externalIds:
+    wikidataId: Q10865644
   seasons:
     - id: invaders-of-the-rokujyoma-s1
       number: 1

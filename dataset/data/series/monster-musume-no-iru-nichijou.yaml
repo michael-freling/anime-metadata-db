@@ -4,8 +4,11 @@ series:
   titles:
     original: モンスター娘のいる日常
     translations:
+      en: Monster Musume
       ja-Latn: Monster Musume no Iru Nichijou
   ordering: absolute
+  externalIds:
+    wikidataId: Q15646175
   seasons:
     - id: monster-musume-no-iru-nichijou-s1
       number: 1

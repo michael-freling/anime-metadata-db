@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: No Game No Life
   ordering: absolute
+  externalIds:
+    wikidataId: Q11325839
   seasons:
     - id: no-game-no-life-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hitorijime My Hero
   ordering: absolute
+  externalIds:
+    wikidataId: Q30846544
   seasons:
     - id: hitorijime-my-hero-s1
       number: 1

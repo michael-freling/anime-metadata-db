@@ -4,8 +4,11 @@ series:
   titles:
     original: ダンベル何キロ持てる?
     translations:
+      en: How Heavy Are the Dumbbells You Lift?
       ja-Latn: Dumbbell Nan Kilo Moteru?
   ordering: absolute
+  externalIds:
+    wikidataId: Q28688911
   seasons:
     - id: dumbbell-nan-kilo-moteru-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 海獣の子供
     translations:
+      en: Children of the Sea
       ja-Latn: Kaijuu no Kodomo
   ordering: absolute
+  externalIds:
+    wikidataId: Q3545956
   movies:
     - id: kaijuu-no-kodomo-film
       titles:

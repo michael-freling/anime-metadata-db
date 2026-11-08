@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Bakugan Battle Planet
   ordering: absolute
+  externalIds:
+    wikidataId: Q25471211
   seasons:
     - id: bakugan-battle-planet-s1
       number: 1

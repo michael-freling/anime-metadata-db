@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Onsen Yousei Hakone-chan
   ordering: absolute
+  externalIds:
+    wikidataId: Q20724731
   seasons:
     - id: onsen-yousei-hakone-chan-s1
       number: 1

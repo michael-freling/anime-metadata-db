@@ -4,8 +4,11 @@ series:
   titles:
     original: 銃皇無尽のファフニール
     translations:
+      en: Unlimited Fafnir
       ja-Latn: Juuou Mujin no Fafnir
   ordering: absolute
+  externalIds:
+    wikidataId: Q17214390
   seasons:
     - id: juuou-mujin-no-fafnir-s1
       number: 1

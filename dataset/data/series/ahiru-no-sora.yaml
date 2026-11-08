@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Ahiru no Sora
   ordering: absolute
+  externalIds:
+    wikidataId: Q638499
   seasons:
     - id: ahiru-no-sora-s1
       number: 1

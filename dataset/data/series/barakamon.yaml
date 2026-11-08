@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Barakamon
   ordering: absolute
+  externalIds:
+    wikidataId: Q6579725
   seasons:
     - id: barakamon-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: バカとテストと召喚獣
     translations:
+      en: Baka and Test
       ja-Latn: Baka to Test to Shoukanjuu
   ordering: absolute
+  externalIds:
+    wikidataId: Q483263
   seasons:
     - id: baka-to-test-to-shoukanjuu-s1
       number: 1

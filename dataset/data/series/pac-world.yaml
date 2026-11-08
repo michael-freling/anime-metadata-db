@@ -4,8 +4,11 @@ series:
   titles:
     original: パックワールド
     translations:
+      en: Pac-Man and the Ghostly Adventures
       ja-Latn: Pac-World
   ordering: absolute
+  externalIds:
+    wikidataId: Q5837184
   seasons:
     - id: pac-world-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 残響のテロル
     translations:
+      en: Terror in Resonance
       ja-Latn: Zankyou no Terror
   ordering: absolute
+  externalIds:
+    wikidataId: Q15975972
   seasons:
     - id: zankyou-no-terror-s1
       number: 1

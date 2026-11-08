@@ -4,8 +4,11 @@ series:
   titles:
     original: イナズマイレブンGO ギャラクシー
     translations:
+      en: 'Inazuma Eleven GO 3: Galaxy'
       ja-Latn: 'Inazuma Eleven Go: Galaxy'
   ordering: absolute
+  externalIds:
+    wikidataId: Q14759943
   seasons:
     - id: inazuma-eleven-go-galaxy-s1
       number: 1

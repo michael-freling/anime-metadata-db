@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Paboo & Mojies
   ordering: absolute
+  externalIds:
+    wikidataId: Q7121819
   seasons:
     - id: paboo-mojies-s1
       number: 1

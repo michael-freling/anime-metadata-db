@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kiznaiver
   ordering: absolute
+  externalIds:
+    wikidataId: Q21769859
   seasons:
     - id: kiznaiver-s1
       number: 1

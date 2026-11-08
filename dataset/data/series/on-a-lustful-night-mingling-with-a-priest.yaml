@@ -4,8 +4,11 @@ series:
   titles:
     original: 僧侶と交わる色欲の夜に…
     translations:
+      en: Sōryo to Majiwaru Shikiyoku no Yoru ni...
       ja-Latn: On a Lustful Night Mingling with a Priest
   ordering: absolute
+  externalIds:
+    wikidataId: Q28970275
   seasons:
     - id: on-a-lustful-night-mingling-with-a-priest-s1
       number: 1

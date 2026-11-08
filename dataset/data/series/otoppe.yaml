@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Otoppe
   ordering: absolute
+  externalIds:
+    wikidataId: Q30928079
   seasons:
     - id: otoppe-s1
       number: 1

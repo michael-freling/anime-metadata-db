@@ -4,8 +4,11 @@ series:
   titles:
     original: いつだって僕らの恋は10センチだった。
     translations:
+      en: Itsudatte Bokura no Koi wa 10 Centi Datta
       ja-Latn: Our love has always been 10 centimeters apart.
   ordering: absolute
+  externalIds:
+    wikidataId: Q113366213
   seasons:
     - id: our-love-has-always-been-10-centimeters-apart-s1
       number: 1

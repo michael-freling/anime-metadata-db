@@ -4,8 +4,11 @@ series:
   titles:
     original: うーさーのその日暮らし
     translations:
+      en: Wooser's Hand-to-Mouth Life
       ja-Latn: Wooser no Sono Higurashi
   ordering: absolute
+  externalIds:
+    wikidataId: Q2083836
   seasons:
     - id: wooser-no-sono-higurashi-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: ミラキュラス レディバグ&シャノワール
     translations:
+      en: 'Miraculous: Tales of Ladybug & Cat Noir'
       ja-Latn: Miraculous Ladybug
   ordering: absolute
+  externalIds:
+    wikidataId: Q6470744
   seasons:
     - id: miraculous-ladybug-s1
       number: 1

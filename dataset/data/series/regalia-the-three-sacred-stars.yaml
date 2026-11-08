@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Regalia: The Three Sacred Stars'
   ordering: absolute
+  externalIds:
+    wikidataId: Q23647139
   seasons:
     - id: regalia-the-three-sacred-stars-s1
       number: 1

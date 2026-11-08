@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Majin Bone
   ordering: absolute
+  externalIds:
+    wikidataId: Q15975642
   seasons:
     - id: majin-bone-s1
       number: 1

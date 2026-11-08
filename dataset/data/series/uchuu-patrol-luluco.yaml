@@ -4,8 +4,11 @@ series:
   titles:
     original: 宇宙パトロールルル子
     translations:
+      en: Space Patrol Luluco
       ja-Latn: Uchuu Patrol Luluco
   ordering: absolute
+  externalIds:
+    wikidataId: Q22696372
   seasons:
     - id: uchuu-patrol-luluco-s1
       number: 1

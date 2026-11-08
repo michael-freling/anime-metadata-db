@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Natsu-iro Kiseki
   ordering: absolute
+  externalIds:
+    wikidataId: Q1107521
   seasons:
     - id: natsu-iro-kiseki-s1
       number: 1

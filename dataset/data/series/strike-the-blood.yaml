@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Strike the Blood
   ordering: absolute
+  externalIds:
+    wikidataId: Q7487780
   seasons:
     - id: strike-the-blood-s1
       number: 1

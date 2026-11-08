@@ -4,8 +4,11 @@ series:
   titles:
     original: 僕らはみんな河合荘
     translations:
+      en: The Kawai Complex Guide to Manors and Hostel Behavior
       ja-Latn: Bokura wa Minna Kawai-sou
   ordering: absolute
+  externalIds:
+    wikidataId: Q11387589
   seasons:
     - id: bokura-wa-minna-kawai-sou-s1
       number: 1

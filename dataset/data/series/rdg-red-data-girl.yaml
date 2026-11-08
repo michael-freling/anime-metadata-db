@@ -4,8 +4,11 @@ series:
   titles:
     original: RDG レッドデータガール
     translations:
+      en: Red Data Girl
       ja-Latn: 'RDG: Red Data Girl'
   ordering: absolute
+  externalIds:
+    wikidataId: Q5337285
   seasons:
     - id: rdg-red-data-girl-s1
       number: 1

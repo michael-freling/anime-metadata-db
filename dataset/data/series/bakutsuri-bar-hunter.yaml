@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Bakutsuri Bar Hunter
   ordering: absolute
+  externalIds:
+    wikidataId: Q56680638
   seasons:
     - id: bakutsuri-bar-hunter-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 夢王国と眠れる100人の王子様
     translations:
+      en: 100 Sleeping Princes and the Kingdom of Dreams
       ja-Latn: Yume Oukoku to Nemureru 100-nin no Oujisama
   ordering: absolute
+  externalIds:
+    wikidataId: Q24863502
   seasons:
     - id: yume-oukoku-to-nemureru-100-nin-no-oujisama-s1
       number: 1

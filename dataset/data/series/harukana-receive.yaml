@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Harukana Receive
   ordering: absolute
+  externalIds:
+    wikidataId: Q33132491
   seasons:
     - id: harukana-receive-s1
       number: 1

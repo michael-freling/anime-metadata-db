@@ -4,8 +4,11 @@ series:
   titles:
     original: 風雲維新ダイ☆ショーグン
     translations:
+      en: Dai-Shogun – Great Revolution
       ja-Latn: Fuuun Ishin Dai☆Shougun
   ordering: absolute
+  externalIds:
+    wikidataId: Q15524570
   seasons:
     - id: fuuun-ishin-dai-shougun-s1
       number: 1

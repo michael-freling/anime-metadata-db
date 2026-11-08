@@ -4,8 +4,11 @@ series:
   titles:
     original: チベット犬物語 〜金色のドージェ〜
     translations:
+      en: The Tibetan Dog
       ja-Latn: Tibet Inu Monogatari
   ordering: absolute
+  externalIds:
+    wikidataId: Q3007729
   movies:
     - id: tibet-inu-monogatari-film
       titles:

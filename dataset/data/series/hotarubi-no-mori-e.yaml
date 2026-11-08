@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hotarubi no Mori e
   ordering: absolute
+  externalIds:
+    wikidataId: Q1116103
   movies:
     - id: hotarubi-no-mori-e-film
       titles:

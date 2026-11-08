@@ -4,8 +4,11 @@ series:
   titles:
     original: ちおちゃんの通学路
     translations:
+      en: Chio's School Road
       ja-Latn: Chio-chan no Tsuugakuro
   ordering: absolute
+  externalIds:
+    wikidataId: Q28683983
   seasons:
     - id: chio-chan-no-tsuugakuro-s1
       number: 1

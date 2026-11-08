@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Flowering Heart
   ordering: absolute
+  externalIds:
+    wikidataId: Q21825345
   seasons:
     - id: flowering-heart-s1
       number: 1

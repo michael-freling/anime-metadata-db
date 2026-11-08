@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Chuu Bra!!
   ordering: absolute
+  externalIds:
+    wikidataId: Q1091195
   seasons:
     - id: chuu-bra-s1
       number: 1

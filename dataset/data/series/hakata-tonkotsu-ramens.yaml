@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hakata Tonkotsu Ramens
   ordering: absolute
+  externalIds:
+    wikidataId: Q42890750
   seasons:
     - id: hakata-tonkotsu-ramens-s1
       number: 1

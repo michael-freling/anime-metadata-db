@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: World War Blue
   ordering: absolute
+  externalIds:
+    wikidataId: Q3620545
   seasons:
     - id: world-war-blue-s1
       number: 1

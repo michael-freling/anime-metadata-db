@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Durarara!!
   ordering: absolute
+  externalIds:
+    wikidataId: Q495094
   seasons:
     - id: durarara-s1
       number: 1

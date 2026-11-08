@@ -4,8 +4,11 @@ series:
   titles:
     original: 獣旋バトル モンスーノ
     translations:
+      en: Monsuno
       ja-Latn: 'Monsuno: Combat Chaos'
   ordering: absolute
+  externalIds:
+    wikidataId: Q3861032
   seasons:
     - id: monsuno-combat-chaos-s1
       number: 1

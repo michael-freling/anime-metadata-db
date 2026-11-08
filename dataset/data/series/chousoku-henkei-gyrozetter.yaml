@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Chousoku Henkei Gyrozetter
   ordering: absolute
+  externalIds:
+    wikidataId: Q333687
   seasons:
     - id: chousoku-henkei-gyrozetter-s1
       number: 1

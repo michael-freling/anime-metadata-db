@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Sasami-san@Ganbaranai
   ordering: absolute
+  externalIds:
+    wikidataId: Q4662725
   seasons:
     - id: sasami-san-ganbaranai-s1
       number: 1

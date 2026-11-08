@@ -4,8 +4,11 @@ series:
   titles:
     original: ももくり
     translations:
+      en: Momokuri
       ja-Latn: Momokuri (TV)
   ordering: absolute
+  externalIds:
+    wikidataId: Q21080476
   seasons:
     - id: momokuri-tv-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Beyblade Burst
   ordering: absolute
+  externalIds:
+    wikidataId: Q23747084
   seasons:
     - id: beyblade-burst-s1
       number: 1

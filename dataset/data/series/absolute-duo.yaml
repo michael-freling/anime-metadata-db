@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Absolute Duo
   ordering: absolute
+  externalIds:
+    wikidataId: Q11284699
   seasons:
     - id: absolute-duo-s1
       number: 1

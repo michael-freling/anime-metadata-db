@@ -4,8 +4,11 @@ series:
   titles:
     original: ケイオスドラゴン 赤竜戦役
     translations:
+      en: Chaos Dragon
       ja-Latn: 'Chaos Dragon: Sekiryuu Seneki'
   ordering: absolute
+  externalIds:
+    wikidataId: Q19363389
   seasons:
     - id: chaos-dragon-sekiryuu-seneki-s1
       number: 1

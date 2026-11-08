@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Wakako-zake
   ordering: absolute
+  externalIds:
+    wikidataId: Q18394334
   seasons:
     - id: wakako-zake-s1
       number: 1

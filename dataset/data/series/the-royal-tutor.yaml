@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: The Royal Tutor
   ordering: absolute
+  externalIds:
+    wikidataId: Q28685593
   seasons:
     - id: the-royal-tutor-s1
       number: 1

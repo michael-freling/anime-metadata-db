@@ -4,8 +4,11 @@ series:
   titles:
     original: 賢者の孫
     translations:
+      en: Wise Man's Grandchild
       ja-Latn: Kenja no Mago
   ordering: absolute
+  externalIds:
+    wikidataId: Q30950646
   seasons:
     - id: kenja-no-mago-s1
       number: 1

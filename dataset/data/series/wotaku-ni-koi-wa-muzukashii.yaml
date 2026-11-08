@@ -4,8 +4,11 @@ series:
   titles:
     original: ヲタクに恋は難しい
     translations:
+      en: 'Wotakoi: Love is Hard for Otaku'
       ja-Latn: Wotaku ni Koi wa Muzukashii
   ordering: absolute
+  externalIds:
+    wikidataId: Q24535016
   seasons:
     - id: wotaku-ni-koi-wa-muzukashii-s1
       number: 1

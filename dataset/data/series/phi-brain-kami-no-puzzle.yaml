@@ -4,8 +4,11 @@ series:
   titles:
     original: ファイ・ブレイン 神のパズル
     translations:
+      en: 'Phi Brain: Puzzle of God'
       ja-Latn: 'Phi Brain: Kami no Puzzle'
   ordering: absolute
+  externalIds:
+    wikidataId: Q2579045
   seasons:
     - id: phi-brain-kami-no-puzzle-s1
       number: 1

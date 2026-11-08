@@ -4,8 +4,11 @@ series:
   titles:
     original: 女子高生の無駄づかい
     translations:
+      en: Wasteful Days of High School Girls
       ja-Latn: Joshikousei no Mudazukai
   ordering: absolute
+  externalIds:
+    wikidataId: Q60688938
   seasons:
     - id: joshikousei-no-mudazukai-s1
       number: 1

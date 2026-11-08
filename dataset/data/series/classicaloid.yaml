@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: ClassicaLoid
   ordering: absolute
+  externalIds:
+    wikidataId: Q23647043
   seasons:
     - id: classicaloid-s1
       number: 1

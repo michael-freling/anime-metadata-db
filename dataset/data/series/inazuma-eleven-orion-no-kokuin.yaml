@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Inazuma Eleven: Orion no Kokuin'
   ordering: absolute
+  externalIds:
+    wikidataId: Q56350050
   seasons:
     - id: inazuma-eleven-orion-no-kokuin-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 断裁分離のクライムエッジ
     translations:
+      en: The Severing Crime Edge
       ja-Latn: Dansai Bunri no Crime Edge
   ordering: absolute
+  externalIds:
+    wikidataId: Q75320
   seasons:
     - id: dansai-bunri-no-crime-edge-s1
       number: 1

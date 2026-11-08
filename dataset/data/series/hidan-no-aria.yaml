@@ -4,8 +4,11 @@ series:
   titles:
     original: 緋弾のアリア
     translations:
+      en: Aria the Scarlet Ammo
       ja-Latn: Hidan no Aria
   ordering: absolute
+  externalIds:
+    wikidataId: Q483568
   seasons:
     - id: hidan-no-aria-s1
       number: 1

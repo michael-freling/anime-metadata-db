@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Yuri Kuma Arashi
   ordering: absolute
+  externalIds:
+    wikidataId: Q17602113
   seasons:
     - id: yuri-kuma-arashi-s1
       number: 1

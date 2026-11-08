@@ -4,8 +4,11 @@ series:
   titles:
     original: 翠星のガルガンティア
     translations:
+      en: Gargantia on the Verdurous Planet
       ja-Latn: Suisei no Gargantia
   ordering: absolute
+  externalIds:
+    wikidataId: Q1707781
   seasons:
     - id: suisei-no-gargantia-s1
       number: 1

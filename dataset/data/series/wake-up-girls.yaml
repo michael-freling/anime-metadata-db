@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Wake Up, Girls!
   ordering: absolute
+  externalIds:
+    wikidataId: Q14550419
   seasons:
     - id: wake-up-girls-s1
       number: 1

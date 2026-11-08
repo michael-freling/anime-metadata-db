@@ -4,8 +4,11 @@ series:
   titles:
     original: 未確認で進行形
     translations:
+      en: Engaged to the Unidentified
       ja-Latn: Mikakunin de Shinkoukei
   ordering: absolute
+  externalIds:
+    wikidataId: Q11519613
   seasons:
     - id: mikakunin-de-shinkoukei-s1
       number: 1

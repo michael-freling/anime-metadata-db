@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Arakawa Under the Bridge
   ordering: absolute
+  externalIds:
+    wikidataId: Q625474
   seasons:
     - id: arakawa-under-the-bridge-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Gundam Build Divers
   ordering: absolute
+  externalIds:
+    wikidataId: Q48539751
   seasons:
     - id: gundam-build-divers-s1
       number: 1

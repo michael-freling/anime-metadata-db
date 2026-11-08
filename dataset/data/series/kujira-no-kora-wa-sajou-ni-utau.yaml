@@ -4,8 +4,11 @@ series:
   titles:
     original: クジラの子らは砂上に歌う
     translations:
+      en: Children of the Whales
       ja-Latn: Kujira no Kora wa Sajou ni Utau
   ordering: absolute
+  externalIds:
+    wikidataId: Q17214358
   seasons:
     - id: kujira-no-kora-wa-sajou-ni-utau-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: Caligula -カリギュラ-
     translations:
+      en: The Caligula Effect
       ja-Latn: Caligula
   ordering: absolute
+  externalIds:
+    wikidataId: Q22968456
   seasons:
     - id: caligula-s1
       number: 1

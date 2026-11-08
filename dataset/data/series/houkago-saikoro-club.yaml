@@ -4,8 +4,11 @@ series:
   titles:
     original: 放課後さいころ倶楽部
     translations:
+      en: After School Dice Club
       ja-Latn: Houkago Saikoro Club
   ordering: absolute
+  externalIds:
+    wikidataId: Q17216940
   seasons:
     - id: houkago-saikoro-club-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Otome Youkai Zakuro
   ordering: absolute
+  externalIds:
+    wikidataId: Q705053
   seasons:
     - id: otome-youkai-zakuro-s1
       number: 1

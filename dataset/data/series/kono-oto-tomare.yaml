@@ -4,8 +4,11 @@ series:
   titles:
     original: この音とまれ!
     translations:
+      en: Kono Oto Tomare! Sounds of Life
       ja-Latn: Kono Oto Tomare!
   ordering: absolute
+  externalIds:
+    wikidataId: Q11266796
   seasons:
     - id: kono-oto-tomare-s1
       number: 1

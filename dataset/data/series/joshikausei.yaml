@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Joshikausei
   ordering: absolute
+  externalIds:
+    wikidataId: Q22101189
   seasons:
     - id: joshikausei-s1
       number: 1

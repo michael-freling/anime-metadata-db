@@ -4,8 +4,11 @@ series:
   titles:
     original: 私に天使が舞い降りた!
     translations:
+      en: Wataten!
       ja-Latn: Watashi ni Tenshi ga Maiorita!
   ordering: absolute
+  externalIds:
+    wikidataId: Q55080328
   seasons:
     - id: watashi-ni-tenshi-ga-maiorita-s1
       number: 1

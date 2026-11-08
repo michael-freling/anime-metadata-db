@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Girly Air Force
   ordering: absolute
+  externalIds:
+    wikidataId: Q20043880
   seasons:
     - id: girly-air-force-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Divine Gate
   ordering: absolute
+  externalIds:
+    wikidataId: Q21198551
   seasons:
     - id: divine-gate-s1
       number: 1

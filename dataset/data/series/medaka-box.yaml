@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Medaka Box
   ordering: absolute
+  externalIds:
+    wikidataId: Q1335290
   seasons:
     - id: medaka-box-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kowabon
   ordering: absolute
+  externalIds:
+    wikidataId: Q22126963
   seasons:
     - id: kowabon-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Buddy Complex
   ordering: absolute
+  externalIds:
+    wikidataId: Q15502387
   seasons:
     - id: buddy-complex-s1
       number: 1

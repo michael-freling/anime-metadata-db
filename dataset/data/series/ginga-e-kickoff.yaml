@@ -4,8 +4,11 @@ series:
   titles:
     original: 銀河へキックオフ!!
     translations:
+      en: Galaxy Kickoff!!
       ja-Latn: Ginga e Kickoff!!
   ordering: absolute
+  externalIds:
+    wikidataId: Q1060695
   seasons:
     - id: ginga-e-kickoff-s1
       number: 1

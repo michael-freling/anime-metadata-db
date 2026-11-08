@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Outbreak Company
   ordering: absolute
+  externalIds:
+    wikidataId: Q13220016
   seasons:
     - id: outbreak-company-s1
       number: 1

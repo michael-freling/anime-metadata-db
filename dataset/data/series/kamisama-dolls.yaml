@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kamisama Dolls
   ordering: absolute
+  externalIds:
+    wikidataId: Q484502
   seasons:
     - id: kamisama-dolls-s1
       number: 1

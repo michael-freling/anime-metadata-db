@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hagane Orchestra
   ordering: absolute
+  externalIds:
+    wikidataId: Q27436711
   seasons:
     - id: hagane-orchestra-s1
       number: 1

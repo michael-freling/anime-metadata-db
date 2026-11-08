@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Monster Hunter Stories: Ride On'
   ordering: absolute
+  externalIds:
+    wikidataId: Q24864583
   seasons:
     - id: monster-hunter-stories-ride-on-s1
       number: 1

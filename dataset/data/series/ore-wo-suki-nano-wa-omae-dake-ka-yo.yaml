@@ -4,8 +4,11 @@ series:
   titles:
     original: 俺を好きなのはお前だけかよ
     translations:
+      en: Oresuki
       ja-Latn: Ore wo Suki nano wa Omae dake ka yo
   ordering: absolute
+  externalIds:
+    wikidataId: Q48745388
   seasons:
     - id: ore-wo-suki-nano-wa-omae-dake-ka-yo-s1
       number: 1

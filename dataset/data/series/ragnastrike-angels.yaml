@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Ragnastrike Angels
   ordering: absolute
+  externalIds:
+    wikidataId: Q23762958
   seasons:
     - id: ragnastrike-angels-s1
       number: 1

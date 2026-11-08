@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Urawa no Usagi-chan
   ordering: absolute
+  externalIds:
+    wikidataId: Q18990820
   seasons:
     - id: urawa-no-usagi-chan-s1
       number: 1

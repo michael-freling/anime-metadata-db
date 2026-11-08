@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tenkai Knights
   ordering: absolute
+  externalIds:
+    wikidataId: Q15883847
   seasons:
     - id: tenkai-knights-s1
       number: 1

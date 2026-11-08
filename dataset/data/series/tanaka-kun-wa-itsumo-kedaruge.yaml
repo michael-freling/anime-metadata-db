@@ -4,8 +4,11 @@ series:
   titles:
     original: 田中くんはいつもけだるげ
     translations:
+      en: Tanaka-kun Is Always Listless
       ja-Latn: Tanaka-kun wa Itsumo Kedaruge
   ordering: absolute
+  externalIds:
+    wikidataId: Q22128485
   seasons:
     - id: tanaka-kun-wa-itsumo-kedaruge-s1
       number: 1

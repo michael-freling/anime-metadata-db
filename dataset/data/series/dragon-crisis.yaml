@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Dragon Crisis!
   ordering: absolute
+  externalIds:
+    wikidataId: Q484515
   seasons:
     - id: dragon-crisis-s1
       number: 1

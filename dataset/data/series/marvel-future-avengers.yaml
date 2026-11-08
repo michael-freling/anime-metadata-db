@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Marvel Future Avengers
   ordering: absolute
+  externalIds:
+    wikidataId: Q30893223
   seasons:
     - id: marvel-future-avengers-s1
       number: 1

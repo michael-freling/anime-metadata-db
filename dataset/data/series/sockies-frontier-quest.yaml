@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Sockies: Frontier Quest'
   ordering: absolute
+  externalIds:
+    wikidataId: Q11315132
   seasons:
     - id: sockies-frontier-quest-s1
       number: 1

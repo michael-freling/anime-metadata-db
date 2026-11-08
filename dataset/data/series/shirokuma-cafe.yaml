@@ -4,8 +4,11 @@ series:
   titles:
     original: しろくまカフェ
     translations:
+      en: Polar Bear Café
       ja-Latn: Shirokuma Cafe
   ordering: absolute
+  externalIds:
+    wikidataId: Q2699660
   seasons:
     - id: shirokuma-cafe-s1
       number: 1

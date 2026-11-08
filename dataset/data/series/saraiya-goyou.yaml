@@ -4,8 +4,11 @@ series:
   titles:
     original: さらい屋 五葉
     translations:
+      en: House of Five Leaves
       ja-Latn: Saraiya Goyou
   ordering: absolute
+  externalIds:
+    wikidataId: Q1067632
   seasons:
     - id: saraiya-goyou-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 多田くんは恋をしない
     translations:
+      en: Tada Never Falls in Love
       ja-Latn: Tada-kun wa Koi wo Shinai
   ordering: absolute
+  externalIds:
+    wikidataId: Q42895089
   seasons:
     - id: tada-kun-wa-koi-wo-shinai-s1
       number: 1

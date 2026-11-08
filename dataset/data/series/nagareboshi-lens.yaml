@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Nagareboshi Lens
   ordering: absolute
+  externalIds:
+    wikidataId: Q11556624
   seasons:
     - id: nagareboshi-lens-s1
       number: 1

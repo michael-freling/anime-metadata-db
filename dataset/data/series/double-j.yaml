@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Double-J
   ordering: absolute
+  externalIds:
+    wikidataId: Q1091743
   seasons:
     - id: double-j-s1
       number: 1

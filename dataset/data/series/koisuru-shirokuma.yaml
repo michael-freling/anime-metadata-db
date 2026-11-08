@@ -4,8 +4,11 @@ series:
   titles:
     original: 恋するシロクマ
     translations:
+      en: A Polar Bear in Love
       ja-Latn: Koisuru Shirokuma
   ordering: absolute
+  externalIds:
+    wikidataId: Q30925820
   movies:
     - id: koisuru-shirokuma-film
       titles:

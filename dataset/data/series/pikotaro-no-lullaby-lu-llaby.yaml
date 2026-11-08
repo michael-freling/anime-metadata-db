@@ -4,8 +4,11 @@ series:
   titles:
     original: ピコ太郎のララバイラーラバイ
     translations:
+      en: Pikotaro's Lullaby La La By
       ja-Latn: Pikotarō no Lullaby Lu-llaby
   ordering: absolute
+  externalIds:
+    wikidataId: Q48744804
   seasons:
     - id: pikotaro-no-lullaby-lu-llaby-s1
       number: 1

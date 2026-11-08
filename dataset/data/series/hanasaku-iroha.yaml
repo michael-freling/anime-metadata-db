@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hanasaku Iroha
   ordering: absolute
+  externalIds:
+    wikidataId: Q494804
   seasons:
     - id: hanasaku-iroha-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 劇場版イナズマイレブン 最強軍団オーガ襲来
     translations:
+      en: 'Inazuma Eleven: Saikyō Gundan Ōga Shūrai'
       ja-Latn: 'Inazuma Eleven: Saikyou Gundan Ogre Shuurai'
   ordering: absolute
+  externalIds:
+    wikidataId: Q1185615
   movies:
     - id: inazuma-eleven-saikyou-gundan-ogre-shuurai-film
       titles:

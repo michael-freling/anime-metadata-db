@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Gugure! Kokkuri-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q11608493
   seasons:
     - id: gugure-kokkuri-san-s1
       number: 1

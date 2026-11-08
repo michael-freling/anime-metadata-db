@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Ooya-san wa Shishunki!
   ordering: absolute
+  externalIds:
+    wikidataId: Q17223559
   seasons:
     - id: ooya-san-wa-shishunki-s1
       number: 1

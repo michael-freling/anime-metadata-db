@@ -4,8 +4,11 @@ series:
   titles:
     original: クズの本懐
     translations:
+      en: Scum's Wish
       ja-Latn: Kuzu no Honkai
   ordering: absolute
+  externalIds:
+    wikidataId: Q11298673
   seasons:
     - id: kuzu-no-honkai-s1
       number: 1

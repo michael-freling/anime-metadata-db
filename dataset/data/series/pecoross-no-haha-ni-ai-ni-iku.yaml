@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Pecoross no Haha ni Ai ni Iku
   ordering: absolute
+  externalIds:
+    wikidataId: Q141986110
   seasons:
     - id: pecoross-no-haha-ni-ai-ni-iku-s1
       number: 1

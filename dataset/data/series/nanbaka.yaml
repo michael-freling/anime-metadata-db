@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Nanbaka
   ordering: absolute
+  externalIds:
+    wikidataId: Q23762892
   seasons:
     - id: nanbaka-s1
       number: 1

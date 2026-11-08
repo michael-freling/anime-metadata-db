@@ -4,8 +4,11 @@ series:
   titles:
     original: 私がモテないのはどう考えてもお前らが悪い!
     translations:
+      en: No Matter How I Look at It, It’s You Guys' Fault I’m Not Popular!
       ja-Latn: Watashi ga Motenai no wa Dou Kangaetemo Omaera ga Warui!
   ordering: absolute
+  externalIds:
+    wikidataId: Q1113182
   seasons:
     - id: watashi-ga-motenai-no-wa-dou-kangaetemo-omaera-ga-warui-s1
       number: 1

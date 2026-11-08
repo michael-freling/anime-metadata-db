@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Sekkou Boys
   ordering: absolute
+  externalIds:
+    wikidataId: Q21996364
   seasons:
     - id: sekkou-boys-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Atom: The Beginning'
   ordering: absolute
+  externalIds:
+    wikidataId: Q27892022
   seasons:
     - id: atom-the-beginning-s1
       number: 1

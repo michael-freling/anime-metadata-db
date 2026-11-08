@@ -4,8 +4,11 @@ series:
   titles:
     original: マイリトルポニー〜トモダチは魔法〜
     translations:
+      en: 'My Little Pony: Friendship Is Magic'
       ja-Latn: 'My Little Pony: The Movie'
   ordering: absolute
+  externalIds:
+    wikidataId: Q5415
   seasons:
     - id: my-little-pony-the-movie-s1
       number: 1

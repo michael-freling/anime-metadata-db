@@ -4,8 +4,11 @@ series:
   titles:
     original: 神さまのいない日曜日
     translations:
+      en: Sunday Without God
       ja-Latn: Kamisama no Inai Nichiyoubi
   ordering: absolute
+  externalIds:
+    wikidataId: Q5231211
   seasons:
     - id: kamisama-no-inai-nichiyoubi-s1
       number: 1

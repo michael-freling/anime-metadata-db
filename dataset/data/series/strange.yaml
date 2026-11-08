@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Strange+
   ordering: absolute
+  externalIds:
+    wikidataId: Q11312471
   seasons:
     - id: strange-s1
       number: 1

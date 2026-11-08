@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Knights of Sidonia
   ordering: absolute
+  externalIds:
+    wikidataId: Q3815924
   seasons:
     - id: knights-of-sidonia-s1
       number: 1

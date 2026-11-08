@@ -4,8 +4,11 @@ series:
   titles:
     original: されど罪人は竜と踊る Dances with the Dragons
     translations:
+      en: 'Saredo Tsumibito wa Ryū to Odoru: Dances with the Dragons'
       ja-Latn: Saredo Tsumibito wa Ryuu to Odoru
   ordering: absolute
+  externalIds:
+    wikidataId: Q11268483
   seasons:
     - id: saredo-tsumibito-wa-ryuu-to-odoru-s1
       number: 1

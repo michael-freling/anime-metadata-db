@@ -4,8 +4,11 @@ series:
   titles:
     original: さくら荘のペットな彼女
     translations:
+      en: The Pet Girl of Sakurasou
       ja-Latn: Sakura-sou no Pet na Kanojo
   ordering: absolute
+  externalIds:
+    wikidataId: Q623442
   seasons:
     - id: sakura-sou-no-pet-na-kanojo-s1
       number: 1

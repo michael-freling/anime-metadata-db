@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: DIVE!!
   ordering: absolute
+  externalIds:
+    wikidataId: Q626502
   seasons:
     - id: dive-s1
       number: 1

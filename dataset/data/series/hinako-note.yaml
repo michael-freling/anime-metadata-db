@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hinako Note
   ordering: absolute
+  externalIds:
+    wikidataId: Q22125922
   seasons:
     - id: hinako-note-s1
       number: 1

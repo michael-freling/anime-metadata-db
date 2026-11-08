@@ -4,8 +4,11 @@ series:
   titles:
     original: 小森さんは断れない!
     translations:
+      en: Komori-san Can't Decline
       ja-Latn: Komori-san wa Kotowarenai!
   ordering: absolute
+  externalIds:
+    wikidataId: Q17222807
   seasons:
     - id: komori-san-wa-kotowarenai-s1
       number: 1

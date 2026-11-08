@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Neko Pitcher
   ordering: absolute
+  externalIds:
+    wikidataId: Q17214489
   seasons:
     - id: neko-pitcher-s1
       number: 1

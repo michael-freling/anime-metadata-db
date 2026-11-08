@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Blade & Soul
   ordering: absolute
+  externalIds:
+    wikidataId: Q488144
   seasons:
     - id: blade-soul-s1
       number: 1

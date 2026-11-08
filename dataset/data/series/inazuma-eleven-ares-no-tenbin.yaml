@@ -4,8 +4,11 @@ series:
   titles:
     original: イナズマイレブン アレスの天秤
     translations:
+      en: 'Inazuma Eleven: Ares'
       ja-Latn: 'Inazuma Eleven: Ares no Tenbin'
   ordering: absolute
+  externalIds:
+    wikidataId: Q27449964
   seasons:
     - id: inazuma-eleven-ares-no-tenbin-s1
       number: 1

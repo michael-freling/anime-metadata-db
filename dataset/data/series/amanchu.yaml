@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Amanchu!
   ordering: absolute
+  externalIds:
+    wikidataId: Q852124
   seasons:
     - id: amanchu-s1
       number: 1

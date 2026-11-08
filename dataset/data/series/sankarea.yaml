@@ -4,8 +4,11 @@ series:
   titles:
     original: さんかれあ
     translations:
+      en: 'Sankarea: Undying Love'
       ja-Latn: Sankarea
   ordering: absolute
+  externalIds:
+    wikidataId: Q385129
   seasons:
     - id: sankarea-s1
       number: 1

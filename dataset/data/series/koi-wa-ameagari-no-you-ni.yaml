@@ -4,8 +4,11 @@ series:
   titles:
     original: 恋は雨上がりのように
     translations:
+      en: After the Rain
       ja-Latn: Koi wa Ameagari no You ni
   ordering: absolute
+  externalIds:
+    wikidataId: Q20044164
   seasons:
     - id: koi-wa-ameagari-no-you-ni-s1
       number: 1

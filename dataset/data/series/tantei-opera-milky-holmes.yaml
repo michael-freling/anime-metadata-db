@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tantei Opera Milky Holmes
   ordering: absolute
+  externalIds:
+    wikidataId: Q2473832
   seasons:
     - id: tantei-opera-milky-holmes-s1
       number: 1

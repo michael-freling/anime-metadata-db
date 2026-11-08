@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Shounen Maid
   ordering: absolute
+  externalIds:
+    wikidataId: Q11464645
   seasons:
     - id: shounen-maid-s1
       number: 1

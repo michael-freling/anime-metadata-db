@@ -4,8 +4,11 @@ series:
   titles:
     original: 君のいる町
     translations:
+      en: A Town Where You Live
       ja-Latn: Kimi no Iru Machi
   ordering: absolute
+  externalIds:
+    wikidataId: Q2819940
   seasons:
     - id: kimi-no-iru-machi-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Darling in the FranXX
   ordering: absolute
+  externalIds:
+    wikidataId: Q36498848
   seasons:
     - id: darling-in-the-franxx-s1
       number: 1

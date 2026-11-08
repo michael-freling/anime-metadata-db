@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hoshizora e Kakaru Hashi
   ordering: absolute
+  externalIds:
+    wikidataId: Q484483
   seasons:
     - id: hoshizora-e-kakaru-hashi-s1
       number: 1

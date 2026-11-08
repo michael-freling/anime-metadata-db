@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Natsuyuki Rendezvous
   ordering: absolute
+  externalIds:
+    wikidataId: Q2074062
   seasons:
     - id: natsuyuki-rendezvous-s1
       number: 1

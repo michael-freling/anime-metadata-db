@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: MM!
   ordering: absolute
+  externalIds:
+    wikidataId: Q483724
   seasons:
     - id: mm-s1
       number: 1

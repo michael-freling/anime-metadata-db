@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Starship Troopers: Invasion'
   ordering: absolute
+  externalIds:
+    wikidataId: Q2700340
   movies:
     - id: starship-troopers-invasion-film
       titles:

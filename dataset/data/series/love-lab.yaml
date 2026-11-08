@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Love Lab
   ordering: absolute
+  externalIds:
+    wikidataId: Q75332
   seasons:
     - id: love-lab-s1
       number: 1

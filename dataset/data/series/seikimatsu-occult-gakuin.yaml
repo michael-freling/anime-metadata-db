@@ -4,8 +4,11 @@ series:
   titles:
     original: 世紀末オカルト学院
     translations:
+      en: Occult Academy
       ja-Latn: Seikimatsu Occult Gakuin
   ordering: absolute
+  externalIds:
+    wikidataId: Q1523630
   seasons:
     - id: seikimatsu-occult-gakuin-s1
       number: 1

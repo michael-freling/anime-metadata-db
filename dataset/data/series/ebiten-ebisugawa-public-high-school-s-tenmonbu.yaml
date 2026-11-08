@@ -4,8 +4,11 @@ series:
   titles:
     original: えびてん 公立海老栖川高校天悶部
     translations:
+      en: 'Ebiten: Kōritsu Ebisugawa Kōkō Tenmonbu'
       ja-Latn: 'Ebiten: Ebisugawa Public High School''s Tenmonbu'
   ordering: absolute
+  externalIds:
+    wikidataId: Q2352575
   seasons:
     - id: ebiten-ebisugawa-public-high-school-s-tenmonbu-s1
       number: 1

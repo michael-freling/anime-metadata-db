@@ -4,8 +4,11 @@ series:
   titles:
     original: なんでここに先生が!?
     translations:
+      en: Why the Hell are You Here, Teacher!?
       ja-Latn: Nande Koko ni Sensei ga!?
   ordering: absolute
+  externalIds:
+    wikidataId: Q48746031
   seasons:
     - id: nande-koko-ni-sensei-ga-s1
       number: 1

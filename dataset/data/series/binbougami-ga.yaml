@@ -4,8 +4,11 @@ series:
   titles:
     original: 貧乏神が!
     translations:
+      en: Good Luck Girl!
       ja-Latn: Binbougami ga!
   ordering: absolute
+  externalIds:
+    wikidataId: Q195105
   seasons:
     - id: binbougami-ga-s1
       number: 1

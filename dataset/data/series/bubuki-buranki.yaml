@@ -4,8 +4,11 @@ series:
   titles:
     original: ブブキ・ブランキ
     translations:
+      en: BBK/BRNK
       ja-Latn: Bubuki Buranki
   ordering: absolute
+  externalIds:
+    wikidataId: Q21789615
   seasons:
     - id: bubuki-buranki-s1
       number: 1

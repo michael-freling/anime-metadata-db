@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Shouwa Monogatari
   ordering: absolute
+  externalIds:
+    wikidataId: Q1091925
   seasons:
     - id: shouwa-monogatari-s1
       number: 1

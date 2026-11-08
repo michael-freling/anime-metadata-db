@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Pastel Memories
   ordering: absolute
+  externalIds:
+    wikidataId: Q51051399
   seasons:
     - id: pastel-memories-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 宇宙戦艦ティラミス
     translations:
+      en: Space Battleship Tiramisu
       ja-Latn: Uchuu Senkan Tiramisù
   ordering: absolute
+  externalIds:
+    wikidataId: Q49747100
   seasons:
     - id: uchuu-senkan-tiramisu-s1
       number: 1

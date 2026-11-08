@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Jewelpet Magical Change
   ordering: absolute
+  externalIds:
+    wikidataId: Q19627465
   seasons:
     - id: jewelpet-magical-change-s1
       number: 1

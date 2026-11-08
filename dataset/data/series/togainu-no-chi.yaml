@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Togainu no Chi
   ordering: absolute
+  externalIds:
+    wikidataId: Q484634
   seasons:
     - id: togainu-no-chi-s1
       number: 1

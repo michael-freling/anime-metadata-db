@@ -4,8 +4,11 @@ series:
   titles:
     original: 約束のネバーランド
     translations:
+      en: The Promised Neverland
       ja-Latn: Yakusoku no Neverland
   ordering: absolute
+  externalIds:
+    wikidataId: Q28682687
   seasons:
     - id: yakusoku-no-neverland-s1
       number: 1

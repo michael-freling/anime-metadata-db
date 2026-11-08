@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Photokano
   ordering: absolute
+  externalIds:
+    wikidataId: Q169405
   seasons:
     - id: photokano-s1
       number: 1

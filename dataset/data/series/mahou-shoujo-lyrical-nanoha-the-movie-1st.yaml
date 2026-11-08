@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Mahou Shoujo Lyrical Nanoha: The Movie 1st'
   ordering: absolute
+  externalIds:
+    wikidataId: Q872438
   movies:
     - id: mahou-shoujo-lyrical-nanoha-the-movie-1st-film
       titles:

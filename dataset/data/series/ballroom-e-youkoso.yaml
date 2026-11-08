@@ -4,8 +4,11 @@ series:
   titles:
     original: ボールルームへようこそ
     translations:
+      en: Welcome to the Ballroom
       ja-Latn: Ballroom e Youkoso
   ordering: absolute
+  externalIds:
+    wikidataId: Q11338975
   seasons:
     - id: ballroom-e-youkoso-s1
       number: 1

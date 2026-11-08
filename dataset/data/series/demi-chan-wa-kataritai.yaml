@@ -4,8 +4,11 @@ series:
   titles:
     original: 亜人ちゃんは語りたい
     translations:
+      en: Interviews with Monster Girls
       ja-Latn: Demi-chan wa Kataritai
   ordering: absolute
+  externalIds:
+    wikidataId: Q20041549
   seasons:
     - id: demi-chan-wa-kataritai-s1
       number: 1

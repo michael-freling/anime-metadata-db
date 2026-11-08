@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Koroshiya-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q11547115
   seasons:
     - id: koroshiya-san-s1
       number: 1

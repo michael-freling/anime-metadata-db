@@ -4,8 +4,11 @@ series:
   titles:
     original: 劇場版イナズマイレブンGO 究極の絆 グリフォン
     translations:
+      en: 'Inazuma Eleven GO: Kyūkyoku no Kizuna Gurifon'
       ja-Latn: 'Inazuma Eleven Go: Kyuukyoku no Kizuna Gryphon'
   ordering: absolute
+  externalIds:
+    wikidataId: Q1059633
   movies:
     - id: inazuma-eleven-go-kyuukyoku-no-kizuna-gryphon-film
       titles:

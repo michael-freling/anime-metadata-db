@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Pingu in the City
   ordering: absolute
+  externalIds:
+    wikidataId: Q48758845
   seasons:
     - id: pingu-in-the-city-s1
       number: 1

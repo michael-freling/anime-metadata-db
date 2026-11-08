@@ -4,8 +4,11 @@ series:
   titles:
     original: 彼方のアストラ
     translations:
+      en: Astra Lost in Space
       ja-Latn: Kanata no Astra
   ordering: absolute
+  externalIds:
+    wikidataId: Q28683258
   seasons:
     - id: kanata-no-astra-s1
       number: 1

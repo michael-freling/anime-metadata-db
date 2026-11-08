@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Inugami-san to Nekoyama-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q11571242
   seasons:
     - id: inugami-san-to-nekoyama-san-s1
       number: 1

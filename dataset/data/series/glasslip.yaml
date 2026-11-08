@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Glasslip
   ordering: absolute
+  externalIds:
+    wikidataId: Q16062412
   seasons:
     - id: glasslip-s1
       number: 1

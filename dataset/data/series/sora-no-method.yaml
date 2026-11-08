@@ -4,8 +4,11 @@ series:
   titles:
     original: 天体のメソッド
     translations:
+      en: Celestial Method
       ja-Latn: Sora no Method
   ordering: absolute
+  externalIds:
+    wikidataId: Q16351615
   seasons:
     - id: sora-no-method-s1
       number: 1

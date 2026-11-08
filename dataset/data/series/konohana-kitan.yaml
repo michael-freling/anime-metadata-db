@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Konohana Kitan
   ordering: absolute
+  externalIds:
+    wikidataId: Q11545743
   seasons:
     - id: konohana-kitan-s1
       number: 1

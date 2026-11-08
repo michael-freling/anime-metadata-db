@@ -4,8 +4,11 @@ series:
   titles:
     original: ロマンチカクロック
     translations:
+      en: Romantica Clock
       ja-Latn: The Romantica Clock
   ordering: absolute
+  externalIds:
+    wikidataId: Q16166493
   seasons:
     - id: the-romantica-clock-s1
       number: 1

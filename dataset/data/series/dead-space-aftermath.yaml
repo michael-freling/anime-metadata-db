@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Dead Space: Aftermath'
   ordering: absolute
+  externalIds:
+    wikidataId: Q2005324
   movies:
     - id: dead-space-aftermath-film
       titles:

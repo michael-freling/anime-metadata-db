@@ -4,8 +4,11 @@ series:
   titles:
     original: 這いよれ! ニャル子さん
     translations:
+      en: 'Nyaruko: Crawling with Love'
       ja-Latn: Haiyore! Nyaruko-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q50035
   seasons:
     - id: haiyore-nyaruko-san-s1
       number: 1

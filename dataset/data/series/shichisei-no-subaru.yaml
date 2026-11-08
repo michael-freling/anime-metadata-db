@@ -4,8 +4,11 @@ series:
   titles:
     original: 七星のスバル
     translations:
+      en: Seven Senses of the Re'Union
       ja-Latn: Shichisei no Subaru
   ordering: absolute
+  externalIds:
+    wikidataId: Q40888966
   seasons:
     - id: shichisei-no-subaru-s1
       number: 1

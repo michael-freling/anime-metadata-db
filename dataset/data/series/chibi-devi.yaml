@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Chibi☆Devi!
   ordering: absolute
+  externalIds:
+    wikidataId: Q5095336
   seasons:
     - id: chibi-devi-s1
       number: 1

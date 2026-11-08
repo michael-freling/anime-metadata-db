@@ -4,8 +4,11 @@ series:
   titles:
     original: 波打際のむろみさん
     translations:
+      en: Muromi-san
       ja-Latn: Namiuchigiwa no Muromi-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q873260
   seasons:
     - id: namiuchigiwa-no-muromi-san-s1
       number: 1

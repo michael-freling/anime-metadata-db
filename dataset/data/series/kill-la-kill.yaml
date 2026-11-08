@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kill la Kill
   ordering: absolute
+  externalIds:
+    wikidataId: Q13637192
   seasons:
     - id: kill-la-kill-s1
       number: 1

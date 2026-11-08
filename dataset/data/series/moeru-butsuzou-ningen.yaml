@@ -4,8 +4,11 @@ series:
   titles:
     original: 燃える仏像人間
     translations:
+      en: The Burning Buddha Man
       ja-Latn: Moeru Butsuzou Ningen
   ordering: absolute
+  externalIds:
+    wikidataId: Q17218839
   movies:
     - id: moeru-butsuzou-ningen-film
       titles:

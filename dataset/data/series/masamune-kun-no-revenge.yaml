@@ -4,8 +4,11 @@ series:
   titles:
     original: 政宗くんのリベンジ
     translations:
+      en: Masamune-kun's Revenge
       ja-Latn: Masamune-kun no Revenge
   ordering: absolute
+  externalIds:
+    wikidataId: Q22131469
   seasons:
     - id: masamune-kun-no-revenge-s1
       number: 1

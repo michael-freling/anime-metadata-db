@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Inumarudashi
   ordering: absolute
+  externalIds:
+    wikidataId: Q3800829
   seasons:
     - id: inumarudashi-s1
       number: 1

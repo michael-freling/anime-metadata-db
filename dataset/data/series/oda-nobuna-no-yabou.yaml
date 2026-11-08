@@ -4,8 +4,11 @@ series:
   titles:
     original: 織田信奈の野望
     translations:
+      en: The Ambition of Oda Nobuna
       ja-Latn: Oda Nobuna no Yabou
   ordering: absolute
+  externalIds:
+    wikidataId: Q2498954
   seasons:
     - id: oda-nobuna-no-yabou-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Mitsuboshi Colors
   ordering: absolute
+  externalIds:
+    wikidataId: Q28933661
   seasons:
     - id: mitsuboshi-colors-s1
       number: 1

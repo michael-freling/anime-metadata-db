@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tokyo Ravens
   ordering: absolute
+  externalIds:
+    wikidataId: Q199073
   seasons:
     - id: tokyo-ravens-s1
       number: 1

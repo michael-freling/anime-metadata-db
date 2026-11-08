@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Gin no Saji 2nd Season
   ordering: absolute
+  externalIds:
+    wikidataId: Q2626587
   seasons:
     - id: gin-no-saji-2nd-season-s1
       number: 1

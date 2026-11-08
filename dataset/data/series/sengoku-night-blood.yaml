@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Sengoku Night Blood
   ordering: absolute
+  externalIds:
+    wikidataId: Q45255003
   seasons:
     - id: sengoku-night-blood-s1
       number: 1

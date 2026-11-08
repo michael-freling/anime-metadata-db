@@ -4,8 +4,11 @@ series:
   titles:
     original: 曇天に笑う
     translations:
+      en: Laughing Under the Clouds
       ja-Latn: Donten ni Warau
   ordering: absolute
+  externalIds:
+    wikidataId: Q17224315
   seasons:
     - id: donten-ni-warau-s1
       number: 1

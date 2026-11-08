@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Gifu no Tatekayoko
   ordering: absolute
+  externalIds:
+    wikidataId: Q65264825
   seasons:
     - id: gifu-no-tatekayoko-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Aikatsu Stars!
   ordering: absolute
+  externalIds:
+    wikidataId: Q23681193
   seasons:
     - id: aikatsu-stars-s1
       number: 1

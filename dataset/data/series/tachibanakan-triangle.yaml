@@ -4,8 +4,11 @@ series:
   titles:
     original: 立花館To Lieあんぐる
     translations:
+      en: Tachibanakan To Lie Angle
       ja-Latn: Tachibanakan Triangle
   ordering: absolute
+  externalIds:
+    wikidataId: Q45825482
   seasons:
     - id: tachibanakan-triangle-s1
       number: 1

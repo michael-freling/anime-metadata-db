@@ -4,8 +4,11 @@ series:
   titles:
     original: 謎の彼女X
     translations:
+      en: Mysterious Girlfriend X
       ja-Latn: Nazo no Kanojo X
   ordering: absolute
+  externalIds:
+    wikidataId: Q1972717
   seasons:
     - id: nazo-no-kanojo-x-s1
       number: 1

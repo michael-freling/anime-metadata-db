@@ -4,8 +4,11 @@ series:
   titles:
     original: 色づく世界の明日から
     translations:
+      en: 'Iroduku: The World in Colors'
       ja-Latn: Irozuku Sekai no Ashita kara
   ordering: absolute
+  externalIds:
+    wikidataId: Q51030310
   seasons:
     - id: irozuku-sekai-no-ashita-kara-s1
       number: 1

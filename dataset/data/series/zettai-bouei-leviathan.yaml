@@ -4,8 +4,11 @@ series:
   titles:
     original: 絶対防衛レヴィアタン
     translations:
+      en: 'Leviathan: The Last Defense'
       ja-Latn: Zettai Bouei Leviathan
   ordering: absolute
+  externalIds:
+    wikidataId: Q6143593
   seasons:
     - id: zettai-bouei-leviathan-s1
       number: 1

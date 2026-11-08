@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Phantasy Star Online 2: Episode Oracle'
   ordering: absolute
+  externalIds:
+    wikidataId: Q97377151
   seasons:
     - id: phantasy-star-online-2-episode-oracle-s1
       number: 1

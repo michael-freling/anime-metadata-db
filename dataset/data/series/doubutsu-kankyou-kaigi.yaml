@@ -4,8 +4,11 @@ series:
   titles:
     original: 動物かんきょう会議
     translations:
+      en: The Animal Conference on the Environment
       ja-Latn: Doubutsu Kankyou Kaigi
   ordering: absolute
+  externalIds:
+    wikidataId: Q97195557
   seasons:
     - id: doubutsu-kankyou-kaigi-s1
       number: 1

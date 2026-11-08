@@ -4,8 +4,11 @@ series:
   titles:
     original: 黒魔女さんが通る!!
     translations:
+      en: Kuromajo-san ga Toru!!
       ja-Latn: Kuromajyo-san ga Tōru!!
   ordering: absolute
+  externalIds:
+    wikidataId: Q628393
   seasons:
     - id: kuromajyo-san-ga-toru-s1
       number: 1

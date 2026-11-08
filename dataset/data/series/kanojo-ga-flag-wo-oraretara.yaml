@@ -4,8 +4,11 @@ series:
   titles:
     original: 彼女がフラグをおられたら
     translations:
+      en: If Her Flag Breaks
       ja-Latn: Kanojo ga Flag wo Oraretara
   ordering: absolute
+  externalIds:
+    wikidataId: Q184667
   seasons:
     - id: kanojo-ga-flag-wo-oraretara-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tonkatsu DJ Agetarou
   ordering: absolute
+  externalIds:
+    wikidataId: Q21019252
   seasons:
     - id: tonkatsu-dj-agetarou-s1
       number: 1

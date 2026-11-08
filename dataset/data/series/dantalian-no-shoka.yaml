@@ -4,8 +4,11 @@ series:
   titles:
     original: ダンタリアンの書架
     translations:
+      en: The Mystic Archives of Dantalian
       ja-Latn: Dantalian no Shoka
   ordering: absolute
+  externalIds:
+    wikidataId: Q483566
   seasons:
     - id: dantalian-no-shoka-s1
       number: 1

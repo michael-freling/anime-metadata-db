@@ -4,8 +4,11 @@ series:
   titles:
     original: 魔法少女サイト
     translations:
+      en: Magical Girl Site
       ja-Latn: Mahou Shoujo Site
   ordering: absolute
+  externalIds:
+    wikidataId: Q17209978
   seasons:
     - id: mahou-shoujo-site-s1
       number: 1

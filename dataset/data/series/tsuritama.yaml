@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tsuritama
   ordering: absolute
+  externalIds:
+    wikidataId: Q2619211
   seasons:
     - id: tsuritama-s1
       number: 1

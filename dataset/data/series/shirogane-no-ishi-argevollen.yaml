@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Shirogane no Ishi: Argevollen'
   ordering: absolute
+  externalIds:
+    wikidataId: Q15975174
   seasons:
     - id: shirogane-no-ishi-argevollen-s1
       number: 1

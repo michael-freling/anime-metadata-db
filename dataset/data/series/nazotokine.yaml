@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Nazotokine
   ordering: absolute
+  externalIds:
+    wikidataId: Q26158040
   seasons:
     - id: nazotokine-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Battle Spirits: Sword Eyes'
   ordering: absolute
+  externalIds:
+    wikidataId: Q2081199
   seasons:
     - id: battle-spirits-sword-eyes-s1
       number: 1

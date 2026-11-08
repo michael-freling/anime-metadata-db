@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Million Doll
   ordering: absolute
+  externalIds:
+    wikidataId: Q19158899
   seasons:
     - id: million-doll-s1
       number: 1

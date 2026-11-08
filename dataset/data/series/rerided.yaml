@@ -4,8 +4,11 @@ series:
   titles:
     original: RErideD-刻越えのデリダ-
     translations:
+      en: 'RErideD: Derrida, who leaps through time'
       ja-Latn: RErideD
   ordering: absolute
+  externalIds:
+    wikidataId: Q50786279
   seasons:
     - id: rerided-s1
       number: 1

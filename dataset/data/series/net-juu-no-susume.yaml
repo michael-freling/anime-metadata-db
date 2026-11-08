@@ -4,8 +4,11 @@ series:
   titles:
     original: ネト充のススメ
     translations:
+      en: Recovery of an MMO Junkie
       ja-Latn: Net-juu no Susume
   ordering: absolute
+  externalIds:
+    wikidataId: Q22130898
   seasons:
     - id: net-juu-no-susume-s1
       number: 1

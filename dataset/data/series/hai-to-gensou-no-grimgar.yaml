@@ -4,8 +4,11 @@ series:
   titles:
     original: 灰と幻想のグリムガル
     translations:
+      en: Grimgar of Fantasy and Ash
       ja-Latn: Hai to Gensou no Grimgar
   ordering: absolute
+  externalIds:
+    wikidataId: Q21127628
   seasons:
     - id: hai-to-gensou-no-grimgar-s1
       number: 1

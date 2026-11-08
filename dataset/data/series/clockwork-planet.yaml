@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Clockwork Planet
   ordering: absolute
+  externalIds:
+    wikidataId: Q11299801
   seasons:
     - id: clockwork-planet-s1
       number: 1

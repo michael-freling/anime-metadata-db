@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Sengoku Collection
   ordering: absolute
+  externalIds:
+    wikidataId: Q2760871
   seasons:
     - id: sengoku-collection-s1
       number: 1

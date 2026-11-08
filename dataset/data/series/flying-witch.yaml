@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Flying Witch
   ordering: absolute
+  externalIds:
+    wikidataId: Q20926303
   seasons:
     - id: flying-witch-s1
       number: 1

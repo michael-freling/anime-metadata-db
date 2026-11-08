@@ -4,8 +4,11 @@ series:
   titles:
     original: あそびにいくヨ!
     translations:
+      en: Cat Planet Cuties
       ja-Latn: Asobi ni Iku yo!
   ordering: absolute
+  externalIds:
+    wikidataId: Q724155
   seasons:
     - id: asobi-ni-iku-yo-s1
       number: 1

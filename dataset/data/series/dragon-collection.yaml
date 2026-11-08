@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Dragon Collection
   ordering: absolute
+  externalIds:
+    wikidataId: Q11322989
   seasons:
     - id: dragon-collection-s1
       number: 1

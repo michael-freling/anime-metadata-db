@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Taboo Tattoo
   ordering: absolute
+  externalIds:
+    wikidataId: Q19840885
   seasons:
     - id: taboo-tattoo-s1
       number: 1

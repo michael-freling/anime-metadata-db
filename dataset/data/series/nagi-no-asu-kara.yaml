@@ -4,8 +4,11 @@ series:
   titles:
     original: 凪のあすから
     translations:
+      en: 'Nagi-Asu: A Lull in the Sea'
       ja-Latn: Nagi no Asu kara
   ordering: absolute
+  externalIds:
+    wikidataId: Q2590187
   seasons:
     - id: nagi-no-asu-kara-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Jingai-san no Yome
   ordering: absolute
+  externalIds:
+    wikidataId: Q55391818
   seasons:
     - id: jingai-san-no-yome-s1
       number: 1

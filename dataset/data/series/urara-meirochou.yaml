@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Urara Meirochou
   ordering: absolute
+  externalIds:
+    wikidataId: Q23051745
   seasons:
     - id: urara-meirochou-s1
       number: 1

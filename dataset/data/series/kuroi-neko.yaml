@@ -4,8 +4,11 @@ series:
   titles:
     original: 黒い猫
     translations:
+      en: The Black Cat
       ja-Latn: Kuroi Neko
   ordering: absolute
+  externalIds:
+    wikidataId: Q120335104
   movies:
     - id: kuroi-neko-film
       titles:

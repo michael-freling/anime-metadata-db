@@ -4,8 +4,11 @@ series:
   titles:
     original: みにヴぁん
     translations:
+      en: Mini Vanguard
       ja-Latn: Mini Van
   ordering: absolute
+  externalIds:
+    wikidataId: Q134931926
   seasons:
     - id: mini-van-s1
       number: 1

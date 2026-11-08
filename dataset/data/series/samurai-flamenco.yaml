@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Samurai Flamenco
   ordering: absolute
+  externalIds:
+    wikidataId: Q15058056
   seasons:
     - id: samurai-flamenco-s1
       number: 1

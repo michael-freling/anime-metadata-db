@@ -4,8 +4,11 @@ series:
   titles:
     original: ステラのまほう
     translations:
+      en: Magic of Stella
       ja-Latn: Stella no Mahou
   ordering: absolute
+  externalIds:
+    wikidataId: Q17994479
   seasons:
     - id: stella-no-mahou-s1
       number: 1

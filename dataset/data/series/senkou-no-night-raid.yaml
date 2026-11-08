@@ -4,8 +4,11 @@ series:
   titles:
     original: 閃光のナイトレイド
     translations:
+      en: Night Raid 1931
       ja-Latn: Senkou no Night Raid
   ordering: absolute
+  externalIds:
+    wikidataId: Q1361413
   seasons:
     - id: senkou-no-night-raid-s1
       number: 1

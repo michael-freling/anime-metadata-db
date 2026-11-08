@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 30-sai no Hoken Taiiku
   ordering: absolute
+  externalIds:
+    wikidataId: Q1186775
   seasons:
     - id: 30-sai-no-hoken-taiiku-s1
       number: 1

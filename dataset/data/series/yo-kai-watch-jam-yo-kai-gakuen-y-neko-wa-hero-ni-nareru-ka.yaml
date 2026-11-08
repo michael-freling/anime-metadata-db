@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Yo-kai Watch! Jam: Yo-kai Gakuen Y - Neko wa Hero ni Nareru ka'
   ordering: absolute
+  externalIds:
+    wikidataId: Q59677822
   movies:
     - id: yo-kai-watch-jam-yo-kai-gakuen-y-neko-wa-hero-ni-nareru-ka-film
       titles:

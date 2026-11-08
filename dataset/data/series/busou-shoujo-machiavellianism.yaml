@@ -4,8 +4,11 @@ series:
   titles:
     original: 武装少女マキャヴェリズム
     translations:
+      en: Armed Girl's Machiavellism
       ja-Latn: Busou Shoujo Machiavellianism
   ordering: absolute
+  externalIds:
+    wikidataId: Q24708088
   seasons:
     - id: busou-shoujo-machiavellianism-s1
       number: 1

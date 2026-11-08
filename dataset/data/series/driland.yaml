@@ -4,8 +4,11 @@ series:
   titles:
     original: 探検ドリランド
     translations:
+      en: Tanken Driland
       ja-Latn: Driland
   ordering: absolute
+  externalIds:
+    wikidataId: Q3715363
   seasons:
     - id: driland-s1
       number: 1

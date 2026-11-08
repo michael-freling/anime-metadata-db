@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tribe Cool Crew
   ordering: absolute
+  externalIds:
+    wikidataId: Q18227984
   seasons:
     - id: tribe-cool-crew-s1
       number: 1
