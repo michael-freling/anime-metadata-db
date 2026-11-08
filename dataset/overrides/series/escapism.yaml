@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: escapism
+  titles:
+    original: escapism
+    translations: { ja-Latn: escapism }
+  movies:
+    - id: escapism-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [escapism]

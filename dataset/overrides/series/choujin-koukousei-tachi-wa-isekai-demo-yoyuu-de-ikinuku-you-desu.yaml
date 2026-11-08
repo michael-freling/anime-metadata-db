@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: choujin-koukousei-tachi-wa-isekai-demo-yoyuu-de-ikinuku-you-desu
+  titles:
+    original: 超人高校生たちは異世界でも余裕で生き抜くようです!
+    translations: { ja-Latn: Choujin Koukousei-tachi wa Isekai demo Yoyuu de Ikinuku you desu! }
+  seasons:
+    - id: choujin-koukousei-tachi-wa-isekai-demo-yoyuu-de-ikinuku-you-desu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [choujin-koukousei-tachi-wa-isekai-demo-yoyuu-de-ikinuku-you-desu]

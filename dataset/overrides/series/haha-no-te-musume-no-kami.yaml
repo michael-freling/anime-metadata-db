@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: haha-no-te-musume-no-kami
+  titles:
+    original: 母の手、娘の髪
+    translations: { ja-Latn: "Haha no Te, Musume no Kami" }
+  movies:
+    - id: haha-no-te-musume-no-kami-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [haha-no-te-musume-no-kami]

@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: keishichou-tokumubu-tokushu-kyouakuhan-taisakushitsu-dainanaka-tokunana
+  titles:
+    original: トクナナ -警視庁 特務部 特殊凶悪犯対策室 第七課-
+    translations: { ja-Latn: "Keishichou Tokumubu Tokushu Kyouakuhan Taisakushitsu Dainanaka: Tokunana" }
+  seasons:
+    - id: keishichou-tokumubu-tokushu-kyouakuhan-taisakushitsu-dainanaka-tokunana-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [keishichou-tokumubu-tokushu-kyouakuhan-taisakushitsu-dainanaka-tokunana]

@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: a-pawn
+  titles:
+    original: A Pawn
+    translations: { ja-Latn: A Pawn }
+  movies:
+    - id: a-pawn-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [a-pawn]

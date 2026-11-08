@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yun-zhongju-san-zi-ni-nu-po
+  titles:
+    original: "Yun Zhongju San Zi: Ni Nu Po"
+    translations: { ja-Latn: "Yun Zhongju San Zi: Ni Nu Po" }
+  movies:
+    - id: yun-zhongju-san-zi-ni-nu-po-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yun-zhongju-san-zi-ni-nu-po]

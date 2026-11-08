@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: frame-arms-girl-movie-kyakkya-ufufu-na-wonderland
+  titles:
+    original: フレームアームズ・ガール ~きゃっきゃうふふなワンダーランド~
+    translations: { ja-Latn: "Frame Arms Girl Movie: Kyakkya Ufufu na Wonderland" }
+  movies:
+    - id: frame-arms-girl-movie-kyakkya-ufufu-na-wonderland-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [frame-arms-girl-movie-kyakkya-ufufu-na-wonderland]

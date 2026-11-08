@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiaodou-pai-pai-qingshang-pei-you
+  titles:
+    original: "Xiaodou Pai Pai: Qingshang Pei You"
+    translations: { ja-Latn: "Xiaodou Pai Pai: Qingshang Pei You" }
+  seasons:
+    - id: xiaodou-pai-pai-qingshang-pei-you-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiaodou-pai-pai-qingshang-pei-you]

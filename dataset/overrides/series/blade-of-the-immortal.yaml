@@ -1,0 +1,15 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: blade-of-the-immortal
+  titles:
+    original: 無限の住人-IMMORTAL-
+    translations: { ja-Latn: Blade of the Immortal }
+  seasons:
+    - id: blade-of-the-immortal-s1
+      number: 1
+    - id: blade-of-the-immortal-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [blade-of-the-immortal]

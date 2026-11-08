@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sora-no-aosa-wo-shiru-hito-yo
+  titles:
+    original: 空の青さを知る人よ
+    translations: { ja-Latn: Sora no Aosa wo Shiru Hito yo }
+  movies:
+    - id: sora-no-aosa-wo-shiru-hito-yo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sora-no-aosa-wo-shiru-hito-yo]

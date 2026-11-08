@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: houkago-saikoro-club
+  titles:
+    original: 放課後さいころ倶楽部
+    translations: { ja-Latn: Houkago Saikoro Club }
+  seasons:
+    - id: houkago-saikoro-club-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [houkago-saikoro-club]

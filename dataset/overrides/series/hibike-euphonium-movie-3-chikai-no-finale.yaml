@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hibike-euphonium-movie-3-chikai-no-finale
+  titles:
+    original: 劇場版 響け! ユーフォニアム 2年生になった久美子たち
+    translations: { ja-Latn: "Hibike! Euphonium Movie 3: Chikai no Finale" }
+  movies:
+    - id: hibike-euphonium-movie-3-chikai-no-finale-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hibike-euphonium-movie-3-chikai-no-finale]

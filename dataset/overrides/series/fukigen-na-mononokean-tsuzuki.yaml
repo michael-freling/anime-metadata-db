@@ -1,0 +1,15 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fukigen-na-mononokean-tsuzuki
+  titles:
+    original: 不機嫌なモノノケ庵 第2期
+    translations: { ja-Latn: Fukigen na Mononokean Tsuzuki }
+  seasons:
+    - id: fukigen-na-mononokean-tsuzuki-s1
+      number: 1
+    - id: fukigen-na-mononokean-tsuzuki-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fukigen-na-mononokean-tsuzuki]

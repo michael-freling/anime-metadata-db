@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-ma-fei-li-binfen-xianjing
+  titles:
+    original: "Xiao Ma Fei Li: Binfen Xianjing"
+    translations: { ja-Latn: "Xiao Ma Fei Li: Binfen Xianjing" }
+  seasons:
+    - id: xiao-ma-fei-li-binfen-xianjing-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-ma-fei-li-binfen-xianjing]

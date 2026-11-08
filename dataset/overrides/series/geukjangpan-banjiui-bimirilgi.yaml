@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: geukjangpan-banjiui-bimirilgi
+  titles:
+    original: Geukjangpan Banjiui Bimirilgi
+    translations: { ja-Latn: Geukjangpan Banjiui Bimirilgi }
+  movies:
+    - id: geukjangpan-banjiui-bimirilgi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [geukjangpan-banjiui-bimirilgi]

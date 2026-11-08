@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: flower-goddess
+  titles:
+    original: Flower goddess
+    translations: { ja-Latn: Flower goddess }
+  movies:
+    - id: flower-goddess-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [flower-goddess]

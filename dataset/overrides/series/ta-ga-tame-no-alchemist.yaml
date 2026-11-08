@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ta-ga-tame-no-alchemist
+  titles:
+    original: 劇場版 誰ガ為のアルケミスト
+    translations: { ja-Latn: Ta ga Tame no Alchemist }
+  movies:
+    - id: ta-ga-tame-no-alchemist-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ta-ga-tame-no-alchemist]

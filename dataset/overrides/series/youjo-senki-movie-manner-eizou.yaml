@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: youjo-senki-movie-manner-eizou
+  titles:
+    original: 劇場版 幼女戦記 マナー映像
+    translations: { ja-Latn: "Youjo Senki Movie: Manner Eizou" }
+  movies:
+    - id: youjo-senki-movie-manner-eizou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [youjo-senki-movie-manner-eizou]

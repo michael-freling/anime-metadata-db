@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: made-in-abyss
+  titles:
+    original: メイドインアビス 旅立ちの夜明け
+    translations: { ja-Latn: Made in Abyss }
+  seasons:
+    - id: made-in-abyss-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [made-in-abyss]

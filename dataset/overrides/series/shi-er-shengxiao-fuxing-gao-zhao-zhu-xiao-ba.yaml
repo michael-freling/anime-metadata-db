@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shi-er-shengxiao-fuxing-gao-zhao-zhu-xiao-ba
+  titles:
+    original: "Shi Er Shengxiao: Fuxing Gao Zhao Zhu Xiao Ba"
+    translations: { ja-Latn: "Shi Er Shengxiao: Fuxing Gao Zhao Zhu Xiao Ba" }
+  movies:
+    - id: shi-er-shengxiao-fuxing-gao-zhao-zhu-xiao-ba-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shi-er-shengxiao-fuxing-gao-zhao-zhu-xiao-ba]

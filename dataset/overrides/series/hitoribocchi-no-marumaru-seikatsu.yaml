@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hitoribocchi-no-marumaru-seikatsu
+  titles:
+    original: ひとりぼっちの○○生活
+    translations: { ja-Latn: Hitoribocchi no Marumaru Seikatsu }
+  seasons:
+    - id: hitoribocchi-no-marumaru-seikatsu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hitoribocchi-no-marumaru-seikatsu]

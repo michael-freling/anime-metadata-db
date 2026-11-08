@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shining-star-saeroun-luna-queen-ui-tansaeng
+  titles:
+    original: "Shining Star: Saeroun Luna-Queen-ui Tansaeng!"
+    translations: { ja-Latn: "Shining Star: Saeroun Luna-Queen-ui Tansaeng!" }
+  movies:
+    - id: shining-star-saeroun-luna-queen-ui-tansaeng-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shining-star-saeroun-luna-queen-ui-tansaeng]

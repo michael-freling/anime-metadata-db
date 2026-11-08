@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: doukyonin-wa-hiza-tokidoki-atama-no-ue
+  titles:
+    original: "同居人はひざ, 時々, 頭のうえ."
+    translations: { ja-Latn: "Doukyonin wa Hiza, Tokidoki, Atama no Ue." }
+  seasons:
+    - id: doukyonin-wa-hiza-tokidoki-atama-no-ue-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [doukyonin-wa-hiza-tokidoki-atama-no-ue]

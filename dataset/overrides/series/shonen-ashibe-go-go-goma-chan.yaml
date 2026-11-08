@@ -1,0 +1,19 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shonen-ashibe-go-go-goma-chan
+  titles:
+    original: 少年アシベ GO！GO！ゴマちゃん
+    translations: { ja-Latn: Shōnen Ashibe GO! GO! Goma-chan }
+  seasons:
+    - id: shonen-ashibe-go-go-goma-chan-s1
+      number: 1
+    - id: shonen-ashibe-go-go-goma-chan-s2
+      number: 2
+    - id: shonen-ashibe-go-go-goma-chan-s3
+      number: 3
+    - id: shonen-ashibe-go-go-goma-chan-s4
+      number: 4
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shonen-ashibe-go-go-goma-chan]

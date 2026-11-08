@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: eily-wa-ousama
+  titles:
+    original: エイリは王さま!
+    translations: { ja-Latn: Eily wa Ousama! }
+  seasons:
+    - id: eily-wa-ousama-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [eily-wa-ousama]

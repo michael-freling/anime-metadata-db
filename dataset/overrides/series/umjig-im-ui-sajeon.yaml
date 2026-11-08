@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: umjig-im-ui-sajeon
+  titles:
+    original: Umjig-im-ui Sajeon
+    translations: { ja-Latn: Umjig-im-ui Sajeon }
+  movies:
+    - id: umjig-im-ui-sajeon-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [umjig-im-ui-sajeon]

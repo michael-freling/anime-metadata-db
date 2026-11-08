@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shimajirou-no-wow-movie-8-shimajirou-to-soratobu-fune
+  titles:
+    original: 映画しまじろう しまじろうと そらとぶふね
+    translations: { ja-Latn: "Shimajirou no Wow! Movie 8: Shimajirou to Soratobu Fune" }
+  movies:
+    - id: shimajirou-no-wow-movie-8-shimajirou-to-soratobu-fune-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shimajirou-no-wow-movie-8-shimajirou-to-soratobu-fune]

@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: joshikousei-no-mudazukai
+  titles:
+    original: 女子高生の無駄づかい
+    translations: { ja-Latn: Joshikousei no Mudazukai }
+  seasons:
+    - id: joshikousei-no-mudazukai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [joshikousei-no-mudazukai]

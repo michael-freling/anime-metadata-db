@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bai-she-yuanqi
+  titles:
+    original: "Bai She: Yuanqi"
+    translations: { ja-Latn: "Bai She: Yuanqi" }
+  movies:
+    - id: bai-she-yuanqi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bai-she-yuanqi]

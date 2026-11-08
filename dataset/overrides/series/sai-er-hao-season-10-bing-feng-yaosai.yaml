@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sai-er-hao-season-10-bing-feng-yaosai
+  titles:
+    original: "Sai Er Hao Season 10: Bing Feng Yaosai"
+    translations: { ja-Latn: "Sai Er Hao Season 10: Bing Feng Yaosai" }
+  seasons:
+    - id: sai-er-hao-season-10-bing-feng-yaosai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sai-er-hao-season-10-bing-feng-yaosai]

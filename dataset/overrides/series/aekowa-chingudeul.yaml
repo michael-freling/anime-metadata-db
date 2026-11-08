@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aekowa-chingudeul
+  titles:
+    original: Aekowa Chingudeul
+    translations: { ja-Latn: Aekowa Chingudeul }
+  seasons:
+    - id: aekowa-chingudeul-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aekowa-chingudeul]

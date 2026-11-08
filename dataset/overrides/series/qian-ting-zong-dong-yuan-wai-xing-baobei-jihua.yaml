@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: qian-ting-zong-dong-yuan-wai-xing-baobei-jihua
+  titles:
+    original: "Qian Ting Zong Dong Yuan: Wai Xing Baobei Jihua"
+    translations: { ja-Latn: "Qian Ting Zong Dong Yuan: Wai Xing Baobei Jihua" }
+  movies:
+    - id: qian-ting-zong-dong-yuan-wai-xing-baobei-jihua-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [qian-ting-zong-dong-yuan-wai-xing-baobei-jihua]

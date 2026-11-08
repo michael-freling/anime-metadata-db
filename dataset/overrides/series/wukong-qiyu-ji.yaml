@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wukong-qiyu-ji
+  titles:
+    original: Wukong Qiyu Ji
+    translations: { ja-Latn: Wukong Qiyu Ji }
+  movies:
+    - id: wukong-qiyu-ji-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wukong-qiyu-ji]

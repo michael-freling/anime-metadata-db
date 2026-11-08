@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiongmao-he-luta
+  titles:
+    original: Xiongmao He Luta
+    translations: { ja-Latn: Xiongmao He Luta }
+  seasons:
+    - id: xiongmao-he-luta-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiongmao-he-luta]

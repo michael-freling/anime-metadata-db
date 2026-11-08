@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jiligulu-he-baba-mao
+  titles:
+    original: Jiligulu He Baba Mao
+    translations: { ja-Latn: Jiligulu He Baba Mao }
+  seasons:
+    - id: jiligulu-he-baba-mao-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jiligulu-he-baba-mao]

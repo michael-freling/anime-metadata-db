@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: breath-blink-sometimes-cry
+  titles:
+    original: 人形が悲しみを演じるとき
+    translations: { ja-Latn: Breath Blink Sometimes Cry }
+  movies:
+    - id: breath-blink-sometimes-cry-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [breath-blink-sometimes-cry]

@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nandodemo-wasureyou
+  titles:
+    original: 何度でも忘れよう
+    translations: { ja-Latn: Nandodemo Wasureyou }
+  movies:
+    - id: nandodemo-wasureyou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nandodemo-wasureyou]

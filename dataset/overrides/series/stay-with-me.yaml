@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: stay-with-me
+  titles:
+    original: 湿らない 腐らない おいしく まろやか
+    translations: { ja-Latn: Stay with Me }
+  movies:
+    - id: stay-with-me-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [stay-with-me]

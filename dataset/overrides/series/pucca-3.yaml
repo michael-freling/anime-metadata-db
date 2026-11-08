@@ -1,0 +1,15 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pucca-3
+  titles:
+    original: Pucca 3
+    translations: { ja-Latn: Pucca 3 }
+  seasons:
+    - id: pucca-3-s1
+      number: 1
+    - id: pucca-3-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pucca-3]

@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lalala-lala-chan-lala-to-mainichi
+  titles:
+    original: ラララ ララちゃん ~ララっとまいにち~
+    translations: { ja-Latn: "Lalala Lala-chan: Lala to Mainichi" }
+  seasons:
+    - id: lalala-lala-chan-lala-to-mainichi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lalala-lala-chan-lala-to-mainichi]

@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nande-koko-ni-sensei-ga
+  titles:
+    original: "なんでここに先生が!?"
+    translations: { ja-Latn: "Nande Koko ni Sensei ga!?" }
+  seasons:
+    - id: nande-koko-ni-sensei-ga-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nande-koko-ni-sensei-ga]

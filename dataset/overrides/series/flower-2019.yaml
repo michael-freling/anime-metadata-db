@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: flower-2019
+  titles:
+    original: flower (2019)
+    translations: { ja-Latn: flower (2019) }
+  movies:
+    - id: flower-2019-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [flower-2019]

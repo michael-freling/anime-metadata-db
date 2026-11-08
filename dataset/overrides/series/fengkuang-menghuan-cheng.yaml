@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fengkuang-menghuan-cheng
+  titles:
+    original: Fengkuang Menghuan Cheng
+    translations: { ja-Latn: Fengkuang Menghuan Cheng }
+  movies:
+    - id: fengkuang-menghuan-cheng-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fengkuang-menghuan-cheng]

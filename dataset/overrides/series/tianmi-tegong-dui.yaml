@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tianmi-tegong-dui
+  titles:
+    original: Tianmi Tegong Dui
+    translations: { ja-Latn: Tianmi Tegong Dui }
+  seasons:
+    - id: tianmi-tegong-dui-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tianmi-tegong-dui]

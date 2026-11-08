@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shimajirou-no-wow-movie-7-shimajirou-to-ururu-no-hero-land
+  titles:
+    original: 映画しまじろう しまじろうとうるるのヒーローランド
+    translations: { ja-Latn: "Shimajirou no Wow! Movie 7: Shimajirou to Ururu no Hero Land" }
+  movies:
+    - id: shimajirou-no-wow-movie-7-shimajirou-to-ururu-no-hero-land-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shimajirou-no-wow-movie-7-shimajirou-to-ururu-no-hero-land]

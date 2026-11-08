@@ -1,0 +1,15 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: waresho-warera-shodobutsu-aigo-iinkai
+  titles:
+    original: われしょ!～我ら!小動物愛護委員会～
+    translations: { ja-Latn: Waresho! Warera! Shōdōbutsu Aigo Iinkai }
+  seasons:
+    - id: waresho-warera-shodobutsu-aigo-iinkai-s1
+      number: 1
+    - id: waresho-warera-shodobutsu-aigo-iinkai-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [waresho-warera-shodobutsu-aigo-iinkai]

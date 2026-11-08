@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ying-huo-qibing-2-xiao-chong-bu-hao-re
+  titles:
+    original: "Ying Huo Qibing 2: Xiao Chong Bu Hao Re"
+    translations: { ja-Latn: "Ying Huo Qibing 2: Xiao Chong Bu Hao Re" }
+  movies:
+    - id: ying-huo-qibing-2-xiao-chong-bu-hao-re-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ying-huo-qibing-2-xiao-chong-bu-hao-re]

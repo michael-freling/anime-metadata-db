@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dayan-to-tama-to-tobi-neko-to-3-tsu-no-neko-no-monogatari
+  titles:
+    original: ダヤンとタマと飛び猫と ~3つの猫の物語~
+    translations: { ja-Latn: "Dayan to Tama to Tobi Neko to: 3-tsu no Neko no Monogatari" }
+  movies:
+    - id: dayan-to-tama-to-tobi-neko-to-3-tsu-no-neko-no-monogatari-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dayan-to-tama-to-tobi-neko-to-3-tsu-no-neko-no-monogatari]

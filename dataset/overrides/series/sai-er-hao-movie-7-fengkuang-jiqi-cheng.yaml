@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sai-er-hao-movie-7-fengkuang-jiqi-cheng
+  titles:
+    original: "Sai Er Hao Movie 7: Fengkuang Jiqi Cheng"
+    translations: { ja-Latn: "Sai Er Hao Movie 7: Fengkuang Jiqi Cheng" }
+  movies:
+    - id: sai-er-hao-movie-7-fengkuang-jiqi-cheng-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sai-er-hao-movie-7-fengkuang-jiqi-cheng]

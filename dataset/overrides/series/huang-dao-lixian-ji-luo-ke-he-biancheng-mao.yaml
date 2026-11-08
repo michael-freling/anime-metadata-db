@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: huang-dao-lixian-ji-luo-ke-he-biancheng-mao
+  titles:
+    original: "Huang Dao Lixian Ji: Luo Ke He Biancheng Mao"
+    translations: { ja-Latn: "Huang Dao Lixian Ji: Luo Ke He Biancheng Mao" }
+  seasons:
+    - id: huang-dao-lixian-ji-luo-ke-he-biancheng-mao-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [huang-dao-lixian-ji-luo-ke-he-biancheng-mao]

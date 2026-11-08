@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: doraemon-f-chara-all-stars-getsumen-race-de-dai-pinch
+  titles:
+    original: ドラえもん＆Fキャラオールスターズ『月面レースで大ピンチ！？』
+    translations: { ja-Latn: "Doraemon & F-Chara All Stars: Getsumen Race de Dai-Pinch!?" }
+  movies:
+    - id: doraemon-f-chara-all-stars-getsumen-race-de-dai-pinch-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [doraemon-f-chara-all-stars-getsumen-race-de-dai-pinch]

@@ -117,3 +117,8 @@ model or schema change, run all of these, not just the tests:
 - `TestCoveragePageMatchesTheDataset` — regenerates the coverage tables and
   prints the corrected markdown on failure
 - the `-tags e2e` suites, which assert on generated YAML as text
+
+Run them with `-count=1`. These read `dataset/` at run time, which Go's test
+cache does not track, so a pass can be replayed against data that has since
+changed — the coverage page looked current while stale exactly this way. CI is
+unaffected, since it builds from a cold cache.

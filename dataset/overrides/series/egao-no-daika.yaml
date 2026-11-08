@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: egao-no-daika
+  titles:
+    original: エガオノダイカ
+    translations: { ja-Latn: Egao no Daika }
+  seasons:
+    - id: egao-no-daika-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [egao-no-daika]

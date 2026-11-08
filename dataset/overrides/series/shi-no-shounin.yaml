@@ -1,0 +1,12 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shi-no-shounin
+  titles:
+    original: 死の商人
+    translations: { ja-Latn: Shi no Shounin }
+  movies:
+    - id: shi-no-shounin-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shi-no-shounin]

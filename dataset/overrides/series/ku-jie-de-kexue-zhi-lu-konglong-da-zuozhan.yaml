@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ku-jie-de-kexue-zhi-lu-konglong-da-zuozhan
+  titles:
+    original: "Ku Jie de Kexue Zhi Lu: Konglong Da Zuozhan"
+    translations: { ja-Latn: "Ku Jie de Kexue Zhi Lu: Konglong Da Zuozhan" }
+  seasons:
+    - id: ku-jie-de-kexue-zhi-lu-konglong-da-zuozhan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ku-jie-de-kexue-zhi-lu-konglong-da-zuozhan]

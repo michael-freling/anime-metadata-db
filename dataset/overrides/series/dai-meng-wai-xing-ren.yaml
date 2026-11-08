@@ -1,0 +1,13 @@
+# Authored override — 2019 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dai-meng-wai-xing-ren
+  titles:
+    original: Dai Meng Wai Xing Ren
+    translations: { ja-Latn: Dai Meng Wai Xing Ren }
+  seasons:
+    - id: dai-meng-wai-xing-ren-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dai-meng-wai-xing-ren]
