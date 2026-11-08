@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: one-piece-egghead-tokubetsu-henshuuban
+  titles:
+    original: ワンピース エッグヘッド編 特別編集版
+    translations: { ja-Latn: "One Piece: Egghead Tokubetsu Henshuuban" }
+  seasons:
+    - id: one-piece-egghead-tokubetsu-henshuuban-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [one-piece-egghead-tokubetsu-henshuuban]

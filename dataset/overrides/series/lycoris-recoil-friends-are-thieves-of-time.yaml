@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lycoris-recoil-friends-are-thieves-of-time
+  titles:
+    original: 『リコリス・リコイル』Friends are thieves of time.
+    translations: { ja-Latn: "Lycoris Recoil: Friends are thieves of time." }
+  movies:
+    - id: lycoris-recoil-friends-are-thieves-of-time-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lycoris-recoil-friends-are-thieves-of-time]

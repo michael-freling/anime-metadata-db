@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiong-chumo-xiao-xiao-shijie-2
+  titles:
+    original: "Xiong Chumo: Xiao Xiao Shijie 2"
+    translations: { ja-Latn: "Xiong Chumo: Xiao Xiao Shijie 2" }
+  seasons:
+    - id: xiong-chumo-xiao-xiao-shijie-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiong-chumo-xiao-xiao-shijie-2]

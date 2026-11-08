@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shinkansen-henkei-robo-shinkalion-change-the-world-tokubetsu-hen-present-the-world
+  titles:
+    original: 新幹線変形ロボ シンカリオン チェンジ ザ ワールド 特別編 プレゼン ザ ワールド
+    translations: { ja-Latn: "Shinkansen Henkei Robo Shinkalion: Change the World - Tokubetsu-hen: Present the World" }
+  seasons:
+    - id: shinkansen-henkei-robo-shinkalion-change-the-world-tokubetsu-hen-present-the-world-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shinkansen-henkei-robo-shinkalion-change-the-world-tokubetsu-hen-present-the-world]

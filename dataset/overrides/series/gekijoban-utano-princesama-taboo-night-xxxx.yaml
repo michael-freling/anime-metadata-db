@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gekijoban-utano-princesama-taboo-night-xxxx
+  titles:
+    original: 場版 うたの☆プリンスさまっ♪ TABOO NIGHT XXXX（タブーナイト キスィズ）
+    translations: { ja-Latn: Gekijōban Utano☆Princesama♪ TABOO NIGHT XXXX }
+  movies:
+    - id: gekijoban-utano-princesama-taboo-night-xxxx-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gekijoban-utano-princesama-taboo-night-xxxx]

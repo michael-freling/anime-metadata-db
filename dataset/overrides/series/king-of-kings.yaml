@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: king-of-kings
+  titles:
+    original: King of Kings
+    translations: { ja-Latn: King of Kings }
+  movies:
+    - id: king-of-kings-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [king-of-kings]

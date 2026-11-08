@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: swan-lake-starring-kizunaai
+  titles:
+    original: "Swan Lake: Starring KizunaAI"
+    translations: { ja-Latn: "Swan Lake: Starring KizunaAI" }
+  movies:
+    - id: swan-lake-starring-kizunaai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [swan-lake-starring-kizunaai]

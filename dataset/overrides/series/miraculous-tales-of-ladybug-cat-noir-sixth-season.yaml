@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: miraculous-tales-of-ladybug-cat-noir-sixth-season
+  titles:
+    original: "Miraculous: Tales of Ladybug & Cat Noir Sixth Season"
+    translations: { ja-Latn: "Miraculous: Tales of Ladybug & Cat Noir Sixth Season" }
+  seasons:
+    - id: miraculous-tales-of-ladybug-cat-noir-sixth-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [miraculous-tales-of-ladybug-cat-noir-sixth-season]

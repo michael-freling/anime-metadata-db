@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: meitantei-conan-senkou-no-payload
+  titles:
+    original: 名探偵コナン 閃光の宇宙船
+    translations: { ja-Latn: "Meitantei Conan: Senkou no Payload" }
+  movies:
+    - id: meitantei-conan-senkou-no-payload-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [meitantei-conan-senkou-no-payload]

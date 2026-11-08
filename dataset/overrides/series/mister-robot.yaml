@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mister-robot
+  titles:
+    original: Mister Robot
+    translations: { ja-Latn: Mister Robot }
+  movies:
+    - id: mister-robot-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mister-robot]

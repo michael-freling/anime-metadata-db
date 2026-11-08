@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tobot-daedosiui-yeongungdeul-season-3-part-2
+  titles:
+    original: "Tobot: Daedosiui Yeongungdeul Season 3 Part 2"
+    translations: { ja-Latn: "Tobot: Daedosiui Yeongungdeul Season 3 Part 2" }
+  seasons:
+    - id: tobot-daedosiui-yeongungdeul-season-3-part-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tobot-daedosiui-yeongungdeul-season-3-part-2]

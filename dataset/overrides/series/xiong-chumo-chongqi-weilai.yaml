@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiong-chumo-chongqi-weilai
+  titles:
+    original: "Xiong Chumo: Chongqi Weilai"
+    translations: { ja-Latn: "Xiong Chumo: Chongqi Weilai" }
+  movies:
+    - id: xiong-chumo-chongqi-weilai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiong-chumo-chongqi-weilai]

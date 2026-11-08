@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ejen-ali-the-movie-2
+  titles:
+    original: "Ejen Ali: The Movie 2"
+    translations: { ja-Latn: "Ejen Ali: The Movie 2" }
+  movies:
+    - id: ejen-ali-the-movie-2-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ejen-ali-the-movie-2]

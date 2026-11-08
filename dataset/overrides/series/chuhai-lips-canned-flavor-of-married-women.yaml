@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chuhai-lips-canned-flavor-of-married-women
+  titles:
+    original: 人妻の唇は缶チューハイの味がして
+    translations: { ja-Latn: "Chuhai Lips: Canned Flavor of Married Women" }
+  seasons:
+    - id: chuhai-lips-canned-flavor-of-married-women-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chuhai-lips-canned-flavor-of-married-women]

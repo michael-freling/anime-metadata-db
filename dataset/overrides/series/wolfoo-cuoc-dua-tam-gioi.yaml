@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wolfoo-cuoc-dua-tam-gioi
+  titles:
+    original: "Wolfoo: Cuoc Dua Tam Gioi"
+    translations: { ja-Latn: "Wolfoo: Cuoc Dua Tam Gioi" }
+  movies:
+    - id: wolfoo-cuoc-dua-tam-gioi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wolfoo-cuoc-dua-tam-gioi]

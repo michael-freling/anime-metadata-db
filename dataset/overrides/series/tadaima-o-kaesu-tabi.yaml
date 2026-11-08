@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tadaima-o-kaesu-tabi
+  titles:
+    original: ただいまを返す旅
+    translations: { ja-Latn: Tadaima o Kaesu Tabi }
+  movies:
+    - id: tadaima-o-kaesu-tabi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tadaima-o-kaesu-tabi]

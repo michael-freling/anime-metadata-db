@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiong-chumo-shenqi-baowu
+  titles:
+    original: "Xiong Chumo: Shenqi Baowu"
+    translations: { ja-Latn: "Xiong Chumo: Shenqi Baowu" }
+  seasons:
+    - id: xiong-chumo-shenqi-baowu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiong-chumo-shenqi-baowu]

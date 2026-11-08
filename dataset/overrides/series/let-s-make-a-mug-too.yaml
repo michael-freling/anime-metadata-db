@@ -1,0 +1,17 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: let-s-make-a-mug-too
+  titles:
+    original: 劇場版「やくならマグカップも」－アニメ総集編－お帰りなさい
+    translations: { ja-Latn: Let's Make a Mug Too }
+  seasons:
+    - id: let-s-make-a-mug-too-s1
+      number: 1
+    - id: let-s-make-a-mug-too-s2
+      number: 2
+  movies:
+    - id: let-s-make-a-mug-too-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [let-s-make-a-mug-too]

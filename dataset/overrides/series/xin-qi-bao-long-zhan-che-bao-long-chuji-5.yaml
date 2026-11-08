@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xin-qi-bao-long-zhan-che-bao-long-chuji-5
+  titles:
+    original: "Xin Qi Bao Long Zhan Che: Bao Long Chuji 5"
+    translations: { ja-Latn: "Xin Qi Bao Long Zhan Che: Bao Long Chuji 5" }
+  seasons:
+    - id: xin-qi-bao-long-zhan-che-bao-long-chuji-5-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xin-qi-bao-long-zhan-che-bao-long-chuji-5]

@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: room-of-guilty-pleasure
+  titles:
+    original: ギルティホール～教え子しか指名できない店～
+    translations: { ja-Latn: Room of Guilty Pleasure }
+  seasons:
+    - id: room-of-guilty-pleasure-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [room-of-guilty-pleasure]

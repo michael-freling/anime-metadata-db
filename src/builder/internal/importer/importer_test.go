@@ -480,3 +480,64 @@ func TestRenderRoundTripsEveryAwkwardTitle(t *testing.T) {
 		}
 	}
 }
+
+// TestNativeTitleSkipsUpstreamsDisambiguators covers the two markers observed
+// in the catalogue. The Date a Bullet case shipped: the series was written
+// claiming to be Date A Live, because the other franchise's name is longer.
+func TestNativeTitleSkipsUpstreamsDisambiguators(t *testing.T) {
+	for _, tc := range []struct {
+		name     string
+		title    string
+		synonyms []string
+		want     string
+	}{
+		{
+			name:  "a sibling franchise tagged (新アニメ)",
+			title: "Date a Bullet",
+			// Both are kana and the wrong one is longer, which is what made
+			// length alone pick it.
+			synonyms: []string{"デート・ア・バレット", "デート・ア・ライブ (新アニメ)"},
+			want:     "デート・ア・バレット",
+		},
+		{
+			name:     "a year tag",
+			title:    "Black Clover",
+			synonyms: []string{"ブラッククローバー", "ブラッククローバー (2017)"},
+			want:     "ブラッククローバー",
+		},
+		{
+			// Furigana is part of the name and the fullest form of it, so the
+			// rule must not reach it.
+			name:     "furigana is kept",
+			title:    "Ao no Exorcist",
+			synonyms: []string{"青の祓魔師", "青の祓魔師（エクソシスト）"},
+			want:     "青の祓魔師（エクソシスト）",
+		},
+		{
+			name:     "furigana with a season suffix is kept",
+			title:    "BanG Dream! 3rd Season",
+			synonyms: []string{"BanG Dream!（バンドリ！）第3期"},
+			want:     "BanG Dream!（バンドリ！）第3期",
+		},
+		{
+			// Every candidate tagged: the entry's own title is the only handle
+			// left, and it is one the build can resolve.
+			name:     "all candidates tagged falls back to the title",
+			title:    "Ahare! Meisaku-kun",
+			synonyms: []string{"あはれ! 名作くん (2020)"},
+			want:     "Ahare! Meisaku-kun",
+		},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			db := load(t, entry{title: tc.title, typ: "TV", episodes: 12, year: 2020,
+				sources: []string{al("70")}, synonyms: tc.synonyms})
+			var e offlinedb.Anime
+			for x := range db.All() {
+				e = x
+			}
+			if got := NativeTitle(e); got != tc.want {
+				t.Errorf("NativeTitle() = %q, want %q", got, tc.want)
+			}
+		})
+	}
+}

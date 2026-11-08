@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bukchon-5ragil-ssangdungine
+  titles:
+    original: Bukchon 5ragil Ssangdungine
+    translations: { ja-Latn: Bukchon 5ragil Ssangdungine }
+  seasons:
+    - id: bukchon-5ragil-ssangdungine-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bukchon-5ragil-ssangdungine]

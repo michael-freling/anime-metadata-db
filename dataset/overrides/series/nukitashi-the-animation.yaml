@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nukitashi-the-animation
+  titles:
+    original: "Nukige Mitai na Shima ni Sunderu Watashi wa Dou Surya Ii desu ka? (抜きゲーみたいな島に住んでる貧乳はどうすりゃいいですか？)"
+    translations: { ja-Latn: Nukitashi the Animation }
+  seasons:
+    - id: nukitashi-the-animation-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nukitashi-the-animation]

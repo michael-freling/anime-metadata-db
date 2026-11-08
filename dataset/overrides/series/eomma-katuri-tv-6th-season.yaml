@@ -1,0 +1,13 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: eomma-katuri-tv-6th-season
+  titles:
+    original: Eomma Katuri (TV) 6th Season
+    translations: { ja-Latn: Eomma Katuri (TV) 6th Season }
+  seasons:
+    - id: eomma-katuri-tv-6th-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [eomma-katuri-tv-6th-season]

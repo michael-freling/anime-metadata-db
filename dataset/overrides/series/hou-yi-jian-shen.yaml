@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hou-yi-jian-shen
+  titles:
+    original: "Hou Yi: Jian Shen"
+    translations: { ja-Latn: "Hou Yi: Jian Shen" }
+  movies:
+    - id: hou-yi-jian-shen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hou-yi-jian-shen]
