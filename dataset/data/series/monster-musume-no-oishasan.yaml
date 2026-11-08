@@ -4,8 +4,11 @@ series:
   titles:
     original: モンスター娘のお医者さん
     translations:
+      en: Monster Girl Doctor
       ja-Latn: Monster Musume no Oishasan
   ordering: absolute
+  externalIds:
+    wikidataId: Q30932446
   seasons:
     - id: monster-musume-no-oishasan-s1
       number: 1

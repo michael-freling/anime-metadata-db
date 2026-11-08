@@ -4,8 +4,11 @@ series:
   titles:
     original: BNA ビー・エヌ・エー
     translations:
+      en: 'BNA: Brand New Animal'
       ja-Latn: BNA
   ordering: absolute
+  externalIds:
+    wikidataId: Q78051864
   seasons:
     - id: bna-s1
       number: 1

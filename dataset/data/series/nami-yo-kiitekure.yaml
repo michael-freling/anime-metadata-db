@@ -4,8 +4,11 @@ series:
   titles:
     original: 波よ聞いてくれ
     translations:
+      en: Wave, Listen to Me!
       ja-Latn: Nami yo Kiitekure
   ordering: absolute
+  externalIds:
+    wikidataId: Q28689843
   seasons:
     - id: nami-yo-kiitekure-s1
       number: 1

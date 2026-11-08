@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Takopi's Original Sin
   ordering: absolute
+  externalIds:
+    wikidataId: Q110788072
   seasons:
     - id: takopi-s-original-sin-s1
       number: 1

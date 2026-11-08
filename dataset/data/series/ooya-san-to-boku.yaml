@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Ooya-san to Boku
   ordering: absolute
+  externalIds:
+    wikidataId: Q97377246
   seasons:
     - id: ooya-san-to-boku-s1
       number: 1

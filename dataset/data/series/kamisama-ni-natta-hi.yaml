@@ -4,8 +4,11 @@ series:
   titles:
     original: 神様になった日
     translations:
+      en: The Day I Became a God
       ja-Latn: Kamisama ni Natta Hi
   ordering: absolute
+  externalIds:
+    wikidataId: Q93914580
   seasons:
     - id: kamisama-ni-natta-hi-s1
       number: 1

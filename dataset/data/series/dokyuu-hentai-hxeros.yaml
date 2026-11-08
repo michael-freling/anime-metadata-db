@@ -4,8 +4,11 @@ series:
   titles:
     original: ド級編隊エグゼロス
     translations:
+      en: Super HxEros
       ja-Latn: Dokyuu Hentai HxEros
   ordering: absolute
+  externalIds:
+    wikidataId: Q48744345
   seasons:
     - id: dokyuu-hentai-hxeros-s1
       number: 1

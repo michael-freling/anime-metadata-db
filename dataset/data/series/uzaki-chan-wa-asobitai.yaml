@@ -4,8 +4,11 @@ series:
   titles:
     original: 宇崎ちゃんは遊びたい!
     translations:
+      en: Uzaki-chan Wants to Hang Out!
       ja-Latn: Uzaki-chan wa Asobitai!
   ordering: absolute
+  externalIds:
+    wikidataId: Q61058228
   seasons:
     - id: uzaki-chan-wa-asobitai-s1
       number: 1

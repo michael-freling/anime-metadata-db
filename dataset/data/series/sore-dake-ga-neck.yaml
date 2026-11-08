@@ -4,8 +4,11 @@ series:
   titles:
     original: それだけがネック
     translations:
+      en: That Is the Bottleneck
       ja-Latn: Sore dake ga Neck
   ordering: absolute
+  externalIds:
+    wikidataId: Q104774927
   seasons:
     - id: sore-dake-ga-neck-s1
       number: 1

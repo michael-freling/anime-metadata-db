@@ -9,9 +9,11 @@ series:
   movies:
     - id: rakugaki-film
       titles:
-        original: 落書
+        original: 文学ビデオ
         translations:
-          ja: 落書
+          ja: 文学ビデオ
           ja-Latn: Rakugaki
       releaseYear: 2025
+      externalIds:
+        anilistId: 213367
       absoluteNumber: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Listeners
   ordering: absolute
+  externalIds:
+    wikidataId: Q84561047
   seasons:
     - id: listeners-s1
       number: 1

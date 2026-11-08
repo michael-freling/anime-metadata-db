@@ -57,7 +57,7 @@ series:
         anidbId: 18844
         tvdbId: 329822
       episodes:
-        count: 12
+        count: 16
         absoluteFrom: 39
   characters:
     - id: arisu-sakayanagi

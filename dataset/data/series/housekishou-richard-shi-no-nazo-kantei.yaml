@@ -4,8 +4,11 @@ series:
   titles:
     original: 宝石商リチャード氏の謎鑑定
     translations:
+      en: The Case Files of Jeweler Richard
       ja-Latn: Housekishou Richard-shi no Nazo Kantei
   ordering: absolute
+  externalIds:
+    wikidataId: Q55537346
   seasons:
     - id: housekishou-richard-shi-no-nazo-kantei-s1
       number: 1

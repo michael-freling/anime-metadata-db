@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Asatir: Mirai no Mukashi Banashi'
   ordering: absolute
+  externalIds:
+    wikidataId: Q63128249
   seasons:
     - id: asatir-mirai-no-mukashi-banashi-s1
       number: 1

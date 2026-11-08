@@ -65,7 +65,7 @@ series:
         anidbId: 18884
         tvdbId: 352408
       episodes:
-        count: 24
+        count: 12
         absoluteFrom: 73
   characters:
     - id: abiru

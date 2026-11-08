@@ -13,6 +13,7 @@ series:
       releaseSeason: FALL
       externalIds:
         anilistId: 199603
+        anidbId: 20137
       episodes:
         count: 26
         absoluteFrom: 1

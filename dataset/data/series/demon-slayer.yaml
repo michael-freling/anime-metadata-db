@@ -114,6 +114,7 @@ series:
       externalIds:
         anilistId: 178788
         anidbId: 18699
+        tvdbId: 348545
       absoluteNumber: 64
   characters:
     - id: tanjiro-kamado

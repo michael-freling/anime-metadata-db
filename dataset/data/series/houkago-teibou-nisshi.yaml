@@ -4,8 +4,11 @@ series:
   titles:
     original: 放課後ていぼう日誌
     translations:
+      en: Diary of Our Days at the Breakwater
       ja-Latn: Houkago Teibou Nisshi
   ordering: absolute
+  externalIds:
+    wikidataId: Q48750901
   seasons:
     - id: houkago-teibou-nisshi-s1
       number: 1

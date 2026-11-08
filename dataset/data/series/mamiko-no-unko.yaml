@@ -9,9 +9,11 @@ series:
   movies:
     - id: mamiko-no-unko-film
       titles:
-        original: マミ⼦のウン子
+        original: マミ子のウン子
         translations:
-          ja: マミ⼦のウン子
+          ja: マミ子のウン子
           ja-Latn: Mamiko no Unko
       releaseYear: 2025
+      externalIds:
+        anilistId: 212568
       absoluteNumber: 1

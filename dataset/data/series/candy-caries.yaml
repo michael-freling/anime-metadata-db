@@ -15,6 +15,7 @@ series:
       releaseSeason: SPRING
       externalIds:
         anilistId: 205772
+        anidbId: 20012
       episodes:
-        count: 1
+        count: 24
         absoluteFrom: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 推しが武道館いってくれたら死ぬ
     translations:
+      en: If My Favorite Pop Idol Made It to the Budokan, I Would Die
       ja-Latn: Oshi ga Budoukan Ittekuretara Shinu
   ordering: absolute
+  externalIds:
+    wikidataId: Q48760937
   seasons:
     - id: oshi-ga-budoukan-ittekuretara-shinu-s1
       number: 1

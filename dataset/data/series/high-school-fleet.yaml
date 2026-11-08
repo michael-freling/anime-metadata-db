@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: High School Fleet
   ordering: absolute
+  externalIds:
+    wikidataId: Q21682689
   seasons:
     - id: high-school-fleet-s1
       number: 1

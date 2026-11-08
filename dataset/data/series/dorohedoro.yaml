@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Dorohedoro
   ordering: absolute
+  externalIds:
+    wikidataId: Q92554
   seasons:
     - id: dorohedoro-s1
       number: 1

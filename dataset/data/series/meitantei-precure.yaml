@@ -16,7 +16,7 @@ series:
         anidbId: 19742
         tvdbId: 470961
       episodes:
-        count: 51
+        count: 22
         absoluteFrom: 1
   characters:
     - id: anna-akechi

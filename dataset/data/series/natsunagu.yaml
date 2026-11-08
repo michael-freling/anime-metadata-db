@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Natsunagu!
   ordering: absolute
+  externalIds:
+    wikidataId: Q85869241
   seasons:
     - id: natsunagu-s1
       number: 1

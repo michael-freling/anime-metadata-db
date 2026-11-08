@@ -4,8 +4,11 @@ series:
   titles:
     original: 土下座で頼んでみた
     translations:
+      en: 'Dogeza: I Tried Asking While Kowtowing'
       ja-Latn: Dogeza de Tanondemita
   ordering: absolute
+  externalIds:
+    wikidataId: Q97925057
   seasons:
     - id: dogeza-de-tanondemita-s1
       number: 1

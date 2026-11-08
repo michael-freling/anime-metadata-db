@@ -4,8 +4,11 @@ series:
   titles:
     original: 無能なナナ
     translations:
+      en: Talentless Nana
       ja-Latn: Munou na Nana
   ordering: absolute
+  externalIds:
+    wikidataId: Q30929752
   seasons:
     - id: munou-na-nana-s1
       number: 1

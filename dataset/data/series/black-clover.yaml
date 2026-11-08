@@ -21,12 +21,13 @@ series:
     - id: black-clover-s2
       number: 2
       releaseYear: 2026
-      releaseSeason: WINTER
+      releaseSeason: FALL
       externalIds:
         anilistId: 195604
         anidbId: 19433
+        tvdbId: 331753
       episodes:
-        count: 1
+        count: 12
         absoluteFrom: 171
   characters:
     - id: asta

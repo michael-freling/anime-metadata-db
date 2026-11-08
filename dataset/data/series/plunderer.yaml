@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Plunderer
   ordering: absolute
+  externalIds:
+    wikidataId: Q50138221
   seasons:
     - id: plunderer-s1
       number: 1

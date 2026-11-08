@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hatena☆Illusion
   ordering: absolute
+  externalIds:
+    wikidataId: Q22124688
   seasons:
     - id: hatena-illusion-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: LIP×LIP FILM×LIVE〜この世界の楽しみ方〜
     translations:
+      en: HoneyWorks 10th Anniversary “LIP×LIP FILM×LIVE”
       ja-Latn: 'LIP×LIP FILM×LIVE: Kono Sekai no Tanoshimikata'
   ordering: absolute
+  externalIds:
+    wikidataId: Q109361463
   movies:
     - id: lip-lip-film-live-kono-sekai-no-tanoshimikata-film
       titles:

@@ -18,7 +18,7 @@ series:
         anidbId: 19625
         tvdbId: 468734
       episodes:
-        count: 12
+        count: 13
         absoluteFrom: 1
   characters:
     - id: hikaru-gero

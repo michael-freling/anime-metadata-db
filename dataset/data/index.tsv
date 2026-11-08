@@ -1,10 +1,10 @@
 !anime-metadata-db-index	1
-!stats	franchises=1	series=1075	seasons=997	episodes=18625	characters=727	staff=484	earliest=2006	latest=2026
+!stats	franchises=1	series=1075	seasons=997	episodes=18773	characters=727	staff=484	earliest=2006	latest=2027
 !franchises	id	file	titles
 fate	fate.yaml	フェイト|en=Fate
 !series	id	file	franchise	titles
 0-saiji-start-dash-monogatari	0-saiji-start-dash-monogatari.yaml		0歳児スタートダッシュ物語|ja-Latn=0-saiji Start Dash Monogatari
-100-man-no-inochi-no-ue-ni-ore-wa-tatteiru	100-man-no-inochi-no-ue-ni-ore-wa-tatteiru.yaml		100万の命の上に俺は立っている|ja-Latn=100-man no Inochi no Ue ni Ore wa Tatteiru
+100-man-no-inochi-no-ue-ni-ore-wa-tatteiru	100-man-no-inochi-no-ue-ni-ore-wa-tatteiru.yaml		100万の命の上に俺は立っている|en=I'm Standing on a Million Lives|ja-Latn=100-man no Inochi no Ue ni Ore wa Tatteiru
 22-7	22-7.yaml		22/7 （ナナブンノニジュウニ）|ja-Latn=22/7
 2200-nen-neko-no-kuni-nippon	2200-nen-neko-no-kuni-nippon.yaml		2200年ねこの国ニッポン|ja-Latn=2200-nen Neko no Kuni Nippon
 23-hao-niu-nai-tang	23-hao-niu-nai-tang.yaml		23 Hao Niu Nai Tang|ja-Latn=23 Hao Niu Nai Tang
@@ -18,7 +18,7 @@ a-u-xinxing-guanzhuang-bingdu-de-yufang-xuzhi	a-u-xinxing-guanzhuang-bingdu-de-y
 a3-season-autumn-winter	a3-season-autumn-winter.yaml		エースリー Season Autumn & Winter|ja-Latn=A3! Season Autumn & Winter
 a3-season-spring-summer	a3-season-spring-summer.yaml		エースリー Season Spring & Summer|ja-Latn=A3! Season Spring & Summer
 accept	accept.yaml		Accept|ja-Latn=Accept
-adachi-to-shimamura	adachi-to-shimamura.yaml		安達としまむら|ja-Latn=Adachi to Shimamura
+adachi-to-shimamura	adachi-to-shimamura.yaml		安達としまむら|en=Adachi and Shimamura|ja-Latn=Adachi to Shimamura
 agisang-eo-ollie-tululutulu	agisang-eo-ollie-tululutulu.yaml		Agisang-eo Ollie Tululutulu|ja-Latn=Agisang-eo Ollie Tululutulu
 aharen-san-wa-hakarenai	aharen-san-wa-hakarenai.yaml		阿波連さんははかれない|en=Aharen-san Is Indecipherable|ja-Latn=Aharen-san wa Hakarenai
 ai-shitteru	ai-shitteru.yaml		Aiしてる|ja-Latn=AI Shitteru
@@ -93,7 +93,7 @@ bingqiu-xuanfeng-2nd-season	bingqiu-xuanfeng-2nd-season.yaml		Bingqiu Xuanfeng 2
 birth-the-cycles-of-life	birth-the-cycles-of-life.yaml		Birthーめぐるいのちー|ja-Latn=Birth: The Cycles of Life
 bite-choicar	bite-choicar.yaml		Bite-Choicar|ja-Latn=Bite-Choicar
 black-clover	black-clover.yaml		ブラッククローバー (2017)|ja-Latn=Black Clover
-bna	bna.yaml		BNA ビー・エヌ・エー|ja-Latn=BNA
+bna	bna.yaml		BNA ビー・エヌ・エー|en=BNA: Brand New Animal|ja-Latn=BNA
 boku-no-hero-academia	boku-no-hero-academia.yaml		僕のヒーローアカデミア|en=My Hero Academia|ja-Latn=Boku no Hero Academia
 boku-no-tonari-ni-ankoku-hakaishin-ga-imasu	boku-no-tonari-ni-ankoku-hakaishin-ga-imasu.yaml		ぼくのとなりに暗黒破壊神がいます.|ja-Latn=Boku no Tonari ni Ankoku Hakaishin ga Imasu.
 boku-no	boku-no.yaml		ぼくの！|ja-Latn=Boku no!
@@ -116,7 +116,7 @@ candy-caries	candy-caries.yaml		キャンディーカリエス|ja-Latn=Candy Car
 cardfight-vanguard-divinez-deluxe-hen	cardfight-vanguard-divinez-deluxe-hen.yaml		カードファイト！！ ヴァンガード Divinez デラックス編|ja-Latn=Cardfight!! Vanguard: Divinez Deluxe-hen
 cardfight-vanguard-divinez-deluxe-kesshou-hen	cardfight-vanguard-divinez-deluxe-kesshou-hen.yaml		カードファイト！！ ヴァンガード Divinez デラックス決勝編|ja-Latn=Cardfight!! Vanguard: Divinez Deluxe Kesshou-hen
 cardfight-vanguard-divinez-genma-seisen-hen	cardfight-vanguard-divinez-genma-seisen-hen.yaml		カードファイト!! ヴァンガード DivineZ 幻真星戦編|ja-Latn=Cardfight!! Vanguard: Divinez Genma Seisen-hen
-catch-tiniping	catch-tiniping.yaml		キャッチ!ティニピン|ja-Latn=Catch! Tiniping
+catch-tiniping	catch-tiniping.yaml		キャッチ!ティニピン|en=Catch! Teenieping|ja-Latn=Catch! Tiniping
 chainsaw-man-movie-reze-hen	chainsaw-man-movie-reze-hen.yaml		チェンソーマン レゼ篇|ja-Latn=Chainsaw Man Movie: Reze-hen
 champignon-no-majo	champignon-no-majo.yaml		シャンピニオンの魔女|en=Champignon Witch|ja-Latn=Champignon no Majo
 chanto-suenai-kyuuketsuki-chan	chanto-suenai-kyuuketsuki-chan.yaml		ちゃんと吸えない吸血鬼ちゃん|en=Li'l Miss Vampire Can't Suck Right|ja-Latn=Chanto Suenai Kyuuketsuki-chan
@@ -140,7 +140,7 @@ chotto-dake-ai-ga-omoi-dark-elf-ga-isekai-kara-oikaketekita-mini	chotto-dake-ai-
 chotto-dake-ai-ga-omoi-dark-elf-ga-isekai-kara-oikaketekita	chotto-dake-ai-ga-omoi-dark-elf-ga-isekai-kara-oikaketekita.yaml		ちょっとだけ愛が重すぎるダークエルフが異世界から追いかけてきた|ja-Latn=Chotto dake Ai ga Omoi Dark Elf ga Isekai kara Oikaketekita
 chou-futsuu-mahou-shoujo-asumi-toruverse	chou-futsuu-mahou-shoujo-asumi-toruverse.yaml		超普通マホウ少女アスミトルバース|ja-Latn=Chou Futsuu Mahou Shoujo Asumi Toruverse
 chueog-ui-geomjeong-gomusin	chueog-ui-geomjeong-gomusin.yaml		Chueog-ui Geomjeong Gomusin|ja-Latn=Chueog-ui Geomjeong Gomusin
-chuhai-lips-canned-flavor-of-married-women	chuhai-lips-canned-flavor-of-married-women.yaml		人妻の唇は缶チューハイの味がして|ja-Latn=Chuhai Lips: Canned Flavor of Married Women
+chuhai-lips-canned-flavor-of-married-women	chuhai-lips-canned-flavor-of-married-women.yaml		人妻の唇は缶チューハイの味がして|en=Hitozuma no Kuchibiru wa Kan Chūhai no Aji ga shite|ja-Latn=Chuhai Lips: Canned Flavor of Married Women
 chuldong-super-wings-4	chuldong-super-wings-4.yaml		Chuldong! Super Wings 4|ja-Latn=Chuldong! Super Wings 4
 chuldong-super-wings-9	chuldong-super-wings-9.yaml		Chuldong! Super Wings 9|ja-Latn=Chuldong! Super Wings 9
 chuuzenji-sensei-mononoke-kougiroku-sensei-ga-nazo-wo	chuuzenji-sensei-mononoke-kougiroku-sensei-ga-nazo-wo.yaml		中禅寺先生物怪講義録 先生が謎を解いてしまうから。|en=The Mononoke Lecture Logs of Chuzenji-sensei|ja-Latn=Chuuzenji-sensei Mononoke Kougiroku: Sensei ga Nazo wo Hodoite Shimau kara.
@@ -177,10 +177,10 @@ digimon-beatbreak	digimon-beatbreak.yaml		デジモンビートブレイク|ja-L
 dinoman-mudeungsan-gonglyongui-tansaeng	dinoman-mudeungsan-gonglyongui-tansaeng.yaml		Dinoman: Mudeungsan Gonglyongui Tansaeng|ja-Latn=Dinoman: Mudeungsan Gonglyongui Tansaeng
 dinoster-gonglyongsuhodae-3rd-season	dinoster-gonglyongsuhodae-3rd-season.yaml		Dinoster: Gonglyongsuhodae 3rd Season|ja-Latn=Dinoster: Gonglyongsuhodae 3rd Season
 dive-in	dive-in.yaml		ダイブイン！|ja-Latn=Dive In!
-dogeza-de-tanondemita	dogeza-de-tanondemita.yaml		土下座で頼んでみた|ja-Latn=Dogeza de Tanondemita
+dogeza-de-tanondemita	dogeza-de-tanondemita.yaml		土下座で頼んでみた|en=Dogeza: I Tried Asking While Kowtowing|ja-Latn=Dogeza de Tanondemita
 doghead	doghead.yaml		DOGHEAD|ja-Latn=DOGHEAD
 dokkaebi-jeollaedonghwa-kkaep	dokkaebi-jeollaedonghwa-kkaep.yaml		Dokkaebi Jeollaedonghwa Kkaep!|ja-Latn=Dokkaebi Jeollaedonghwa Kkaep!
-dokyuu-hentai-hxeros	dokyuu-hentai-hxeros.yaml		ド級編隊エグゼロス|ja-Latn=Dokyuu Hentai HxEros
+dokyuu-hentai-hxeros	dokyuu-hentai-hxeros.yaml		ド級編隊エグゼロス|en=Super HxEros|ja-Latn=Dokyuu Hentai HxEros
 don-t-call-us-a-junk-game	don-t-call-us-a-junk-game.yaml		クソゲーって言うな！|ja-Latn=Don't Call Us A JUNK GAME!
 dongwu-tegong-ju	dongwu-tegong-ju.yaml		Dongwu Tegong Ju|ja-Latn=Dongwu Tegong Ju
 doraemon-movie-44-nobita-no-e-sekai-monogatari	doraemon-movie-44-nobita-no-e-sekai-monogatari.yaml		ドラえもん のび太の絵世界物語|ja-Latn=Doraemon Movie 44: Nobita no E Sekai Monogatari
@@ -189,7 +189,7 @@ dorohedoro	dorohedoro.yaml		ドロヘドロ|ja-Latn=Dorohedoro
 dorufuro-kyouran-hen	dorufuro-kyouran-hen.yaml		どるふろ -狂乱編 -|ja-Latn=DoruFuro: Kyouran-hen
 dotoli-munhwasenteo	dotoli-munhwasenteo.yaml		도토리 문화센터|ko-Latn=Dotoli Munhwasenteo
 dou-long-zhanshi-6	dou-long-zhanshi-6.yaml		Dou Long Zhanshi 6|ja-Latn=Dou Long Zhanshi 6
-dounika-naru-hibi	dounika-naru-hibi.yaml		どうにかなる日々|ja-Latn=Dounika Naru Hibi
+dounika-naru-hibi	dounika-naru-hibi.yaml		どうにかなる日々|en=Happy Go Lucky Days|ja-Latn=Dounika Naru Hibi
 douse-koishite-shimaunda	douse-koishite-shimaunda.yaml		どうせ, 恋してしまうんだ.|ja-Latn=Douse, Koishite Shimaunda.
 doushitemo-eto-ni-hairitai-2	doushitemo-eto-ni-hairitai-2.yaml		どうしても干支にはいりたい2|ja-Latn=Doushitemo Eto ni Hairitai 2
 dr-stone-science-future	dr-stone-science-future.yaml		ドクターストーン SCIENCE FUTURE|ja-Latn=Dr. Stone: Science Future
@@ -204,7 +204,7 @@ edge-of-time	edge-of-time.yaml		Edge of Time〜時をつなぐ旅人たち|ja-La
 egao-no-taenai-shokuba-desu	egao-no-taenai-shokuba-desu.yaml		笑顔のたえない職場です。|en=A Mangaka's Weirdly Wonderful Workplace|ja-Latn=Egao no Taenai Shokuba desu.
 eiga-crayon-shin-chan-gekitotsu-rakuga-kingdom-to-hobo-yonin-no-yusha	eiga-crayon-shin-chan-gekitotsu-rakuga-kingdom-to-hobo-yonin-no-yusha.yaml		映画 クレヨンしんちゃん 激突! ラクガキングダムとほぼ四人の勇者|ja-Latn=Eiga Crayon Shin-chan Gekitotsu! Rakuga Kingdom to Hobo Yonin no Yūsha
 eiga-love-live-nijigasaki-gakuen-school-idol-doukoukai-kanketsuhen-dai-2-shou	eiga-love-live-nijigasaki-gakuen-school-idol-doukoukai-kanketsuhen-dai-2-shou.yaml		映画ラブライブ！虹ヶ咲学園スクールアイドル同好会 完結編 第2章|ja-Latn=Eiga Love Live! Nijigasaki Gakuen School Idol Doukoukai: Kanketsuhen Dai 2 Shou
-eizouken-ni-wa-te-wo-dasu-na	eizouken-ni-wa-te-wo-dasu-na.yaml		映像研には手を出すな!|ja-Latn=Eizouken ni wa Te wo Dasu na!
+eizouken-ni-wa-te-wo-dasu-na	eizouken-ni-wa-te-wo-dasu-na.yaml		映像研には手を出すな!|en=Keep Your Hands Off Eizouken!|ja-Latn=Eizouken ni wa Te wo Dasu na!
 ejen-ali-the-movie-2	ejen-ali-the-movie-2.yaml		Ejen Ali: The Movie 2|ja-Latn=Ejen Ali: The Movie 2
 eleceed	eleceed.yaml		エレキシード / 일렉시드|ja-Latn=Eleceed
 empty-hands	empty-hands.yaml		おうさま・ひめ・ぶた・こじき|ja-Latn=Empty Hands
@@ -244,7 +244,7 @@ fx-senshi-kurumi-chan	fx-senshi-kurumi-chan.yaml		FX戦士くるみちゃん|en=
 gachiakuta	gachiakuta.yaml		ガチアクタ|ja-Latn=Gachiakuta
 gakkou-de-wa-oshiete-kurenai-taisetsu-na-koto	gakkou-de-wa-oshiete-kurenai-taisetsu-na-koto.yaml		学校では教えてくれない大切なこと|ja-Latn=Gakkou de wa Oshiete Kurenai Taisetsu na Koto
 gal-gaku-sei-girls-square-gakuin	gal-gaku-sei-girls-square-gakuin.yaml		ガル学。〜聖ガールズスクエア学院〜|ja-Latn=Gal-gaku. Sei Girls Square Gakuin
-gal-to-kyouryuu	gal-to-kyouryuu.yaml		ギャルと恐竜|ja-Latn=Gal to Kyouryuu
+gal-to-kyouryuu	gal-to-kyouryuu.yaml		ギャルと恐竜|en=My Roomie Is a Dino|ja-Latn=Gal to Kyouryuu
 galaxy-apartment-cosmo-hills	galaxy-apartment-cosmo-hills.yaml		ギャラクシーアパート★コスモヒルズ|ja-Latn=Galaxy Apartment☆Cosmo Hills
 game-center-shoujo-to-ibunka-kouryuu	game-center-shoujo-to-ibunka-kouryuu.yaml		ゲーセン少女と異文化交流|en=Cultural Exchange With a Game Centre Girl|ja-Latn=Game Center Shoujo to Ibunka Kouryuu
 ganbare-nakamura-kun	ganbare-nakamura-kun.yaml		ガンバレ! 中村くん!!|ja-Latn=Ganbare! Nakamura-kun!!
@@ -346,13 +346,13 @@ hotarubi-no-migomori	hotarubi-no-migomori.yaml		螢火の身ごもり|ja-Latn=Ho
 hotel-inhumans	hotel-inhumans.yaml		ホテル・インヒューマンズ|ja-Latn=Hotel Inhumans
 hotsure-ni-fureru	hotsure-ni-fureru.yaml		ほつれにふれる|ja-Latn=Hotsure ni Fureru
 hou-yi-jian-shen	hou-yi-jian-shen.yaml		Hou Yi: Jian Shen|ja-Latn=Hou Yi: Jian Shen
-houkago-teibou-nisshi	houkago-teibou-nisshi.yaml		放課後ていぼう日誌|ja-Latn=Houkago Teibou Nisshi
-housekishou-richard-shi-no-nazo-kantei	housekishou-richard-shi-no-nazo-kantei.yaml		宝石商リチャード氏の謎鑑定|ja-Latn=Housekishou Richard-shi no Nazo Kantei
+houkago-teibou-nisshi	houkago-teibou-nisshi.yaml		放課後ていぼう日誌|en=Diary of Our Days at the Breakwater|ja-Latn=Houkago Teibou Nisshi
+housekishou-richard-shi-no-nazo-kantei	housekishou-richard-shi-no-nazo-kantei.yaml		宝石商リチャード氏の謎鑑定|en=The Case Files of Jeweler Richard|ja-Latn=Housekishou Richard-shi no Nazo Kantei
 housenka	housenka.yaml		ホウセンカ|ja-Latn=Housenka
 hspproject	hspproject.yaml		HSPProject|ja-Latn=HSPProject
 hulaing-babies-aratame-staying-babies	hulaing-babies-aratame-staying-babies.yaml		フライングベイビーズ改め ステイングベイビーズ|ja-Latn=Hulaing Babies Aratame: Staying Babies
 hulaing-babies-petit	hulaing-babies-petit.yaml		フライングベイビーズ☆プチ|ja-Latn=Hulaing Babies Petit
-hyakki-yakou-shou	hyakki-yakou-shou.yaml		百鬼夜行抄|ja-Latn=Hyakki Yakou Shou
+hyakki-yakou-shou	hyakki-yakou-shou.yaml		百鬼夜行抄|en=Beyond Twilight|ja-Latn=Hyakki Yakou Shou
 hyakuemu	hyakuemu.yaml		ひゃくえむ。|en=100 Meters|ja-Latn=Hyakuemu.
 hyakushou-kizoku	hyakushou-kizoku.yaml		百姓貴族|ja-Latn=Hyakushou Kizoku
 hypnosis-mic-division-rap-battle-movie	hypnosis-mic-division-rap-battle-movie.yaml		ヒプノシスマイク -Division Rap Battle- 映画|ja-Latn=Hypnosis Mic: Division Rap Battle Movie
@@ -373,14 +373,14 @@ in-app	in-app.yaml		In:App|ja-Latn=In:App
 infinite-dendrogram	infinite-dendrogram.yaml		<Infinite Dendrogram>-インフィニット・デンドログラム-|ja-Latn=Infinite Dendrogram
 ingoku-danchi	ingoku-danchi.yaml		インゴクダンチ|ja-Latn=Ingoku Danchi
 inu-ringo	inu-ringo.yaml		いぬりんご|ja-Latn=Inu Ringo
-inu-to-neko-docchi-mo-katteru-to-mainichi-tanoshii	inu-to-neko-docchi-mo-katteru-to-mainichi-tanoshii.yaml		犬と猫どっちも飼ってると毎日たのしい|ja-Latn=Inu to Neko Docchi mo Katteru to Mainichi Tanoshii
+inu-to-neko-docchi-mo-katteru-to-mainichi-tanoshii	inu-to-neko-docchi-mo-katteru-to-mainichi-tanoshii.yaml		犬と猫どっちも飼ってると毎日たのしい|en=With a Dog AND a Cat, Every Day is Fun|ja-Latn=Inu to Neko Docchi mo Katteru to Mainichi Tanoshii
 inu	inu.yaml		イヌ|ja-Latn=Inu
 isekai-mokushiroku-mynoghra-hametsu-no-bunmei-de-hajimeru	isekai-mokushiroku-mynoghra-hametsu-no-bunmei-de-hajimeru.yaml		異世界黙示録マイノグーラ ～破滅の文明で始める世界征服～|ja-Latn=Isekai Mokushiroku Mynoghra: Hametsu no Bunmei de Hajimeru Sekai Seifuku
 isekai-no-sata-wa-shachiku-shidai	isekai-no-sata-wa-shachiku-shidai.yaml		異世界の沙汰は社畜次第|en=The Other World's Books Depend on the Bean Counter|ja-Latn=Isekai no Sata wa Shachiku Shidai
 isekai-nonbiri-nouka	isekai-nonbiri-nouka.yaml		異世界のんびり農家|en=Farming Life in Another World|ja-Latn=Isekai Nonbiri Nouka
 isekai-quartet	isekai-quartet.yaml		異世界かるてっと|ja-Latn=Isekai Quartet
 ishura	ishura.yaml		異修羅|ja-Latn=Ishura
-ishuzoku-reviewers	ishuzoku-reviewers.yaml		異種族レビュアーズ|ja-Latn=Ishuzoku Reviewers
+ishuzoku-reviewers	ishuzoku-reviewers.yaml		異種族レビュアーズ|en=Interspecies Reviewers|ja-Latn=Ishuzoku Reviewers
 isshun-de-chiryou-shiteita-noni-yakutatazu-to-tsuihou	isshun-de-chiryou-shiteita-noni-yakutatazu-to-tsuihou.yaml		一瞬で治療していたのに役立たずと追放された天才治癒師、闇ヒーラーとして楽しく生きる|en=The Brilliant Healer's New Life in the Shadows|ja-Latn=Isshun de Chiryou shiteita noni Yakutatazu to Tsuihou sareta Tensai Chiyushi, Yami Healer toshite Tanoshiku Ikiru
 itai-no-wa-iya-nanode-bougyoryoku-ni-kyokufuri-shitai-to-omoimasu	itai-no-wa-iya-nanode-bougyoryoku-ni-kyokufuri-shitai-to-omoimasu.yaml		痛いのは嫌なので防御力に極振りしたいと思います.|ja-Latn=Itai no wa Iya nanode Bougyoryoku ni Kyokufuri Shitai to Omoimasu.
 ito-amu-itonamu	ito-amu-itonamu.yaml		いとあむ、いとなむ。|ja-Latn=Ito Amu, Itonamu
@@ -429,9 +429,9 @@ kamen-rider-saber-kamen-rider-zero-one-manner-movie	kamen-rider-saber-kamen-ride
 kami-no-niwatsuki-kusunoki-tei	kami-no-niwatsuki-kusunoki-tei.yaml		神の庭付き楠木邸|en=Kusunoki's Garden of Gods|ja-Latn=Kami no Niwatsuki Kusunoki-tei
 kami-no-shizuku	kami-no-shizuku.yaml		神の雫|en=The Drops of God|ja-Latn=Kami no Shizuku
 kami-no-tou	kami-no-tou.yaml		タワー・オブ・ゴッド|ja-Latn=Kami no Tou
-kami-tachi-ni-hirowareta-otoko	kami-tachi-ni-hirowareta-otoko.yaml		神達に拾われた男|ja-Latn=Kami-tachi ni Hirowareta Otoko
+kami-tachi-ni-hirowareta-otoko	kami-tachi-ni-hirowareta-otoko.yaml		神達に拾われた男|en=By the Grace of the Gods|ja-Latn=Kami-tachi ni Hirowareta Otoko
 kamiina-botan-yoeru-sugata-wa-yuri-no-hana	kamiina-botan-yoeru-sugata-wa-yuri-no-hana.yaml		上伊那ぼたん, 酔へる姿は百合の花|ja-Latn=Kamiina Botan, Yoeru Sugata wa Yuri no Hana
-kamisama-ni-natta-hi	kamisama-ni-natta-hi.yaml		神様になった日|ja-Latn=Kamisama ni Natta Hi
+kamisama-ni-natta-hi	kamisama-ni-natta-hi.yaml		神様になった日|en=The Day I Became a God|ja-Latn=Kamisama ni Natta Hi
 kamitsubaki-shi-kensetsuchuu	kamitsubaki-shi-kensetsuchuu.yaml		神椿市建設中。|ja-Latn=Kamitsubaki-shi Kensetsuchuu.
 kanagawa-ni-sunderu-elf	kanagawa-ni-sunderu-elf.yaml		#神奈川に住んでるエルフ|ja-Latn=#Kanagawa ni Sunderu Elf
 kanan-sama-wa-akumade-choroi	kanan-sama-wa-akumade-choroi.yaml		カナン様はあくまでチョロい|en=Mistress Kanan Is Devilishly Easy|ja-Latn=Kanan-sama wa Akumade Choroi
@@ -508,7 +508,7 @@ kuroiwa-medaka-ni-watashi-no-kawaii-ga-tsuujinai	kuroiwa-medaka-ni-watashi-no-ka
 kuroneko-to-majo-no-kyoushitsu	kuroneko-to-majo-no-kyoushitsu.yaml		黒猫と魔女の教室|en=The Classroom of a Black Cat and a Witch|ja-Latn=Kuroneko to Majo no Kyoushitsu
 kuroshitsuji	kuroshitsuji.yaml		黒執事|en=Black Butler|ja-Latn=Kuroshitsuji
 kusuriya-no-hitorigoto	kusuriya-no-hitorigoto.yaml		薬屋のひとりごと|en=The Apothecary Diaries|ja-Latn=Kusuriya no Hitorigoto
-kuutei-dragons	kuutei-dragons.yaml		空挺ドラゴンズ|ja-Latn=Kuutei Dragons
+kuutei-dragons	kuutei-dragons.yaml		空挺ドラゴンズ|en=Drifting Dragons|ja-Latn=Kuutei Dragons
 kyochuu-rettou-movie	kyochuu-rettou-movie.yaml		Kyochuu Rettou Movie|ja-Latn=Kyochuu Rettou Movie
 kyokou-suiri	kyokou-suiri.yaml		Kyokou Suiri|ja-Latn=Kyokou Suiri
 kyoshin-to-hyoka-no-shiro	kyoshin-to-hyoka-no-shiro.yaml		巨神と氷華の城|ja-Latn=Kyoshin to Hyōka no Shiro
@@ -524,7 +524,7 @@ liao-zhai-lanruo-si	liao-zhai-lanruo-si.yaml		Liao Zhai: Lanruo Si|ja-Latn=Liao 
 liaozhai-lanre-si	liaozhai-lanre-si.yaml		聊斋：兰若寺|zh-Latn=Liaozhai: Lanre Si
 liar-game	liar-game.yaml		LIAR GAME -ライアーゲーム-|ja-Latn=Liar Game
 ling-cao-xiao-zhanshi	ling-cao-xiao-zhanshi.yaml		Ling Cao Xiao Zhanshi|ja-Latn=Ling Cao Xiao Zhanshi
-lip-lip-film-live-kono-sekai-no-tanoshimikata	lip-lip-film-live-kono-sekai-no-tanoshimikata.yaml		LIP×LIP FILM×LIVE〜この世界の楽しみ方〜|ja-Latn=LIP×LIP FILM×LIVE: Kono Sekai no Tanoshimikata
+lip-lip-film-live-kono-sekai-no-tanoshimikata	lip-lip-film-live-kono-sekai-no-tanoshimikata.yaml		LIP×LIP FILM×LIVE〜この世界の楽しみ方〜|en=HoneyWorks 10th Anniversary “LIP×LIP FILM×LIVE”|ja-Latn=LIP×LIP FILM×LIVE: Kono Sekai no Tanoshimikata
 liqiu	liqiu.yaml		Liqiu|ja-Latn=Liqiu
 listeners	listeners.yaml		LISTENERS リスナーズ|ja-Latn=Listeners
 loca	loca.yaml		ロカ！|ja-Latn=Loca!
@@ -569,7 +569,7 @@ mao-he-lao-shu-xing-pan-qi-yuan	mao-he-lao-shu-xing-pan-qi-yuan.yaml		猫和老�
 mao	mao.yaml		マオ|ja-Latn=Mao
 maou-gakuin-no-futekigousha-shijou-saikyou-no-maou-no-shiso-tensei-shite-shison-tachi-no-gakkou-e-kayou	maou-gakuin-no-futekigousha-shijou-saikyou-no-maou-no-shiso-tensei-shite-shison-tachi-no-gakkou-e-kayou.yaml		魔王学院の不適合者 ~史上最強の魔王の始祖, 転生して子孫たちの学校へ通う~|ja-Latn=Maou Gakuin no Futekigousha: Shijou Saikyou no Maou no Shiso, Tensei shite Shison-tachi no Gakkou e Kayou
 maou-no-musume-wa-yasashisugiru	maou-no-musume-wa-yasashisugiru.yaml		魔王の娘は優しすぎる!!|en=The Daughter of the Demon Lord Is Too Kind!|ja-Latn=Maou no Musume wa Yasashisugiru!!
-maoujou-de-oyasumi	maoujou-de-oyasumi.yaml		魔王城でおやすみ|ja-Latn=Maoujou de Oyasumi
+maoujou-de-oyasumi	maoujou-de-oyasumi.yaml		魔王城でおやすみ|en=Sleepy Princess in the Demon Castle|ja-Latn=Maoujou de Oyasumi
 marika-chan-no-koukando-wa-bukkowareteiru	marika-chan-no-koukando-wa-bukkowareteiru.yaml		茉莉花ちゃんの好感度はぶっ壊れている|en=Marika's Love Meter Malfunction|ja-Latn=Marika-chan no Koukando wa Bukkowareteiru
 marriagetoxin	marriagetoxin.yaml		マリッジトキシン|ja-Latn=Marriagetoxin
 marudase-kintarou	marudase-kintarou.yaml		まるだせ金太狼|ja-Latn=Marudase Kintarou
@@ -613,7 +613,7 @@ monkie-kid-season-1	monkie-kid-season-1.yaml		Monkie Kid Season 1|ja-Latn=Monkie
 mono	mono.yaml		Mono
 mononoke-movie-2-hinezumi	mononoke-movie-2-hinezumi.yaml		モノノ怪 第二章 火鼠|ja-Latn=Mononoke Movie 2: Hinezumi
 monorail	monorail.yaml		Monorail|ja-Latn=Monorail
-monster-musume-no-oishasan	monster-musume-no-oishasan.yaml		モンスター娘のお医者さん|ja-Latn=Monster Musume no Oishasan
+monster-musume-no-oishasan	monster-musume-no-oishasan.yaml		モンスター娘のお医者さん|en=Monster Girl Doctor|ja-Latn=Monster Musume no Oishasan
 monster-strike-deadverse-reloaded	monster-strike-deadverse-reloaded.yaml		モンスターストライク デッドバースリローデッド|ja-Latn=Monster Strike: Deadverse Reloaded
 mori-no-obake	mori-no-obake.yaml		森のおばけ|ja-Latn=Mori no Obake
 mortal-kombat-legends-scorpion-s-revenge	mortal-kombat-legends-scorpion-s-revenge.yaml		モータルコンバット レジェンド　スコーピオンズリベンジ|ja-Latn=Mortal Kombat Legends: Scorpion's Revenge
@@ -625,7 +625,7 @@ muhyo-to-rouji-no-mahouritsu-soudan-jimusho-2nd-season	muhyo-to-rouji-no-mahouri
 mukashi-keibanashi-2nd-season	mukashi-keibanashi-2nd-season.yaml		JRAアニメ むかしケイバなし (2020)|ja-Latn=Mukashi Keibanashi 2nd Season
 mulan-heng-kong-chu-shi	mulan-heng-kong-chu-shi.yaml		Mulan: Heng Kong Chu Shi|ja-Latn=Mulan: Heng Kong Chu Shi
 mumei-no-jinsei	mumei-no-jinsei.yaml		無名の人生|ja-Latn=Mumei no Jinsei
-munou-na-nana	munou-na-nana.yaml		無能なナナ|ja-Latn=Munou na Nana
+munou-na-nana	munou-na-nana.yaml		無能なナナ|en=Talentless Nana|ja-Latn=Munou na Nana
 murenase-seton-gakuen	murenase-seton-gakuen.yaml		群れなせ! シートン学園|ja-Latn=Murenase! Seton Gakuen
 mushoku-no-eiyuu-betsu-ni-skill-nanka-iranakatta-n-da-ga	mushoku-no-eiyuu-betsu-ni-skill-nanka-iranakatta-n-da-ga.yaml		無職の英雄 別にスキルなんか要らなかったんだが|ja-Latn=Mushoku no Eiyuu: Betsu ni Skill Nanka Iranakatta n da ga
 muzhi-zong-dong-yuan-yulin-qiyu	muzhi-zong-dong-yuan-yulin-qiyu.yaml		Muzhi Zong Dong Yuan: Yulin Qiyu|ja-Latn=Muzhi Zong Dong Yuan: Yulin Qiyu
@@ -634,7 +634,7 @@ my-exercise	my-exercise.yaml		マイエクササイズ|ja-Latn=My Exercise
 myeongtamjeong-pinkfong-gwa-hogi	myeongtamjeong-pinkfong-gwa-hogi.yaml		Myeongtamjeong Pinkfong-gwa Hogi|ja-Latn=Myeongtamjeong Pinkfong-gwa Hogi
 na-sa-er-ding-dong-youji	na-sa-er-ding-dong-youji.yaml		Na Sa Er Ding Dong Youji|ja-Latn=Na Sa Er Ding Dong Youji
 nageki-no-bourei-wa-intai-shitai	nageki-no-bourei-wa-intai-shitai.yaml		嘆きの亡霊は引退したい ～最弱ハンターによる最強パーティ育成術～|ja-Latn=Nageki no Bourei wa Intai shitai
-nami-yo-kiitekure	nami-yo-kiitekure.yaml		波よ聞いてくれ|ja-Latn=Nami yo Kiitekure
+nami-yo-kiitekure	nami-yo-kiitekure.yaml		波よ聞いてくれ|en=Wave, Listen to Me!|ja-Latn=Nami yo Kiitekure
 nankou-kaasan	nankou-kaasan.yaml		軟膏母さん|ja-Latn=Nankou Kaasan
 nappeungyejibae-dallyeora-hani	nappeungyejibae-dallyeora-hani.yaml		Nappeungyejibae: Dallyeora Hani|ja-Latn=Nappeungyejibae: Dallyeora Hani
 nappeungyejibae	nappeungyejibae.yaml		Nappeungyejibae|ja-Latn=Nappeungyejibae
@@ -675,7 +675,7 @@ nukitashi-the-animation	nukitashi-the-animation.yaml		Nukige Mitai na Shima ni S
 number24	number24.yaml		number24 ナンバー・トゥーフォー|ja-Latn=number24
 nyaight-of-the-living-cat	nyaight-of-the-living-cat.yaml		ニャイト・オブ・ザ・リビングキャット|en=Night of the Living Cat|ja-Latn=Nyaight of the Living Cat
 obake-zukan	obake-zukan.yaml		おばけずかん|ja-Latn=Obake Zukan
-ochikobore-fruit-tart	ochikobore-fruit-tart.yaml		おちこぼれフルーツタルト|ja-Latn=Ochikobore Fruit Tart
+ochikobore-fruit-tart	ochikobore-fruit-tart.yaml		おちこぼれフルーツタルト|en=Dropout Idol Fruit Tart|ja-Latn=Ochikobore Fruit Tart
 octopolis	octopolis.yaml		オクトポリス|ja-Latn=OCTOPOLIS
 oda-cinnamon-nobunaga	oda-cinnamon-nobunaga.yaml		織田シナモン信長|ja-Latn=Oda Cinnamon Nobunaga
 odayaka-kizoku-no-kyuuka-no-susume	odayaka-kizoku-no-kyuuka-no-susume.yaml		穏やか貴族の休暇のすすめ.|ja-Latn=Odayaka Kizoku no Kyuuka no Susume.
@@ -705,7 +705,7 @@ ore-dake-level-up-na-ken	ore-dake-level-up-na-ken.yaml		俺だけレベルアッ
 ore-wa-seikan-kokka-no-akutoku-ryoushu	ore-wa-seikan-kokka-no-akutoku-ryoushu.yaml		俺は星間国家の悪徳領主！|ja-Latn=Ore wa Seikan Kokka no Akutoku Ryoushu!
 origami-ninja-koyankinte	origami-ninja-koyankinte.yaml		おりがみにんじゃ コーヤン＠きんてれ|ja-Latn=Origami Ninja Koyankinte
 osananajimi-to-wa-love-comedy-ni-naranai	osananajimi-to-wa-love-comedy-ni-naranai.yaml		幼馴染とはラブコメにならない|en=You Can't Be in a Rom-Com with Your Childhood Friends!|ja-Latn=Osananajimi to wa Love Comedy ni Naranai
-oshi-ga-budoukan-ittekuretara-shinu	oshi-ga-budoukan-ittekuretara-shinu.yaml		推しが武道館いってくれたら死ぬ|ja-Latn=Oshi ga Budoukan Ittekuretara Shinu
+oshi-ga-budoukan-ittekuretara-shinu	oshi-ga-budoukan-ittekuretara-shinu.yaml		推しが武道館いってくれたら死ぬ|en=If My Favorite Pop Idol Made It to the Budokan, I Would Die|ja-Latn=Oshi ga Budoukan Ittekuretara Shinu
 oshi-no-ko	oshi-no-ko.yaml		【推しの子】Mother and Children|ja-Latn=[Oshi no Ko]
 oshiri-dandy-the-young	oshiri-dandy-the-young.yaml		おしりダンディ ザ・ヤング|ja-Latn=Oshiri Dandy the Young
 oshiri-tantei	oshiri-tantei.yaml		おしりたんてい|ja-Latn=Oshiri Tantei
@@ -719,7 +719,7 @@ pang-xiong-he-da-hu	pang-xiong-he-da-hu.yaml		Pang Xiong He Da Hu|ja-Latn=Pang X
 panji-tengkorak	panji-tengkorak.yaml		Panji Tengkorak|ja-Latn=Panji Tengkorak
 peleliu-rakuen-no-guernica	peleliu-rakuen-no-guernica.yaml		ペリリュー～楽園のゲルニカ～|ja-Latn=Peleliu: Rakuen no Guernica
 pet	pet.yaml		pet（ペット）|ja-Latn=Pet
-peter-grill-to-kenja-no-jikan	peter-grill-to-kenja-no-jikan.yaml		ピーター・グリルと賢者の時間|ja-Latn=Peter Grill to Kenja no Jikan
+peter-grill-to-kenja-no-jikan	peter-grill-to-kenja-no-jikan.yaml		ピーター・グリルと賢者の時間|en=Peter Grill and the Philosopher's Time|ja-Latn=Peter Grill to Kenja no Jikan
 pinkfong-cinema-concert-ujudaetamheom	pinkfong-cinema-concert-ujudaetamheom.yaml		Pinkfong Cinema Concert: Ujudaetamheom|ja-Latn=Pinkfong Cinema Concert: Ujudaetamheom
 pittanko-nekozakana-2020	pittanko-nekozakana-2020.yaml		ぴったんこ!! ねこざかな (2020)|ja-Latn=Pittanko!! Nekozakana (2020)
 planetarium-pokemon-aurora-kara-no-message	planetarium-pokemon-aurora-kara-no-message.yaml		プラネタリウム ポケットモンスター オーロラからのメッセージ|ja-Latn=Planetarium Pokemon: Aurora kara no Message
@@ -772,7 +772,7 @@ rock-wa-lady-no-tashinami-deshite	rock-wa-lady-no-tashinami-deshite.yaml		ロッ
 romelia-senki	romelia-senki.yaml		Romelia Senki: Maou wo Taoshita Nochi mo Jinrui Yaba Souda kara Guntai Soshiki Shita (ロメリア戦記 ～魔王を倒した後も人類やばそうだから軍隊組織した～)|ja-Latn=Romelia Senki
 ronowe-sensei-no-akuma-na-kami-jugyo	ronowe-sensei-no-akuma-na-kami-jugyo.yaml		ロノー先生の悪魔な神授業|ja-Latn=Ronowe Sensei no Akuma na Kami Jugyō
 room-of-guilty-pleasure	room-of-guilty-pleasure.yaml		ギルティホール～教え子しか指名できない店～|ja-Latn=Room of Guilty Pleasure
-runway-de-waratte	runway-de-waratte.yaml		ランウェイで笑って|ja-Latn=Runway de Waratte
+runway-de-waratte	runway-de-waratte.yaml		ランウェイで笑って|en=Smile Down the Runway|ja-Latn=Runway de Waratte
 ruri-no-houseki	ruri-no-houseki.yaml		瑠璃の宝石|en=Ruri Rocks|ja-Latn=Ruri no Houseki
 s-rank-monster-no-behemoth-dakedo-neko-to-machigawarete-elf	s-rank-monster-no-behemoth-dakedo-neko-to-machigawarete-elf.yaml		Ｓランクモンスターの《ベヒーモス》だけど、猫と間違われてエルフ娘の騎士（ペット）として暮らしてます|ja-Latn=S-Rank Monster no "Behemoth" dakedo, Neko to Machigawarete Elf Musume no Pet toshite Kurashitemasu
 sai-kyo-oh-zukan-the-ultimate-tournament	sai-kyo-oh-zukan-the-ultimate-tournament.yaml		最強王図鑑～The Ultimate Tournament～|ja-Latn=Sai-Kyo-Oh! Zukan: The Ultimate Tournament
@@ -797,7 +797,7 @@ sekaiichi-hatsukoi-propose-hen	sekaiichi-hatsukoi-propose-hen.yaml		世界一初
 senpai-wa-otokonoko-movie-ame-nochi-hare	senpai-wa-otokonoko-movie-ame-nochi-hare.yaml		先輩はおとこのこ あめのち晴れ|ja-Latn=Senpai wa Otokonoko Movie: Ame Nochi Hare
 sentai-daishikkaku	sentai-daishikkaku.yaml		戦隊大失格|en=Go! Go! Loser Ranger!|ja-Latn=Sentai Daishikkaku
 sentai-red-isekai-de-boukensha-ni-naru	sentai-red-isekai-de-boukensha-ni-naru.yaml		戦隊レッド異世界で冒険者になる|ja-Latn=Sentai Red Isekai de Boukensha ni Naru
-senyoku-no-sigrdrifa	senyoku-no-sigrdrifa.yaml		戦翼のシグルドリーヴァ|ja-Latn=Senyoku no Sigrdrifa
+senyoku-no-sigrdrifa	senyoku-no-sigrdrifa.yaml		戦翼のシグルドリーヴァ|en=Warlords of Sigrdrifa|ja-Latn=Senyoku no Sigrdrifa
 shabake	shabake.yaml		しゃばけ|ja-Latn=Shabake
 shachou-battle-no-jikan-desu	shachou-battle-no-jikan-desu.yaml		社長, バトルの時間です!|ja-Latn=Shachou, Battle no Jikan desu!
 shadowverse	shadowverse.yaml		シャドウバース|ja-Latn=Shadowverse
@@ -844,10 +844,10 @@ skip-to-loafer	skip-to-loafer.yaml		スキップとローファー|en=Skip and L
 slime-taoshite-300-nen-shiranai-uchi-ni-level-max-ni	slime-taoshite-300-nen-shiranai-uchi-ni-level-max-ni.yaml		スライム倒して３００年、知らないうちにレベルＭＡＸになってました|ja-Latn=Slime Taoshite 300-nen, Shiranai Uchi ni Level Max ni Nattemashita
 snowball-earth	snowball-earth.yaml		スノウボールアース|ja-Latn=Snowball Earth
 somacguffin-chalkak-segyeyeohaeng	somacguffin-chalkak-segyeyeohaeng.yaml		Somacguffin: Chalkak! Segyeyeohaeng|ja-Latn=Somacguffin: Chalkak! Segyeyeohaeng
-somali-to-mori-no-kamisama	somali-to-mori-no-kamisama.yaml		ソマリと森の神様|ja-Latn=Somali to Mori no Kamisama
+somali-to-mori-no-kamisama	somali-to-mori-no-kamisama.yaml		ソマリと森の神様|en=Somali and the Forest Spirit|ja-Latn=Somali to Mori no Kamisama
 sono-bisque-doll-wa-koi-wo-suru	sono-bisque-doll-wa-koi-wo-suru.yaml		その着せ替え人形（ビスク・ドール）は恋をする|ja-Latn=Sono Bisque Doll wa Koi wo Suru
 sorairo-utility	sorairo-utility.yaml		空色ユーティリティ|ja-Latn=Sorairo Utility
-sore-dake-ga-neck	sore-dake-ga-neck.yaml		それだけがネック|ja-Latn=Sore dake ga Neck
+sore-dake-ga-neck	sore-dake-ga-neck.yaml		それだけがネック|en=That Is the Bottleneck|ja-Latn=Sore dake ga Neck
 sore-ike-anpanman-chapon-no-hero	sore-ike-anpanman-chapon-no-hero.yaml		えいがそれいけ！アンパンマン チャポンのヒーロー！|ja-Latn=Sore Ike! Anpanman: Chapon no Hero!
 sorotani-no-keibatchi-season-2	sorotani-no-keibatchi-season-2.yaml		そろ谷のけいばっち シーズン2|ja-Latn=Sorotani no Keibatchi Season 2
 sorotani-no-keibatchi-season-3	sorotani-no-keibatchi-season-3.yaml		そろ谷のけいばっち シーズン3|ja-Latn=Sorotani no Keibatchi Season 3
@@ -876,7 +876,7 @@ tadaima-ojamasaremasu	tadaima-ojamasaremasu.yaml		ただいま, おじゃまさ�
 taeko-no-nichijou-2nd-season	taeko-no-nichijou-2nd-season.yaml		耐え子の日常 (2020)|ja-Latn=Taeko no Nichijou 2nd Season
 taihu-shaonian	taihu-shaonian.yaml		Taihu Shaonian|ja-Latn=Taihu Shaonian
 taikong-xiongmao-yingxiong-dansheng	taikong-xiongmao-yingxiong-dansheng.yaml		Taikong Xiongmao Yingxiong Dansheng|ja-Latn=Taikong Xiongmao Yingxiong Dansheng
-taisou-zamurai	taisou-zamurai.yaml		体操ザムライ|ja-Latn=Taisou Zamurai
+taisou-zamurai	taisou-zamurai.yaml		体操ザムライ|en=The Gymnastics Samurai|ja-Latn=Taisou Zamurai
 taiyou-yori-mo-mabushii-hoshi	taiyou-yori-mo-mabushii-hoshi.yaml		太陽よりも眩しい星|en=A Star Brighter Than the Sun|ja-Latn=Taiyou yori mo Mabushii Hoshi
 takopi-s-original-sin	takopi-s-original-sin.yaml		タコピーの原罪|ja-Latn=Takopi's Original Sin
 tamala-2030-a-punk-cat-in-dark	tamala-2030-a-punk-cat-in-dark.yaml		Tamala 2030: A Punk Cat in Dark
@@ -959,7 +959,7 @@ uruwashi-no-yoi-no-tsuki	uruwashi-no-yoi-no-tsuki.yaml		うるわしの宵の月
 uso-tantei-tomanto	uso-tantei-tomanto.yaml		うそ探偵トマント|ja-Latn=Uso Tantei Tomanto
 uta-no-prince-sama-movie-taboo-night-kisses	uta-no-prince-sama-movie-taboo-night-kisses.yaml		うたの☆プリンスさまっ♪ TABOO NIGHT XXXX|ja-Latn=Uta no☆Prince-sama♪ Movie: Taboo Night Kisses
 utagoe-wa-mille-feuille	utagoe-wa-mille-feuille.yaml		うたごえはミルフィーユ|ja-Latn=Utagoe wa Mille-Feuille
-uzaki-chan-wa-asobitai	uzaki-chan-wa-asobitai.yaml		宇崎ちゃんは遊びたい!|ja-Latn=Uzaki-chan wa Asobitai!
+uzaki-chan-wa-asobitai	uzaki-chan-wa-asobitai.yaml		宇崎ちゃんは遊びたい!|en=Uzaki-chan Wants to Hang Out!|ja-Latn=Uzaki-chan wa Asobitai!
 versailles-no-bara	versailles-no-bara.yaml		ベルサイユのばら|en=The Rose of Versailles|ja-Latn=Versailles no Bara
 very-chubby-belly	very-chubby-belly.yaml		ベリーチャビーベリー|ja-Latn=Very Chubby Belly
 vigilante-boku-no-hero-academia-illegals	vigilante-boku-no-hero-academia-illegals.yaml		ヴィジランテ -僕のヒーローアカデミア ILLEGALS-|ja-Latn=Vigilante: Boku no Hero Academia Illegals
@@ -1097,7 +1097,7 @@ series	15	2020	2020	1
 series	16	2020	2020	1	12
 series	17	2020	2020	1	12
 series	18	2022	2025	2	24
-series	19	2020	2020	1	
+series	19	2024	2024	1	
 series	20	2025	2025	1	
 series	21	2025	2025	1	
 series	22	2025	2025	1	
@@ -1168,7 +1168,7 @@ series	86	2025	2025	1	12
 series	87	2025	2025	1	26
 series	88	2020	2020	1	
 series	89	2020	2020	1	26
-series	90	2017	2026	2	171
+series	90	2017	2026	2	182
 series	91	2020	2020	1	12
 series	92	2016	2025	8	170
 series	93	2020	2020	1	12
@@ -1188,10 +1188,10 @@ series	106	2020	2020	1
 series	107	2025	2025	1	12
 series	108	2025	2025	1	13
 series	109	2024	2025	2	20
-series	110	2026	2026	1	1
+series	110	2026	2026	1	24
 series	111	2025	2025	1	13
 series	112	2025	2025	1	12
-series	113	2026	2026	1	10
+series	113	2026	2026	1	12
 series	114	2020	2020	1	52
 series	115	2025	2025	1	
 series	116	2026	2026	1	12
@@ -1248,8 +1248,8 @@ series	166	2025	2025	1	12
 series	167	2020	2020	1	12
 series	168	2025	2025	1	12
 series	169	2019	2025	7	63
-series	170	2013	2026	4	190
-series	171	2025	2025	1	24
+series	170	2013	2026	4	191
+series	171	2025	2025	1	36
 series	172	2025	2025	1	
 series	173	2025	2025	1	26
 series	174	2025	2025	1	
@@ -1268,7 +1268,7 @@ series	186	2020	2020	1	30
 series	187	2020	2020	1	
 series	188	2025	2026	2	24
 series	189	2020	2020	1	13
-series	190	2025	2026	3	36
+series	190	2025	2026	3	37
 series	191	2025	2025	1	
 series	192	2020	2020	1	100
 series	193	2020	2020	1	
@@ -1282,7 +1282,7 @@ series	200	2020	2020	1
 series	201	2025	2025	1	
 series	202	2020	2020	1	12
 series	203	2025	2025	1	
-series	204	2026	2026	1	1
+series	204	2027	2027	1	1
 series	205	2020	2020	1	
 series	206	2019	2026	4	73
 series	207	2020	2020	1	
@@ -1400,7 +1400,7 @@ series	317	2020	2020	1	26
 series	318	2020	2020	1	12
 series	319	2025	2025	1	
 series	320	2025	2025	1	12
-series	321	2026	2026	1	12
+series	321	2026	2026	1	13
 series	322	2023	2026	2	24
 series	323	2020	2020	1	
 series	324	2016	2020	2	12
@@ -1412,7 +1412,7 @@ series	329	2026	2026	1	12
 series	330	2024	2026	2	24
 series	331	2024	2025	2	102
 series	332	2020	2020	1	12
-series	333	2026	2026	1	12
+series	333	2026	2026	1	14
 series	334	2026	2026	1	12
 series	335	2025	2025	1	12
 series	336	2019	2026	4	60
@@ -1429,7 +1429,7 @@ series	346	2025	2025	1
 series	347	2020	2020	1	
 series	348	2020	2020	1	4
 series	349	2020	2020	1	12
-series	350	2026	2026	1	1
+series	350	2026	2026	1	12
 series	351	2025	2025	1	
 series	352	2023	2025	3	36
 series	353	2025	2025	1	
@@ -1437,7 +1437,7 @@ series	354	2020	2020	1	3
 series	355	2025	2025	1	
 series	356	2026	2026	1	12
 series	357	2020	2020	1	
-series	358	2026	2026	1	12
+series	358	2026	2026	1	11
 series	359	2020	2020	1	13
 series	360	2025	2025	1	
 series	361	2025	2025	1	
@@ -1476,7 +1476,7 @@ series	393	2023	2026	2	25
 series	394	2025	2025	1	13
 series	395	2020	2020	1	
 series	396	2026	2026	1	13
-series	397	2026	2026	1	12
+series	397	2027	2027	1	12
 series	398	2026	2026	1	12
 series	399	2020	2020	1	30
 series	400	2025	2025	1	
@@ -1563,14 +1563,14 @@ series	480	2021	2025	6	78
 series	481	2020	2020	1	12
 series	482	2020	2020	1	34
 series	483	2020	2020	1	13
-series	484	2026	2026	1	12
+series	484	2026	2026	1	
 series	485	2025	2025	1	
 series	486	2025	2025	1	12
 series	487	2025	2025	2	24
 series	488	2020	2020	1	
-series	489	2026	2026	1	12
+series	489	2026	2026	1	14
 series	490	2025	2025	1	12
-series	491	2025	2025	1	52
+series	491	2025	2025	1	64
 series	492	2020	2020	1	20
 series	493	2020	2020	1	
 series	494	2025	2025	1	13
@@ -1599,7 +1599,7 @@ series	516	2021	2025	3	24
 series	517	2025	2025	1	12
 series	518	2025	2025	1	
 series	519	2025	2025	1	
-series	520	2026	2026	1	24
+series	520	2026	2026	1	13
 series	521	2020	2020	1	26
 series	522	2020	2020	1	
 series	523	2020	2020	1	
@@ -1633,7 +1633,7 @@ series	550	2026	2026	1	12
 series	551	2020	2020	1	13
 series	552	2025	2025	1	12
 series	553	2025	2025	1	12
-series	554	2026	2026	1	1
+series	554	2026	2026	1	12
 series	555	2019	2026	4	89
 series	556	2020	2020	1	
 series	557	2020	2020	1	12
@@ -1643,12 +1643,12 @@ series	560	2020	2020	1	13
 series	561	2025	2025	1	
 series	562	2025	2025	1	
 series	563	2025	2025	1	
-series	564	2026	2026	1	26
+series	564	2026	2026	1	13
 series	565	2020	2020	1	13
 series	566	2026	2026	1	12
 series	567	2020	2020	1	12
-series	568	2026	2026	1	1
-series	569	2026	2026	1	12
+series	568	2026	2026	1	8
+series	569	2026	2026	1	13
 series	570	2020	2020	1	
 series	571	2020	2020	1	50
 series	572	2025	2025	1	24
@@ -1660,11 +1660,11 @@ series	577	2026	2026	1	12
 series	578	2020	2020	1	
 series	579	2023	2025	2	28
 series	580	2025	2026	2	22
-series	581	2026	2026	1	1
+series	581	2026	2026	1	12
 series	582	2025	2025	1	
 series	583	2025	2025	1	
 series	584	2025	2025	1	
-series	585	2026	2026	1	51
+series	585	2026	2026	1	22
 series	586	2020	2020	1	38
 series	587	2026	2026	1	26
 series	588	2020	2020	1	48
@@ -1729,7 +1729,7 @@ series	646	2020	2020	1	12
 series	647	2025	2025	1	
 series	648	2025	2025	1	13
 series	649	2025	2025	1	
-series	650	2026	2026	1	1
+series	650	2026	2026	1	
 series	651	2020	2020	1	52
 series	652	2026	2026	1	12
 series	653	2020	2020	1	
@@ -1740,7 +1740,7 @@ series	657	2025	2025	1	12
 series	658	2025	2025	1	12
 series	659	2020	2020	1	2
 series	660	2026	2026	1	12
-series	661	2026	2026	1	3
+series	661	2026	2026	1	12
 series	662	2025	2025	1	48
 series	663	2020	2020	1	12
 series	664	2020	2020	1	
@@ -1757,7 +1757,7 @@ series	674	2025	2025	1
 series	675	2020	2020	1	12
 series	676	2026	2026	1	12
 series	677	2021	2025	2	13
-series	678	2025	2026	2	1
+series	678	2025	2026	2	72
 series	679	2025	2025	1	13
 series	680	2026	2026	1	12
 series	681	2025	2025	1	12
@@ -1773,7 +1773,7 @@ series	690	2020	2020	1
 series	691	2015	2025	3	36
 series	692	2020	2020	1	12
 series	693	2020	2020	1	
-series	694	2026	2026	1	12
+series	694	2026	2026	1	24
 series	695	2020	2020	1	
 series	696	2020	2020	1	10
 series	697	2025	2025	1	12
@@ -1805,7 +1805,7 @@ series	722	2020	2020	1	24
 series	723	2020	2020	1	50
 series	724	2020	2020	1	
 series	725	2020	2020	1	
-series	726	2026	2026	1	1
+series	726	2026	2026	1	12
 series	727	2020	2020	1	
 series	728	2020	2020	1	26
 series	729	2020	2020	1	10
@@ -1832,21 +1832,21 @@ series	749	2020	2020	1	12
 series	750	2025	2025	1	26
 series	751	2020	2020	1	26
 series	752	2025	2025	1	
-series	753	2024	2025	2	24
+series	753	2024	2027	2	12
 series	754	2025	2025	1	
 series	755	2024	2025	2	24
 series	756	2016	2026	5	85
 series	757	2020	2020	1	48
 series	758	2020	2020	1	
-series	759	2026	2026	1	12
-series	760	2026	2026	1	12
+series	759	2026	2026	1	13
+series	760	2026	2026	1	13
 series	761	2020	2020	1	
 series	762	2025	2025	1	
 series	763	2020	2022	2	24
-series	764	2026	2026	1	12
+series	764	2026	2026	1	13
 series	765	2020	2020	1	26
 series	766	2025	2025	1	13
-series	767	2026	2026	1	12
+series	767	2026	2026	1	24
 series	768	2020	2020	1	4
 series	769	2025	2025	1	8
 series	770	2020	2020	1	12
@@ -1968,7 +1968,7 @@ series	885	2020	2020	1
 series	886	2025	2025	1	12
 series	887	2024	2025	2	24
 series	888	2026	2026	1	12
-series	889	2018	2026	5	96
+series	889	2018	2026	5	84
 series	890	2025	2025	1	12
 series	891	2020	2020	1	26
 series	892	2026	2026	1	12
@@ -1997,7 +1997,7 @@ series	914	2020	2020	1	48
 series	915	2025	2025	1	
 series	916	2025	2025	1	25
 series	917	2020	2020	1	5
-series	918	2025	2025	1	
+series	918	2025	2025	1	9
 series	919	2025	2025	1	1
 series	920	2025	2025	2	38
 series	921	2025	2025	1	25
@@ -2122,7 +2122,7 @@ series	1039	2020	2020	1
 series	1040	2026	2026	1	12
 series	1041	2025	2025	1	
 series	1042	2020	2020	1	63
-series	1043	2017	2026	4	50
+series	1043	2017	2026	4	54
 series	1044	2025	2025	1	26
 series	1045	2025	2025	1	13
 series	1046	2023	2025	3	37
@@ -2151,7 +2151,7 @@ series	1068	2020	2020	1	104
 series	1069	2025	2025	1	
 series	1070	2020	2020	1	26
 series	1071	2020	2020	1	102
-series	1072	2026	2026	1	12
+series	1072	2027	2027	1	12
 series	1073	2025	2025	1	
 series	1074	2020	2020	1	
 series	1075	2025	2025	1	12
@@ -2177,7 +2177,7 @@ season	adachi-to-shimamura-s1	16	1		2020	FALL		12		109287	14904		371108
 season	agisang-eo-ollie-tululutulu-s1	17	1		2020	SPRING		12						
 season	aharen-san-wa-hakarenai-s1	18	1		2022	SPRING		12		137281	16505		407833	
 season	aharen-san-wa-hakarenai-s2	18	2		2025	SPRING		12		179979	18798		407833	
-movie	ai-shitteru-film	19			2020				Aiしてる|ja=Aiしてる|ja-Latn=AI Shitteru					
+movie	ai-shitteru-film	19			2024				Aiしてる|ja=Aiしてる|ja-Latn=AI Shitteru					
 movie	aikatsu-memorial-stage-kagayaki-no-unit-cup-film	20			2025				アイカツ！メモリアルステージ ～輝きのユニットカップ～|ja=アイカツ！メモリアルステージ ～輝きのユニットカップ～|ja-Latn=Aikatsu! Memorial Stage: Kagayaki no Unit Cup	194889				
 movie	aikatsu-memorial-stage-film	21			2025				アイカツ！メモリアルステージ|ja=アイカツ！メモリアルステージ|ja-Latn=Aikatsu! Memorial Stage					
 movie	aikatsu-x-pripara-the-movie-deai-no-kiseki-film	22			2025				アイカツ! × プリパラ THE MOVIE -出会いのキセキ!-|ja=アイカツ! × プリパラ THE MOVIE -出会いのキセキ!-|ja-Latn=Aikatsu! x PriPara the Movie: Deai no Kiseki!	191403	19306			
@@ -2257,7 +2257,7 @@ season	bingqiu-xuanfeng-2nd-season-s1	87	1		2025	WINTER		26
 movie	birth-the-cycles-of-life-film	88			2020				Birthーめぐるいのちー|ja=Birthーめぐるいのちー|ja-Latn=Birth: The Cycles of Life					
 season	bite-choicar-s1	89	1		2020	SPRING		26						
 season	black-clover-s1	90	1		2017	FALL		170		97940	12665		331753	
-season	black-clover-s2	90	2		2026	WINTER		1		195604	19433			
+season	black-clover-s2	90	2		2026	FALL		12		195604	19433		331753	
 season	bna-s1	91	1		2020	SPRING		12		110354	14997		366460	
 season	boku-no-hero-academia-s1	92	1		2016	SPRING		13		21459	11739		305074	
 season	boku-no-hero-academia-s2	92	2		2017	SPRING		25		21856	12233		305074	
@@ -2279,18 +2279,18 @@ season	bugsbot-g-s1	101	1		2020	FALL		15
 season	bukchon-5ragil-ssangdungine-s1	102	1		2025	SUMMER		12						
 season	bukiyou-na-senpai-s1	103	1		2025	FALL		12		185575	19056		452709	
 season	bungou-stray-dogs-wan-s1	104	1		2021	WINTER		12		120150	15602		392195	
-season	bungou-stray-dogs-wan-s2	104	2		2026	WINTER		12		201667	19698			
+season	bungou-stray-dogs-wan-s2	104	2		2026	SUMMER		12		201667	19698		392195	
 season	bungou-to-alchemist-shinpan-no-haguruma-s1	105	1		2020	SPRING		13		114411	15328		378034	
 movie	burn-the-witch-film	106			2020				Burn The Witch					
 season	busamen-gachi-fighter-s1	107	1		2025	SUMMER		12		184575	18996		456807	
 season	busu-ni-hanataba-wo-s1	108	1		2025	SUMMER		13		156395	17700		426815	
 season	bye-bye-earth-s1	109	1		2024	SUMMER		10		157371	17723		427299	
 season	bye-bye-earth-s2	109	2		2025	SPRING		10		181078	18862		427299	
-season	candy-caries-s1	110	1		2026	SPRING		1		205772				
+season	candy-caries-s1	110	1		2026	SPRING		24		205772	20012			
 season	cardfight-vanguard-divinez-deluxe-hen-s1	111	1		2025	WINTER		13		182920	19050		245821	
 season	cardfight-vanguard-divinez-deluxe-kesshou-hen-s1	112	1		2025	SUMMER		12		191994	19352			
-season	cardfight-vanguard-divinez-genma-seisen-hen-s1	113	1		2026	WINTER		10		203296	19780			
-season	catch-tiniping-s1	114	1		2020	SPRING		52		132034				
+season	cardfight-vanguard-divinez-genma-seisen-hen-s1	113	1		2026	WINTER		12		203296	19780			
+season	catch-tiniping-s1	114	1		2020	SPRING		52		132034	19336			
 movie	chainsaw-man-movie-reze-hen-film	115			2025				チェンソーマン レゼ篇|ja=チェンソーマン レゼ篇|ja-Latn=Chainsaw Man Movie: Reze-hen	171627	18324		397934	
 season	champignon-no-majo-s1	116	1		2026	WINTER		12		185514	19046		457766	
 season	chanto-suenai-kyuuketsuki-chan-s1	117	1		2025	FALL		12		186524	19141		466129	
@@ -2354,12 +2354,12 @@ season	demon-slayer-s3	169	3		2022	WINTER		11	鬼滅の刃 遊郭編|en=Entertai
 season	demon-slayer-s4	169	4		2023	SPRING		11	鬼滅の刃 刀鍛冶の里編|en=Swordsmith Village Arc|ja=鬼滅の刃 刀鍛冶の里編|ja-Latn=Kimetsu no Yaiba: Katanakaji no Sato-hen	145139	17198		348545	
 season	demon-slayer-s5	169	5		2024	SPRING		8	鬼滅の刃 柱稽古編|en=Hashira Training Arc|ja=鬼滅の刃 柱稽古編|ja-Latn=Kimetsu no Yaiba: Hashira Geiko-hen	166240	18067		348545	
 movie	demon-slayer-mugen-train-film	169			2020				劇場版 鬼滅の刃 無限列車編|en=Mugen Train|ja=劇場版 鬼滅の刃 無限列車編|ja-Latn=Kimetsu no Yaiba Movie: Mugen Ressha-hen	112151	15113		348545	
-movie	demon-slayer-infinity-castle-1	169			2025				劇場版 鬼滅の刃 無限城編|en=Infinity Castle|ja=劇場版 鬼滅の刃 無限城編|ja-Latn=Kimetsu no Yaiba Movie 1: Mugenjou-hen - Akaza Sairai	178788	18699			
+movie	demon-slayer-infinity-castle-1	169			2025				劇場版 鬼滅の刃 無限城編|en=Infinity Castle|ja=劇場版 鬼滅の刃 無限城編|ja-Latn=Kimetsu no Yaiba Movie 1: Mugenjou-hen - Akaza Sairai	178788	18699		348545	
 season	diamond-no-ace-s1	170	1		2013	FALL		75		18689	9881		273005	
 season	diamond-no-ace-s2	170	2		2015	SPRING		51		21085	11115		273005	
 season	diamond-no-ace-s3	170	3		2019	SPRING		52	ダイヤのA act II|en=Act II|ja=ダイヤのA act II|ja-Latn=Diamond no Ace: Act II	105749	14504		273005	
-season	diamond-no-ace-s4	170	4		2026	SPRING		12	ダイヤのA actII -Second Season-|en=Act II Second Season|ja=ダイヤのA actII -Second Season-|ja-Latn=Diamond no Ace: Act II Second Season	177634	18638		273005	
-season	digimon-beatbreak-s1	171	1		2025	FALL		24		188388	19230		461683	
+season	diamond-no-ace-s4	170	4		2026	SPRING		13	ダイヤのA actII -Second Season-|en=Act II Second Season|ja=ダイヤのA actII -Second Season-|ja-Latn=Diamond no Ace: Act II Second Season	177634	18638		273005	
+season	digimon-beatbreak-s1	171	1		2025	FALL		36		188388	19230		461683	
 movie	dinoman-mudeungsan-gonglyongui-tansaeng-film	172			2025				다이노맨: 무등산 공룡의 탄생|ko=다이노맨: 무등산 공룡의 탄생|ko-Latn=Dinoman: Mudeungsan Gonglyongui Tansaeng					
 season	dinoster-gonglyongsuhodae-3rd-season-s1	173	1		2025	FALL		26						
 movie	dive-in-film	174			2025				ダイブイン!|ja=ダイブイン!|ja-Latn=Dive In!	185903	19171			
@@ -2382,7 +2382,7 @@ season	douse-koishite-shimaunda-s2	188	2		2026	WINTER		12		189137	19250		446692
 season	doushitemo-eto-ni-hairitai-2-s1	189	1		2020	FALL		13		157171	17111			
 season	dr-stone-science-future-s1	190	1		2025	WINTER		12		172019	18336		355774	
 season	dr-stone-science-future-s2p2	190	2		2025	SUMMER		12		189117	19248		355774	
-season	dr-stone-science-future-s3p3	190	3		2026	SPRING		12		199221	19614		355774	
+season	dr-stone-science-future-s3p3	190	3		2026	SPRING		13		199221	19614		355774	
 movie	dragon-heart-reikai-tanbouki-film	191			2025				ドラゴン・ハート―霊界探訪記―|ja=ドラゴン・ハート―霊界探訪記―|ja-Latn=Dragon Heart: Reikai Tanbouki	186935				
 season	dragon-quest-dai-no-daibouken-2020-s1	192	1		2020	FALL		100		114099	15321		374191	
 movie	dragon-s-delusion-preface-film	193			2020				離騷幻覺－序|ja=離騷幻覺－序|ja-Latn=Dragon's Delusion: Preface					
@@ -2396,7 +2396,7 @@ movie	eiga-crayon-shin-chan-gekitotsu-rakuga-kingdom-to-hobo-yonin-no-yusha-film
 movie	eiga-love-live-nijigasaki-gakuen-school-idol-doukoukai-kanketsuhen-dai-2-shou-film	201			2025				映画ラブライブ！虹ヶ咲学園スクールアイドル同好会 完結編 第2章|ja=映画ラブライブ！虹ヶ咲学園スクールアイドル同好会 完結編 第2章|ja-Latn=Eiga Love Live! Nijigasaki Gakuen School Idol Doukoukai: Kanketsuhen Dai 2 Shou					
 season	eizouken-ni-wa-te-wo-dasu-na-s1	202	1		2020	WINTER		12		109298	14907		370769	
 movie	ejen-ali-the-movie-2-film	203			2025				Ejen Ali: The Movie 2					
-season	eleceed-s1	204	1		2026	WINTER		1		195350	19425			
+season	eleceed-s1	204	1		2027	WINTER		1		195350	19425			
 movie	empty-hands-film	205			2020				おうさま・ひめ・ぶた・こじき|ja=おうさま・ひめ・ぶた・こじき|ja-Latn=Empty Hands	169382				
 season	enen-no-shouboutai-s1	206	1		2019	SUMMER		24		105310	14488		355480	
 season	enen-no-shouboutai-s2	206	2		2020	SUMMER		24		114236	15335		355480	
@@ -2535,7 +2535,7 @@ season	hero-circle-s1	317	1		2020	SUMMER		26
 season	heya-camp-s1	318	1		2020	WINTER		12		104461	14439		330692	
 movie	heya-nikki-film	319			2025				部屋日記|ja=部屋日記|ja-Latn=Heya Nikki	205843				
 season	hibi-wa-sugiredo-meshi-umashi-s1	320	1		2025	SPRING		12		185939	19083		458369	
-season	hidarikiki-no-eren-s1	321	1		2026	SPRING		12		158036	17751		468660	
+season	hidarikiki-no-eren-s1	321	1		2026	SPRING		13		158036	17751		468660	
 season	higeki-no-genkyou-to-naru-saikyou-gedou-last-boss-joou-wa-s1	322	1		2023	SUMMER		12		156040	17688		426528	
 season	higeki-no-genkyou-to-naru-saikyou-gedou-last-boss-joou-wa-s2	322	2		2026	SPRING		12		195268	19420		426528	
 movie	high-school-fleet-movie-film	323			2020				ハイスクール・フリート 劇場版|ja=ハイスクール・フリート 劇場版|ja-Latn=High School Fleet Movie	101499	14017		306743	
@@ -2551,13 +2551,13 @@ season	himesama-goumon-no-jikan-desu-s2	330	2		2026	WINTER		12		176370	18566		43
 season	himitsu-no-aipri-s1	331	1		2024	SPRING		51		171080	18452		445261	
 season	himitsu-no-aipri-s2	331	2		2025	SPRING		51		184470	19205		445261	
 season	himitsukessha-taka-no-tsume-golden-spell-s1	332	1		2020	FALL		12		125153	15759			
-season	hokuto-no-ken-fist-of-the-north-star-s1	333	1		2026	SPRING		12		169228	18190		465216	
+season	hokuto-no-ken-fist-of-the-north-star-s1	333	1		2026	SPRING		14		169228	18190		465216	
 season	hokuto-no-ken-kenougun-zako-tachi-no-banka-s1	334	1		2026	WINTER		12		198720				
 season	honey-lemon-soda-s1	335	1		2025	WINTER		12		175443	18516		446877	
 season	honzuki-no-gekokujou-s1	336	1		2019	FALL		14		108268	14727		366263	
 season	honzuki-no-gekokujou-s2	336	2		2020	SPRING		12		113693	15293		366263	
 season	honzuki-no-gekokujou-s3	336	3		2022	SPRING		10		121176	15634		366263	
-season	honzuki-no-gekokujou-s4	336	4		2026	SPRING		24	本好きの下剋上 司書になるためには手段を選んでいられません 第4期|ja=本好きの下剋上 司書になるためには手段を選んでいられません 第4期|ja-Latn=Ryoushu no Youjo	171110	18302		366263	
+season	honzuki-no-gekokujou-s4	336	4		2026	SPRING		24	小书痴的下克上 〜为了成为图书管理员而不择手段〜 第四季|ja=小书痴的下克上 〜为了成为图书管理员而不择手段〜 第四季|ja-Latn=Ryoushu no Youjo	171110	18302		366263	
 season	hoppe-chan-sun-oukoku-to-kuro-hoppe-dan-no-himitsu-s1	337	1		2026	WINTER		12		203148	19725		466523	
 movie	hoshi-ni-kataru-kyouryuu-film	338			2020				星にかたる恐竜|ja=星にかたる恐竜|ja-Latn=Hoshi ni Kataru Kyouryuu					
 movie	hoshi-no-kodomo-to-hajimari-no-ki-film	339			2025				夢の島|ja=夢の島|ja-Latn=Hoshi no Kodomo to Hajimari no Ki	185900	19169			
@@ -2571,7 +2571,7 @@ movie	housenka-film	346			2025				ホウセンカ|ja=ホウセンカ|ja-Latn=Hou
 movie	hspproject-film	347			2020				HSPProject					
 season	hulaing-babies-aratame-staying-babies-s1	348	1		2020	SUMMER		4		120211	15588			
 season	hulaing-babies-petit-s1	349	1		2020	WINTER		12		113463	15280		374495	
-season	hyakki-yakou-shou-s1	350	1		2026	SPRING		1		207675				
+season	hyakki-yakou-shou-s1	350	1		2026	SPRING		12		207675	20000			
 movie	hyakuemu-film	351			2025				100미터|ko=100미터|ko-Latn=Hyakuemu.	177687	18648			
 season	hyakushou-kizoku-s1	352	1		2023	SUMMER		12		155971	17684			
 season	hyakushou-kizoku-s2	352	2		2024	FALL		12		171689	18328		426432	
@@ -2579,9 +2579,9 @@ season	hyakushou-kizoku-s3	352	3		2025	FALL		12		185694	19065
 movie	hypnosis-mic-division-rap-battle-movie-film	353			2025				ヒプノシスマイク -Division Rap Battle- 映画|ja=ヒプノシスマイク -Division Rap Battle- 映画|ja-Latn=Hypnosis Mic: Division Rap Battle Movie	187305	19076			
 season	i-want-to-be-his-prey-s1	354	1		2020	SUMMER		3						
 movie	i-film	355			2025				I	205842				
-season	ibitte-konai-gibo-to-gishi-s1	356	1		2026	WINTER		12		196356	19492		466092	
+season	ibitte-konai-gibo-to-gishi-s1	356	1		2026	SUMMER		12		196356	19492		466092	
 movie	ichigo-ame-film	357			2020				いちご飴|ja=いちご飴|ja-Latn=Ichigo Ame	151091				
-season	ichijouma-mankitsugurashi-s1	358	1		2026	SPRING		12		195734	19455		465639	
+season	ichijouma-mankitsugurashi-s1	358	1		2026	SPRING		11		195734	19455		465639	
 season	id-invaded-s1	359	1		2020	WINTER		13		110350	14987		370377	
 movie	idolish7-first-beat-theatrical-compilation-part-ii-film	360			2025				アイドリッシュセブン First BEAT! 劇場総集編|ja=アイドリッシュセブン First BEAT! 劇場総集編|ja-Latn=IDOLiSH7: First BEAT! Theatrical Compilation - Part II	191893				
 movie	idolish7-first-beat-theatrical-compilation-film	361			2025				アイドリッシュセブン First BEAT! 劇場総集編|ja=アイドリッシュセブン First BEAT! 劇場総集編|ja-Latn=IDOLiSH7: First BEAT! Theatrical Compilation	186346				
@@ -2630,7 +2630,7 @@ season	jigokuraku-s2	393	2		2026	WINTER		12		166613	18090		402474
 season	jigu-ui-juin-eun-goyangi-da-s1	394	1		2025	SPRING		13		191374				
 movie	jihyeloun-bangguseog-saenghwal-film	395			2020				지혜로운 방구석 생활|ko=지혜로운 방구석 생활|ko-Latn=Jihyeloun Bangguseog Saenghwal					
 season	jingai-kyoushitsu-no-ningengirai-kyoushi-s1	396	1		2026	WINTER		13		198374	19564		467839	
-season	jirai-nan-desu-ka-chihara-san-s1	397	1		2026	WINTER		12		204579	19791		471946	
+season	jirai-nan-desu-ka-chihara-san-s1	397	1		2027	WINTER		12		204579	19791		471946	
 season	jishou-akuyaku-reijou-na-konyakusha-no-kansatsu-kiroku-s1	398	1		2026	SPRING		12		192808	19328		463583	
 season	jiutian-xing-dai-ni-wan-zhuan-xiqu-s1	399	1		2020			30						
 movie	jixian-chengshi-film	400			2025				极限城市|ja=极限城市|ja-Latn=Jixian Chengshi					
@@ -2705,7 +2705,7 @@ movie	kidou-senshi-gundam-tekketsu-no-orphans-urdr-hunt-chiisana-chousensha-no-k
 season	kijin-gentoushou-s1	452	1		2025	SPRING		24		143598	16614		442540	
 season	kikaijikake-no-marie-s1	453	1		2025	FALL		12		179992	18803		452926	
 season	kikansha-no-mahou-wa-tokubetsu-desu-s1	454	1		2023	FALL		12		163142	17944		432815	
-season	kikansha-no-mahou-wa-tokubetsu-desu-s2	454	2		2026	WINTER		12		172192	18345			
+season	kikansha-no-mahou-wa-tokubetsu-desu-s2	454	2		2026	FALL		12		172192	18345		432815	
 season	kill-ao-s1	455	1		2026	SPRING		12		198113	19546		467414	
 season	kimi-no-koto-ga-daidaidaidaidaisuki-na-100-nin-no-kanojo-s1	456	1		2023	FALL		12		162694	17906		432050	
 season	kimi-no-koto-ga-daidaidaidaidaisuki-na-100-nin-no-kanojo-s2	456	2		2025	WINTER		12		172258	18343		432050	
@@ -2748,15 +2748,15 @@ season	koikeya-sdgs-gekijou-suss-to-tina-s6	480	6		2025	FALL		13		204621
 season	koisuru-asteroid-s1	481	1		2020	WINTER		12		108092	14707		371444	
 season	kokoko-allu-s1	482	1		2020	SPRING		34						
 season	komatta-jiisan-s1	483	1		2020	SPRING		13		115892	15316			
-season	komekami-girls-s1	484	1		2026	SPRING		12		209940	19932		476071	
+season	komekami-girls-s1	484	1		2026	SPRING				209940				
 movie	kono-hon-wo-nusumu-mono-wa-film	485			2025				この本を盗む者は|ja=この本を盗む者は|ja-Latn=Kono Hon wo Nusumu Mono wa	193923	19368			
 season	kono-kaisha-ni-suki-na-hito-ga-imasu-s1	486	1		2025	WINTER		12		179696	18770		452466	
 season	kono-koi-de-hanaji-wo-tomete-s1	487	1		2025	SPRING		12						
 season	kono-koi-de-hanaji-wo-tomete-s2	487	2		2025	SPRING		12			19428			
 movie	kono-sekai-no-tanoshimikata-secret-story-film-film	488			2020				この世界の楽しみ方~Secret Story Film~|ja=この世界の楽しみ方~Secret Story Film~|ja-Latn=Kono Sekai no Tanoshimikata: Secret Story Film	123434	15706			
-season	koori-no-jouheki-s1	489	1		2026	SPRING		12		186497	19139		459627	
+season	koori-no-jouheki-s1	489	1		2026	SPRING		14		186497	19139		459627	
 season	koujo-denka-no-kateikyoushi-s1	490	1		2025	SUMMER		12		170113	18242		440861	
-season	koupen-chan-s1	491	1		2025	SPRING		52		185646	19058		457929	
+season	koupen-chan-s1	491	1		2025	SPRING		64		185646	19058		457929	
 season	koushui-zha-wan-s1	492	1		2020			20						
 movie	kouya-no-kotobuki-hikoutai-kanzenban-film	493			2020				荒野のコトブキ飛行隊 完全版|ja=荒野のコトブキ飛行隊 完全版|ja-Latn=Kouya no Kotobuki Hikoutai Kanzenban	115082	15378		354636	
 season	kowloon-generic-romance-s1	494	1		2025	SPRING		13		182814	18917		455388	
@@ -2795,7 +2795,7 @@ movie	let-s-make-a-mug-too-film	516			2025				劇場版「やくならマグカ�
 season	let-s-play-quest-darake-no-my-life-s1	517	1		2025	FALL		12		193968	19369		440965	
 movie	liao-zhai-lanruo-si-film	518			2025				聊斋：兰若寺|ja=聊斋：兰若寺|ja-Latn=Liao Zhai: Lanruo Si					
 movie	liaozhai-lanre-si-film	519			2025				聊斋：兰若寺|zh-Latn=Liaozhai: Lanre Si	206066				
-season	liar-game-s1	520	1		2026	SPRING		24		197754	19538		467209	
+season	liar-game-s1	520	1		2026	SPRING		13		197754	19538		467209	
 season	ling-cao-xiao-zhanshi-s1	521	1		2020			26						
 movie	lip-lip-film-live-kono-sekai-no-tanoshimikata-film	522			2020				LIP×LIP FILM×LIVE〜この世界の楽しみ方〜|ja=LIP×LIP FILM×LIVE〜この世界の楽しみ方〜|ja-Latn=LIP×LIP FILM×LIVE: Kono Sekai no Tanoshimikata					
 movie	liqiu-film	523			2020				立秋|ja=立秋|ja-Latn=Liqiu					
@@ -2832,7 +2832,7 @@ season	mahou-no-shimai-lulutto-lilly-s1	550	1		2026	SPRING		12		178749	19214		46
 season	mahouka-koukou-no-rettousei-raihousha-hen-s1	551	1		2020	FALL		13		112300	15132		278329	
 season	mahoutsukai-no-yakusoku-s1	552	1		2025	WINTER		12		170916	18599		449966	
 season	mahoutsukai-precure-mirai-days-s1	553	1		2025	WINTER		12		162722	17908		304476	
-season	maid-san-wa-taberu-dake-s1	554	1		2026	SPRING		1		197868	19541		467292	
+season	maid-san-wa-taberu-dake-s1	554	1		2026	SPRING		12		197868	19541		467292	
 season	mairimashita-iruma-kun-s1	555	1		2019	FALL		23		107693	14660		369144	
 season	mairimashita-iruma-kun-s2	555	2		2021	SPRING		21		116338	15428		369144	
 season	mairimashita-iruma-kun-s3	555	3		2022	FALL		21		139092	16627		369144	
@@ -2843,14 +2843,14 @@ season	major-2nd-2nd-season-s1	558	1		2020	SPRING		25		112302	15133		341436
 season	majutsushi-kunon-wa-mieteiru-s1	559	1		2026	WINTER		13		186333	19131		459339	
 season	majutsushi-orphen-hagure-tabi-s1	560	1		2020	WINTER		13		101367	13964		372939	
 movie	make-a-girl-film	561			2025				メイク ア ガール|ja=メイク ア ガール|ja-Latn=Make a Girl	154064	18460			
-movie	mamiko-no-unko-film	562			2025				マミ⼦のウン子|ja=マミ⼦のウン子|ja-Latn=Mamiko no Unko					
+movie	mamiko-no-unko-film	562			2025				マミ子のウン子|ja=マミ子のウン子|ja-Latn=Mamiko no Unko	212568				
 movie	mao-he-lao-shu-xing-pan-qi-yuan-film	563			2025				猫和老鼠：星盘奇缘|zh-Latn=Mao he Lao Shu: Xing Pan qi Yuan	206919				
-season	mao-s1	564	1		2026	SPRING		26		196012	19469		465787	
+season	mao-s1	564	1		2026	SPRING		13		196012	19469		465787	
 season	maou-gakuin-no-futekigousha-shijou-saikyou-no-maou-no-shiso-tensei-shite-shison-tachi-no-gakkou-e-kayou-s1	565	1		2020	SUMMER		13		112301	15131		375927	
 season	maou-no-musume-wa-yasashisugiru-s1	566	1		2026	WINTER		12		194742	19398		464963	
 season	maoujou-de-oyasumi-s1	567	1		2020	FALL		12		111428	15095		387840	
-season	marika-chan-no-koukando-wa-bukkowareteiru-s1	568	1		2026	SPRING		1		202523	19730		471300	
-season	marriagetoxin-s1	569	1		2026	SPRING		12		199547	19625		468734	
+season	marika-chan-no-koukando-wa-bukkowareteiru-s1	568	1		2026	SPRING		8		202523	19730		471300	
+season	marriagetoxin-s1	569	1		2026	SPRING		13		199547	19625		468734	
 movie	marudase-kintarou-film	570			2020				まるだせ金太狼|ja=まるだせ金太狼|ja-Latn=Marudase Kintarou	118936	15302			
 season	marumaru-manul-s1	571	1		2020	WINTER		50		114657	15317			
 season	mashin-souzouden-wataru-s1	572	1		2025	WINTER		24		173333	18406		444740	
@@ -2865,11 +2865,11 @@ season	me-roboco-s1	579	1		2023	WINTER		28		150117	17428		420682
 movie	me-roboco-film	579			2025				僕とロボコ|ja=僕とロボコ|ja-Latn=Me & Roboco					
 season	medalist-s1	580	1		2025	WINTER		13		165171	18030		433953	
 season	medalist-s2	580	2		2026	WINTER		9		189275	19260		433953	
-season	megami-isekai-tensei-nani-ni-naritai-desu-ka-ore-yuusha-s1	581	1		2026	SPRING		1		206951	19862		473229	
+season	megami-isekai-tensei-nani-ni-naritai-desu-ka-ore-yuusha-s1	581	1		2026	SPRING		12		206951	19862		473229	
 movie	megami-korin-before-koko-debut-hen-after-proposal-hen-film	582			2025				女神降臨 Before 高校デビュー編／After プロポーズ編|ja=女神降臨 Before 高校デビュー編／After プロポーズ編|ja-Latn=Megami Kōrin Before Kōkō Debut-hen / After Proposal-hen					
 movie	meitantei-conan-movie-28-sekigan-no-flashback-film	583			2025				名探偵コナン 隻眼の残像(フラッシュバック)|ja=名探偵コナン 隻眼の残像(フラッシュバック)|ja-Latn=Meitantei Conan Movie 28: Sekigan no Flashback	185212	19025			
 movie	meitantei-conan-senkou-no-payload-film	584			2025				名探偵コナン 閃光の宇宙船|ja=名探偵コナン 閃光の宇宙船|ja-Latn=Meitantei Conan: Senkou no Payload					
-season	meitantei-precure-s1	585	1		2026	WINTER		51		202957	19742		470961	
+season	meitantei-precure-s1	585	1		2026	WINTER		22		202957	19742		470961	
 season	meng-zhou-shaonian-zhi-xihan-gongzhu-s1	586	1		2020	FALL		38						
 season	metal-cardbot-w-s1	587	1		2026	WINTER		26		204626				
 season	mewkledreamy-s1	588	1		2020	SPRING		48		111310	15059			
@@ -2943,7 +2943,7 @@ season	nekopara-s1	646	1		2020	WINTER		12		106863	14570		335088
 movie	neo-atom-tanjou-film	647			2025				ネオアトム誕生|ja=ネオアトム誕生|ja-Latn=Neo Atom Tanjou	188526				
 season	new-panty-and-stocking-with-garterbelt-s1	648	1		2025	SUMMER		13		151799	17493		188551	
 movie	nezha-zhi-mo-tong-nao-hai-film	649			2025				哪吒之魔童闹海|zh-Latn=Nezha Zhi Mo Tong Nao Hai	186861	19537			
-season	nezumi-kun-no-chokki-tv-s1	650	1		2026	SPRING		1		198411				
+season	nezumi-kun-no-chokki-tv-s1	650	1		2026	SPRING				198411				
 season	ni-hao-bu-bu-s1	651	1		2020			52						
 season	nigashita-sakana-wa-ookikatta-ga-tsuriageta-sakana-ga-s1	652	1		2026	SPRING		12		201817	19699		469985	
 movie	nihon-chinbotsu-2020-gekijou-henshuuban-shizumanu-kibou-film	653			2020				日本沈没2020 劇場編集版 -シズマヌキボウ-|ja=日本沈没2020 劇場編集版 -シズマヌキボウ-|ja-Latn=Nihon Chinbotsu 2020 Gekijou Henshuuban: Shizumanu Kibou		16547			
@@ -2954,7 +2954,7 @@ season	ninja-to-gokudou-s1	657	1		2025	FALL		12		186914	19177		460607
 season	ninja-to-koroshiya-no-futarigurashi-s1	658	1		2025	SPRING		12		177120	18596		449306	
 season	nintama-rantarou-no-uchuu-daibouken-with-cosmic-front-next-2020-s1	659	1		2020	WINTER		2			15477			
 season	nippon-sangoku-s1	660	1		2026	SPRING		12		206914	19861		473228	
-season	niwatori-fighter-s1	661	1		2026	SPRING		3		179813	18772		452575	
+season	niwatori-fighter-s1	661	1		2026	SPRING		12		179813	18772		452575	
 season	nmeneko-s1	662	1		2025	SPRING		48		186313	19197		459332	
 season	no-guns-life-2nd-season-s1	663	1		2020	SUMMER		12		112803	15143		367067	
 movie	no-other-one-film	664			2020				No other one					
@@ -2972,10 +2972,10 @@ season	oda-cinnamon-nobunaga-s1	675	1		2020	WINTER		12		110613	15016		374472
 season	odayaka-kizoku-no-kyuuka-no-susume-s1	676	1		2026	WINTER		12		182771	18914		455309	
 season	odd-taxi-s1	677	1		2021	SPRING		13		128547	15989		397208	
 movie	odd-taxi-film	677			2025				オッドタクシー|ja=オッドタクシー|ja-Latn=Odd Taxi					
-season	odekake-kozame-s2	678	2		2026	SPRING		1		204269				
-movie	odekake-kozame-tokai-no-otomodachi	678			2025				映画 おでかけ子ザメ とかいのおともだち|ja=映画 おでかけ子ザメ とかいのおともだち|ja-Latn=Odekake Kozame Movie: Tokai no Otomodachi	177518	19062			
+season	odekake-kozame-s2	678	2		2026	SPRING		72		204269				
+movie	odekake-kozame-tokai-no-otomodachi	678			2025				おでかけ子ザメ とかいのおともだち|ja=おでかけ子ザメ とかいのおともだち|ja-Latn=Odekake Kozame Movie: Tokai no Otomodachi	177518	19062			
 season	oide-yo-mahou-shoujo-mura-fuhou-senkyo-s1	679	1		2025	SPRING		13		187998	19282		461487	
-season	ojisan-wa-kawaii-mono-ga-osuki-s1	680	1		2026	WINTER		12		202079	19705		470200	
+season	ojisan-wa-kawaii-mono-ga-osuki-s1	680	1		2026	FALL		12		202079	19705		470200	
 season	okinawa-de-suki-ni-natta-ko-ga-hougen-sugite-tsurasugiru-s1	681	1		2025	WINTER		12		166699	18095		436827	
 season	okiraku-ryoushu-no-tanoshii-ryouchi-bouei-seisankei-s1	682	1		2026	WINTER		12		191205	19298		462789	
 season	omae-gotoki-ga-maou-ni-kateru-to-omouna-to-yuusha-party-s1	683	1		2026	WINTER		12		191718	19310		463013	
@@ -2991,7 +2991,7 @@ season	one-punch-man-s2	691	2		2019	SPRING		12		97668	12430		293088
 season	one-punch-man-s3	691	3		2025	FALL		12		153800	17576		293088	
 season	one-room-third-season-s1	692	1		2020	FALL		12		116147	15411		319995	
 movie	one-world-film	693			2020				ONE WORLD					
-season	onegai-aipri-s1	694	1		2026	SPRING		12		206523	19850		474655	
+season	onegai-aipri-s1	694	1		2026	SPRING		24		206523	19850		474655	
 movie	ongaku-film	695			2020				音楽|ja=音楽|ja-Latn=Ongaku	111944	9399			
 season	onigiri-ni-naritai-cogimyun-s1	696	1		2020	WINTER		10		140377				
 season	onmyou-kaiten-re-birth-s1	697	1		2025	SUMMER		12		187387	19200		461053	
@@ -3028,7 +3028,7 @@ season	otaku-ni-yasashii-gal-wa-inai-s1	708	1		2026	SPRING		12		199588	19628		46
 season	otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-s1	709	1		2020	SPRING		12		104647	14449		371437	
 season	otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-s2	709	2		2021	SUMMER		12		120209	15604		371437	
 season	otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-s1	710	1		2022	SPRING		12		142074	17005		412826	
-season	otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-s2	710	2		2026	WINTER		12		159309	17796			
+season	otome-game-sekai-wa-mob-ni-kibishii-sekai-desu-s2	710	2		2026	SUMMER		12		159309	17796		412826	
 season	otonari-no-tenshi-sama-ni-itsunomanika-dame-ningen-ni-s1	711	1		2023	WINTER		12		143338	17108		414221	
 season	otonari-no-tenshi-sama-ni-itsunomanika-dame-ningen-ni-s2	711	2		2026	SPRING		12		170019	18235		414221	
 season	pai-le-meng-qi-2nd-season-s1	712	1		2020			26						
@@ -3045,14 +3045,14 @@ season	plunderer-s1	722	1		2020	WINTER		24		101168	13826		368562
 season	poccolies-s1	723	1		2020	SPRING		50		115199	15386			
 movie	pokemon-movie-23-koko-film	724			2020				ポケットモンスターココ|ja=ポケットモンスターココ|ja-Latn=Pokemon Movie 23: Koko	114564	14993			
 movie	polka-dot-boy-film	725			2020				Polka-Dot Boy					
-season	ponkotsu-fuuki-iin-to-skirt-take-ga-futekisetsu-na-jk-no-s1	726	1		2026	SPRING		1		189987	19277		462400	
+season	ponkotsu-fuuki-iin-to-skirt-take-ga-futekisetsu-na-jk-no-s1	726	1		2026	SPRING		12		189987	19277		462400	
 movie	pop-up-to-you-film	727			2020				POP UP TO YOU	140378				
 season	porong-porong-pororo-7-s1	728	1		2020	FALL		26		176084				
 season	pororo-donghwanala-s1	729	1		2020	SUMMER		10						
 movie	pororo-movie-badas-sog-daemoheom-film	730			2025				뽀로로 극장판 바닷속 대모험|ko=뽀로로 극장판 바닷속 대모험|ko-Latn=Pororo Movie: Badas-sog Daemoheom					
 season	potion-wagami-wo-tasukeru-s1	731	1		2025	FALL		12		198561	19633		466376	
 season	pporongpporong-ppororo-7-s1	732	1		2020	FALL		26						
-season	princess-catch-tiniping-s1	733	1		2025	FALL		26		199603				
+season	princess-catch-tiniping-s1	733	1		2025	FALL		26		199603	20137			
 season	princess-connect-re-dive-s1	734	1		2020	SPRING		13		107871	14690		377034	
 season	princess-connect-re-dive-s2	734	2		2022	WINTER		12		122808	15690		377034	
 movie	princess-principal-crown-handler-4-film	735			2025				プリンセス・プリンシパル Crown Handler 第4章|ja=プリンセス・プリンシパル Crown Handler 第4章|ja-Latn=Princess Principal: Crown Handler 4	186716				
@@ -3075,9 +3075,9 @@ season	qin-tianlong-wangzi-s1	748	1		2020			26
 season	rail-romanesque-s1	749	1		2020	FALL		12		114263	15338		386577	
 season	rainbow-bubblegem-2-secret-s1	750	1		2025	SPRING		26		188039	19677			
 season	rainbow-ruby-2nd-season-s1	751	1		2020	SPRING		26						
-movie	rakugaki-film	752			2025				落書|ja=落書|ja-Latn=Rakugaki					
+movie	rakugaki-film	752			2025				文学ビデオ|ja=文学ビデオ|ja-Latn=Rakugaki	213367				
 season	ramen-akaneko-s1	753	1		2024	SUMMER		12		170998	18289		443733	
-season	ramen-akaneko-s2	753	2		2025			12		185699	19066			
+season	ramen-akaneko-s2	753	2		2027	WINTER								
 movie	ranbi-wa-film	754			2025				燃比娃|zh-Latn=Ranbi Wa	195456				
 season	ranma-1-2-2024-s1	755	1		2024	FALL		12		178533	18700		451479	
 season	ranma-1-2-2024-s2	755	2		2025	FALL		12		185731	19067		451479	
@@ -3088,16 +3088,16 @@ season	re-zero-kara-hajimeru-isekai-seikatsu-s3	756	3		2024	FALL		16		163134	179
 season	re-zero-kara-hajimeru-isekai-seikatsu-s4	756	4		2026	SPRING		19		189046	19242		305089	
 season	rebirth-s1	757	1		2020	WINTER		48		113469	15014		374471	
 movie	recycle-zoo-mamore-mokuyoubi-wa-shigengomi-no-hi-film	758			2020				りさいくるずー まもれ!もくようびは資源ごみの日|ja=りさいくるずー まもれ!もくようびは資源ごみの日|ja-Latn=Recycle Zoo: Mamore! Mokuyoubi wa Shigengomi no Hi					
-season	reincarnation-no-kaben-s1	759	1		2026	SPRING		12		179950	18791		452801	
-season	replica-datte-koi-wo-suru-s1	760	1		2026	SPRING		12		186744	19158		460313	
+season	reincarnation-no-kaben-s1	759	1		2026	SPRING		13		179950	18791		452801	
+season	replica-datte-koi-wo-suru-s1	760	1		2026	SPRING		13		186744	19158		460313	
 movie	representation-of-light-film	761			2020				光の表象|ja=光の表象|ja-Latn=Representation of Light	169761				
 movie	rest-film	762			2025				Rest (Movie)	200640				
 season	rikei-ga-koi-ni-ochita-no-de-shoumei-shitemita-s1	763	1		2020	WINTER		12		107067	14590		368358	
 season	rikei-ga-koi-ni-ochita-no-de-shoumei-shitemita-s2	763	2		2022	SPRING		12		125124	15788		368358	
-season	rilakkuma-s1	764	1		2026	SPRING		12		183231	18936		472971	
+season	rilakkuma-s1	764	1		2026	SPRING		13		183231	18936		472971	
 season	robocar-poli-song-song-museum-s1	765	1		2020	SUMMER		26						
 season	rock-wa-lady-no-tashinami-deshite-s1	766	1		2025	SPRING		13		179694	18769		452456	
-season	romelia-senki-s1	767	1		2026	WINTER		12		180894	18858		470269	
+season	romelia-senki-s1	767	1		2026	WINTER		24		180894	18858		470269	
 season	ronowe-sensei-no-akuma-na-kami-jugyo-s1	768	1		2020	WINTER		4						
 season	room-of-guilty-pleasure-s1	769	1		2025	FALL		8						
 season	runway-de-waratte-s1	770	1		2020	WINTER		12		111501	15096		369719	
@@ -3115,7 +3115,7 @@ season	san-zhi-songshu-songshu-xiao-zhen-2-s1	779	1		2020			26
 season	sanda-s1	780	1		2025	FALL		12		179302	18751		452103	
 movie	sanguo-de-xingkong-film	781			2025				三国的星空|ja=三国的星空|ja-Latn=Sanguo de Xingkong					
 season	sasaki-to-pii-chan-s1	782	1		2024	WINTER		12		152682	17530		422728	
-season	sasaki-to-pii-chan-s2	782	2		2026	WINTER		12		176314	18563		422728	
+season	sasaki-to-pii-chan-s2	782	2		2026	FALL		12		176314	18563		422728	
 season	sawaranaide-kotesashi-kun-mini-anime-gekijou-s1	783	1		2025	FALL		12		199812				
 season	sawaranaide-kotesashi-kun-s1	784	1		2025	FALL		12		187331	19196		460974	
 season	sazan-gakyuu-s1	785	1		2025	SPRING		5						
@@ -3192,8 +3192,8 @@ season	sono-bisque-doll-wa-koi-wo-suru-s2	843	2		2025	SUMMER		12		154768	17630		
 season	sorairo-utility-s1	844	1		2025	WINTER		12		174596	18484		445890	
 season	sore-dake-ga-neck-s1	845	1		2020	FALL		12		124028	15727		389235	
 movie	sore-ike-anpanman-chapon-no-hero-film	846			2025				えいがそれいけ! アンパンマン チャポンのヒーロー!|ja=えいがそれいけ! アンパンマン チャポンのヒーロー!|ja-Latn=Sore Ike! Anpanman: Chapon no Hero!	186542	19257			
-season	sorotani-no-keibatchi-season-2-s1	847	1		2025	SPRING		4						
-season	sorotani-no-keibatchi-season-3-s1	848	1		2025	FALL		4						
+season	sorotani-no-keibatchi-season-2-s1	847	1		2025	SPRING		4		213459				
+season	sorotani-no-keibatchi-season-3-s1	848	1		2025	FALL		4		213460				
 season	sousei-no-aquarion-myth-of-emotions-s1	849	1		2025	WINTER		12		162921	13987		456359	
 season	sousou-no-frieren-s1	850	1		2023	FALL		28		154587	17617		424536	
 season	sousou-no-frieren-s2	850	2		2026	WINTER		10		182255	18886		424536	
@@ -3247,10 +3247,10 @@ season	tensei-shitara-slime-datta-ken-s1	889	1		2018	FALL		24		101280	13871		352
 season	tensei-shitara-slime-datta-ken-s2p1	889	2		2021	WINTER		12		108511	14767		352408	
 season	tensei-shitara-slime-datta-ken-s2p2	889	2		2021	SUMMER		12		116742	15456		352408	
 season	tensei-shitara-slime-datta-ken-s3	889	3		2024	SPRING		24		156822	17709		352408	
-season	tensei-shitara-slime-datta-ken-s4	889	4		2026	SPRING		24		182205	18884		352408	
+season	tensei-shitara-slime-datta-ken-s4	889	4		2026	SPRING		12		182205	18884		352408	
 season	teogonia-s1	890	1		2025	SPRING		12		176702	18583		448537	
 season	teteru-teddy-bear-maeurui-bimil-s1	891	1		2020	WINTER		26						
-season	tetsunabe-no-jan-s1	892	1		2026	WINTER		12		204060	19768		471657	
+season	tetsunabe-no-jan-s1	892	1		2026	SUMMER		12		204060	19768		471657	
 movie	the-book-of-us-gluon-film	893			2020				The Book of Us : Gluon					
 movie	the-book-of-us-the-demon-film	894			2020				The Book of Us : The Demon					
 movie	the-chronicles-of-rebecca-film	895			2020				レベッカ|ja=レベッカ|ja-Latn=The Chronicles of Rebecca					
@@ -3276,7 +3276,7 @@ season	tobot-v-season-2-s1	914	1		2020	SPRING		48
 movie	toemarok-film	915			2025				퇴마록|ko=퇴마록|ko-Latn=Toemarok	163785				
 season	tokusou-gattai-robo-jobraver-s1	916	1		2025	SUMMER		25						
 season	tokyo-gambo-s1	917	1		2020	FALL		5		126831	15935			
-season	tomica-and-tom-s1	918	1		2025	SUMMER				196227				
+season	tomica-and-tom-s1	918	1		2025	SUMMER		9		196227				
 season	tomica-heroes-jobraver-tokusou-gattai-robo-job-labor-selection-2025-s1	919	1		2025	SUMMER		1			19648			
 season	tomica-heroes-jobraver-tokusou-gattai-robo-job-labor-selection-s1	920	1		2025	SPRING		13			19647			
 season	tomica-heroes-jobraver-tokusou-gattai-robo-job-labor-selection-s2	920	2		2025	SUMMER		25						
@@ -3318,7 +3318,7 @@ season	unnamed-memory-s2	950	2		2025	WINTER		12		178550	18713		428352
 season	upin-ipin-musim-14-s1	951	1		2020	SPRING		15						
 movie	urutau-the-stargazer-film	952			2020				URUTAU the stargazer	140915				
 season	uruwashi-no-yoi-no-tsuki-s1	953	1		2026	WINTER		12		192507	19325		463481	
-season	uso-tantei-tomanto-s1	954	1		2025	FALL		26		199008				
+season	uso-tantei-tomanto-s1	954	1		2025	FALL		26		199008	19875			
 movie	uta-no-prince-sama-movie-taboo-night-kisses-film	955			2025				うたの☆プリンスさまっ♪ TABOO NIGHT XXXX|ja=うたの☆プリンスさまっ♪ TABOO NIGHT XXXX|ja-Latn=Uta no☆Prince-sama♪ Movie: Taboo Night Kisses	172393	18961			
 season	utagoe-wa-mille-feuille-s1	956	1		2025	SUMMER		10		166215	18065		436237	
 season	uzaki-chan-wa-asobitai-s1	957	1		2020	SUMMER		12		115113	15382		381406	
@@ -3416,7 +3416,7 @@ season	yano-kun-no-futsuu-no-hibi-s1	1031	1		2025	FALL		12		183965	18971		453230
 season	yasei-no-last-boss-ga-arawareta-s1	1032	1		2025	FALL		12		180523	18831		453694	
 season	yatogame-chan-kansatsu-nikki-nisatsume-s1	1033	1		2020	WINTER		12		110090	14957		360553	
 movie	yell-for-you-film	1034			2025				エールフォーユー|ja=エールフォーユー|ja-Latn=Yell For You	187582				
-movie	yeon-ui-pyeonji-film	1035			2025				연의 편지|ko=연의 편지|ko-Latn=Yeon-ui Pyeonji	163788				
+movie	yeon-ui-pyeonji-film	1035			2025				縁の手紙|ja=縁の手紙|ja-Latn=Yeon-ui Pyeonji	163788				
 movie	yes-ka-no-ka-hanbun-ka-film	1036			2020				イエスかノーか半分か|ja=イエスかノーか半分か|ja-Latn=Yes ka No ka Hanbun ka	112930	15247			
 season	yofukashi-no-uta-s1	1037	1		2022	SUMMER		13		141391	16971		412374	
 season	yofukashi-no-uta-s2	1037	2		2025	SUMMER		12		175914	18531		412374	
@@ -3428,7 +3428,7 @@ season	youkai-watch-jam-youkai-gakuen-y-n-to-no-souguu-s1	1042	1		2020	WINTER		6
 season	youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-s1	1043	1		2017	SUMMER		12		98659	13153		329822	
 season	youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-s2	1043	2		2022	SUMMER		13		145545	17208		329822	
 season	youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-s3	1043	3		2024	WINTER		13		146066	17237		329822	
-season	youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-s4	1043	4		2026	SPRING		12	Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e: Ninensei-hen (ようこそ実力至上主義の教室へ 2年生編)|ja=Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e: Ninensei-hen (ようこそ実力至上主義の教室へ 2年生編)|ja-Latn=4th Season: 2-nensei-hen 1 Gakki	180745	18844		329822	
+season	youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-s4	1043	4		2026	SPRING		16	Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e: Ninensei-hen (ようこそ実力至上主義の教室へ 2年生編)|ja=Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e: Ninensei-hen (ようこそ実力至上主義の教室へ 2年生編)|ja-Latn=4th Season: 2-nensei-hen 1 Gakki	180745	18844		329822	
 season	youqu-de-chengyu-gushi-s1	1044	1		2025	WINTER		26						
 season	your-forma-s1	1045	1		2025	SPRING		13		167142	18117		436400	
 season	youtunya-s1	1046	1		2023	SPRING		15		162717	17923			
@@ -3461,7 +3461,7 @@ season	zhu-zhu-xia-shenhai-xiao-yingxiong-s1	1068	1		2020	SUMMER		104
 movie	zhu-zhu-xia-yi-zhi-lao-zhu-de-ni-xi-film	1069			2025				猪猪侠·一只老猪的逆袭|ja=猪猪侠·一只老猪的逆袭|ja-Latn=Zhu Zhu Xia: Yi Zhi Lao Zhu De Ni Xi					
 season	zi-sheng-chuanqi-s1	1070	1		2020			26						
 season	zo-zo-zo-zombie-kun-tv-s1	1071	1		2020	SPRING		102		126643	15688			
-season	zombie-no-afureta-sekai-de-ore-dake-ga-osowarenai-s1	1072	1		2026	WINTER		12		174427	18462			
+season	zombie-no-afureta-sekai-de-ore-dake-ga-osowarenai-s1	1072	1		2027	WINTER		12		174427	18462			
 movie	zombieland-saga-movie-yumeginga-paradise-film	1073			2025				ゾンビランドサガ ゆめぎんがパラダイス|ja=ゾンビランドサガ ゆめぎんがパラダイス|ja-Latn=Zombieland Saga Movie: Yumeginga Paradise	140337	16911			
 movie	zui-ke-ai-de-ren-movie-film	1074			2020				最可爱的人|ja=最可爱的人|ja-Latn=Zui Ke Ai De Ren (Movie)					
 season	zutaboro-reijou-wa-ane-no-moto-konyakusha-ni-dekiai-sareru-s1	1075	1		2025	SUMMER		12		179879	18781		452712	

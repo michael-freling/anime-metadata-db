@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: The Titan's Bride
   ordering: absolute
+  externalIds:
+    wikidataId: Q97013015
   seasons:
     - id: the-titan-s-bride-s1
       number: 1

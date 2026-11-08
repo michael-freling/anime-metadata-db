@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Ikebukuro West Gate Park
   ordering: absolute
+  externalIds:
+    wikidataId: Q1050442
   seasons:
     - id: ikebukuro-west-gate-park-s1
       number: 1

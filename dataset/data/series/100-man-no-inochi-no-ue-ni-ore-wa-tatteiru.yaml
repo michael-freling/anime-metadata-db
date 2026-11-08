@@ -4,8 +4,11 @@ series:
   titles:
     original: 100万の命の上に俺は立っている
     translations:
+      en: I'm Standing on a Million Lives
       ja-Latn: 100-man no Inochi no Ue ni Ore wa Tatteiru
   ordering: absolute
+  externalIds:
+    wikidataId: Q87084084
   seasons:
     - id: 100-man-no-inochi-no-ue-ni-ore-wa-tatteiru-s1
       number: 1

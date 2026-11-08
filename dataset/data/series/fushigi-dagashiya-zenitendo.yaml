@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Fushigi Dagashiya Zenitendō
   ordering: absolute
+  externalIds:
+    wikidataId: Q86742976
   seasons:
     - id: fushigi-dagashiya-zenitendo-s1
       number: 1

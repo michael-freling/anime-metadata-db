@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Sing "Yesterday" for Me
   ordering: absolute
+  externalIds:
+    wikidataId: Q3460238
   seasons:
     - id: sing-yesterday-for-me-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Me & Roboco
   ordering: absolute
+  externalIds:
+    wikidataId: Q102249646
   seasons:
     - id: me-roboco-s1
       number: 1
