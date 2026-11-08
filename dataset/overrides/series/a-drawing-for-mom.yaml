@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: a-drawing-for-mom
+  titles:
+    original: A Drawing for Mom
+    translations: { ja-Latn: A Drawing for Mom }
+  movies:
+    - id: a-drawing-for-mom-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [a-drawing-for-mom]

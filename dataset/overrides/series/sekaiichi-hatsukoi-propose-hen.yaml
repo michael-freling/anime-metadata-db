@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sekaiichi-hatsukoi-propose-hen
+  titles:
+    original: 世界一初恋~プロポーズ編~
+    translations: { ja-Latn: "Sekaiichi Hatsukoi: Propose-hen" }
+  movies:
+    - id: sekaiichi-hatsukoi-propose-hen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sekaiichi-hatsukoi-propose-hen]

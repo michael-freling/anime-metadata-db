@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sigan-yeohaengja-luke
+  titles:
+    original: Sigan Yeohaengja Luke
+    translations: { ja-Latn: Sigan Yeohaengja Luke }
+  seasons:
+    - id: sigan-yeohaengja-luke-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sigan-yeohaengja-luke]

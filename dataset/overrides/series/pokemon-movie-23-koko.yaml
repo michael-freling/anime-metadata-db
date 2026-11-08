@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pokemon-movie-23-koko
+  titles:
+    original: 劇場版ポケットモンスター 2020
+    translations: { ja-Latn: "Pokemon Movie 23: Koko" }
+  movies:
+    - id: pokemon-movie-23-koko-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pokemon-movie-23-koko]

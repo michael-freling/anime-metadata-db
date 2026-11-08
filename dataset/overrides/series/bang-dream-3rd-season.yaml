@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bang-dream-3rd-season
+  titles:
+    original: BanG Dream!（バンドリ！）第3期
+    translations: { ja-Latn: BanG Dream! 3rd Season }
+  seasons:
+    - id: bang-dream-3rd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bang-dream-3rd-season]

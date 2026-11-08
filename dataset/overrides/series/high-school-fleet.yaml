@@ -1,0 +1,15 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: high-school-fleet
+  titles:
+    original: ハイスクール・フリート
+    translations: { ja-Latn: High School Fleet }
+  seasons:
+    - id: high-school-fleet-s1
+      number: 1
+  movies:
+    - id: high-school-fleet-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [high-school-fleet]

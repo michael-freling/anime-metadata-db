@@ -1,0 +1,15 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gal-gaku-sei-girls-square-gakuin
+  titles:
+    original: ガル学。〜聖ガールズスクエア学院〜
+    translations: { ja-Latn: Gal-gaku. Sei Girls Square Gakuin }
+  seasons:
+    - id: gal-gaku-sei-girls-square-gakuin-s1
+      number: 1
+    - id: gal-gaku-sei-girls-square-gakuin-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gal-gaku-sei-girls-square-gakuin]

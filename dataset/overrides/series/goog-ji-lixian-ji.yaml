@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: goog-ji-lixian-ji
+  titles:
+    original: Goog Ji Lixian Ji
+    translations: { ja-Latn: Goog Ji Lixian Ji }
+  seasons:
+    - id: goog-ji-lixian-ji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [goog-ji-lixian-ji]

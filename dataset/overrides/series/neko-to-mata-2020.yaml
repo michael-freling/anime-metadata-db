@@ -1,0 +1,15 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: neko-to-mata-2020
+  titles:
+    original: ね子とま太
+    translations: { ja-Latn: Neko to Mata (2020) }
+  seasons:
+    - id: neko-to-mata-2020-s1
+      number: 1
+    - id: neko-to-mata-2020-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [neko-to-mata-2020]

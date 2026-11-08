@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: infinite-dendrogram
+  titles:
+    original: <Infinite Dendrogram>-インフィニット・デンドログラム-
+    translations: { ja-Latn: Infinite Dendrogram }
+  seasons:
+    - id: infinite-dendrogram-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [infinite-dendrogram]

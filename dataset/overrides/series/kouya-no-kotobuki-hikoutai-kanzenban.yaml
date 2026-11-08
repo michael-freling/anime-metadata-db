@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kouya-no-kotobuki-hikoutai-kanzenban
+  titles:
+    original: 荒野のコトブキ飛行隊 完全版
+    translations: { ja-Latn: Kouya no Kotobuki Hikoutai Kanzenban }
+  movies:
+    - id: kouya-no-kotobuki-hikoutai-kanzenban-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kouya-no-kotobuki-hikoutai-kanzenban]

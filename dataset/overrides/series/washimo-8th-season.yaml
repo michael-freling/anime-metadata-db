@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: washimo-8th-season
+  titles:
+    original: わしも-wasimo-(第8シリーズ)
+    translations: { ja-Latn: Washimo 8th Season }
+  seasons:
+    - id: washimo-8th-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [washimo-8th-season]

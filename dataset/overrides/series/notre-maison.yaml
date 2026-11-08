@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: notre-maison
+  titles:
+    original: わたしたちの家
+    translations: { ja-Latn: Notre maison }
+  movies:
+    - id: notre-maison-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [notre-maison]

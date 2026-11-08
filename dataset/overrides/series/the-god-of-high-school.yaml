@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-god-of-high-school
+  titles:
+    original: THE GOD OF HIGH SCHOOL ゴッド・オブ・ハイスクール
+    translations: { ja-Latn: The God of High School }
+  seasons:
+    - id: the-god-of-high-school-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-god-of-high-school]

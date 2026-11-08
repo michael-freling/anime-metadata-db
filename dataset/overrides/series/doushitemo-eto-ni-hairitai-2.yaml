@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: doushitemo-eto-ni-hairitai-2
+  titles:
+    original: どうしても干支にはいりたい2
+    translations: { ja-Latn: Doushitemo Eto ni Hairitai 2 }
+  seasons:
+    - id: doushitemo-eto-ni-hairitai-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [doushitemo-eto-ni-hairitai-2]

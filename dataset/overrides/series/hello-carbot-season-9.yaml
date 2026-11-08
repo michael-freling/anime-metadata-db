@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hello-carbot-season-9
+  titles:
+    original: Hello Carbot Season 9
+    translations: { ja-Latn: Hello Carbot Season 9 }
+  seasons:
+    - id: hello-carbot-season-9-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hello-carbot-season-9]

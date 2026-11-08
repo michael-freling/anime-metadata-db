@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gochuumon-wa-usagi-desu-ka-bloom
+  titles:
+    original: "ご注文はうさぎですか? BLOOM"
+    translations: { ja-Latn: "Gochuumon wa Usagi desu ka? Bloom" }
+  seasons:
+    - id: gochuumon-wa-usagi-desu-ka-bloom-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gochuumon-wa-usagi-desu-ka-bloom]

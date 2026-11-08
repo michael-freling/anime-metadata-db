@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: porong-porong-pororo-7
+  titles:
+    original: Porong Porong Pororo 7
+    translations: { ja-Latn: Porong Porong Pororo 7 }
+  seasons:
+    - id: porong-porong-pororo-7-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [porong-porong-pororo-7]

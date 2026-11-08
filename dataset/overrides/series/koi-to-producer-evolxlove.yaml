@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: koi-to-producer-evolxlove
+  titles:
+    original: 恋とプロデューサー ～EVOL×LOVE～
+    translations: { ja-Latn: "Koi to Producer: EVOLxLOVE" }
+  seasons:
+    - id: koi-to-producer-evolxlove-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [koi-to-producer-evolxlove]

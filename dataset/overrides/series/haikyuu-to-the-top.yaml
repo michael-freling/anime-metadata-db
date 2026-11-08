@@ -1,0 +1,15 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: haikyuu-to-the-top
+  titles:
+    original: ハイキュー!! TO THE TOP
+    translations: { ja-Latn: Haikyuu!! To the Top }
+  seasons:
+    - id: haikyuu-to-the-top-s1
+      number: 1
+    - id: haikyuu-to-the-top-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [haikyuu-to-the-top]

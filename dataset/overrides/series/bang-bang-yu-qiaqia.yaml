@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bang-bang-yu-qiaqia
+  titles:
+    original: Bang Bang Yu Qiaqia
+    translations: { ja-Latn: Bang Bang Yu Qiaqia }
+  seasons:
+    - id: bang-bang-yu-qiaqia-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bang-bang-yu-qiaqia]

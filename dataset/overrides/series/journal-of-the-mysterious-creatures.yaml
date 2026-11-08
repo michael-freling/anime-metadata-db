@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: journal-of-the-mysterious-creatures
+  titles:
+    original: Journal of the Mysterious Creatures
+    translations: { ja-Latn: Journal of the Mysterious Creatures }
+  seasons:
+    - id: journal-of-the-mysterious-creatures-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [journal-of-the-mysterious-creatures]

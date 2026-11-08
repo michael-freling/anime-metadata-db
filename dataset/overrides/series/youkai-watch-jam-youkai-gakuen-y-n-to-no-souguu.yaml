@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: youkai-watch-jam-youkai-gakuen-y-n-to-no-souguu
+  titles:
+    original: "妖怪ウォッチJam: 妖怪学園Y 〜Nとの遭遇〜"
+    translations: { ja-Latn: "Youkai Watch Jam: Youkai Gakuen Y - N to no Souguu" }
+  seasons:
+    - id: youkai-watch-jam-youkai-gakuen-y-n-to-no-souguu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [youkai-watch-jam-youkai-gakuen-y-n-to-no-souguu]

@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: qi-yu-chengyu-gushi-guwu-pian
+  titles:
+    original: Qi Yu Chengyu Gushi Guwu Pian
+    translations: { ja-Latn: Qi Yu Chengyu Gushi Guwu Pian }
+  seasons:
+    - id: qi-yu-chengyu-gushi-guwu-pian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [qi-yu-chengyu-gushi-guwu-pian]

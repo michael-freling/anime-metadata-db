@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: counting-with-paula-season-5
+  titles:
+    original: Counting with Paula Season 5
+    translations: { ja-Latn: Counting with Paula Season 5 }
+  seasons:
+    - id: counting-with-paula-season-5-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [counting-with-paula-season-5]

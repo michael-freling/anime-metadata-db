@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: neko-neko-nihonshi-5th-season
+  titles:
+    original: ねこねこ日本史(第5シリーズ)
+    translations: { ja-Latn: Neko Neko Nihonshi 5th Season }
+  seasons:
+    - id: neko-neko-nihonshi-5th-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [neko-neko-nihonshi-5th-season]

@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kkoma-hero-super-zach-2
+  titles:
+    original: Kkoma Hero Super Zach 2
+    translations: { ja-Latn: Kkoma Hero Super Zach 2 }
+  seasons:
+    - id: kkoma-hero-super-zach-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kkoma-hero-super-zach-2]

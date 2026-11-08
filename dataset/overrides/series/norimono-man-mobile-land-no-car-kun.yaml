@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: norimono-man-mobile-land-no-car-kun
+  titles:
+    original: のりものまん モービルランドのカークン
+    translations: { ja-Latn: "Norimono Man: Mobile Land no Car-kun" }
+  seasons:
+    - id: norimono-man-mobile-land-no-car-kun-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [norimono-man-mobile-land-no-car-kun]

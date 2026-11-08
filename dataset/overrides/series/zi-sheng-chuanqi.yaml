@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zi-sheng-chuanqi
+  titles:
+    original: Zi Sheng Chuanqi
+    translations: { ja-Latn: Zi Sheng Chuanqi }
+  seasons:
+    - id: zi-sheng-chuanqi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zi-sheng-chuanqi]

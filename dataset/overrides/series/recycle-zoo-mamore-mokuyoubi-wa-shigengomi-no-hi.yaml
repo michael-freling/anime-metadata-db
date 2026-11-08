@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: recycle-zoo-mamore-mokuyoubi-wa-shigengomi-no-hi
+  titles:
+    original: りさいくるずー まもれ!もくようびは資源ごみの日
+    translations: { ja-Latn: "Recycle Zoo: Mamore! Mokuyoubi wa Shigengomi no Hi" }
+  movies:
+    - id: recycle-zoo-mamore-mokuyoubi-wa-shigengomi-no-hi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [recycle-zoo-mamore-mokuyoubi-wa-shigengomi-no-hi]

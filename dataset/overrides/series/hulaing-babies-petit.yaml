@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hulaing-babies-petit
+  titles:
+    original: フライングベイビーズ☆プチ
+    translations: { ja-Latn: Hulaing Babies Petit }
+  seasons:
+    - id: hulaing-babies-petit-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hulaing-babies-petit]

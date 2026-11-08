@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dorufuro-kyouran-hen
+  titles:
+    original: どるふろ -狂乱編 -
+    translations: { ja-Latn: "DoruFuro: Kyouran-hen" }
+  seasons:
+    - id: dorufuro-kyouran-hen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dorufuro-kyouran-hen]

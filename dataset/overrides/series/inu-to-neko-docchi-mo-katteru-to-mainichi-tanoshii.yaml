@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: inu-to-neko-docchi-mo-katteru-to-mainichi-tanoshii
+  titles:
+    original: 犬と猫どっちも飼ってると毎日たのしい
+    translations: { ja-Latn: Inu to Neko Docchi mo Katteru to Mainichi Tanoshii }
+  seasons:
+    - id: inu-to-neko-docchi-mo-katteru-to-mainichi-tanoshii-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [inu-to-neko-docchi-mo-katteru-to-mainichi-tanoshii]

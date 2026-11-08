@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shironeko-project-zero-chronicle
+  titles:
+    original: 白猫プロジェクトZERO CHRONICLE
+    translations: { ja-Latn: "Shironeko Project: Zero Chronicle" }
+  seasons:
+    - id: shironeko-project-zero-chronicle-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shironeko-project-zero-chronicle]

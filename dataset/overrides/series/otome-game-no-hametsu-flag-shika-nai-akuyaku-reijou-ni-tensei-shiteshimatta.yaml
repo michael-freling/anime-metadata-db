@@ -1,0 +1,15 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta
+  titles:
+    original: 乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった...
+    translations: { ja-Latn: Otome Game no Hametsu Flag shika Nai Akuyaku Reijou ni Tensei shiteshimatta... }
+  seasons:
+    - id: otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-s1
+      number: 1
+    - id: otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta]

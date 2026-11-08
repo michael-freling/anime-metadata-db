@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kiratto-pri-chan-season-3
+  titles:
+    original: キラッとプリ☆チャン シーズン3
+    translations: { ja-Latn: Kiratto Pri☆chan Season 3 }
+  seasons:
+    - id: kiratto-pri-chan-season-3-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kiratto-pri-chan-season-3]

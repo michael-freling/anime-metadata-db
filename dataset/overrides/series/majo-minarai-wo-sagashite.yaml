@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: majo-minarai-wo-sagashite
+  titles:
+    original: "Ojamajo Doremi: Majo Minarai wo Sagashite (おジャ魔女どれみ 魔女見習いをさがして)"
+    translations: { ja-Latn: Majo Minarai wo Sagashite }
+  movies:
+    - id: majo-minarai-wo-sagashite-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [majo-minarai-wo-sagashite]

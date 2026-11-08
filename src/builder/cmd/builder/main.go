@@ -6,6 +6,7 @@
 //	builder init                 download the pinned sources into the cache
 //	builder build [id...]        (re)build all overrides, or just the given ids
 //	builder refresh              update sources to latest + rebuild everything
+//	builder import --year YYYY   write override files for one year of upstream
 package main
 
 import (
@@ -83,6 +84,29 @@ func newRootCmd(fetcher builder.Fetcher) *cobra.Command {
 				"since that shape usually means the wrong overrides directory)")
 	}
 
+	var importYear int
+	var importDryRun bool
+	imp := &cobra.Command{
+		Use:   "import",
+		Short: "Write override files for one year of the upstream catalogue",
+		Long: "Write override files for one year of the upstream catalogue.\n\n" +
+			"Writes the authored layer only and never builds, so the result is " +
+			"reviewable as a diff of overrides before any record is generated " +
+			"from it. Works belonging to a series the catalogue already has are " +
+			"reported rather than written: creating a second series for an " +
+			"installment of an existing one is the one mistake a later import " +
+			"cannot detect.",
+		Args: cobra.NoArgs,
+		RunE: func(cmd *cobra.Command, _ []string) error {
+			if importYear == 0 {
+				return fmt.Errorf("--year is required: the airing year to import")
+			}
+			return newApp(cmd).Import(importYear, importDryRun)
+		},
+	}
+	imp.Flags().IntVar(&importYear, "year", 0, "airing year to import")
+	imp.Flags().BoolVar(&importDryRun, "dry-run", false, "report what would be written, write nothing")
+
 	var diffBase string
 	diff := &cobra.Command{
 		Use:   "diff",
@@ -114,6 +138,7 @@ func newRootCmd(fetcher builder.Fetcher) *cobra.Command {
 		build,
 		refresh,
 		diff,
+		imp,
 	)
 	return root
 }

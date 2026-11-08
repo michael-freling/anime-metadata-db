@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: one-room-third-season
+  titles:
+    original: One Room サードシーズン
+    translations: { ja-Latn: "One Room: Third Season" }
+  seasons:
+    - id: one-room-third-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [one-room-third-season]

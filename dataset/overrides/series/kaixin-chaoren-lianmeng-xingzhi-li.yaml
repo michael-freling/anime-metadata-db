@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaixin-chaoren-lianmeng-xingzhi-li
+  titles:
+    original: "Kaixin Chaoren Lianmeng: Xingzhi Li"
+    translations: { ja-Latn: "Kaixin Chaoren Lianmeng: Xingzhi Li" }
+  seasons:
+    - id: kaixin-chaoren-lianmeng-xingzhi-li-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaixin-chaoren-lianmeng-xingzhi-li]

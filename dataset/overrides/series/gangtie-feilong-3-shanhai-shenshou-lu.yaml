@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gangtie-feilong-3-shanhai-shenshou-lu
+  titles:
+    original: "Gangtie Feilong 3: Shanhai Shenshou Lu"
+    translations: { ja-Latn: "Gangtie Feilong 3: Shanhai Shenshou Lu" }
+  seasons:
+    - id: gangtie-feilong-3-shanhai-shenshou-lu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gangtie-feilong-3-shanhai-shenshou-lu]

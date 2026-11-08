@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: meng-zhou-shaonian-zhi-xihan-gongzhu
+  titles:
+    original: "Meng Zhou Shaonian Zhi: Xihan Gongzhu"
+    translations: { ja-Latn: "Meng Zhou Shaonian Zhi: Xihan Gongzhu" }
+  seasons:
+    - id: meng-zhou-shaonian-zhi-xihan-gongzhu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [meng-zhou-shaonian-zhi-xihan-gongzhu]

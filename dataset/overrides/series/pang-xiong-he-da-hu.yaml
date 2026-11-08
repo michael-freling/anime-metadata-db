@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pang-xiong-he-da-hu
+  titles:
+    original: Pang Xiong He Da Hu
+    translations: { ja-Latn: Pang Xiong He Da Hu }
+  seasons:
+    - id: pang-xiong-he-da-hu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pang-xiong-he-da-hu]

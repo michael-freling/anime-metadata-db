@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: oda-cinnamon-nobunaga
+  titles:
+    original: 織田シナモン信長
+    translations: { ja-Latn: Oda Cinnamon Nobunaga }
+  seasons:
+    - id: oda-cinnamon-nobunaga-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [oda-cinnamon-nobunaga]

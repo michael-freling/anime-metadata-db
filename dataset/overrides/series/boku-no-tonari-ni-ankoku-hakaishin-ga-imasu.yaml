@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: boku-no-tonari-ni-ankoku-hakaishin-ga-imasu
+  titles:
+    original: ぼくのとなりに暗黒破壊神がいます.
+    translations: { ja-Latn: Boku no Tonari ni Ankoku Hakaishin ga Imasu. }
+  seasons:
+    - id: boku-no-tonari-ni-ankoku-hakaishin-ga-imasu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [boku-no-tonari-ni-ankoku-hakaishin-ga-imasu]

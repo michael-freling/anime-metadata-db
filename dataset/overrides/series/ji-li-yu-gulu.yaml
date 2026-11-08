@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ji-li-yu-gulu
+  titles:
+    original: Ji Li Yu Gulu
+    translations: { ja-Latn: Ji Li Yu Gulu }
+  seasons:
+    - id: ji-li-yu-gulu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ji-li-yu-gulu]

@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jigoku-no-hi
+  titles:
+    original: 地獄の陽
+    translations: { ja-Latn: Jigoku no Hi }
+  movies:
+    - id: jigoku-no-hi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jigoku-no-hi]

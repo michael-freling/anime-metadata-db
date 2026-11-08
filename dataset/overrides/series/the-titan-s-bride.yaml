@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-titan-s-bride
+  titles:
+    original: 巨人族の花嫁
+    translations: { ja-Latn: The Titan's Bride }
+  seasons:
+    - id: the-titan-s-bride-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-titan-s-bride]

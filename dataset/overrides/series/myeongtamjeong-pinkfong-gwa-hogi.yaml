@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: myeongtamjeong-pinkfong-gwa-hogi
+  titles:
+    original: Myeongtamjeong Pinkfong-gwa Hogi
+    translations: { ja-Latn: Myeongtamjeong Pinkfong-gwa Hogi }
+  seasons:
+    - id: myeongtamjeong-pinkfong-gwa-hogi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [myeongtamjeong-pinkfong-gwa-hogi]

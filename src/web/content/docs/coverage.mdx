@@ -44,31 +44,31 @@ which is why the test exists.
 | 2011 | — | 1 | — | 1 | — | 2 | 38 |
 | 2012 | — | 1 | 1 | — | — | 2 | 50 |
 | 2013 | — | — | 2 | 1 | — | 3 | 127 |
-| 2014 | — | — | 2 | 1 | — | 3 | 35 |
+| 2014 | — | — | 2 | 2 | — | 4 | 59 |
 | 2015 | — | 1 | — | 2 | — | 3 | 88 |
-| 2016 | 1 | 2 | 1 | — | — | 4 | 101 |
-| 2017 | 2 | 1 | 2 | 2 | 1 | 8 | 270 |
+| 2016 | 1 | 3 | 1 | — | — | 5 | 113 |
+| 2017 | 2 | 2 | 2 | 2 | 1 | 9 | 358 |
 | 2018 | — | 3 | 2 | 2 | — | 7 | 108 |
 | 2019 | 2 | 4 | 3 | 3 | — | 12 | 255 |
-| 2020 | 2 | 3 | 3 | 3 | 1 | 12 | 185 |
-| 2021 | 4 | 5 | 2 | 2 | — | 13 | 185 |
-| 2022 | 2 | 9 | 3 | 7 | — | 21 | 326 |
-| 2023 | 4 | 9 | 7 | 10 | — | 30 | 428 |
+| 2020 | 76 | 75 | 54 | 78 | 158 | 441 | 8548 |
+| 2021 | 6 | 6 | 5 | 3 | — | 20 | 279 |
+| 2022 | 3 | 12 | 3 | 8 | — | 26 | 401 |
+| 2023 | 6 | 10 | 7 | 10 | — | 33 | 464 |
 | 2024 | 10 | 16 | 10 | 14 | — | 50 | 760 |
 | 2025 | 58 | 71 | 74 | 70 | 103 | 376 | 4101 |
 | 2026 | 80 | 69 | — | — | — | 149 | 1870 |
-| **Total** | **166** | **195** | **113** | **119** | **105** | **698** | **8987** |
+| **Total** | **245** | **274** | **167** | **197** | **262** | **1145** | **17679** |
 
 ## Totals
 
 | | Count |
 |---|---:|
 | Franchises | 1 |
-| Series | 502 |
-| Seasons | 594 |
-| Movies | 105 |
-| Works (seasons + movies + specials) | 699 |
-| Episodes | 8987 |
+| Series | 982 |
+| Seasons | 946 |
+| Movies | 262 |
+| Works (seasons + movies + specials) | 1208 |
+| Episodes | 17679 |
 
 ## Cast
 
@@ -78,7 +78,7 @@ build may redistribute) actually records.
 
 | | Count |
 |---|---:|
-| Series with at least one character | 55 of 502 |
+| Series with at least one character | 55 of 982 |
 | Characters | 727 |
 | …of those, with a voice actor | 678 |
 | Staff (voice actors) | 484 |
@@ -110,26 +110,45 @@ appearances.
 
 ## How to read the shape of it
 
-**Two windows are complete: all of 2025, and Winter+Spring 2026 for TV.** Every
-2025 TV series and film the pinned sources carry an AniList id for is here — 377
-works of the 643 the offline database types `TV` or `MOVIE` for that year, the
-other 266 having no AniList id and so nothing for the builder to resolve facts
-by. Winter and Spring 2026 add 149 TV works. Nothing after Spring 2026 is
-included: an announced but unaired season is left out until it airs, so the
-dataset never carries a season with no episodes.
+**Three windows are complete: all of 2020, all of 2025, and Winter+Spring 2026
+for TV.** 2020 contributes **503 works** — 345 seasons and 158 films. Upstream
+types 565 entries `TV` or `MOVIE` and dates them to 2020; 550 of those have
+aired. The 47 absent are 28 installments of series the catalogue already carries
+(reported for a hand-authored merge rather than written as a duplicate), 2 whose
+id was already taken, and the works of 12 series upstream lists in a shape the
+build cannot resolve. 2025
+contributes 377 works, and Winter and Spring 2026 add 149 TV works. Nothing
+after Spring 2026 is included: an announced but unaired season is left out until
+it airs, so the dataset never carries a season with no episodes.
 
-**Everything before 2025 is there because it is a prior season of something in
-2025 or 2026**, plus the hand-authored Demon Slayer and Fate entries. That is
-why the earlier years are thin and uneven: 2023 has 30 works not because 2023
-was sampled, but because thirty shows running later started or continued then.
+**2020 is the first window to carry works AniList does not list.** 246 of its
+503 works have no `anilistId`, because the builder can now resolve an
+installment from the series' own title rather than only through an AniList id —
+so the half of upstream that carries no AniList page is reachable. 2025 was
+imported before that and still shows the older shape: 377 works of the 643
+upstream types `TV` or `MOVIE` for the year, the other 266 having had nothing
+for the builder to resolve facts by at the time. Re-importing 2025 would close
+that gap.
+
+**The years between the windows are prior or later installments pulled in by
+them**, plus the hand-authored Demon Slayer and Fate entries. That is why 2021
+to 2024 are thin and uneven: 2023 has 33 works not because 2023 was sampled, but
+because thirty-odd shows running in a complete window started or continued then.
 A show like Frieren pulls its 2023 season in with it, and *Yami Shibai*'s 2025
 run pulls in ten.
 
-**Films arrived with 2025.** Before it the catalogue held three, all authored by
-hand; it now holds 105, because a year's films are the half of `TV`+`MOVIE` the
-2026 window never reached. Specials are still absent by design — the
+**Films arrived with 2025 and doubled with 2020.** Before 2025 the catalogue
+held three, all authored by hand; it now holds **262**, because a year's films
+are roughly a third of the `TV`+`MOVIE` entries upstream dates to it, and the
+2026 window never reached them. Specials are still absent by design — the
 OVA/ONA/SPECIAL long tail is mostly recaps, shorts and promo clips, and most of
 it has no AniList id either.
+
+**What a complete window still omits.** A handful of series per year cannot be
+generated and wait on a hand-authored file: upstream sometimes carries two
+un-merged records for one film (*Taifuu 14-gou* and *Typhoon No.14* are the same
+work), and a film node carries no number for the build to order several by. For
+2020 that is 12 series, listed by `builder import` when it runs.
 
 ## Regenerating this table
 

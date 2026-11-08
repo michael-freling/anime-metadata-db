@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: strangers-in-the-alley
+  titles:
+    original: Strangers in the Alley
+    translations: { ja-Latn: Strangers in the Alley }
+  movies:
+    - id: strangers-in-the-alley-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [strangers-in-the-alley]

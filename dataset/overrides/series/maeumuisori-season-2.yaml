@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: maeumuisori-season-2
+  titles:
+    original: Maeumuisori Season 2
+    translations: { ja-Latn: Maeumuisori Season 2 }
+  seasons:
+    - id: maeumuisori-season-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [maeumuisori-season-2]

@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: majo-no-tabitabi
+  titles:
+    original: 魔女の旅々 The Journey of Elaina
+    translations: { ja-Latn: Majo no Tabitabi }
+  seasons:
+    - id: majo-no-tabitabi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [majo-no-tabitabi]

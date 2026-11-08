@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: long-shen-zhizi
+  titles:
+    original: Long Shen Zhizi
+    translations: { ja-Latn: Long Shen Zhizi }
+  movies:
+    - id: long-shen-zhizi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [long-shen-zhizi]

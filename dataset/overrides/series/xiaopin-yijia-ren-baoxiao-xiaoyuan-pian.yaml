@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiaopin-yijia-ren-baoxiao-xiaoyuan-pian
+  titles:
+    original: "Xiaopin Yijia Ren: Baoxiao Xiaoyuan Pian"
+    translations: { ja-Latn: "Xiaopin Yijia Ren: Baoxiao Xiaoyuan Pian" }
+  seasons:
+    - id: xiaopin-yijia-ren-baoxiao-xiaoyuan-pian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiaopin-yijia-ren-baoxiao-xiaoyuan-pian]

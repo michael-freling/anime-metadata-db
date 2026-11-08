@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shen-shou-jin-gang-5-chao-neng-jing-jia
+  titles:
+    original: "Shen Shou Jin Gang 5: Chao Neng Jing Jia"
+    translations: { ja-Latn: "Shen Shou Jin Gang 5: Chao Neng Jing Jia" }
+  seasons:
+    - id: shen-shou-jin-gang-5-chao-neng-jing-jia-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shen-shou-jin-gang-5-chao-neng-jing-jia]

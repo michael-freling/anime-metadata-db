@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: na-sa-er-ding-dong-youji
+  titles:
+    original: Na Sa Er Ding Dong Youji
+    translations: { ja-Latn: Na Sa Er Ding Dong Youji }
+  seasons:
+    - id: na-sa-er-ding-dong-youji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [na-sa-er-ding-dong-youji]

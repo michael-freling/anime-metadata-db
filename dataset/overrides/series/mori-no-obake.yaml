@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mori-no-obake
+  titles:
+    original: 森のおばけ
+    translations: { ja-Latn: Mori no Obake }
+  movies:
+    - id: mori-no-obake-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mori-no-obake]

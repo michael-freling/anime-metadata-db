@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: muzhi-zong-dong-yuan-yulin-qiyu
+  titles:
+    original: "Muzhi Zong Dong Yuan: Yulin Qiyu"
+    translations: { ja-Latn: "Muzhi Zong Dong Yuan: Yulin Qiyu" }
+  seasons:
+    - id: muzhi-zong-dong-yuan-yulin-qiyu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [muzhi-zong-dong-yuan-yulin-qiyu]

@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ronowe-sensei-no-akuma-na-kami-jugyo
+  titles:
+    original: ロノー先生の悪魔な神授業
+    translations: { ja-Latn: Ronowe Sensei no Akuma na Kami Jugyō }
+  seasons:
+    - id: ronowe-sensei-no-akuma-na-kami-jugyo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ronowe-sensei-no-akuma-na-kami-jugyo]

@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shibing-shunliu-bing-wang-zhengfeng
+  titles:
+    original: "Shibing Shunliu: Bing Wang Zhengfeng"
+    translations: { ja-Latn: "Shibing Shunliu: Bing Wang Zhengfeng" }
+  movies:
+    - id: shibing-shunliu-bing-wang-zhengfeng-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shibing-shunliu-bing-wang-zhengfeng]

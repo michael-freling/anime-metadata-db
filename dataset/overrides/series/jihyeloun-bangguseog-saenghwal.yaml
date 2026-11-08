@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jihyeloun-bangguseog-saenghwal
+  titles:
+    original: Jihyeloun Bangguseog Saenghwal
+    translations: { ja-Latn: Jihyeloun Bangguseog Saenghwal }
+  movies:
+    - id: jihyeloun-bangguseog-saenghwal-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jihyeloun-bangguseog-saenghwal]

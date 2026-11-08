@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: representation-of-light
+  titles:
+    original: 光の表象
+    translations: { ja-Latn: Representation of Light }
+  movies:
+    - id: representation-of-light-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [representation-of-light]

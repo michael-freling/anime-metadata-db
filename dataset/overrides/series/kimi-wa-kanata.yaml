@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kimi-wa-kanata
+  titles:
+    original: 君は彼方
+    translations: { ja-Latn: Kimi wa Kanata }
+  movies:
+    - id: kimi-wa-kanata-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kimi-wa-kanata]

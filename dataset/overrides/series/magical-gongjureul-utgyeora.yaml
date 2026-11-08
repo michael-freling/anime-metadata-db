@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: magical-gongjureul-utgyeora
+  titles:
+    original: "Magical: Gongjureul Utgyeora"
+    translations: { ja-Latn: "Magical: Gongjureul Utgyeora" }
+  movies:
+    - id: magical-gongjureul-utgyeora-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [magical-gongjureul-utgyeora]

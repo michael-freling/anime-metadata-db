@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: guo-guo-biedongdui
+  titles:
+    original: Guo Guo Biedongdui
+    translations: { ja-Latn: Guo Guo Biedongdui }
+  seasons:
+    - id: guo-guo-biedongdui-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [guo-guo-biedongdui]

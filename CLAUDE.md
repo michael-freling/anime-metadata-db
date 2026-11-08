@@ -67,6 +67,33 @@ in the shape the deployment runs it. That is
 binary and runs it from an empty directory with no repository anywhere. Every
 other suite runs inside a checkout and cannot see this class of failure.
 
+## Importing a year
+
+`builder import --year YYYY` writes override files for one year of upstream and
+builds nothing, so the result is reviewable as a diff of the authored layer.
+Then `make build-data` and `make index`.
+
+It refuses more than it writes, on purpose:
+
+- **A work related to a series the catalogue already has is reported, never
+  written.** Creating a second series for an installment of an existing one is
+  the only import mistake nothing downstream can detect — by the next run the
+  duplicate looks like an ordinary series. Author those merges by hand.
+- **A series the build could not fill is reported.** The build refuses a kind
+  unless the number of upstream candidates equals the number of declared
+  installments, so a series must declare exactly what its own title resolves
+  to. Two films under one title cannot resolve at all (a film carries no number
+  to order by), and upstream often carries two un-merged records for the same
+  film.
+- **An id already in use is reported.** Every id in the dataset shares one
+  namespace, so a slug has to be free against seasons and films too, not just
+  against series filenames.
+
+`relatedAnime` is not a grouping primitive. Followed transitively it puts 5,597
+entries in one component — Evangelion, Oshi no Ko and brand-collab shorts
+together — because promo specials bridge unrelated franchises. Series boundaries
+are authored here; grouping is by the title the build itself resolves against.
+
 ## Working on the dataset
 
 - `dataset/data/` is generated. Never hand-edit it — edit `dataset/overrides/`

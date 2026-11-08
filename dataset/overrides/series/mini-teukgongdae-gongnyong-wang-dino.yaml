@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mini-teukgongdae-gongnyong-wang-dino
+  titles:
+    original: Mini Teukgongdae Gongnyong-wang Dino
+    translations: { ja-Latn: Mini Teukgongdae Gongnyong-wang Dino }
+  movies:
+    - id: mini-teukgongdae-gongnyong-wang-dino-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mini-teukgongdae-gongnyong-wang-dino]

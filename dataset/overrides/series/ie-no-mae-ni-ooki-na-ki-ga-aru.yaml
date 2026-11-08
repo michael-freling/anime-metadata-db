@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ie-no-mae-ni-ooki-na-ki-ga-aru
+  titles:
+    original: 家の前に大きな木がある
+    translations: { ja-Latn: Ie no Mae ni Ooki na Ki ga Aru }
+  movies:
+    - id: ie-no-mae-ni-ooki-na-ki-ga-aru-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ie-no-mae-ni-ooki-na-ki-ga-aru]

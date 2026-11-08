@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fenghuang-ji-xiang-yu-qingming-shanghe-tu
+  titles:
+    original: Fenghuang Ji Xiang Yu Qingming Shanghe Tu
+    translations: { ja-Latn: Fenghuang Ji Xiang Yu Qingming Shanghe Tu }
+  seasons:
+    - id: fenghuang-ji-xiang-yu-qingming-shanghe-tu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fenghuang-ji-xiang-yu-qingming-shanghe-tu]

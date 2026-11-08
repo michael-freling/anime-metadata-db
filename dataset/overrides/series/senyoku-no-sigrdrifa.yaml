@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: senyoku-no-sigrdrifa
+  titles:
+    original: 戦翼のシグルドリーヴァ
+    translations: { ja-Latn: Senyoku no Sigrdrifa }
+  seasons:
+    - id: senyoku-no-sigrdrifa-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [senyoku-no-sigrdrifa]

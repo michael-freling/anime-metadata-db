@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-yang-duo-li-2nd-season
+  titles:
+    original: Xiao Yang Duo Li 2nd Season
+    translations: { ja-Latn: Xiao Yang Duo Li 2nd Season }
+  seasons:
+    - id: xiao-yang-duo-li-2nd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-yang-duo-li-2nd-season]

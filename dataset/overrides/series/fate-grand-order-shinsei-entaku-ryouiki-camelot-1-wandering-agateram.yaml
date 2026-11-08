@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fate-grand-order-shinsei-entaku-ryouiki-camelot-1-wandering-agateram
+  titles:
+    original: 劇場版 「Fate/Grand Order -神聖円卓領域キャメロット- 前編Wandering; Agateram」
+    translations: { ja-Latn: "Fate/Grand Order: Shinsei Entaku Ryouiki Camelot 1 - Wandering; Agateram" }
+  movies:
+    - id: fate-grand-order-shinsei-entaku-ryouiki-camelot-1-wandering-agateram-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fate-grand-order-shinsei-entaku-ryouiki-camelot-1-wandering-agateram]

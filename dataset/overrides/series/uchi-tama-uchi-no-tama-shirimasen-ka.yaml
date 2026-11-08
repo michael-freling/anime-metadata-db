@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: uchi-tama-uchi-no-tama-shirimasen-ka
+  titles:
+    original: "うちタマ?! ～うちのタマ知りませんか？～"
+    translations: { ja-Latn: "Uchi Tama?! Uchi no Tama Shirimasen ka?" }
+  seasons:
+    - id: uchi-tama-uchi-no-tama-shirimasen-ka-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [uchi-tama-uchi-no-tama-shirimasen-ka]

@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dragon-s-delusion-preface
+  titles:
+    original: "Dragon's Delusion: Preface"
+    translations: { ja-Latn: "Dragon's Delusion: Preface" }
+  movies:
+    - id: dragon-s-delusion-preface-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dragon-s-delusion-preface]

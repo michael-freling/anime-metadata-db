@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kamen-rider-saber-kamen-rider-zero-one-manner-movie
+  titles:
+    original: 『仮面ライダーセイバー』＆『仮面ライダーゼロワン』ショートアニメ劇場マナー
+    translations: { ja-Latn: Kamen Rider Saber & Kamen Rider Zero-One Manner Movie }
+  movies:
+    - id: kamen-rider-saber-kamen-rider-zero-one-manner-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kamen-rider-saber-kamen-rider-zero-one-manner-movie]

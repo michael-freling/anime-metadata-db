@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-gongzhu-ai-wei-la-yu-shenmi-wangguo-2
+  titles:
+    original: Xiao Gongzhu Ai Wei La Yu Shenmi Wangguo 2
+    translations: { ja-Latn: Xiao Gongzhu Ai Wei La Yu Shenmi Wangguo 2 }
+  movies:
+    - id: xiao-gongzhu-ai-wei-la-yu-shenmi-wangguo-2-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-gongzhu-ai-wei-la-yu-shenmi-wangguo-2]

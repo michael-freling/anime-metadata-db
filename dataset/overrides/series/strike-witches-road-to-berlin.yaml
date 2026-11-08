@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: strike-witches-road-to-berlin
+  titles:
+    original: 第501統合戦闘航空団 ストライクウィッチーズ ROAD to BERLIN
+    translations: { ja-Latn: "Strike Witches: Road to Berlin" }
+  seasons:
+    - id: strike-witches-road-to-berlin-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [strike-witches-road-to-berlin]

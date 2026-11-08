@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hulaing-babies-aratame-staying-babies
+  titles:
+    original: フライングベイビーズ改め ステイングベイビーズ
+    translations: { ja-Latn: "Hulaing Babies Aratame: Staying Babies" }
+  seasons:
+    - id: hulaing-babies-aratame-staying-babies-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hulaing-babies-aratame-staying-babies]

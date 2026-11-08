@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: goblin-slayer-goblin-s-crown
+  titles:
+    original: ゴブリンスレイヤー -GOBLIN'S CROWN-
+    translations: { ja-Latn: "Goblin Slayer: Goblin's Crown" }
+  movies:
+    - id: goblin-slayer-goblin-s-crown-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [goblin-slayer-goblin-s-crown]

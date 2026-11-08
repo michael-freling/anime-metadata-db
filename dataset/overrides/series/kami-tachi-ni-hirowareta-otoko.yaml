@@ -1,0 +1,17 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kami-tachi-ni-hirowareta-otoko
+  titles:
+    original: 神達に拾われた男
+    translations: { ja-Latn: Kami-tachi ni Hirowareta Otoko }
+  seasons:
+    - id: kami-tachi-ni-hirowareta-otoko-s1
+      number: 1
+    - id: kami-tachi-ni-hirowareta-otoko-s2
+      number: 2
+    - id: kami-tachi-ni-hirowareta-otoko-s3
+      number: 3
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kami-tachi-ni-hirowareta-otoko]
