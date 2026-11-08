@@ -384,30 +384,46 @@ test("no page shows a reader an id it links to", async ({ page }) => {
     await page.goto(path);
     const body = page.locator("main").last();
 
-    const ids = new Set(
-      (
-        await body
-          .locator("a[href]")
-          .evaluateAll((els) =>
-            els.map(
-              (el) => (el as HTMLAnchorElement).getAttribute("href") ?? "",
-            ),
-          )
+    // The link's own text comes along, because an id whose title already looks
+    // like a slug is indistinguishable from a leak: "18if" is a 2017 series
+    // titled exactly that, and so are "K", "C" and "Gyo". Showing their titles
+    // necessarily shows their ids, and no amount of word-boundary care
+    // separates the two.
+    const links = (
+      await body.locator("a[href]").evaluateAll((els) =>
+        els.map((el) => ({
+          href: (el as HTMLAnchorElement).getAttribute("href") ?? "",
+          text: (el as HTMLAnchorElement).innerText ?? "",
+        })),
       )
-        .filter((href) => /^\/(browse|characters|staff)\/[^?#]+$/.test(href))
-        .map((href) => href.split("/").pop()!),
-    );
+    ).filter(({ href }) => /^\/(browse|characters|staff)\/[^?#]+$/.test(href));
+
+    const ids = new Set<string>();
+    for (const { href, text } of links) {
+      const id = href.split("/").pop()!;
+      // Slugified the way ids are made: lowercase, runs of anything else
+      // collapsed to a hyphen. When the title's slug opens with the id, the
+      // id on the page is the title and there is nothing to find.
+      const titleSlug = text
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+      if (titleSlug === id || titleSlug.startsWith(`${id}-`)) continue;
+      // An id that is itself an ordinary token cannot be told from prose
+      // either. "1" is a real series — a 2011 short film titled "1" — and the
+      // pager and counts print bare numerals, so \b1\b matches every page;
+      // "c" and "k" are real series too. Six of the six thousand ids are like
+      // this, so skipping them costs the check nothing and saves it from
+      // permanent noise.
+      if (id.length < 2 || /^\d+$/.test(id)) continue;
+      ids.add(id);
+    }
+    // Asserted after both exclusions, so a page whose every id was skipped
+    // fails here rather than passing having checked nothing.
     expect(ids.size, `${path} links to nothing`).toBeGreaterThan(0);
 
     const text = await body.innerText();
     for (const id of ids) {
-      // An id that is itself an ordinary token cannot be told from prose. "1"
-      // is a real series — a 2011 short film titled "1" — and the pager and
-      // counts print bare numerals, so \b1\b matches the page every time;
-      // "c" and "k" are real series too. Skipping those keeps the check
-      // meaningful for the six thousand distinctive slugs instead of trading
-      // it for permanent noise.
-      if (id.length < 2 || /^\d+$/.test(id)) continue;
       // Matched on word boundaries, not as a bare substring. An id is a slug,
       // so a leaked one is surrounded by punctuation or whitespace; a substring
       // test also fires on any name that happens to contain one, which is not
