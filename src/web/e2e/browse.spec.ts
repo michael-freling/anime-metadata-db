@@ -117,6 +117,12 @@ test("paging a narrowed view keeps its filters", async ({ page }) => {
 test("paging the catalogue yields every entry exactly once", async ({
   page,
 }) => {
+  // One navigation per page, and the catalogue decides how many: 6,382 shows
+  // at 24 a page is 267 of them, which overran Playwright's 30s default. The
+  // budget is deliberately generous rather than tuned, because the cost grows
+  // linearly with every import — if this starts timing out again the answer is
+  // to stop walking every page, not to raise the number once more.
+  test.setTimeout(10 * 60 * 1000);
   await page.goto("/browse?kind=shows");
 
   const total = Number(
@@ -395,6 +401,13 @@ test("no page shows a reader an id it links to", async ({ page }) => {
 
     const text = await body.innerText();
     for (const id of ids) {
+      // An id that is itself an ordinary token cannot be told from prose. "1"
+      // is a real series — a 2011 short film titled "1" — and the pager and
+      // counts print bare numerals, so \b1\b matches the page every time;
+      // "c" and "k" are real series too. Skipping those keeps the check
+      // meaningful for the six thousand distinctive slugs instead of trading
+      // it for permanent noise.
+      if (id.length < 2 || /^\d+$/.test(id)) continue;
       // Matched on word boundaries, not as a bare substring. An id is a slug,
       // so a leaked one is surrounded by punctuation or whitespace; a substring
       // test also fires on any name that happens to contain one, which is not

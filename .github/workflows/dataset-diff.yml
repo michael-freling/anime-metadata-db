@@ -61,11 +61,21 @@ jobs:
       - name: Compare
         run: |
           set -euo pipefail
-          # The base branch may predate the dataset/ + src/ split, in which case
-          # its own Makefile built into data/ at the root. Delete the fallback
-          # once main carries the new layout.
-          base=/tmp/base/dataset/data
-          [ -d "$base" ] || base=/tmp/base/data
+          # GitHub refuses a comment body over 65,536 characters, and a diff
+          # line per record passes that at about five thousand: the 2010-2019
+          # import produced 5,331 and the post step failed with
+          # "GraphQL: Body is too long". The whole diff goes to the job log,
+          # which has no such limit, and the comment carries the summary — the
+          # line that actually gets read — plus as much detail as fits.
+          (cd src/builder && go run ./cmd/builder diff --base /tmp/base/dataset/data) > /tmp/diff.txt
+          echo "--- full diff ---"
+          cat /tmp/diff.txt
+
+          # The builder prints its summary first, so a head-shaped cut keeps the
+          # part that matters. Cut on a line boundary, and leave room for the
+          # fences and the note below.
+          budget=60000
+          total=$(wc -l < /tmp/diff.txt)
           {
             echo '<!-- dataset-diff -->'
             echo '### Dataset diff'
@@ -73,10 +83,17 @@ jobs:
             echo 'Both sides rebuilt from their own overrides with their own builder.'
             echo
             echo '```'
-            (cd src/builder && go run ./cmd/builder diff --base "$base")
+            # total is passed in because awk's NR after `exit` is the line it
+            # stopped at, not the file's length — the first version of this
+            # reported "1 more lines" for five thousand of them.
+            awk -v budget="$budget" -v total="$total" '
+              { used += length($0) + 1 }
+              used > budget { printf "\n... %d more lines; the full diff is in the job log.\n", total - NR + 1; exit }
+              { print }
+            ' /tmp/diff.txt
             echo '```'
           } > /tmp/diff.md
-          cat /tmp/diff.md
+          wc -c < /tmp/diff.md | xargs -I{} echo "comment body: {} bytes (limit 65536)"
 
       - name: Post it on the pull request
         env:
