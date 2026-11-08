@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: eternity-shinya-no-nurekoi-channel
+  titles:
+    original: エタニティ 〜深夜の濡恋ちゃんねる♡〜
+    translations: { ja-Latn: "Eternity: Shinya no Nurekoi Channel" }
+  seasons:
+    - id: eternity-shinya-no-nurekoi-channel-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [eternity-shinya-no-nurekoi-channel]

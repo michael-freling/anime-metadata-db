@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yuzhou-huwei-dui-3
+  titles:
+    original: Yuzhou Huwei Dui 3
+    translations: { ja-Latn: Yuzhou Huwei Dui 3 }
+  seasons:
+    - id: yuzhou-huwei-dui-3-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yuzhou-huwei-dui-3]

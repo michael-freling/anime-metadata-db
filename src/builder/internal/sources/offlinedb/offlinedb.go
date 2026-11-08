@@ -8,6 +8,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"iter"
 	"os"
 	"regexp"
 	"strconv"
@@ -90,6 +91,16 @@ type Database struct {
 	// would hold several hundred thousand copies of it live for as long as the
 	// database is loaded. A key costs eight bytes and entries has the entry.
 	byTitle map[string][]Key
+	// bySource indexes every entry under each provider URL upstream lists for
+	// it, so a relatedAnime link can be resolved to the entry it names.
+	//
+	// Needed because a relation is published as whichever provider's URL
+	// upstream happened to record, and only about half are AniList. Reading
+	// the AniList ids out of relatedAnime therefore sees a fraction of the
+	// links — enough to miss most of the cases where a new work belongs to a
+	// series the catalogue already has, which is the one import mistake that
+	// cannot be detected after the fact.
+	bySource map[string]Key
 }
 
 // rawDatabase is the on-disk JSON shape.
@@ -193,6 +204,7 @@ func Parse(r io.Reader) (*Database, error) {
 		entries:   make([]Anime, 0, len(raw.Data)),
 		byAnilist: make(map[int]Key, len(raw.Data)),
 		byTitle:   make(map[string][]Key, len(raw.Data)*4),
+		bySource:  make(map[string]Key, len(raw.Data)*5),
 	}
 	for _, a := range raw.Data {
 		a.key = Key(len(db.entries) + 1)
@@ -203,6 +215,11 @@ func Parse(r io.Reader) (*Database, error) {
 		for _, name := range append([]string{a.Title}, a.Synonyms...) {
 			if name != "" {
 				db.byTitle[name] = append(db.byTitle[name], a.key)
+			}
+		}
+		for _, src := range a.Sources {
+			if src != "" {
+				db.bySource[src] = a.key
 			}
 		}
 	}
@@ -263,3 +280,48 @@ func (d *Database) Titled(name string) []Anime {
 // Len reports the number of indexed entries, which is every entry upstream
 // carries.
 func (d *Database) Len() int { return len(d.entries) }
+
+// Related returns the entries a's relatedAnime links name.
+//
+// Resolved through every provider URL rather than through AniList ids alone:
+// upstream records a relation as whichever provider it has a URL for, so
+// reading only the AniList ones sees a minority of the graph. Links naming an
+// entry this database does not carry are skipped, and the result is
+// deduplicated, since two providers' URLs can name the same entry.
+//
+// The relations are what upstream published, not a judgement about story
+// order, and following them transitively chains unrelated franchises together
+// through promo entries. One hop is all this offers.
+func (d *Database) Related(a Anime) []Anime {
+	seen := make(map[Key]bool, len(a.RelatedAnime))
+	out := make([]Anime, 0, len(a.RelatedAnime))
+	for _, url := range a.RelatedAnime {
+		k, ok := d.bySource[url]
+		if !ok || seen[k] || k == a.key {
+			continue
+		}
+		seen[k] = true
+		out = append(out, d.at(k))
+	}
+	return out
+}
+
+// All yields every entry in the order upstream lists them.
+//
+// The other accessors answer "which entry is this?" from an id or a title,
+// which is what the build needs: it starts from an override and looks things
+// up. Importing inverts that — it starts from upstream and asks which entries
+// belong in the catalogue at all — and no index answers that, since the
+// question is about a field (the airing year) that nothing is keyed by.
+//
+// Yielded by value, like Lookup and Titled, so a caller cannot reach into the
+// database and change what a later lookup returns.
+func (d *Database) All() iter.Seq[Anime] {
+	return func(yield func(Anime) bool) {
+		for _, a := range d.entries {
+			if !yield(a) {
+				return
+			}
+		}
+	}
+}

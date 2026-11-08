@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shingeki-no-kyojin-chronicle
+  titles:
+    original: 進撃の巨人 ~CHRONICLE~
+    translations: { ja-Latn: "Shingeki no Kyojin: Chronicle" }
+  movies:
+    - id: shingeki-no-kyojin-chronicle-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shingeki-no-kyojin-chronicle]

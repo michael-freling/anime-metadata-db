@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yes-ka-no-ka-hanbun-ka
+  titles:
+    original: イエスかノーか半分か
+    translations: { ja-Latn: Yes ka No ka Hanbun ka }
+  movies:
+    - id: yes-ka-no-ka-hanbun-ka-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yes-ka-no-ka-hanbun-ka]

@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: oshi-ga-budoukan-ittekuretara-shinu
+  titles:
+    original: 推しが武道館いってくれたら死ぬ
+    translations: { ja-Latn: Oshi ga Budoukan Ittekuretara Shinu }
+  seasons:
+    - id: oshi-ga-budoukan-ittekuretara-shinu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [oshi-ga-budoukan-ittekuretara-shinu]

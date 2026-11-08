@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: asatir-mirai-no-mukashi-banashi
+  titles:
+    original: アサティール 未来の昔ばなし
+    translations: { ja-Latn: "Asatir: Mirai no Mukashi Banashi" }
+  seasons:
+    - id: asatir-mirai-no-mukashi-banashi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [asatir-mirai-no-mukashi-banashi]

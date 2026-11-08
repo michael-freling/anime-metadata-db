@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: watanuki-san-chi-to
+  titles:
+    original: 四月一日さん家と
+    translations: { ja-Latn: Watanuki-san Chi to }
+  seasons:
+    - id: watanuki-san-chi-to-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [watanuki-san-chi-to]

@@ -1,0 +1,17 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ooya-san-to-boku
+  titles:
+    original: 大家さんと僕
+    translations: { ja-Latn: Ooya-san to Boku }
+  seasons:
+    - id: ooya-san-to-boku-s1
+      number: 1
+    - id: ooya-san-to-boku-s2
+      number: 2
+    - id: ooya-san-to-boku-s3
+      number: 3
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ooya-san-to-boku]

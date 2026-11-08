@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: eizouken-ni-wa-te-wo-dasu-na
+  titles:
+    original: 映像研には手を出すな!
+    translations: { ja-Latn: Eizouken ni wa Te wo Dasu na! }
+  seasons:
+    - id: eizouken-ni-wa-te-wo-dasu-na-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [eizouken-ni-wa-te-wo-dasu-na]

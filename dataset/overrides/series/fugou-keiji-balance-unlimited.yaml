@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fugou-keiji-balance-unlimited
+  titles:
+    original: "Fugou Keiji: Balance:Unlimited"
+    translations: { ja-Latn: "Fugou Keiji: Balance:Unlimited" }
+  seasons:
+    - id: fugou-keiji-balance-unlimited-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fugou-keiji-balance-unlimited]

@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: higurashi-no-naku-koro-ni-gou
+  titles:
+    original: ひぐらしのなく頃に (アニメ新プロジェクト)
+    translations: { ja-Latn: Higurashi no Naku Koro ni Gou }
+  seasons:
+    - id: higurashi-no-naku-koro-ni-gou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [higurashi-no-naku-koro-ni-gou]

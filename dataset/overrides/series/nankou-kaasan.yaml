@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nankou-kaasan
+  titles:
+    original: 軟膏母さん
+    translations: { ja-Latn: Nankou Kaasan }
+  movies:
+    - id: nankou-kaasan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nankou-kaasan]

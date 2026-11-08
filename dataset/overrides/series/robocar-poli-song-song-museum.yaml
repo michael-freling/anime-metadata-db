@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: robocar-poli-song-song-museum
+  titles:
+    original: "Robocar Poli: Song Song Museum"
+    translations: { ja-Latn: "Robocar Poli: Song Song Museum" }
+  seasons:
+    - id: robocar-poli-song-song-museum-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [robocar-poli-song-song-museum]

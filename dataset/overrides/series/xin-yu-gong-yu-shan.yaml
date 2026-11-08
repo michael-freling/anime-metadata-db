@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xin-yu-gong-yu-shan
+  titles:
+    original: Xin Yu Gong Yu Shan
+    translations: { ja-Latn: Xin Yu Gong Yu Shan }
+  movies:
+    - id: xin-yu-gong-yu-shan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xin-yu-gong-yu-shan]

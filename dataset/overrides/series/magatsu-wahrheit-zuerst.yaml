@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: magatsu-wahrheit-zuerst
+  titles:
+    original: 禍つヴァールハイト -ZUERST-
+    translations: { ja-Latn: "Magatsu Wahrheit: Zuerst" }
+  seasons:
+    - id: magatsu-wahrheit-zuerst-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [magatsu-wahrheit-zuerst]

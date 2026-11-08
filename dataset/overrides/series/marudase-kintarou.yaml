@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: marudase-kintarou
+  titles:
+    original: まるだせ金太狼
+    translations: { ja-Latn: Marudase Kintarou }
+  movies:
+    - id: marudase-kintarou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [marudase-kintarou]

@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ju-long-shangu
+  titles:
+    original: Ju Long Shangu
+    translations: { ja-Latn: Ju Long Shangu }
+  seasons:
+    - id: ju-long-shangu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ju-long-shangu]

@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: somali-to-mori-no-kamisama
+  titles:
+    original: ソマリと森の神様
+    translations: { ja-Latn: Somali to Mori no Kamisama }
+  seasons:
+    - id: somali-to-mori-no-kamisama-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [somali-to-mori-no-kamisama]

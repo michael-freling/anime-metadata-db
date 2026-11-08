@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: peter-grill-to-kenja-no-jikan
+  titles:
+    original: ピーター・グリルと賢者の時間
+    translations: { ja-Latn: Peter Grill to Kenja no Jikan }
+  seasons:
+    - id: peter-grill-to-kenja-no-jikan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [peter-grill-to-kenja-no-jikan]

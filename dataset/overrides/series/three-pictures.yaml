@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: three-pictures
+  titles:
+    original: チョウ レイコウ
+    translations: { ja-Latn: three pictures }
+  movies:
+    - id: three-pictures-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [three-pictures]

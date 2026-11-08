@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shokugeki-no-souma-gou-no-sara
+  titles:
+    original: 食戟のソーマ 豪ノ皿
+    translations: { ja-Latn: "Shokugeki no Souma: Gou no Sara" }
+  seasons:
+    - id: shokugeki-no-souma-gou-no-sara-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shokugeki-no-souma-gou-no-sara]

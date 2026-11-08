@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bai-shou-zong-dong-yuan
+  titles:
+    original: Bai Shou Zong Dong Yuan
+    translations: { ja-Latn: Bai Shou Zong Dong Yuan }
+  seasons:
+    - id: bai-shou-zong-dong-yuan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bai-shou-zong-dong-yuan]

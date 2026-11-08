@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dungeon-ni-deai-wo-motomeru-no-wa-machigatteiru-darou-ka-iii
+  titles:
+    original: ダンジョンに出会いを求めるのは間違っているだろうか FAMILIA MYTH III
+    translations: { ja-Latn: Dungeon ni Deai wo Motomeru no wa Machigatteiru Darou ka III }
+  seasons:
+    - id: dungeon-ni-deai-wo-motomeru-no-wa-machigatteiru-darou-ka-iii-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dungeon-ni-deai-wo-motomeru-no-wa-machigatteiru-darou-ka-iii]

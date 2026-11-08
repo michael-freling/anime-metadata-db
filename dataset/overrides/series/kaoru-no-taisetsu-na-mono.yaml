@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaoru-no-taisetsu-na-mono
+  titles:
+    original: カオルの大切なモノ
+    translations: { ja-Latn: Kaoru no Taisetsu na Mono }
+  seasons:
+    - id: kaoru-no-taisetsu-na-mono-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaoru-no-taisetsu-na-mono]

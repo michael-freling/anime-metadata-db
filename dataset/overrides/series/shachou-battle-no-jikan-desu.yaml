@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shachou-battle-no-jikan-desu
+  titles:
+    original: "社長, バトルの時間です!"
+    translations: { ja-Latn: "Shachou, Battle no Jikan desu!" }
+  seasons:
+    - id: shachou-battle-no-jikan-desu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shachou-battle-no-jikan-desu]

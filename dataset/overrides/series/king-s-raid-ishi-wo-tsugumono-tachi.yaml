@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: king-s-raid-ishi-wo-tsugumono-tachi
+  titles:
+    original: King's Raid 意志を継ぐものたち
+    translations: { ja-Latn: "King's Raid: Ishi wo Tsugumono-tachi" }
+  seasons:
+    - id: king-s-raid-ishi-wo-tsugumono-tachi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [king-s-raid-ishi-wo-tsugumono-tachi]

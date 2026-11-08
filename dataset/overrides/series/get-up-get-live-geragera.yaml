@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: get-up-get-live-geragera
+  titles:
+    original: "GET UP! GET LIVE! #げらげら"
+    translations: { ja-Latn: "Get Up! Get Live! #Geragera" }
+  seasons:
+    - id: get-up-get-live-geragera-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [get-up-get-live-geragera]

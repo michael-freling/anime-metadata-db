@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bem-movie-become-human
+  titles:
+    original: "Bem Movie: Become Human"
+    translations: { ja-Latn: "Bem Movie: Become Human" }
+  movies:
+    - id: bem-movie-become-human-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bem-movie-become-human]

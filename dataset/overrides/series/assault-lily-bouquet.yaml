@@ -1,0 +1,15 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: assault-lily-bouquet
+  titles:
+    original: アサルトリリィBOUQUET
+    translations: { ja-Latn: Assault Lily Bouquet }
+  seasons:
+    - id: assault-lily-bouquet-s1
+      number: 1
+    - id: assault-lily-bouquet-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [assault-lily-bouquet]

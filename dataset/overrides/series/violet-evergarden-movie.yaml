@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: violet-evergarden-movie
+  titles:
+    original: ヴァイオレット・エヴァーガーデン (新作)
+    translations: { ja-Latn: Violet Evergarden Movie }
+  movies:
+    - id: violet-evergarden-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [violet-evergarden-movie]

@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kimi-to-boku-no-saigo-no-senjou-aruiwa-sekai-ga-hajimaru-seisen
+  titles:
+    original: "キミと僕の最後の戦場, あるいは世界が始まる聖戦"
+    translations: { ja-Latn: "Kimi to Boku no Saigo no Senjou, Aruiwa Sekai ga Hajimaru Seisen" }
+  seasons:
+    - id: kimi-to-boku-no-saigo-no-senjou-aruiwa-sekai-ga-hajimaru-seisen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kimi-to-boku-no-saigo-no-senjou-aruiwa-sekai-ga-hajimaru-seisen]

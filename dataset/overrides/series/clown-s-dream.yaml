@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: clown-s-dream
+  titles:
+    original: ゆめぴえろ
+    translations: { ja-Latn: Clown's dream }
+  movies:
+    - id: clown-s-dream-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [clown-s-dream]

@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: obake-zukan
+  titles:
+    original: おばけずかん
+    translations: { ja-Latn: Obake Zukan }
+  seasons:
+    - id: obake-zukan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [obake-zukan]

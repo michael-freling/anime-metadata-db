@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: a-u-xinxing-guanzhuang-bingdu-de-yufang-xuzhi
+  titles:
+    original: "A U: Xinxíng Guanzhuang Bìngdu De Yufang Xuzhi"
+    translations: { ja-Latn: "A U: Xinxíng Guanzhuang Bìngdu De Yufang Xuzhi" }
+  seasons:
+    - id: a-u-xinxing-guanzhuang-bingdu-de-yufang-xuzhi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [a-u-xinxing-guanzhuang-bingdu-de-yufang-xuzhi]

@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dragon-quest-dai-no-daibouken-2020
+  titles:
+    original: DRAGON QUEST ダイの大冒険 (2020)
+    translations: { ja-Latn: "Dragon Quest: Dai no Daibouken (2020)" }
+  seasons:
+    - id: dragon-quest-dai-no-daibouken-2020-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dragon-quest-dai-no-daibouken-2020]

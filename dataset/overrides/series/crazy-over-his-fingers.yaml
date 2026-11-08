@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: crazy-over-his-fingers
+  titles:
+    original: 俺の指で乱れろ。～閉店後二人きりのサロンで...～
+    translations: { ja-Latn: Crazy Over His Fingers }
+  seasons:
+    - id: crazy-over-his-fingers-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [crazy-over-his-fingers]

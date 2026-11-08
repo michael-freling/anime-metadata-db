@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yahari-ore-no-seishun-love-comedy-wa-machigatteiru-kan
+  titles:
+    original: やはり俺の青春ラブコメはまちがっている. 3
+    translations: { ja-Latn: Yahari Ore no Seishun Love Comedy wa Machigatteiru. Kan }
+  seasons:
+    - id: yahari-ore-no-seishun-love-comedy-wa-machigatteiru-kan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yahari-ore-no-seishun-love-comedy-wa-machigatteiru-kan]

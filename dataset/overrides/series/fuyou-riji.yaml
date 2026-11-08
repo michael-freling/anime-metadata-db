@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fuyou-riji
+  titles:
+    original: Fuyou Riji
+    translations: { ja-Latn: Fuyou Riji }
+  movies:
+    - id: fuyou-riji-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fuyou-riji]

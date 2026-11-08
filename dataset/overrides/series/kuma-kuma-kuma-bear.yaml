@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kuma-kuma-kuma-bear
+  titles:
+    original: くま クマ 熊 ベアー
+    translations: { ja-Latn: Kuma Kuma Kuma Bear }
+  seasons:
+    - id: kuma-kuma-kuma-bear-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kuma-kuma-kuma-bear]

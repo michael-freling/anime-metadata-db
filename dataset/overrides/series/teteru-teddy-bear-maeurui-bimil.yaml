@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: teteru-teddy-bear-maeurui-bimil
+  titles:
+    original: "Teteru: Teddy Bear Maeurui Bimil"
+    translations: { ja-Latn: "Teteru: Teddy Bear Maeurui Bimil" }
+  seasons:
+    - id: teteru-teddy-bear-maeurui-bimil-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [teteru-teddy-bear-maeurui-bimil]

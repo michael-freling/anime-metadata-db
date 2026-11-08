@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: monkie-kid-season-1
+  titles:
+    original: Monkie Kid Season 1
+    translations: { ja-Latn: Monkie Kid Season 1 }
+  seasons:
+    - id: monkie-kid-season-1-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [monkie-kid-season-1]

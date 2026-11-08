@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: on-time-off-time
+  titles:
+    original: On Time Off Time
+    translations: { ja-Latn: On Time Off Time }
+  movies:
+    - id: on-time-off-time-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [on-time-off-time]

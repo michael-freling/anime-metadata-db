@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shouwang-zhengfeng-shen-jiang-zhi-nu
+  titles:
+    original: Shouwang Zhengfeng Shen Jiang Zhi Nu
+    translations: { ja-Latn: Shouwang Zhengfeng Shen Jiang Zhi Nu }
+  seasons:
+    - id: shouwang-zhengfeng-shen-jiang-zhi-nu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shouwang-zhengfeng-shen-jiang-zhi-nu]

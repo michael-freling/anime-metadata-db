@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: idolish7-second-beat
+  titles:
+    original: アイドリッシュセブン Second BEAT!
+    translations: { ja-Latn: IDOLiSH7 Second Beat! }
+  seasons:
+    - id: idolish7-second-beat-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [idolish7-second-beat]

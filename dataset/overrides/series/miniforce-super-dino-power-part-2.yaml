@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: miniforce-super-dino-power-part-2
+  titles:
+    original: "Miniforce: Super Dino Power Part 2"
+    translations: { ja-Latn: "Miniforce: Super Dino Power Part 2" }
+  seasons:
+    - id: miniforce-super-dino-power-part-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [miniforce-super-dino-power-part-2]

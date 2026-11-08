@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: seizei-ganbare-mahou-shoujo-kurumi-3rd-season
+  titles:
+    original: せいぜいがんばれ! 魔法少女くるみ (2020)
+    translations: { ja-Latn: Seizei Ganbare! Mahou Shoujo Kurumi 3rd Season }
+  seasons:
+    - id: seizei-ganbare-mahou-shoujo-kurumi-3rd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [seizei-ganbare-mahou-shoujo-kurumi-3rd-season]

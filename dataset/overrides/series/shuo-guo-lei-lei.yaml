@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shuo-guo-lei-lei
+  titles:
+    original: Shuo Guo Lei Lei
+    translations: { ja-Latn: Shuo Guo Lei Lei }
+  seasons:
+    - id: shuo-guo-lei-lei-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shuo-guo-lei-lei]

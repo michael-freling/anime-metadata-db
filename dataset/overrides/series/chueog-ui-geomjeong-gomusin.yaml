@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chueog-ui-geomjeong-gomusin
+  titles:
+    original: Chueog-ui Geomjeong Gomusin
+    translations: { ja-Latn: Chueog-ui Geomjeong Gomusin }
+  movies:
+    - id: chueog-ui-geomjeong-gomusin-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chueog-ui-geomjeong-gomusin]

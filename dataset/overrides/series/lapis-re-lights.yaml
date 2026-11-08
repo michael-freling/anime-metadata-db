@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lapis-re-lights
+  titles:
+    original: "Lapis Re:LiGHTs（ラピスリライツ）"
+    translations: { ja-Latn: "Lapis Re:LiGHTs" }
+  seasons:
+    - id: lapis-re-lights-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lapis-re-lights]

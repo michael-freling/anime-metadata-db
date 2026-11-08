@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: grey-zone
+  titles:
+    original: Grey Zone
+    translations: { ja-Latn: Grey Zone }
+  movies:
+    - id: grey-zone-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [grey-zone]

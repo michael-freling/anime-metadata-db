@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ku-jie-de-kexue-zhi-lu-xunzhao-zhongguo-long
+  titles:
+    original: "Ku Jie de Kexue Zhi Lu: Xunzhao Zhongguo Long"
+    translations: { ja-Latn: "Ku Jie de Kexue Zhi Lu: Xunzhao Zhongguo Long" }
+  seasons:
+    - id: ku-jie-de-kexue-zhi-lu-xunzhao-zhongguo-long-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ku-jie-de-kexue-zhi-lu-xunzhao-zhongguo-long]

@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: neko-neko-nihonshi-movie-ryouma-no-hachamecha-time-travel-ze-yo
+  titles:
+    original: 映画 ねこねこ日本史 ~龍馬のはちゃめちゃタイムトラベルぜよ!~
+    translations: { ja-Latn: "Neko Neko Nihonshi Movie: Ryouma no Hachamecha Time Travel ze yo!" }
+  movies:
+    - id: neko-neko-nihonshi-movie-ryouma-no-hachamecha-time-travel-ze-yo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [neko-neko-nihonshi-movie-ryouma-no-hachamecha-time-travel-ze-yo]

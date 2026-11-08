@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: guai-tao-yu-nao-gua
+  titles:
+    original: Guai Tao Yu Nao Gua
+    translations: { ja-Latn: Guai Tao Yu Nao Gua }
+  seasons:
+    - id: guai-tao-yu-nao-gua-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [guai-tao-yu-nao-gua]

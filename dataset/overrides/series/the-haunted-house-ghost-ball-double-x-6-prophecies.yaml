@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-haunted-house-ghost-ball-double-x-6-prophecies
+  titles:
+    original: "The Haunted House: Ghost Ball Double X - 6 Prophecies"
+    translations: { ja-Latn: "The Haunted House: Ghost Ball Double X - 6 Prophecies" }
+  seasons:
+    - id: the-haunted-house-ghost-ball-double-x-6-prophecies-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-haunted-house-ghost-ball-double-x-6-prophecies]

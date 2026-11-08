@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: magical-girl-friendship-squad
+  titles:
+    original: Magical Girl Friendship Squad
+    translations: { ja-Latn: Magical Girl Friendship Squad }
+  seasons:
+    - id: magical-girl-friendship-squad-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [magical-girl-friendship-squad]

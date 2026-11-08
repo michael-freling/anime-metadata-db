@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hakushon-daimaou-2020
+  titles:
+    original: ハクション大魔王 2020
+    translations: { ja-Latn: Hakushon Daimaou 2020 }
+  seasons:
+    - id: hakushon-daimaou-2020-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hakushon-daimaou-2020]

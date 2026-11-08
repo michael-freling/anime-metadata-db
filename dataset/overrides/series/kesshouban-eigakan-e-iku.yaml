@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kesshouban-eigakan-e-iku
+  titles:
+    original: はたらく細胞 血小板 映画館へ行く
+    translations: { ja-Latn: "Kesshouban: Eigakan e Iku" }
+  movies:
+    - id: kesshouban-eigakan-e-iku-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kesshouban-eigakan-e-iku]

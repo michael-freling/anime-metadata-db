@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: one-piece-mugiwara-no-ichimi-minna-e-tearai-suimin-o-kodomo-tachi-ouen-sp
+  titles:
+    original: ONE PIECE 麦わらの一味　みんなへ「手洗い・睡眠を!」子どもたち応援SP
+    translations: { ja-Latn: "One Piece: Mugiwara no Ichimi – Minna e “Tearai, Suimin o!” Kodomo-tachi Ouen SP" }
+  seasons:
+    - id: one-piece-mugiwara-no-ichimi-minna-e-tearai-suimin-o-kodomo-tachi-ouen-sp-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [one-piece-mugiwara-no-ichimi-minna-e-tearai-suimin-o-kodomo-tachi-ouen-sp]

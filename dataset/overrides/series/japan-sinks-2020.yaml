@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: japan-sinks-2020
+  titles:
+    original: 日本沈没2020 劇場編集版 シズマヌキボウ
+    translations: { ja-Latn: "Japan Sinks: 2020" }
+  movies:
+    - id: japan-sinks-2020-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [japan-sinks-2020]

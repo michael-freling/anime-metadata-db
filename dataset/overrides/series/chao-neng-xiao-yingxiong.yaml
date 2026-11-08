@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chao-neng-xiao-yingxiong
+  titles:
+    original: Chao Neng Xiao Yingxiong
+    translations: { ja-Latn: Chao Neng Xiao Yingxiong }
+  seasons:
+    - id: chao-neng-xiao-yingxiong-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chao-neng-xiao-yingxiong]

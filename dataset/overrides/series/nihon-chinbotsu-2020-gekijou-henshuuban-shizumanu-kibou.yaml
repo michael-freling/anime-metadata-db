@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nihon-chinbotsu-2020-gekijou-henshuuban-shizumanu-kibou
+  titles:
+    original: 日本沈没2020 劇場編集版 -シズマヌキボウ-
+    translations: { ja-Latn: "Nihon Chinbotsu 2020 Gekijou Henshuuban: Shizumanu Kibou" }
+  movies:
+    - id: nihon-chinbotsu-2020-gekijou-henshuuban-shizumanu-kibou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nihon-chinbotsu-2020-gekijou-henshuuban-shizumanu-kibou]

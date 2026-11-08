@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: no-other-one
+  titles:
+    original: No other one
+    translations: { ja-Latn: No other one }
+  movies:
+    - id: no-other-one-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [no-other-one]

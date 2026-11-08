@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ma-eum-uisoli-season-2
+  titles:
+    original: Ma-eum-uisoli Season 2
+    translations: { ja-Latn: Ma-eum-uisoli Season 2 }
+  seasons:
+    - id: ma-eum-uisoli-season-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ma-eum-uisoli-season-2]

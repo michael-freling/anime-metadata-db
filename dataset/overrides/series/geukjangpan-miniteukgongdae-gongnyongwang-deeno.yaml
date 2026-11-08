@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: geukjangpan-miniteukgongdae-gongnyongwang-deeno
+  titles:
+    original: "Geukjangpan Miniteukgongdae: Gongnyongwang Deeno"
+    translations: { ja-Latn: "Geukjangpan Miniteukgongdae: Gongnyongwang Deeno" }
+  movies:
+    - id: geukjangpan-miniteukgongdae-gongnyongwang-deeno-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [geukjangpan-miniteukgongdae-gongnyongwang-deeno]

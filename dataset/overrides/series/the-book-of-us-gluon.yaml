@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-book-of-us-gluon
+  titles:
+    original: "The Book of Us : Gluon"
+    translations: { ja-Latn: "The Book of Us : Gluon" }
+  movies:
+    - id: the-book-of-us-gluon-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-book-of-us-gluon]

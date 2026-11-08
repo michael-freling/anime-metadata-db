@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: a3-season-autumn-winter
+  titles:
+    original: エースリー Season Autumn & Winter
+    translations: { ja-Latn: A3! Season Autumn & Winter }
+  seasons:
+    - id: a3-season-autumn-winter-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [a3-season-autumn-winter]

@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-tu-bandy-haidao-tanxian-ji
+  titles:
+    original: "Xiao Tu Bandy: Haidao Tanxian Ji"
+    translations: { ja-Latn: "Xiao Tu Bandy: Haidao Tanxian Ji" }
+  seasons:
+    - id: xiao-tu-bandy-haidao-tanxian-ji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-tu-bandy-haidao-tanxian-ji]

@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: planetarium-pokemon-aurora-kara-no-message
+  titles:
+    original: プラネタリウム ポケットモンスター オーロラからのメッセージ
+    translations: { ja-Latn: "Planetarium Pokemon: Aurora kara no Message" }
+  movies:
+    - id: planetarium-pokemon-aurora-kara-no-message-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [planetarium-pokemon-aurora-kara-no-message]

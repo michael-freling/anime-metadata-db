@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pop-up-to-you
+  titles:
+    original: POP UP TO YOU
+    translations: { ja-Latn: POP UP TO YOU }
+  movies:
+    - id: pop-up-to-you-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pop-up-to-you]

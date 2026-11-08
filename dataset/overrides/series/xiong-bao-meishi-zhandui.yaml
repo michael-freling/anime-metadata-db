@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiong-bao-meishi-zhandui
+  titles:
+    original: Xiong Bao Meishi Zhandui
+    translations: { ja-Latn: Xiong Bao Meishi Zhandui }
+  seasons:
+    - id: xiong-bao-meishi-zhandui-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiong-bao-meishi-zhandui]

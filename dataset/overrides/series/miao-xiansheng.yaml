@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: miao-xiansheng
+  titles:
+    original: Miao Xiansheng
+    translations: { ja-Latn: Miao Xiansheng }
+  movies:
+    - id: miao-xiansheng-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [miao-xiansheng]

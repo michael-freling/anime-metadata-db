@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wu-sheng-guan-gong
+  titles:
+    original: Wu Sheng Guan Gong
+    translations: { ja-Latn: Wu Sheng Guan Gong }
+  movies:
+    - id: wu-sheng-guan-gong-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wu-sheng-guan-gong]

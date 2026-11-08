@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kann-chan-tsuki-no-ishi-wo-morau
+  titles:
+    original: カンちゃん 月の石をもらう
+    translations: { ja-Latn: Kann-chan Tsuki no Ishi wo Morau }
+  movies:
+    - id: kann-chan-tsuki-no-ishi-wo-morau-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kann-chan-tsuki-no-ishi-wo-morau]

@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dounika-naru-hibi
+  titles:
+    original: どうにかなる日々
+    translations: { ja-Latn: Dounika Naru Hibi }
+  movies:
+    - id: dounika-naru-hibi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dounika-naru-hibi]

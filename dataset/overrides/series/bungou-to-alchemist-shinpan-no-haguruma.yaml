@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bungou-to-alchemist-shinpan-no-haguruma
+  titles:
+    original: 文豪とアルケミスト ~審判ノ歯車~
+    translations: { ja-Latn: "Bungou to Alchemist: Shinpan no Haguruma" }
+  seasons:
+    - id: bungou-to-alchemist-shinpan-no-haguruma-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bungou-to-alchemist-shinpan-no-haguruma]

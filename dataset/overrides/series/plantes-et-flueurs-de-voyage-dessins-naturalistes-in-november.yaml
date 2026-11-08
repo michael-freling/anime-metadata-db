@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: plantes-et-flueurs-de-voyage-dessins-naturalistes-in-november
+  titles:
+    original: Plantes et flueurs de voyage Dessins naturalistes in November
+    translations: { ja-Latn: Plantes et flueurs de voyage Dessins naturalistes in November }
+  movies:
+    - id: plantes-et-flueurs-de-voyage-dessins-naturalistes-in-november-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [plantes-et-flueurs-de-voyage-dessins-naturalistes-in-november]

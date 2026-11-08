@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: one-piece-water-spectacle-3-wano-kuni-hen
+  titles:
+    original: ワンピース ウォータースペクタクル3 ワノ国編
+    translations: { ja-Latn: "One Piece Water Spectacle 3: Wano Kuni-hen" }
+  movies:
+    - id: one-piece-water-spectacle-3-wano-kuni-hen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [one-piece-water-spectacle-3-wano-kuni-hen]

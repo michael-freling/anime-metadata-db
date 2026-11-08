@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: alibaba-yu-shen-deng
+  titles:
+    original: Alibaba Yu Shen Deng
+    translations: { ja-Latn: Alibaba Yu Shen Deng }
+  movies:
+    - id: alibaba-yu-shen-deng-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [alibaba-yu-shen-deng]

@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: date-a-bullet-nightmare-or-queen
+  titles:
+    original: デート・ア・バレット ナイトメア・オア・クイーン
+    translations: { ja-Latn: "Date A Bullet: Nightmare or Queen" }
+  movies:
+    - id: date-a-bullet-nightmare-or-queen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [date-a-bullet-nightmare-or-queen]

@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lip-lip-film-live-kono-sekai-no-tanoshimikata
+  titles:
+    original: LIP×LIP FILM×LIVE〜この世界の楽しみ方〜
+    translations: { ja-Latn: "LIP×LIP FILM×LIVE: Kono Sekai no Tanoshimikata" }
+  movies:
+    - id: lip-lip-film-live-kono-sekai-no-tanoshimikata-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lip-lip-film-live-kono-sekai-no-tanoshimikata]

@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bao-chong-huojian-che-fei-qing-de-zhaohuan
+  titles:
+    original: "Bao Chong Huojian Che: Fei Qing de Zhaohuan"
+    translations: { ja-Latn: "Bao Chong Huojian Che: Fei Qing de Zhaohuan" }
+  seasons:
+    - id: bao-chong-huojian-che-fei-qing-de-zhaohuan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bao-chong-huojian-che-fei-qing-de-zhaohuan]

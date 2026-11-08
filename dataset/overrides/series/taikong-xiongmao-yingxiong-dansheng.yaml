@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: taikong-xiongmao-yingxiong-dansheng
+  titles:
+    original: Taikong Xiongmao Yingxiong Dansheng
+    translations: { ja-Latn: Taikong Xiongmao Yingxiong Dansheng }
+  movies:
+    - id: taikong-xiongmao-yingxiong-dansheng-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [taikong-xiongmao-yingxiong-dansheng]

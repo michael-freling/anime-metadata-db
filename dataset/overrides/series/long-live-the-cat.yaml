@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: long-live-the-cat
+  titles:
+    original: 化猫ヤス
+    translations: { ja-Latn: Long Live the Cat }
+  movies:
+    - id: long-live-the-cat-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [long-live-the-cat]

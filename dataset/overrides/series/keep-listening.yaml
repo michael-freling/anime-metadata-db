@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: keep-listening
+  titles:
+    original: Keep Listening
+    translations: { ja-Latn: Keep Listening }
+  movies:
+    - id: keep-listening-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [keep-listening]

@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: micchiri-wanko-animation
+  titles:
+    original: みっちりわんこ! あにめ~しょん
+    translations: { ja-Latn: Micchiri Wanko! Animation }
+  seasons:
+    - id: micchiri-wanko-animation-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [micchiri-wanko-animation]

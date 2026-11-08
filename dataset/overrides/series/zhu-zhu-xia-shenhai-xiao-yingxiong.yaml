@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhu-zhu-xia-shenhai-xiao-yingxiong
+  titles:
+    original: "Zhu Zhu Xia: Shenhai Xiao Yingxiong"
+    translations: { ja-Latn: "Zhu Zhu Xia: Shenhai Xiao Yingxiong" }
+  seasons:
+    - id: zhu-zhu-xia-shenhai-xiao-yingxiong-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhu-zhu-xia-shenhai-xiao-yingxiong]

@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiu-rong-zhen
+  titles:
+    original: Xiu Rong Zhen
+    translations: { ja-Latn: Xiu Rong Zhen }
+  movies:
+    - id: xiu-rong-zhen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiu-rong-zhen]

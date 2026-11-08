@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aware-meisaku-kun-5
+  titles:
+    original: あはれ! 名作くん (2020)
+    translations: { ja-Latn: Aware! Meisaku-kun 5 }
+  seasons:
+    - id: aware-meisaku-kun-5-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aware-meisaku-kun-5]

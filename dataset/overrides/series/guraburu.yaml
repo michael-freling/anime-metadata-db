@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: guraburu
+  titles:
+    original: ぐらぶるっ!
+    translations: { ja-Latn: Guraburu! }
+  seasons:
+    - id: guraburu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [guraburu]

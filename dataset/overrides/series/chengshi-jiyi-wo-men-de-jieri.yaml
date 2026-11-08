@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chengshi-jiyi-wo-men-de-jieri
+  titles:
+    original: Chengshi Jiyi Wo Men de Jieri
+    translations: { ja-Latn: Chengshi Jiyi Wo Men de Jieri }
+  seasons:
+    - id: chengshi-jiyi-wo-men-de-jieri-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chengshi-jiyi-wo-men-de-jieri]
