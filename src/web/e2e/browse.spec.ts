@@ -384,11 +384,12 @@ test("no page shows a reader an id it links to", async ({ page }) => {
     await page.goto(path);
     const body = page.locator("main").last();
 
-    // The link's own text comes along, because an id whose title already looks
-    // like a slug is indistinguishable from a leak: "18if" is a 2017 series
-    // titled exactly that, and so are "K", "C" and "Gyo". Showing their titles
-    // necessarily shows their ids, and no amount of word-boundary care
-    // separates the two.
+    // The link's own text comes along, for the one case where a title cannot
+    // be told from a slug: when it IS one. "18if" is a 2017 series titled
+    // exactly that, so the row showing its title shows its id too, and no
+    // word-boundary care separates them. Titles normally differ from their
+    // slugs in case and punctuation — "Demon Slayer" never matches
+    // /\bdemon-slayer\b/ — which is what makes the check work at all.
     const links = (
       await body.locator("a[href]").evaluateAll((els) =>
         els.map((el) => ({
@@ -401,14 +402,14 @@ test("no page shows a reader an id it links to", async ({ page }) => {
     const ids = new Set<string>();
     for (const { href, text } of links) {
       const id = href.split("/").pop()!;
-      // Slugified the way ids are made: lowercase, runs of anything else
-      // collapsed to a hyphen. When the title's slug opens with the id, the
-      // id on the page is the title and there is nothing to find.
-      const titleSlug = text
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/^-+|-+$/g, "");
-      if (titleSlug === id || titleSlug.startsWith(`${id}-`)) continue;
+      // Compared as-is, not slugified. Slugifying would exclude nearly every
+      // link — an id is the slug of its title, so "slug of title equals id"
+      // is true almost always, and a first attempt at this gutted the check:
+      // every id on /characters/tanjiro-kamado was skipped and the guard below
+      // caught it. What is actually indistinguishable is a title that already
+      // reads as a slug.
+      const title = text.split("\n")[0].trim().toLowerCase();
+      if (title === id) continue;
       // An id that is itself an ordinary token cannot be told from prose
       // either. "1" is a real series — a 2011 short film titled "1" — and the
       // pager and counts print bare numerals, so \b1\b matches every page;
