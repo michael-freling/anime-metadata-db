@@ -55,10 +55,16 @@ Two sources, because the two environments differ:
 Disk wins over the deployed commit, so a working tree is always authoritative
 locally.
 
-The fetched index is what a cold start pays for: 1.74 MB and about 0.8s at
-6,382 series, against 0.25s when it was 286 KB. It grows with the catalogue,
-and a record is a separate fetch of a few hundred bytes. If that becomes the
-problem, the answer is caching at the edge or a different store — not a smaller
+The fetched index is what a cold start pays for, and it grows with the
+catalogue: 2.21 MB at 8,494 series. **Its size is not what the time is, though.**
+Measured over five samples each, the 2.21 MB index and the 1.74 MB one it
+replaced both return in about 0.17s warm, and the first fetch of a
+freshly-pushed commit costs 0.3-0.4s. An earlier note here read "1.74 MB and
+about 0.8s ... against 0.25s when it was 286 KB" and drew a line through two
+points that were really measuring how warm the CDN was. If a cold start needs
+to get faster, measure before assuming the index is why; a record is a separate
+fetch of a few hundred bytes, and request count may matter more than bytes. The
+answer is still caching at the edge or a different store rather than a smaller
 index, which is what the API serves listings from.
 
 **Vercel's Go builder ships the compiled binary and nothing else.** Repository
