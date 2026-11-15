@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaden-manzai-john-tv-show
+  titles:
+    original: 家電漫才 ジョンテレビSHOW！
+    translations: { ja-Latn: Kaden Manzai John TV Show! }
+  seasons:
+    - id: kaden-manzai-john-tv-show-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaden-manzai-john-tv-show]

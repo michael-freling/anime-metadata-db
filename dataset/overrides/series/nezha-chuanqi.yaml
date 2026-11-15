@@ -1,0 +1,13 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nezha-chuanqi
+  titles:
+    original: "Houshin Engi: Nataku Dai no Daibouken (封神演義 〜ナタクの大冒険〜)"
+    translations: { ja-Latn: Nezha Chuanqi }
+  seasons:
+    - id: nezha-chuanqi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nezha-chuanqi]

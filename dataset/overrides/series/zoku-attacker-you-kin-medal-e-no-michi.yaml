@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zoku-attacker-you-kin-medal-e-no-michi
+  titles:
+    original: 続・アタッカーYOU 金メダルへの道
+    translations: { ja-Latn: Zoku Attacker You! Kin Medal e no Michi }
+  seasons:
+    - id: zoku-attacker-you-kin-medal-e-no-michi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zoku-attacker-you-kin-medal-e-no-michi]

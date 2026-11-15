@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shin-sos-dai-tokyo-tankentai
+  titles:
+    original: Shin SOS Dai Tokyo Tankentai
+    translations: { ja-Latn: Shin SOS Dai Tokyo Tankentai }
+  movies:
+    - id: shin-sos-dai-tokyo-tankentai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shin-sos-dai-tokyo-tankentai]

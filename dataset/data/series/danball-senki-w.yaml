@@ -11,17 +11,10 @@ series:
       number: 1
       releaseYear: 2012
       releaseSeason: WINTER
-      episodes:
-        count: 58
-        absoluteFrom: 1
-    - id: danball-senki-w-s2
-      number: 2
-      releaseYear: 2012
-      releaseSeason: WINTER
       externalIds:
         anilistId: 12651
         anidbId: 8903
         tvdbId: 260946
       episodes:
         count: 58
-        absoluteFrom: 59
+        absoluteFrom: 1

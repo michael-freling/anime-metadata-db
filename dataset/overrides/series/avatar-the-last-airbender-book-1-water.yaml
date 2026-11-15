@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: avatar-the-last-airbender-book-1-water
+  titles:
+    original: "Avatar: The Last Airbender Book 1: Water"
+    translations: { ja-Latn: "Avatar: The Last Airbender Book 1: Water" }
+  seasons:
+    - id: avatar-the-last-airbender-book-1-water-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [avatar-the-last-airbender-book-1-water]

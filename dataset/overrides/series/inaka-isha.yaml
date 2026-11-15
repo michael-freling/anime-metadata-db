@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: inaka-isha
+  titles:
+    original: カフカ 田舎医者
+    translations: { ja-Latn: Inaka Isha }
+  movies:
+    - id: inaka-isha-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [inaka-isha]

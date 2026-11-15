@@ -1,0 +1,12 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ginga-tetsudou-999-glass-no-clair-3d
+  titles:
+    original: 銀河鉄道999～ガラスのクレア～（3D）
+    translations: { ja-Latn: "Ginga Tetsudou 999: Glass no Clair 3D" }
+  movies:
+    - id: ginga-tetsudou-999-glass-no-clair-3d-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ginga-tetsudou-999-glass-no-clair-3d]

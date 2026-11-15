@@ -1,0 +1,12 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yin-shun-daoshi-chuan
+  titles:
+    original: Yin Shun Daoshi Chuan
+    translations: { ja-Latn: Yin Shun Daoshi Chuan }
+  movies:
+    - id: yin-shun-daoshi-chuan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yin-shun-daoshi-chuan]

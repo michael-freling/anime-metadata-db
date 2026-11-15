@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kenran-butou-sai-the-mars-daybreak
+  titles:
+    original: 絢爛舞踏祭 ザ･マーズ･デイブレイク
+    translations: { ja-Latn: "Kenran Butou Sai: The Mars Daybreak" }
+  seasons:
+    - id: kenran-butou-sai-the-mars-daybreak-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kenran-butou-sai-the-mars-daybreak]

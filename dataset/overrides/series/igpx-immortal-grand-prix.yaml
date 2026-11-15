@@ -1,0 +1,17 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: igpx-immortal-grand-prix
+  titles:
+    original: "IGPX: Immortal Grand Prix"
+    translations: { ja-Latn: "IGPX: Immortal Grand Prix" }
+  seasons:
+    - id: igpx-immortal-grand-prix-s1
+      number: 1
+    - id: igpx-immortal-grand-prix-s2
+      number: 2
+    - id: igpx-immortal-grand-prix-s3
+      number: 3
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [igpx-immortal-grand-prix]

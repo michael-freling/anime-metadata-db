@@ -1,0 +1,12 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zoo-hidamari-no-shi
+  titles:
+    original: ZOO 「陽だまりの詩（シ）」
+    translations: { ja-Latn: "Zoo: Hidamari no Shi" }
+  movies:
+    - id: zoo-hidamari-no-shi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zoo-hidamari-no-shi]

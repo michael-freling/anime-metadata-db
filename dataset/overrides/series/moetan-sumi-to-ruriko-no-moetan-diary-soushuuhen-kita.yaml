@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: moetan-sumi-to-ruriko-no-moetan-diary-soushuuhen-kita
+  titles:
+    original: もえたん すみと瑠璃子のもえたんダイアリー ～総集編キタ─（ﾟ∀ﾟ）─！！～
+    translations: { ja-Latn: "Moetan: Sumi to Ruriko no Moetan Diary: Soushuuhen Kita!!" }
+  seasons:
+    - id: moetan-sumi-to-ruriko-no-moetan-diary-soushuuhen-kita-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [moetan-sumi-to-ruriko-no-moetan-diary-soushuuhen-kita]

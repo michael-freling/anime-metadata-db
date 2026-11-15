@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hi-no-tori-hagoromo-hen
+  titles:
+    original: 火の鳥 ~羽衣編~
+    translations: { ja-Latn: "Hi no Tori: Hagoromo-hen" }
+  movies:
+    - id: hi-no-tori-hagoromo-hen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hi-no-tori-hagoromo-hen]

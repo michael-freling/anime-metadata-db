@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: vexille-2077-nihon-sakoku
+  titles:
+    original: ベクシル 2077日本鎖国
+    translations: { ja-Latn: "Vexille: 2077 Nihon Sakoku" }
+  movies:
+    - id: vexille-2077-nihon-sakoku-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [vexille-2077-nihon-sakoku]

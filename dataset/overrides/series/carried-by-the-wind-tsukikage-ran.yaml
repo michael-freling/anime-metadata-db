@@ -1,0 +1,13 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: carried-by-the-wind-tsukikage-ran
+  titles:
+    original: 風まかせ月影蘭
+    translations: { ja-Latn: "Carried by the Wind: Tsukikage Ran" }
+  seasons:
+    - id: carried-by-the-wind-tsukikage-ran-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [carried-by-the-wind-tsukikage-ran]

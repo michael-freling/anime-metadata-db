@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yin-yang-yo
+  titles:
+    original: Yin Yang Yo!
+    translations: { ja-Latn: Yin Yang Yo! }
+  seasons:
+    - id: yin-yang-yo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yin-yang-yo]

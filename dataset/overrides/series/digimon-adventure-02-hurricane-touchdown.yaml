@@ -1,0 +1,12 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: digimon-adventure-02-hurricane-touchdown
+  titles:
+    original: デジモンアドベンチャー０２ 前篇 デジモンハリケーン上陸！！ 後篇 超絶進化！！黄金のデジメンタル
+    translations: { ja-Latn: "Digimon Adventure 02: Hurricane Touchdown" }
+  movies:
+    - id: digimon-adventure-02-hurricane-touchdown-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [digimon-adventure-02-hurricane-touchdown]

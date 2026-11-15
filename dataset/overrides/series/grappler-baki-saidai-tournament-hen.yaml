@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: grappler-baki-saidai-tournament-hen
+  titles:
+    original: グラップラー刃牙(バキ) 最大トーナメント編
+    translations: { ja-Latn: "Grappler Baki: Saidai Tournament-hen" }
+  seasons:
+    - id: grappler-baki-saidai-tournament-hen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [grappler-baki-saidai-tournament-hen]

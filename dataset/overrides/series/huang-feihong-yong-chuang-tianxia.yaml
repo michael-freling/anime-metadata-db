@@ -1,0 +1,12 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: huang-feihong-yong-chuang-tianxia
+  titles:
+    original: Huang Feihong Yong Chuang Tianxia
+    translations: { ja-Latn: Huang Feihong Yong Chuang Tianxia }
+  movies:
+    - id: huang-feihong-yong-chuang-tianxia-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [huang-feihong-yong-chuang-tianxia]

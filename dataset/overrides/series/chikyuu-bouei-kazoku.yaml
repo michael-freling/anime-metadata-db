@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chikyuu-bouei-kazoku
+  titles:
+    original: Chikyuu Bouei Kazoku
+    translations: { ja-Latn: Chikyuu Bouei Kazoku }
+  seasons:
+    - id: chikyuu-bouei-kazoku-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chikyuu-bouei-kazoku]

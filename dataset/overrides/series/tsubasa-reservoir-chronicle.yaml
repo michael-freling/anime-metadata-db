@@ -1,0 +1,15 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tsubasa-reservoir-chronicle
+  titles:
+    original: ツバサ・クロニクル
+    translations: { ja-Latn: "Tsubasa: RESERVoir CHRoNiCLE" }
+  seasons:
+    - id: tsubasa-reservoir-chronicle-s1
+      number: 1
+    - id: tsubasa-reservoir-chronicle-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tsubasa-reservoir-chronicle]

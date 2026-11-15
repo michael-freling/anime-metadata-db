@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nareuneun-dwaeji-haejeok-mateo
+  titles:
+    original: Nareuneun Dwaeji - Haejeok Mateo
+    translations: { ja-Latn: Nareuneun Dwaeji - Haejeok Mateo }
+  movies:
+    - id: nareuneun-dwaeji-haejeok-mateo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nareuneun-dwaeji-haejeok-mateo]

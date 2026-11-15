@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kenkou-zenrakei-suiei-bu-umishou
+  titles:
+    original: ケンコー全裸系水泳部 ウミショー
+    translations: { ja-Latn: Kenkou Zenrakei Suiei-bu Umishou }
+  seasons:
+    - id: kenkou-zenrakei-suiei-bu-umishou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kenkou-zenrakei-suiei-bu-umishou]

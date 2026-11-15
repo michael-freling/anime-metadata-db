@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sora-wo-kakeru-shoujo
+  titles:
+    original: 宇宙をかける少女
+    translations: { ja-Latn: Sora wo Kakeru Shoujo }
+  seasons:
+    - id: sora-wo-kakeru-shoujo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sora-wo-kakeru-shoujo]

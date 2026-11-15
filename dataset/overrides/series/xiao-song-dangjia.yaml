@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-song-dangjia
+  titles:
+    original: Xiao Song Dangjia
+    translations: { ja-Latn: Xiao Song Dangjia }
+  seasons:
+    - id: xiao-song-dangjia-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-song-dangjia]

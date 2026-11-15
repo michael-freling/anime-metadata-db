@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tou-xing-jiu-yue-tian-tongnian-gushi
+  titles:
+    original: "Tou Xing Jiu Yue Tian: Tongnian Gushi"
+    translations: { ja-Latn: "Tou Xing Jiu Yue Tian: Tongnian Gushi" }
+  seasons:
+    - id: tou-xing-jiu-yue-tian-tongnian-gushi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tou-xing-jiu-yue-tian-tongnian-gushi]

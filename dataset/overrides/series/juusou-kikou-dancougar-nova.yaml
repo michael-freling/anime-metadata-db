@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: juusou-kikou-dancougar-nova
+  titles:
+    original: 獣装機攻 ダンクーガ ノヴァ
+    translations: { ja-Latn: Juusou Kikou Dancougar Nova }
+  seasons:
+    - id: juusou-kikou-dancougar-nova-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [juusou-kikou-dancougar-nova]

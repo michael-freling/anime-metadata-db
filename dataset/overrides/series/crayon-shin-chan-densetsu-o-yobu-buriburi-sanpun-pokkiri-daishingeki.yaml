@@ -1,0 +1,12 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: crayon-shin-chan-densetsu-o-yobu-buriburi-sanpun-pokkiri-daishingeki
+  titles:
+    original: クレヨンしんちゃん 伝説を呼ぶ ブリブリ 3分ポッキリ大進撃
+    translations: { ja-Latn: "Crayon Shin-chan: Densetsu o Yobu Buriburi Sanpun Pokkiri Daishingeki" }
+  movies:
+    - id: crayon-shin-chan-densetsu-o-yobu-buriburi-sanpun-pokkiri-daishingeki-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [crayon-shin-chan-densetsu-o-yobu-buriburi-sanpun-pokkiri-daishingeki]

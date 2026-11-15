@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: agatha-christie-no-meitantei-poirot-to-marple
+  titles:
+    original: アガサ・クリスティーの名探偵ポワロとマープル
+    translations: { ja-Latn: Agatha Christie no Meitantei Poirot to Marple }
+  seasons:
+    - id: agatha-christie-no-meitantei-poirot-to-marple-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [agatha-christie-no-meitantei-poirot-to-marple]

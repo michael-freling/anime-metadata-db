@@ -14,17 +14,10 @@ series:
       number: 1
       releaseYear: 2020
       releaseSeason: SUMMER
-      episodes:
-        count: 12
-        absoluteFrom: 1
-    - id: dokyuu-hentai-hxeros-s2
-      number: 2
-      releaseYear: 2020
-      releaseSeason: SUMMER
       externalIds:
         anilistId: 112818
         anidbId: 15241
         tvdbId: 378049
       episodes:
         count: 12
-        absoluteFrom: 13
+        absoluteFrom: 1

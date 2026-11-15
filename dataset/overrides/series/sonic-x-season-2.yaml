@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sonic-x-season-2
+  titles:
+    original: ソニックX 第2期
+    translations: { ja-Latn: Sonic X Season 2 }
+  seasons:
+    - id: sonic-x-season-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sonic-x-season-2]

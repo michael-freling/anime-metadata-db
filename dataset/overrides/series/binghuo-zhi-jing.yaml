@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: binghuo-zhi-jing
+  titles:
+    original: Binghuo Zhi Jing
+    translations: { ja-Latn: Binghuo Zhi Jing }
+  seasons:
+    - id: binghuo-zhi-jing-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [binghuo-zhi-jing]

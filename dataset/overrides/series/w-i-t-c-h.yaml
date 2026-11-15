@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: w-i-t-c-h
+  titles:
+    original: W.I.T.C.H.
+    translations: { ja-Latn: W.I.T.C.H. }
+  seasons:
+    - id: w-i-t-c-h-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [w-i-t-c-h]

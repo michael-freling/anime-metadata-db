@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: goldfish-fetish
+  titles:
+    original: Goldfish Fetish
+    translations: { ja-Latn: Goldfish Fetish }
+  movies:
+    - id: goldfish-fetish-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [goldfish-fetish]

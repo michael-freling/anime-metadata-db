@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pumpkin-scissors
+  titles:
+    original: パンプキン・シザーズ
+    translations: { ja-Latn: Pumpkin Scissors }
+  seasons:
+    - id: pumpkin-scissors-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pumpkin-scissors]

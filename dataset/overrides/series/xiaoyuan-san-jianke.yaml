@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiaoyuan-san-jianke
+  titles:
+    original: Xiaoyuan San Jianke
+    translations: { ja-Latn: Xiaoyuan San Jianke }
+  seasons:
+    - id: xiaoyuan-san-jianke-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiaoyuan-san-jianke]

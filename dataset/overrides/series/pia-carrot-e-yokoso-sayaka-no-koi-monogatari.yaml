@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pia-carrot-e-yokoso-sayaka-no-koi-monogatari
+  titles:
+    original: Pia♥キャロットへようこそ！！劇場版～さやかの恋物語～
+    translations: { ja-Latn: Pia Carrot e Yōkoso!! - Sayaka no Koi Monogatari }
+  movies:
+    - id: pia-carrot-e-yokoso-sayaka-no-koi-monogatari-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pia-carrot-e-yokoso-sayaka-no-koi-monogatari]

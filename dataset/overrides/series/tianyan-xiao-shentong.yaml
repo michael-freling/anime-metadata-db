@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tianyan-xiao-shentong
+  titles:
+    original: Tianyan Xiao Shentong
+    translations: { ja-Latn: Tianyan Xiao Shentong }
+  seasons:
+    - id: tianyan-xiao-shentong-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tianyan-xiao-shentong]

@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: taoqi-bao-ma-xiao-tiao
+  titles:
+    original: Taoqi Bao Ma Xiao Tiao
+    translations: { ja-Latn: Taoqi Bao Ma Xiao Tiao }
+  seasons:
+    - id: taoqi-bao-ma-xiao-tiao-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [taoqi-bao-ma-xiao-tiao]

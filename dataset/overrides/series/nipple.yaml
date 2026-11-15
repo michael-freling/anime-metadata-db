@@ -1,0 +1,12 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nipple
+  titles:
+    original: Nipple!!
+    translations: { ja-Latn: Nipple!! }
+  movies:
+    - id: nipple-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nipple]

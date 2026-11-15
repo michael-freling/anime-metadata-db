@@ -1,0 +1,12 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: first-squad-the-moment-of-truth
+  titles:
+    original: ファースト・スクワッド
+    translations: { ja-Latn: "First Squad: The Moment of Truth" }
+  movies:
+    - id: first-squad-the-moment-of-truth-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [first-squad-the-moment-of-truth]

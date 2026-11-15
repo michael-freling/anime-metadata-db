@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: blue-drop-tenshi-tachi-no-gikyoku
+  titles:
+    original: BLUE DROP ~天使達の戯曲~
+    translations: { ja-Latn: "Blue Drop: Tenshi-tachi no Gikyoku" }
+  seasons:
+    - id: blue-drop-tenshi-tachi-no-gikyoku-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [blue-drop-tenshi-tachi-no-gikyoku]

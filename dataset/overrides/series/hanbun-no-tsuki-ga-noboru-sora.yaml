@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hanbun-no-tsuki-ga-noboru-sora
+  titles:
+    original: 半分の月がのぼる空 - looking up at the half-moon
+    translations: { ja-Latn: Hanbun no Tsuki ga Noboru Sora }
+  seasons:
+    - id: hanbun-no-tsuki-ga-noboru-sora-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hanbun-no-tsuki-ga-noboru-sora]

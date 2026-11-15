@@ -1,0 +1,12 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: blow-up-2
+  titles:
+    original: Blow Up 2
+    translations: { ja-Latn: Blow Up 2 }
+  movies:
+    - id: blow-up-2-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [blow-up-2]

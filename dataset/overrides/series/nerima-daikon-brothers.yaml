@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nerima-daikon-brothers
+  titles:
+    original: おろしたてミュージカル 練馬大根ブラザーズ
+    translations: { ja-Latn: Nerima Daikon Brothers }
+  seasons:
+    - id: nerima-daikon-brothers-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nerima-daikon-brothers]

@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hoshi-shinichi-short-short
+  titles:
+    original: 星新一 ショートショート
+    translations: { ja-Latn: Hoshi Shinichi Short Short }
+  seasons:
+    - id: hoshi-shinichi-short-short-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hoshi-shinichi-short-short]

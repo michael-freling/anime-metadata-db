@@ -11,17 +11,10 @@ series:
       number: 1
       releaseYear: 2016
       releaseSeason: WINTER
-      episodes:
-        count: 12
-        absoluteFrom: 1
-    - id: saijaku-muhai-no-bahamut-s2
-      number: 2
-      releaseYear: 2016
-      releaseSeason: WINTER
       externalIds:
         anilistId: 21188
         anidbId: 11233
         tvdbId: 299502
       episodes:
         count: 12
-        absoluteFrom: 13
+        absoluteFrom: 1

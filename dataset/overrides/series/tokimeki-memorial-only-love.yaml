@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tokimeki-memorial-only-love
+  titles:
+    original: ときめきメモリアル ~Only Love~
+    translations: { ja-Latn: "Tokimeki Memorial: Only Love" }
+  seasons:
+    - id: tokimeki-memorial-only-love-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tokimeki-memorial-only-love]

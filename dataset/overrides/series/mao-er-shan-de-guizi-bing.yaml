@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mao-er-shan-de-guizi-bing
+  titles:
+    original: Mao Er Shan de Guizi Bing
+    translations: { ja-Latn: Mao Er Shan de Guizi Bing }
+  seasons:
+    - id: mao-er-shan-de-guizi-bing-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mao-er-shan-de-guizi-bing]

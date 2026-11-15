@@ -1,0 +1,12 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiang-qian-chong-xiang-qian-chong
+  titles:
+    original: "Xiang Qian Chong, Xiang Qian Chong"
+    translations: { ja-Latn: "Xiang Qian Chong, Xiang Qian Chong" }
+  movies:
+    - id: xiang-qian-chong-xiang-qian-chong-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiang-qian-chong-xiang-qian-chong]

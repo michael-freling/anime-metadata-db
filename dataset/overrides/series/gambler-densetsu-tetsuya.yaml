@@ -1,0 +1,13 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gambler-densetsu-tetsuya
+  titles:
+    original: 勝負師（ギャンブラー）伝説 哲也
+    translations: { ja-Latn: Gambler Densetsu Tetsuya }
+  seasons:
+    - id: gambler-densetsu-tetsuya-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gambler-densetsu-tetsuya]

@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: postpet-momobin
+  titles:
+    original: ポストペットモモ便
+    translations: { ja-Latn: PostPet Momobin }
+  seasons:
+    - id: postpet-momobin-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [postpet-momobin]

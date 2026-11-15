@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shin-chou-kyou-ryo-condor-hero-iii
+  titles:
+    original: 神鵰俠侶 コンドルヒーロー
+    translations: { ja-Latn: "Shin Chou Kyou Ryo: Condor Hero III" }
+  seasons:
+    - id: shin-chou-kyou-ryo-condor-hero-iii-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shin-chou-kyou-ryo-condor-hero-iii]

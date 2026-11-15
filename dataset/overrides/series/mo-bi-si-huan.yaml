@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mo-bi-si-huan
+  titles:
+    original: Mo Bi Si Huan
+    translations: { ja-Latn: Mo Bi Si Huan }
+  movies:
+    - id: mo-bi-si-huan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mo-bi-si-huan]

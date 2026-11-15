@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: taishou-yakyuu-musume
+  titles:
+    original: Taishou Yakyuu Musume.
+    translations: { ja-Latn: Taishou Yakyuu Musume. }
+  seasons:
+    - id: taishou-yakyuu-musume-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [taishou-yakyuu-musume]

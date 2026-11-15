@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xenosaga-the-animation
+  titles:
+    original: ゼノサーガ THE ANIMATION
+    translations: { ja-Latn: Xenosaga The Animation }
+  seasons:
+    - id: xenosaga-the-animation-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xenosaga-the-animation]

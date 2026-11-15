@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nichiren-sama-no-goshougai
+  titles:
+    original: 日蓮様の御生涯
+    translations: { ja-Latn: Nichiren-sama no Goshougai }
+  movies:
+    - id: nichiren-sama-no-goshougai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nichiren-sama-no-goshougai]

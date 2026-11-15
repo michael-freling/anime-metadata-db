@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sore-ike-zukkoke-sannin-gumi
+  titles:
+    original: それいけ! ズッコケ三人組
+    translations: { ja-Latn: Sore Ike! Zukkoke Sannin-gumi }
+  seasons:
+    - id: sore-ike-zukkoke-sannin-gumi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sore-ike-zukkoke-sannin-gumi]

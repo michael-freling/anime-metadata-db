@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wellber-no-monogatari-sisters-of-wellber
+  titles:
+    original: ウェルベールの物語 ～Sisters of Wellber～
+    translations: { ja-Latn: "Wellber no Monogatari: Sisters of Wellber" }
+  seasons:
+    - id: wellber-no-monogatari-sisters-of-wellber-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wellber-no-monogatari-sisters-of-wellber]

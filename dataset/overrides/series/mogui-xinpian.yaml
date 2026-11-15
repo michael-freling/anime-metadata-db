@@ -1,0 +1,13 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mogui-xinpian
+  titles:
+    original: Mogui Xinpian
+    translations: { ja-Latn: Mogui Xinpian }
+  seasons:
+    - id: mogui-xinpian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mogui-xinpian]

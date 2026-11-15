@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fushigiboshi-no-futagohime-gyu
+  titles:
+    original: 不可思議星球の双胞胎公主 Gyu!
+    translations: { ja-Latn: Fushigiboshi no☆Futagohime Gyu! }
+  seasons:
+    - id: fushigiboshi-no-futagohime-gyu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fushigiboshi-no-futagohime-gyu]

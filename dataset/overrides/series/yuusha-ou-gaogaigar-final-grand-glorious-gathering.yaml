@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yuusha-ou-gaogaigar-final-grand-glorious-gathering
+  titles:
+    original: 勇者王ガオガイガー Final Grand Glorious Gathering
+    translations: { ja-Latn: Yuusha-Ou GaoGaiGar Final Grand Glorious Gathering }
+  seasons:
+    - id: yuusha-ou-gaogaigar-final-grand-glorious-gathering-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yuusha-ou-gaogaigar-final-grand-glorious-gathering]

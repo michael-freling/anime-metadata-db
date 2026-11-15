@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hei-lian-da-baogong
+  titles:
+    original: Hei Lian Da Baogong
+    translations: { ja-Latn: Hei Lian Da Baogong }
+  seasons:
+    - id: hei-lian-da-baogong-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hei-lian-da-baogong]

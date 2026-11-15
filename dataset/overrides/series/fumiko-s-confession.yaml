@@ -1,0 +1,12 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fumiko-s-confession
+  titles:
+    original: フミコの告白
+    translations: { ja-Latn: Fumiko's Confession }
+  movies:
+    - id: fumiko-s-confession-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fumiko-s-confession]

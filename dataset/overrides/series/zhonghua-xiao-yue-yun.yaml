@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhonghua-xiao-yue-yun
+  titles:
+    original: Zhonghua Xiao Yue Yun
+    translations: { ja-Latn: Zhonghua Xiao Yue Yun }
+  seasons:
+    - id: zhonghua-xiao-yue-yun-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhonghua-xiao-yue-yun]

@@ -1,0 +1,12 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: miyamoto-musashi-souken-ni-haseru-yume
+  titles:
+    original: 宮本武蔵 -双剣に馳せる夢-
+    translations: { ja-Latn: "Miyamoto Musashi: Souken ni Haseru Yume" }
+  movies:
+    - id: miyamoto-musashi-souken-ni-haseru-yume-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [miyamoto-musashi-souken-ni-haseru-yume]

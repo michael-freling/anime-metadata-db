@@ -1,0 +1,12 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nintama-rantarou-tengu-no-himitsu-to-kieta-taiyou-no-dan
+  titles:
+    original: 忍たま乱太郎 ~天狗のひみつと消えた太陽の段~
+    translations: { ja-Latn: "Nintama Rantarou: Tengu no Himitsu to Kieta Taiyou no Dan" }
+  movies:
+    - id: nintama-rantarou-tengu-no-himitsu-to-kieta-taiyou-no-dan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nintama-rantarou-tengu-no-himitsu-to-kieta-taiyou-no-dan]

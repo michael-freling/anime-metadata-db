@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nanami-chan-3rd-series
+  titles:
+    original: ななみちゃん 第3シリーズ
+    translations: { ja-Latn: Nanami-chan 3rd Series }
+  seasons:
+    - id: nanami-chan-3rd-series-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nanami-chan-3rd-series]

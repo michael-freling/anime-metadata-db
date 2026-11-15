@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: qiqi-keke-lixian-ji
+  titles:
+    original: QiQi KeKe Lixian Ji
+    translations: { ja-Latn: QiQi KeKe Lixian Ji }
+  seasons:
+    - id: qiqi-keke-lixian-ji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [qiqi-keke-lixian-ji]

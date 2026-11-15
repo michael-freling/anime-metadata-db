@@ -1,0 +1,12 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: life-no-color
+  titles:
+    original: Life no Color
+    translations: { ja-Latn: Life no Color }
+  movies:
+    - id: life-no-color-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [life-no-color]

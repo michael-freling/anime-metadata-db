@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kodomo-no-kaitei-no-koto
+  titles:
+    original: 子供の廻転の事
+    translations: { ja-Latn: Kodomo no Kaitei no Koto }
+  movies:
+    - id: kodomo-no-kaitei-no-koto-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kodomo-no-kaitei-no-koto]

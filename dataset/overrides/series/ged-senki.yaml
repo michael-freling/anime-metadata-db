@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ged-senki
+  titles:
+    original: ゲド戦記 TALES from EARTHSEA
+    translations: { ja-Latn: Ged Senki }
+  movies:
+    - id: ged-senki-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ged-senki]

@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chuldong-robot-v
+  titles:
+    original: Chuldong! Robot V
+    translations: { ja-Latn: Chuldong! Robot V }
+  seasons:
+    - id: chuldong-robot-v-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chuldong-robot-v]

@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xing-mao-lixian-ji-guohua-pian
+  titles:
+    original: "Xing Mao Lixian Ji: Guohua Pian"
+    translations: { ja-Latn: "Xing Mao Lixian Ji: Guohua Pian" }
+  seasons:
+    - id: xing-mao-lixian-ji-guohua-pian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xing-mao-lixian-ji-guohua-pian]

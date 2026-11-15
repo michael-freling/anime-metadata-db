@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shen-chu-xiaofu-gui
+  titles:
+    original: Shen Chu Xiaofu Gui
+    translations: { ja-Latn: Shen Chu Xiaofu Gui }
+  seasons:
+    - id: shen-chu-xiaofu-gui-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shen-chu-xiaofu-gui]

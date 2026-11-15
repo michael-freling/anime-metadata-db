@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: geisters-fractions-of-the-earth
+  titles:
+    original: ガイスターズ FRACTIONS OF THE EARTH
+    translations: { ja-Latn: "Geisters: Fractions of the Earth" }
+  seasons:
+    - id: geisters-fractions-of-the-earth-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [geisters-fractions-of-the-earth]

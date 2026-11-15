@@ -1,0 +1,12 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-prince-of-tennis-two-samurais-the-first-game
+  titles:
+    original: テニスの王子様 二人のサムライ The First Game
+    translations: { ja-Latn: "The Prince of Tennis: Two Samurais, The First Game" }
+  movies:
+    - id: the-prince-of-tennis-two-samurais-the-first-game-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-prince-of-tennis-two-samurais-the-first-game]

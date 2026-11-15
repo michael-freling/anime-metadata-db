@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hello-kitty-ringo-no-mori-to-parallel-town
+  titles:
+    original: ハローキティ りんごの森とパラレルタウン
+    translations: { ja-Latn: "Hello Kitty: Ringo no Mori to Parallel Town" }
+  seasons:
+    - id: hello-kitty-ringo-no-mori-to-parallel-town-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hello-kitty-ringo-no-mori-to-parallel-town]

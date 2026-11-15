@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: toka-gettan-the-moonlight-lady-returns
+  titles:
+    original: "Toka Gettan: The Moonlight Lady Returns"
+    translations: { ja-Latn: "Toka Gettan: The Moonlight Lady Returns" }
+  seasons:
+    - id: toka-gettan-the-moonlight-lady-returns-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [toka-gettan-the-moonlight-lady-returns]

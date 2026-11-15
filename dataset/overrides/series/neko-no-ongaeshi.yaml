@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: neko-no-ongaeshi
+  titles:
+    original: 猫の恩返し
+    translations: { ja-Latn: Neko no Ongaeshi }
+  movies:
+    - id: neko-no-ongaeshi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [neko-no-ongaeshi]

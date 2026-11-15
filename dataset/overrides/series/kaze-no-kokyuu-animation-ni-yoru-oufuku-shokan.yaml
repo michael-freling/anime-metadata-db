@@ -1,0 +1,12 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaze-no-kokyuu-animation-ni-yoru-oufuku-shokan
+  titles:
+    original: 風の呼吸（アニメーションによる往復書簡）
+    translations: { ja-Latn: "Kaze no Kokyuu: Animation ni Yoru Oufuku Shokan" }
+  movies:
+    - id: kaze-no-kokyuu-animation-ni-yoru-oufuku-shokan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaze-no-kokyuu-animation-ni-yoru-oufuku-shokan]

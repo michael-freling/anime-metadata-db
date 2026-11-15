@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yi-tang-piyingxi-sunzi-bingfa
+  titles:
+    original: Yi Tang Piyingxi Sunzi Bingfa
+    translations: { ja-Latn: Yi Tang Piyingxi Sunzi Bingfa }
+  seasons:
+    - id: yi-tang-piyingxi-sunzi-bingfa-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yi-tang-piyingxi-sunzi-bingfa]

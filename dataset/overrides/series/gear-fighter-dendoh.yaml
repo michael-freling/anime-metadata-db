@@ -1,0 +1,13 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gear-fighter-dendoh
+  titles:
+    original: Gear Fighter Dendoh
+    translations: { ja-Latn: Gear Fighter Dendoh }
+  seasons:
+    - id: gear-fighter-dendoh-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gear-fighter-dendoh]

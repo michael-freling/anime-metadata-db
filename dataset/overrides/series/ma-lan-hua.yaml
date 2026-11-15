@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ma-lan-hua
+  titles:
+    original: Ma Lan Hua
+    translations: { ja-Latn: Ma Lan Hua }
+  movies:
+    - id: ma-lan-hua-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ma-lan-hua]

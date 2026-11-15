@@ -1,0 +1,13 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: witch-hunter-robin
+  titles:
+    original: Witch Hunter ROBIN (ウイッチハンターロビン)
+    translations: { ja-Latn: Witch Hunter Robin }
+  seasons:
+    - id: witch-hunter-robin-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [witch-hunter-robin]

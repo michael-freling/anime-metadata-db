@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jinsihou-shenyou-shuxiang-wangguo
+  titles:
+    original: Jinsihou Shenyou Shuxiang Wangguo
+    translations: { ja-Latn: Jinsihou Shenyou Shuxiang Wangguo }
+  seasons:
+    - id: jinsihou-shenyou-shuxiang-wangguo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jinsihou-shenyou-shuxiang-wangguo]

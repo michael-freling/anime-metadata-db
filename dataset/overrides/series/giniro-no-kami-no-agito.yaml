@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: giniro-no-kami-no-agito
+  titles:
+    original: 銀色の髪のアギト
+    translations: { ja-Latn: Giniro no Kami no Agito }
+  movies:
+    - id: giniro-no-kami-no-agito-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [giniro-no-kami-no-agito]

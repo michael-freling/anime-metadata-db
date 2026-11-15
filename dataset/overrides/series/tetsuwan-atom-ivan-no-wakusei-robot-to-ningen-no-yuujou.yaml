@@ -1,0 +1,12 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tetsuwan-atom-ivan-no-wakusei-robot-to-ningen-no-yuujou
+  titles:
+    original: "Astro Boy 鉄腕アトム 特別編:イワンの惑星 ~ロボットと人間の友情~"
+    translations: { ja-Latn: "Tetsuwan Atom: Ivan no Wakusei - Robot to Ningen no Yuujou" }
+  movies:
+    - id: tetsuwan-atom-ivan-no-wakusei-robot-to-ningen-no-yuujou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tetsuwan-atom-ivan-no-wakusei-robot-to-ningen-no-yuujou]

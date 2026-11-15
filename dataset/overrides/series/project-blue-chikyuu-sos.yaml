@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: project-blue-chikyuu-sos
+  titles:
+    original: Project BLUE Chikyuu SOS
+    translations: { ja-Latn: Project BLUE Chikyuu SOS }
+  seasons:
+    - id: project-blue-chikyuu-sos-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [project-blue-chikyuu-sos]

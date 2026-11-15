@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: magical-nyan-nyan-taruto
+  titles:
+    original: "魔法少女猫[まじかる にゃん にゃん]たると"
+    translations: { ja-Latn: Magical Nyan Nyan Taruto }
+  seasons:
+    - id: magical-nyan-nyan-taruto-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [magical-nyan-nyan-taruto]

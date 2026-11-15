@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: saint-seiya-tenkai-hen
+  titles:
+    original: Saint Seiya Tenkai-hen
+    translations: { ja-Latn: Saint Seiya Tenkai-hen }
+  movies:
+    - id: saint-seiya-tenkai-hen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [saint-seiya-tenkai-hen]

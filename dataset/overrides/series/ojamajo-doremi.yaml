@@ -1,0 +1,15 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ojamajo-doremi
+  titles:
+    original: おジャ魔女どれみ♯
+    translations: { ja-Latn: "Ojamajo Doremi #" }
+  seasons:
+    - id: ojamajo-doremi-s1
+      number: 1
+  movies:
+    - id: ojamajo-doremi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ojamajo-doremi]

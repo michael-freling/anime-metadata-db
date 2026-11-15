@@ -1,0 +1,12 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gegege-no-kitarou-youkai-post-ni-kiitemiyou-medama-oyaji-no-naze-naze-kodomo-soudanshitsu
+  titles:
+    original: ゲゲゲの鬼太郎　妖怪ポストに聞いてみよう！～目玉おやじのなぜなぜ子供相談室～
+    translations: { ja-Latn: "Gegege no Kitarou: Youkai Post ni Kiitemiyou! Medama Oyaji no Naze Naze Kodomo Soudanshitsu" }
+  movies:
+    - id: gegege-no-kitarou-youkai-post-ni-kiitemiyou-medama-oyaji-no-naze-naze-kodomo-soudanshitsu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gegege-no-kitarou-youkai-post-ni-kiitemiyou-medama-oyaji-no-naze-naze-kodomo-soudanshitsu]

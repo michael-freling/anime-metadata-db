@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pika-pika-2007
+  titles:
+    original: PiKA PiKA 2007
+    translations: { ja-Latn: PiKA PiKA 2007 }
+  movies:
+    - id: pika-pika-2007-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pika-pika-2007]

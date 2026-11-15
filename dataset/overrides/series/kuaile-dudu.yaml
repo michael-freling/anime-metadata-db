@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kuaile-dudu
+  titles:
+    original: Kuaile Dudu
+    translations: { ja-Latn: Kuaile Dudu }
+  seasons:
+    - id: kuaile-dudu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kuaile-dudu]

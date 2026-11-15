@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sora-wo-miageru-shoujo-no-hitomi-ni-utsuru-sekai
+  titles:
+    original: 空を見上げる少女の瞳に映る世界
+    translations: { ja-Latn: Sora wo Miageru Shoujo no Hitomi ni Utsuru Sekai }
+  seasons:
+    - id: sora-wo-miageru-shoujo-no-hitomi-ni-utsuru-sekai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sora-wo-miageru-shoujo-no-hitomi-ni-utsuru-sekai]

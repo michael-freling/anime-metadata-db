@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tian-yanshen-niu
+  titles:
+    original: Tian Yanshen Niu
+    translations: { ja-Latn: Tian Yanshen Niu }
+  seasons:
+    - id: tian-yanshen-niu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tian-yanshen-niu]

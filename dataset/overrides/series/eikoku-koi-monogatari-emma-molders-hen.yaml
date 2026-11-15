@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: eikoku-koi-monogatari-emma-molders-hen
+  titles:
+    original: 英國戀物語エマ 第二幕 SECOND ACT
+    translations: { ja-Latn: "Eikoku Koi Monogatari Emma: Molders-hen" }
+  seasons:
+    - id: eikoku-koi-monogatari-emma-molders-hen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [eikoku-koi-monogatari-emma-molders-hen]

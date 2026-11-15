@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: grappler-baki-tv
+  titles:
+    original: グラップラー刃牙 (200true)
+    translations: { ja-Latn: Grappler Baki (TV) }
+  seasons:
+    - id: grappler-baki-tv-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [grappler-baki-tv]

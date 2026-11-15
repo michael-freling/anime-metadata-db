@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sora-no-manimani
+  titles:
+    original: 宙のまにまに
+    translations: { ja-Latn: Sora no Manimani }
+  seasons:
+    - id: sora-no-manimani-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sora-no-manimani]

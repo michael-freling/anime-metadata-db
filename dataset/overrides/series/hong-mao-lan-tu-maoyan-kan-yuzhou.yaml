@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hong-mao-lan-tu-maoyan-kan-yuzhou
+  titles:
+    original: "Hong Mao Lan Tu: Maoyan Kan Yuzhou"
+    translations: { ja-Latn: "Hong Mao Lan Tu: Maoyan Kan Yuzhou" }
+  seasons:
+    - id: hong-mao-lan-tu-maoyan-kan-yuzhou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hong-mao-lan-tu-maoyan-kan-yuzhou]

@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-nansheng-yang-fan
+  titles:
+    original: Xiao Nansheng Yang Fan
+    translations: { ja-Latn: Xiao Nansheng Yang Fan }
+  seasons:
+    - id: xiao-nansheng-yang-fan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-nansheng-yang-fan]

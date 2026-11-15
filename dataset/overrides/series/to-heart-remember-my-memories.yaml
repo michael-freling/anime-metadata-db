@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: to-heart-remember-my-memories
+  titles:
+    original: トゥハート ~remember my memories~
+    translations: { ja-Latn: "To Heart: Remember My Memories" }
+  seasons:
+    - id: to-heart-remember-my-memories-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [to-heart-remember-my-memories]

@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kagi-hime-monogatari-eikyuu-alice-rondo
+  titles:
+    original: "鍵姫物語 永久アリス輪舞曲[ロンド]"
+    translations: { ja-Latn: "Kagi Hime Monogatari: Eikyuu Alice Rondo" }
+  seasons:
+    - id: kagi-hime-monogatari-eikyuu-alice-rondo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kagi-hime-monogatari-eikyuu-alice-rondo]

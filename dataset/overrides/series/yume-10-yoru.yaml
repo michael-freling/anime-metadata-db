@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yume-10-yoru
+  titles:
+    original: Yume 10 Yoru
+    translations: { ja-Latn: Yume 10 Yoru }
+  movies:
+    - id: yume-10-yoru-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yume-10-yoru]

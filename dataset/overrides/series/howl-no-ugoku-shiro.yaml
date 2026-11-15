@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: howl-no-ugoku-shiro
+  titles:
+    original: ハウルの動く城
+    translations: { ja-Latn: Howl no Ugoku Shiro }
+  movies:
+    - id: howl-no-ugoku-shiro-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [howl-no-ugoku-shiro]

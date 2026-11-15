@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kouchuu-ouja-mushiking-super-battle-movie-yami-no-kaizou-kouchuu
+  titles:
+    original: 甲虫王者ムシキング スーパーバトルムービー ~闇の改造甲虫~
+    translations: { ja-Latn: "Kouchuu Ouja Mushiking Super Battle Movie: Yami no Kaizou Kouchuu" }
+  movies:
+    - id: kouchuu-ouja-mushiking-super-battle-movie-yami-no-kaizou-kouchuu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kouchuu-ouja-mushiking-super-battle-movie-yami-no-kaizou-kouchuu]

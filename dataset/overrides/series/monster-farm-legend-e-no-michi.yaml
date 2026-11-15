@@ -1,0 +1,13 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: monster-farm-legend-e-no-michi
+  titles:
+    original: "モンスターファーム~伝説[レジェンド]への道~"
+    translations: { ja-Latn: "Monster Farm: Legend e no Michi" }
+  seasons:
+    - id: monster-farm-legend-e-no-michi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [monster-farm-legend-e-no-michi]

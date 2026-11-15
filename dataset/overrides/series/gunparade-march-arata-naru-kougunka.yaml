@@ -1,0 +1,13 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gunparade-march-arata-naru-kougunka
+  titles:
+    original: ガンパレード・マーチ -新たなる行軍歌-
+    translations: { ja-Latn: "Gunparade March: Arata Naru Kougunka" }
+  seasons:
+    - id: gunparade-march-arata-naru-kougunka-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gunparade-march-arata-naru-kougunka]

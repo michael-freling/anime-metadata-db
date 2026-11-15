@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: recorder
+  titles:
+    original: Recorder
+    translations: { ja-Latn: Recorder }
+  movies:
+    - id: recorder-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [recorder]

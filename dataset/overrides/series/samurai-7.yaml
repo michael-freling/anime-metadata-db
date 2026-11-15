@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: samurai-7
+  titles:
+    original: サムライセブン
+    translations: { ja-Latn: Samurai 7 }
+  seasons:
+    - id: samurai-7-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [samurai-7]

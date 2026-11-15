@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pokemon-pikapika-hoshizora-camp
+  titles:
+    original: ピカピカ星空キャンプ
+    translations: { ja-Latn: "Pokemon: Pikapika Hoshizora Camp" }
+  movies:
+    - id: pokemon-pikapika-hoshizora-camp-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pokemon-pikapika-hoshizora-camp]

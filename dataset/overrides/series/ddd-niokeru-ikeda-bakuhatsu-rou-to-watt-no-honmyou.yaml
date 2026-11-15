@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ddd-niokeru-ikeda-bakuhatsu-rou-to-watt-no-honmyou
+  titles:
+    original: DDDにおける池田爆発郎とwattの本名
+    translations: { ja-Latn: DDD Niokeru Ikeda Bakuhatsu Rou to Watt no Honmyou }
+  movies:
+    - id: ddd-niokeru-ikeda-bakuhatsu-rou-to-watt-no-honmyou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ddd-niokeru-ikeda-bakuhatsu-rou-to-watt-no-honmyou]

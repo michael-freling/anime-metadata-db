@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mankatsu
+  titles:
+    original: モンキーパンチ漫画活動大写真
+    translations: { ja-Latn: Mankatsu }
+  seasons:
+    - id: mankatsu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mankatsu]

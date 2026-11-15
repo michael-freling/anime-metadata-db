@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: baihua-gongzhu
+  titles:
+    original: Baihua Gongzhu
+    translations: { ja-Latn: Baihua Gongzhu }
+  seasons:
+    - id: baihua-gongzhu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [baihua-gongzhu]

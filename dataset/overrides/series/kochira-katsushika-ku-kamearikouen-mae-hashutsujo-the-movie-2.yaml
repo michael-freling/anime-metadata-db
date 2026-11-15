@@ -1,0 +1,12 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kochira-katsushika-ku-kamearikouen-mae-hashutsujo-the-movie-2
+  titles:
+    original: こちら葛飾区亀有公園前派出所 THE MOVIE 2 UFO襲来！トルネード大作戦！！
+    translations: { ja-Latn: Kochira Katsushika-ku Kamearikouen-mae Hashutsujo The Movie 2 }
+  movies:
+    - id: kochira-katsushika-ku-kamearikouen-mae-hashutsujo-the-movie-2-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kochira-katsushika-ku-kamearikouen-mae-hashutsujo-the-movie-2]

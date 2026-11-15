@@ -1,0 +1,12 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wakamono-gendai-kougai
+  titles:
+    original: "Wakamono, Gendai, Kougai"
+    translations: { ja-Latn: "Wakamono, Gendai, Kougai" }
+  movies:
+    - id: wakamono-gendai-kougai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wakamono-gendai-kougai]

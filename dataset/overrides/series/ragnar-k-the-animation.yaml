@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ragnar-k-the-animation
+  titles:
+    original: ラグナロク ジ アニメーション
+    translations: { ja-Latn: Ragnarök The Animation }
+  seasons:
+    - id: ragnar-k-the-animation-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ragnar-k-the-animation]

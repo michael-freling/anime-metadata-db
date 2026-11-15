@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tokyo-majin-gakuen-kenpuuchou-tou
+  titles:
+    original: 東京魔人學園剣風帖 龖(トウ)
+    translations: { ja-Latn: "Tokyo Majin Gakuen Kenpuuchou: Tou" }
+  seasons:
+    - id: tokyo-majin-gakuen-kenpuuchou-tou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tokyo-majin-gakuen-kenpuuchou-tou]

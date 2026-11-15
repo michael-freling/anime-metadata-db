@@ -1,0 +1,13 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mayutoro-the-toons
+  titles:
+    original: まゆとろ THE TOONS
+    translations: { ja-Latn: Mayutoro The Toons }
+  seasons:
+    - id: mayutoro-the-toons-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mayutoro-the-toons]

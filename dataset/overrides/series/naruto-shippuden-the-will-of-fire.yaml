@@ -1,0 +1,12 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: naruto-shippuden-the-will-of-fire
+  titles:
+    original: NARUTO-ナルト-疾風伝 火の意志を継ぐ者
+    translations: { ja-Latn: "Naruto Shippūden: The Will of Fire" }
+  movies:
+    - id: naruto-shippuden-the-will-of-fire-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [naruto-shippuden-the-will-of-fire]

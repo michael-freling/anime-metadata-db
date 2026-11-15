@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fan-dou-tianting-ii
+  titles:
+    original: Fan Dou Tianting II
+    translations: { ja-Latn: Fan Dou Tianting II }
+  seasons:
+    - id: fan-dou-tianting-ii-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fan-dou-tianting-ii]

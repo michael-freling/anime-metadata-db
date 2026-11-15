@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rock-n-roll-sentou
+  titles:
+    original: ロックンロール銭湯
+    translations: { ja-Latn: Rock'n Roll Sentou }
+  movies:
+    - id: rock-n-roll-sentou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rock-n-roll-sentou]

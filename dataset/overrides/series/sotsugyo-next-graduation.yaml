@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sotsugyo-next-graduation
+  titles:
+    original: Sotsugyo Next Graduation
+    translations: { ja-Latn: Sotsugyo Next Graduation }
+  seasons:
+    - id: sotsugyo-next-graduation-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sotsugyo-next-graduation]

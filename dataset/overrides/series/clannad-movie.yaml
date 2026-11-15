@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: clannad-movie
+  titles:
+    original: 劇場版 クラナド
+    translations: { ja-Latn: Clannad Movie }
+  movies:
+    - id: clannad-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [clannad-movie]

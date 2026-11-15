@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: cofun-gal-no-coffy-okehazama-no-tatakai
+  titles:
+    original: 古墳ギャルのコフィー　～桶狭間の戦い～
+    translations: { ja-Latn: "Cofun Gal no Coffy: Okehazama no Tatakai" }
+  movies:
+    - id: cofun-gal-no-coffy-okehazama-no-tatakai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [cofun-gal-no-coffy-okehazama-no-tatakai]

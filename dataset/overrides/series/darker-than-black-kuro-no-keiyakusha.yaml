@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: darker-than-black-kuro-no-keiyakusha
+  titles:
+    original: DARKER THAN BLACK -黒の契約者-
+    translations: { ja-Latn: "Darker than Black: Kuro no Keiyakusha" }
+  seasons:
+    - id: darker-than-black-kuro-no-keiyakusha-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [darker-than-black-kuro-no-keiyakusha]

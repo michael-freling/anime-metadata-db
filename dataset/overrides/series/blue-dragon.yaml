@@ -1,0 +1,15 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: blue-dragon
+  titles:
+    original: ブルー・ドラゴン
+    translations: { ja-Latn: Blue Dragon }
+  seasons:
+    - id: blue-dragon-s1
+      number: 1
+    - id: blue-dragon-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [blue-dragon]

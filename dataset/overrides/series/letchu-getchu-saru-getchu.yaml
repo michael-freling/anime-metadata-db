@@ -1,0 +1,13 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: letchu-getchu-saru-getchu
+  titles:
+    original: レッチュ ゲッチュ サルゲッチュ
+    translations: { ja-Latn: "Letchu, Getchu, Saru Getchu" }
+  seasons:
+    - id: letchu-getchu-saru-getchu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [letchu-getchu-saru-getchu]

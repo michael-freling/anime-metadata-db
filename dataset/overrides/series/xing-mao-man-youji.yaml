@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xing-mao-man-youji
+  titles:
+    original: Xing Mao Man Youji
+    translations: { ja-Latn: Xing Mao Man Youji }
+  seasons:
+    - id: xing-mao-man-youji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xing-mao-man-youji]

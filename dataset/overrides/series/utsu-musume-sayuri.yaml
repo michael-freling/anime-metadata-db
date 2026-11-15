@@ -1,0 +1,12 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: utsu-musume-sayuri
+  titles:
+    original: 打つ娘サユリ
+    translations: { ja-Latn: Utsu Musume Sayuri }
+  movies:
+    - id: utsu-musume-sayuri-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [utsu-musume-sayuri]

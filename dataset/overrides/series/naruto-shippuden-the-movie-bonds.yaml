@@ -1,0 +1,12 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: naruto-shippuden-the-movie-bonds
+  titles:
+    original: 劇場版NARUTO-ナルト- 疾風伝 絆
+    translations: { ja-Latn: "Naruto Shippūden the Movie: Bonds" }
+  movies:
+    - id: naruto-shippuden-the-movie-bonds-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [naruto-shippuden-the-movie-bonds]

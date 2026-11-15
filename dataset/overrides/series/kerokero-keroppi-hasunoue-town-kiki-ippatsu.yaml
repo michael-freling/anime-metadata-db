@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kerokero-keroppi-hasunoue-town-kiki-ippatsu
+  titles:
+    original: けろけろけろっぴ はすのうえタウン危機一髪!
+    translations: { ja-Latn: "Kerokero Keroppi: Hasunoue Town Kiki Ippatsu!" }
+  seasons:
+    - id: kerokero-keroppi-hasunoue-town-kiki-ippatsu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kerokero-keroppi-hasunoue-town-kiki-ippatsu]

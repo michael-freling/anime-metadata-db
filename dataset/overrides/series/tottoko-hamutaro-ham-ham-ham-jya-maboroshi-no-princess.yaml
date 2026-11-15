@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tottoko-hamutaro-ham-ham-ham-jya-maboroshi-no-princess
+  titles:
+    original: とっとこハム太郎 ハムハムハムージャ！幻のプリンセス
+    translations: { ja-Latn: "Tottoko Hamutarō: Ham Ham Ham - Jya! Maboroshi no Princess" }
+  movies:
+    - id: tottoko-hamutaro-ham-ham-ham-jya-maboroshi-no-princess-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tottoko-hamutaro-ham-ham-ham-jya-maboroshi-no-princess]

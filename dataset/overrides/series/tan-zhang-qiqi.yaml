@@ -1,0 +1,13 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tan-zhang-qiqi
+  titles:
+    original: Tan Zhang QiQi
+    translations: { ja-Latn: Tan Zhang QiQi }
+  seasons:
+    - id: tan-zhang-qiqi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tan-zhang-qiqi]

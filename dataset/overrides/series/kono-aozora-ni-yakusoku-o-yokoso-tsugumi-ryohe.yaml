@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kono-aozora-ni-yakusoku-o-yokoso-tsugumi-ryohe
+  titles:
+    original: この青空に約束を― ～ようこそつぐみ寮へ～
+    translations: { ja-Latn: Kono Aozora ni Yakusoku o - Yōkoso Tsugumi Ryōhe }
+  seasons:
+    - id: kono-aozora-ni-yakusoku-o-yokoso-tsugumi-ryohe-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kono-aozora-ni-yakusoku-o-yokoso-tsugumi-ryohe]

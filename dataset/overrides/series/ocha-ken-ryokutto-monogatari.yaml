@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ocha-ken-ryokutto-monogatari
+  titles:
+    original: "お茶犬 ~緑[リョク]っとものがたり~"
+    translations: { ja-Latn: "Ocha-ken: Ryokutto Monogatari" }
+  seasons:
+    - id: ocha-ken-ryokutto-monogatari-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ocha-ken-ryokutto-monogatari]

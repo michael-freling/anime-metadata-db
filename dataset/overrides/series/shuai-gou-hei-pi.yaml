@@ -1,0 +1,13 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shuai-gou-hei-pi
+  titles:
+    original: Shuai Gou Hei Pi
+    translations: { ja-Latn: Shuai Gou Hei Pi }
+  seasons:
+    - id: shuai-gou-hei-pi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shuai-gou-hei-pi]

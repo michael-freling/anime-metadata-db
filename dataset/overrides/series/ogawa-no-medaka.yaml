@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ogawa-no-medaka
+  titles:
+    original: 小川のメダカ
+    translations: { ja-Latn: Ogawa no Medaka }
+  movies:
+    - id: ogawa-no-medaka-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ogawa-no-medaka]

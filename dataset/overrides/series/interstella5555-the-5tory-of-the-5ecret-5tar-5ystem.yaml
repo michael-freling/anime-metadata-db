@@ -1,0 +1,12 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: interstella5555-the-5tory-of-the-5ecret-5tar-5ystem
+  titles:
+    original: インターステラ5555 The 5tory of the 5ecret 5tar 5ystem
+    translations: { ja-Latn: "Interstella5555: The 5tory of The 5ecret 5tar 5ystem" }
+  movies:
+    - id: interstella5555-the-5tory-of-the-5ecret-5tar-5ystem-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [interstella5555-the-5tory-of-the-5ecret-5tar-5ystem]

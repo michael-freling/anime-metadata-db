@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hong-haier-chuanqi
+  titles:
+    original: Hong Haier Chuanqi
+    translations: { ja-Latn: Hong Haier Chuanqi }
+  seasons:
+    - id: hong-haier-chuanqi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hong-haier-chuanqi]

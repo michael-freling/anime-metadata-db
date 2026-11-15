@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ski-jumping-pairs-road-to-torino-2006
+  titles:
+    original: スキージャンプ・ペア ~Road to TORINO 2006~
+    translations: { ja-Latn: "Ski Jumping Pairs: Road to Torino 2006" }
+  movies:
+    - id: ski-jumping-pairs-road-to-torino-2006-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ski-jumping-pairs-road-to-torino-2006]

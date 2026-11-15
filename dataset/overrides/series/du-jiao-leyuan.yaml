@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: du-jiao-leyuan
+  titles:
+    original: Du Jiao Leyuan
+    translations: { ja-Latn: Du Jiao Leyuan }
+  seasons:
+    - id: du-jiao-leyuan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [du-jiao-leyuan]

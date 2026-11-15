@@ -1,0 +1,12 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: di-gi-charat-hoshi-no-tabi
+  titles:
+    original: "劇場版 Di Gi Charat[デ・ジ・キャラット] 星の旅"
+    translations: { ja-Latn: "Di Gi Charat: Hoshi no Tabi" }
+  movies:
+    - id: di-gi-charat-hoshi-no-tabi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [di-gi-charat-hoshi-no-tabi]

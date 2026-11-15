@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: natsu-no-shisen-1942
+  titles:
+    original: 夏の視線 - 1942
+    translations: { ja-Latn: Natsu no Shisen 1942 }
+  movies:
+    - id: natsu-no-shisen-1942-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [natsu-no-shisen-1942]

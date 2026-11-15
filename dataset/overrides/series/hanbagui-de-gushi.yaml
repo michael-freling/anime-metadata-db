@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hanbagui-de-gushi
+  titles:
+    original: Hanbagui De Gushi
+    translations: { ja-Latn: Hanbagui De Gushi }
+  seasons:
+    - id: hanbagui-de-gushi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hanbagui-de-gushi]

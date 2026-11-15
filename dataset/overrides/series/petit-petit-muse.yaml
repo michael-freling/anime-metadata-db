@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: petit-petit-muse
+  titles:
+    original: Petit Petit Muse
+    translations: { ja-Latn: Petit Petit Muse }
+  seasons:
+    - id: petit-petit-muse-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [petit-petit-muse]

@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lemon-angel-project
+  titles:
+    original: LEMON ANGEL PROJECT　レモン エンジェル プロジェクト
+    translations: { ja-Latn: Lemon Angel Project }
+  seasons:
+    - id: lemon-angel-project-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lemon-angel-project]

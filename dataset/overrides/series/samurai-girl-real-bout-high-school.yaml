@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: samurai-girl-real-bout-high-school
+  titles:
+    original: SAMURAI GIRL リアルバウトハイスクール
+    translations: { ja-Latn: Samurai Girl Real Bout High School }
+  seasons:
+    - id: samurai-girl-real-bout-high-school-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [samurai-girl-real-bout-high-school]

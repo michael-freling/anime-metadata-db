@@ -1,0 +1,12 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: animal-dance
+  titles:
+    original: アニマルダンス
+    translations: { ja-Latn: Animal Dance }
+  movies:
+    - id: animal-dance-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [animal-dance]

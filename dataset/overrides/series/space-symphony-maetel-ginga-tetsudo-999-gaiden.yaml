@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: space-symphony-maetel-ginga-tetsudo-999-gaiden
+  titles:
+    original: 宇宙交響詩（Ｓｐａｃｅ Ｓｙｍｐｈｏｎｙ）メーテル ～銀河鉄道999外伝～
+    translations: { ja-Latn: Space Symphony Maetel ~Ginga Tetsudō 999 Gaiden~ }
+  seasons:
+    - id: space-symphony-maetel-ginga-tetsudo-999-gaiden-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [space-symphony-maetel-ginga-tetsudo-999-gaiden]

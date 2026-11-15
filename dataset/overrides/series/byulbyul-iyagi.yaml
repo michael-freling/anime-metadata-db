@@ -1,0 +1,12 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: byulbyul-iyagi
+  titles:
+    original: Byulbyul Iyagi
+    translations: { ja-Latn: Byulbyul Iyagi }
+  movies:
+    - id: byulbyul-iyagi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [byulbyul-iyagi]

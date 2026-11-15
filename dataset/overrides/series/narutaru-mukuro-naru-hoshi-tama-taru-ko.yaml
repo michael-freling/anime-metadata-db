@@ -1,0 +1,13 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: narutaru-mukuro-naru-hoshi-tama-taru-ko
+  titles:
+    original: なるたる ~骸なる星・珠たる子~
+    translations: { ja-Latn: "Narutaru: Mukuro Naru Hoshi Tama Taru Ko" }
+  seasons:
+    - id: narutaru-mukuro-naru-hoshi-tama-taru-ko-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [narutaru-mukuro-naru-hoshi-tama-taru-ko]

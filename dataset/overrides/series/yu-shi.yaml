@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yu-shi
+  titles:
+    original: Yu Shi
+    translations: { ja-Latn: Yu Shi }
+  movies:
+    - id: yu-shi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yu-shi]

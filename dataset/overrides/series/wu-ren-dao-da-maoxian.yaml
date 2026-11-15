@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wu-ren-dao-da-maoxian
+  titles:
+    original: Wu Ren Dao Da Maoxian
+    translations: { ja-Latn: Wu Ren Dao Da Maoxian }
+  seasons:
+    - id: wu-ren-dao-da-maoxian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wu-ren-dao-da-maoxian]

@@ -1,0 +1,12 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pears-or-aliens
+  titles:
+    original: Pears or aliens
+    translations: { ja-Latn: Pears or aliens }
+  movies:
+    - id: pears-or-aliens-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pears-or-aliens]

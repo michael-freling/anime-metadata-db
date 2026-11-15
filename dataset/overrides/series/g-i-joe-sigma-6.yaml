@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: g-i-joe-sigma-6
+  titles:
+    original: "G.I. Joe: Sigma 6"
+    translations: { ja-Latn: "G.I. Joe: Sigma 6" }
+  seasons:
+    - id: g-i-joe-sigma-6-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [g-i-joe-sigma-6]

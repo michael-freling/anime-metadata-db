@@ -11,16 +11,9 @@ series:
       number: 1
       releaseYear: 2011
       releaseSeason: FALL
-      episodes:
-        count: 52
-        absoluteFrom: 1
-    - id: tian-xin-ge-ge-s2
-      number: 2
-      releaseYear: 2011
-      releaseSeason: FALL
       externalIds:
         anilistId: 121235
         anidbId: 13523
       episodes:
         count: 52
-        absoluteFrom: 53
+        absoluteFrom: 1

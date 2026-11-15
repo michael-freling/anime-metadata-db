@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaze-no-stigma
+  titles:
+    original: "風のスティグマ[聖痕]"
+    translations: { ja-Latn: Kaze no Stigma }
+  seasons:
+    - id: kaze-no-stigma-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaze-no-stigma]

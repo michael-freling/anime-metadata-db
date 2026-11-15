@@ -1,0 +1,13 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wild-7-another-bouryaku-unga
+  titles:
+    original: ワイルド7 another 謀略運河
+    translations: { ja-Latn: Wild 7 Another Bouryaku Unga }
+  seasons:
+    - id: wild-7-another-bouryaku-unga-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wild-7-another-bouryaku-unga]

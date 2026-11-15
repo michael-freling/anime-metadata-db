@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yoshinaga-san-chi-no-gargoyle
+  titles:
+    original: 吉永さん家のガーゴイル
+    translations: { ja-Latn: Yoshinaga-san Chi no Gargoyle }
+  seasons:
+    - id: yoshinaga-san-chi-no-gargoyle-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yoshinaga-san-chi-no-gargoyle]

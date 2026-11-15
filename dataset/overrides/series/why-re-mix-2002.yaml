@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: why-re-mix-2002
+  titles:
+    original: Why Re-Mix 2002
+    translations: { ja-Latn: Why Re-Mix 2002 }
+  movies:
+    - id: why-re-mix-2002-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [why-re-mix-2002]

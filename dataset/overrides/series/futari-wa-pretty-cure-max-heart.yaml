@@ -1,0 +1,15 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: futari-wa-pretty-cure-max-heart
+  titles:
+    original: ふたりはプリキュア ー マックスハート
+    translations: { ja-Latn: "Futari wa Pretty Cure: Max Heart" }
+  seasons:
+    - id: futari-wa-pretty-cure-max-heart-s1
+      number: 1
+  movies:
+    - id: futari-wa-pretty-cure-max-heart-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [futari-wa-pretty-cure-max-heart]

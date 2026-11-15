@@ -1,0 +1,12 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: akai-mori-no-uta
+  titles:
+    original: 赤い森の歌
+    translations: { ja-Latn: Akai Mori no Uta }
+  movies:
+    - id: akai-mori-no-uta-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [akai-mori-no-uta]

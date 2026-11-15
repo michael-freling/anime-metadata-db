@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-drawer-of-memory
+  titles:
+    original: The Drawer of Memory
+    translations: { ja-Latn: The Drawer of Memory }
+  movies:
+    - id: the-drawer-of-memory-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-drawer-of-memory]

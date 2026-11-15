@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: himawari
+  titles:
+    original: ひまわりっ!!
+    translations: { ja-Latn: Himawari!! }
+  seasons:
+    - id: himawari-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [himawari]

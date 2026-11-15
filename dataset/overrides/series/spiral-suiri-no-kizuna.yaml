@@ -1,0 +1,13 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: spiral-suiri-no-kizuna
+  titles:
+    original: スパイラル -推理の絆-
+    translations: { ja-Latn: "Spiral: Suiri no Kizuna" }
+  seasons:
+    - id: spiral-suiri-no-kizuna-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [spiral-suiri-no-kizuna]

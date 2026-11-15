@@ -11,17 +11,10 @@ series:
       number: 1
       releaseYear: 2017
       releaseSeason: FALL
-      episodes:
-        count: 12
-        absoluteFrom: 1
-    - id: kino-no-tabi-the-beautiful-world-the-animated-series-s2
-      number: 2
-      releaseYear: 2017
-      releaseSeason: FALL
       externalIds:
         anilistId: 98448
         anidbId: 12959
         tvdbId: 333152
       episodes:
         count: 12
-        absoluteFrom: 13
+        absoluteFrom: 1

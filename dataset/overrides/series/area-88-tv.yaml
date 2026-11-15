@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: area-88-tv
+  titles:
+    original: エリア88
+    translations: { ja-Latn: Area 88 (TV) }
+  seasons:
+    - id: area-88-tv-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [area-88-tv]

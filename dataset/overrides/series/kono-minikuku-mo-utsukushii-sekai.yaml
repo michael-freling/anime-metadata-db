@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kono-minikuku-mo-utsukushii-sekai
+  titles:
+    original: この醜くも美しい世界
+    translations: { ja-Latn: Kono Minikuku mo Utsukushii Sekai }
+  seasons:
+    - id: kono-minikuku-mo-utsukushii-sekai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kono-minikuku-mo-utsukushii-sekai]

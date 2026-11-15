@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: anyamal-tantei-kiruminzoo
+  titles:
+    original: あにゃまる探偵 キルミンずぅ
+    translations: { ja-Latn: Anyamal Tantei Kiruminzoo }
+  seasons:
+    - id: anyamal-tantei-kiruminzoo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [anyamal-tantei-kiruminzoo]

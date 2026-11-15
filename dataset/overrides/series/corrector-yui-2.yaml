@@ -1,0 +1,13 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: corrector-yui-2
+  titles:
+    original: コレクター・ユイ 2
+    translations: { ja-Latn: Corrector Yui 2 }
+  seasons:
+    - id: corrector-yui-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [corrector-yui-2]

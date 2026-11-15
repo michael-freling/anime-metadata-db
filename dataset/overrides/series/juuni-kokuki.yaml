@@ -1,0 +1,13 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: juuni-kokuki
+  titles:
+    original: Juuni Kokuki
+    translations: { ja-Latn: Juuni Kokuki }
+  seasons:
+    - id: juuni-kokuki-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [juuni-kokuki]

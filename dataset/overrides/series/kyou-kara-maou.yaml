@@ -1,0 +1,15 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kyou-kara-maou
+  titles:
+    original: 今日からマ王！
+    translations: { ja-Latn: Kyou kara Maou! }
+  seasons:
+    - id: kyou-kara-maou-s1
+      number: 1
+    - id: kyou-kara-maou-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kyou-kara-maou]

@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bonobono-kumomo-no-ki-no-koto
+  titles:
+    original: ぼのぼの クモモの木のこと
+    translations: { ja-Latn: "Bonobono: Kumomo no Ki no Koto" }
+  movies:
+    - id: bonobono-kumomo-no-ki-no-koto-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bonobono-kumomo-no-ki-no-koto]

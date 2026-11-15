@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: noramimi-2
+  titles:
+    original: のらみみ2
+    translations: { ja-Latn: Noramimi 2 }
+  seasons:
+    - id: noramimi-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [noramimi-2]

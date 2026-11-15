@@ -1,0 +1,13 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: anime-roukyoku-kikou-shimizu-no-jirochouden
+  titles:
+    original: アニメ浪曲紀行 清水次郎長伝
+    translations: { ja-Latn: Anime Roukyoku Kikou Shimizu no Jirochouden }
+  seasons:
+    - id: anime-roukyoku-kikou-shimizu-no-jirochouden-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [anime-roukyoku-kikou-shimizu-no-jirochouden]

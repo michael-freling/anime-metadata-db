@@ -1,0 +1,12 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: crayon-shin-chan-arashi-o-yobu-moretsu-otona-teikoku-no-gyakushu
+  titles:
+    original: 映画クレヨンしんちゃん 嵐を呼ぶモーレツ!オトナ帝国の逆襲
+    translations: { ja-Latn: "Crayon Shin-chan: Arashi o Yobu Mōretsu! Otona Teikoku no Gyakushū" }
+  movies:
+    - id: crayon-shin-chan-arashi-o-yobu-moretsu-otona-teikoku-no-gyakushu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [crayon-shin-chan-arashi-o-yobu-moretsu-otona-teikoku-no-gyakushu]

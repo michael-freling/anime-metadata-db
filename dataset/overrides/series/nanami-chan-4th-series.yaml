@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nanami-chan-4th-series
+  titles:
+    original: ななみちゃん 第4シリーズ
+    translations: { ja-Latn: Nanami-chan 4th Series }
+  seasons:
+    - id: nanami-chan-4th-series-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nanami-chan-4th-series]

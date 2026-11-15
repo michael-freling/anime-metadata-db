@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: taiyou-wo-nakushita-hi
+  titles:
+    original: 太陽をなくした日
+    translations: { ja-Latn: Taiyou wo Nakushita Hi }
+  movies:
+    - id: taiyou-wo-nakushita-hi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [taiyou-wo-nakushita-hi]

@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ginga-tetsudou-999-for-planetarium
+  titles:
+    original: Ginga Tetsudou 999 for Planetarium
+    translations: { ja-Latn: Ginga Tetsudou 999 for Planetarium }
+  movies:
+    - id: ginga-tetsudou-999-for-planetarium-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ginga-tetsudou-999-for-planetarium]

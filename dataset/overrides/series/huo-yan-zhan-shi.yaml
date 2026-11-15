@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: huo-yan-zhan-shi
+  titles:
+    original: Huo Yan Zhan Shi
+    translations: { ja-Latn: Huo Yan Zhan Shi }
+  seasons:
+    - id: huo-yan-zhan-shi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [huo-yan-zhan-shi]

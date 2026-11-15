@@ -1,0 +1,13 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hayan-ma-eum-baeggu
+  titles:
+    original: 白い心ペック
+    translations: { ja-Latn: Hayan Ma-eum Baeggu }
+  seasons:
+    - id: hayan-ma-eum-baeggu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hayan-ma-eum-baeggu]

@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hanare-toride-no-yonna
+  titles:
+    original: はなれ砦のヨナ Yonna in the Solitary Fortress
+    translations: { ja-Latn: Hanare Toride no Yonna }
+  movies:
+    - id: hanare-toride-no-yonna-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hanare-toride-no-yonna]

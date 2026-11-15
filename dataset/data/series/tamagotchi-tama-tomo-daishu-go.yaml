@@ -11,16 +11,9 @@ series:
       number: 1
       releaseYear: 2015
       releaseSeason: SPRING
-      episodes:
-        count: 26
-        absoluteFrom: 1
-    - id: tamagotchi-tama-tomo-daishu-go-s2
-      number: 2
-      releaseYear: 2015
-      releaseSeason: SPRING
       externalIds:
         anilistId: 181642
         anidbId: 11145
       episodes:
         count: 26
-        absoluteFrom: 27
+        absoluteFrom: 1

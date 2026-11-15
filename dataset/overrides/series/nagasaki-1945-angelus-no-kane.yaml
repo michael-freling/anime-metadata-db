@@ -1,0 +1,12 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nagasaki-1945-angelus-no-kane
+  titles:
+    original: NAGASAKI・1945~アンゼラスの鐘~
+    translations: { ja-Latn: "Nagasaki 1945: Angelus no Kane" }
+  movies:
+    - id: nagasaki-1945-angelus-no-kane-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nagasaki-1945-angelus-no-kane]

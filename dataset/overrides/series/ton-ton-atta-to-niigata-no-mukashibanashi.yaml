@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ton-ton-atta-to-niigata-no-mukashibanashi
+  titles:
+    original: トントンあったと にいがたの昔ばなし
+    translations: { ja-Latn: Ton-Ton Atta to Niigata no Mukashibanashi }
+  seasons:
+    - id: ton-ton-atta-to-niigata-no-mukashibanashi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ton-ton-atta-to-niigata-no-mukashibanashi]

@@ -1,0 +1,15 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-zhuoma
+  titles:
+    original: Xiao Zhuoma
+    translations: { ja-Latn: Xiao Zhuoma }
+  seasons:
+    - id: xiao-zhuoma-s1
+      number: 1
+  movies:
+    - id: xiao-zhuoma-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-zhuoma]

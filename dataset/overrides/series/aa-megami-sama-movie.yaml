@@ -1,0 +1,12 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aa-megami-sama-movie
+  titles:
+    original: 劇場版「ああっ女神さまっ」
+    translations: { ja-Latn: Aa! Megami-sama! Movie }
+  movies:
+    - id: aa-megami-sama-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aa-megami-sama-movie]

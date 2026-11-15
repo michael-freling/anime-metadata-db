@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: getsumen-to-heiki-mina
+  titles:
+    original: 月面兎兵器ミーナ
+    translations: { ja-Latn: Getsumen to Heiki Mina }
+  seasons:
+    - id: getsumen-to-heiki-mina-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [getsumen-to-heiki-mina]

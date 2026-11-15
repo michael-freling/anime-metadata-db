@@ -1,0 +1,12 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: soreike-anpanman-yakisobaman-to-black-sabotenman
+  titles:
+    original: それいけ!アンパンマン やきそばパンマンとブラックサボテンマン
+    translations: { ja-Latn: "Soreike! Anpanman: Yakisobaman to Black Sabotenman" }
+  movies:
+    - id: soreike-anpanman-yakisobaman-to-black-sabotenman-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [soreike-anpanman-yakisobaman-to-black-sabotenman]

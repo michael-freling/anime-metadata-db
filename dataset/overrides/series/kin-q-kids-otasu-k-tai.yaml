@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kin-q-kids-otasu-k-tai
+  titles:
+    original: Kin-Qキッズ☆おたすK隊
+    translations: { ja-Latn: Kin-Q Kids☆Otasu K-tai }
+  seasons:
+    - id: kin-q-kids-otasu-k-tai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kin-q-kids-otasu-k-tai]

@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aachi-wa-ssipak
+  titles:
+    original: アーチとシパク
+    translations: { ja-Latn: Aachi wa Ssipak }
+  movies:
+    - id: aachi-wa-ssipak-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aachi-wa-ssipak]

@@ -1,0 +1,13 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kakutou-ryouri-densetsu-bistro-recipe
+  titles:
+    original: 格闘料理伝説ビストロレシピ
+    translations: { ja-Latn: Kakutou Ryouri Densetsu Bistro Recipe }
+  seasons:
+    - id: kakutou-ryouri-densetsu-bistro-recipe-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kakutou-ryouri-densetsu-bistro-recipe]

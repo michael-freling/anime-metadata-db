@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: golgo-13-tv
+  titles:
+    original: ゴルゴ13 (TV)
+    translations: { ja-Latn: Golgo 13 (TV) }
+  seasons:
+    - id: golgo-13-tv-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [golgo-13-tv]

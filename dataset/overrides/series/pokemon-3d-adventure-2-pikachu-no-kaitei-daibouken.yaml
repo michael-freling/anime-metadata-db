@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pokemon-3d-adventure-2-pikachu-no-kaitei-daibouken
+  titles:
+    original: ポケモン3Dアドベンチャー2 ピカチュウの海底大冒険
+    translations: { ja-Latn: "Pokemon 3D Adventure 2: Pikachu no Kaitei Daibouken" }
+  movies:
+    - id: pokemon-3d-adventure-2-pikachu-no-kaitei-daibouken-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pokemon-3d-adventure-2-pikachu-no-kaitei-daibouken]

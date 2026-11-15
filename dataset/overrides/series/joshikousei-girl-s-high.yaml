@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: joshikousei-girl-s-high
+  titles:
+    original: "Joshikousei: Girl's High"
+    translations: { ja-Latn: "Joshikousei: Girl's High" }
+  seasons:
+    - id: joshikousei-girl-s-high-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [joshikousei-girl-s-high]

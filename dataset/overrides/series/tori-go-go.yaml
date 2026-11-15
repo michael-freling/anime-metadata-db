@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tori-go-go
+  titles:
+    original: Tori Go! Go!
+    translations: { ja-Latn: Tori Go! Go! }
+  seasons:
+    - id: tori-go-go-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tori-go-go]

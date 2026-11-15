@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sangja-sog-ui-ai
+  titles:
+    original: Sangja Sog-ui Ai
+    translations: { ja-Latn: Sangja Sog-ui Ai }
+  movies:
+    - id: sangja-sog-ui-ai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sangja-sog-ui-ai]

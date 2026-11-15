@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chiro-wa-chingu-deul
+  titles:
+    original: ぼくチロ!
+    translations: { ja-Latn: Chiro-wa Chingu-deul }
+  seasons:
+    - id: chiro-wa-chingu-deul-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chiro-wa-chingu-deul]

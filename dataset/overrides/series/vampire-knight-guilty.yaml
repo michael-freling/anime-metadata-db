@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: vampire-knight-guilty
+  titles:
+    original: ヴァンパイア騎士〈ナイト〉Guilty
+    translations: { ja-Latn: Vampire Knight Guilty }
+  seasons:
+    - id: vampire-knight-guilty-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [vampire-knight-guilty]

@@ -1,0 +1,12 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: joe-san-no-osanpo
+  titles:
+    original: ジョーさんのお散歩
+    translations: { ja-Latn: Joe-san no Osanpo }
+  movies:
+    - id: joe-san-no-osanpo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [joe-san-no-osanpo]

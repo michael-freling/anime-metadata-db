@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ohanashi-no-hana
+  titles:
+    original: おはなしの花
+    translations: { ja-Latn: Ohanashi no Hana }
+  movies:
+    - id: ohanashi-no-hana-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ohanashi-no-hana]

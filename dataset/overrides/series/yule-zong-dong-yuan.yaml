@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yule-zong-dong-yuan
+  titles:
+    original: Yule Zong Dong Yuan
+    translations: { ja-Latn: Yule Zong Dong Yuan }
+  seasons:
+    - id: yule-zong-dong-yuan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yule-zong-dong-yuan]

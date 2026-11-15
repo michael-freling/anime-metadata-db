@@ -1,0 +1,12 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 8-gatsu-no-symphony-shibuya-2002-2003
+  titles:
+    original: 8月のシンフォニー -渋谷 2002~2003
+    translations: { ja-Latn: "8-gatsu no Symphony: Shibuya 2002-2003" }
+  movies:
+    - id: 8-gatsu-no-symphony-shibuya-2002-2003-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [8-gatsu-no-symphony-shibuya-2002-2003]

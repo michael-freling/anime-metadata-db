@@ -11,17 +11,10 @@ series:
       number: 1
       releaseYear: 2016
       releaseSeason: SPRING
-      episodes:
-        count: 39
-        absoluteFrom: 1
-    - id: jojo-no-kimyou-na-bouken-part-4-diamond-wa-kudakenai-s2
-      number: 2
-      releaseYear: 2016
-      releaseSeason: SPRING
       externalIds:
         anilistId: 21450
         anidbId: 11734
         tvdbId: 262954
       episodes:
         count: 39
-        absoluteFrom: 40
+        absoluteFrom: 1

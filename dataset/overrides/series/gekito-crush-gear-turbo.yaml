@@ -1,0 +1,15 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gekito-crush-gear-turbo
+  titles:
+    original: 激闘！クラッシュギアＴＵＲＢＯ カイザバーンの挑戦！
+    translations: { ja-Latn: Gekito! Crush Gear Turbo }
+  seasons:
+    - id: gekito-crush-gear-turbo-s1
+      number: 1
+  movies:
+    - id: gekito-crush-gear-turbo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gekito-crush-gear-turbo]

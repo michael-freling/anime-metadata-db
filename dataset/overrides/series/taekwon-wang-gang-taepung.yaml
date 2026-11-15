@@ -1,0 +1,13 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: taekwon-wang-gang-taepung
+  titles:
+    original: Taekwon-wang Gang Taepung
+    translations: { ja-Latn: Taekwon-wang Gang Taepung }
+  seasons:
+    - id: taekwon-wang-gang-taepung-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [taekwon-wang-gang-taepung]

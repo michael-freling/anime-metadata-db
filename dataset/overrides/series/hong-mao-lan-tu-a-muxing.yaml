@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hong-mao-lan-tu-a-muxing
+  titles:
+    original: "Hong Mao Lan Tu: A Muxing"
+    translations: { ja-Latn: "Hong Mao Lan Tu: A Muxing" }
+  seasons:
+    - id: hong-mao-lan-tu-a-muxing-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hong-mao-lan-tu-a-muxing]

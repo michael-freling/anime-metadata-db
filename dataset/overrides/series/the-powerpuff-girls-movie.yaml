@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-powerpuff-girls-movie
+  titles:
+    original: The Powerpuff Girls Movie
+    translations: { ja-Latn: The Powerpuff Girls Movie }
+  movies:
+    - id: the-powerpuff-girls-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-powerpuff-girls-movie]

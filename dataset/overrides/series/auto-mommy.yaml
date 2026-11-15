@@ -1,0 +1,12 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: auto-mommy
+  titles:
+    original: オートマミー
+    translations: { ja-Latn: Auto Mommy }
+  movies:
+    - id: auto-mommy-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [auto-mommy]

@@ -11,17 +11,10 @@ series:
       number: 1
       releaseYear: 2012
       releaseSeason: SUMMER
-      episodes:
-        count: 12
-        absoluteFrom: 1
-    - id: dakara-boku-wa-h-ga-dekinai-s2
-      number: 2
-      releaseYear: 2012
-      releaseSeason: SUMMER
       externalIds:
         anilistId: 12549
         anidbId: 8879
         tvdbId: 259642
       episodes:
         count: 12
-        absoluteFrom: 13
+        absoluteFrom: 1

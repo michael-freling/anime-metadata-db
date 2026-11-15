@@ -14,17 +14,10 @@ series:
       number: 1
       releaseYear: 2018
       releaseSeason: FALL
-      episodes:
-        count: 12
-        absoluteFrom: 1
-    - id: rerided-s2
-      number: 2
-      releaseYear: 2018
-      releaseSeason: FALL
       externalIds:
         anilistId: 99413
         anidbId: 13254
         tvdbId: 352854
       episodes:
         count: 12
-        absoluteFrom: 13
+        absoluteFrom: 1

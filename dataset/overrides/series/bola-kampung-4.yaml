@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bola-kampung-4
+  titles:
+    original: Bola Kampung 4
+    translations: { ja-Latn: Bola Kampung 4 }
+  seasons:
+    - id: bola-kampung-4-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bola-kampung-4]

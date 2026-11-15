@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shinkyoku-soukai-polyphonica-crimson-s
+  titles:
+    original: 神曲奏界ポリフォニカ crimson S
+    translations: { ja-Latn: Shinkyoku Soukai Polyphonica Crimson S }
+  seasons:
+    - id: shinkyoku-soukai-polyphonica-crimson-s-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shinkyoku-soukai-polyphonica-crimson-s]

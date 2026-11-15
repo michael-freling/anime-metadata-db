@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shounen-onmyouji
+  titles:
+    original: Shounen Onmyouji
+    translations: { ja-Latn: Shounen Onmyouji }
+  seasons:
+    - id: shounen-onmyouji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shounen-onmyouji]

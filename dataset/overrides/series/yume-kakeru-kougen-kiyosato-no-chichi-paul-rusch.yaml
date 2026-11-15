@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yume-kakeru-kougen-kiyosato-no-chichi-paul-rusch
+  titles:
+    original: 夢かける高原 清里の父 ポール・ラッシュ
+    translations: { ja-Latn: "Yume Kakeru Kougen: Kiyosato no Chichi Paul Rusch" }
+  movies:
+    - id: yume-kakeru-kougen-kiyosato-no-chichi-paul-rusch-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yume-kakeru-kougen-kiyosato-no-chichi-paul-rusch]

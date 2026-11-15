@@ -1,0 +1,13 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tenshi-na-konamaiki
+  titles:
+    original: 天使な小生意気
+    translations: { ja-Latn: Tenshi na Konamaiki }
+  seasons:
+    - id: tenshi-na-konamaiki-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tenshi-na-konamaiki]

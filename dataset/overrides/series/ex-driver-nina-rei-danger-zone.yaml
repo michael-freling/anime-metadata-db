@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ex-driver-nina-rei-danger-zone
+  titles:
+    original: エクスドライバー Nina & Rei Danger Zone
+    translations: { ja-Latn: "eX-Driver: Nina & Rei Danger Zone" }
+  movies:
+    - id: ex-driver-nina-rei-danger-zone-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ex-driver-nina-rei-danger-zone]

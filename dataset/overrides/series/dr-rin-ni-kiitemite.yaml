@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dr-rin-ni-kiitemite
+  titles:
+    original: Dr.リンにきいてみて!
+    translations: { ja-Latn: Dr. Rin ni Kiitemite! }
+  seasons:
+    - id: dr-rin-ni-kiitemite-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dr-rin-ni-kiitemite]

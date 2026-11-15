@@ -1,0 +1,13 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: karakuri-kiden-hiwou-senki
+  titles:
+    original: 機巧奇傳 ヒヲウ戦記
+    translations: { ja-Latn: "Karakuri Kiden: Hiwou Senki" }
+  seasons:
+    - id: karakuri-kiden-hiwou-senki-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [karakuri-kiden-hiwou-senki]

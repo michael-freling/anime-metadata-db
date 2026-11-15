@@ -14,16 +14,7 @@ series:
       releaseYear: 2011
       releaseSeason: WINTER
       externalIds:
-        anidbId: 9731
-      episodes:
-        count: 26
-        absoluteFrom: 1
-    - id: robocar-poli-s2
-      number: 2
-      releaseYear: 2011
-      releaseSeason: WINTER
-      externalIds:
         anilistId: 213464
       episodes:
         count: 26
-        absoluteFrom: 27
+        absoluteFrom: 1

@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: higepiyo
+  titles:
+    original: "ひげぴよ, ヒゲぴよ"
+    translations: { ja-Latn: Higepiyo }
+  seasons:
+    - id: higepiyo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [higepiyo]

@@ -1,0 +1,15 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: super-hams-band
+  titles:
+    original: Super Hams Band
+    translations: { ja-Latn: Super Hams Band }
+  seasons:
+    - id: super-hams-band-s1
+      number: 1
+    - id: super-hams-band-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [super-hams-band]

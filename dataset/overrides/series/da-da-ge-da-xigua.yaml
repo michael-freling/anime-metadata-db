@@ -1,0 +1,12 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: da-da-ge-da-xigua
+  titles:
+    original: "Da, da Ge da Xigua"
+    translations: { ja-Latn: "Da, da Ge da Xigua" }
+  movies:
+    - id: da-da-ge-da-xigua-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [da-da-ge-da-xigua]

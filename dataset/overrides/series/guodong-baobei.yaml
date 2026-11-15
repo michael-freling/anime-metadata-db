@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: guodong-baobei
+  titles:
+    original: Guodong Baobei
+    translations: { ja-Latn: Guodong Baobei }
+  seasons:
+    - id: guodong-baobei-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [guodong-baobei]

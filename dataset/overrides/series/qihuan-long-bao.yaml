@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: qihuan-long-bao
+  titles:
+    original: Qihuan Long Bao
+    translations: { ja-Latn: Qihuan Long Bao }
+  seasons:
+    - id: qihuan-long-bao-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [qihuan-long-bao]

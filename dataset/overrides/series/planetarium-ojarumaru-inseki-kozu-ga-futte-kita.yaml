@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: planetarium-ojarumaru-inseki-kozu-ga-futte-kita
+  titles:
+    original: おじゃる丸 いん石小僧がふってきた!
+    translations: { ja-Latn: "Planetarium Ojarumaru: Inseki Kozu ga Futte Kita!" }
+  movies:
+    - id: planetarium-ojarumaru-inseki-kozu-ga-futte-kita-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [planetarium-ojarumaru-inseki-kozu-ga-futte-kita]

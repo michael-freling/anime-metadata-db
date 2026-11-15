@@ -1,0 +1,13 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: galaxy-angel-3
+  titles:
+    original: ギャラクシーエンジェル (第3期)
+    translations: { ja-Latn: Galaxy Angel 3 }
+  seasons:
+    - id: galaxy-angel-3-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [galaxy-angel-3]

@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rosario-to-vampire-capu2
+  titles:
+    original: ロザリオとバンパイア Capu2
+    translations: { ja-Latn: Rosario to Vampire Capu2 }
+  seasons:
+    - id: rosario-to-vampire-capu2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rosario-to-vampire-capu2]

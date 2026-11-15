@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kita-e-diamond-dust-drops
+  titles:
+    original: 北へ. ~Diamond Dust Drops~
+    translations: { ja-Latn: "Kita e.: Diamond Dust Drops" }
+  seasons:
+    - id: kita-e-diamond-dust-drops-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kita-e-diamond-dust-drops]

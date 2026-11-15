@@ -1,0 +1,12 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sugai-kun-to-kazoku-ishi-the-movie
+  titles:
+    original: 菅井君と家族石 THE MOVIE
+    translations: { ja-Latn: Sugai-kun to Kazoku Ishi The Movie }
+  movies:
+    - id: sugai-kun-to-kazoku-ishi-the-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sugai-kun-to-kazoku-ishi-the-movie]

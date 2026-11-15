@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: figure-17-tsubasa-hikaru
+  titles:
+    original: フィギュア17（セブンティーン）つばさ＆ヒカル
+    translations: { ja-Latn: "Figure 17: Tsubasa & Hikaru" }
+  seasons:
+    - id: figure-17-tsubasa-hikaru-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [figure-17-tsubasa-hikaru]

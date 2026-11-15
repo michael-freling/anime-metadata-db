@@ -1,0 +1,12 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: a-long-day-of-mr-calpaccio
+  titles:
+    original: (ア・ロング・デイ・オブ)Mr.カルパッチョ
+    translations: { ja-Latn: (A Long Day of) Mr. Calpaccio }
+  movies:
+    - id: a-long-day-of-mr-calpaccio-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [a-long-day-of-mr-calpaccio]

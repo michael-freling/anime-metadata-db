@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jinzou-konchuu-kabutoborg-vxv
+  titles:
+    original: 人造昆虫カブトボーグ VxV
+    translations: { ja-Latn: Jinzou Konchuu Kabutoborg VxV }
+  seasons:
+    - id: jinzou-konchuu-kabutoborg-vxv-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jinzou-konchuu-kabutoborg-vxv]

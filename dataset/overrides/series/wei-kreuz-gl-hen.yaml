@@ -1,0 +1,13 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wei-kreuz-gl-hen
+  titles:
+    original: ヴァイスクロイツ グリーエン
+    translations: { ja-Latn: Weiß Kreuz Glühen }
+  seasons:
+    - id: wei-kreuz-gl-hen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wei-kreuz-gl-hen]

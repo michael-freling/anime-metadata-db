@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: neo-angelique-abyss-second-age
+  titles:
+    original: ネオ アンジェリーク Abyss -Second Age-
+    translations: { ja-Latn: "Neo Angelique Abyss: Second Age" }
+  seasons:
+    - id: neo-angelique-abyss-second-age-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [neo-angelique-abyss-second-age]

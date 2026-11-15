@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: cross-game
+  titles:
+    original: クロスゲーム
+    translations: { ja-Latn: Cross Game }
+  seasons:
+    - id: cross-game-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [cross-game]

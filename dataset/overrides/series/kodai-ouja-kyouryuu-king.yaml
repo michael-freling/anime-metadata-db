@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kodai-ouja-kyouryuu-king
+  titles:
+    original: 古代王者 恐竜キング Dキッズ・アドベンチャー
+    translations: { ja-Latn: Kodai Ouja Kyouryuu King }
+  seasons:
+    - id: kodai-ouja-kyouryuu-king-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kodai-ouja-kyouryuu-king]

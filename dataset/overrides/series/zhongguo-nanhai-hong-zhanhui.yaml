@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhongguo-nanhai-hong-zhanhui
+  titles:
+    original: "Zhongguo Nanhai: Hong Zhanhui"
+    translations: { ja-Latn: "Zhongguo Nanhai: Hong Zhanhui" }
+  seasons:
+    - id: zhongguo-nanhai-hong-zhanhui-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhongguo-nanhai-hong-zhanhui]

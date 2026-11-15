@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hai-zhi-chuan-shugo-mazu
+  titles:
+    original: "Hai Zhi Chuan Shugo: Mazu"
+    translations: { ja-Latn: "Hai Zhi Chuan Shugo: Mazu" }
+  movies:
+    - id: hai-zhi-chuan-shugo-mazu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hai-zhi-chuan-shugo-mazu]

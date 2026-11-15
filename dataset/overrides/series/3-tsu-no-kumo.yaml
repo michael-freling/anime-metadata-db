@@ -1,0 +1,12 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 3-tsu-no-kumo
+  titles:
+    original: 3つの雲
+    translations: { ja-Latn: 3-tsu no Kumo }
+  movies:
+    - id: 3-tsu-no-kumo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [3-tsu-no-kumo]

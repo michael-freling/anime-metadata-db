@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shuukan-storyland-ryuuketsuki-juu-man-pon-no-ya-sakusen-neemu-denchuu
+  titles:
+    original: 週刊ストーリーランド ～流血鬼 ／ 十万本の矢 ／ 作戦ネーム電柱～
+    translations: { ja-Latn: "Shuukan Storyland: Ryuuketsuki / Juu Man-pon no ya / Sakusen Neemu Denchuu" }
+  seasons:
+    - id: shuukan-storyland-ryuuketsuki-juu-man-pon-no-ya-sakusen-neemu-denchuu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shuukan-storyland-ryuuketsuki-juu-man-pon-no-ya-sakusen-neemu-denchuu]

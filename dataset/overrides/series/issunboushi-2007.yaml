@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: issunboushi-2007
+  titles:
+    original: Issunboushi (2007)
+    translations: { ja-Latn: Issunboushi (2007) }
+  movies:
+    - id: issunboushi-2007-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [issunboushi-2007]

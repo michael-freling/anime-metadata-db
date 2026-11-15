@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bab-mook-ja
+  titles:
+    original: Bab Mook Ja
+    translations: { ja-Latn: Bab Mook Ja }
+  movies:
+    - id: bab-mook-ja-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bab-mook-ja]

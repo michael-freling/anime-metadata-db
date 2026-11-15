@@ -1,0 +1,15 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: giga-tribe
+  titles:
+    original: Giga Tribe
+    translations: { ja-Latn: Giga Tribe }
+  seasons:
+    - id: giga-tribe-s1
+      number: 1
+  movies:
+    - id: giga-tribe-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [giga-tribe]

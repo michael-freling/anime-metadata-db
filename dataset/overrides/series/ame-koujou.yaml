@@ -1,0 +1,12 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ame-koujou
+  titles:
+    original: Ame Koujou
+    translations: { ja-Latn: Ame Koujou }
+  movies:
+    - id: ame-koujou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ame-koujou]

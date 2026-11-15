@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ueki-no-housoku
+  titles:
+    original: うえきの法則
+    translations: { ja-Latn: Ueki no Housoku }
+  seasons:
+    - id: ueki-no-housoku-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ueki-no-housoku]

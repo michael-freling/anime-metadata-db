@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pi-po-pa-po-patrol-kun
+  titles:
+    original: ピポパポパトルくん
+    translations: { ja-Latn: Pi Po Pa Po Patrol-kun }
+  seasons:
+    - id: pi-po-pa-po-patrol-kun-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pi-po-pa-po-patrol-kun]

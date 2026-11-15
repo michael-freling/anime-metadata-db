@@ -1,0 +1,12 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: suiren-no-hito
+  titles:
+    original: 睡蓮の人
+    translations: { ja-Latn: Suiren no Hito }
+  movies:
+    - id: suiren-no-hito-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [suiren-no-hito]

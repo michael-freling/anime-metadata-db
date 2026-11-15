@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fight-tension-tv
+  titles:
+    original: ファイテンション☆テレビ
+    translations: { ja-Latn: Fight Tension TV }
+  seasons:
+    - id: fight-tension-tv-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fight-tension-tv]

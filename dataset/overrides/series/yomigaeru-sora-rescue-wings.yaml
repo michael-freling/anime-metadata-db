@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yomigaeru-sora-rescue-wings
+  titles:
+    original: よみがえる空 -RESCUE WINGS-
+    translations: { ja-Latn: "Yomigaeru Sora: Rescue Wings" }
+  seasons:
+    - id: yomigaeru-sora-rescue-wings-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yomigaeru-sora-rescue-wings]

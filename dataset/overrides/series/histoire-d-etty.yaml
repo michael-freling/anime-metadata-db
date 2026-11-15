@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: histoire-d-etty
+  titles:
+    original: histoire d'Etty エティーのものがたり
+    translations: { ja-Latn: Histoire d'Etty }
+  movies:
+    - id: histoire-d-etty-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [histoire-d-etty]

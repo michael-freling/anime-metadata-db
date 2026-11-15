@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: legendz-yomigaeru-ryuuou-densetsu
+  titles:
+    original: レジェンズ ~甦る竜王伝説~
+    translations: { ja-Latn: "Legendz: Yomigaeru Ryuuou Densetsu" }
+  seasons:
+    - id: legendz-yomigaeru-ryuuou-densetsu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [legendz-yomigaeru-ryuuou-densetsu]

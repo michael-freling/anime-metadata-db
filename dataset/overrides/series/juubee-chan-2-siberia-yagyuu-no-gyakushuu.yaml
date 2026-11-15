@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: juubee-chan-2-siberia-yagyuu-no-gyakushuu
+  titles:
+    original: 十兵衛ちゃん2 -シベリア柳生の逆襲-
+    translations: { ja-Latn: "Juubee-chan 2: Siberia Yagyuu no Gyakushuu" }
+  seasons:
+    - id: juubee-chan-2-siberia-yagyuu-no-gyakushuu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [juubee-chan-2-siberia-yagyuu-no-gyakushuu]

@@ -5,7 +5,7 @@ series:
     original: ベルセルク
     translations:
       ja-Latn: Berserk
-  ordering: absolute
+  ordering: release
   seasons:
     - id: berserk-s1
       number: 1
@@ -17,7 +17,6 @@ series:
         tvdbId: 73752
       episodes:
         count: 25
-        absoluteFrom: 1
     - id: berserk-s2
       number: 2
       releaseYear: 2016
@@ -28,7 +27,6 @@ series:
         tvdbId: 307111
       episodes:
         count: 12
-        absoluteFrom: 26
     - id: berserk-s3
       number: 3
       releaseYear: 2017
@@ -39,4 +37,3 @@ series:
         tvdbId: 307111
       episodes:
         count: 12
-        absoluteFrom: 38

@@ -1,0 +1,15 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chibinacs
+  titles:
+    original: チビナックス
+    translations: { ja-Latn: Chibinacs }
+  seasons:
+    - id: chibinacs-s1
+      number: 1
+    - id: chibinacs-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chibinacs]

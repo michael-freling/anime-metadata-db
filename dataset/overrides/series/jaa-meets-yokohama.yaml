@@ -1,0 +1,12 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jaa-meets-yokohama
+  titles:
+    original: 赤い靴! 女の子!
+    translations: { ja-Latn: JAA Meets Yokohama }
+  movies:
+    - id: jaa-meets-yokohama-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jaa-meets-yokohama]

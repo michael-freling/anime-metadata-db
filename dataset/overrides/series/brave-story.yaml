@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: brave-story
+  titles:
+    original: ブレイブ・ストーリー
+    translations: { ja-Latn: Brave Story }
+  movies:
+    - id: brave-story-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [brave-story]

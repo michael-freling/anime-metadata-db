@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: huo-xing-wa-yong-chuang-mo-jing-dao
+  titles:
+    original: "Huo Xing Wa: Yong Chuang Mo Jing Dao"
+    translations: { ja-Latn: "Huo Xing Wa: Yong Chuang Mo Jing Dao" }
+  seasons:
+    - id: huo-xing-wa-yong-chuang-mo-jing-dao-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [huo-xing-wa-yong-chuang-mo-jing-dao]

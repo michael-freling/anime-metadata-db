@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tatakau-shisho-the-book-of-bantorra
+  titles:
+    original: 戦う司書 The Book of Bantorra
+    translations: { ja-Latn: "Tatakau Shisho: The Book of Bantorra" }
+  seasons:
+    - id: tatakau-shisho-the-book-of-bantorra-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tatakau-shisho-the-book-of-bantorra]

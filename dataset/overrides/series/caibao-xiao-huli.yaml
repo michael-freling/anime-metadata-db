@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: caibao-xiao-huli
+  titles:
+    original: Caibao Xiao Huli
+    translations: { ja-Latn: Caibao Xiao Huli }
+  seasons:
+    - id: caibao-xiao-huli-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [caibao-xiao-huli]

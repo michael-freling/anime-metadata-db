@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kouchuu-ouja-mushiking-mori-no-tami-no-densetsu
+  titles:
+    original: 甲虫王寺ムシキング ～森の民の伝説～
+    translations: { ja-Latn: "Kouchuu Ouja Mushiking: Mori no Tami no Densetsu" }
+  seasons:
+    - id: kouchuu-ouja-mushiking-mori-no-tami-no-densetsu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kouchuu-ouja-mushiking-mori-no-tami-no-densetsu]

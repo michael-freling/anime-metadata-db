@@ -1,0 +1,12 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: metropolis-2009
+  titles:
+    original: Metropolis (2009)
+    translations: { ja-Latn: Metropolis (2009) }
+  movies:
+    - id: metropolis-2009-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [metropolis-2009]

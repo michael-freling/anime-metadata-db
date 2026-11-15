@@ -1,0 +1,19 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mirmo-zibang
+  titles:
+    original: わがまま☆フェアリーミルモでポン！ ちゃあみんぐ
+    translations: { ja-Latn: Mirmo Zibang! }
+  seasons:
+    - id: mirmo-zibang-s1
+      number: 1
+    - id: mirmo-zibang-s2
+      number: 2
+    - id: mirmo-zibang-s3
+      number: 3
+    - id: mirmo-zibang-s4
+      number: 4
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mirmo-zibang]

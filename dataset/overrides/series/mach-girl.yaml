@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mach-girl
+  titles:
+    original: マッハガール
+    translations: { ja-Latn: Mach Girl }
+  seasons:
+    - id: mach-girl-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mach-girl]

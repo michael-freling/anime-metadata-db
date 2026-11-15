@@ -1,0 +1,12 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tojin-kit
+  titles:
+    original: 陶人キット
+    translations: { ja-Latn: Tojin Kit }
+  movies:
+    - id: tojin-kit-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tojin-kit]

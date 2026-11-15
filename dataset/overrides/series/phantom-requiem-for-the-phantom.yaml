@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: phantom-requiem-for-the-phantom
+  titles:
+    original: ファントム -PHANTOM OF INFERNO-
+    translations: { ja-Latn: "Phantom: Requiem for the Phantom" }
+  seasons:
+    - id: phantom-requiem-for-the-phantom-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [phantom-requiem-for-the-phantom]

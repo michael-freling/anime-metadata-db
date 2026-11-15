@@ -1,0 +1,12 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fuyu-no-niji
+  titles:
+    original: 冬の虹
+    translations: { ja-Latn: Fuyu no Niji }
+  movies:
+    - id: fuyu-no-niji-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fuyu-no-niji]

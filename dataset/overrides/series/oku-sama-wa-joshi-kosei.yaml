@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: oku-sama-wa-joshi-kosei
+  titles:
+    original: おくさまは女子高生
+    translations: { ja-Latn: Oku-sama wa Joshi Kōsei }
+  seasons:
+    - id: oku-sama-wa-joshi-kosei-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [oku-sama-wa-joshi-kosei]

@@ -11,17 +11,10 @@ series:
       number: 1
       releaseYear: 2012
       releaseSeason: SUMMER
-      episodes:
-        count: 13
-        absoluteFrom: 1
-    - id: good-luck-girl-s2
-      number: 2
-      releaseYear: 2012
-      releaseSeason: SUMMER
       externalIds:
         anilistId: 13535
         anidbId: 8888
         tvdbId: 259644
       episodes:
         count: 13
-        absoluteFrom: 14
+        absoluteFrom: 1

@@ -5,7 +5,7 @@ series:
     original: サンダーキャッツ
     translations:
       ja-Latn: Thundercats
-  ordering: absolute
+  ordering: release
   seasons:
     - id: thundercats-s1
       number: 1
@@ -13,11 +13,9 @@ series:
       releaseSeason: FALL
       episodes:
         count: 130
-        absoluteFrom: 1
     - id: thundercats-s2
       number: 2
       releaseYear: 2011
       releaseSeason: SUMMER
       episodes:
         count: 26
-        absoluteFrom: 131

@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hanasakeru-seishounen
+  titles:
+    original: 豪門の遊戲 天國少女
+    translations: { ja-Latn: Hanasakeru Seishounen }
+  seasons:
+    - id: hanasakeru-seishounen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hanasakeru-seishounen]

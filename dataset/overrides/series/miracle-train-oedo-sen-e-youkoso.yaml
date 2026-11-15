@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: miracle-train-oedo-sen-e-youkoso
+  titles:
+    original: ミラクル☆トレイン~大江戸線へようこそ~
+    translations: { ja-Latn: "Miracle☆Train: Oedo-sen e Youkoso" }
+  seasons:
+    - id: miracle-train-oedo-sen-e-youkoso-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [miracle-train-oedo-sen-e-youkoso]

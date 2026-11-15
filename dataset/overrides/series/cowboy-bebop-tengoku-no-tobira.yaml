@@ -1,0 +1,12 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: cowboy-bebop-tengoku-no-tobira
+  titles:
+    original: カウボーイビバップ 天国の扉
+    translations: { ja-Latn: "Cowboy Bebop: Tengoku no Tobira" }
+  movies:
+    - id: cowboy-bebop-tengoku-no-tobira-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [cowboy-bebop-tengoku-no-tobira]

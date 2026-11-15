@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: huanbao-xiao-weishi
+  titles:
+    original: Huanbao Xiao Weishi
+    translations: { ja-Latn: Huanbao Xiao Weishi }
+  seasons:
+    - id: huanbao-xiao-weishi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [huanbao-xiao-weishi]

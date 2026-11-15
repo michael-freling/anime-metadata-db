@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kagami-no-genon
+  titles:
+    original: かがみのげんおん
+    translations: { ja-Latn: Kagami no Genon }
+  movies:
+    - id: kagami-no-genon-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kagami-no-genon]

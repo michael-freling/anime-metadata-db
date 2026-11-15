@@ -1,0 +1,12 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shenmue-the-movie
+  titles:
+    original: シェンムー・ザ・ムービー
+    translations: { ja-Latn: "Shenmue: The Movie" }
+  movies:
+    - id: shenmue-the-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shenmue-the-movie]

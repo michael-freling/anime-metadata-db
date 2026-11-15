@@ -1,0 +1,12 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: denshinbashira-no-okaasan
+  titles:
+    original: 電信柱のお母さん
+    translations: { ja-Latn: Denshinbashira no Okaasan }
+  movies:
+    - id: denshinbashira-no-okaasan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [denshinbashira-no-okaasan]

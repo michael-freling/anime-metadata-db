@@ -1,0 +1,13 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ufo-princess-valkyrie-2-juunigatsu-no-yasoukyoku
+  titles:
+    original: 円盤皇女ワるきゅーレ 十二月の夜想曲
+    translations: { ja-Latn: "UFO Princess Valkyrie 2: Juunigatsu no Yasoukyoku" }
+  seasons:
+    - id: ufo-princess-valkyrie-2-juunigatsu-no-yasoukyoku-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ufo-princess-valkyrie-2-juunigatsu-no-yasoukyoku]

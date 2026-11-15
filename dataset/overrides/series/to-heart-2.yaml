@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: to-heart-2
+  titles:
+    original: トゥハート2
+    translations: { ja-Latn: To Heart 2 }
+  seasons:
+    - id: to-heart-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [to-heart-2]

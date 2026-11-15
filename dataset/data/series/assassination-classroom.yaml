@@ -11,22 +11,15 @@ series:
       number: 1
       releaseYear: 2015
       releaseSeason: WINTER
-      episodes:
-        count: 22
-        absoluteFrom: 1
-    - id: assassination-classroom-s2
-      number: 2
-      releaseYear: 2015
-      releaseSeason: WINTER
       externalIds:
         anilistId: 20755
         anidbId: 10702
         tvdbId: 283947
       episodes:
         count: 22
-        absoluteFrom: 23
-    - id: assassination-classroom-s3
-      number: 3
+        absoluteFrom: 1
+    - id: assassination-classroom-s2
+      number: 2
       releaseYear: 2016
       releaseSeason: WINTER
       externalIds:
@@ -35,4 +28,4 @@ series:
         tvdbId: 283947
       episodes:
         count: 25
-        absoluteFrom: 45
+        absoluteFrom: 23

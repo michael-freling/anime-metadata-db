@@ -1,0 +1,12 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: long-dao-qi-yuan
+  titles:
+    original: Long Dao Qi Yuan
+    translations: { ja-Latn: Long Dao Qi Yuan }
+  movies:
+    - id: long-dao-qi-yuan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [long-dao-qi-yuan]

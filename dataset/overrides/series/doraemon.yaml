@@ -1,0 +1,20 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: doraemon
+  titles:
+    original: ドラえもん
+    translations: { ja-Latn: Doraemon }
+  seasons:
+    - id: doraemon-s1
+      number: 1
+    - id: doraemon-s2
+      number: 2
+    - id: doraemon-s3
+      number: 3
+  movies:
+    - id: doraemon-film
+# No continuous absoluteNumber. The seasons above are separate adaptations of
+# one work (1973, 1979, 2005), not one run, so numbering them end to end would
+# assert a continuity that does not exist.

@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ef-a-tale-of-melodies
+  titles:
+    original: エフ ア テイル オブ メロディーズ
+    translations: { ja-Latn: "ef: A Tale of Melodies." }
+  seasons:
+    - id: ef-a-tale-of-melodies-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ef-a-tale-of-melodies]

@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kara-no-kyoukai-manner-movies
+  titles:
+    original: 劇場版 空の境界 劇場鑑賞マナーCM
+    translations: { ja-Latn: "Kara no Kyoukai: Manner Movies" }
+  movies:
+    - id: kara-no-kyoukai-manner-movies-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kara-no-kyoukai-manner-movies]

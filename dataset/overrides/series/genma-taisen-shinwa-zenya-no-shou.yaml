@@ -1,0 +1,13 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: genma-taisen-shinwa-zenya-no-shou
+  titles:
+    original: 幻魔大戦 -神話前夜の章-
+    translations: { ja-Latn: "Genma Taisen: Shinwa Zenya no Shou" }
+  seasons:
+    - id: genma-taisen-shinwa-zenya-no-shou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [genma-taisen-shinwa-zenya-no-shou]

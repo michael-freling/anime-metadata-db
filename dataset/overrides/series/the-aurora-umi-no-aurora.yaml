@@ -1,0 +1,12 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-aurora-umi-no-aurora
+  titles:
+    original: 海のオーロラ
+    translations: { ja-Latn: "The Aurora: Umi no Aurora" }
+  movies:
+    - id: the-aurora-umi-no-aurora-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-aurora-umi-no-aurora]

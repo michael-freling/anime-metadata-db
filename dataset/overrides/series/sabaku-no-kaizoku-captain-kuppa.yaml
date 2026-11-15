@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sabaku-no-kaizoku-captain-kuppa
+  titles:
+    original: 砂漠の海賊! キャプテンクッパ
+    translations: { ja-Latn: Sabaku no Kaizoku! Captain Kuppa }
+  seasons:
+    - id: sabaku-no-kaizoku-captain-kuppa-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sabaku-no-kaizoku-captain-kuppa]

@@ -1,0 +1,12 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kara-no-kyoukai-movie-6-boukyaku-rokuon
+  titles:
+    original: 劇場版 空の境界 the Garden of sinners 第六章『忘却録音』
+    translations: { ja-Latn: "Kara no Kyoukai Movie 6: Boukyaku Rokuon" }
+  movies:
+    - id: kara-no-kyoukai-movie-6-boukyaku-rokuon-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kara-no-kyoukai-movie-6-boukyaku-rokuon]

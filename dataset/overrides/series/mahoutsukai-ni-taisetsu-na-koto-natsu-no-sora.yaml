@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mahoutsukai-ni-taisetsu-na-koto-natsu-no-sora
+  titles:
+    original: 魔法遣いに大切なこと ~夏のソラ~
+    translations: { ja-Latn: "Mahoutsukai ni Taisetsu na Koto: Natsu no Sora" }
+  seasons:
+    - id: mahoutsukai-ni-taisetsu-na-koto-natsu-no-sora-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mahoutsukai-ni-taisetsu-na-koto-natsu-no-sora]

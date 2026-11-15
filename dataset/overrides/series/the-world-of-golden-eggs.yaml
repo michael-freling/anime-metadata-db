@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-world-of-golden-eggs
+  titles:
+    original: ザ・ワールド・オブ・ゴールデン・エッグス
+    translations: { ja-Latn: The World of Golden Eggs }
+  seasons:
+    - id: the-world-of-golden-eggs-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-world-of-golden-eggs]

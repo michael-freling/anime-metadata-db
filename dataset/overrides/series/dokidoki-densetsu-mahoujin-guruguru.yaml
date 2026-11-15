@@ -1,0 +1,13 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dokidoki-densetsu-mahoujin-guruguru
+  titles:
+    original: ドキドキ♡伝説 魔法陣グルグル
+    translations: { ja-Latn: "Dokidoki♡Densetsu: Mahoujin Guruguru" }
+  seasons:
+    - id: dokidoki-densetsu-mahoujin-guruguru-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dokidoki-densetsu-mahoujin-guruguru]

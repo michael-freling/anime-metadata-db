@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: maiquan-keke-man-youji
+  titles:
+    original: Maiquan Keke Man Youji
+    translations: { ja-Latn: Maiquan Keke Man Youji }
+  seasons:
+    - id: maiquan-keke-man-youji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [maiquan-keke-man-youji]

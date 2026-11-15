@@ -11,17 +11,10 @@ series:
       number: 1
       releaseYear: 2017
       releaseSeason: SUMMER
-      episodes:
-        count: 12
-        absoluteFrom: 1
-    - id: clean-freak-aoyama-kun-s2
-      number: 2
-      releaseYear: 2017
-      releaseSeason: SUMMER
       externalIds:
         anilistId: 98205
         anidbId: 12762
         tvdbId: 328823
       episodes:
         count: 12
-        absoluteFrom: 13
+        absoluteFrom: 1

@@ -1,0 +1,12 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fei-ba-pili
+  titles:
+    original: "Fei Ba, Pili"
+    translations: { ja-Latn: "Fei Ba, Pili" }
+  movies:
+    - id: fei-ba-pili-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fei-ba-pili]

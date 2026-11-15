@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hanaukyou-maid-tai-la-verite
+  titles:
+    original: 花右京メイド隊 La Verite
+    translations: { ja-Latn: "Hanaukyou Maid-tai: La Verite" }
+  seasons:
+    - id: hanaukyou-maid-tai-la-verite-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hanaukyou-maid-tai-la-verite]

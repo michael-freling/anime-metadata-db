@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: youji-shen-bing
+  titles:
+    original: Youji Shen Bing
+    translations: { ja-Latn: Youji Shen Bing }
+  seasons:
+    - id: youji-shen-bing-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [youji-shen-bing]

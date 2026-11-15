@@ -1,0 +1,12 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: eyeshield-21-the-phantom-golden-bowl
+  titles:
+    original: アイシールド21 幻のゴールデンボウル
+    translations: { ja-Latn: "Eyeshield 21: The Phantom Golden Bowl" }
+  movies:
+    - id: eyeshield-21-the-phantom-golden-bowl-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [eyeshield-21-the-phantom-golden-bowl]

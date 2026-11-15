@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shigurui
+  titles:
+    original: シグルイ
+    translations: { ja-Latn: Shigurui }
+  seasons:
+    - id: shigurui-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shigurui]

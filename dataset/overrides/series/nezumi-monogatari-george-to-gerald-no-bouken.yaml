@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nezumi-monogatari-george-to-gerald-no-bouken
+  titles:
+    original: ねずみ物語 ジョージとジェラルドの冒険
+    translations: { ja-Latn: "Nezumi Monogatari: George to Gerald no Bouken" }
+  movies:
+    - id: nezumi-monogatari-george-to-gerald-no-bouken-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nezumi-monogatari-george-to-gerald-no-bouken]

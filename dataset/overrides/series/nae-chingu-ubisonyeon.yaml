@@ -1,0 +1,13 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nae-chingu-ubisonyeon
+  titles:
+    original: Nae Chingu Ubisonyeon
+    translations: { ja-Latn: Nae Chingu Ubisonyeon }
+  seasons:
+    - id: nae-chingu-ubisonyeon-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nae-chingu-ubisonyeon]

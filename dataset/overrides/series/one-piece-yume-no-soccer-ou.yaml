@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: one-piece-yume-no-soccer-ou
+  titles:
+    original: ONE PIECE ワンピース 夢のサッカー王！
+    translations: { ja-Latn: "One Piece: Yume no Soccer Ou!" }
+  movies:
+    - id: one-piece-yume-no-soccer-ou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [one-piece-yume-no-soccer-ou]

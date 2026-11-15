@@ -1,0 +1,12 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gegege-no-kitarou-youkai-japan-rally-3d
+  titles:
+    original: ゲゲゲの鬼太郎 妖怪JAPANラリー3D
+    translations: { ja-Latn: "Gegege no Kitarou: Youkai Japan Rally 3D" }
+  movies:
+    - id: gegege-no-kitarou-youkai-japan-rally-3d-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gegege-no-kitarou-youkai-japan-rally-3d]

@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tachiguishi-retsuden
+  titles:
+    original: Tachiguishi Retsuden
+    translations: { ja-Latn: Tachiguishi Retsuden }
+  movies:
+    - id: tachiguishi-retsuden-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tachiguishi-retsuden]

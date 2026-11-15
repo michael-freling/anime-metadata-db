@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: one-piece-uchuu-tte-omoshiree-hoshizora-jima-hen
+  titles:
+    original: ONE PIECE～宇宙っておもしれえ！星空島編～
+    translations: { ja-Latn: "One Piece: Uchuu tte Omoshiree! Hoshizora Jima-hen" }
+  movies:
+    - id: one-piece-uchuu-tte-omoshiree-hoshizora-jima-hen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [one-piece-uchuu-tte-omoshiree-hoshizora-jima-hen]

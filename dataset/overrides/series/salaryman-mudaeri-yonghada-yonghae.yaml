@@ -1,0 +1,12 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: salaryman-mudaeri-yonghada-yonghae
+  titles:
+    original: Salaryman Mudaeri Yonghada Yonghae
+    translations: { ja-Latn: Salaryman Mudaeri Yonghada Yonghae }
+  movies:
+    - id: salaryman-mudaeri-yonghada-yonghae-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [salaryman-mudaeri-yonghada-yonghae]

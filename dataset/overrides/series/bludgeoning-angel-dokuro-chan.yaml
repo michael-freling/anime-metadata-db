@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bludgeoning-angel-dokuro-chan
+  titles:
+    original: 撲殺天使ドクロちゃん
+    translations: { ja-Latn: Bludgeoning Angel Dokuro-chan }
+  seasons:
+    - id: bludgeoning-angel-dokuro-chan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bludgeoning-angel-dokuro-chan]

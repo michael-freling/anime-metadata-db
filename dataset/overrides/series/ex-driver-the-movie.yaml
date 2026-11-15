@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ex-driver-the-movie
+  titles:
+    original: エクスドライバー the Movie
+    translations: { ja-Latn: eX-Driver the Movie }
+  movies:
+    - id: ex-driver-the-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ex-driver-the-movie]

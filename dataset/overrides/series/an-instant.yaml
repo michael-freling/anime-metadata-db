@@ -1,0 +1,12 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: an-instant
+  titles:
+    original: An Instant
+    translations: { ja-Latn: An Instant }
+  movies:
+    - id: an-instant-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [an-instant]

@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shinshaku-sengoku-eiyuu-densetsu-sanada-juu-yuushi-the-animation
+  titles:
+    original: "Shinshaku Sengoku Eiyuu Densetsu: Sanada Juu Yuushi The Animation"
+    translations: { ja-Latn: "Shinshaku Sengoku Eiyuu Densetsu: Sanada Juu Yuushi The Animation" }
+  seasons:
+    - id: shinshaku-sengoku-eiyuu-densetsu-sanada-juu-yuushi-the-animation-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shinshaku-sengoku-eiyuu-densetsu-sanada-juu-yuushi-the-animation]

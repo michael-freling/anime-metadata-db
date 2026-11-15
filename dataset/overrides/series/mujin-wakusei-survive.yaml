@@ -1,0 +1,13 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mujin-wakusei-survive
+  titles:
+    original: 無人惑星サヴァイヴ
+    translations: { ja-Latn: Mujin Wakusei Survive }
+  seasons:
+    - id: mujin-wakusei-survive-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mujin-wakusei-survive]

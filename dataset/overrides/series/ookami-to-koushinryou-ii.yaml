@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ookami-to-koushinryou-ii
+  titles:
+    original: 狼と香辛料 II
+    translations: { ja-Latn: Ookami to Koushinryou II }
+  seasons:
+    - id: ookami-to-koushinryou-ii-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ookami-to-koushinryou-ii]

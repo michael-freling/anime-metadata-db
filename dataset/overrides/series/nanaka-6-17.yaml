@@ -1,0 +1,13 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nanaka-6-17
+  titles:
+    original: ななか6/17
+    translations: { ja-Latn: Nanaka 6/17 }
+  seasons:
+    - id: nanaka-6-17-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nanaka-6-17]

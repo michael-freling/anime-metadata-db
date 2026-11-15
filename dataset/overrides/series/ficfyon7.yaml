@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ficfyon7
+  titles:
+    original: ヘコヒョン7
+    translations: { ja-Latn: Ficfyon7 }
+  movies:
+    - id: ficfyon7-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ficfyon7]

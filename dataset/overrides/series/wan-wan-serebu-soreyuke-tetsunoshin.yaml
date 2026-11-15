@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wan-wan-serebu-soreyuke-tetsunoshin
+  titles:
+    original: ワンワンセレプー それゆけ！徹之進
+    translations: { ja-Latn: Wan Wan Serebu Soreyuke! Tetsunoshin }
+  seasons:
+    - id: wan-wan-serebu-soreyuke-tetsunoshin-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wan-wan-serebu-soreyuke-tetsunoshin]

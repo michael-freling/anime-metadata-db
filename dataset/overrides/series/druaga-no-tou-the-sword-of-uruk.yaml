@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: druaga-no-tou-the-sword-of-uruk
+  titles:
+    original: ドルアーガの塔 ~the Sword of URUK~
+    translations: { ja-Latn: "Druaga no Tou: The Sword of Uruk" }
+  seasons:
+    - id: druaga-no-tou-the-sword-of-uruk-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [druaga-no-tou-the-sword-of-uruk]

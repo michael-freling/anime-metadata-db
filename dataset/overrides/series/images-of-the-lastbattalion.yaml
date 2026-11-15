@@ -1,0 +1,12 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: images-of-the-lastbattalion
+  titles:
+    original: Images of the LastBattalion
+    translations: { ja-Latn: Images of the LastBattalion }
+  movies:
+    - id: images-of-the-lastbattalion-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [images-of-the-lastbattalion]

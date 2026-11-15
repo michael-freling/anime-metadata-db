@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: oz-no-mahoutsukai-2006
+  titles:
+    original: オズのまほうつかい
+    translations: { ja-Latn: Oz no Mahoutsukai (2006) }
+  movies:
+    - id: oz-no-mahoutsukai-2006-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [oz-no-mahoutsukai-2006]

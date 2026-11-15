@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: koisuru-tenshi-angelique-kokoro-no-mezameru-toki
+  titles:
+    original: 恋する天使アンジェリーク ~心のめざめる時~
+    translations: { ja-Latn: "Koisuru Tenshi Angelique: Kokoro no Mezameru Toki" }
+  seasons:
+    - id: koisuru-tenshi-angelique-kokoro-no-mezameru-toki-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [koisuru-tenshi-angelique-kokoro-no-mezameru-toki]

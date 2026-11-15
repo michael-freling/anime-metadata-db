@@ -14,17 +14,10 @@ series:
       number: 1
       releaseYear: 2011
       releaseSeason: SUMMER
-      episodes:
-        count: 12
-        absoluteFrom: 1
-    - id: dantalian-no-shoka-s2
-      number: 2
-      releaseYear: 2011
-      releaseSeason: SUMMER
       externalIds:
         anilistId: 8915
         anidbId: 7939
         tvdbId: 249868
       episodes:
         count: 12
-        absoluteFrom: 13
+        absoluteFrom: 1

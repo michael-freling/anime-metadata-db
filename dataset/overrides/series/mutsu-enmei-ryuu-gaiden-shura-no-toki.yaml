@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mutsu-enmei-ryuu-gaiden-shura-no-toki
+  titles:
+    original: 陸奥圓明流外伝 修羅の刻
+    translations: { ja-Latn: "Mutsu Enmei Ryuu Gaiden: Shura no Toki" }
+  seasons:
+    - id: mutsu-enmei-ryuu-gaiden-shura-no-toki-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mutsu-enmei-ryuu-gaiden-shura-no-toki]

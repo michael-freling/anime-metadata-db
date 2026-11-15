@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fuyu-no-sonata
+  titles:
+    original: 冬のソナタ
+    translations: { ja-Latn: Fuyu no Sonata }
+  seasons:
+    - id: fuyu-no-sonata-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fuyu-no-sonata]

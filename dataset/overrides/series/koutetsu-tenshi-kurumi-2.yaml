@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: koutetsu-tenshi-kurumi-2
+  titles:
+    original: 鋼鉄天使くるみ2式
+    translations: { ja-Latn: Koutetsu Tenshi Kurumi 2 }
+  seasons:
+    - id: koutetsu-tenshi-kurumi-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [koutetsu-tenshi-kurumi-2]

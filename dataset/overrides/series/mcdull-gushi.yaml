@@ -1,0 +1,12 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mcdull-gushi
+  titles:
+    original: "McDull: Gushi"
+    translations: { ja-Latn: "McDull: Gushi" }
+  movies:
+    - id: mcdull-gushi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mcdull-gushi]

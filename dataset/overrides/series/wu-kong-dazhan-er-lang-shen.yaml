@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wu-kong-dazhan-er-lang-shen
+  titles:
+    original: Wu Kong Dazhan Er Lang Shen
+    translations: { ja-Latn: Wu Kong Dazhan Er Lang Shen }
+  movies:
+    - id: wu-kong-dazhan-er-lang-shen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wu-kong-dazhan-er-lang-shen]

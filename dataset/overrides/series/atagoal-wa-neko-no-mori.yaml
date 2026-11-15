@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: atagoal-wa-neko-no-mori
+  titles:
+    original: アタゴオルは猫の森
+    translations: { ja-Latn: Atagoal wa Neko no Mori }
+  movies:
+    - id: atagoal-wa-neko-no-mori-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [atagoal-wa-neko-no-mori]

@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rd-sennou-chousashitsu
+  titles:
+    original: RD Sennou Chousashitsu
+    translations: { ja-Latn: RD Sennou Chousashitsu }
+  seasons:
+    - id: rd-sennou-chousashitsu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rd-sennou-chousashitsu]

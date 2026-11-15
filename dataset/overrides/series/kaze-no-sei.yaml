@@ -1,0 +1,12 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaze-no-sei
+  titles:
+    original: 風の精
+    translations: { ja-Latn: Kaze no Sei }
+  movies:
+    - id: kaze-no-sei-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaze-no-sei]

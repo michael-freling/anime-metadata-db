@@ -11,17 +11,10 @@ series:
       number: 1
       releaseYear: 2015
       releaseSeason: WINTER
-      episodes:
-        count: 24
-        absoluteFrom: 1
-    - id: jojo-no-kimyou-na-bouken-part-3-stardust-crusaders-egypt-hen-s2
-      number: 2
-      releaseYear: 2015
-      releaseSeason: WINTER
       externalIds:
         anilistId: 20799
         anidbId: 10835
         tvdbId: 262954
       episodes:
         count: 24
-        absoluteFrom: 25
+        absoluteFrom: 1
