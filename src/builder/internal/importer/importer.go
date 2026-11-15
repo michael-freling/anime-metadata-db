@@ -289,13 +289,8 @@ func series(db *offlinedb.Database, seed offlinedb.Anime, original string) (Seri
 			linked[k] = a
 		}
 	}
-	var tv, films []offlinedb.Anime
-	for _, a := range preferLinked(pool, linked, offlinedb.TypeTV) {
-		tv = append(tv, a)
-	}
-	for _, a := range preferLinked(pool, linked, offlinedb.TypeMovie) {
-		films = append(films, a)
-	}
+	tv := preferLinked(pool, linked, offlinedb.TypeTV)
+	films := preferLinked(pool, linked, offlinedb.TypeMovie)
 	// Announcements are not in the catalogue, and the two kinds have to drop
 	// them differently because resolveKind short-circuits on zero slots but
 	// refuses on a mismatched count.
