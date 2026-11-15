@@ -1,11 +1,17 @@
 package builder
 
 import (
+	"context"
+	"fmt"
+	"os"
+	"path/filepath"
+	"slices"
 	"strings"
 	"testing"
 
 	"github.com/michael-freling/anime-metadata-db/src/builder/internal/importer"
 	"github.com/michael-freling/anime-metadata-db/src/builder/internal/sources/offlinedb"
+	"github.com/michael-freling/anime-metadata-db/src/builder/internal/testsupport"
 )
 
 // A series the import wrote: bare slots, no authored ids, and a comment where
@@ -154,4 +160,644 @@ func offlineFromJSON(t *testing.T, doc string) *offlinedb.Database {
 		t.Fatal(err)
 	}
 	return db
+}
+
+// mergeFixture is an offline database shaped for the merge cases: a film and a
+// season that belong to the catalogue's series and say so three ways, plus one
+// of each that does not.
+const mergeFixture = `{
+  "data": [
+    {
+      "sources": ["https://anilist.co/anime/101922"],
+      "title": "Kimetsu no Yaiba",
+      "type": "TV", "episodes": 26, "status": "FINISHED",
+      "animeSeason": { "season": "SPRING", "year": 2019 },
+      "relatedAnime": ["https://anilist.co/anime/900010"]
+    },
+    {
+      "sources": ["https://anilist.co/anime/900010"],
+      "title": "Kimetsu no Yaiba: A Later Film",
+      "type": "MOVIE", "episodes": 1, "status": "FINISHED",
+      "animeSeason": { "season": "SPRING", "year": 2030 },
+      "relatedAnime": ["https://anilist.co/anime/101922"]
+    },
+    {
+      "sources": ["https://anilist.co/anime/900011"],
+      "title": "Kimetsu no Yaiba: A Later Season",
+      "type": "TV", "episodes": 12, "status": "FINISHED",
+      "animeSeason": { "season": "SUMMER", "year": 2031 },
+      "relatedAnime": ["https://anilist.co/anime/101922"]
+    },
+    {
+      "sources": ["https://anilist.co/anime/900012"],
+      "title": "Something Else Entirely",
+      "type": "TV", "episodes": 12, "status": "FINISHED",
+      "animeSeason": { "season": "SUMMER", "year": 2032 },
+      "relatedAnime": ["https://anilist.co/anime/101922"]
+    },
+    {
+      "sources": ["https://anilist.co/anime/900013"],
+      "title": "Kimetsu no Yaiba: An Earlier Season",
+      "type": "TV", "episodes": 12, "status": "FINISHED",
+      "animeSeason": { "season": "SUMMER", "year": 2010 },
+      "relatedAnime": ["https://anilist.co/anime/101922"]
+    }
+  ]
+}`
+
+// titledDemonSlayer is the shared fixture with the series' own names stated.
+// A merge decides which linked series a work belongs to by whether its title
+// is that series' title carried further, so a series with no title can never
+// be a target — which is right, and is why this test states them rather than
+// changing a fixture other cases depend on.
+const titledDemonSlayer = `series:
+  id: demon-slayer
+  titles:
+    original: 鬼滅の刃
+    translations: { ja-Latn: Kimetsu no Yaiba }
+  seasons:
+    - id: ds-s1
+      number: 1
+      externalIds: { anilistId: 101922 }
+  movies:
+    - id: ds-mugen-film
+      externalIds: { anilistId: 112151 }
+`
+
+// mergeRepo is a built repo whose series states its names, with the merge
+// fixture cached in place of the pinned source.
+func mergeRepo(t *testing.T) (*App, string, func() string) {
+	t.Helper()
+	dir := newRepo(t)
+	path := filepath.Join(dir, "config", "overrides", "series", "demon-slayer.yaml")
+	if err := os.WriteFile(path, []byte(titledDemonSlayer), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	a, out := newApp(t, dir, testsupport.FakeFetcher{})
+	ctx := context.Background()
+	if err := a.Init(ctx); err != nil {
+		t.Fatalf("init: %v", err)
+	}
+	if err := a.Build(ctx); err != nil {
+		t.Fatalf("build: %v", err)
+	}
+	src := filepath.Join(dir, ".sources", "anime-offline-database.json")
+	if err := os.WriteFile(src, []byte(mergeFixture), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	out.Reset()
+	return a, dir, out.String
+}
+
+func TestMergeAttachesWhatTheEvidenceSettlesAndReportsTheRest(t *testing.T) {
+	a, dir, out := mergeRepo(t)
+	if err := a.Merge(false); err != nil {
+		t.Fatalf("merge: %v", err)
+	}
+	body, err := os.ReadFile(filepath.Join(dir, "config", "overrides", "series", "demon-slayer.yaml"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	got := string(body)
+
+	if !strings.Contains(got, "anilistId: 900010") {
+		t.Errorf("the later film was not attached:\n%s", got)
+	}
+	if !strings.Contains(got, "anilistId: 900011") {
+		t.Errorf("the later season was not attached:\n%s", got)
+	}
+	// Its title is not the series' title carried on, so whether it is an
+	// installment or merely related is a person's call.
+	if strings.Contains(got, "900012") {
+		t.Errorf("attached a work whose title names no series here:\n%s", got)
+	}
+	// It would be claiming a position inside the existing run.
+	if strings.Contains(got, "900013") {
+		t.Errorf("attached a season that did not air last:\n%s", got)
+	}
+	if !strings.Contains(out(), "did not air after every installment") {
+		t.Errorf("the ordering refusal was not reported: %q", out())
+	}
+}
+
+func TestMergeDryRunWritesNothing(t *testing.T) {
+	a, dir, out := mergeRepo(t)
+	path := filepath.Join(dir, "config", "overrides", "series", "demon-slayer.yaml")
+	before, err := os.ReadFile(path)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := a.Merge(true); err != nil {
+		t.Fatalf("merge: %v", err)
+	}
+	after, err := os.ReadFile(path)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if string(before) != string(after) {
+		t.Error("a dry run changed the override")
+	}
+	if !strings.Contains(out(), "dry run") {
+		t.Errorf("the dry run did not say so: %q", out())
+	}
+	// And it has to report the same count a real run would make, or it is not
+	// a preview of anything.
+	if !strings.Contains(out(), "2 attached") {
+		t.Errorf("dry run reported a different count from the run: %q", out())
+	}
+}
+
+func TestMergeRefusesWithNoCatalogueToMergeInto(t *testing.T) {
+	a, dir, _ := mergeRepo(t)
+	if err := os.RemoveAll(filepath.Join(dir, "data", "series")); err != nil {
+		t.Fatal(err)
+	}
+	err := a.Merge(false)
+	if err == nil {
+		t.Fatal("want an error: an empty catalogue has nothing to merge into")
+	}
+	if !strings.Contains(err.Error(), "empty catalogue") {
+		t.Errorf("err = %v, want it to name the empty catalogue", err)
+	}
+}
+
+// The shapes a merge has to decline rather than guess at. Each is reached
+// through plan, which is where the decision is, so the reason is pinned to the
+// shape that produces it.
+func TestPlanDeclinesTheShapesItCannotPlaceAWorkIn(t *testing.T) {
+	seasonsOnly := `series:
+  id: show
+  seasons:
+    - id: show-s1
+      number: 1
+`
+	seasonsOnlyRecord := `series:
+  id: show
+  seasons:
+    - id: show-s1
+      number: 1
+      releaseYear: 2021
+      externalIds:
+        anilistId: 100
+`
+	unnumbered := `series:
+  id: show
+  seasons:
+    - id: show-s1
+`
+	nothing := `series:
+  id: show
+  titles:
+    original: ショー
+`
+	oddMovies := `series:
+  id: show
+  seasons:
+    - id: show-s1
+      number: 1
+  movies:
+` // the key with nothing under it this knows how to extend
+
+	aFilm := film("300", "Show: The Movie", 2023)
+	aSeason := importer.Merge{Title: "Show 2", AnilistID: 301, Type: offlinedb.TypeTV, Year: 2023, Linked: true}
+
+	cases := []struct {
+		name   string
+		body   string
+		record string
+		m      importer.Merge
+		want   string
+	}{
+		{"a film where the series has only seasons", seasonsOnly, seasonsOnlyRecord, aFilm, ""},
+		{"a film where there is no list at all", nothing, nothing, aFilm, "nowhere to put this"},
+		{"a season where the series declares none", nothing, nothing, aSeason, "declares no seasons"},
+		{"a season where they carry no numbers", unnumbered, seasonsOnlyRecord, aSeason, "no numbers to continue from"},
+		{"a film where the list is in an unknown shape", oddMovies, seasonsOnlyRecord, aFilm, "does not know how to extend"},
+	}
+	for _, c := range cases {
+		t.Run(c.name, func(t *testing.T) {
+			got, why := plan(c.body, c.record, "show", c.m, map[string]bool{})
+			switch {
+			case c.want == "" && why != "":
+				t.Fatalf("refused: %s", why)
+			case c.want == "":
+				// The film has to open the list, after the seasons, so the file
+				// keeps the order the generated record uses.
+				if !strings.Contains(got, "  movies:\n    - id: show-film") {
+					t.Errorf("the film list was not opened after the seasons:\n%s", got)
+				}
+			case !strings.Contains(why, c.want):
+				t.Errorf("why = %q, want it to mention %q", why, c.want)
+			}
+		})
+	}
+}
+
+// A series cannot take a hundredth film under one name. Reported rather than
+// overwriting the hundredth, which would be two nodes answering to one id.
+func TestPlanGivesUpWhenEveryIDIsTaken(t *testing.T) {
+	taken := map[string]bool{"show-film": true}
+	for i := 2; i < 100; i++ {
+		taken[fmt.Sprintf("show-film-%d", i)] = true
+	}
+	_, why := plan(seriesWithComment, recordWithComment, "show", film("300", "Show: The Movie", 2023), taken)
+	if !strings.Contains(why, "already in use") {
+		t.Errorf("why = %q, want the exhausted-id refusal", why)
+	}
+}
+
+// The two candidate shapes that are reported without ever reaching plan.
+func TestMergeDeclinesCandidatesWithNothingToAuthorOrNoLink(t *testing.T) {
+	const fixture = `{
+  "data": [
+    {
+      "sources": ["https://anilist.co/anime/101922"],
+      "title": "Kimetsu no Yaiba",
+      "type": "TV", "episodes": 26, "status": "FINISHED",
+      "animeSeason": { "season": "SPRING", "year": 2019 }
+    },
+    {
+      "sources": ["https://anidb.net/anime/55555"],
+      "title": "Kimetsu no Yaiba: No Id At All",
+      "type": "MOVIE", "episodes": 1, "status": "FINISHED",
+      "animeSeason": { "season": "SPRING", "year": 2030 },
+      "relatedAnime": ["https://anilist.co/anime/101922"]
+    },
+    {
+      "sources": ["https://anilist.co/anime/900020"],
+      "title": "Kimetsu no Yaiba",
+      "type": "MOVIE", "episodes": 1, "status": "FINISHED",
+      "animeSeason": { "season": "SPRING", "year": 2031 }
+    }
+  ]
+}`
+	a, dir, out := mergeRepo(t)
+	if err := os.WriteFile(filepath.Join(dir, ".sources", "anime-offline-database.json"), []byte(fixture), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := a.Merge(false); err != nil {
+		t.Fatalf("merge: %v", err)
+	}
+	got := out()
+	if !strings.Contains(got, "0 attached") {
+		t.Errorf("something was attached on no evidence: %q", got)
+	}
+	if !strings.Contains(got, "nothing to author") {
+		t.Errorf("the id-less candidate was not reported: %q", got)
+	}
+	// Shares the series' exact title and carries no link: the homonym shape.
+	if !strings.Contains(got, "only shares a title") {
+		t.Errorf("the unlinked candidate was not reported: %q", got)
+	}
+}
+
+// A work upstream links only to things the catalogue does not have is not a
+// merge candidate for anything here.
+func TestMergeDeclinesAWorkLinkedOnlyOutsideTheCatalogue(t *testing.T) {
+	const fixture = `{
+  "data": [
+    {
+      "sources": ["https://anilist.co/anime/101922"],
+      "title": "Kimetsu no Yaiba",
+      "type": "TV", "episodes": 26, "status": "FINISHED",
+      "animeSeason": { "season": "SPRING", "year": 2019 }
+    },
+    {
+      "sources": ["https://anilist.co/anime/900030"],
+      "title": "Kimetsu no Yaiba: Linked Elsewhere",
+      "type": "MOVIE", "episodes": 1, "status": "FINISHED",
+      "animeSeason": { "season": "SPRING", "year": 2030 },
+      "relatedAnime": ["https://anilist.co/anime/900031"]
+    },
+    {
+      "sources": ["https://anilist.co/anime/900031"],
+      "title": "Not In The Catalogue",
+      "type": "TV", "episodes": 12, "status": "FINISHED",
+      "animeSeason": { "season": "SPRING", "year": 2029 }
+    }
+  ]
+}`
+	a, dir, out := mergeRepo(t)
+	if err := os.WriteFile(filepath.Join(dir, ".sources", "anime-offline-database.json"), []byte(fixture), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := a.Merge(false); err != nil {
+		t.Fatalf("merge: %v", err)
+	}
+	if got := out(); !strings.Contains(got, "0 attached") {
+		t.Errorf("something was attached: %q", got)
+	}
+}
+
+// The override is read to edit and the generated record to read the resolved
+// years from, so a series present in one and not the other has to be reported
+// rather than crash or silently attach.
+func TestMergeReportsASeriesWithNoOverride(t *testing.T) {
+	a, dir, out := mergeRepo(t)
+	if err := os.Remove(filepath.Join(dir, "config", "overrides", "series", "demon-slayer.yaml")); err != nil {
+		t.Fatal(err)
+	}
+	if err := a.Merge(false); err != nil {
+		t.Fatalf("merge: %v", err)
+	}
+	if got := out(); !strings.Contains(got, "no override file") {
+		t.Errorf("output did not report the missing override: %q", got)
+	}
+}
+
+// The three readers a merge depends on, each over a directory it is handed.
+// Tested directly because what they get wrong is silent: a missed id is a
+// duplicate series written, and a missed title is a work attached to the wrong
+// place.
+func TestTheReadersRecoverWhatTheAuthoredAndGeneratedLayersState(t *testing.T) {
+	dir := t.TempDir()
+	series := filepath.Join(dir, "series")
+	if err := os.MkdirAll(series, 0o755); err != nil {
+		t.Fatal(err)
+	}
+	// An override writes ids inline and may quote them; a record writes them
+	// on their own line. Both shapes have to be recovered.
+	if err := os.WriteFile(filepath.Join(series, "a.yaml"), []byte(`series:
+  id: a
+  titles:
+    original: ショー
+    translations: { ja-Latn: Show, en: The Show }
+  seasons:
+    - id: a-s1
+      number: 1
+      titles:
+        original: 第一期
+      externalIds: { anilistId: 11 }
+    - id: a-s2
+      number: 2
+      externalIds: { anilistId: "12" }
+`), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(series, "b.yaml"), []byte(`series:
+  id: b
+  titles:
+    original: ベツ
+  movies:
+    - id: b-film
+      externalIds:
+        anilistId: 21
+`), 0o644); err != nil {
+		t.Fatal(err)
+	}
+
+	ids, err := declaredAnilistIDs(dir)
+	if err != nil {
+		t.Fatalf("declaredAnilistIDs: %v", err)
+	}
+	for _, want := range []int{11, 12, 21} {
+		if !ids[want] {
+			t.Errorf("declaredAnilistIDs missed %d; a second series would be written for it", want)
+		}
+	}
+
+	owner, err := seriesByAnilistID(series)
+	if err != nil {
+		t.Fatalf("seriesByAnilistID: %v", err)
+	}
+	if owner[11] != "a" || owner[21] != "b" {
+		t.Errorf("seriesByAnilistID = %v, want 11 under a and 21 under b", owner)
+	}
+
+	titles, err := seriesTitles(series)
+	if err != nil {
+		t.Fatalf("seriesTitles: %v", err)
+	}
+	if !slices.Contains(titles["a"], "ショー") || !slices.Contains(titles["a"], "Show") {
+		t.Errorf("seriesTitles[a] = %q, want the series' own names", titles["a"])
+	}
+	// A season's own title is not the series' name. Matching against it would
+	// let any subtitle pull in works that merely share it.
+	if slices.Contains(titles["a"], "第一期") {
+		t.Errorf("seriesTitles[a] = %q, want the installment's title left out", titles["a"])
+	}
+}
+
+// A repository with no authored layer yet has no ids, which is not an error.
+func TestDeclaredAnilistIDsOnAMissingDirectory(t *testing.T) {
+	got, err := declaredAnilistIDs(filepath.Join(t.TempDir(), "absent"))
+	if err != nil {
+		t.Fatalf("declaredAnilistIDs: %v", err)
+	}
+	if len(got) != 0 {
+		t.Errorf("got %v, want none", got)
+	}
+}
+
+// A second series whose title is the first one's carried further, so a work
+// extending both has two plausible owners.
+const mugenRessha = `series:
+  id: mugen-ressha
+  titles:
+    original: 鬼滅の刃 無限列車編
+    translations: { ja-Latn: "Kimetsu no Yaiba: Mugen Ressha-hen" }
+  seasons:
+    - id: mugen-ressha-s1
+      number: 1
+      externalIds: { anilistId: 142984 }
+`
+
+// twoSeriesRepo is a built repo carrying both series.
+func twoSeriesRepo(t *testing.T) (*App, string, func() string) {
+	t.Helper()
+	dir := newRepo(t)
+	base := filepath.Join(dir, "config", "overrides", "series")
+	for name, body := range map[string]string{
+		"demon-slayer.yaml": titledDemonSlayer,
+		"mugen-ressha.yaml": mugenRessha,
+	} {
+		if err := os.WriteFile(filepath.Join(base, name), []byte(body), 0o644); err != nil {
+			t.Fatal(err)
+		}
+	}
+	a, out := newApp(t, dir, testsupport.FakeFetcher{})
+	ctx := context.Background()
+	if err := a.Init(ctx); err != nil {
+		t.Fatalf("init: %v", err)
+	}
+	if err := a.Build(ctx); err != nil {
+		t.Fatalf("build: %v", err)
+	}
+	out.Reset()
+	return a, dir, out.String
+}
+
+// Two series can both account for a work's name, and upstream can link it to
+// both. Which one owns it is then a question about the franchise's shape, which
+// is a person's to answer.
+func TestMergeDeclinesAWorkTwoSeriesCouldBothOwn(t *testing.T) {
+	const fixture = `{
+  "data": [
+    {
+      "sources": ["https://anilist.co/anime/101922"],
+      "title": "Kimetsu no Yaiba",
+      "type": "TV", "episodes": 26, "status": "FINISHED",
+      "animeSeason": { "season": "SPRING", "year": 2019 }
+    },
+    {
+      "sources": ["https://anilist.co/anime/142984"],
+      "title": "Kimetsu no Yaiba: Mugen Ressha-hen (TV)",
+      "type": "TV", "episodes": 7, "status": "FINISHED",
+      "animeSeason": { "season": "FALL", "year": 2021 }
+    },
+    {
+      "sources": ["https://anilist.co/anime/900050"],
+      "title": "Kimetsu no Yaiba: Mugen Ressha-hen: A Later Film",
+      "type": "MOVIE", "episodes": 1, "status": "FINISHED",
+      "animeSeason": { "season": "SPRING", "year": 2030 },
+      "relatedAnime": ["https://anilist.co/anime/101922", "https://anilist.co/anime/142984"]
+    }
+  ]
+}`
+	a, dir, out := twoSeriesRepo(t)
+	if err := os.WriteFile(filepath.Join(dir, ".sources", "anime-offline-database.json"), []byte(fixture), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := a.Merge(false); err != nil {
+		t.Fatalf("merge: %v", err)
+	}
+	got := out()
+	if !strings.Contains(got, "0 attached") {
+		t.Errorf("a work with two plausible owners was attached: %q", got)
+	}
+	if !strings.Contains(got, "more than one linked series") {
+		t.Errorf("the ambiguity was not reported: %q", got)
+	}
+}
+
+// A merge reads the config and the cached sources before it decides anything,
+// and a failure there is the repository being wrong rather than a work being
+// undecidable — so it stops instead of reporting "nothing to attach", which
+// would read exactly like a clean run.
+func TestMergeStopsWhenTheSourceCannotBeRead(t *testing.T) {
+	a, dir, _ := mergeRepo(t)
+	path := filepath.Join(dir, ".sources", "anime-offline-database.json")
+	if err := os.WriteFile(path, []byte("{not json"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := a.Merge(false); err == nil {
+		t.Error("want an error: a corrupt source cannot be merged from")
+	}
+}
+
+// Pinning walks a kind's slots pairwise with the record's, so more than one of
+// them is the case that exercises the walk rather than its first step. And it
+// must refuse where the two lists are not the same length, since pairing them
+// by position is only sound when they are.
+func TestPinningWalksEverySlotAndRefusesAMismatch(t *testing.T) {
+	twoFilms := `series:
+  id: show
+  seasons:
+    - id: show-s1
+      number: 1
+  movies:
+    - id: show-film
+    - id: show-film-2
+      externalIds: { anilistId: 201 }
+`
+	twoFilmRecord := `series:
+  id: show
+  seasons:
+    - id: show-s1
+      number: 1
+      releaseYear: 2021
+      externalIds:
+        anilistId: 100
+  movies:
+    - id: show-film
+      releaseYear: 2021
+      externalIds:
+        anilistId: 200
+    - id: show-film-2
+      releaseYear: 2022
+      externalIds:
+        anilistId: 201
+`
+	got, why := plan(twoFilms, twoFilmRecord, "show", film("300", "Show: The Third", 2030), map[string]bool{})
+	if why != "" {
+		t.Fatalf("refused: %s", why)
+	}
+	// The unauthored first slot is pinned; the second already stated its own
+	// and is left exactly as written.
+	if !strings.Contains(got, "anilistId: 200") {
+		t.Errorf("the first slot was not pinned:\n%s", got)
+	}
+	if strings.Count(got, "anilistId: 201") != 1 {
+		t.Errorf("the already-authored slot was rewritten:\n%s", got)
+	}
+
+	// A record listing fewer films than the override declares.
+	short := strings.Replace(twoFilmRecord, `    - id: show-film-2
+      releaseYear: 2022
+      externalIds:
+        anilistId: 201
+`, "", 1)
+	if _, why := plan(twoFilms, short, "show", film("300", "Show: The Third", 2030), map[string]bool{}); !strings.Contains(why, "do not line up") {
+		t.Errorf("why = %q, want the mismatch refusal", why)
+	}
+}
+
+// A record that does not list the kind at all has nothing to pin from, which
+// is the shape of a series whose films are all new.
+func TestResolvedIDsOnARecordWithoutThatKind(t *testing.T) {
+	if got := resolvedIDs(recordWithComment, "specials"); got != nil {
+		t.Errorf("resolvedIDs = %v, want none for a kind the record has not got", got)
+	}
+	if got := kindBlock(recordWithComment, "specials"); got != nil {
+		t.Errorf("kindBlock = %v, want nil", got)
+	}
+}
+
+// Both readers walk a directory, so anything in it that is not a record has to
+// be stepped over rather than parsed.
+func TestTheReadersIgnoreWhatIsNotARecord(t *testing.T) {
+	dir := t.TempDir()
+	if err := os.MkdirAll(filepath.Join(dir, "nested"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	for name, body := range map[string]string{
+		"notes.md":  "# not a record",
+		"real.yaml": "series:\n  id: real\n  titles:\n    original: ホン\n",
+	} {
+		if err := os.WriteFile(filepath.Join(dir, name), []byte(body), 0o644); err != nil {
+			t.Fatal(err)
+		}
+	}
+	owner, err := seriesByAnilistID(dir)
+	if err != nil {
+		t.Fatalf("seriesByAnilistID: %v", err)
+	}
+	if len(owner) != 0 {
+		t.Errorf("owner = %v, want none: the one record states no ids", owner)
+	}
+	titles, err := seriesTitles(dir)
+	if err != nil {
+		t.Fatalf("seriesTitles: %v", err)
+	}
+	if _, ok := titles["notes"]; ok {
+		t.Error("a markdown file was read as a record")
+	}
+	if !slices.Contains(titles["real"], "ホン") {
+		t.Errorf("titles = %v, want the record's own title", titles)
+	}
+}
+
+// The years asked about come from upstream's in-scope releases, so the entries
+// the catalogue does not carry are stepped over rather than widening the sweep.
+func TestImportYearsCountsOnlyWhatTheCatalogueCarries(t *testing.T) {
+	db := offlineFromJSON(t, `{"data":[
+	 {"sources":["https://anilist.co/anime/1"],"title":"A Series","type":"TV","episodes":12,
+	  "animeSeason":{"season":"FALL","year":2001}},
+	 {"sources":["https://anilist.co/anime/2"],"title":"A Promo","type":"ONA","episodes":1,
+	  "animeSeason":{"season":"FALL","year":1995}},
+	 {"sources":["https://anilist.co/anime/3"],"title":"Undated","type":"MOVIE","episodes":1}
+	]}`)
+	if got := importYears(db); !slices.Equal(got, []int{2001}) {
+		t.Errorf("importYears = %v, want just 2001: an ONA is out of scope and an undated entry places nothing", got)
+	}
 }

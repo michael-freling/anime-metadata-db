@@ -151,7 +151,14 @@ jobs:
           # different inputs, so agreement means the figure the project steers
           # by is measuring the tree rather than restating itself.
           reported=$(sed -n 's|^  \([0-9]*\)/[0-9]* read from an override$|\1|p' /tmp/build.log)
-          actual=$(grep -rho 'anilistId' dataset/overrides/ | wc -l)
+          # Comments stripped first. This counted every occurrence of the
+          # string anywhere in the overrides, so a comment explaining why a
+          # series carries a hand-authored id counted as one, and the figures
+          # disagreed by exactly the number of such comments. An override
+          # writes the field before any trailing note, so cutting at the first
+          # "#" leaves the fields and drops the prose.
+          actual=$(find dataset/overrides -name '*.yaml' -print0 \
+            | xargs -0 sed 's/#.*//' | grep -o 'anilistId' | wc -l)
           echo "authored ids: $reported reported, $actual in the overrides"
           test "$reported" = "$actual" || {
             echo "::error::the build reports $reported authored anilistIds but the overrides hold $actual"

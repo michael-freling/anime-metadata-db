@@ -102,7 +102,7 @@ func (a *App) Merge(dryRun bool) error {
 	var apply []action
 	refused := map[string]int{}
 	seen := map[int]bool{}
-	years := importYears(owner, sources.Offline)
+	years := importYears(sources.Offline)
 	for _, y := range years {
 		for _, m := range importer.Build(sources.Offline, y, known, claimedTitles).Merges {
 			if m.AnilistID == 0 {
@@ -191,10 +191,13 @@ func (a *App) Merge(dryRun bool) error {
 		// compared against are where the resolution landed, and an override
 		// states them only where they were authored. Reading the override for
 		// them found none at all, so the ordering guard passed everything.
+		// Not a counted refusal: the series is only a target because reading
+		// this directory is what mapped its ids, so the file was there a
+		// moment ago and its absence now is a broken repository rather than a
+		// judgement call.
 		record, err := os.ReadFile(filepath.Join(dataDir, act.series+".yaml"))
 		if err != nil {
-			refused["the series has no generated record to order against"]++
-			continue
+			return err
 		}
 		next, why := plan(body, string(record), act.series, act.m, taken)
 		if why != "" {
@@ -241,12 +244,15 @@ var (
 	moviesBlock  = regexp.MustCompile(`(?m)^  movies:\n((?:    [-#].*\n|      .*\n|\s*\n)+)`)
 	moviesKey    = regexp.MustCompile(`(?m)^  movies:\s*$`)
 	seasonsKey   = regexp.MustCompile(`(?m)^  (?:seasons|movies|specials):\s*$`)
-	latinLine    = regexp.MustCompile(`(?m)^\s*ja-Latn:\s*(.+?)\s*$`)
-	nodeStart    = regexp.MustCompile(`(?m)^    - id: \S+\s*$`)
-	nodeIDName   = regexp.MustCompile(`(?m)^\s*(?:-\s+)?id: (\S+)\s*$`)
-	nextKey      = regexp.MustCompile(`(?m)^  \S`)
-	numberLine   = regexp.MustCompile(`(?m)^      number: (\d+)\s*$`)
-	yearLine     = regexp.MustCompile(`(?m)^      releaseYear: (\d+)\s*$`)
+	// Both shapes the romanisation is written in: a generated record puts it
+	// on its own line, an override inside a flow mapping alongside other
+	// languages. Stopping at a comma or brace is what covers the second.
+	latinLine  = regexp.MustCompile(`ja-Latn:\s*([^,}\n]+)`)
+	nodeStart  = regexp.MustCompile(`(?m)^    - id: \S+\s*$`)
+	nodeIDName = regexp.MustCompile(`(?m)^\s*(?:-\s+)?id: (\S+)\s*$`)
+	nextKey    = regexp.MustCompile(`(?m)^  \S`)
+	numberLine = regexp.MustCompile(`(?m)^      number: (\d+)\s*$`)
+	yearLine   = regexp.MustCompile(`(?m)^      releaseYear: (\d+)\s*$`)
 )
 
 // plan returns the override with the work attached, or the reason it was not.
@@ -398,15 +404,22 @@ func seriesByAnilistID(dataDir string) (map[int]string, error) {
 	return owner, nil
 }
 
-// importYears returns the years to ask for merge candidates in: every year the
-// catalogue already covers, since a work linked to a series it has can only
-// have been released in one of them or nearby. Derived rather than written
-// down, so it grows with the dataset instead of freezing.
-func importYears(owner map[int]string, db *offlinedb.Database) []int {
+// importYears returns every year upstream has an in-scope release in.
+//
+// Derived from the database rather than from the years the catalogue covers,
+// which is what this did: a work related to a series the catalogue has can be
+// released in a year the catalogue has nothing else from — a film announced for
+// a year not yet imported is the ordinary case — and asking only about covered
+// years made those invisible. Deriving it also means the span grows with
+// upstream instead of being written down here.
+func importYears(db *offlinedb.Database) []int {
 	seen := map[int]bool{}
-	for id := range owner {
-		if a, ok := db.Lookup(id); ok && a.AnimeSeason.Year > 0 {
-			seen[a.AnimeSeason.Year] = true
+	for a := range db.All() {
+		if a.Type != offlinedb.TypeTV && a.Type != offlinedb.TypeMovie {
+			continue
+		}
+		if y := a.AnimeSeason.Year; y > 0 {
+			seen[y] = true
 		}
 	}
 	out := make([]int, 0, len(seen))

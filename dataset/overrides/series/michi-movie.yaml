@@ -1,5 +1,5 @@
 # Authored override. Upstream carries this as one film; its segments each have
-# their own title and the import made a series of each, so one anilistId
+# their own title and the import made a series of each, so one AniList id
 # ended up claimed by several series at once. Authored here as the one work
 # it is, under the title upstream gives it.
 series:
