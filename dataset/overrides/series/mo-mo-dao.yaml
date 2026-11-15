@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mo-mo-dao
+  titles:
+    original: Mo Mo Dao
+    translations: { ja-Latn: Mo Mo Dao }
+  seasons:
+    - id: mo-mo-dao-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mo-mo-dao]

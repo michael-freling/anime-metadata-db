@@ -1,0 +1,13 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: full-moon-wo-sagashite
+  titles:
+    original: "満月[フルムーン]をさがして"
+    translations: { ja-Latn: Full Moon wo Sagashite }
+  seasons:
+    - id: full-moon-wo-sagashite-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [full-moon-wo-sagashite]

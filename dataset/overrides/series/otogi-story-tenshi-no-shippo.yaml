@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: otogi-story-tenshi-no-shippo
+  titles:
+    original: おとぎストーリー 天使のしっぽ
+    translations: { ja-Latn: Otogi Story Tenshi no Shippo }
+  seasons:
+    - id: otogi-story-tenshi-no-shippo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [otogi-story-tenshi-no-shippo]

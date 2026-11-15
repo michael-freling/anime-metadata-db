@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pokemon-advanced-generation-planetarium-tenkuu-kara-no-chousen
+  titles:
+    original: ポケットモンスターアドバンスジェネレー ション プラネタリウム天空からの挑戦
+    translations: { ja-Latn: "Pokemon Advanced Generation Planetarium: Tenkuu Kara no Chousen" }
+  movies:
+    - id: pokemon-advanced-generation-planetarium-tenkuu-kara-no-chousen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pokemon-advanced-generation-planetarium-tenkuu-kara-no-chousen]

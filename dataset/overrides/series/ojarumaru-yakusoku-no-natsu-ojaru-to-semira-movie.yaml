@@ -1,0 +1,12 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ojarumaru-yakusoku-no-natsu-ojaru-to-semira-movie
+  titles:
+    original: 映画 おじゃる丸 約束の夏 おじゃるとせみら
+    translations: { ja-Latn: Ojarumaru Yakusoku no Natsu Ojaru to Semira Movie }
+  movies:
+    - id: ojarumaru-yakusoku-no-natsu-ojaru-to-semira-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ojarumaru-yakusoku-no-natsu-ojaru-to-semira-movie]

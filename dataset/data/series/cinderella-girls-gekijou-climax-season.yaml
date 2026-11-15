@@ -11,17 +11,10 @@ series:
       number: 1
       releaseYear: 2019
       releaseSeason: SPRING
-      episodes:
-        count: 13
-        absoluteFrom: 1
-    - id: cinderella-girls-gekijou-climax-season-s2
-      number: 2
-      releaseYear: 2019
-      releaseSeason: SPRING
       externalIds:
         anilistId: 105962
         anidbId: 14516
         tvdbId: 326337
       episodes:
         count: 13
-        absoluteFrom: 14
+        absoluteFrom: 1

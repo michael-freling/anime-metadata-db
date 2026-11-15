@@ -1,0 +1,13 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: patapata-hikousen-no-bouken
+  titles:
+    original: パタパタ飛行船の冒険
+    translations: { ja-Latn: Patapata Hikousen no Bouken }
+  seasons:
+    - id: patapata-hikousen-no-bouken-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [patapata-hikousen-no-bouken]

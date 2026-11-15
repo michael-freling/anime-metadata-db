@@ -1,0 +1,13 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: taikong-xiha-zu
+  titles:
+    original: Taikong Xiha Zu
+    translations: { ja-Latn: Taikong Xiha Zu }
+  seasons:
+    - id: taikong-xiha-zu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [taikong-xiha-zu]

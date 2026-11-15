@@ -1,0 +1,12 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bokura-taiyou-wo-mannaka-ni
+  titles:
+    original: 僕ら太陽を真ン中に
+    translations: { ja-Latn: Bokura Taiyou wo Mannaka ni }
+  movies:
+    - id: bokura-taiyou-wo-mannaka-ni-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bokura-taiyou-wo-mannaka-ni]

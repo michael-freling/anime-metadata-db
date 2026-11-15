@@ -9,7 +9,5 @@ series:
   seasons:
     - id: ookami-san-to-shichinin-no-nakama-tachi-s1
       number: 1
-    - id: ookami-san-to-shichinin-no-nakama-tachi-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [ookami-san-to-shichinin-no-nakama-tachi]

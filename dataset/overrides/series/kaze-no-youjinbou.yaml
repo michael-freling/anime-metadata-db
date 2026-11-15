@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaze-no-youjinbou
+  titles:
+    original: 旋風の用心棒
+    translations: { ja-Latn: Kaze no Youjinbou }
+  seasons:
+    - id: kaze-no-youjinbou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaze-no-youjinbou]

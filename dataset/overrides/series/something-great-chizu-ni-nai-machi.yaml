@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: something-great-chizu-ni-nai-machi
+  titles:
+    original: Something Great サムシング グレート 地図にない町
+    translations: { ja-Latn: Something Great Chizu ni Nai Machi }
+  movies:
+    - id: something-great-chizu-ni-nai-machi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [something-great-chizu-ni-nai-machi]

@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: momo-the-girl-god-of-death
+  titles:
+    original: しにがみのバラッド。
+    translations: { ja-Latn: "Momo: The Girl God of Death" }
+  seasons:
+    - id: momo-the-girl-god-of-death-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [momo-the-girl-god-of-death]

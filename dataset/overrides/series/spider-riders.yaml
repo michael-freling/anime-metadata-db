@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: spider-riders
+  titles:
+    original: スパイダーライダーズ ~オラクルの勇者たち~
+    translations: { ja-Latn: Spider Riders }
+  seasons:
+    - id: spider-riders-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [spider-riders]

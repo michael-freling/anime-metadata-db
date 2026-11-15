@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: akahori-gedou-hour-rabuge
+  titles:
+    original: "あかほり外道アワーらぶげ: 絶対正義ラブフェロモン vs それゆけ！ 外道乙女隊"
+    translations: { ja-Latn: Akahori Gedou Hour Rabuge }
+  seasons:
+    - id: akahori-gedou-hour-rabuge-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [akahori-gedou-hour-rabuge]

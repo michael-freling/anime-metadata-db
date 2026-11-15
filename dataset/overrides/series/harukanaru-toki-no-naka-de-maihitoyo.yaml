@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: harukanaru-toki-no-naka-de-maihitoyo
+  titles:
+    original: 劇場版 遙かなる時空（とき）の中で 舞一夜（まいひとよ）
+    translations: { ja-Latn: "Harukanaru Toki no Naka de: Maihitoyo" }
+  movies:
+    - id: harukanaru-toki-no-naka-de-maihitoyo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [harukanaru-toki-no-naka-de-maihitoyo]

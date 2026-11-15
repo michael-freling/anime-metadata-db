@@ -11,17 +11,10 @@ series:
       number: 1
       releaseYear: 2016
       releaseSeason: FALL
-      episodes:
-        count: 11
-        absoluteFrom: 1
-    - id: fune-wo-amu-s2
-      number: 2
-      releaseYear: 2016
-      releaseSeason: FALL
       externalIds:
         anilistId: 21703
         anidbId: 11997
         tvdbId: 309202
       episodes:
         count: 11
-        absoluteFrom: 12
+        absoluteFrom: 1

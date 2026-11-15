@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: justice-runners
+  titles:
+    original: Justice Runners
+    translations: { ja-Latn: Justice Runners }
+  movies:
+    - id: justice-runners-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [justice-runners]

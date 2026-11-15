@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: liang-jia-funu
+  titles:
+    original: Liang Jia Funu
+    translations: { ja-Latn: Liang Jia Funu }
+  seasons:
+    - id: liang-jia-funu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [liang-jia-funu]

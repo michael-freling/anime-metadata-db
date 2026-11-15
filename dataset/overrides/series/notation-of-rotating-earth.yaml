@@ -1,0 +1,12 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: notation-of-rotating-earth
+  titles:
+    original: Notation of Rotating Earth
+    translations: { ja-Latn: Notation of Rotating Earth }
+  movies:
+    - id: notation-of-rotating-earth-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [notation-of-rotating-earth]

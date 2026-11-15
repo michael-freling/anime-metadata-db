@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: byousoku-5-centimeter
+  titles:
+    original: 秒速5センチメートル
+    translations: { ja-Latn: Byousoku 5 Centimeter }
+  movies:
+    - id: byousoku-5-centimeter-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [byousoku-5-centimeter]

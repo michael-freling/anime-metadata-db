@@ -1,0 +1,13 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mahoromatic-motto-utsukushii-mono
+  titles:
+    original: まほろまてぃっく Automatic Maiden ~もっと美しいもの~
+    translations: { ja-Latn: "Mahoromatic: Motto Utsukushii Mono" }
+  seasons:
+    - id: mahoromatic-motto-utsukushii-mono-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mahoromatic-motto-utsukushii-mono]

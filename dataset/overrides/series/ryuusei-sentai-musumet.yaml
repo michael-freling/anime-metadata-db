@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ryuusei-sentai-musumet
+  titles:
+    original: 流星戦隊ムスメット
+    translations: { ja-Latn: Ryuusei Sentai Musumet }
+  seasons:
+    - id: ryuusei-sentai-musumet-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ryuusei-sentai-musumet]

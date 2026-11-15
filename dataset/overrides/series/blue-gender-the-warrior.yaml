@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: blue-gender-the-warrior
+  titles:
+    original: ブルージェンダー ザ・ウォリアー
+    translations: { ja-Latn: "Blue Gender: The Warrior" }
+  movies:
+    - id: blue-gender-the-warrior-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [blue-gender-the-warrior]

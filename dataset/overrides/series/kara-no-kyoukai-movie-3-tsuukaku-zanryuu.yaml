@@ -1,0 +1,12 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kara-no-kyoukai-movie-3-tsuukaku-zanryuu
+  titles:
+    original: 劇場版 空の境界 the Garden of sinners 第三章『痛覚残留』
+    translations: { ja-Latn: "Kara no Kyoukai Movie 3: Tsuukaku Zanryuu" }
+  movies:
+    - id: kara-no-kyoukai-movie-3-tsuukaku-zanryuu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kara-no-kyoukai-movie-3-tsuukaku-zanryuu]

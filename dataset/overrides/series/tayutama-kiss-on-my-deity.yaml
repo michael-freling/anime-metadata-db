@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tayutama-kiss-on-my-deity
+  titles:
+    original: タユタマ -Kiss on my Deity-
+    translations: { ja-Latn: "Tayutama: Kiss on My Deity" }
+  seasons:
+    - id: tayutama-kiss-on-my-deity-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tayutama-kiss-on-my-deity]

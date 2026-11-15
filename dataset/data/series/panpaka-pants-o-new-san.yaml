@@ -11,16 +11,9 @@ series:
       number: 1
       releaseYear: 2017
       releaseSeason: SPRING
-      episodes:
-        count: 24
-        absoluteFrom: 1
-    - id: panpaka-pants-o-new-san-s2
-      number: 2
-      releaseYear: 2017
-      releaseSeason: SPRING
       externalIds:
         anilistId: 98465
         anidbId: 12981
       episodes:
         count: 24
-        absoluteFrom: 25
+        absoluteFrom: 1

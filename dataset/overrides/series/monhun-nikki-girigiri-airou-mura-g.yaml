@@ -9,7 +9,5 @@ series:
   seasons:
     - id: monhun-nikki-girigiri-airou-mura-g-s1
       number: 1
-    - id: monhun-nikki-girigiri-airou-mura-g-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [monhun-nikki-girigiri-airou-mura-g]

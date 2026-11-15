@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fight-ippatsu-juuden-chan
+  titles:
+    original: ファイト一発! 充電ちゃん!!
+    translations: { ja-Latn: Fight Ippatsu! Juuden-chan!! }
+  seasons:
+    - id: fight-ippatsu-juuden-chan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fight-ippatsu-juuden-chan]

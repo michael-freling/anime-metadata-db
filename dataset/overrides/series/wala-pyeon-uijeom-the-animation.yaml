@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wala-pyeon-uijeom-the-animation
+  titles:
+    original: Wala! Pyeon-uijeom The Animation
+    translations: { ja-Latn: Wala! Pyeon-uijeom The Animation }
+  seasons:
+    - id: wala-pyeon-uijeom-the-animation-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wala-pyeon-uijeom-the-animation]

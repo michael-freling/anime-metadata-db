@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: peter-pan-to-hoshi-no-kuni-e-ikou
+  titles:
+    original: スターファンタジア ピーターパンとネバーランドへ行こう！
+    translations: { ja-Latn: Peter Pan to Hoshi no Kuni e Ikou! }
+  movies:
+    - id: peter-pan-to-hoshi-no-kuni-e-ikou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [peter-pan-to-hoshi-no-kuni-e-ikou]

@@ -1,0 +1,12 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rockman-exe-movie-hikari-to-yami-no-program
+  titles:
+    original: "劇場版ロックマンエグゼ 光と闇の遺産[プログラム]"
+    translations: { ja-Latn: "Rockman.EXE Movie: Hikari to Yami no Program" }
+  movies:
+    - id: rockman-exe-movie-hikari-to-yami-no-program-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rockman-exe-movie-hikari-to-yami-no-program]

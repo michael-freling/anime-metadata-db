@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: super-gals-kotobuki-ran
+  titles:
+    original: "超[すーぱー]GALS! 寿蘭"
+    translations: { ja-Latn: Super GALS! Kotobuki Ran }
+  seasons:
+    - id: super-gals-kotobuki-ran-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [super-gals-kotobuki-ran]

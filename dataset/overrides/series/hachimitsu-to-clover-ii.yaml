@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hachimitsu-to-clover-ii
+  titles:
+    original: ハチミツとクローバー II
+    translations: { ja-Latn: Hachimitsu to Clover II }
+  seasons:
+    - id: hachimitsu-to-clover-ii-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hachimitsu-to-clover-ii]

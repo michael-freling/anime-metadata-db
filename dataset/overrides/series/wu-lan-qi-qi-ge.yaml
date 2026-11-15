@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wu-lan-qi-qi-ge
+  titles:
+    original: Wu Lan Qi Qi Ge
+    translations: { ja-Latn: Wu Lan Qi Qi Ge }
+  seasons:
+    - id: wu-lan-qi-qi-ge-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wu-lan-qi-qi-ge]

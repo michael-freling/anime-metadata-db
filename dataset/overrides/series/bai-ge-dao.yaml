@@ -1,0 +1,13 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bai-ge-dao
+  titles:
+    original: Bai Ge Dao
+    translations: { ja-Latn: Bai Ge Dao }
+  seasons:
+    - id: bai-ge-dao-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bai-ge-dao]

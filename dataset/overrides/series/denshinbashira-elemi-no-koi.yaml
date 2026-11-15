@@ -1,0 +1,12 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: denshinbashira-elemi-no-koi
+  titles:
+    original: 電信柱エレミの恋
+    translations: { ja-Latn: Denshinbashira Elemi no Koi }
+  movies:
+    - id: denshinbashira-elemi-no-koi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [denshinbashira-elemi-no-koi]

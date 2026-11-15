@@ -55,10 +55,16 @@ Two sources, because the two environments differ:
 Disk wins over the deployed commit, so a working tree is always authoritative
 locally.
 
-The fetched index is what a cold start pays for: 1.74 MB and about 0.8s at
-6,382 series, against 0.25s when it was 286 KB. It grows with the catalogue,
-and a record is a separate fetch of a few hundred bytes. If that becomes the
-problem, the answer is caching at the edge or a different store — not a smaller
+The fetched index is what a cold start pays for, and it grows with the
+catalogue: 2.21 MB at 8,494 series. **Its size is not what the time is, though.**
+Measured over five samples each, the 2.21 MB index and the 1.74 MB one it
+replaced both return in about 0.17s warm, and the first fetch of a
+freshly-pushed commit costs 0.3-0.4s. An earlier note here read "1.74 MB and
+about 0.8s ... against 0.25s when it was 286 KB" and drew a line through two
+points that were really measuring how warm the CDN was. If a cold start needs
+to get faster, measure before assuming the index is why; a record is a separate
+fetch of a few hundred bytes, and request count may matter more than bytes. The
+answer is still caching at the edge or a different store rather than a smaller
 index, which is what the API serves listings from.
 
 **Vercel's Go builder ships the compiled binary and nothing else.** Repository
@@ -94,6 +100,23 @@ It refuses more than it writes, on purpose:
 - **An id already in use is reported.** Every id in the dataset shares one
   namespace, so a slug has to be free against seasons and films too, not just
   against series filenames.
+- **A title that romanises to nothing is reported.** `Slug` keeps `[a-z0-9]`,
+  and 熊野古道民話集 has none, so the id, the filename and every work id under
+  it come out empty. Choosing a romanisation for one is a person's call.
+- **Two indistinguishable upstream records of one work are reported.** See
+  below.
+
+Upstream lists some works twice: once as a merged record carrying an AniList id,
+once under the English title carrying none, agreeing on type, quarter and
+episode count. "Amaama to Inazuma" beside "Sweetness & Lightning", "Ansatsu
+Kyoushitsu" beside "Assassination Classroom". The build already knows this — it
+resolves a kind against the merged half first and consults the rest only where
+that half cannot account for the installments — so **the importer declares the
+count the build will resolve, not the size of the raw pool.** Declaring from the
+raw pool forced the fallback and made the second record a season of its own: 64
+series carried a phantom season and 1,414 episodes were counted twice. Where
+neither copy carries an id there is nothing to prefer, and the series is
+refused.
 
 `relatedAnime` is not a grouping primitive. Followed transitively it puts 5,597
 entries in one component — Evangelion, Oshi no Ko and brand-collab shorts
@@ -125,6 +148,21 @@ differently from a zero that means "I looked and found none".
 
 The same applies to reading CI. Use the authenticated GitHub tooling rather
 than bare `curl`: 60 requests an hour is about thirty minutes of polling.
+
+A check can also be reading a fraction of what it claims to. `anilist-unlinked`
+walks `relatedAnime` to confirm an installment is linked to its siblings, and
+followed anilist.co URLs alone — **22,546 of upstream's 443,373** of them. The
+rest name a neighbour by its AniDB, MyAnimeList or anime-planet URL, so two
+works that were each other's only neighbour both failed a *gating* check against
+correct data. When a check walks someone else's graph, measure how much of it
+the walk can actually see.
+
+And resist a threshold the data does not have. Twelve series numbered separate
+adaptations end to end — Doraemon across 1973, 1979 and 2005 — but no gap
+cutoff separates them from real continuations: Re:Zero pauses eight years and
+Blade of the Immortal's eleven-year gap is a remake. Those twelve were authored
+by hand and the borderline ones listed for a read, because a cutoff here would
+be one more number that fails differently from what it measures.
 
 ## Working on the dataset
 

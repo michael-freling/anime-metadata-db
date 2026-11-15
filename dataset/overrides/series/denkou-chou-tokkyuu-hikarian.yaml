@@ -1,0 +1,13 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: denkou-chou-tokkyuu-hikarian
+  titles:
+    original: Denkou Chou Tekkyuu Hikarian Lightning Attack Express (電光超特急ヒカリアン LIGHTNING ATTACK EXPRESS)
+    translations: { ja-Latn: Denkou Chou Tokkyuu Hikarian }
+  seasons:
+    - id: denkou-chou-tokkyuu-hikarian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [denkou-chou-tokkyuu-hikarian]

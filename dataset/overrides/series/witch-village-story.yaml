@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: witch-village-story
+  titles:
+    original: ウィッチ ヴィレッジ ストーリー
+    translations: { ja-Latn: Witch Village Story }
+  seasons:
+    - id: witch-village-story-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [witch-village-story]

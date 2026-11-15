@@ -1,0 +1,13 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: digi-girl-pop
+  titles:
+    original: デジガールPOP!
+    translations: { ja-Latn: Digi-girl Pop! }
+  seasons:
+    - id: digi-girl-pop-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [digi-girl-pop]

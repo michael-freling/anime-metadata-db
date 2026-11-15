@@ -1,0 +1,13 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sui-tang-ying-xiong-zhuan
+  titles:
+    original: Sui Tang Ying Xiong Zhuan
+    translations: { ja-Latn: Sui Tang Ying Xiong Zhuan }
+  seasons:
+    - id: sui-tang-ying-xiong-zhuan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sui-tang-ying-xiong-zhuan]

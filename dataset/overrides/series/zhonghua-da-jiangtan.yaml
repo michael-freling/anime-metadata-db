@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhonghua-da-jiangtan
+  titles:
+    original: Zhonghua Da Jiangtan
+    translations: { ja-Latn: Zhonghua Da Jiangtan }
+  seasons:
+    - id: zhonghua-da-jiangtan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhonghua-da-jiangtan]

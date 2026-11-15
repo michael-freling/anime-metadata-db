@@ -9,7 +9,5 @@ series:
   seasons:
     - id: dive-s1
       number: 1
-    - id: dive-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [dive]

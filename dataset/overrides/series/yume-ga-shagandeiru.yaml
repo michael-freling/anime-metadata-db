@@ -1,0 +1,12 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yume-ga-shagandeiru
+  titles:
+    original: あるアパートの一室
+    translations: { ja-Latn: Yume ga Shagandeiru }
+  movies:
+    - id: yume-ga-shagandeiru-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yume-ga-shagandeiru]

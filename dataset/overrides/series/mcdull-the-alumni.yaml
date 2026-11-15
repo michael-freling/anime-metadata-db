@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mcdull-the-alumni
+  titles:
+    original: "McDull, the Alumni"
+    translations: { ja-Latn: "McDull, the Alumni" }
+  movies:
+    - id: mcdull-the-alumni-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mcdull-the-alumni]

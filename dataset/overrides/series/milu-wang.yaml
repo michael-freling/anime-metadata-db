@@ -1,0 +1,12 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: milu-wang
+  titles:
+    original: Milu Wang
+    translations: { ja-Latn: Milu Wang }
+  movies:
+    - id: milu-wang-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [milu-wang]

@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chicchana-yukitsukai-sugar
+  titles:
+    original: ちっちゃな雪使いシュガー
+    translations: { ja-Latn: Chicchana Yukitsukai Sugar }
+  seasons:
+    - id: chicchana-yukitsukai-sugar-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chicchana-yukitsukai-sugar]

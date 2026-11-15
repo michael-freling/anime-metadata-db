@@ -1,0 +1,13 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kasumin-3rd-season
+  titles:
+    original: カスミン (第3シリーズ)
+    translations: { ja-Latn: Kasumin 3rd Season }
+  seasons:
+    - id: kasumin-3rd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kasumin-3rd-season]

@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: w-wish
+  titles:
+    original: W ~ウィッシュ~
+    translations: { ja-Latn: "W: Wish" }
+  seasons:
+    - id: w-wish-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [w-wish]

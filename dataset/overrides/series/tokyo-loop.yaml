@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tokyo-loop
+  titles:
+    original: トーキョー・ループ
+    translations: { ja-Latn: Tokyo Loop }
+  movies:
+    - id: tokyo-loop-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tokyo-loop]

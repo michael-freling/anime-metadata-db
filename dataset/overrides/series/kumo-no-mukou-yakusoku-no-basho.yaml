@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kumo-no-mukou-yakusoku-no-basho
+  titles:
+    original: "雲のむこう, 約束の場所"
+    translations: { ja-Latn: "Kumo no Mukou, Yakusoku no Basho" }
+  movies:
+    - id: kumo-no-mukou-yakusoku-no-basho-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kumo-no-mukou-yakusoku-no-basho]

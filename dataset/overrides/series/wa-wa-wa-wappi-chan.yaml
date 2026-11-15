@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wa-wa-wa-wappi-chan
+  titles:
+    original: 和・和・和 ワッピちゃん
+    translations: { ja-Latn: Wa Wa Wa Wappi-chan }
+  seasons:
+    - id: wa-wa-wa-wappi-chan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wa-wa-wa-wappi-chan]

@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: naikaku-kenryoku-hanzai-kyousei-torishimarikan-zaizen-joutarou
+  titles:
+    original: Naikaku Kenryoku Hanzai Kyousei Torishimarikan Zaizen Joutarou
+    translations: { ja-Latn: Naikaku Kenryoku Hanzai Kyousei Torishimarikan Zaizen Joutarou }
+  seasons:
+    - id: naikaku-kenryoku-hanzai-kyousei-torishimarikan-zaizen-joutarou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [naikaku-kenryoku-hanzai-kyousei-torishimarikan-zaizen-joutarou]

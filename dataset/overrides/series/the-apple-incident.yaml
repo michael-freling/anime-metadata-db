@@ -1,0 +1,12 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-apple-incident
+  titles:
+    original: The Apple Incident
+    translations: { ja-Latn: The Apple Incident }
+  movies:
+    - id: the-apple-incident-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-apple-incident]

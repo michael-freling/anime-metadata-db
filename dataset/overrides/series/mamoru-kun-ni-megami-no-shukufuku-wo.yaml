@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mamoru-kun-ni-megami-no-shukufuku-wo
+  titles:
+    original: 護くんに女神の祝福を!
+    translations: { ja-Latn: Mamoru-kun ni Megami no Shukufuku wo! }
+  seasons:
+    - id: mamoru-kun-ni-megami-no-shukufuku-wo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mamoru-kun-ni-megami-no-shukufuku-wo]

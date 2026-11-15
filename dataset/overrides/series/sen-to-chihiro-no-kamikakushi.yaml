@@ -1,0 +1,12 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sen-to-chihiro-no-kamikakushi
+  titles:
+    original: 千と千尋の神隠し
+    translations: { ja-Latn: Sen to Chihiro no Kamikakushi }
+  movies:
+    - id: sen-to-chihiro-no-kamikakushi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sen-to-chihiro-no-kamikakushi]

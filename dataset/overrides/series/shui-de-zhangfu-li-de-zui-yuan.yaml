@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shui-de-zhangfu-li-de-zui-yuan
+  titles:
+    original: Shui De Zhangfu Li De Zui Yuan
+    translations: { ja-Latn: Shui De Zhangfu Li De Zui Yuan }
+  movies:
+    - id: shui-de-zhangfu-li-de-zui-yuan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shui-de-zhangfu-li-de-zui-yuan]

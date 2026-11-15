@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: katekyou-hitman-reborn
+  titles:
+    original: "家庭教師[かてきょー]ヒットマンREBORN!"
+    translations: { ja-Latn: Katekyou Hitman Reborn! }
+  seasons:
+    - id: katekyou-hitman-reborn-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [katekyou-hitman-reborn]

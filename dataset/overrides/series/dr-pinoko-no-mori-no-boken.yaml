@@ -1,0 +1,12 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dr-pinoko-no-mori-no-boken
+  titles:
+    original: Dr. ピノコの森の冒険
+    translations: { ja-Latn: Dr. Pinoko no Mori no Bōken }
+  movies:
+    - id: dr-pinoko-no-mori-no-boken-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dr-pinoko-no-mori-no-boken]

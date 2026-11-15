@@ -1,0 +1,13 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: marcelino
+  titles:
+    original: マルセリーノ
+    translations: { ja-Latn: Marcelino }
+  seasons:
+    - id: marcelino-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [marcelino]

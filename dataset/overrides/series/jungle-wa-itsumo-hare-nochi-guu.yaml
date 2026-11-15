@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jungle-wa-itsumo-hare-nochi-guu
+  titles:
+    original: ジャングルはいつもハレのちグゥ
+    translations: { ja-Latn: Jungle wa Itsumo Hare nochi Guu }
+  seasons:
+    - id: jungle-wa-itsumo-hare-nochi-guu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jungle-wa-itsumo-hare-nochi-guu]

@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ginyuu-mokushiroku-meine-liebe-wieder
+  titles:
+    original: 吟遊黙示録 マイネリーベ wieder(ウィーダ)
+    translations: { ja-Latn: Ginyuu Mokushiroku Meine Liebe Wieder }
+  seasons:
+    - id: ginyuu-mokushiroku-meine-liebe-wieder-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ginyuu-mokushiroku-meine-liebe-wieder]

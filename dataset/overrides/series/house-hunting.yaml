@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: house-hunting
+  titles:
+    original: やどさがし
+    translations: { ja-Latn: House Hunting }
+  movies:
+    - id: house-hunting-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [house-hunting]

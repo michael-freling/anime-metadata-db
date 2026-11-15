@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ping-pong-xuanfeng
+  titles:
+    original: Ping-pong Xuanfeng
+    translations: { ja-Latn: Ping-pong Xuanfeng }
+  seasons:
+    - id: ping-pong-xuanfeng-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ping-pong-xuanfeng]

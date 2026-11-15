@@ -1,0 +1,15 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: massugu-ni-ikou
+  titles:
+    original: まっすぐにいこう.
+    translations: { ja-Latn: Massugu ni Ikou. }
+  seasons:
+    - id: massugu-ni-ikou-s1
+      number: 1
+    - id: massugu-ni-ikou-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [massugu-ni-ikou]

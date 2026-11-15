@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: eikoku-koi-monogatari-emma
+  titles:
+    original: 英國戀物語エマ
+    translations: { ja-Latn: Eikoku Koi Monogatari Emma }
+  seasons:
+    - id: eikoku-koi-monogatari-emma-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [eikoku-koi-monogatari-emma]

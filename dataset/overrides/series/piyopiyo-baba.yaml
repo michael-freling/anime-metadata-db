@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: piyopiyo-baba
+  titles:
+    original: ぴよぴよバーバ
+    translations: { ja-Latn: Piyopiyo Baba }
+  movies:
+    - id: piyopiyo-baba-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [piyopiyo-baba]

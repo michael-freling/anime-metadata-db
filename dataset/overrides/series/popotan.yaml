@@ -1,0 +1,13 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: popotan
+  titles:
+    original: ぽぽたん
+    translations: { ja-Latn: Popotan }
+  seasons:
+    - id: popotan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [popotan]

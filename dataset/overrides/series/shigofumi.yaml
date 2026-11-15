@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shigofumi
+  titles:
+    original: シゴフミ ~Stories of Last Letter~
+    translations: { ja-Latn: Shigofumi }
+  seasons:
+    - id: shigofumi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shigofumi]

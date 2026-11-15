@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pokemon-heroes-latias-latios
+  titles:
+    original: ポケットモンスター 水の都の護神 ラティアスとラティオス
+    translations: { ja-Latn: Pokémon Heroes - Latias & Latios }
+  movies:
+    - id: pokemon-heroes-latias-latios-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pokemon-heroes-latias-latios]

@@ -1,0 +1,12 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kiss-and-cry
+  titles:
+    original: キス・アンド・クライ
+    translations: { ja-Latn: Kiss and Cry }
+  movies:
+    - id: kiss-and-cry-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kiss-and-cry]

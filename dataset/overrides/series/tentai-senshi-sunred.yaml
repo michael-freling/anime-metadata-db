@@ -1,0 +1,15 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tentai-senshi-sunred
+  titles:
+    original: 天体戦士サンレッド
+    translations: { ja-Latn: Tentai Senshi Sunred }
+  seasons:
+    - id: tentai-senshi-sunred-s1
+      number: 1
+    - id: tentai-senshi-sunred-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tentai-senshi-sunred]

@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: red-garden
+  titles:
+    original: レッド ガーデン
+    translations: { ja-Latn: Red Garden }
+  seasons:
+    - id: red-garden-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [red-garden]

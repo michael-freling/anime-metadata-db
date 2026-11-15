@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yi-tang-piyingxi-suitang-yanyi
+  titles:
+    original: Yi Tang Piyingxi Suitang Yanyi
+    translations: { ja-Latn: Yi Tang Piyingxi Suitang Yanyi }
+  seasons:
+    - id: yi-tang-piyingxi-suitang-yanyi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yi-tang-piyingxi-suitang-yanyi]

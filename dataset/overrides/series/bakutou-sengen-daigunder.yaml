@@ -1,0 +1,13 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bakutou-sengen-daigunder
+  titles:
+    original: 爆闘宣言ダイガンダー
+    translations: { ja-Latn: Bakutou Sengen Daigunder }
+  seasons:
+    - id: bakutou-sengen-daigunder-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bakutou-sengen-daigunder]

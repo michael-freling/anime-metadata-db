@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: choro-q-deck-system-q-fighters
+  titles:
+    original: チョロQデッキシステム Qファイターズ!
+    translations: { ja-Latn: Choro-Q Deck System Q Fighters! }
+  seasons:
+    - id: choro-q-deck-system-q-fighters-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [choro-q-deck-system-q-fighters]

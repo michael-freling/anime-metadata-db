@@ -1,0 +1,18 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: duel-masters
+  titles:
+    original: デュエル・マスターズ 闇の城の魔龍凰カース・オブ・ザ・デスフェニックス
+    translations: { ja-Latn: Duel Masters }
+  seasons:
+    - id: duel-masters-s1
+      number: 1
+    - id: duel-masters-s2
+      number: 2
+  movies:
+    - id: duel-masters-film
+# No continuous absoluteNumber. The seasons above are separate adaptations of
+# one work (2002, 2017), not one run, so numbering them end to end would
+# assert a continuity that does not exist.

@@ -1,0 +1,13 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wo-wei-ge-kuang-2
+  titles:
+    original: Wo Wei Ge Kuang 2
+    translations: { ja-Latn: Wo Wei Ge Kuang 2 }
+  seasons:
+    - id: wo-wei-ge-kuang-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wo-wei-ge-kuang-2]

@@ -9,7 +9,5 @@ series:
   seasons:
     - id: clean-freak-aoyama-kun-s1
       number: 1
-    - id: clean-freak-aoyama-kun-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [clean-freak-aoyama-kun]

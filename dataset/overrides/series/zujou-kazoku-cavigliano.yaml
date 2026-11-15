@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zujou-kazoku-cavigliano
+  titles:
+    original: 頭上家族チャビリアーノ
+    translations: { ja-Latn: Zujou Kazoku Cavigliano }
+  movies:
+    - id: zujou-kazoku-cavigliano-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zujou-kazoku-cavigliano]

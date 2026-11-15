@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: momotaros-no-natsuyasumi
+  titles:
+    original: モモタロスのなつやすみ
+    translations: { ja-Latn: Momotaros no Natsuyasumi }
+  movies:
+    - id: momotaros-no-natsuyasumi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [momotaros-no-natsuyasumi]

@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mcdull-boluo-you-wang-zi
+  titles:
+    original: "McDull: Boluo You Wang Zi"
+    translations: { ja-Latn: "McDull: Boluo You Wang Zi" }
+  movies:
+    - id: mcdull-boluo-you-wang-zi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mcdull-boluo-you-wang-zi]

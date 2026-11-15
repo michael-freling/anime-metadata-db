@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kuaile-xiao-yongshi
+  titles:
+    original: Kuaile Xiao Yongshi
+    translations: { ja-Latn: Kuaile Xiao Yongshi }
+  seasons:
+    - id: kuaile-xiao-yongshi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kuaile-xiao-yongshi]

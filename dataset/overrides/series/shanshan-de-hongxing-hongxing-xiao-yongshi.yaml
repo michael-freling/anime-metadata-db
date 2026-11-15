@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shanshan-de-hongxing-hongxing-xiao-yongshi
+  titles:
+    original: "Shanshan de Hongxing: Hongxing Xiao Yongshi"
+    translations: { ja-Latn: "Shanshan de Hongxing: Hongxing Xiao Yongshi" }
+  movies:
+    - id: shanshan-de-hongxing-hongxing-xiao-yongshi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shanshan-de-hongxing-hongxing-xiao-yongshi]

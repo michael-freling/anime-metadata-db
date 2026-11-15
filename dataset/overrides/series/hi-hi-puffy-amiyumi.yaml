@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hi-hi-puffy-amiyumi
+  titles:
+    original: Hi Hi Puffy AmiYumi
+    translations: { ja-Latn: Hi Hi Puffy AmiYumi }
+  seasons:
+    - id: hi-hi-puffy-amiyumi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hi-hi-puffy-amiyumi]

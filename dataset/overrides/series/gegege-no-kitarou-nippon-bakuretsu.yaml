@@ -1,0 +1,12 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gegege-no-kitarou-nippon-bakuretsu
+  titles:
+    original: 劇場版 ゲゲゲの鬼太郎 日本爆裂!!
+    translations: { ja-Latn: "Gegege no Kitarou: Nippon Bakuretsu" }
+  movies:
+    - id: gegege-no-kitarou-nippon-bakuretsu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gegege-no-kitarou-nippon-bakuretsu]

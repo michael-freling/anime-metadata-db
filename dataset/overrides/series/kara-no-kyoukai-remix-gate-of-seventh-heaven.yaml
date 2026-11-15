@@ -1,0 +1,12 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kara-no-kyoukai-remix-gate-of-seventh-heaven
+  titles:
+    original: 劇場版 空の境界 Remix -Gate of seventh heaven-
+    translations: { ja-Latn: "Kara no Kyoukai Remix: Gate of Seventh Heaven" }
+  movies:
+    - id: kara-no-kyoukai-remix-gate-of-seventh-heaven-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kara-no-kyoukai-remix-gate-of-seventh-heaven]

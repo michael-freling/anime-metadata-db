@@ -1,0 +1,12 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ari-ningen-monogatari
+  titles:
+    original: Ari Ningen Monogatari
+    translations: { ja-Latn: Ari Ningen Monogatari }
+  movies:
+    - id: ari-ningen-monogatari-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ari-ningen-monogatari]

@@ -1,0 +1,12 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: akuei-to-gacchinpo-the-movie-chelsea-no-gyakushuu-akuei-to-mahou-no-hammer
+  titles:
+    original: アークエとガッチンポー THE MOVIE チェルシーの逆襲 / アークエと魔法のハンマー
+    translations: { ja-Latn: "Akuei to Gacchinpo The Movie: Chelsea no Gyakushuu/Akuei to Mahou no Hammer" }
+  movies:
+    - id: akuei-to-gacchinpo-the-movie-chelsea-no-gyakushuu-akuei-to-mahou-no-hammer-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [akuei-to-gacchinpo-the-movie-chelsea-no-gyakushuu-akuei-to-mahou-no-hammer]

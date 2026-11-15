@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kuusou-no-soratobu-kikai-tachi
+  titles:
+    original: 空想の空とぶ機械達
+    translations: { ja-Latn: Kuusou no Soratobu Kikai-tachi }
+  movies:
+    - id: kuusou-no-soratobu-kikai-tachi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kuusou-no-soratobu-kikai-tachi]

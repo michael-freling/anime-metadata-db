@@ -11,17 +11,10 @@ series:
       number: 1
       releaseYear: 2016
       releaseSeason: FALL
-      episodes:
-        count: 12
-        absoluteFrom: 1
-    - id: bbk-brnk-the-gentle-giants-of-the-galaxy-s2
-      number: 2
-      releaseYear: 2016
-      releaseSeason: FALL
       externalIds:
         anilistId: 21740
         anidbId: 12043
         tvdbId: 304106
       episodes:
         count: 12
-        absoluteFrom: 13
+        absoluteFrom: 1

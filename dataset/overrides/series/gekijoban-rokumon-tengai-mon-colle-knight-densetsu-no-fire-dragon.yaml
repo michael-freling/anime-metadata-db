@@ -1,0 +1,12 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gekijoban-rokumon-tengai-mon-colle-knight-densetsu-no-fire-dragon
+  titles:
+    original: 劇場版 六門天外モンコレナイト 伝説のファイアドラゴン
+    translations: { ja-Latn: "Gekijōban Rokumon Tengai Mon Colle Knight: Densetsu no Fire Dragon" }
+  movies:
+    - id: gekijoban-rokumon-tengai-mon-colle-knight-densetsu-no-fire-dragon-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gekijoban-rokumon-tengai-mon-colle-knight-densetsu-no-fire-dragon]

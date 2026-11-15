@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lamb-redux
+  titles:
+    original: LaMB Redux
+    translations: { ja-Latn: LaMB Redux }
+  seasons:
+    - id: lamb-redux-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lamb-redux]

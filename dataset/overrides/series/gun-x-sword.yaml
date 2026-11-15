@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gun-x-sword
+  titles:
+    original: ガン×ソード
+    translations: { ja-Latn: Gun x Sword }
+  seasons:
+    - id: gun-x-sword-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gun-x-sword]

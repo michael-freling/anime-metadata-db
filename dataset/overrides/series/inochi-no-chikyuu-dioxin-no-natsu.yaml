@@ -1,0 +1,12 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: inochi-no-chikyuu-dioxin-no-natsu
+  titles:
+    original: いのちの地球 ダイオキシンの夏
+    translations: { ja-Latn: "Inochi no Chikyuu: Dioxin no Natsu" }
+  movies:
+    - id: inochi-no-chikyuu-dioxin-no-natsu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [inochi-no-chikyuu-dioxin-no-natsu]

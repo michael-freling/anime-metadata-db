@@ -1,0 +1,12 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ga-no-iru-tokoro
+  titles:
+    original: 蛾のいるところ
+    translations: { ja-Latn: Ga no Iru Tokoro }
+  movies:
+    - id: ga-no-iru-tokoro-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ga-no-iru-tokoro]

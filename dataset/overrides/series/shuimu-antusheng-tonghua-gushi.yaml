@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shuimu-antusheng-tonghua-gushi
+  titles:
+    original: Shuimu Antusheng Tonghua Gushi
+    translations: { ja-Latn: Shuimu Antusheng Tonghua Gushi }
+  seasons:
+    - id: shuimu-antusheng-tonghua-gushi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shuimu-antusheng-tonghua-gushi]

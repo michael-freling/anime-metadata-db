@@ -1,0 +1,12 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: keroro-gunso-mushakero-ohirome-sengoku-ranstar-dai-battle
+  titles:
+    original: ケロロ軍曹 武者ケロ お披露目！戦国ラン星大バトル！！
+    translations: { ja-Latn: "Keroro Gunsō: Mushakero Ohirōme Sengoku Ranstar Dai Battle" }
+  movies:
+    - id: keroro-gunso-mushakero-ohirome-sengoku-ranstar-dai-battle-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [keroro-gunso-mushakero-ohirome-sengoku-ranstar-dai-battle]

@@ -1,0 +1,13 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sui-tang-heroes
+  titles:
+    original: Sui Tang Heroes
+    translations: { ja-Latn: Sui Tang Heroes }
+  seasons:
+    - id: sui-tang-heroes-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sui-tang-heroes]

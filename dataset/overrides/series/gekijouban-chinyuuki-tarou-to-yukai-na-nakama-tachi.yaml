@@ -1,0 +1,12 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gekijouban-chinyuuki-tarou-to-yukai-na-nakama-tachi
+  titles:
+    original: 劇場版 珍遊記 ～太郎とゆかいな仲間たち～
+    translations: { ja-Latn: "Gekijouban Chinyuuki: Tarou to Yukai na Nakama-tachi" }
+  movies:
+    - id: gekijouban-chinyuuki-tarou-to-yukai-na-nakama-tachi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gekijouban-chinyuuki-tarou-to-yukai-na-nakama-tachi]

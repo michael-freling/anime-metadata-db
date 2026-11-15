@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kiddy-grade-maelstrom
+  titles:
+    original: キディ・グレイド -メイルシュトローム-(氾濫篇)
+    translations: { ja-Latn: "Kiddy Grade: Maelstrom" }
+  movies:
+    - id: kiddy-grade-maelstrom-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kiddy-grade-maelstrom]

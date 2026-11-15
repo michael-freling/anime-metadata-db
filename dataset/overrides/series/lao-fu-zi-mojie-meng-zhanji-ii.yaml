@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lao-fu-zi-mojie-meng-zhanji-ii
+  titles:
+    original: "Lao Fu Zi: Mojie Meng Zhanji II"
+    translations: { ja-Latn: "Lao Fu Zi: Mojie Meng Zhanji II" }
+  seasons:
+    - id: lao-fu-zi-mojie-meng-zhanji-ii-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lao-fu-zi-mojie-meng-zhanji-ii]

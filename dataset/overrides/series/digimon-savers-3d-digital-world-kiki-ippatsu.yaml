@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: digimon-savers-3d-digital-world-kiki-ippatsu
+  titles:
+    original: デジモンセイバーズ3D デジタルワールド危機イッパツ!
+    translations: { ja-Latn: "Digimon Savers 3D: Digital World Kiki Ippatsu!" }
+  movies:
+    - id: digimon-savers-3d-digital-world-kiki-ippatsu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [digimon-savers-3d-digital-world-kiki-ippatsu]

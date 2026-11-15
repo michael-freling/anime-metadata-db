@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: choujuushin-gravion-zwei
+  titles:
+    original: 超重神グラヴィオンツヴァイ
+    translations: { ja-Latn: Choujuushin Gravion Zwei }
+  seasons:
+    - id: choujuushin-gravion-zwei-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [choujuushin-gravion-zwei]

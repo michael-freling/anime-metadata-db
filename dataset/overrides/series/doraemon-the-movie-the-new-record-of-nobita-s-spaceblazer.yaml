@@ -1,0 +1,12 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: doraemon-the-movie-the-new-record-of-nobita-s-spaceblazer
+  titles:
+    original: 映画ドラえもん 新・のび太の宇宙開拓史
+    translations: { ja-Latn: "Doraemon the Movie: The New Record of Nobita's Spaceblazer" }
+  movies:
+    - id: doraemon-the-movie-the-new-record-of-nobita-s-spaceblazer-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [doraemon-the-movie-the-new-record-of-nobita-s-spaceblazer]

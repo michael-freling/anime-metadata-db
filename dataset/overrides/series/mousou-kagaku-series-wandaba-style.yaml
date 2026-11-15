@@ -1,0 +1,13 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mousou-kagaku-series-wandaba-style
+  titles:
+    original: 妄想科学シリーズ ワンダバスタイル
+    translations: { ja-Latn: "Mousou Kagaku Series: Wandaba Style" }
+  seasons:
+    - id: mousou-kagaku-series-wandaba-style-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mousou-kagaku-series-wandaba-style]

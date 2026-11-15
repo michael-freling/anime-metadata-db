@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chou-henshin-cosprayers-vs-ankoku-uchuu-shougun-the-movie
+  titles:
+    original: 劇場版「超変身コス∞プレイヤー VS暗黒宇宙将軍」
+    translations: { ja-Latn: Chou Henshin Cosprayers vs. Ankoku Uchuu Shougun the Movie }
+  movies:
+    - id: chou-henshin-cosprayers-vs-ankoku-uchuu-shougun-the-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chou-henshin-cosprayers-vs-ankoku-uchuu-shougun-the-movie]

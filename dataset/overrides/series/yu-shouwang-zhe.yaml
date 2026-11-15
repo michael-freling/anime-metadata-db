@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yu-shouwang-zhe
+  titles:
+    original: Yu Shouwang Zhe
+    translations: { ja-Latn: Yu Shouwang Zhe }
+  seasons:
+    - id: yu-shouwang-zhe-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yu-shouwang-zhe]

@@ -1,0 +1,12 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: astro-boy-tetsuwan-atom-10-man-kounen-no-raihousha-igza
+  titles:
+    original: ASTRO BOY 鉄腕アトム 10万光年の来訪者・IGZA
+    translations: { ja-Latn: "Astro Boy: Tetsuwan Atom - 10-man Kounen no Raihousha - IGZA" }
+  movies:
+    - id: astro-boy-tetsuwan-atom-10-man-kounen-no-raihousha-igza-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [astro-boy-tetsuwan-atom-10-man-kounen-no-raihousha-igza]

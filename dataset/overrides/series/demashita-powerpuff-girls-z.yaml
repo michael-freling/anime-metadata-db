@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: demashita-powerpuff-girls-z
+  titles:
+    original: 出ましたっ! パワパフガールズZ
+    translations: { ja-Latn: Demashita! Powerpuff Girls Z }
+  seasons:
+    - id: demashita-powerpuff-girls-z-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [demashita-powerpuff-girls-z]

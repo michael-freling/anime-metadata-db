@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lime-iro-ryukitan-x
+  titles:
+    original: らいむいろ流奇譚 X CROSS ～恋、オシヘテクダサイ。～
+    translations: { ja-Latn: Lime-iro Ryūkitan X }
+  seasons:
+    - id: lime-iro-ryukitan-x-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lime-iro-ryukitan-x]

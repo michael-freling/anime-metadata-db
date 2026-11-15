@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 07-ghost
+  titles:
+    original: セブンゴースト
+    translations: { ja-Latn: 07-Ghost }
+  seasons:
+    - id: 07-ghost-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [07-ghost]

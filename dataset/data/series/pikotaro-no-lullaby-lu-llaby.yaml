@@ -14,16 +14,9 @@ series:
       number: 1
       releaseYear: 2017
       releaseSeason: SUMMER
-      episodes:
-        count: 9
-        absoluteFrom: 1
-    - id: pikotaro-no-lullaby-lu-llaby-s2
-      number: 2
-      releaseYear: 2017
-      releaseSeason: SUMMER
       externalIds:
         anilistId: 99083
         anidbId: 13227
       episodes:
         count: 9
-        absoluteFrom: 10
+        absoluteFrom: 1

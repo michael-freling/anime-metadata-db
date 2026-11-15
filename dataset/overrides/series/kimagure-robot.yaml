@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kimagure-robot
+  titles:
+    original: きまぐれロボット
+    translations: { ja-Latn: Kimagure Robot }
+  seasons:
+    - id: kimagure-robot-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kimagure-robot]

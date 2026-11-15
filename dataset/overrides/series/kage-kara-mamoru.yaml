@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kage-kara-mamoru
+  titles:
+    original: 陰からマモル!
+    translations: { ja-Latn: Kage kara Mamoru! }
+  seasons:
+    - id: kage-kara-mamoru-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kage-kara-mamoru]

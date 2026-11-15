@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jing-wei-tian-hai
+  titles:
+    original: Jing Wei Tian Hai
+    translations: { ja-Latn: Jing Wei Tian Hai }
+  seasons:
+    - id: jing-wei-tian-hai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jing-wei-tian-hai]

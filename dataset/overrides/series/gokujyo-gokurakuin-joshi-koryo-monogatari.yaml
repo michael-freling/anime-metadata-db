@@ -9,7 +9,5 @@ series:
   seasons:
     - id: gokujyo-gokurakuin-joshi-koryo-monogatari-s1
       number: 1
-    - id: gokujyo-gokurakuin-joshi-koryo-monogatari-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [gokujyo-gokurakuin-joshi-koryo-monogatari]

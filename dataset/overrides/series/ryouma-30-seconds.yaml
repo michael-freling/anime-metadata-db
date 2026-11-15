@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ryouma-30-seconds
+  titles:
+    original: Ryouma 30 Seconds
+    translations: { ja-Latn: Ryouma 30 Seconds }
+  seasons:
+    - id: ryouma-30-seconds-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ryouma-30-seconds]

@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: black-lagoon-the-second-barrage
+  titles:
+    original: ブラックラグーン The Second Barrage
+    translations: { ja-Latn: "Black Lagoon: The Second Barrage" }
+  seasons:
+    - id: black-lagoon-the-second-barrage-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [black-lagoon-the-second-barrage]

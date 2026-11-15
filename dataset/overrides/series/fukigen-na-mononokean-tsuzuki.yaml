@@ -9,7 +9,5 @@ series:
   seasons:
     - id: fukigen-na-mononokean-tsuzuki-s1
       number: 1
-    - id: fukigen-na-mononokean-tsuzuki-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [fukigen-na-mononokean-tsuzuki]

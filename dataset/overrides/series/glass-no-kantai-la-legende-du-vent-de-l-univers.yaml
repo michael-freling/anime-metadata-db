@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: glass-no-kantai-la-legende-du-vent-de-l-univers
+  titles:
+    original: ガラスの艦隊～La legende du vent de l'univers～
+    translations: { ja-Latn: "Glass no Kantai: La Legende du Vent de l'Univers" }
+  seasons:
+    - id: glass-no-kantai-la-legende-du-vent-de-l-univers-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [glass-no-kantai-la-legende-du-vent-de-l-univers]

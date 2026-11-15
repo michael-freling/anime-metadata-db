@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: huo-xing-wa-maoxian-leyuan
+  titles:
+    original: "Huo Xing Wa: Maoxian Leyuan"
+    translations: { ja-Latn: "Huo Xing Wa: Maoxian Leyuan" }
+  seasons:
+    - id: huo-xing-wa-maoxian-leyuan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [huo-xing-wa-maoxian-leyuan]

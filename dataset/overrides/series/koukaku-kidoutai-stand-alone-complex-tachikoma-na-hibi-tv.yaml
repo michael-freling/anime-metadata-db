@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: koukaku-kidoutai-stand-alone-complex-tachikoma-na-hibi-tv
+  titles:
+    original: 攻殻機動隊 STAND ALONE COMPLEX タチコマな日々
+    translations: { ja-Latn: "Koukaku Kidoutai: Stand Alone Complex - Tachikoma na Hibi (TV)" }
+  seasons:
+    - id: koukaku-kidoutai-stand-alone-complex-tachikoma-na-hibi-tv-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [koukaku-kidoutai-stand-alone-complex-tachikoma-na-hibi-tv]

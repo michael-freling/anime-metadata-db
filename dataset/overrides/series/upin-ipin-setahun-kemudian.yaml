@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: upin-ipin-setahun-kemudian
+  titles:
+    original: "Upin & Ipin: Setahun Kemudian"
+    translations: { ja-Latn: "Upin & Ipin: Setahun Kemudian" }
+  seasons:
+    - id: upin-ipin-setahun-kemudian-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [upin-ipin-setahun-kemudian]

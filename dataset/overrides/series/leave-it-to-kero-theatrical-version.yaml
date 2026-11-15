@@ -1,0 +1,12 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: leave-it-to-kero-theatrical-version
+  titles:
+    original: ケロちゃんにおまかせ！
+    translations: { ja-Latn: Leave it to Kero! Theatrical Version }
+  movies:
+    - id: leave-it-to-kero-theatrical-version-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [leave-it-to-kero-theatrical-version]

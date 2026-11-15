@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hikaru-no-go
+  titles:
+    original: ヒカルの碁
+    translations: { ja-Latn: Hikaru no Go }
+  seasons:
+    - id: hikaru-no-go-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hikaru-no-go]

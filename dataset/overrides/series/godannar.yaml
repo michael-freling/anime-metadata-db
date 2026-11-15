@@ -1,0 +1,15 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: godannar
+  titles:
+    original: 神魂合体ゴーダンナー!! SECOND SEASON
+    translations: { ja-Latn: Godannar }
+  seasons:
+    - id: godannar-s1
+      number: 1
+    - id: godannar-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [godannar]

@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: school-rumble-ni-gakki
+  titles:
+    original: スクールランブル 2学期
+    translations: { ja-Latn: School Rumble Ni Gakki }
+  seasons:
+    - id: school-rumble-ni-gakki-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [school-rumble-ni-gakki]

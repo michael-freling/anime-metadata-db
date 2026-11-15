@@ -1,0 +1,12 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tokyo-godfathers
+  titles:
+    original: 東京ゴッドファーザーズ
+    translations: { ja-Latn: Tokyo Godfathers }
+  movies:
+    - id: tokyo-godfathers-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tokyo-godfathers]

@@ -1,0 +1,12 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yami-no-kioku-yume-no-inei
+  titles:
+    original: 闇の記憶・夢の陰影
+    translations: { ja-Latn: "Yami no Kioku, Yume no Inei" }
+  movies:
+    - id: yami-no-kioku-yume-no-inei-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yami-no-kioku-yume-no-inei]

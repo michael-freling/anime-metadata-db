@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: najica-dengeki-sakusen
+  titles:
+    original: ナジカ電撃作戦
+    translations: { ja-Latn: Najica Dengeki Sakusen }
+  seasons:
+    - id: najica-dengeki-sakusen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [najica-dengeki-sakusen]

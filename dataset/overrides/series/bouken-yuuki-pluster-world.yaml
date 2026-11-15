@@ -1,0 +1,13 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bouken-yuuki-pluster-world
+  titles:
+    original: 冒険遊記プラスターワールド
+    translations: { ja-Latn: Bouken Yuuki Pluster World }
+  seasons:
+    - id: bouken-yuuki-pluster-world-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bouken-yuuki-pluster-world]

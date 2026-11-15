@@ -1,0 +1,12 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pokemon-diamond-pearl-atsumare-pokemon-hoshi-matsuri
+  titles:
+    original: ポケットモンスターダイヤモンドパール あつまれ！ ポケモン星まつり
+    translations: { ja-Latn: Pokemon Diamond & Pearl Atsumare! Pokemon Hoshi Matsuri }
+  movies:
+    - id: pokemon-diamond-pearl-atsumare-pokemon-hoshi-matsuri-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pokemon-diamond-pearl-atsumare-pokemon-hoshi-matsuri]

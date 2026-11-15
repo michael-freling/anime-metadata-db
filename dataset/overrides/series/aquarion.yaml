@@ -1,0 +1,15 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aquarion
+  titles:
+    original: アクエリオン
+    translations: { ja-Latn: Aquarion }
+  seasons:
+    - id: aquarion-s1
+      number: 1
+  movies:
+    - id: aquarion-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aquarion]

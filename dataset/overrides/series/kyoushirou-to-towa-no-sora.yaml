@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kyoushirou-to-towa-no-sora
+  titles:
+    original: 京四郎と永遠(とわ)の空
+    translations: { ja-Latn: Kyoushirou to Towa no Sora }
+  seasons:
+    - id: kyoushirou-to-towa-no-sora-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kyoushirou-to-towa-no-sora]

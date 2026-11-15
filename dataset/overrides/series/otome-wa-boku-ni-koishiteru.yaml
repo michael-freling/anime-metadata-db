@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: otome-wa-boku-ni-koishiteru
+  titles:
+    original: "乙女はお姉さま[ボク]に恋してる"
+    translations: { ja-Latn: Otome wa Boku ni Koishiteru }
+  seasons:
+    - id: otome-wa-boku-ni-koishiteru-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [otome-wa-boku-ni-koishiteru]

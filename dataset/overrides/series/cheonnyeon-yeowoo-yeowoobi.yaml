@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: cheonnyeon-yeowoo-yeowoobi
+  titles:
+    original: 千年狐ヨウビ
+    translations: { ja-Latn: Cheonnyeon-yeowoo Yeowoobi }
+  movies:
+    - id: cheonnyeon-yeowoo-yeowoobi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [cheonnyeon-yeowoo-yeowoobi]

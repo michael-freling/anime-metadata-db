@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: panda-z-the-robonimation
+  titles:
+    original: パンダーゼット THE ROBONIMATION
+    translations: { ja-Latn: "Panda-Z: The Robonimation" }
+  seasons:
+    - id: panda-z-the-robonimation-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [panda-z-the-robonimation]

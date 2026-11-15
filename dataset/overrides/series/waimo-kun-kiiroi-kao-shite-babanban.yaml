@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: waimo-kun-kiiroi-kao-shite-babanban
+  titles:
+    original: わいもくん きいろいかおしてババンバン
+    translations: { ja-Latn: "Waimo-kun: Kiiroi Kao Shite Babanban" }
+  seasons:
+    - id: waimo-kun-kiiroi-kao-shite-babanban-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [waimo-kun-kiiroi-kao-shite-babanban]

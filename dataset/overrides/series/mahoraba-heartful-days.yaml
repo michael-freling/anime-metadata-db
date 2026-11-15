@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mahoraba-heartful-days
+  titles:
+    original: まほらば -Heartful days-
+    translations: { ja-Latn: "Mahoraba: Heartful Days" }
+  seasons:
+    - id: mahoraba-heartful-days-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mahoraba-heartful-days]

@@ -392,3 +392,50 @@ func TestCheckSeasonChronologyStillCatchesAWrongYear(t *testing.T) {
 		t.Error("a season airing four years early is out of order whatever the quarter")
 	}
 }
+
+// Upstream names a neighbour by whichever providers' URLs it holds, and for
+// most entries none of them is an anilist.co one: 5.1% of its 443,373
+// relatedAnime URLs are. Yuki no Joou's 1978 film and 2005 TV series are each
+// other's only neighbour and name each other by AniDB and MyAnimeList alone,
+// and a walk that followed anilist.co URLs reported both as unlinked — a
+// gating finding, against data that was right.
+const crossProviderDB = `{"data":[
+ {"sources":["https://anilist.co/anime/754","https://anidb.net/anime/3807"],"title":"Yuki no Joou (TV)","type":"TV","episodes":36,
+  "animeSeason":{"season":"FALL","year":2005},
+  "relatedAnime":["https://anidb.net/anime/5541"]},
+ {"sources":["https://anilist.co/anime/117930","https://anidb.net/anime/5541"],"title":"Yuki no Joou","type":"MOVIE","episodes":1,
+  "animeSeason":{"season":"SPRING","year":1978},
+  "relatedAnime":["https://anidb.net/anime/3807"]}
+]}`
+
+func TestAnEdgeWrittenAsAnotherProvidersURLStillLinks(t *testing.T) {
+	b := &Builder{sources: Sources{Offline: offlineFrom(t, crossProviderDB)}}
+	s := &model.Series{ID: "yuki-no-joou-tv",
+		Seasons: []model.Season{season("yuki-no-joou-tv-s1", 1, 754, 2005, model.SeasonFall)},
+		Movies:  []model.Movie{{ID: "yuki-no-joou-tv-film", ExternalIDs: model.ExternalIDs{AnilistID: 117930}}},
+	}
+	report := &Report{}
+	b.checkSameWork(s, report)
+
+	if g := report.Gating(); len(g) != 0 {
+		t.Errorf("gating = %+v, want none: the two name each other by their AniDB URLs", g)
+	}
+	if report.Coverage.Corroborated != 2 {
+		t.Errorf("Corroborated = %d, want 2", report.Coverage.Corroborated)
+	}
+}
+
+// The walk must still say no when the graph really does not connect them,
+// otherwise the fix above would have bought its silence by never failing.
+func TestAnUnrelatedWorkIsStillReportedUnlinked(t *testing.T) {
+	b := &Builder{sources: Sources{Offline: offlineFrom(t, chainDB)}}
+	s := &model.Series{ID: "x",
+		Seasons: []model.Season{season("x-s1", 1, 1, 2020, model.SeasonFall), season("x-s2", 2, 99, 1999, model.SeasonFall)},
+	}
+	report := &Report{}
+	b.checkSameWork(s, report)
+
+	if len(report.Gating()) == 0 {
+		t.Error("want a gating finding: 99 is in no relatedAnime of the chain")
+	}
+}

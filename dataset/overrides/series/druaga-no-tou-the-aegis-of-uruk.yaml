@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: druaga-no-tou-the-aegis-of-uruk
+  titles:
+    original: ドルアーガの塔 ~the Aegis of URUK~
+    translations: { ja-Latn: "Druaga no Tou: The Aegis of Uruk" }
+  seasons:
+    - id: druaga-no-tou-the-aegis-of-uruk-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [druaga-no-tou-the-aegis-of-uruk]

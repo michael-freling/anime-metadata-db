@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hu-die-yu-bai-shu-xian-zi
+  titles:
+    original: Hu Die Yu Bai Shu Xian Zi
+    translations: { ja-Latn: Hu Die Yu Bai Shu Xian Zi }
+  movies:
+    - id: hu-die-yu-bai-shu-xian-zi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hu-die-yu-bai-shu-xian-zi]

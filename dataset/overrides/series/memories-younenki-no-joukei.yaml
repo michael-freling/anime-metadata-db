@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: memories-younenki-no-joukei
+  titles:
+    original: メモリーズ 幼年期の情景
+    translations: { ja-Latn: "Memories: Younenki no Joukei" }
+  movies:
+    - id: memories-younenki-no-joukei-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [memories-younenki-no-joukei]

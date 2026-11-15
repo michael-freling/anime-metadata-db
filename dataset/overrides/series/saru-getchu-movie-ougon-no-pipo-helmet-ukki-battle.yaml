@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: saru-getchu-movie-ougon-no-pipo-helmet-ukki-battle
+  titles:
+    original: 劇場版 サルゲッチュ 黄金のピポヘル・ウッキーバトル
+    translations: { ja-Latn: "Saru Getchu Movie: Ougon no Pipo Helmet - Ukki Battle" }
+  movies:
+    - id: saru-getchu-movie-ougon-no-pipo-helmet-ukki-battle-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [saru-getchu-movie-ougon-no-pipo-helmet-ukki-battle]

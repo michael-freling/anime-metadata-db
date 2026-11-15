@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: taneyamagahara-no-yoru
+  titles:
+    original: 種山ヶ原の夜
+    translations: { ja-Latn: Taneyamagahara no Yoru }
+  movies:
+    - id: taneyamagahara-no-yoru-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [taneyamagahara-no-yoru]

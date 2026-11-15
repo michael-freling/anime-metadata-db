@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tsuki-wa-higashi-ni-hi-wa-nishi-ni-operation-sanctuary
+  titles:
+    original: 月は東に日は西に〜Operation Sanctuary〜
+    translations: { ja-Latn: "Tsuki wa Higashi ni Hi wa Nishi ni: Operation Sanctuary" }
+  seasons:
+    - id: tsuki-wa-higashi-ni-hi-wa-nishi-ni-operation-sanctuary-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tsuki-wa-higashi-ni-hi-wa-nishi-ni-operation-sanctuary]

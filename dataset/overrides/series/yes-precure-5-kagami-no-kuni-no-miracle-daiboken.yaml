@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yes-precure-5-kagami-no-kuni-no-miracle-daiboken
+  titles:
+    original: Ｙｅｓ！プリキュア５ 鏡の国のミラクル大冒険！
+    translations: { ja-Latn: "Yes! Precure 5: Kagami no Kuni no Miracle Daibōken!" }
+  movies:
+    - id: yes-precure-5-kagami-no-kuni-no-miracle-daiboken-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yes-precure-5-kagami-no-kuni-no-miracle-daiboken]

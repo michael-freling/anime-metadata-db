@@ -1,0 +1,13 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rokumon-tengai-mon-colle-knights
+  titles:
+    original: 六門天外モンコレナイト
+    translations: { ja-Latn: Rokumon Tengai Mon Colle Knights }
+  seasons:
+    - id: rokumon-tengai-mon-colle-knights-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rokumon-tengai-mon-colle-knights]

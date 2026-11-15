@@ -1,0 +1,12 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: cofun-gal-no-coffy-juuninin-to-ikareru-cofun-tachi
+  titles:
+    original: 古墳ギャルのコフィー ～１２人の怒れる古墳達～
+    translations: { ja-Latn: "Cofun Gal no Coffy: Juuninin to Ikareru Cofun-tachi" }
+  movies:
+    - id: cofun-gal-no-coffy-juuninin-to-ikareru-cofun-tachi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [cofun-gal-no-coffy-juuninin-to-ikareru-cofun-tachi]

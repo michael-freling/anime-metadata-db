@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: poka-poka-mori-no-rascal
+  titles:
+    original: ぽかぽか森のラスカル
+    translations: { ja-Latn: Poka Poka Mori no Rascal }
+  seasons:
+    - id: poka-poka-mori-no-rascal-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [poka-poka-mori-no-rascal]

@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiangle-huayuan
+  titles:
+    original: Xiangle Huayuan
+    translations: { ja-Latn: Xiangle Huayuan }
+  movies:
+    - id: xiangle-huayuan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiangle-huayuan]

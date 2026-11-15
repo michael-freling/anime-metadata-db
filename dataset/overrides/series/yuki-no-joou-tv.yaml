@@ -1,0 +1,15 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yuki-no-joou-tv
+  titles:
+    original: 雪の女王
+    translations: { ja-Latn: Yuki no Joou (TV) }
+  seasons:
+    - id: yuki-no-joou-tv-s1
+      number: 1
+  movies:
+    - id: yuki-no-joou-tv-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yuki-no-joou-tv]

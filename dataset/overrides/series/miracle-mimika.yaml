@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: miracle-mimika
+  titles:
+    original: 味楽る! ミミカ
+    translations: { ja-Latn: Miracle! Mimika }
+  seasons:
+    - id: miracle-mimika-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [miracle-mimika]

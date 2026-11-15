@@ -9,7 +9,5 @@ series:
   seasons:
     - id: listen-to-me-girls-i-am-your-father-s1
       number: 1
-    - id: listen-to-me-girls-i-am-your-father-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [listen-to-me-girls-i-am-your-father]

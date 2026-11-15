@@ -1,0 +1,18 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: reideen
+  titles:
+    original: らいでぃーん
+    translations: { ja-Latn: Reideen }
+  seasons:
+    - id: reideen-s1
+      number: 1
+    - id: reideen-s2
+      number: 2
+    - id: reideen-s3
+      number: 3
+# No continuous absoluteNumber. The seasons above are separate adaptations of
+# one work (1975, 1996, 2007), not one run, so numbering them end to end would
+# assert a continuity that does not exist.

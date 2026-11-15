@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shinkon-gattai-godannar-2nd-season
+  titles:
+    original: 神魂合体ゴーダンナー!!-SECOND SEASON-
+    translations: { ja-Latn: Shinkon Gattai Godannar!! 2nd Season }
+  seasons:
+    - id: shinkon-gattai-godannar-2nd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shinkon-gattai-godannar-2nd-season]

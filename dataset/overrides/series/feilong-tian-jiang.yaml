@@ -1,0 +1,13 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: feilong-tian-jiang
+  titles:
+    original: Feilong Tian Jiang
+    translations: { ja-Latn: Feilong Tian Jiang }
+  seasons:
+    - id: feilong-tian-jiang-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [feilong-tian-jiang]

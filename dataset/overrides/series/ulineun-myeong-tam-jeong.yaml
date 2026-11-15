@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ulineun-myeong-tam-jeong
+  titles:
+    original: Ulineun Myeong-tam-jeong
+    translations: { ja-Latn: Ulineun Myeong-tam-jeong }
+  seasons:
+    - id: ulineun-myeong-tam-jeong-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ulineun-myeong-tam-jeong]

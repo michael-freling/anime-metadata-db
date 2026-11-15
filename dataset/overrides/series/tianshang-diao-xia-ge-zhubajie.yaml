@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tianshang-diao-xia-ge-zhubajie
+  titles:
+    original: Tianshang Diao Xia Ge Zhubajie
+    translations: { ja-Latn: Tianshang Diao Xia Ge Zhubajie }
+  seasons:
+    - id: tianshang-diao-xia-ge-zhubajie-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tianshang-diao-xia-ge-zhubajie]

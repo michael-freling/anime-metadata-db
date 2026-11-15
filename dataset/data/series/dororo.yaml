@@ -5,7 +5,7 @@ series:
     original: どろろ (TV)
     translations:
       ja-Latn: Dororo
-  ordering: absolute
+  ordering: release
   seasons:
     - id: dororo-s1
       number: 1
@@ -17,7 +17,6 @@ series:
         tvdbId: 273042
       episodes:
         count: 26
-        absoluteFrom: 1
     - id: dororo-s2
       number: 2
       releaseYear: 2019
@@ -28,4 +27,3 @@ series:
         tvdbId: 354167
       episodes:
         count: 24
-        absoluteFrom: 27

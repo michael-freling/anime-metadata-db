@@ -11,16 +11,9 @@ series:
       number: 1
       releaseYear: 2010
       releaseSeason: FALL
-      episodes:
-        count: 26
-        absoluteFrom: 1
-    - id: yume-miru-anime-on-chan-season-2-s2
-      number: 2
-      releaseYear: 2010
-      releaseSeason: FALL
       externalIds:
         anilistId: 178147
         anidbId: 8078
       episodes:
         count: 26
-        absoluteFrom: 27
+        absoluteFrom: 1

@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nishi-no-yoki-majo-astraea-testament
+  titles:
+    original: 西の善き魔女 Astraea Testament
+    translations: { ja-Latn: "Nishi no Yoki Majo: Astraea Testament" }
+  seasons:
+    - id: nishi-no-yoki-majo-astraea-testament-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nishi-no-yoki-majo-astraea-testament]

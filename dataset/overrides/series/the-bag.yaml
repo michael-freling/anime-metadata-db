@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-bag
+  titles:
+    original: The Bag
+    translations: { ja-Latn: The Bag }
+  movies:
+    - id: the-bag-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-bag]

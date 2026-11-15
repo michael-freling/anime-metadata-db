@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: stray-sheep-poe-no-chicchana-daibouken
+  titles:
+    original: ストレイシープ ポーのちっちゃな大冒険
+    translations: { ja-Latn: "Stray Sheep: Poe no Chicchana Daibouken" }
+  seasons:
+    - id: stray-sheep-poe-no-chicchana-daibouken-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [stray-sheep-poe-no-chicchana-daibouken]

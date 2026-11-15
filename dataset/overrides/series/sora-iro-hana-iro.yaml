@@ -1,0 +1,12 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sora-iro-hana-iro
+  titles:
+    original: Sora Iro Hana Iro
+    translations: { ja-Latn: Sora Iro Hana Iro }
+  movies:
+    - id: sora-iro-hana-iro-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sora-iro-hana-iro]

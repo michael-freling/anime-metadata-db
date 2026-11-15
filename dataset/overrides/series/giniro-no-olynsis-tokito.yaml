@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: giniro-no-olynsis-tokito
+  titles:
+    original: 銀色のオリンシス TOKITO
+    translations: { ja-Latn: "Giniro no Olynsis: Tokito" }
+  seasons:
+    - id: giniro-no-olynsis-tokito-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [giniro-no-olynsis-tokito]

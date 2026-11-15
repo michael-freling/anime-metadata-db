@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: de-du-xiao-heshang
+  titles:
+    original: De Du Xiao Heshang
+    translations: { ja-Latn: De Du Xiao Heshang }
+  seasons:
+    - id: de-du-xiao-heshang-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [de-du-xiao-heshang]

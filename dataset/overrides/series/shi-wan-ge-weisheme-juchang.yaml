@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shi-wan-ge-weisheme-juchang
+  titles:
+    original: Shi Wan Ge Weisheme Juchang
+    translations: { ja-Latn: Shi Wan Ge Weisheme Juchang }
+  seasons:
+    - id: shi-wan-ge-weisheme-juchang-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shi-wan-ge-weisheme-juchang]

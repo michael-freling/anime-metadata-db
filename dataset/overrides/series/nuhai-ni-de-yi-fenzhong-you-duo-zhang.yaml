@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nuhai-ni-de-yi-fenzhong-you-duo-zhang
+  titles:
+    original: "Nuhai, Ni De Yi Fenzhong You Duo Zhang"
+    translations: { ja-Latn: "Nuhai, Ni De Yi Fenzhong You Duo Zhang" }
+  movies:
+    - id: nuhai-ni-de-yi-fenzhong-you-duo-zhang-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nuhai-ni-de-yi-fenzhong-you-duo-zhang]

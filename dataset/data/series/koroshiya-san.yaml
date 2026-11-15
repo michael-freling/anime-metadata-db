@@ -13,16 +13,9 @@ series:
       number: 1
       releaseYear: 2013
       releaseSeason: FALL
-      episodes:
-        count: 10
-        absoluteFrom: 1
-    - id: koroshiya-san-s2
-      number: 2
-      releaseYear: 2013
-      releaseSeason: FALL
       externalIds:
         anilistId: 20329
         anidbId: 9979
       episodes:
         count: 10
-        absoluteFrom: 11
+        absoluteFrom: 1

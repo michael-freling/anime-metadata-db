@@ -9,7 +9,5 @@ series:
   seasons:
     - id: saijaku-muhai-no-bahamut-s1
       number: 1
-    - id: saijaku-muhai-no-bahamut-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [saijaku-muhai-no-bahamut]

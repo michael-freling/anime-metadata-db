@@ -1,0 +1,12 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kare-wa-genjitsu-no-sekai-ni
+  titles:
+    original: 彼は現実の世界に…
+    translations: { ja-Latn: Kare wa Genjitsu no Sekai ni… }
+  movies:
+    - id: kare-wa-genjitsu-no-sekai-ni-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kare-wa-genjitsu-no-sekai-ni]

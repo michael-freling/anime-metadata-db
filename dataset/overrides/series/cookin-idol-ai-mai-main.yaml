@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: cookin-idol-ai-mai-main
+  titles:
+    original: クッキンアイドル アイ! マイ! まいん!
+    translations: { ja-Latn: Cookin' Idol Ai! Mai! Main! }
+  seasons:
+    - id: cookin-idol-ai-mai-main-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [cookin-idol-ai-mai-main]

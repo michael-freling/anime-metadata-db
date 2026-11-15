@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: huo-xing-wa-jiankang-chengzhang
+  titles:
+    original: "Huo Xing Wa: Jiankang Chengzhang"
+    translations: { ja-Latn: "Huo Xing Wa: Jiankang Chengzhang" }
+  seasons:
+    - id: huo-xing-wa-jiankang-chengzhang-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [huo-xing-wa-jiankang-chengzhang]

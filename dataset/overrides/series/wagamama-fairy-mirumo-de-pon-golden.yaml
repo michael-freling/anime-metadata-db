@@ -1,0 +1,13 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wagamama-fairy-mirumo-de-pon-golden
+  titles:
+    original: わがまま☆フェアリー ミルモでポン! ごおるでん
+    translations: { ja-Latn: Wagamama Fairy Mirumo de Pon! Golden }
+  seasons:
+    - id: wagamama-fairy-mirumo-de-pon-golden-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wagamama-fairy-mirumo-de-pon-golden]

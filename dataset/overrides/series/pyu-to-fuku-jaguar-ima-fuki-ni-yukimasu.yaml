@@ -1,0 +1,12 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pyu-to-fuku-jaguar-ima-fuki-ni-yukimasu
+  titles:
+    original: ピューと吹く！ジャガー ～いま、吹きにゆきます～
+    translations: { ja-Latn: "Pyu to Fuku! Jaguar ~Ima, Fuki ni Yukimasu~" }
+  movies:
+    - id: pyu-to-fuku-jaguar-ima-fuki-ni-yukimasu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pyu-to-fuku-jaguar-ima-fuki-ni-yukimasu]

@@ -1,0 +1,17 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: manga-nippon-mukashibanashi-2005
+  titles:
+    original: まんが日本昔ばなし
+    translations: { ja-Latn: Manga Nippon Mukashibanashi (2005) }
+  seasons:
+    - id: manga-nippon-mukashibanashi-2005-s1
+      number: 1
+    - id: manga-nippon-mukashibanashi-2005-s2
+      number: 2
+  movies:
+    - id: manga-nippon-mukashibanashi-2005-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [manga-nippon-mukashibanashi-2005]

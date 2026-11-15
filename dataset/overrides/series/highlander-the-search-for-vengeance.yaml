@@ -1,0 +1,12 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: highlander-the-search-for-vengeance
+  titles:
+    original: HIGHLANDER ハイランダー 〜ディレクターズカット版〜
+    translations: { ja-Latn: "Highlander: The Search for Vengeance" }
+  movies:
+    - id: highlander-the-search-for-vengeance-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [highlander-the-search-for-vengeance]

@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: huanxiao-man-wu
+  titles:
+    original: Huanxiao Man Wu
+    translations: { ja-Latn: Huanxiao Man Wu }
+  movies:
+    - id: huanxiao-man-wu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [huanxiao-man-wu]

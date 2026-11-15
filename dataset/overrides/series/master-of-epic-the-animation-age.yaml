@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: master-of-epic-the-animation-age
+  titles:
+    original: マスター オブ エピック The Animation Age
+    translations: { ja-Latn: "Master of Epic: The Animation Age" }
+  seasons:
+    - id: master-of-epic-the-animation-age-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [master-of-epic-the-animation-age]

@@ -1,0 +1,13 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: keke-ke-xin-yijia-ren
+  titles:
+    original: Keke Ke Xin Yijia Ren
+    translations: { ja-Latn: Keke Ke Xin Yijia Ren }
+  seasons:
+    - id: keke-ke-xin-yijia-ren-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [keke-ke-xin-yijia-ren]

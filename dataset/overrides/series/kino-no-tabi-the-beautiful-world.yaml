@@ -1,0 +1,15 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kino-no-tabi-the-beautiful-world
+  titles:
+    original: キノの旅 -the Beautiful World- 病気の国 -For You-
+    translations: { ja-Latn: "Kino no Tabi: The Beautiful World" }
+  seasons:
+    - id: kino-no-tabi-the-beautiful-world-s1
+      number: 1
+  movies:
+    - id: kino-no-tabi-the-beautiful-world-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kino-no-tabi-the-beautiful-world]

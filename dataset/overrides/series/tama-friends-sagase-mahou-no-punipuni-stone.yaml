@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tama-friends-sagase-mahou-no-punipuni-stone
+  titles:
+    original: TAMA＆FRIENDS 探せ！魔法のプニプニストーン
+    translations: { ja-Latn: "Tama & Friends: Sagase! Mahou no Punipuni Stone" }
+  seasons:
+    - id: tama-friends-sagase-mahou-no-punipuni-stone-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tama-friends-sagase-mahou-no-punipuni-stone]

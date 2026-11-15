@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xing-mao-da-jiangtang
+  titles:
+    original: Xing Mao Da Jiangtang
+    translations: { ja-Latn: Xing Mao Da Jiangtang }
+  seasons:
+    - id: xing-mao-da-jiangtang-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xing-mao-da-jiangtang]

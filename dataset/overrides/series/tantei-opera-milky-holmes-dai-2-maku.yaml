@@ -9,7 +9,5 @@ series:
   seasons:
     - id: tantei-opera-milky-holmes-dai-2-maku-s1
       number: 1
-    - id: tantei-opera-milky-holmes-dai-2-maku-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [tantei-opera-milky-holmes-dai-2-maku]

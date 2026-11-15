@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: geisters-movie-inochi-no-shou
+  titles:
+    original: 劇場版 ガイスターズ 命の章
+    translations: { ja-Latn: "Geisters Movie: Inochi no Shou" }
+  movies:
+    - id: geisters-movie-inochi-no-shou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [geisters-movie-inochi-no-shou]

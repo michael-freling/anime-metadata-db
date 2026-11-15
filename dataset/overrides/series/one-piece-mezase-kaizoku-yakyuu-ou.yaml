@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: one-piece-mezase-kaizoku-yakyuu-ou
+  titles:
+    original: ONE PIECE ワンピース めざせ！海賊野球王
+    translations: { ja-Latn: "One Piece: Mezase! Kaizoku Yakyuu Ou" }
+  movies:
+    - id: one-piece-mezase-kaizoku-yakyuu-ou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [one-piece-mezase-kaizoku-yakyuu-ou]

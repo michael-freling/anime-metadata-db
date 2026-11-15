@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kusoh-no-kikai-tachi-no-naka-no-hakai-no-hatsumei
+  titles:
+    original: 空想の機械達の中の破壊の発明
+    translations: { ja-Latn: Kusoh no Kikai-tachi no Naka no Hakai no Hatsumei }
+  movies:
+    - id: kusoh-no-kikai-tachi-no-naka-no-hakai-no-hatsumei-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kusoh-no-kikai-tachi-no-naka-no-hakai-no-hatsumei]

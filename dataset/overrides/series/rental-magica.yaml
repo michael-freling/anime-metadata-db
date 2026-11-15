@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rental-magica
+  titles:
+    original: レンタルマギカ
+    translations: { ja-Latn: Rental Magica }
+  seasons:
+    - id: rental-magica-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rental-magica]

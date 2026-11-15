@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zheng-he-xia-xiyang
+  titles:
+    original: Zheng He Xia Xiyang
+    translations: { ja-Latn: Zheng He Xia Xiyang }
+  seasons:
+    - id: zheng-he-xia-xiyang-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zheng-he-xia-xiyang]

@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nhk-ni-youkoso
+  titles:
+    original: N・H・Kにようこそ！
+    translations: { ja-Latn: NHK ni Youkoso! }
+  seasons:
+    - id: nhk-ni-youkoso-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nhk-ni-youkoso]

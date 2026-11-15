@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kara-no-kyoukai-movie-2-satsujin-kousatsu-zen
+  titles:
+    original: 劇場版 空の境界 the Garden of sinners 第二章『殺人考察（前）』
+    translations: { ja-Latn: "Kara no Kyoukai Movie 2: Satsujin Kousatsu (Zen)" }
+  movies:
+    - id: kara-no-kyoukai-movie-2-satsujin-kousatsu-zen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kara-no-kyoukai-movie-2-satsujin-kousatsu-zen]

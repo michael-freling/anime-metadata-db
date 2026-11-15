@@ -9,7 +9,5 @@ series:
   seasons:
     - id: fastest-finger-first-s1
       number: 1
-    - id: fastest-finger-first-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [fastest-finger-first]

@@ -1,0 +1,12 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: seikai-no-monsho-special-edition
+  titles:
+    original: 星界の紋章 総集編
+    translations: { ja-Latn: Seikai no Monshō Special Edition }
+  movies:
+    - id: seikai-no-monsho-special-edition-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [seikai-no-monsho-special-edition]

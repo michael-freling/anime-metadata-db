@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhan-long-si-qu
+  titles:
+    original: Zhan Long Si Qu
+    translations: { ja-Latn: Zhan Long Si Qu }
+  seasons:
+    - id: zhan-long-si-qu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhan-long-si-qu]

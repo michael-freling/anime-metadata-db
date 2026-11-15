@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: teen-titans-trouble-in-tokyo
+  titles:
+    original: "Teen Titans: Trouble in Tokyo"
+    translations: { ja-Latn: "Teen Titans: Trouble in Tokyo" }
+  movies:
+    - id: teen-titans-trouble-in-tokyo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [teen-titans-trouble-in-tokyo]

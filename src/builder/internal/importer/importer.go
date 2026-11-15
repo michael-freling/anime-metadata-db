@@ -245,6 +245,14 @@ func poolKnown(db *offlinedb.Database, seed offlinedb.Anime, original string, kn
 // pre-2025 work.
 func series(db *offlinedb.Database, seed offlinedb.Anime, original string) (Series, []offlinedb.Key, error) {
 	id := Slug(seed.Title)
+	// A title upstream carries only in its own script leaves nothing behind:
+	// Slug keeps [a-z0-9] and 熊野古道民話集 has none, so the id, the filename
+	// and every work id under it come out empty. Refused rather than written,
+	// because the id is a permanent public handle and picking a romanisation
+	// for one is exactly the judgement a person should make.
+	if id == "" {
+		return Series{}, nil, fmt.Errorf("the title romanises to nothing, so there is no id to give it")
+	}
 	s := Series{ID: id, Original: original, Romanized: seed.Title}
 
 	// The same pool the build will assemble: both title forms, deduplicated by
@@ -259,15 +267,30 @@ func series(db *offlinedb.Database, seed offlinedb.Anime, original string) (Seri
 	for k := range pool {
 		members = append(members, k)
 	}
-	var tv, films []offlinedb.Anime
-	for _, a := range pool {
-		switch a.Type {
-		case offlinedb.TypeTV:
-			tv = append(tv, a)
-		case offlinedb.TypeMovie:
-			films = append(films, a)
+	// The build resolves a kind against upstream's AniList-bearing records
+	// first and consults the rest of the pool only where those cannot account
+	// for the installments; resolveInstallments explains why the two halves are
+	// not equally good evidence. Declaring a slot per entry in the whole pool
+	// is what forced that fallback. Upstream lists some works twice — once as a
+	// merged record and once under the English title with no AniList id, same
+	// type, same quarter, same length — and the second became a season of its
+	// own: "Amaama to Inazuma" beside "Sweetness & Lightning", "Ansatsu
+	// Kyoushitsu" beside "Assassination Classroom". 120 series carry a phantom
+	// season that way and the continuous absoluteNumber runs through it, so
+	// 2,563 episodes are counted twice.
+	//
+	// The count written here is therefore the count the build will resolve: the
+	// merged half wherever it has anything to say about a kind, the whole pool
+	// where it has nothing. Both still count as consumed, so neither record
+	// comes back as a seed of its own.
+	linked := map[offlinedb.Key]offlinedb.Anime{}
+	for k, a := range pool {
+		if a.AnilistID() != 0 {
+			linked[k] = a
 		}
 	}
+	tv := preferLinked(pool, linked, offlinedb.TypeTV)
+	films := preferLinked(pool, linked, offlinedb.TypeMovie)
 	// Announcements are not in the catalogue, and the two kinds have to drop
 	// them differently because resolveKind short-circuits on zero slots but
 	// refuses on a mismatched count.
@@ -299,6 +322,17 @@ func series(db *offlinedb.Database, seed offlinedb.Anime, original string) (Seri
 	if stranger := unlinked(db, releasedOnly(pool)); stranger != "" {
 		return Series{}, members, fmt.Errorf("upstream does not link %q to the other installments "+
 			"under this title, so they are probably different works sharing a name", stranger)
+	}
+	// Where the merged half cannot tell upstream's two records of a work
+	// apart — because neither carries an AniList id — nothing downstream can
+	// either, and the build pairs a slot with each. "Kokekko-san" and
+	// "Kokekkou-san" are one 26-episode 2009 series listed twice, and declaring
+	// two seasons for them is a phantom installment with a real episode count.
+	// Agreement on type, release and length inside a pool already narrowed to
+	// one title is not a coincidence: a split cour airs in different quarters.
+	if twin := sameWork(tv); twin != "" {
+		return Series{}, members, fmt.Errorf("upstream lists %q twice under this title with the same release "+
+			"and episode count and no AniList id to tell the two records apart", twin)
 	}
 	sort.SliceStable(tv, func(i, j int) bool { return airedEarlier(tv[i], tv[j]) })
 	sort.SliceStable(films, func(i, j int) bool { return airedEarlier(films[i], films[j]) })
@@ -532,4 +566,49 @@ func Slug(title string) string {
 	}
 	s := nonSlug.ReplaceAllString(b.String(), "-")
 	return edgeDash.ReplaceAllString(s, "")
+}
+
+// preferLinked returns the entries of one media type from the AniList-bearing
+// half of the pool, or from the whole pool when that half carries none of them.
+// It mirrors the order resolveInstallments consults the two halves in.
+func preferLinked(pool, linked map[offlinedb.Key]offlinedb.Anime, t offlinedb.MediaType) []offlinedb.Anime {
+	var merged, all []offlinedb.Anime
+	for k, a := range pool {
+		if a.Type != t {
+			continue
+		}
+		all = append(all, a)
+		if _, ok := linked[k]; ok {
+			merged = append(merged, a)
+		}
+	}
+	if len(merged) > 0 {
+		return merged
+	}
+	return all
+}
+
+// sameWork names an entry that another in the slice is indistinguishable from:
+// same type, same release window, same length. Entries that state neither when
+// they aired nor how long they ran are skipped, since they match each other on
+// absence rather than on evidence.
+func sameWork(entries []offlinedb.Anime) string {
+	type work struct {
+		typ      offlinedb.MediaType
+		year     int
+		season   string
+		episodes int
+	}
+	seen := map[work]bool{}
+	for _, a := range entries {
+		if a.AnimeSeason.Year == 0 || a.Episodes == 0 {
+			continue
+		}
+		w := work{a.Type, a.AnimeSeason.Year, a.AnimeSeason.Season, a.Episodes}
+		if seen[w] {
+			return a.Title
+		}
+		seen[w] = true
+	}
+	return ""
 }

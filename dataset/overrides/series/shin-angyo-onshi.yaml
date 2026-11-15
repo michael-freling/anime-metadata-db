@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shin-angyo-onshi
+  titles:
+    original: Shin Angyo Onshi
+    translations: { ja-Latn: Shin Angyo Onshi }
+  movies:
+    - id: shin-angyo-onshi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shin-angyo-onshi]

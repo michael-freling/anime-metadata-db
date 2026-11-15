@@ -1,0 +1,12 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kara-no-kyoukai-movie-4-garan-no-dou
+  titles:
+    original: 劇場版 空の境界 the Garden of sinners 第四章『伽藍の洞』
+    translations: { ja-Latn: "Kara no Kyoukai Movie 4: Garan no Dou" }
+  movies:
+    - id: kara-no-kyoukai-movie-4-garan-no-dou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kara-no-kyoukai-movie-4-garan-no-dou]

@@ -1,0 +1,12 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: natsu-no-yoru-no-dekigoto
+  titles:
+    original: 夏の夜の出来事
+    translations: { ja-Latn: Natsu no Yoru no Dekigoto }
+  movies:
+    - id: natsu-no-yoru-no-dekigoto-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [natsu-no-yoru-no-dekigoto]

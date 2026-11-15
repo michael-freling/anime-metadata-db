@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: clay-anime-taiko-no-tatsujin-2006
+  titles:
+    original: Clay Anime Taiko no Tatsujin (2006)
+    translations: { ja-Latn: Clay Anime Taiko no Tatsujin (2006) }
+  seasons:
+    - id: clay-anime-taiko-no-tatsujin-2006-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [clay-anime-taiko-no-tatsujin-2006]

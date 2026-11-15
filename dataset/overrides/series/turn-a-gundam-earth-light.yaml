@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: turn-a-gundam-earth-light
+  titles:
+    original: ターンエーガンダムＩ 地球光
+    translations: { ja-Latn: "Turn A Gundam: Earth Light" }
+  movies:
+    - id: turn-a-gundam-earth-light-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [turn-a-gundam-earth-light]

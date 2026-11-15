@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: renzoku-ningyou-katsugeki-shin-sanjuushi
+  titles:
+    original: "Renzoku Ningyou Katsugeki: Shin Sanjuushi"
+    translations: { ja-Latn: "Renzoku Ningyou Katsugeki: Shin Sanjuushi" }
+  seasons:
+    - id: renzoku-ningyou-katsugeki-shin-sanjuushi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [renzoku-ningyou-katsugeki-shin-sanjuushi]

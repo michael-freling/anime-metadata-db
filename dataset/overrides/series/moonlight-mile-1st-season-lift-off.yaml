@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: moonlight-mile-1st-season-lift-off
+  titles:
+    original: MOONLIGHT MILE 1stシーズン -Lift off-
+    translations: { ja-Latn: "Moonlight Mile 1st Season: Lift Off" }
+  seasons:
+    - id: moonlight-mile-1st-season-lift-off-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [moonlight-mile-1st-season-lift-off]

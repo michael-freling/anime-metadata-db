@@ -11,5 +11,6 @@ series:
       number: 1
     - id: thundercats-s2
       number: 2
-# One linear storyline: episodes carry a continuous absoluteNumber.
-numbered: [thundercats]
+# No continuous absoluteNumber. The seasons above are separate adaptations of
+# one work (1985, 2011), not one run, so numbering them end to end would
+# assert a continuity that does not exist.

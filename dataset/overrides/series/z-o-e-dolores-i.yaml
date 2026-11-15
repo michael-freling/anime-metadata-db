@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: z-o-e-dolores-i
+  titles:
+    original: ゾーン オブ エンダーズ ドロレス・アイ
+    translations: { ja-Latn: "Z.O.E Dolores, I" }
+  seasons:
+    - id: z-o-e-dolores-i-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [z-o-e-dolores-i]

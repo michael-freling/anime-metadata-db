@@ -1,0 +1,12 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-powerpuff-girls-twas-the-fight-before-christmas
+  titles:
+    original: "The Powerpuff Girls: 'Twas the Fight Before Christmas"
+    translations: { ja-Latn: "The Powerpuff Girls: 'Twas the Fight Before Christmas" }
+  movies:
+    - id: the-powerpuff-girls-twas-the-fight-before-christmas-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-powerpuff-girls-twas-the-fight-before-christmas]

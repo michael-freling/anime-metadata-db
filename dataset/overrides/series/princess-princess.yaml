@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: princess-princess
+  titles:
+    original: プリンセス・プリンセス
+    translations: { ja-Latn: Princess Princess }
+  seasons:
+    - id: princess-princess-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [princess-princess]

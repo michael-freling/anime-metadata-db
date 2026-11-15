@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gala
+  titles:
+    original: ガラ
+    translations: { ja-Latn: Gala }
+  movies:
+    - id: gala-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gala]

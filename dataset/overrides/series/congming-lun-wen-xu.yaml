@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: congming-lun-wen-xu
+  titles:
+    original: Congming Lun Wen Xu
+    translations: { ja-Latn: Congming Lun Wen Xu }
+  seasons:
+    - id: congming-lun-wen-xu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [congming-lun-wen-xu]

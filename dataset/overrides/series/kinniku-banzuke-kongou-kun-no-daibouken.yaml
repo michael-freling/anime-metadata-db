@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kinniku-banzuke-kongou-kun-no-daibouken
+  titles:
+    original: 筋肉番付 金剛くんの大冒険!
+    translations: { ja-Latn: "Kinniku Banzuke: Kongou-kun no Daibouken!" }
+  seasons:
+    - id: kinniku-banzuke-kongou-kun-no-daibouken-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kinniku-banzuke-kongou-kun-no-daibouken]

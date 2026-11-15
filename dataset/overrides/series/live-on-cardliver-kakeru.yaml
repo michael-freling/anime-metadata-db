@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: live-on-cardliver-kakeru
+  titles:
+    original: ライブオン CARDLIVER 翔
+    translations: { ja-Latn: Live On Cardliver Kakeru }
+  seasons:
+    - id: live-on-cardliver-kakeru-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [live-on-cardliver-kakeru]

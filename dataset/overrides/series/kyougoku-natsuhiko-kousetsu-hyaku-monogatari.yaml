@@ -1,0 +1,13 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kyougoku-natsuhiko-kousetsu-hyaku-monogatari
+  titles:
+    original: "Kyougoku Natsuhiko: Kousetsu Hyaku Monogatari"
+    translations: { ja-Latn: "Kyougoku Natsuhiko: Kousetsu Hyaku Monogatari" }
+  seasons:
+    - id: kyougoku-natsuhiko-kousetsu-hyaku-monogatari-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kyougoku-natsuhiko-kousetsu-hyaku-monogatari]

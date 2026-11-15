@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shimajirou-no-tsuki-no-kage-wo-sagashite
+  titles:
+    original: しまじろうのつきのかげをさがして
+    translations: { ja-Latn: Shimajirou no Tsuki no Kage wo Sagashite }
+  movies:
+    - id: shimajirou-no-tsuki-no-kage-wo-sagashite-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shimajirou-no-tsuki-no-kage-wo-sagashite]

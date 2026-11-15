@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tube-angel
+  titles:
+    original: Tube Angel
+    translations: { ja-Latn: Tube Angel }
+  movies:
+    - id: tube-angel-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tube-angel]

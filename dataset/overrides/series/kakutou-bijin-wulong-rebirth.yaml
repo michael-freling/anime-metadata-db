@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kakutou-bijin-wulong-rebirth
+  titles:
+    original: "格闘美神 武龍[ウーロン] REBIRTH"
+    translations: { ja-Latn: "Kakutou Bijin Wulong: Rebirth" }
+  seasons:
+    - id: kakutou-bijin-wulong-rebirth-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kakutou-bijin-wulong-rebirth]

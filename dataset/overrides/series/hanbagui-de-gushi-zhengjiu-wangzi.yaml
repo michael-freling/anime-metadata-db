@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hanbagui-de-gushi-zhengjiu-wangzi
+  titles:
+    original: "Hanbagui De Gushi: Zhengjiu Wangzi"
+    translations: { ja-Latn: "Hanbagui De Gushi: Zhengjiu Wangzi" }
+  seasons:
+    - id: hanbagui-de-gushi-zhengjiu-wangzi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hanbagui-de-gushi-zhengjiu-wangzi]

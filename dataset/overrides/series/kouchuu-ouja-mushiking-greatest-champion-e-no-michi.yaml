@@ -1,0 +1,12 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kouchuu-ouja-mushiking-greatest-champion-e-no-michi
+  titles:
+    original: 甲虫王者ムシキング グレイテストチャンピオンへの道 劇場版
+    translations: { ja-Latn: "Kouchuu Ouja Mushiking: Greatest Champion e no Michi" }
+  movies:
+    - id: kouchuu-ouja-mushiking-greatest-champion-e-no-michi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kouchuu-ouja-mushiking-greatest-champion-e-no-michi]

@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aa-megami-sama-tv
+  titles:
+    original: ああっ女神さまっ (TV)
+    translations: { ja-Latn: Aa! Megami-sama! (TV) }
+  seasons:
+    - id: aa-megami-sama-tv-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aa-megami-sama-tv]

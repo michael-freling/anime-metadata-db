@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: girls-bravo-first-season
+  titles:
+    original: GIRLSブラボー First Season
+    translations: { ja-Latn: "Girls Bravo: First Season" }
+  seasons:
+    - id: girls-bravo-first-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [girls-bravo-first-season]

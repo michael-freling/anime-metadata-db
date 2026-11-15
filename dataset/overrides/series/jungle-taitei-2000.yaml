@@ -1,0 +1,12 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jungle-taitei-2000
+  titles:
+    original: "ジャングル大帝:本能寺の変"
+    translations: { ja-Latn: Jungle Taitei (2000) }
+  movies:
+    - id: jungle-taitei-2000-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jungle-taitei-2000]

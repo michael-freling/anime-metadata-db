@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: legend-of-duo
+  titles:
+    original: レジェンド・オブ・デュオ
+    translations: { ja-Latn: Legend of Duo }
+  seasons:
+    - id: legend-of-duo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [legend-of-duo]

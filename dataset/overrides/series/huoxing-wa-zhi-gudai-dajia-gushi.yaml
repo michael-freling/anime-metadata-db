@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: huoxing-wa-zhi-gudai-dajia-gushi
+  titles:
+    original: "Huoxing Wa: Zhi Gudai Dajia Gushi"
+    translations: { ja-Latn: "Huoxing Wa: Zhi Gudai Dajia Gushi" }
+  seasons:
+    - id: huoxing-wa-zhi-gudai-dajia-gushi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [huoxing-wa-zhi-gudai-dajia-gushi]

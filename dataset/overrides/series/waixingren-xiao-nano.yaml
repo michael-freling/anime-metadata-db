@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: waixingren-xiao-nano
+  titles:
+    original: Waixingren Xiao Nano
+    translations: { ja-Latn: Waixingren Xiao Nano }
+  seasons:
+    - id: waixingren-xiao-nano-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [waixingren-xiao-nano]

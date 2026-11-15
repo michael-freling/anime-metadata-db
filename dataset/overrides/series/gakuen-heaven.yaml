@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gakuen-heaven
+  titles:
+    original: 学園ヘヴン BOY`S LOVE SCRAMBLE!
+    translations: { ja-Latn: Gakuen Heaven }
+  seasons:
+    - id: gakuen-heaven-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gakuen-heaven]

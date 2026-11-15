@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yu-gi-oh-duel-monsters-alex
+  titles:
+    original: 遊☆戯☆王デュエルモンスターズALEX
+    translations: { ja-Latn: Yu☆Gi☆Oh! Duel Monsters ALEX }
+  seasons:
+    - id: yu-gi-oh-duel-monsters-alex-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yu-gi-oh-duel-monsters-alex]

@@ -1,0 +1,12 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ashita-genki-ni-nare-hanbun-no-satsumaimo
+  titles:
+    original: あした元気にな〜れ！ 〜半分のさつまいも〜
+    translations: { ja-Latn: "Ashita Genki ni Nare!: Hanbun no Satsumaimo" }
+  movies:
+    - id: ashita-genki-ni-nare-hanbun-no-satsumaimo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ashita-genki-ni-nare-hanbun-no-satsumaimo]

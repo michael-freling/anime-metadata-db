@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: saiunkoku-monogatari-2nd-season
+  titles:
+    original: 彩雲国物語 第2シリーズ
+    translations: { ja-Latn: Saiunkoku Monogatari 2nd Season }
+  seasons:
+    - id: saiunkoku-monogatari-2nd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [saiunkoku-monogatari-2nd-season]

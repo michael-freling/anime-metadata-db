@@ -1,0 +1,12 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dangsin-eul-chodaehago-sipseubnida
+  titles:
+    original: Dangsin-eul Chodaehago Sipseubnida
+    translations: { ja-Latn: Dangsin-eul Chodaehago Sipseubnida }
+  movies:
+    - id: dangsin-eul-chodaehago-sipseubnida-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dangsin-eul-chodaehago-sipseubnida]

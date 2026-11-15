@@ -1,0 +1,13 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: honoo-no-mirage
+  titles:
+    original: "炎の蜃気楼 [ミラージュ]"
+    translations: { ja-Latn: Honoo no Mirage }
+  seasons:
+    - id: honoo-no-mirage-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [honoo-no-mirage]

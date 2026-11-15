@@ -1,0 +1,13 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rockman-exe-axess
+  titles:
+    original: ロックマンエグゼ・Axess（アクセス）
+    translations: { ja-Latn: Rockman.EXE Axess }
+  seasons:
+    - id: rockman-exe-axess-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rockman-exe-axess]

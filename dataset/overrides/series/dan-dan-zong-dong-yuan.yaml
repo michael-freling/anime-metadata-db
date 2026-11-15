@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dan-dan-zong-dong-yuan
+  titles:
+    original: Dan Dan Zong Dong Yuan
+    translations: { ja-Latn: Dan Dan Zong Dong Yuan }
+  seasons:
+    - id: dan-dan-zong-dong-yuan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dan-dan-zong-dong-yuan]

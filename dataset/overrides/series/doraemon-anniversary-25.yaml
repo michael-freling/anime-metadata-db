@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: doraemon-anniversary-25
+  titles:
+    original: ドラえもんアニバーサリー25
+    translations: { ja-Latn: Doraemon Anniversary 25 }
+  movies:
+    - id: doraemon-anniversary-25-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [doraemon-anniversary-25]

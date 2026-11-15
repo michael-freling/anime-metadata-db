@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: toki-wo-kakeru-shoujo
+  titles:
+    original: 時をかける少女
+    translations: { ja-Latn: Toki wo Kakeru Shoujo }
+  movies:
+    - id: toki-wo-kakeru-shoujo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [toki-wo-kakeru-shoujo]

@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tetsuwan-birdy-decode-02
+  titles:
+    original: 鉄腕バーディー DECODE 第2期
+    translations: { ja-Latn: "Tetsuwan Birdy Decode:02" }
+  seasons:
+    - id: tetsuwan-birdy-decode-02-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tetsuwan-birdy-decode-02]

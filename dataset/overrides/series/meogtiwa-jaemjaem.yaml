@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: meogtiwa-jaemjaem
+  titles:
+    original: Meogtiwa Jaemjaem
+    translations: { ja-Latn: Meogtiwa Jaemjaem }
+  seasons:
+    - id: meogtiwa-jaemjaem-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [meogtiwa-jaemjaem]

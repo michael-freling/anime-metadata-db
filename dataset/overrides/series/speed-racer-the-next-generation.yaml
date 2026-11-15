@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: speed-racer-the-next-generation
+  titles:
+    original: "Speed Racer: The Next Generation"
+    translations: { ja-Latn: "Speed Racer: The Next Generation" }
+  seasons:
+    - id: speed-racer-the-next-generation-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [speed-racer-the-next-generation]

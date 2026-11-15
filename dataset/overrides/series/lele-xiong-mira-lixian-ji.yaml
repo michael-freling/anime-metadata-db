@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lele-xiong-mira-lixian-ji
+  titles:
+    original: "Lele Xiong: Mira Lixian Ji"
+    translations: { ja-Latn: "Lele Xiong: Mira Lixian Ji" }
+  seasons:
+    - id: lele-xiong-mira-lixian-ji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lele-xiong-mira-lixian-ji]

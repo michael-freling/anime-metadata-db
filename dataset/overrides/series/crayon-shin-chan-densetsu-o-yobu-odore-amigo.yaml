@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: crayon-shin-chan-densetsu-o-yobu-odore-amigo
+  titles:
+    original: クレヨンしんちゃん 伝説を呼ぶ 踊れ! アミーゴ!
+    translations: { ja-Latn: "Crayon Shin-chan: Densetsu o Yobu Odore! Amigo!" }
+  movies:
+    - id: crayon-shin-chan-densetsu-o-yobu-odore-amigo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [crayon-shin-chan-densetsu-o-yobu-odore-amigo]

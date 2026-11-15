@@ -1,0 +1,12 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shimajirou-to-mimirin-no-nagare-hoshi-monogatari
+  titles:
+    original: しまじろうとみみりんのながれ星ものがたり
+    translations: { ja-Latn: Shimajirou to Mimirin no Nagare Hoshi Monogatari }
+  movies:
+    - id: shimajirou-to-mimirin-no-nagare-hoshi-monogatari-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shimajirou-to-mimirin-no-nagare-hoshi-monogatari]

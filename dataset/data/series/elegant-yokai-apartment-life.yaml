@@ -13,17 +13,10 @@ series:
       number: 1
       releaseYear: 2017
       releaseSeason: SUMMER
-      episodes:
-        count: 26
-        absoluteFrom: 1
-    - id: elegant-yokai-apartment-life-s2
-      number: 2
-      releaseYear: 2017
-      releaseSeason: SUMMER
       externalIds:
         anilistId: 98501
         anidbId: 13017
         tvdbId: 329827
       episodes:
         count: 26
-        absoluteFrom: 27
+        absoluteFrom: 1

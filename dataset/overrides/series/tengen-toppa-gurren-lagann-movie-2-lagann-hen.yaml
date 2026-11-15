@@ -1,0 +1,12 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tengen-toppa-gurren-lagann-movie-2-lagann-hen
+  titles:
+    original: 劇場版 天元突破グレンラガン 螺巌篇
+    translations: { ja-Latn: "Tengen Toppa Gurren Lagann Movie 2: Lagann-hen" }
+  movies:
+    - id: tengen-toppa-gurren-lagann-movie-2-lagann-hen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tengen-toppa-gurren-lagann-movie-2-lagann-hen]

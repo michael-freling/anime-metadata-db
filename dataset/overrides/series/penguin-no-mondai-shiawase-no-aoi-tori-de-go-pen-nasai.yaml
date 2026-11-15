@@ -1,0 +1,12 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: penguin-no-mondai-shiawase-no-aoi-tori-de-go-pen-nasai
+  titles:
+    original: 劇場版ペンギンの問題 幸せの青い鳥でごペンなさい
+    translations: { ja-Latn: "Penguin no Mondai: Shiawase no Aoi Tori de Go-Pen-nasai" }
+  movies:
+    - id: penguin-no-mondai-shiawase-no-aoi-tori-de-go-pen-nasai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [penguin-no-mondai-shiawase-no-aoi-tori-de-go-pen-nasai]

@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 11eyes
+  titles:
+    original: 11eyes イレブンアイズ
+    translations: { ja-Latn: 11eyes }
+  seasons:
+    - id: 11eyes-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [11eyes]

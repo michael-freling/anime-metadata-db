@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: makkura-land-no-honeinu-kun
+  titles:
+    original: まっくららんどのホネイヌくん
+    translations: { ja-Latn: Makkura Land no Honeinu-kun }
+  movies:
+    - id: makkura-land-no-honeinu-kun-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [makkura-land-no-honeinu-kun]

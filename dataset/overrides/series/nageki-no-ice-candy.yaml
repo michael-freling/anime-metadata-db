@@ -1,0 +1,12 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nageki-no-ice-candy
+  titles:
+    original: 嘆きのアイスキャンディー
+    translations: { ja-Latn: Nageki no Ice Candy }
+  movies:
+    - id: nageki-no-ice-candy-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nageki-no-ice-candy]

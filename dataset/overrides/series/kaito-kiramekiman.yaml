@@ -1,0 +1,13 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaito-kiramekiman
+  titles:
+    original: タイムボカン2000 怪盗きらめきマン
+    translations: { ja-Latn: Kaitō Kiramekiman }
+  seasons:
+    - id: kaito-kiramekiman-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaito-kiramekiman]

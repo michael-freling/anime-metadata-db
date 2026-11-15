@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ginga-tetsudou-999-kieta-taiyoukei
+  titles:
+    original: 銀河鉄道999 〜消えた太陽系〜
+    translations: { ja-Latn: "Ginga Tetsudou 999: Kieta Taiyoukei" }
+  movies:
+    - id: ginga-tetsudou-999-kieta-taiyoukei-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ginga-tetsudou-999-kieta-taiyoukei]

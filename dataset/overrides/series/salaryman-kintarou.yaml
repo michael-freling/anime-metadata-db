@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: salaryman-kintarou
+  titles:
+    original: サラリーマン金太郎
+    translations: { ja-Latn: Salaryman Kintarou }
+  seasons:
+    - id: salaryman-kintarou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [salaryman-kintarou]

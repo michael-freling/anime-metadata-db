@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chengshi-yezhan-pai
+  titles:
+    original: Chengshi Yezhan Pai
+    translations: { ja-Latn: Chengshi Yezhan Pai }
+  seasons:
+    - id: chengshi-yezhan-pai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chengshi-yezhan-pai]

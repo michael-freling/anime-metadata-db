@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bouken-ou-beet
+  titles:
+    original: 冒険王ビィト
+    translations: { ja-Latn: Bouken Ou Beet }
+  seasons:
+    - id: bouken-ou-beet-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bouken-ou-beet]

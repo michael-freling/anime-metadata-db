@@ -5,7 +5,7 @@ series:
     original: Bun Bun
     translations:
       ja-Latn: Bun Bun
-  ordering: absolute
+  ordering: release
   seasons:
     - id: bun-bun-s1
       number: 1
@@ -16,10 +16,8 @@ series:
         anidbId: 3304
       episodes:
         count: 39
-        absoluteFrom: 1
     - id: bun-bun-s2
       number: 2
       releaseYear: 2011
       episodes:
         count: 26
-        absoluteFrom: 40

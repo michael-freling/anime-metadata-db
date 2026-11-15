@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ryoku-tama-shinshi
+  titles:
+    original: Ryoku Tama Shinshi
+    translations: { ja-Latn: Ryoku Tama Shinshi }
+  movies:
+    - id: ryoku-tama-shinshi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ryoku-tama-shinshi]

@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: go-go-itsutsugo-land
+  titles:
+    original: ゴーゴー五つ子 ら・ん・ど
+    translations: { ja-Latn: Go! Go! Itsutsugo Land }
+  seasons:
+    - id: go-go-itsutsugo-land-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [go-go-itsutsugo-land]

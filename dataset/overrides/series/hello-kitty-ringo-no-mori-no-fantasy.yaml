@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hello-kitty-ringo-no-mori-no-fantasy
+  titles:
+    original: Hello Kitty りんごの森のファンタジー
+    translations: { ja-Latn: "Hello Kitty: Ringo no Mori no Fantasy" }
+  seasons:
+    - id: hello-kitty-ringo-no-mori-no-fantasy-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hello-kitty-ringo-no-mori-no-fantasy]

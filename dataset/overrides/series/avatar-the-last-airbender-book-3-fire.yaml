@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: avatar-the-last-airbender-book-3-fire
+  titles:
+    original: "Avatar: The Last Airbender Book 3: Fire"
+    translations: { ja-Latn: "Avatar: The Last Airbender Book 3: Fire" }
+  seasons:
+    - id: avatar-the-last-airbender-book-3-fire-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [avatar-the-last-airbender-book-3-fire]

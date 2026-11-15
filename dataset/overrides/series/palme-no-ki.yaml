@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: palme-no-ki
+  titles:
+    original: パルムの樹
+    translations: { ja-Latn: Palme no Ki }
+  movies:
+    - id: palme-no-ki-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [palme-no-ki]

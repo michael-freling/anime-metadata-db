@@ -9,7 +9,5 @@ series:
   seasons:
     - id: dakara-boku-wa-h-ga-dekinai-s1
       number: 1
-    - id: dakara-boku-wa-h-ga-dekinai-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [dakara-boku-wa-h-ga-dekinai]

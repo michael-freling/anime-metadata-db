@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hakushaku-to-yousei
+  titles:
+    original: 伯爵と妖精
+    translations: { ja-Latn: Hakushaku to Yousei }
+  seasons:
+    - id: hakushaku-to-yousei-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hakushaku-to-yousei]

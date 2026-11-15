@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mobile-suit-gundam-ms-igloo-the-hidden-one-year-war
+  titles:
+    original: 機動戦士ガンダム MS IGLOO <イグルー> -1年戦争秘話-
+    translations: { ja-Latn: "Mobile Suit Gundam MS IGLOO: The Hidden One Year War" }
+  movies:
+    - id: mobile-suit-gundam-ms-igloo-the-hidden-one-year-war-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mobile-suit-gundam-ms-igloo-the-hidden-one-year-war]

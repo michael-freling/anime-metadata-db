@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tian-jiang-xiaozi
+  titles:
+    original: Tian Jiang Xiaozi
+    translations: { ja-Latn: Tian Jiang Xiaozi }
+  seasons:
+    - id: tian-jiang-xiaozi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tian-jiang-xiaozi]

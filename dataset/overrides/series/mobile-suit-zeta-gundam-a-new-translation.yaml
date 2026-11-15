@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mobile-suit-zeta-gundam-a-new-translation
+  titles:
+    original: 機動戦士ZガンダムⅢ-星の鼓動は愛-
+    translations: { ja-Latn: "Mobile Suit Zeta Gundam: A New Translation" }
+  movies:
+    - id: mobile-suit-zeta-gundam-a-new-translation-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mobile-suit-zeta-gundam-a-new-translation]

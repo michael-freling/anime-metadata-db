@@ -1,0 +1,13 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: saint-beast-seijuu-kourin-hen
+  titles:
+    original: セイント・ビースト～聖獣降臨編～
+    translations: { ja-Latn: "Saint Beast: Seijuu Kourin-hen" }
+  seasons:
+    - id: saint-beast-seijuu-kourin-hen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [saint-beast-seijuu-kourin-hen]

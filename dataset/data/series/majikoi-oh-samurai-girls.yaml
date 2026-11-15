@@ -11,17 +11,10 @@ series:
       number: 1
       releaseYear: 2011
       releaseSeason: FALL
-      episodes:
-        count: 12
-        absoluteFrom: 1
-    - id: majikoi-oh-samurai-girls-s2
-      number: 2
-      releaseYear: 2011
-      releaseSeason: FALL
       externalIds:
         anilistId: 10213
         anidbId: 8230
         tvdbId: 252343
       episodes:
         count: 12
-        absoluteFrom: 13
+        absoluteFrom: 1

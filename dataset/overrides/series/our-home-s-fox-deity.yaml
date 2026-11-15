@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: our-home-s-fox-deity
+  titles:
+    original: 我が家のお稲荷さま。
+    translations: { ja-Latn: Our Home's Fox Deity }
+  seasons:
+    - id: our-home-s-fox-deity-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [our-home-s-fox-deity]

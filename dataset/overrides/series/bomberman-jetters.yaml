@@ -1,0 +1,13 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bomberman-jetters
+  titles:
+    original: ボンバーマン ジェッターズ
+    translations: { ja-Latn: Bomberman Jetters }
+  seasons:
+    - id: bomberman-jetters-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bomberman-jetters]

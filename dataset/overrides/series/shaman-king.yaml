@@ -1,0 +1,18 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shaman-king
+  titles:
+    original: シャーマンキング
+    translations: { ja-Latn: Shaman King }
+  seasons:
+    - id: shaman-king-s1
+      number: 1
+    - id: shaman-king-s2
+      number: 2
+    - id: shaman-king-s3
+      number: 3
+# No continuous absoluteNumber. The seasons above are separate adaptations of
+# one work (2001, 2021, 2024), not one run, so numbering them end to end would
+# assert a continuity that does not exist.

@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: allegseuui-moheom
+  titles:
+    original: Allegseuui Moheom
+    translations: { ja-Latn: Allegseuui Moheom }
+  seasons:
+    - id: allegseuui-moheom-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [allegseuui-moheom]

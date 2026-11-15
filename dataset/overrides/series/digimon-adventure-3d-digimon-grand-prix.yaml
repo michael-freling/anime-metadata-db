@@ -1,0 +1,12 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: digimon-adventure-3d-digimon-grand-prix
+  titles:
+    original: デジモンアドベンチャー3D デジモングランプリ!
+    translations: { ja-Latn: "Digimon Adventure 3D: Digimon Grand Prix!" }
+  movies:
+    - id: digimon-adventure-3d-digimon-grand-prix-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [digimon-adventure-3d-digimon-grand-prix]

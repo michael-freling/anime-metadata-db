@@ -1,0 +1,12 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: run-dim-naeseoseu-ui-banran
+  titles:
+    original: "Run=Dim: Naeseoseu-ui Banran"
+    translations: { ja-Latn: "Run=Dim: Naeseoseu-ui Banran" }
+  movies:
+    - id: run-dim-naeseoseu-ui-banran-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [run-dim-naeseoseu-ui-banran]

@@ -6,7 +6,7 @@ series:
     translations:
       en: Captain Tsubasa
       ja-Latn: Captain Tsubasa (2018)
-  ordering: absolute
+  ordering: release
   externalIds:
     wikidataId: Q647486
   seasons:
@@ -20,7 +20,6 @@ series:
         tvdbId: 84045
       episodes:
         count: 128
-        absoluteFrom: 1
     - id: captain-tsubasa-2018-s2
       number: 2
       releaseYear: 2001
@@ -31,7 +30,6 @@ series:
         tvdbId: 84045
       episodes:
         count: 52
-        absoluteFrom: 129
     - id: captain-tsubasa-2018-s3
       number: 3
       releaseYear: 2018
@@ -42,4 +40,3 @@ series:
         tvdbId: 339203
       episodes:
         count: 52
-        absoluteFrom: 181

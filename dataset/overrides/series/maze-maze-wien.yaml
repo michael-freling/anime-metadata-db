@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: maze-maze-wien
+  titles:
+    original: まぜまぜウィーン
+    translations: { ja-Latn: Maze Maze Wien }
+  movies:
+    - id: maze-maze-wien-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [maze-maze-wien]

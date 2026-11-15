@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pokemon-diamond-pearl-atsumare-pokemon-planet-center
+  titles:
+    original: ポケットモンスターダイヤモンドパール あつまれ！ ポケモンプラネットセンタ
+    translations: { ja-Latn: Pokemon Diamond & Pearl Atsumare! Pokemon Planet Center }
+  movies:
+    - id: pokemon-diamond-pearl-atsumare-pokemon-planet-center-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pokemon-diamond-pearl-atsumare-pokemon-planet-center]

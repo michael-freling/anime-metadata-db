@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: diao-man-gonzhu-gan-fu-ma
+  titles:
+    original: Diao Man Gonzhu Gan Fu Ma
+    translations: { ja-Latn: Diao Man Gonzhu Gan Fu Ma }
+  movies:
+    - id: diao-man-gonzhu-gan-fu-ma-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [diao-man-gonzhu-gan-fu-ma]

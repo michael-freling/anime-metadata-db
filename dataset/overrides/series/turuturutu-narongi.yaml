@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: turuturutu-narongi
+  titles:
+    original: トゥルトゥルトゥ ナロンイ
+    translations: { ja-Latn: Turuturutu Narongi }
+  seasons:
+    - id: turuturutu-narongi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [turuturutu-narongi]

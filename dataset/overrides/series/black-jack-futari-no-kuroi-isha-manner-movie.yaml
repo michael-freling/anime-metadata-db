@@ -1,0 +1,12 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: black-jack-futari-no-kuroi-isha-manner-movie
+  titles:
+    original: ブラック・ジャック ふたりの黒い医者 マナームービー
+    translations: { ja-Latn: "Black Jack: Futari no Kuroi Isha - Manner Movie" }
+  movies:
+    - id: black-jack-futari-no-kuroi-isha-manner-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [black-jack-futari-no-kuroi-isha-manner-movie]

@@ -1,0 +1,13 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: muteki-o-tri-zenon
+  titles:
+    original: 無敵王トライゼノン
+    translations: { ja-Latn: Muteki Ō Tri-Zenon }
+  seasons:
+    - id: muteki-o-tri-zenon-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [muteki-o-tri-zenon]

@@ -1,0 +1,12 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 4-eyes-re-mix-2005
+  titles:
+    original: 4.Eyes Re-Mix 2005
+    translations: { ja-Latn: 4.Eyes Re-Mix 2005 }
+  movies:
+    - id: 4-eyes-re-mix-2005-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [4-eyes-re-mix-2005]

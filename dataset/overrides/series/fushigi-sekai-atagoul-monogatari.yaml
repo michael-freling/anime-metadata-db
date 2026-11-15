@@ -1,0 +1,12 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fushigi-sekai-atagoul-monogatari
+  titles:
+    original: 不思議世界 アタゴオル物語
+    translations: { ja-Latn: Fushigi Sekai Atagoul Monogatari }
+  movies:
+    - id: fushigi-sekai-atagoul-monogatari-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fushigi-sekai-atagoul-monogatari]

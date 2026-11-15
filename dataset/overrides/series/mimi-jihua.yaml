@@ -1,0 +1,13 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mimi-jihua
+  titles:
+    original: Mimi Jihua
+    translations: { ja-Latn: Mimi Jihua }
+  seasons:
+    - id: mimi-jihua-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mimi-jihua]

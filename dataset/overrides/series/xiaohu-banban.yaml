@@ -1,0 +1,12 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiaohu-banban
+  titles:
+    original: Xiaohu Banban
+    translations: { ja-Latn: Xiaohu Banban }
+  movies:
+    - id: xiaohu-banban-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiaohu-banban]

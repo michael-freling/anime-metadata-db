@@ -9,7 +9,5 @@ series:
   seasons:
     - id: the-eccentric-family-2-s1
       number: 1
-    - id: the-eccentric-family-2-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [the-eccentric-family-2]

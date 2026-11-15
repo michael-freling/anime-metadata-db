@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: maria-sama-ga-miteru-haru
+  titles:
+    original: マリア様がみてる～春～
+    translations: { ja-Latn: "Maria-sama ga Miteru: Haru" }
+  seasons:
+    - id: maria-sama-ga-miteru-haru-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [maria-sama-ga-miteru-haru]

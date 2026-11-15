@@ -1,0 +1,15 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: buzzer-beater
+  titles:
+    original: ブザービーター
+    translations: { ja-Latn: Buzzer Beater }
+  seasons:
+    - id: buzzer-beater-s1
+      number: 1
+    - id: buzzer-beater-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [buzzer-beater]

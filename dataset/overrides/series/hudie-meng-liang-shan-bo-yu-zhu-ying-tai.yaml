@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hudie-meng-liang-shan-bo-yu-zhu-ying-tai
+  titles:
+    original: "Hudie Meng: Liang Shan Bo yu Zhu Ying Tai"
+    translations: { ja-Latn: "Hudie Meng: Liang Shan Bo yu Zhu Ying Tai" }
+  movies:
+    - id: hudie-meng-liang-shan-bo-yu-zhu-ying-tai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hudie-meng-liang-shan-bo-yu-zhu-ying-tai]

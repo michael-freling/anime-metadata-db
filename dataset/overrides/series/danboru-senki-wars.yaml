@@ -9,7 +9,5 @@ series:
   seasons:
     - id: danboru-senki-wars-s1
       number: 1
-    - id: danboru-senki-wars-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [danboru-senki-wars]

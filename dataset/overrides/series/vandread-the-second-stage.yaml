@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: vandread-the-second-stage
+  titles:
+    original: ヴァンドレッド the second stage
+    translations: { ja-Latn: "Vandread: The Second Stage" }
+  seasons:
+    - id: vandread-the-second-stage-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [vandread-the-second-stage]

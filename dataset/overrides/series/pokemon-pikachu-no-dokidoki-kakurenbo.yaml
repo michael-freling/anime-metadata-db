@@ -1,0 +1,12 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pokemon-pikachu-no-dokidoki-kakurenbo
+  titles:
+    original: ピカチュウのドキドキかくれんぼ
+    translations: { ja-Latn: "Pokemon: Pikachu no Dokidoki Kakurenbo" }
+  movies:
+    - id: pokemon-pikachu-no-dokidoki-kakurenbo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pokemon-pikachu-no-dokidoki-kakurenbo]

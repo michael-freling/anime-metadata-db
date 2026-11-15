@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kore-ga-watashi-no-goshujinsama
+  titles:
+    original: これが私の御主人様
+    translations: { ja-Latn: Kore ga Watashi no Goshujinsama }
+  seasons:
+    - id: kore-ga-watashi-no-goshujinsama-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kore-ga-watashi-no-goshujinsama]

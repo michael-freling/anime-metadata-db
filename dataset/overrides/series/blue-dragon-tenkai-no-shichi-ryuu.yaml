@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: blue-dragon-tenkai-no-shichi-ryuu
+  titles:
+    original: BLUE DRAGON 天界の七竜
+    translations: { ja-Latn: "Blue Dragon: Tenkai no Shichi Ryuu" }
+  seasons:
+    - id: blue-dragon-tenkai-no-shichi-ryuu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [blue-dragon-tenkai-no-shichi-ryuu]

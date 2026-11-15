@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: inukami-the-movie-tokumei-reiteki-sousakan-karina-shirou
+  titles:
+    original: いぬかみっ! THE MOVIE 特命霊的捜査官・仮名史郎っ!
+    translations: { ja-Latn: "Inukami! The Movie: Tokumei Reiteki Sousakan Karina Shirou!" }
+  movies:
+    - id: inukami-the-movie-tokumei-reiteki-sousakan-karina-shirou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [inukami-the-movie-tokumei-reiteki-sousakan-karina-shirou]

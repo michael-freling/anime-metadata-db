@@ -1,0 +1,12 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: let-s-star-watching
+  titles:
+    original: レッツ・スターウォッチング
+    translations: { ja-Latn: Let's Star Watching }
+  movies:
+    - id: let-s-star-watching-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [let-s-star-watching]

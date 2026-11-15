@@ -1,0 +1,12 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: batman-beyond-return-of-the-joker
+  titles:
+    original: "Batman Beyond: Return of the Joker"
+    translations: { ja-Latn: "Batman Beyond: Return of the Joker" }
+  movies:
+    - id: batman-beyond-return-of-the-joker-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [batman-beyond-return-of-the-joker]

@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: noein-mou-hitori-no-kimi-e
+  titles:
+    original: ノエイン もうひとりの君へ
+    translations: { ja-Latn: "Noein: Mou Hitori no Kimi e" }
+  seasons:
+    - id: noein-mou-hitori-no-kimi-e-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [noein-mou-hitori-no-kimi-e]

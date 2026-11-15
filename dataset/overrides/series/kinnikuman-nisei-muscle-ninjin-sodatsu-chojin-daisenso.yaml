@@ -1,0 +1,12 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kinnikuman-nisei-muscle-ninjin-sodatsu-chojin-daisenso
+  titles:
+    original: キン肉マンII世 マッスル人参争奪！ 超人大戦争
+    translations: { ja-Latn: "Kinnikuman Nisei: Muscle Ninjin Sōdatsu! Chōjin Daisensō" }
+  movies:
+    - id: kinnikuman-nisei-muscle-ninjin-sodatsu-chojin-daisenso-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kinnikuman-nisei-muscle-ninjin-sodatsu-chojin-daisenso]

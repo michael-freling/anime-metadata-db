@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: harukanaru-toki-no-naka-de-hachiyou-shou
+  titles:
+    original: 遙かなる時空の中で ～八葉抄～
+    translations: { ja-Latn: "Harukanaru Toki no Naka de: Hachiyou Shou" }
+  seasons:
+    - id: harukanaru-toki-no-naka-de-hachiyou-shou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [harukanaru-toki-no-naka-de-hachiyou-shou]

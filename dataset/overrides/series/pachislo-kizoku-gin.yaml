@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pachislo-kizoku-gin
+  titles:
+    original: パチスロ貴族 銀
+    translations: { ja-Latn: Pachislo Kizoku Gin }
+  seasons:
+    - id: pachislo-kizoku-gin-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pachislo-kizoku-gin]

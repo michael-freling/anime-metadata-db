@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kangri-xiao-qibing
+  titles:
+    original: Kangri Xiao Qibing
+    translations: { ja-Latn: Kangri Xiao Qibing }
+  seasons:
+    - id: kangri-xiao-qibing-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kangri-xiao-qibing]

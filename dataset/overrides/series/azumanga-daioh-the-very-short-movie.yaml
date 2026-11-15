@@ -1,0 +1,12 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: azumanga-daioh-the-very-short-movie
+  titles:
+    original: あずまんが大王（劇場短編）
+    translations: { ja-Latn: Azumanga Daioh - The Very Short Movie }
+  movies:
+    - id: azumanga-daioh-the-very-short-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [azumanga-daioh-the-very-short-movie]

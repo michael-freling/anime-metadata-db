@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yakushiji-ryouko-no-kaiki-jikenbo
+  titles:
+    original: 薬師寺涼子の怪奇事件簿
+    translations: { ja-Latn: Yakushiji Ryouko no Kaiki Jikenbo }
+  seasons:
+    - id: yakushiji-ryouko-no-kaiki-jikenbo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yakushiji-ryouko-no-kaiki-jikenbo]

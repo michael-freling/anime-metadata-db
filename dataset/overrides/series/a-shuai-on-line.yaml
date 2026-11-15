@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: a-shuai-on-line
+  titles:
+    original: A-Shuai On Line
+    translations: { ja-Latn: A-Shuai On Line }
+  seasons:
+    - id: a-shuai-on-line-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [a-shuai-on-line]

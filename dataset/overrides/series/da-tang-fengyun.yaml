@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: da-tang-fengyun
+  titles:
+    original: Da Tang Fengyun
+    translations: { ja-Latn: Da Tang Fengyun }
+  movies:
+    - id: da-tang-fengyun-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [da-tang-fengyun]

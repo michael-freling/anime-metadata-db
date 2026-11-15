@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: canvas-2-nijiiro-no-sketch
+  titles:
+    original: Canvas2 ～虹色のスケッチ～
+    translations: { ja-Latn: "Canvas 2: Nijiiro no Sketch" }
+  seasons:
+    - id: canvas-2-nijiiro-no-sketch-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [canvas-2-nijiiro-no-sketch]

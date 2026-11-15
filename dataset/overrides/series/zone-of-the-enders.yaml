@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zone-of-the-enders
+  titles:
+    original: ゾーン オブ エンダーズ
+    translations: { ja-Latn: Zone of the Enders }
+  seasons:
+    - id: zone-of-the-enders-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zone-of-the-enders]

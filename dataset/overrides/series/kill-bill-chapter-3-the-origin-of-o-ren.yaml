@@ -1,0 +1,12 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kill-bill-chapter-3-the-origin-of-o-ren
+  titles:
+    original: "Kill Bill Chapter 3: The Origin of O-Ren"
+    translations: { ja-Latn: "Kill Bill Chapter 3: The Origin of O-Ren" }
+  movies:
+    - id: kill-bill-chapter-3-the-origin-of-o-ren-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kill-bill-chapter-3-the-origin-of-o-ren]

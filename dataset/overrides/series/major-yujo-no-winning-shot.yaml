@@ -1,0 +1,12 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: major-yujo-no-winning-shot
+  titles:
+    original: メジャー 友情の一球（ウイニングショット）
+    translations: { ja-Latn: "Major: Yūjō no Winning Shot" }
+  movies:
+    - id: major-yujo-no-winning-shot-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [major-yujo-no-winning-shot]

@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiaonu-cao-e
+  titles:
+    original: Xiaonu Cao E
+    translations: { ja-Latn: Xiaonu Cao E }
+  seasons:
+    - id: xiaonu-cao-e-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiaonu-cao-e]

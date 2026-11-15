@@ -1,0 +1,13 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ayashi-no-ceres
+  titles:
+    original: 妖しのセレス
+    translations: { ja-Latn: Ayashi no Ceres }
+  seasons:
+    - id: ayashi-no-ceres-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ayashi-no-ceres]

@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiaohu-huan-xiang
+  titles:
+    original: Xiaohu Huan Xiang
+    translations: { ja-Latn: Xiaohu Huan Xiang }
+  seasons:
+    - id: xiaohu-huan-xiang-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiaohu-huan-xiang]

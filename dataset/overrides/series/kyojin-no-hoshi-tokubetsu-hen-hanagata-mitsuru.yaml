@@ -1,0 +1,13 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kyojin-no-hoshi-tokubetsu-hen-hanagata-mitsuru
+  titles:
+    original: 巨人の星【特別篇】猛虎 花形満
+    translations: { ja-Latn: "Kyojin no Hoshi: Tokubetsu-hen - Hanagata Mitsuru" }
+  seasons:
+    - id: kyojin-no-hoshi-tokubetsu-hen-hanagata-mitsuru-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kyojin-no-hoshi-tokubetsu-hen-hanagata-mitsuru]

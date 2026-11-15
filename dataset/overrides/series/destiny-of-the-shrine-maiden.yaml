@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: destiny-of-the-shrine-maiden
+  titles:
+    original: 神無月の巫女
+    translations: { ja-Latn: Destiny of the Shrine Maiden }
+  seasons:
+    - id: destiny-of-the-shrine-maiden-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [destiny-of-the-shrine-maiden]

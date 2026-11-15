@@ -1,0 +1,12 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tetsuwan-atom-atom-tanjou-no-himitsu
+  titles:
+    original: ASTRO BOY 鉄腕アトム特別編 アトム誕生の秘密
+    translations: { ja-Latn: "Tetsuwan Atom: Atom Tanjou no Himitsu" }
+  movies:
+    - id: tetsuwan-atom-atom-tanjou-no-himitsu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tetsuwan-atom-atom-tanjou-no-himitsu]

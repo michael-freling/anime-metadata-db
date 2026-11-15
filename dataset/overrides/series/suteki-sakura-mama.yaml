@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: suteki-sakura-mama
+  titles:
+    original: すてき! さくらママ
+    translations: { ja-Latn: Suteki! Sakura Mama }
+  seasons:
+    - id: suteki-sakura-mama-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [suteki-sakura-mama]

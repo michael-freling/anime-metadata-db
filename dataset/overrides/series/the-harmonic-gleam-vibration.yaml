@@ -1,0 +1,12 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-harmonic-gleam-vibration
+  titles:
+    original: The Harmonic Gleam Vibration
+    translations: { ja-Latn: The Harmonic Gleam Vibration }
+  movies:
+    - id: the-harmonic-gleam-vibration-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-harmonic-gleam-vibration]

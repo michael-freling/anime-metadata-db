@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: seitokai-no-ichizon
+  titles:
+    original: 生徒会の一存 碧陽学園生徒会議事録
+    translations: { ja-Latn: Seitokai no Ichizon }
+  seasons:
+    - id: seitokai-no-ichizon-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [seitokai-no-ichizon]

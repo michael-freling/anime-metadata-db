@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shuihu-zuqiu-zhongji-ban-tian-can-fanji-zhan
+  titles:
+    original: "Shuihu Zuqiu Zhongji Ban: Tian Can Fanji Zhan"
+    translations: { ja-Latn: "Shuihu Zuqiu Zhongji Ban: Tian Can Fanji Zhan" }
+  movies:
+    - id: shuihu-zuqiu-zhongji-ban-tian-can-fanji-zhan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shuihu-zuqiu-zhongji-ban-tian-can-fanji-zhan]

@@ -1,0 +1,13 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhi-duoduo-zhi-duoduo
+  titles:
+    original: Zhi Duoduo Zhi Duoduo
+    translations: { ja-Latn: Zhi Duoduo Zhi Duoduo }
+  seasons:
+    - id: zhi-duoduo-zhi-duoduo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhi-duoduo-zhi-duoduo]

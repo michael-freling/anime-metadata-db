@@ -25,17 +25,10 @@ series:
       number: 2
       releaseYear: 2023
       releaseSeason: WINTER
-      episodes:
-        count: 12
-        absoluteFrom: 13
-    - id: kami-tachi-ni-hirowareta-otoko-s3
-      number: 3
-      releaseYear: 2023
-      releaseSeason: WINTER
       externalIds:
         anilistId: 135102
         anidbId: 16364
         tvdbId: 380477
       episodes:
         count: 12
-        absoluteFrom: 25
+        absoluteFrom: 13

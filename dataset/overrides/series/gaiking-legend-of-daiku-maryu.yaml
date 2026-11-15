@@ -1,0 +1,13 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gaiking-legend-of-daiku-maryu
+  titles:
+    original: ガイキング LEGEND OF DAIKU-MARYU
+    translations: { ja-Latn: "Gaiking: Legend of Daiku-Maryu" }
+  seasons:
+    - id: gaiking-legend-of-daiku-maryu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gaiking-legend-of-daiku-maryu]

@@ -1,0 +1,12 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kareinaru-budoukai
+  titles:
+    original: 華麗なる舞踏会’
+    translations: { ja-Latn: Kareinaru Budoukai }
+  movies:
+    - id: kareinaru-budoukai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kareinaru-budoukai]

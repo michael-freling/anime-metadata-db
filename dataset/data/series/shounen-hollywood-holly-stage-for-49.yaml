@@ -11,17 +11,10 @@ series:
       number: 1
       releaseYear: 2014
       releaseSeason: SUMMER
-      episodes:
-        count: 13
-        absoluteFrom: 1
-    - id: shounen-hollywood-holly-stage-for-49-s2
-      number: 2
-      releaseYear: 2014
-      releaseSeason: SUMMER
       externalIds:
         anilistId: 20648
         anidbId: 10517
         tvdbId: 281947
       episodes:
         count: 13
-        absoluteFrom: 14
+        absoluteFrom: 1

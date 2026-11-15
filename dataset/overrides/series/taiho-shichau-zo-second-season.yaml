@@ -1,0 +1,13 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: taiho-shichau-zo-second-season
+  titles:
+    original: 逮捕しちゃうぞ SECOND SEASON
+    translations: { ja-Latn: "Taiho Shichau zo: Second Season" }
+  seasons:
+    - id: taiho-shichau-zo-second-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [taiho-shichau-zo-second-season]

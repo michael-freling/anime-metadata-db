@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: naruto-konoha-sports-festival
+  titles:
+    original: NARUTO -ナルト- 木ノ葉の里の大うん動会
+    translations: { ja-Latn: "Naruto: Konoha Sports Festival" }
+  movies:
+    - id: naruto-konoha-sports-festival-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [naruto-konoha-sports-festival]

@@ -1,0 +1,13 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hidamari-no-ki
+  titles:
+    original: 陽だまりの樹
+    translations: { ja-Latn: Hidamari no Ki }
+  seasons:
+    - id: hidamari-no-ki-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hidamari-no-ki]

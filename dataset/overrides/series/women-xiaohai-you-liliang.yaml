@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: women-xiaohai-you-liliang
+  titles:
+    original: Women Xiaohai You Liliang
+    translations: { ja-Latn: Women Xiaohai You Liliang }
+  seasons:
+    - id: women-xiaohai-you-liliang-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [women-xiaohai-you-liliang]

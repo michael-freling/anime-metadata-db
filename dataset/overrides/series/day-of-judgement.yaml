@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: day-of-judgement
+  titles:
+    original: Day of Judgement
+    translations: { ja-Latn: Day of Judgement }
+  movies:
+    - id: day-of-judgement-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [day-of-judgement]

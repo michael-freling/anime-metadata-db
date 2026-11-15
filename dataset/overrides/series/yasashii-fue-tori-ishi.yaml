@@ -1,0 +1,12 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yasashii-fue-tori-ishi
+  titles:
+    original: "やさしい笛, 鳥, 石"
+    translations: { ja-Latn: "Yasashii Fue, Tori, Ishi" }
+  movies:
+    - id: yasashii-fue-tori-ishi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yasashii-fue-tori-ishi]

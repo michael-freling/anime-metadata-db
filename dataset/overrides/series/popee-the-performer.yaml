@@ -1,0 +1,13 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: popee-the-performer
+  titles:
+    original: POPEE the ぱフォーマー
+    translations: { ja-Latn: Popee the Performer }
+  seasons:
+    - id: popee-the-performer-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [popee-the-performer]

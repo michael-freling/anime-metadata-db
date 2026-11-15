@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shanmao-he-jimi
+  titles:
+    original: Shanmao He Jimi
+    translations: { ja-Latn: Shanmao He Jimi }
+  seasons:
+    - id: shanmao-he-jimi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shanmao-he-jimi]

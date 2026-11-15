@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: koisuru-tenshi-angelique-kagayaki-no-ashita
+  titles:
+    original: 恋する天使アンジェリーク ~かがやきの明日~
+    translations: { ja-Latn: "Koisuru Tenshi Angelique: Kagayaki no Ashita" }
+  seasons:
+    - id: koisuru-tenshi-angelique-kagayaki-no-ashita-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [koisuru-tenshi-angelique-kagayaki-no-ashita]

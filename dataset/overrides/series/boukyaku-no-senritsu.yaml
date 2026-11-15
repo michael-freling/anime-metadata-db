@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: boukyaku-no-senritsu
+  titles:
+    original: 忘却の旋律
+    translations: { ja-Latn: Boukyaku no Senritsu }
+  seasons:
+    - id: boukyaku-no-senritsu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [boukyaku-no-senritsu]

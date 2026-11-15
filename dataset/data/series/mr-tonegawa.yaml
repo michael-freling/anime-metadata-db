@@ -11,17 +11,10 @@ series:
       number: 1
       releaseYear: 2018
       releaseSeason: SUMMER
-      episodes:
-        count: 24
-        absoluteFrom: 1
-    - id: mr-tonegawa-s2
-      number: 2
-      releaseYear: 2018
-      releaseSeason: SUMMER
       externalIds:
         anilistId: 101161
         anidbId: 13813
         tvdbId: 344200
       episodes:
         count: 24
-        absoluteFrom: 25
+        absoluteFrom: 1

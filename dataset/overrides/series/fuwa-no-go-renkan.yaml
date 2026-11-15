@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fuwa-no-go-renkan
+  titles:
+    original: 福娃の五連環
+    translations: { ja-Latn: Fuwa no Go Renkan }
+  seasons:
+    - id: fuwa-no-go-renkan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fuwa-no-go-renkan]

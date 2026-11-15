@@ -1,0 +1,13 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ai-yori-aoshi-enishi
+  titles:
+    original: 藍より青し ～縁～
+    translations: { ja-Latn: "Ai Yori Aoshi: Enishi" }
+  seasons:
+    - id: ai-yori-aoshi-enishi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ai-yori-aoshi-enishi]

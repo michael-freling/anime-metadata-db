@@ -1,0 +1,12 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tanaami-keiichi-no-shouzou
+  titles:
+    original: 田名網敬一の肖像
+    translations: { ja-Latn: Tanaami Keiichi no Shouzou }
+  movies:
+    - id: tanaami-keiichi-no-shouzou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tanaami-keiichi-no-shouzou]

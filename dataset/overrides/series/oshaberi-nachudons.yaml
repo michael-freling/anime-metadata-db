@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: oshaberi-nachudons
+  titles:
+    original: おしゃべりなちゅどんズ
+    translations: { ja-Latn: Oshaberi Nachudons }
+  seasons:
+    - id: oshaberi-nachudons-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [oshaberi-nachudons]

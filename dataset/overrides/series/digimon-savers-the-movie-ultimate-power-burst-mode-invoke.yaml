@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: digimon-savers-the-movie-ultimate-power-burst-mode-invoke
+  titles:
+    original: デジモンセイバーズ THE MOVIE 究極パワー！バーストモード発動！！
+    translations: { ja-Latn: Digimon Savers the Movie - Ultimate Power! Burst Mode Invoke!! }
+  movies:
+    - id: digimon-savers-the-movie-ultimate-power-burst-mode-invoke-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [digimon-savers-the-movie-ultimate-power-burst-mode-invoke]

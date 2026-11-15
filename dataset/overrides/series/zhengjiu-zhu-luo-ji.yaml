@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhengjiu-zhu-luo-ji
+  titles:
+    original: Zhengjiu Zhu Luo Ji
+    translations: { ja-Latn: Zhengjiu Zhu Luo Ji }
+  seasons:
+    - id: zhengjiu-zhu-luo-ji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhengjiu-zhu-luo-ji]

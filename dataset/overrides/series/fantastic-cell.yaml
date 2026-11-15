@@ -1,0 +1,12 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fantastic-cell
+  titles:
+    original: Fantastic Cell
+    translations: { ja-Latn: Fantastic Cell }
+  movies:
+    - id: fantastic-cell-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fantastic-cell]

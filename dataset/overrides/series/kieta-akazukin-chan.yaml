@@ -1,0 +1,12 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kieta-akazukin-chan
+  titles:
+    original: 消えた赤ずきんちゃん
+    translations: { ja-Latn: Kieta Akazukin-chan }
+  movies:
+    - id: kieta-akazukin-chan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kieta-akazukin-chan]

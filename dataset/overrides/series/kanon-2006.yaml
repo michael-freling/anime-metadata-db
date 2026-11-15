@@ -1,0 +1,15 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kanon-2006
+  titles:
+    original: カノン
+    translations: { ja-Latn: Kanon (2006) }
+  seasons:
+    - id: kanon-2006-s1
+      number: 1
+    - id: kanon-2006-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kanon-2006]

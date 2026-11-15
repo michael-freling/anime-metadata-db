@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nainai-yu-xiao-xi
+  titles:
+    original: Nainai Yu Xiao Xi
+    translations: { ja-Latn: Nainai Yu Xiao Xi }
+  seasons:
+    - id: nainai-yu-xiao-xi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nainai-yu-xiao-xi]

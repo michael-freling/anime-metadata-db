@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kyou-no-5-no-2-tv
+  titles:
+    original: 今日の5の2
+    translations: { ja-Latn: Kyou no 5 no 2 (TV) }
+  seasons:
+    - id: kyou-no-5-no-2-tv-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kyou-no-5-no-2-tv]

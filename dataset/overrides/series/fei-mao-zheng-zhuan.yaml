@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fei-mao-zheng-zhuan
+  titles:
+    original: Fei Mao Zheng Zhuan
+    translations: { ja-Latn: Fei Mao Zheng Zhuan }
+  seasons:
+    - id: fei-mao-zheng-zhuan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fei-mao-zheng-zhuan]

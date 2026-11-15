@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ga-geijutsuka-art-design-class
+  titles:
+    original: GA 芸術科アートデザインクラス
+    translations: { ja-Latn: "GA: Geijutsuka Art Design Class" }
+  seasons:
+    - id: ga-geijutsuka-art-design-class-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ga-geijutsuka-art-design-class]

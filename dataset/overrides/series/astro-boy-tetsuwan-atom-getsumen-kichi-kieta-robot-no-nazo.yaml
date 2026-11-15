@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: astro-boy-tetsuwan-atom-getsumen-kichi-kieta-robot-no-nazo
+  titles:
+    original: ASTRO BOY 鉄腕アトム〜月面基地・消えたロボットの謎〜
+    translations: { ja-Latn: "Astro Boy: Tetsuwan Atom - Getsumen Kichi - Kieta Robot no Nazo" }
+  movies:
+    - id: astro-boy-tetsuwan-atom-getsumen-kichi-kieta-robot-no-nazo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [astro-boy-tetsuwan-atom-getsumen-kichi-kieta-robot-no-nazo]

@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: telepathy-shoujo-ran
+  titles:
+    original: テレパシー少女 蘭
+    translations: { ja-Latn: Telepathy Shoujo Ran }
+  seasons:
+    - id: telepathy-shoujo-ran-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [telepathy-shoujo-ran]

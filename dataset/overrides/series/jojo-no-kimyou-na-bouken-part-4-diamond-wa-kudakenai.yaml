@@ -9,7 +9,5 @@ series:
   seasons:
     - id: jojo-no-kimyou-na-bouken-part-4-diamond-wa-kudakenai-s1
       number: 1
-    - id: jojo-no-kimyou-na-bouken-part-4-diamond-wa-kudakenai-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [jojo-no-kimyou-na-bouken-part-4-diamond-wa-kudakenai]

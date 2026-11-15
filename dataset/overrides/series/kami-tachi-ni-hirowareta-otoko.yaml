@@ -11,7 +11,5 @@ series:
       number: 1
     - id: kami-tachi-ni-hirowareta-otoko-s2
       number: 2
-    - id: kami-tachi-ni-hirowareta-otoko-s3
-      number: 3
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [kami-tachi-ni-hirowareta-otoko]

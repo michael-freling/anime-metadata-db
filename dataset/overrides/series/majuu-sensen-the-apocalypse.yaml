@@ -1,0 +1,13 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: majuu-sensen-the-apocalypse
+  titles:
+    original: "Majuu Sensen: The Apocalypse"
+    translations: { ja-Latn: "Majuu Sensen: The Apocalypse" }
+  seasons:
+    - id: majuu-sensen-the-apocalypse-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [majuu-sensen-the-apocalypse]

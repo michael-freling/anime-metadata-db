@@ -1,0 +1,13 @@
+# Authored override — 2002 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kikou-sennyo-rouran
+  titles:
+    original: 奇鋼仙女ロウラン
+    translations: { ja-Latn: Kikou Sennyo Rouran }
+  seasons:
+    - id: kikou-sennyo-rouran-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kikou-sennyo-rouran]

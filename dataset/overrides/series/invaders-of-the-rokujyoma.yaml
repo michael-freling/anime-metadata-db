@@ -9,7 +9,5 @@ series:
   seasons:
     - id: invaders-of-the-rokujyoma-s1
       number: 1
-    - id: invaders-of-the-rokujyoma-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [invaders-of-the-rokujyoma]

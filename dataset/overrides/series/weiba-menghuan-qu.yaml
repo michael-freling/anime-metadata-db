@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: weiba-menghuan-qu
+  titles:
+    original: Weiba Menghuan Qu
+    translations: { ja-Latn: Weiba Menghuan Qu }
+  seasons:
+    - id: weiba-menghuan-qu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [weiba-menghuan-qu]

@@ -1,0 +1,12 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sore-ike-anpanman-slman-to-hoshi-wo-utsusou
+  titles:
+    original: それいけ！ アンパンマン ～SLマンと星をうつそう～
+    translations: { ja-Latn: "Sore Ike! Anpanman: SLman to Hoshi wo Utsusou" }
+  movies:
+    - id: sore-ike-anpanman-slman-to-hoshi-wo-utsusou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sore-ike-anpanman-slman-to-hoshi-wo-utsusou]

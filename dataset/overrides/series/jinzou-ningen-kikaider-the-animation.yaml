@@ -1,0 +1,13 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jinzou-ningen-kikaider-the-animation
+  titles:
+    original: 人造人間キカイダー The Animation
+    translations: { ja-Latn: Jinzou Ningen Kikaider The Animation }
+  seasons:
+    - id: jinzou-ningen-kikaider-the-animation-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jinzou-ningen-kikaider-the-animation]

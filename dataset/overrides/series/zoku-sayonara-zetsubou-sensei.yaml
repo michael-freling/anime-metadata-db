@@ -1,0 +1,13 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zoku-sayonara-zetsubou-sensei
+  titles:
+    original: 俗・さよなら絶望先生
+    translations: { ja-Latn: Zoku Sayonara Zetsubou Sensei }
+  seasons:
+    - id: zoku-sayonara-zetsubou-sensei-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zoku-sayonara-zetsubou-sensei]

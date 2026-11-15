@@ -1,0 +1,12 @@
+# Authored override — 2005 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tetsuwan-atom-to-sagurou-dosei-wo-mawaru-shinpi-no-hoshi-titan
+  titles:
+    original: 鉄腕アトムと探ろう! 土星をまわる神秘の星タイタン
+    translations: { ja-Latn: Tetsuwan Atom to Sagurou! Dosei wo Mawaru Shinpi no Hoshi Titan }
+  movies:
+    - id: tetsuwan-atom-to-sagurou-dosei-wo-mawaru-shinpi-no-hoshi-titan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tetsuwan-atom-to-sagurou-dosei-wo-mawaru-shinpi-no-hoshi-titan]

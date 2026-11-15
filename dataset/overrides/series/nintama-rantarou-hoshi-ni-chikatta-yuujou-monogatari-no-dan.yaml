@@ -1,0 +1,12 @@
+# Authored override — 2001 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nintama-rantarou-hoshi-ni-chikatta-yuujou-monogatari-no-dan
+  titles:
+    original: 忍たま乱太郎 ～星に誓った友情物語の段～
+    translations: { ja-Latn: "Nintama Rantarou: Hoshi ni Chikatta Yuujou Monogatari no Dan" }
+  movies:
+    - id: nintama-rantarou-hoshi-ni-chikatta-yuujou-monogatari-no-dan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nintama-rantarou-hoshi-ni-chikatta-yuujou-monogatari-no-dan]

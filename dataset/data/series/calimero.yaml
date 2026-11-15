@@ -5,7 +5,7 @@ series:
     original: カリメロ
     translations:
       ja-Latn: Calimero
-  ordering: absolute
+  ordering: release
   externalIds:
     wikidataId: Q128969
   seasons:
@@ -19,16 +19,8 @@ series:
         tvdbId: 131141
       episodes:
         count: 45
-        absoluteFrom: 1
     - id: calimero-s2
       number: 2
-      releaseYear: 1992
-      releaseSeason: FALL
-      episodes:
-        count: 52
-        absoluteFrom: 46
-    - id: calimero-s3
-      number: 3
       releaseYear: 1992
       releaseSeason: FALL
       externalIds:
@@ -37,11 +29,3 @@ series:
         tvdbId: 131141
       episodes:
         count: 52
-        absoluteFrom: 98
-    - id: calimero-s4
-      number: 4
-      releaseYear: 2014
-      releaseSeason: FALL
-      episodes:
-        count: 48
-        absoluteFrom: 150

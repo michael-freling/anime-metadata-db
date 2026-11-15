@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ringo-no-ki-no-shima
+  titles:
+    original: りんごのきのしま
+    translations: { ja-Latn: Ringo no Ki no Shima }
+  movies:
+    - id: ringo-no-ki-no-shima-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ringo-no-ki-no-shima]

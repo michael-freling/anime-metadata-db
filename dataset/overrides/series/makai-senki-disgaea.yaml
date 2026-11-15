@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: makai-senki-disgaea
+  titles:
+    original: 魔界戦記ディスガイア
+    translations: { ja-Latn: Makai Senki Disgaea }
+  seasons:
+    - id: makai-senki-disgaea-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [makai-senki-disgaea]

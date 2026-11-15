@@ -1,0 +1,12 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fist-of-the-north-star-legend-of-raoh-chapter-of-fierce-fighting
+  titles:
+    original: 真救世主伝説 北斗の拳 ラオウ伝 激闘の章
+    translations: { ja-Latn: "Fist of the North Star - Legend of Raoh: Chapter of Fierce Fighting" }
+  movies:
+    - id: fist-of-the-north-star-legend-of-raoh-chapter-of-fierce-fighting-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fist-of-the-north-star-legend-of-raoh-chapter-of-fierce-fighting]

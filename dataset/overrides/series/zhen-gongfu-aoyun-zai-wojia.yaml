@@ -1,0 +1,12 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhen-gongfu-aoyun-zai-wojia
+  titles:
+    original: "Zhen Gongfu: Aoyun Zai Wojia"
+    translations: { ja-Latn: "Zhen Gongfu: Aoyun Zai Wojia" }
+  movies:
+    - id: zhen-gongfu-aoyun-zai-wojia-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhen-gongfu-aoyun-zai-wojia]

@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kishin-houkou-demonbane-tv
+  titles:
+    original: 機神咆吼デモンベイン
+    translations: { ja-Latn: Kishin Houkou Demonbane (TV) }
+  seasons:
+    - id: kishin-houkou-demonbane-tv-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kishin-houkou-demonbane-tv]

@@ -1,0 +1,13 @@
+# Authored override — 2007 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kishin-taisen-gigantic-formula
+  titles:
+    original: 機神大戦 ギガンティック・フォーミュラ
+    translations: { ja-Latn: Kishin Taisen Gigantic Formula }
+  seasons:
+    - id: kishin-taisen-gigantic-formula-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kishin-taisen-gigantic-formula]

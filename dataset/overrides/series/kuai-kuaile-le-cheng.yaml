@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kuai-kuaile-le-cheng
+  titles:
+    original: Kuai Kuaile Le Cheng
+    translations: { ja-Latn: Kuai Kuaile Le Cheng }
+  seasons:
+    - id: kuai-kuaile-le-cheng-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kuai-kuaile-le-cheng]

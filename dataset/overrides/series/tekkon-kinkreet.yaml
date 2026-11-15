@@ -1,0 +1,12 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tekkon-kinkreet
+  titles:
+    original: 鉄コン筋クリート
+    translations: { ja-Latn: Tekkon Kinkreet }
+  movies:
+    - id: tekkon-kinkreet-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tekkon-kinkreet]

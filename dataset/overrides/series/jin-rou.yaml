@@ -1,0 +1,12 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jin-rou
+  titles:
+    original: Jin-Rou
+    translations: { ja-Latn: Jin-Rou }
+  movies:
+    - id: jin-rou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jin-rou]

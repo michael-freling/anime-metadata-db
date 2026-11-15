@@ -1,0 +1,12 @@
+# Authored override — 2008 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-shu-he-da-xiang-de-chuangyi
+  titles:
+    original: Xiao Shu He Da Xiang De Chuangyi
+    translations: { ja-Latn: Xiao Shu He Da Xiang De Chuangyi }
+  movies:
+    - id: xiao-shu-he-da-xiang-de-chuangyi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-shu-he-da-xiang-de-chuangyi]

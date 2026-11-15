@@ -5,7 +5,7 @@ series:
     original: ブギーポップは笑わない
     translations:
       ja-Latn: Boogiepop wa Warawanai (2019)
-  ordering: absolute
+  ordering: release
   seasons:
     - id: boogiepop-wa-warawanai-2019-s1
       number: 1
@@ -17,7 +17,6 @@ series:
         tvdbId: 71742
       episodes:
         count: 12
-        absoluteFrom: 1
     - id: boogiepop-wa-warawanai-2019-s2
       number: 2
       releaseYear: 2019
@@ -28,4 +27,3 @@ series:
         tvdbId: 355624
       episodes:
         count: 18
-        absoluteFrom: 13

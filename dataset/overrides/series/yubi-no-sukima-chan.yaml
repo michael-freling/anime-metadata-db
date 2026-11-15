@@ -1,0 +1,12 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yubi-no-sukima-chan
+  titles:
+    original: 指のすきまちゃん
+    translations: { ja-Latn: Yubi no Sukima-chan }
+  movies:
+    - id: yubi-no-sukima-chan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yubi-no-sukima-chan]

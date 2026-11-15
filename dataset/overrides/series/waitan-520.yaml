@@ -1,0 +1,13 @@
+# Authored override — 2006 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: waitan-520
+  titles:
+    original: Waitan 520
+    translations: { ja-Latn: Waitan 520 }
+  seasons:
+    - id: waitan-520-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [waitan-520]

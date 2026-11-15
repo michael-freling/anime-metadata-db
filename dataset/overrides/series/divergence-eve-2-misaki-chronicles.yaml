@@ -1,0 +1,13 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: divergence-eve-2-misaki-chronicles
+  titles:
+    original: みさきクロニクル ~ダイバージェンス・イヴ~
+    translations: { ja-Latn: "Divergence Eve 2: Misaki Chronicles" }
+  seasons:
+    - id: divergence-eve-2-misaki-chronicles-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [divergence-eve-2-misaki-chronicles]

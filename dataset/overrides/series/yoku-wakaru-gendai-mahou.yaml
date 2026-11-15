@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yoku-wakaru-gendai-mahou
+  titles:
+    original: よくわかる現代魔法
+    translations: { ja-Latn: Yoku Wakaru Gendai Mahou }
+  seasons:
+    - id: yoku-wakaru-gendai-mahou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yoku-wakaru-gendai-mahou]

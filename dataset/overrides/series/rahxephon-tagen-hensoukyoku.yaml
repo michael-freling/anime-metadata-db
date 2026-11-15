@@ -1,0 +1,12 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rahxephon-tagen-hensoukyoku
+  titles:
+    original: ラーゼフォン 多元変奏曲
+    translations: { ja-Latn: "RahXephon: Tagen Hensoukyoku" }
+  movies:
+    - id: rahxephon-tagen-hensoukyoku-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rahxephon-tagen-hensoukyoku]

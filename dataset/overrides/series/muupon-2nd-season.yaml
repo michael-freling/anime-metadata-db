@@ -1,0 +1,13 @@
+# Authored override — 2000 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: muupon-2nd-season
+  titles:
+    original: ムーぽん 第2期
+    translations: { ja-Latn: Muupon 2nd Season }
+  seasons:
+    - id: muupon-2nd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [muupon-2nd-season]

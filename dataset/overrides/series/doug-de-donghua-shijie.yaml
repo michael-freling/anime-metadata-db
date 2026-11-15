@@ -1,0 +1,13 @@
+# Authored override — 2009 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: doug-de-donghua-shijie
+  titles:
+    original: Doug de Donghua Shijie
+    translations: { ja-Latn: Doug de Donghua Shijie }
+  seasons:
+    - id: doug-de-donghua-shijie-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [doug-de-donghua-shijie]

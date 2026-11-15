@@ -1,0 +1,12 @@
+# Authored override — 2003 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hamtaro-the-movie-3
+  titles:
+    original: とっとこハム太郎 ハムハムグランプリン オーロラ谷の奇跡 ～リボンちゃん危機一髪！～
+    translations: { ja-Latn: Hamtaro the Movie 3 }
+  movies:
+    - id: hamtaro-the-movie-3-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hamtaro-the-movie-3]

@@ -1,0 +1,12 @@
+# Authored override — 2004 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: memory-of-red
+  titles:
+    original: Memory of Red
+    translations: { ja-Latn: Memory of Red }
+  movies:
+    - id: memory-of-red-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [memory-of-red]
