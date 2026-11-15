@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shinkansen-henkei-robo-shinkalion-change-the-world-tokubetsu-hen-ushinawareta-kioku
+  titles:
+    original: 新幹線変形ロボ シンカリオン チェンジ ザ ワールド 特別編 失われた記憶
+    translations: { ja-Latn: "Shinkansen Henkei Robo Shinkalion: Change the World - Tokubetsu-hen: Ushinawareta Kioku" }
+  seasons:
+    - id: shinkansen-henkei-robo-shinkalion-change-the-world-tokubetsu-hen-ushinawareta-kioku-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shinkansen-henkei-robo-shinkalion-change-the-world-tokubetsu-hen-ushinawareta-kioku]

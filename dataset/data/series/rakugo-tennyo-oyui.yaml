@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Rakugo Tennyo Oyui
   ordering: absolute
+  externalIds:
+    wikidataId: Q841016
   seasons:
     - id: rakugo-tennyo-oyui-s1
       number: 1

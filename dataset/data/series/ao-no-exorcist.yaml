@@ -28,7 +28,7 @@ series:
         tvdbId: 248035
       episodes:
         count: 12
-        absoluteFrom: 26
+        absoluteFrom: 27
     - id: ao-no-exorcist-s3
       number: 3
       releaseYear: 2024
@@ -39,7 +39,7 @@ series:
         tvdbId: 248035
       episodes:
         count: 12
-        absoluteFrom: 38
+        absoluteFrom: 39
     - id: ao-no-exorcist-s4
       number: 4
       releaseYear: 2024
@@ -50,7 +50,7 @@ series:
         tvdbId: 248035
       episodes:
         count: 12
-        absoluteFrom: 50
+        absoluteFrom: 51
     - id: ao-no-exorcist-s5
       number: 5
       releaseYear: 2025
@@ -61,4 +61,17 @@ series:
         tvdbId: 248035
       episodes:
         count: 12
-        absoluteFrom: 62
+        absoluteFrom: 63
+  movies:
+    - id: ao-no-exorcist-film
+      titles:
+        original: 劇場版 青の祓魔師
+        translations:
+          ja: 劇場版 青の祓魔師
+          ja-Latn: Ao no Exorcist Movie
+      releaseYear: 2012
+      externalIds:
+        anilistId: 11737
+        anidbId: 8689
+        tvdbId: 248035
+      absoluteNumber: 26

@@ -9,5 +9,8 @@ series:
   seasons:
     - id: xiong-chumo-s1
       number: 1
+  movies:
+    - id: xiong-chumo-film
+      externalIds: { anilistId: 151779 } # Xiong Chumo: Chong Fan Di Qiu (2022)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [xiong-chumo]

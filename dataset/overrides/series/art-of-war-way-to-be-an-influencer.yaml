@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: art-of-war-way-to-be-an-influencer
+  titles:
+    original: "Art of War: Way to Be an Influencer"
+    translations: { ja-Latn: "Art of War: Way to Be an Influencer" }
+  movies:
+    - id: art-of-war-way-to-be-an-influencer-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [art-of-war-way-to-be-an-influencer]

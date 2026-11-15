@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 100-nichikan-ikita-wani
+  titles:
+    original: 100日後に死ぬワニ
+    translations: { ja-Latn: 100-nichikan Ikita Wani }
+  movies:
+    - id: 100-nichikan-ikita-wani-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [100-nichikan-ikita-wani]

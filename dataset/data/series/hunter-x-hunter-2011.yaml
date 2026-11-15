@@ -5,7 +5,7 @@ series:
     original: HUNTER×HUNTER（ハンター×ハンター）
     translations:
       ja-Latn: Hunter x Hunter (2011)
-  ordering: absolute
+  ordering: release
   seasons:
     - id: hunter-x-hunter-2011-s1
       number: 1
@@ -17,7 +17,6 @@ series:
         tvdbId: 79076
       episodes:
         count: 62
-        absoluteFrom: 1
     - id: hunter-x-hunter-2011-s2
       number: 2
       releaseYear: 2011
@@ -28,4 +27,3 @@ series:
         tvdbId: 252322
       episodes:
         count: 148
-        absoluteFrom: 63

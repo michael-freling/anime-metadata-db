@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hoshizora-no-suizokukan
+  titles:
+    original: ほしぞらの水族館
+    translations: { ja-Latn: Hoshizora no Suizokukan }
+  movies:
+    - id: hoshizora-no-suizokukan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hoshizora-no-suizokukan]

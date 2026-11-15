@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yoshida-katsuko-no-yabai-wa-sdgs-araburu-trouble-sustainable
+  titles:
+    original: 吉田勝子のヤバイわ! SDGs ~荒ぶる! トラブル! サステナブル!~
+    translations: { ja-Latn: "Yoshida Katsuko no Yabai wa! SDGs: Araburu! Trouble! Sustainable!" }
+  seasons:
+    - id: yoshida-katsuko-no-yabai-wa-sdgs-araburu-trouble-sustainable-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yoshida-katsuko-no-yabai-wa-sdgs-araburu-trouble-sustainable]

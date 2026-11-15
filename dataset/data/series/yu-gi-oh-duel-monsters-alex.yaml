@@ -4,8 +4,11 @@ series:
   titles:
     original: 遊☆戯☆王デュエルモンスターズALEX
     translations:
+      en: Yu-Gi-Oh! Capsule Monsters
       ja-Latn: Yu☆Gi☆Oh! Duel Monsters ALEX
   ordering: absolute
+  externalIds:
+    wikidataId: Q3273001
   seasons:
     - id: yu-gi-oh-duel-monsters-alex-s1
       number: 1

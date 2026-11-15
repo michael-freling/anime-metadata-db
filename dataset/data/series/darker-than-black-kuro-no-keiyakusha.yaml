@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Darker than Black: Kuro no Keiyakusha'
   ordering: absolute
+  externalIds:
+    wikidataId: Q672014
   seasons:
     - id: darker-than-black-kuro-no-keiyakusha-s1
       number: 1

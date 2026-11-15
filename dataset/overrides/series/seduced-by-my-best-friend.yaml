@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: seduced-by-my-best-friend
+  titles:
+    original: 黒ギャルになったから親友としてみた。
+    translations: { ja-Latn: Seduced By My Best Friend }
+  seasons:
+    - id: seduced-by-my-best-friend-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [seduced-by-my-best-friend]

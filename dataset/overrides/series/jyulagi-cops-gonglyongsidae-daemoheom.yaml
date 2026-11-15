@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jyulagi-cops-gonglyongsidae-daemoheom
+  titles:
+    original: "Jyulagi Cops: Gonglyongsidae Daemoheom"
+    translations: { ja-Latn: "Jyulagi Cops: Gonglyongsidae Daemoheom" }
+  movies:
+    - id: jyulagi-cops-gonglyongsidae-daemoheom-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jyulagi-cops-gonglyongsidae-daemoheom]

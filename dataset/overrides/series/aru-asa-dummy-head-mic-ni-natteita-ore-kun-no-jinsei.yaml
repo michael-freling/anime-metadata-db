@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aru-asa-dummy-head-mic-ni-natteita-ore-kun-no-jinsei
+  titles:
+    original: 百合の間にはさまれる. ある朝ダミーヘッドマイクになっていた俺クンの人生
+    translations: { ja-Latn: Aru Asa Dummy Head Mic ni Natteita Ore-kun no Jinsei }
+  seasons:
+    - id: aru-asa-dummy-head-mic-ni-natteita-ore-kun-no-jinsei-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aru-asa-dummy-head-mic-ni-natteita-ore-kun-no-jinsei]

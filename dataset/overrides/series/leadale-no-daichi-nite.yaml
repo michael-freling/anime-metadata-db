@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: leadale-no-daichi-nite
+  titles:
+    original: リアデイルの大地にて
+    translations: { ja-Latn: Leadale no Daichi nite }
+  seasons:
+    - id: leadale-no-daichi-nite-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [leadale-no-daichi-nite]

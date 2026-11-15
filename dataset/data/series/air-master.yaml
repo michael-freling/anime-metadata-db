@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Air Master
   ordering: absolute
+  externalIds:
+    wikidataId: Q2600433
   seasons:
     - id: air-master-s1
       number: 1

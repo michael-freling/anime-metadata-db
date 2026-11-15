@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-clumsy-robot-here-comes-mamy-the-housekeeping-robot
+  titles:
+    original: おとぼけロボット —家政婦ロボット・マミィがやってきた！
+    translations: { ja-Latn: "The Clumsy Robot: Here comes Mamy, the housekeeping robot!" }
+  movies:
+    - id: the-clumsy-robot-here-comes-mamy-the-housekeeping-robot-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-clumsy-robot-here-comes-mamy-the-housekeeping-robot]

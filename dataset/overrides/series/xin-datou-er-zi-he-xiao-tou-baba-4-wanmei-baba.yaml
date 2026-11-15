@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xin-datou-er-zi-he-xiao-tou-baba-4-wanmei-baba
+  titles:
+    original: "Xin Datou Er Zi He Xiao Tou Baba 4: Wanmei Baba"
+    translations: { ja-Latn: "Xin Datou Er Zi He Xiao Tou Baba 4: Wanmei Baba" }
+  movies:
+    - id: xin-datou-er-zi-he-xiao-tou-baba-4-wanmei-baba-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xin-datou-er-zi-he-xiao-tou-baba-4-wanmei-baba]

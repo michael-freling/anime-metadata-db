@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Shigurui
   ordering: absolute
+  externalIds:
+    wikidataId: Q2535807
   seasons:
     - id: shigurui-s1
       number: 1

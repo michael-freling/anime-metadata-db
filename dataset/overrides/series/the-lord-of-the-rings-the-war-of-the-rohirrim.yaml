@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-lord-of-the-rings-the-war-of-the-rohirrim
+  titles:
+    original: ロード・オブ・ザ・リング／ローハンの戦い
+    translations: { ja-Latn: "The Lord of the Rings: The War of the Rohirrim" }
+  movies:
+    - id: the-lord-of-the-rings-the-war-of-the-rohirrim-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-lord-of-the-rings-the-war-of-the-rohirrim]

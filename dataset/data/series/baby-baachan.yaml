@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Baby Baachan
   ordering: absolute
+  externalIds:
+    wikidataId: Q11336805
   seasons:
     - id: baby-baachan-s1
       number: 1

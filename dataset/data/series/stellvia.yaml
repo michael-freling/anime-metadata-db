@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Stellvia
   ordering: absolute
+  externalIds:
+    wikidataId: Q1888501
   seasons:
     - id: stellvia-s1
       number: 1

@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shangri-la-frontier-kusoge-hunter-kamige-ni-idoman-to-su-2nd-season
+  titles:
+    original: "シャングリラ・フロンティア〜クソゲーハンター, 神ゲーに挑まんとす〜 2nd season"
+    translations: { ja-Latn: "Shangri-La Frontier: Kusoge Hunter, Kamige ni Idoman to su 2nd Season" }
+  seasons:
+    - id: shangri-la-frontier-kusoge-hunter-kamige-ni-idoman-to-su-2nd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shangri-la-frontier-kusoge-hunter-kamige-ni-idoman-to-su-2nd-season]

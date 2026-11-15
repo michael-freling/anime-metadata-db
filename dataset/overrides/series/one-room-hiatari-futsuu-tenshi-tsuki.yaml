@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: one-room-hiatari-futsuu-tenshi-tsuki
+  titles:
+    original: "ワンルーム, 日当たり普通, 天使つき."
+    translations: { ja-Latn: "One Room, Hiatari Futsuu, Tenshi-tsuki." }
+  seasons:
+    - id: one-room-hiatari-futsuu-tenshi-tsuki-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [one-room-hiatari-futsuu-tenshi-tsuki]

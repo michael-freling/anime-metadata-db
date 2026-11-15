@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shijou-saikyou-no-daimaou-murabito-a-ni-tensei-suru
+  titles:
+    original: "史上最強の大魔王, 村人Aに転生する"
+    translations: { ja-Latn: "Shijou Saikyou no Daimaou, Murabito A ni Tensei suru" }
+  seasons:
+    - id: shijou-saikyou-no-daimaou-murabito-a-ni-tensei-suru-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shijou-saikyou-no-daimaou-murabito-a-ni-tensei-suru]

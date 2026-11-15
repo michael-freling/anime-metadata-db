@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 6 Angels
   ordering: absolute
+  externalIds:
+    wikidataId: Q2082779
   movies:
     - id: 6-angels-film
       titles:

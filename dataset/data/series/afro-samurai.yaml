@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Afro Samurai
   ordering: absolute
+  externalIds:
+    wikidataId: Q388128
   seasons:
     - id: afro-samurai-s1
       number: 1

@@ -18,3 +18,14 @@ series:
       episodes:
         count: 48
         absoluteFrom: 1
+    - id: shadowverse-s2
+      number: 2
+      releaseYear: 2022
+      releaseSeason: SPRING
+      externalIds:
+        anilistId: 140085
+        anidbId: 16855
+        tvdbId: 378522
+      episodes:
+        count: 50
+        absoluteFrom: 49

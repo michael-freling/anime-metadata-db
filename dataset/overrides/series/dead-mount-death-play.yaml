@@ -1,0 +1,15 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dead-mount-death-play
+  titles:
+    original: デッドマウント・デスプレイ
+    translations: { ja-Latn: Dead Mount Death Play }
+  seasons:
+    - id: dead-mount-death-play-s1
+      number: 1
+    - id: dead-mount-death-play-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dead-mount-death-play]

@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: oomuro-ke-movie-1-dear-sisters
+  titles:
+    original: "Oomuro-ke Movie 1: Dear Sisters"
+    translations: { ja-Latn: "Oomuro-ke Movie 1: Dear Sisters" }
+  movies:
+    - id: oomuro-ke-movie-1-dear-sisters-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [oomuro-ke-movie-1-dear-sisters]

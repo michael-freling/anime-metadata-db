@@ -4,8 +4,11 @@ series:
   titles:
     original: 星のカービィ
     translations:
+      en: Kirby's Dream Land
       ja-Latn: Hoshi no Kirby
   ordering: absolute
+  externalIds:
+    wikidataId: Q1154044
   seasons:
     - id: hoshi-no-kirby-s1
       number: 1

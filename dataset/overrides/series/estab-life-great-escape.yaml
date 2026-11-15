@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: estab-life-great-escape
+  titles:
+    original: エスタブライフ グレイトエスケープ
+    translations: { ja-Latn: "Estab-Life: Great Escape" }
+  seasons:
+    - id: estab-life-great-escape-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [estab-life-great-escape]

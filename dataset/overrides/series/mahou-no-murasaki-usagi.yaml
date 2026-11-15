@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mahou-no-murasaki-usagi
+  titles:
+    original: 魔法の紫ウサギ
+    translations: { ja-Latn: Mahou no Murasaki Usagi }
+  movies:
+    - id: mahou-no-murasaki-usagi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mahou-no-murasaki-usagi]

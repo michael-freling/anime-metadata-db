@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: megami-ryou-no-ryoubo-kun
+  titles:
+    original: 女神寮の寮母くん.
+    translations: { ja-Latn: Megami-ryou no Ryoubo-kun. }
+  seasons:
+    - id: megami-ryou-no-ryoubo-kun-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [megami-ryou-no-ryoubo-kun]

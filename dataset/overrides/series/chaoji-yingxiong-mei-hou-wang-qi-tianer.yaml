@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chaoji-yingxiong-mei-hou-wang-qi-tianer
+  titles:
+    original: "Chaoji Yingxiong Mei Hou Wang: Qi Tianer"
+    translations: { ja-Latn: "Chaoji Yingxiong Mei Hou Wang: Qi Tianer" }
+  movies:
+    - id: chaoji-yingxiong-mei-hou-wang-qi-tianer-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chaoji-yingxiong-mei-hou-wang-qi-tianer]

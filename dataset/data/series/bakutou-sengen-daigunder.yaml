@@ -4,8 +4,11 @@ series:
   titles:
     original: 爆闘宣言ダイガンダー
     translations:
+      en: Daigunder
       ja-Latn: Bakutou Sengen Daigunder
   ordering: absolute
+  externalIds:
+    wikidataId: Q3275740
   seasons:
     - id: bakutou-sengen-daigunder-s1
       number: 1

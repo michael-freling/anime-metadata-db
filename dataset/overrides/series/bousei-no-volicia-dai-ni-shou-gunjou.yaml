@@ -11,5 +11,7 @@ series:
       # Authored: upstream does not list this installment under the series'
       # own title, so the build cannot resolve it.
       externalIds: { anilistId: 194706 } # Bousei no Volicia Dai Ni Shou: Gunjou (Spring 2025)
+    - id: bousei-no-volicia-dai-ni-shou-gunjou-film-2
+      externalIds: { anilistId: 169375 } # Bousei no Volicia (2023)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [bousei-no-volicia-dai-ni-shou-gunjou]

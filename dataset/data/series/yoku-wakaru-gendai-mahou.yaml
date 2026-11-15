@@ -4,8 +4,11 @@ series:
   titles:
     original: よくわかる現代魔法
     translations:
+      en: Modern Magic Made Simple
       ja-Latn: Yoku Wakaru Gendai Mahou
   ordering: absolute
+  externalIds:
+    wikidataId: Q1314872
   seasons:
     - id: yoku-wakaru-gendai-mahou-s1
       number: 1

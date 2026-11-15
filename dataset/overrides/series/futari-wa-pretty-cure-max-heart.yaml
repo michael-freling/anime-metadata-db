@@ -11,5 +11,10 @@ series:
       number: 1
   movies:
     - id: futari-wa-pretty-cure-max-heart-film
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 1930 }
+    - id: futari-wa-pretty-cure-max-heart-film-2
+      externalIds: { anilistId: 1931 } # Futari wa Precure: Max Heart Movie 2 - Yukizora no Tomodachi (2005)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [futari-wa-pretty-cure-max-heart]

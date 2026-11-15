@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: baempaieosonyeo-dalja
+  titles:
+    original: Baempaieosonyeo Dalja
+    translations: { ja-Latn: Baempaieosonyeo Dalja }
+  seasons:
+    - id: baempaieosonyeo-dalja-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [baempaieosonyeo-dalja]

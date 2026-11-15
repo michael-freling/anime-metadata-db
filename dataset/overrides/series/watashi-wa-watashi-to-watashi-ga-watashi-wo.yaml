@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: watashi-wa-watashi-to-watashi-ga-watashi-wo
+  titles:
+    original: 私は、私と、私が、私を、
+    translations: { ja-Latn: "Watashi wa, Watashi to, Watashi ga, Watashi wo," }
+  movies:
+    - id: watashi-wa-watashi-to-watashi-ga-watashi-wo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [watashi-wa-watashi-to-watashi-ga-watashi-wo]

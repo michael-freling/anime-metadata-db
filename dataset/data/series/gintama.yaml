@@ -17,11 +17,24 @@ series:
         tvdbId: 79895
       episodes:
         count: 51
-        absoluteFrom: 1
+        absoluteFrom: 2
     - id: gintama-s2
       number: 2
       releaseYear: 2012
       releaseSeason: FALL
       episodes:
         count: 13
-        absoluteFrom: 52
+        absoluteFrom: 53
+  movies:
+    - id: gintama-film
+      titles:
+        original: 劇場版 銀魂 新訳紅桜篇
+        translations:
+          ja: 劇場版 銀魂 新訳紅桜篇
+          ja-Latn: 'Gintama Movie 1: Shinyaku Benizakura-hen'
+      releaseYear: 2010
+      externalIds:
+        anilistId: 7472
+        anidbId: 7177
+        tvdbId: 79895
+      absoluteNumber: 1

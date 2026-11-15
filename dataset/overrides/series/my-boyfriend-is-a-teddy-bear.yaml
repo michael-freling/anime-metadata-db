@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: my-boyfriend-is-a-teddy-bear
+  titles:
+    original: My boyfriend is a teddy bear!
+    translations: { ja-Latn: My boyfriend is a teddy bear! }
+  movies:
+    - id: my-boyfriend-is-a-teddy-bear-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [my-boyfriend-is-a-teddy-bear]

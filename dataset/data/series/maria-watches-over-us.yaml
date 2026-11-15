@@ -4,8 +4,11 @@ series:
   titles:
     original: マリア様がみてる
     translations:
+      en: Maria-sama ga Miteru
       ja-Latn: Maria Watches Over Us
   ordering: absolute
+  externalIds:
+    wikidataId: Q482466
   seasons:
     - id: maria-watches-over-us-s1
       number: 1

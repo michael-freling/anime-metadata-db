@@ -4,8 +4,11 @@ series:
   titles:
     original: マシュランボー
     translations:
+      en: Shinzo
       ja-Latn: Mushrambo
   ordering: absolute
+  externalIds:
+    wikidataId: Q2444911
   seasons:
     - id: mushrambo-s1
       number: 1

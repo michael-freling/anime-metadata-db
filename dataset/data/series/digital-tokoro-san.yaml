@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Digital Tokoro-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q11320521
   seasons:
     - id: digital-tokoro-san-s1
       number: 1

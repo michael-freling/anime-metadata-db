@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Hungry Heart: Wild Striker'
   ordering: absolute
+  externalIds:
+    wikidataId: Q1637501
   seasons:
     - id: hungry-heart-wild-striker-s1
       number: 1

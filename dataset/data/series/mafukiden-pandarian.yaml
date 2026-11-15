@@ -4,8 +4,11 @@ series:
   titles:
     original: 魔豆奇伝パンダリアン
     translations:
+      en: Pandalian
       ja-Latn: 'Mafukiden: Pandarian'
   ordering: absolute
+  externalIds:
+    wikidataId: Q7130468
   seasons:
     - id: mafukiden-pandarian-s1
       number: 1

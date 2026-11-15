@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: qian-ting-zong-dong-yuan-huan-you-diqiu-80-tian
+  titles:
+    original: "Qian Ting Zong Dong Yuan: Huan You Diqiu 80 Tian"
+    translations: { ja-Latn: "Qian Ting Zong Dong Yuan: Huan You Diqiu 80 Tian" }
+  movies:
+    - id: qian-ting-zong-dong-yuan-huan-you-diqiu-80-tian-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [qian-ting-zong-dong-yuan-huan-you-diqiu-80-tian]

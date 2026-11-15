@@ -4,8 +4,11 @@ series:
   titles:
     original: 冒険王ビィト
     translations:
+      en: Beet the Vandel Buster
       ja-Latn: Bouken Ou Beet
   ordering: absolute
+  externalIds:
+    wikidataId: Q2714018
   seasons:
     - id: bouken-ou-beet-s1
       number: 1

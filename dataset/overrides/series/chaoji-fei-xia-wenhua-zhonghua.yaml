@@ -1,0 +1,15 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chaoji-fei-xia-wenhua-zhonghua
+  titles:
+    original: Chaoji Fei Xia Wenhua Zhonghua
+    translations: { ja-Latn: Chaoji Fei Xia Wenhua Zhonghua }
+  seasons:
+    - id: chaoji-fei-xia-wenhua-zhonghua-s1
+      number: 1
+    - id: chaoji-fei-xia-wenhua-zhonghua-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chaoji-fei-xia-wenhua-zhonghua]

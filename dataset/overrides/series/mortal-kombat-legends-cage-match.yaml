@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mortal-kombat-legends-cage-match
+  titles:
+    original: "Mortal Kombat Legends: Cage Match"
+    translations: { ja-Latn: "Mortal Kombat Legends: Cage Match" }
+  movies:
+    - id: mortal-kombat-legends-cage-match-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mortal-kombat-legends-cage-match]

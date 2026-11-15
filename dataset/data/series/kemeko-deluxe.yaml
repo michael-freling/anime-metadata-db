@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kemeko Deluxe!
   ordering: absolute
+  externalIds:
+    wikidataId: Q1136346
   seasons:
     - id: kemeko-deluxe-s1
       number: 1

@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: akai-inei
+  titles:
+    original: 赤い陰影
+    translations: { ja-Latn: Akai Inei }
+  movies:
+    - id: akai-inei-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [akai-inei]

@@ -4,8 +4,11 @@ series:
   titles:
     original: 乃木坂春香の秘密
     translations:
+      en: Haruka Nogizaka's Secret
       ja-Latn: Nogizaka Haruka no Himitsu
   ordering: absolute
+  externalIds:
+    wikidataId: Q483103
   seasons:
     - id: nogizaka-haruka-no-himitsu-s1
       number: 1

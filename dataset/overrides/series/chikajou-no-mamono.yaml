@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chikajou-no-mamono
+  titles:
+    original: 地下城の魔物
+    translations: { ja-Latn: Chikajou no Mamono }
+  movies:
+    - id: chikajou-no-mamono-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chikajou-no-mamono]

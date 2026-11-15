@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ikinuki-hololive-holox-2024-nen-no-yabo-hen
+  titles:
+    original: いきぬきホロライブ～holoX 2024年のやぼー編～
+    translations: { ja-Latn: "Ikinuki Hololive: HoloX 2024-nen no Yabo-hen" }
+  seasons:
+    - id: ikinuki-hololive-holox-2024-nen-no-yabo-hen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ikinuki-hololive-holox-2024-nen-no-yabo-hen]

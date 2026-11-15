@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wangpai-erha
+  titles:
+    original: Wangpai Erha
+    translations: { ja-Latn: Wangpai Erha }
+  movies:
+    - id: wangpai-erha-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wangpai-erha]

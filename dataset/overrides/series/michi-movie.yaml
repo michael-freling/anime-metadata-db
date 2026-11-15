@@ -1,0 +1,11 @@
+# Authored override. Upstream carries this as one film; its segments each have
+# their own title and the import made a series of each, so one anilistId
+# ended up claimed by several series at once. Authored here as the one work
+# it is, under the title upstream gives it.
+series:
+  id: michi-movie
+  titles:
+    original: 俺の路
+    translations: { ja-Latn: Michi }
+  movies:
+    - id: michi-movie-film

@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rougo-ni-sonaete-isekai-de-8-manmai-no-kinka-wo-tamemasu
+  titles:
+    original: 老後に備えて異世界で8万枚の金貨を貯めます
+    translations: { ja-Latn: Rougo ni Sonaete Isekai de 8-manmai no Kinka wo Tamemasu }
+  seasons:
+    - id: rougo-ni-sonaete-isekai-de-8-manmai-no-kinka-wo-tamemasu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rougo-ni-sonaete-isekai-de-8-manmai-no-kinka-wo-tamemasu]

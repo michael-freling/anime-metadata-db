@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hantou-no-tori
+  titles:
+    original: 半島の鳥
+    translations: { ja-Latn: Hantou no Tori }
+  movies:
+    - id: hantou-no-tori-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hantou-no-tori]

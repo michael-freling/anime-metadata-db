@@ -4,8 +4,11 @@ series:
   titles:
     original: 幻影闘士バストフレモン
     translations:
+      en: BASToF Lemon
       ja-Latn: Genei Toushi Bastof Lemon
   ordering: absolute
+  externalIds:
+    wikidataId: Q624337
   seasons:
     - id: genei-toushi-bastof-lemon-s1
       number: 1

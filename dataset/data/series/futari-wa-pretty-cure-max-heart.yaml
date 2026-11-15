@@ -17,7 +17,7 @@ series:
         tvdbId: 84334
       episodes:
         count: 47
-        absoluteFrom: 2
+        absoluteFrom: 3
   movies:
     - id: futari-wa-pretty-cure-max-heart-film
       titles:
@@ -31,3 +31,15 @@ series:
         anidbId: 2764
         tvdbId: 84334
       absoluteNumber: 1
+    - id: futari-wa-pretty-cure-max-heart-film-2
+      titles:
+        original: ふたりはプリキュア Max Heart2 雪空のともだち
+        translations:
+          ja: ふたりはプリキュア Max Heart2 雪空のともだち
+          ja-Latn: 'Futari wa Precure: Max Heart Movie 2 - Yukizora no Tomodachi'
+      releaseYear: 2005
+      externalIds:
+        anilistId: 1931
+        anidbId: 3566
+        tvdbId: 84334
+      absoluteNumber: 2

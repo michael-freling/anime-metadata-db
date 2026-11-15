@@ -11,5 +11,10 @@ series:
       number: 1
   movies:
     - id: kino-no-tabi-the-beautiful-world-film
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 2175 }
+    - id: kino-no-tabi-the-beautiful-world-film-2
+      externalIds: { anilistId: 1379 } # Kino no Tabi: The Beautiful World - Nanika wo Suru Tame ni - Li… (2005)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [kino-no-tabi-the-beautiful-world]

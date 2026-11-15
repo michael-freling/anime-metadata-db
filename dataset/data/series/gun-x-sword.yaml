@@ -4,8 +4,11 @@ series:
   titles:
     original: ガン×ソード
     translations:
+      en: Gun Sword
       ja-Latn: Gun x Sword
   ordering: absolute
+  externalIds:
+    wikidataId: Q2290791
   seasons:
     - id: gun-x-sword-s1
       number: 1

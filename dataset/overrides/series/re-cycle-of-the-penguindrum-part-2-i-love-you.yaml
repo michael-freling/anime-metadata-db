@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: re-cycle-of-the-penguindrum-part-2-i-love-you
+  titles:
+    original: "RE:cycle of the PENGUINDRUM ［後編］ 僕は君を愛してる"
+    translations: { ja-Latn: "Re:cycle of the Penguindrum Part 2: I Love You" }
+  movies:
+    - id: re-cycle-of-the-penguindrum-part-2-i-love-you-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [re-cycle-of-the-penguindrum-part-2-i-love-you]

@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mijime-na-kiseki
+  titles:
+    original: みじめな奇蹟
+    translations: { ja-Latn: Mijime na Kiseki }
+  movies:
+    - id: mijime-na-kiseki-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mijime-na-kiseki]

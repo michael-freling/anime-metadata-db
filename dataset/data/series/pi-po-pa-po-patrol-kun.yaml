@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Pi Po Pa Po Patrol-kun
   ordering: absolute
+  externalIds:
+    wikidataId: Q11331539
   seasons:
     - id: pi-po-pa-po-patrol-kun-s1
       number: 1

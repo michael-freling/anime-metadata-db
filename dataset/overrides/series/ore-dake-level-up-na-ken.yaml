@@ -15,5 +15,8 @@ series:
     - id: ore-dake-level-up-na-ken-s2
       number: 2
       externalIds: { anilistId: 176496 } # Ore dake Level Up na Ken Season 2: Arise from the Shadow (Winter 2025)
+  movies:
+    - id: ore-dake-level-up-na-ken-film
+      externalIds: { anilistId: 184694 } # Ore dake Level Up na Ken: ReAwakening (2024)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [ore-dake-level-up-na-ken]

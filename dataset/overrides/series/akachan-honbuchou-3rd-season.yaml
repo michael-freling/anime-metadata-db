@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: akachan-honbuchou-3rd-season
+  titles:
+    original: 赤ちゃん本部長 （第3シリーズ）
+    translations: { ja-Latn: Akachan Honbuchou 3rd Season }
+  seasons:
+    - id: akachan-honbuchou-3rd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [akachan-honbuchou-3rd-season]

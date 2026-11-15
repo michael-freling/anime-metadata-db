@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: MapleStory
   ordering: absolute
+  externalIds:
+    wikidataId: Q569624
   seasons:
     - id: maplestory-s1
       number: 1

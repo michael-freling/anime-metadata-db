@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaiko-sareta-ankoku-heishi-30-dai-no-slow-na-second-life
+  titles:
+    original: 解雇された暗黒兵士(30代)のスローなセカンドライフ
+    translations: { ja-Latn: Kaiko sareta Ankoku Heishi (30-dai) no Slow na Second Life }
+  seasons:
+    - id: kaiko-sareta-ankoku-heishi-30-dai-no-slow-na-second-life-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaiko-sareta-ankoku-heishi-30-dai-no-slow-na-second-life]

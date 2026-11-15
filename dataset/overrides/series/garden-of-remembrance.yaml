@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: garden-of-remembrance
+  titles:
+    original: ガーデンオブリメンバランス
+    translations: { ja-Latn: Garden of Remembrance }
+  movies:
+    - id: garden-of-remembrance-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [garden-of-remembrance]

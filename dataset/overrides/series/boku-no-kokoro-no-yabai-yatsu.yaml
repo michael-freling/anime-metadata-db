@@ -1,0 +1,17 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: boku-no-kokoro-no-yabai-yatsu
+  titles:
+    original: 僕の心のヤバイやつ
+    translations: { ja-Latn: Boku no Kokoro no Yabai Yatsu }
+  seasons:
+    - id: boku-no-kokoro-no-yabai-yatsu-s1
+      number: 1
+    - id: boku-no-kokoro-no-yabai-yatsu-s2
+      number: 2
+  movies:
+    - id: boku-no-kokoro-no-yabai-yatsu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [boku-no-kokoro-no-yabai-yatsu]

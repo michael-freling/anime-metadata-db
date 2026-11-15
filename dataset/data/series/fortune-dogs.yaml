@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Fortune Dogs
   ordering: absolute
+  externalIds:
+    wikidataId: Q3285225
   seasons:
     - id: fortune-dogs-s1
       number: 1

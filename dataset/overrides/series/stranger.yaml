@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: stranger
+  titles:
+    original: STRANGER
+    translations: { ja-Latn: STRANGER }
+  movies:
+    - id: stranger-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [stranger]

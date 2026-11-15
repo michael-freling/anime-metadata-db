@@ -4,8 +4,11 @@ series:
   titles:
     original: 奏光のストレイン
     translations:
+      en: 'Strain: Strategic Armored Infantry'
       ja-Latn: Soukou no Strain
   ordering: absolute
+  externalIds:
+    wikidataId: Q2297129
   seasons:
     - id: soukou-no-strain-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: ちっちゃな雪使いシュガー
     translations:
+      en: A Little Snow Fairy Sugar
       ja-Latn: Chicchana Yukitsukai Sugar
   ordering: absolute
+  externalIds:
+    wikidataId: Q1072078
   seasons:
     - id: chicchana-yukitsukai-sugar-s1
       number: 1

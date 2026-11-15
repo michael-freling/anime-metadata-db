@@ -18,3 +18,14 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
+    - id: itai-no-wa-iya-nanode-bougyoryoku-ni-kyokufuri-shitai-to-omoimasu-s2
+      number: 2
+      releaseYear: 2023
+      releaseSeason: WINTER
+      externalIds:
+        anilistId: 116867
+        anidbId: 15464
+        tvdbId: 373679
+      episodes:
+        count: 12
+        absoluteFrom: 13

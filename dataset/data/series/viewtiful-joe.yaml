@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Viewtiful Joe
   ordering: absolute
+  externalIds:
+    wikidataId: Q1886410
   seasons:
     - id: viewtiful-joe-s1
       number: 1

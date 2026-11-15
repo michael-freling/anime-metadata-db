@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-prince-of-tennis-ii-hyotei-vs-rikkai-game-of-future
+  titles:
+    original: 新テニスの王子様 氷帝vs立海 Game of Future
+    translations: { ja-Latn: The Prince of Tennis II Hyotei vs Rikkai Game of Future }
+  movies:
+    - id: the-prince-of-tennis-ii-hyotei-vs-rikkai-game-of-future-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-prince-of-tennis-ii-hyotei-vs-rikkai-game-of-future]

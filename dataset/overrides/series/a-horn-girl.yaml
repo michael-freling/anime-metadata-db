@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: a-horn-girl
+  titles:
+    original: A horn girl
+    translations: { ja-Latn: A horn girl }
+  movies:
+    - id: a-horn-girl-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [a-horn-girl]

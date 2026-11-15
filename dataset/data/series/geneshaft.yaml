@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Geneshaft
   ordering: absolute
+  externalIds:
+    wikidataId: Q2336153
   seasons:
     - id: geneshaft-s1
       number: 1

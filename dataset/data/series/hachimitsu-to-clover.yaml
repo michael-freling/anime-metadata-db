@@ -4,8 +4,11 @@ series:
   titles:
     original: ハチミツとクローバー
     translations:
+      en: Honey and Clover
       ja-Latn: Hachimitsu to Clover
   ordering: absolute
+  externalIds:
+    wikidataId: Q546916
   seasons:
     - id: hachimitsu-to-clover-s1
       number: 1

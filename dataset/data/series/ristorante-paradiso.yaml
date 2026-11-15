@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Ristorante Paradiso
   ordering: absolute
+  externalIds:
+    wikidataId: Q3121445
   seasons:
     - id: ristorante-paradiso-s1
       number: 1

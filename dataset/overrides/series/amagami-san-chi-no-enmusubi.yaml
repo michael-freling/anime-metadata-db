@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: amagami-san-chi-no-enmusubi
+  titles:
+    original: 甘神さんちの縁結び
+    translations: { ja-Latn: Amagami-san Chi no Enmusubi }
+  seasons:
+    - id: amagami-san-chi-no-enmusubi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [amagami-san-chi-no-enmusubi]

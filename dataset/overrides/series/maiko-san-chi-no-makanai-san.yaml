@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: maiko-san-chi-no-makanai-san
+  titles:
+    original: 舞妓さんちのまかないさん
+    translations: { ja-Latn: Maiko-san Chi no Makanai-san }
+  seasons:
+    - id: maiko-san-chi-no-makanai-san-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [maiko-san-chi-no-makanai-san]

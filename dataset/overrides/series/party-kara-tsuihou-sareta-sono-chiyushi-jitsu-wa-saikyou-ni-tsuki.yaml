@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: party-kara-tsuihou-sareta-sono-chiyushi-jitsu-wa-saikyou-ni-tsuki
+  titles:
+    original: "パーティーから追放されたその治癒師, 実は最強につき"
+    translations: { ja-Latn: "Party kara Tsuihou sareta Sono Chiyushi, Jitsu wa Saikyou ni Tsuki" }
+  seasons:
+    - id: party-kara-tsuihou-sareta-sono-chiyushi-jitsu-wa-saikyou-ni-tsuki-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [party-kara-tsuihou-sareta-sono-chiyushi-jitsu-wa-saikyou-ni-tsuki]

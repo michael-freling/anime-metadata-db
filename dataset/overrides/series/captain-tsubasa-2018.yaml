@@ -9,10 +9,22 @@ series:
   seasons:
     - id: captain-tsubasa-2018-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 2116 }
     - id: captain-tsubasa-2018-s2
       number: 2
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 1614 }
     - id: captain-tsubasa-2018-s3
       number: 3
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 100745 }
+    - id: captain-tsubasa-2018-s4
+      number: 4
+      externalIds: { anilistId: 163024 } # Captain Tsubasa Season 2: Junior Youth-hen (2023)
 # No continuous absoluteNumber. The seasons above are separate adaptations of
 # one work (1983, 2001, 2018), not one run, so numbering them end to end would
 # assert a continuity that does not exist.

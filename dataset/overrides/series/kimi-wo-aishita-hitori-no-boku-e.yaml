@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kimi-wo-aishita-hitori-no-boku-e
+  titles:
+    original: 君を愛したひとりの僕へ
+    translations: { ja-Latn: Kimi wo Aishita Hitori no Boku e }
+  movies:
+    - id: kimi-wo-aishita-hitori-no-boku-e-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kimi-wo-aishita-hitori-no-boku-e]

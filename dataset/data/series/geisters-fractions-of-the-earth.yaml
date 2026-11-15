@@ -4,8 +4,11 @@ series:
   titles:
     original: ガイスターズ FRACTIONS OF THE EARTH
     translations:
+      en: Geisters
       ja-Latn: 'Geisters: Fractions of the Earth'
   ordering: absolute
+  externalIds:
+    wikidataId: Q5530257
   seasons:
     - id: geisters-fractions-of-the-earth-s1
       number: 1

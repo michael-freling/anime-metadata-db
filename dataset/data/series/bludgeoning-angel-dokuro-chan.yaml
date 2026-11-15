@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Bludgeoning Angel Dokuro-chan
   ordering: absolute
+  externalIds:
+    wikidataId: Q482500
   seasons:
     - id: bludgeoning-angel-dokuro-chan-s1
       number: 1

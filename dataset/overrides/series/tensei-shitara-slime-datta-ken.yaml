@@ -26,6 +26,9 @@ series:
     - id: tensei-shitara-slime-datta-ken-s4
       number: 4
       externalIds: { anilistId: 182205 } # Tensei shitara Slime Datta Ken 4th Season (Spring 2026)
+  movies:
+    - id: tensei-shitara-slime-datta-ken-film
+      externalIds: { anilistId: 139498 } # Tensei shitara Slime Datta Ken Movie: Guren no Kizuna-hen (2022)
   # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
   # the builder fills every name from the QID at build time.
   characters:

@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: i-got-a-cheat-skill-in-another-world
+  titles:
+    original: 異世界でチート能力を手にした俺は、現実世界をも無双する
+    translations: { ja-Latn: I Got a Cheat Skill in Another World }
+  seasons:
+    - id: i-got-a-cheat-skill-in-another-world-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [i-got-a-cheat-skill-in-another-world]

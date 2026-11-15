@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kono-healer-mendokusai
+  titles:
+    original: "このヒーラー, めんどくさい"
+    translations: { ja-Latn: "Kono Healer, Mendokusai" }
+  seasons:
+    - id: kono-healer-mendokusai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kono-healer-mendokusai]

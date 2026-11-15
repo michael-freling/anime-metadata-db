@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: eiga-soreike-anpanman-fuwafuwa-fuwari-to-kumo-no-kuni
+  titles:
+    original: 映画 それいけ!アンパンマン ふわふわフワリーと雲の国
+    translations: { ja-Latn: Eiga Soreike! Anpanman Fuwafuwa Fuwari to Kumo no Kuni }
+  movies:
+    - id: eiga-soreike-anpanman-fuwafuwa-fuwari-to-kumo-no-kuni-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [eiga-soreike-anpanman-fuwafuwa-fuwari-to-kumo-no-kuni]

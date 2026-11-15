@@ -4,8 +4,11 @@ series:
   titles:
     original: 明日のよいち!
     translations:
+      en: 'Samurai Harem: Asu no Yoichi'
       ja-Latn: Asu no Yoichi!
   ordering: absolute
+  externalIds:
+    wikidataId: Q752373
   seasons:
     - id: asu-no-yoichi-s1
       number: 1

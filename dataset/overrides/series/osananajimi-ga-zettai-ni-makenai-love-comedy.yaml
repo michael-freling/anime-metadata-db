@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: osananajimi-ga-zettai-ni-makenai-love-comedy
+  titles:
+    original: 幼なじみが絶対に負けないラブコメ
+    translations: { ja-Latn: Osananajimi ga Zettai ni Makenai Love Comedy }
+  seasons:
+    - id: osananajimi-ga-zettai-ni-makenai-love-comedy-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [osananajimi-ga-zettai-ni-makenai-love-comedy]

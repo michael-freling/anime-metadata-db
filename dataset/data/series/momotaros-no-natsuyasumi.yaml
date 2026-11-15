@@ -4,8 +4,11 @@ series:
   titles:
     original: モモタロスのなつやすみ
     translations:
+      en: Momotaros' Summer Vacation
       ja-Latn: Momotaros no Natsuyasumi
   ordering: absolute
+  externalIds:
+    wikidataId: Q11344557
   movies:
     - id: momotaros-no-natsuyasumi-film
       titles:

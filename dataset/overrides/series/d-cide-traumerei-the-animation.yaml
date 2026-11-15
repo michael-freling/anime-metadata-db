@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: d-cide-traumerei-the-animation
+  titles:
+    original: D_CIDE TRAUMEREI（ディーサイドトロイメライ）
+    translations: { ja-Latn: D_Cide Traumerei the Animation }
+  seasons:
+    - id: d-cide-traumerei-the-animation-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [d-cide-traumerei-the-animation]

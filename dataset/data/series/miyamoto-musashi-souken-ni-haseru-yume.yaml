@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Miyamoto Musashi: Souken ni Haseru Yume'
   ordering: absolute
+  externalIds:
+    wikidataId: Q11454871
   movies:
     - id: miyamoto-musashi-souken-ni-haseru-yume-film
       titles:

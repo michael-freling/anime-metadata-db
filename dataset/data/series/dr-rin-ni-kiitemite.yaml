@@ -4,8 +4,11 @@ series:
   titles:
     original: Dr.リンにきいてみて!
     translations:
+      en: Ask Dr. Rin!
       ja-Latn: Dr. Rin ni Kiitemite!
   ordering: absolute
+  externalIds:
+    wikidataId: Q1014605
   seasons:
     - id: dr-rin-ni-kiitemite-s1
       number: 1

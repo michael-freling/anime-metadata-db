@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tongari-atama-no-gonta
+  titles:
+    original: とんがり頭のごん太 ～２つの名前を生きた福島被災犬の物語～
+    translations: { ja-Latn: Tongari Atama no Gonta }
+  movies:
+    - id: tongari-atama-no-gonta-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tongari-atama-no-gonta]

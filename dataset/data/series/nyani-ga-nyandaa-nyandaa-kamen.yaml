@@ -4,8 +4,11 @@ series:
   titles:
     original: ニャニがニャンだー ニャンダーかめん
     translations:
+      en: Mighty Cat Masked Niyandar
       ja-Latn: Nyani ga Nyandaa Nyandaa Kamen
   ordering: absolute
+  externalIds:
+    wikidataId: Q869380
   seasons:
     - id: nyani-ga-nyandaa-nyandaa-kamen-s1
       number: 1

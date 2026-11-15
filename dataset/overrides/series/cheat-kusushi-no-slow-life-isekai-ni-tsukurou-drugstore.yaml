@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: cheat-kusushi-no-slow-life-isekai-ni-tsukurou-drugstore
+  titles:
+    original: チート薬師のスローライフ~異世界に作ろうドラッグストア~
+    translations: { ja-Latn: "Cheat Kusushi no Slow Life: Isekai ni Tsukurou Drugstore" }
+  seasons:
+    - id: cheat-kusushi-no-slow-life-isekai-ni-tsukurou-drugstore-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [cheat-kusushi-no-slow-life-isekai-ni-tsukurou-drugstore]

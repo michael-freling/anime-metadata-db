@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: what-do-you-do-when-that-coming
+  titles:
+    original: What Do You Do When That Coming
+    translations: { ja-Latn: What Do You Do When That Coming }
+  movies:
+    - id: what-do-you-do-when-that-coming-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [what-do-you-do-when-that-coming]

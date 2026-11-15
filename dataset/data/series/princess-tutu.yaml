@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Princess Tutu
   ordering: absolute
+  externalIds:
+    wikidataId: Q739135
   seasons:
     - id: princess-tutu-s1
       number: 1

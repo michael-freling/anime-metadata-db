@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: journey-to-the-bosei-no-mezame
+  titles:
+    original: Journey to the 母性の目覚め
+    translations: { ja-Latn: Journey to the Bosei no Mezame }
+  movies:
+    - id: journey-to-the-bosei-no-mezame-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [journey-to-the-bosei-no-mezame]

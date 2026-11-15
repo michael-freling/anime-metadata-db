@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aru-kasenshiki-nite
+  titles:
+    original: ある河川敷にて
+    translations: { ja-Latn: Aru Kasenshiki nite }
+  movies:
+    - id: aru-kasenshiki-nite-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aru-kasenshiki-nite]

@@ -4,8 +4,11 @@ series:
   titles:
     original: 仰天人間バトシーラー
     translations:
+      en: Gyōten Ningen Batseelor
       ja-Latn: Gyouten Ningen Batsealer
   ordering: absolute
+  externalIds:
+    wikidataId: Q5625684
   seasons:
     - id: gyouten-ningen-batsealer-s1
       number: 1

@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: koori-zokusei-danshi-to-cool-na-douryou-joshi
+  titles:
+    original: 氷属性男子とクールな同僚女子
+    translations: { ja-Latn: Koori Zokusei Danshi to Cool na Douryou Joshi }
+  seasons:
+    - id: koori-zokusei-danshi-to-cool-na-douryou-joshi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [koori-zokusei-danshi-to-cool-na-douryou-joshi]

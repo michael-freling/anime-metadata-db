@@ -4,8 +4,11 @@ series:
   titles:
     original: パッタ ポッタ モン太
     translations:
+      en: Patta Potta Monta
       ja-Latn: Going Wild
   ordering: absolute
+  externalIds:
+    wikidataId: Q17219047
   seasons:
     - id: going-wild-s1
       number: 1

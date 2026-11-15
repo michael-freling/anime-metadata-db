@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Rocket Girls
   ordering: absolute
+  externalIds:
+    wikidataId: Q2297804
   seasons:
     - id: rocket-girls-s1
       number: 1

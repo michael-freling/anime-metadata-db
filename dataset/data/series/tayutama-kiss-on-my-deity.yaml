@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Tayutama: Kiss on My Deity'
   ordering: absolute
+  externalIds:
+    wikidataId: Q177432
   seasons:
     - id: tayutama-kiss-on-my-deity-s1
       number: 1

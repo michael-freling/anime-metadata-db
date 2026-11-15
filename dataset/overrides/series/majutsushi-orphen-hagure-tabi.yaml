@@ -9,5 +9,11 @@ series:
   seasons:
     - id: majutsushi-orphen-hagure-tabi-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 101367 }
+    - id: majutsushi-orphen-hagure-tabi-s2
+      number: 2
+      externalIds: { anilistId: 117085 } # Majutsushi Orphen Hagure Tabi: Kimluck-hen (2021)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [majutsushi-orphen-hagure-tabi]

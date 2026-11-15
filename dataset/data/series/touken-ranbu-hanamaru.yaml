@@ -29,3 +29,15 @@ series:
       episodes:
         count: 12
         absoluteFrom: 13
+  movies:
+    - id: touken-ranbu-hanamaru-film
+      titles:
+        original: 特『刀剣乱舞-花丸-』~雪月華~
+        translations:
+          ja: 特『刀剣乱舞-花丸-』~雪月華~
+          ja-Latn: 'Toku: Touken Ranbu - Hanamaru - Setsugetsuka'
+      releaseYear: 2022
+      externalIds:
+        anilistId: 130305
+        anidbId: 17279
+      absoluteNumber: 25

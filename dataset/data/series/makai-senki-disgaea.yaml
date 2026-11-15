@@ -4,8 +4,11 @@ series:
   titles:
     original: 魔界戦記ディスガイア
     translations:
+      en: 'Disgaea: Hour of Darkness'
       ja-Latn: Makai Senki Disgaea
   ordering: absolute
+  externalIds:
+    wikidataId: Q1639864
   seasons:
     - id: makai-senki-disgaea-s1
       number: 1

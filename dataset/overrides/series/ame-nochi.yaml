@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ame-nochi
+  titles:
+    original: 雨、のち
+    translations: { ja-Latn: "Ame, Nochi" }
+  movies:
+    - id: ame-nochi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ame-nochi]

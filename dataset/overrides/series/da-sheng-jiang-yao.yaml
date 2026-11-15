@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: da-sheng-jiang-yao
+  titles:
+    original: Da Sheng Jiang Yao
+    translations: { ja-Latn: Da Sheng Jiang Yao }
+  movies:
+    - id: da-sheng-jiang-yao-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [da-sheng-jiang-yao]

@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: liminal-park
+  titles:
+    original: Liminal Park
+    translations: { ja-Latn: Liminal Park }
+  movies:
+    - id: liminal-park-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [liminal-park]

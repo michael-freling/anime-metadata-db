@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kuroko
+  titles:
+    original: クロ子
+    translations: { ja-Latn: Kuroko }
+  movies:
+    - id: kuroko-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kuroko]

@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: skate-leading-stars
+  titles:
+    original: スケートリーディング☆スターズ
+    translations: { ja-Latn: Skate-Leading☆Stars }
+  seasons:
+    - id: skate-leading-stars-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [skate-leading-stars]

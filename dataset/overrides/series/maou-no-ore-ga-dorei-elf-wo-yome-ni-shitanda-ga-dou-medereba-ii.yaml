@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: maou-no-ore-ga-dorei-elf-wo-yome-ni-shitanda-ga-dou-medereba-ii
+  titles:
+    original: "魔王の俺が奴隷エルフを嫁にしたんだが, どう愛でればいい?"
+    translations: { ja-Latn: "Maou no Ore ga Dorei Elf wo Yome ni Shitanda ga, Dou Medereba Ii?" }
+  seasons:
+    - id: maou-no-ore-ga-dorei-elf-wo-yome-ni-shitanda-ga-dou-medereba-ii-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [maou-no-ore-ga-dorei-elf-wo-yome-ni-shitanda-ga-dou-medereba-ii]

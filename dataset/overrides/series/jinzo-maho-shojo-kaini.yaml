@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jinzo-maho-shojo-kaini
+  titles:
+    original: 人造魔法少女カイニ
+    translations: { ja-Latn: Jinzō Mahō Shōjo Kaini }
+  movies:
+    - id: jinzo-maho-shojo-kaini-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jinzo-maho-shojo-kaini]

@@ -21,3 +21,14 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
+  movies:
+    - id: donten-ni-warau-film
+      titles:
+        original: 曇天に笑う<外伝>
+        translations:
+          ja: 曇天に笑う<外伝>
+          ja-Latn: 'Donten ni Warau Gaiden: Ketsubetsu, Yamainu no Chikai'
+      releaseYear: 2017
+      externalIds:
+        anilistId: 98452
+      absoluteNumber: 13

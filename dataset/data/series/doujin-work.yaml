@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Doujin Work
   ordering: absolute
+  externalIds:
+    wikidataId: Q2658645
   seasons:
     - id: doujin-work-s1
       number: 1

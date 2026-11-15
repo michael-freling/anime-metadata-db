@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Samurai Champloo
   ordering: absolute
+  externalIds:
+    wikidataId: Q143276
   seasons:
     - id: samurai-champloo-s1
       number: 1

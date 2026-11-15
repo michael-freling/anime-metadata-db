@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nier-automata-ver1-1a-part-2
+  titles:
+    original: "NieR:Automata Ver1.1a 第2クール"
+    translations: { ja-Latn: "NieR:Automata Ver1.1a Part 2" }
+  seasons:
+    - id: nier-automata-ver1-1a-part-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nier-automata-ver1-1a-part-2]

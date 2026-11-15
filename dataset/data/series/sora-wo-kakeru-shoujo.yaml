@@ -4,8 +4,11 @@ series:
   titles:
     original: 宇宙をかける少女
     translations:
+      en: The Girl Who Leapt Through Space
       ja-Latn: Sora wo Kakeru Shoujo
   ordering: absolute
+  externalIds:
+    wikidataId: Q2472823
   seasons:
     - id: sora-wo-kakeru-shoujo-s1
       number: 1

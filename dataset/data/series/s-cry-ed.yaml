@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: s.CRY.ed
   ordering: absolute
+  externalIds:
+    wikidataId: Q3181180
   seasons:
     - id: s-cry-ed-s1
       number: 1
@@ -18,3 +20,14 @@ series:
       episodes:
         count: 26
         absoluteFrom: 1
+  movies:
+    - id: s-cry-ed-film
+      titles:
+        original: スクライド オルタレイション 前編 ＴＡＯ
+        translations:
+          ja: スクライド オルタレイション 前編 ＴＡＯ
+          ja-Latn: 's.CRY.ed Alteration I: Tao'
+      releaseYear: 2011
+      externalIds:
+        anilistId: 10592
+      absoluteNumber: 27

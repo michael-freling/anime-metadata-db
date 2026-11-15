@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: paripi-koumei-road-to-summer-sonia
+  titles:
+    original: パリピ孔明 Road to Summer Sonia
+    translations: { ja-Latn: "Paripi Koumei: Road to Summer Sonia" }
+  movies:
+    - id: paripi-koumei-road-to-summer-sonia-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [paripi-koumei-road-to-summer-sonia]

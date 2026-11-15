@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: madougushi-dahliya-wa-utsumukanai
+  titles:
+    original: 魔導具師ダリヤはうつむかない ~今日から自由な職人ライフ~
+    translations: { ja-Latn: Madougushi Dahliya wa Utsumukanai }
+  seasons:
+    - id: madougushi-dahliya-wa-utsumukanai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [madougushi-dahliya-wa-utsumukanai]

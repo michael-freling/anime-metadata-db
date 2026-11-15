@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: farewell-my-dear-cramer-the-movie
+  titles:
+    original: 映画 さよなら私のクラマー ファーストタッチ
+    translations: { ja-Latn: "Farewell, My Dear Cramer: The Movie" }
+  movies:
+    - id: farewell-my-dear-cramer-the-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [farewell-my-dear-cramer-the-movie]

@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fengle-gui-bao-sanxing-duo-bao
+  titles:
+    original: "Fengle! Gui Bao: Sanxing Duo Bao"
+    translations: { ja-Latn: "Fengle! Gui Bao: Sanxing Duo Bao" }
+  movies:
+    - id: fengle-gui-bao-sanxing-duo-bao-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fengle-gui-bao-sanxing-duo-bao]

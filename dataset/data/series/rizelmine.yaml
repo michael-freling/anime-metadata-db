@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Rizelmine
   ordering: absolute
+  externalIds:
+    wikidataId: Q629951
   seasons:
     - id: rizelmine-s1
       number: 1

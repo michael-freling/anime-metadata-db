@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: huanle-conglin-wai-xing-renda-maoxian
+  titles:
+    original: "Huanle Conglin: Wai Xīng Renda Maoxian"
+    translations: { ja-Latn: "Huanle Conglin: Wai Xīng Renda Maoxian" }
+  movies:
+    - id: huanle-conglin-wai-xing-renda-maoxian-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [huanle-conglin-wai-xing-renda-maoxian]

@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yamada-kun-to-lv999-no-koi-wo-suru
+  titles:
+    original: 山田くんとLv999の恋をする
+    translations: { ja-Latn: Yamada-kun to Lv999 no Koi wo Suru }
+  seasons:
+    - id: yamada-kun-to-lv999-no-koi-wo-suru-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yamada-kun-to-lv999-no-koi-wo-suru]

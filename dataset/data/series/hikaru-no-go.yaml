@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hikaru no Go
   ordering: absolute
+  externalIds:
+    wikidataId: Q582763
   seasons:
     - id: hikaru-no-go-s1
       number: 1

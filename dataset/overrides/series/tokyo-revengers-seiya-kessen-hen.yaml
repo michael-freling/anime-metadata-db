@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tokyo-revengers-seiya-kessen-hen
+  titles:
+    original: 東京リベンジャーズ 聖夜決戦編
+    translations: { ja-Latn: "Tokyo Revengers: Seiya Kessen-hen" }
+  seasons:
+    - id: tokyo-revengers-seiya-kessen-hen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tokyo-revengers-seiya-kessen-hen]

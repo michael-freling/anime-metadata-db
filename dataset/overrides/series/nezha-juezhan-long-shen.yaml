@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nezha-juezhan-long-shen
+  titles:
+    original: "Nezha: Juezhan Long Shen"
+    translations: { ja-Latn: "Nezha: Juezhan Long Shen" }
+  movies:
+    - id: nezha-juezhan-long-shen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nezha-juezhan-long-shen]

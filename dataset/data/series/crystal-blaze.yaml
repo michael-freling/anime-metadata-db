@@ -4,8 +4,11 @@ series:
   titles:
     original: クリスタル ブレイズ
     translations:
+      en: Glass Maiden
       ja-Latn: Crystal Blaze
   ordering: absolute
+  externalIds:
+    wikidataId: Q5567065
   seasons:
     - id: crystal-blaze-s1
       number: 1

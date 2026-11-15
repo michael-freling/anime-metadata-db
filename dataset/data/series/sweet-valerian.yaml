@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Sweet Valerian
   ordering: absolute
+  externalIds:
+    wikidataId: Q837408
   seasons:
     - id: sweet-valerian-s1
       number: 1

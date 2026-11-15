@@ -1,0 +1,15 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sugar-apple-fairy-tale
+  titles:
+    original: シュガーアップル・フェアリーテイル
+    translations: { ja-Latn: Sugar Apple Fairy Tale }
+  seasons:
+    - id: sugar-apple-fairy-tale-s1
+      number: 1
+    - id: sugar-apple-fairy-tale-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sugar-apple-fairy-tale]

@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shinka-no-mi-shiranai-uchi-ni-kachigumi-jinsei
+  titles:
+    original: 進化の実　〜知らないうちに勝ち組人生〜
+    translations: { ja-Latn: "Shinka no Mi: Shiranai Uchi ni Kachigumi Jinsei" }
+  seasons:
+    - id: shinka-no-mi-shiranai-uchi-ni-kachigumi-jinsei-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shinka-no-mi-shiranai-uchi-ni-kachigumi-jinsei]

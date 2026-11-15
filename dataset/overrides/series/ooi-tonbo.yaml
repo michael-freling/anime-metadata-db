@@ -1,0 +1,15 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ooi-tonbo
+  titles:
+    original: オーイ! とんぼ
+    translations: { ja-Latn: Ooi! Tonbo }
+  seasons:
+    - id: ooi-tonbo-s1
+      number: 1
+    - id: ooi-tonbo-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ooi-tonbo]

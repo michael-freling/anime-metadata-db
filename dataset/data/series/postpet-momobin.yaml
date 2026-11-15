@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: PostPet Momobin
   ordering: absolute
+  externalIds:
+    wikidataId: Q11339145
   seasons:
     - id: postpet-momobin-s1
       number: 1

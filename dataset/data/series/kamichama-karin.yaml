@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kamichama Karin
   ordering: absolute
+  externalIds:
+    wikidataId: Q931473
   seasons:
     - id: kamichama-karin-s1
       number: 1

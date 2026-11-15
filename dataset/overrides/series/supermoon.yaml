@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: supermoon
+  titles:
+    original: Supermoon
+    translations: { ja-Latn: Supermoon }
+  movies:
+    - id: supermoon-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [supermoon]

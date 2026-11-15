@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sentouin-haken-shimasu
+  titles:
+    original: "戦闘員, 派遣します!"
+    translations: { ja-Latn: "Sentouin, Haken shimasu!" }
+  seasons:
+    - id: sentouin-haken-shimasu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sentouin-haken-shimasu]

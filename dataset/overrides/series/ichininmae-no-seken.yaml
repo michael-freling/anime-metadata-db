@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ichininmae-no-seken
+  titles:
+    original: 一人前の世間
+    translations: { ja-Latn: Ichininmae no Seken }
+  movies:
+    - id: ichininmae-no-seken-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ichininmae-no-seken]

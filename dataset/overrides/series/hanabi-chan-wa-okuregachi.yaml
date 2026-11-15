@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hanabi-chan-wa-okuregachi
+  titles:
+    original: ハナビちゃんは遅れがち
+    translations: { ja-Latn: Hanabi-chan wa Okuregachi }
+  seasons:
+    - id: hanabi-chan-wa-okuregachi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hanabi-chan-wa-okuregachi]

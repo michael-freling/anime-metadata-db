@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: battle-athletess-daiundoukai-restart
+  titles:
+    original: バトルアスリーテス大運動会 (新作アニメーション)
+    translations: { ja-Latn: Battle Athletess Daiundoukai ReSTART! }
+  seasons:
+    - id: battle-athletess-daiundoukai-restart-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [battle-athletess-daiundoukai-restart]

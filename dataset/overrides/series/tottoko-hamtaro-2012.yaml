@@ -11,5 +11,9 @@ series:
       number: 1
     - id: tottoko-hamtaro-2012-s2
       number: 2
-# One linear storyline: episodes carry a continuous absoluteNumber.
-numbered: [tottoko-hamtaro-2012]
+  movies:
+    - id: tottoko-hamtaro-2012-film
+      externalIds: { anilistId: 7329 } # Tottoko Hamtarou Movie 1: Ham-Ham Land Daibouken (2001)
+# No continuous absoluteNumber. The installments above are separate
+# adaptations of one work (2000, 2012), not one run, so numbering them
+# end to end would assert a continuity that does not exist.

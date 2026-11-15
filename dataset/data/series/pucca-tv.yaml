@@ -18,3 +18,12 @@ series:
       episodes:
         count: 26
         absoluteFrom: 1
+    - id: pucca-tv-s2
+      number: 2
+      releaseYear: 2008
+      releaseSeason: SPRING
+      externalIds:
+        anilistId: 10810
+      episodes:
+        count: 13
+        absoluteFrom: 27

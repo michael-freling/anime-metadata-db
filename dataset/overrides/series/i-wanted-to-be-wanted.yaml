@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: i-wanted-to-be-wanted
+  titles:
+    original: 必要な存在になりたかったな。
+    translations: { ja-Latn: I wanted to be wanted. }
+  movies:
+    - id: i-wanted-to-be-wanted-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [i-wanted-to-be-wanted]

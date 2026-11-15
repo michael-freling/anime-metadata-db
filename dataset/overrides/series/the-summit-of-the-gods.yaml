@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-summit-of-the-gods
+  titles:
+    original: 神々の山嶺
+    translations: { ja-Latn: The Summit of the Gods }
+  movies:
+    - id: the-summit-of-the-gods-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-summit-of-the-gods]

@@ -23,5 +23,8 @@ series:
       number: 7
     - id: boku-no-hero-academia-s8
       number: 8
+  movies:
+    - id: boku-no-hero-academia-film
+      externalIds: { anilistId: 100723 } # Boku no Hero Academia the Movie 1: Futari no Hero (2018)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [boku-no-hero-academia]

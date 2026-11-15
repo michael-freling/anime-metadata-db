@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Dragon Drive
   ordering: absolute
+  externalIds:
+    wikidataId: Q706589
   seasons:
     - id: dragon-drive-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kaidan Restaurant
   ordering: absolute
+  externalIds:
+    wikidataId: Q704467
   seasons:
     - id: kaidan-restaurant-s1
       number: 1

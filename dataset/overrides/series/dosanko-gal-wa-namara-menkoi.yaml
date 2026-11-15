@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dosanko-gal-wa-namara-menkoi
+  titles:
+    original: 道産子ギャルはなまらめんこい
+    translations: { ja-Latn: Dosanko Gal wa Namara Menkoi }
+  seasons:
+    - id: dosanko-gal-wa-namara-menkoi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dosanko-gal-wa-namara-menkoi]

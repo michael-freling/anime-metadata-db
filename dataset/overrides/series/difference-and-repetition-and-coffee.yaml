@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: difference-and-repetition-and-coffee
+  titles:
+    original: 差異と反復とコーヒ
+    translations: { ja-Latn: Difference and Repetition and Coffee }
+  movies:
+    - id: difference-and-repetition-and-coffee-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [difference-and-repetition-and-coffee]

@@ -18,5 +18,8 @@ series:
     - id: isekai-quartet-s3
       number: 3
       externalIds: { anilistId: 194447 } # Isekai Quartet 3 (Fall 2025)
+  movies:
+    - id: isekai-quartet-film
+      externalIds: { anilistId: 117074 } # Isekai Quartet Movie: Another World (2022)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [isekai-quartet]

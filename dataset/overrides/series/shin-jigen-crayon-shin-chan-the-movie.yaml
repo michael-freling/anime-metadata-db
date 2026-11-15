@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shin-jigen-crayon-shin-chan-the-movie
+  titles:
+    original: しん次元！クレヨンしんちゃんTHE MOVIE 超能力大決戦 ～とべとべ手巻き寿司～
+    translations: { ja-Latn: Shin Jigen! Crayon Shin-chan The Movie }
+  movies:
+    - id: shin-jigen-crayon-shin-chan-the-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shin-jigen-crayon-shin-chan-the-movie]

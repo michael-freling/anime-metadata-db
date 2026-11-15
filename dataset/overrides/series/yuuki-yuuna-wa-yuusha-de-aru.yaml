@@ -9,5 +9,11 @@ series:
   seasons:
     - id: yuuki-yuuna-wa-yuusha-de-aru-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 20800 }
+  movies:
+    - id: yuuki-yuuna-wa-yuusha-de-aru-film
+      externalIds: { anilistId: 97860 } # Yuuki Yuuna wa Yuusha de Aru: Washio Sumi no Shou 3 - Yakusoku (2017)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [yuuki-yuuna-wa-yuusha-de-aru]

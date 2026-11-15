@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yuuki-bakuhatsu-bang-bravern
+  titles:
+    original: 勇気爆発バーンブレイバーン
+    translations: { ja-Latn: Yuuki Bakuhatsu Bang Bravern }
+  seasons:
+    - id: yuuki-bakuhatsu-bang-bravern-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yuuki-bakuhatsu-bang-bravern]

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kappa no Kaikata
   ordering: absolute
+  externalIds:
+    wikidataId: Q11294279
   seasons:
     - id: kappa-no-kaikata-s1
       number: 1

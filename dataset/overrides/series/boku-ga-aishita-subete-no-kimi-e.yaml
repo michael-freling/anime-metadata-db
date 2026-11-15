@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: boku-ga-aishita-subete-no-kimi-e
+  titles:
+    original: 僕が愛したすべての君へ
+    translations: { ja-Latn: Boku ga Aishita Subete no Kimi e }
+  movies:
+    - id: boku-ga-aishita-subete-no-kimi-e-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [boku-ga-aishita-subete-no-kimi-e]

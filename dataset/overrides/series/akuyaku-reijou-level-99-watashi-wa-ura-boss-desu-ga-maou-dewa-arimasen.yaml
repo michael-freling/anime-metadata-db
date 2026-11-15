@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: akuyaku-reijou-level-99-watashi-wa-ura-boss-desu-ga-maou-dewa-arimasen
+  titles:
+    original: 悪役令嬢レベル99 ~私は裏ボスですが魔王ではありません~
+    translations: { ja-Latn: "Akuyaku Reijou Level 99: Watashi wa Ura-Boss desu ga Maou dewa Arimasen" }
+  seasons:
+    - id: akuyaku-reijou-level-99-watashi-wa-ura-boss-desu-ga-maou-dewa-arimasen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [akuyaku-reijou-level-99-watashi-wa-ura-boss-desu-ga-maou-dewa-arimasen]

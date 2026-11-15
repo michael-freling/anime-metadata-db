@@ -21,3 +21,14 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
+    - id: peter-grill-to-kenja-no-jikan-s2
+      number: 2
+      releaseYear: 2022
+      releaseSeason: FALL
+      externalIds:
+        anilistId: 141400
+        anidbId: 16973
+        tvdbId: 379923
+      episodes:
+        count: 12
+        absoluteFrom: 13

@@ -9,5 +9,11 @@ series:
   seasons:
     - id: kimi-to-boku-no-saigo-no-senjou-aruiwa-sekai-ga-hajimaru-seisen-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 112667 }
+    - id: kimi-to-boku-no-saigo-no-senjou-aruiwa-sekai-ga-hajimaru-seisen-s2
+      number: 2
+      externalIds: { anilistId: 139825 } # Kimi to Boku no Saigo no Senjou, Aruiwa Sekai ga Hajimaru Seise… (2024)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [kimi-to-boku-no-saigo-no-senjou-aruiwa-sekai-ga-hajimaru-seisen]

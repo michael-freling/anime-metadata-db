@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: oyaji-no-asobi
+  titles:
+    original: おやじの遊び
+    translations: { ja-Latn: Oyaji no Asobi }
+  movies:
+    - id: oyaji-no-asobi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [oyaji-no-asobi]

@@ -1,0 +1,21 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pokemon-horizons-the-series
+  titles:
+    original: ポケットモンスター
+    translations: { ja-Latn: "Pokémon Horizons: The Series" }
+  seasons:
+    - id: pokemon-horizons-the-series-s1
+      number: 1
+    - id: pokemon-horizons-the-series-s2
+      number: 2
+    - id: pokemon-horizons-the-series-s3
+      number: 3
+  movies:
+    - id: pokemon-horizons-the-series-film
+      externalIds: { anilistId: 528 } # Pokemon Movie 01: Mewtwo no Gyakushuu (1998)
+# No continuous absoluteNumber. The installments above are separate
+# adaptations of one work (1997, 2019, 2023), not one run, so numbering them
+# end to end would assert a continuity that does not exist.

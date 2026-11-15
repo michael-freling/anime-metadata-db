@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: a-girl-meets-a-boy-and-a-robot
+  titles:
+    original: A Girl Meets a Boy and a Robot
+    translations: { ja-Latn: A Girl Meets a Boy and a Robot }
+  movies:
+    - id: a-girl-meets-a-boy-and-a-robot-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [a-girl-meets-a-boy-and-a-robot]

@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: on-air-dekinai
+  titles:
+    original: オンエアできない!
+    translations: { ja-Latn: On Air Dekinai! }
+  seasons:
+    - id: on-air-dekinai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [on-air-dekinai]

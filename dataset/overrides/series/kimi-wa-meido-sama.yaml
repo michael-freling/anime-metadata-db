@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kimi-wa-meido-sama
+  titles:
+    original: 君は冥土様.
+    translations: { ja-Latn: Kimi wa Meido-sama. }
+  seasons:
+    - id: kimi-wa-meido-sama-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kimi-wa-meido-sama]

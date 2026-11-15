@@ -18,3 +18,14 @@ series:
         anilistId: 98776
         anidbId: 13175
       absoluteNumber: 1
+    - id: entotsu-machi-no-poupelle-film-2
+      titles:
+        original: えんとつ町のプペル 〜約束の時計台〜
+        translations:
+          ja: えんとつ町のプペル 〜約束の時計台〜
+          ja-Latn: 'Entotsu Machi no Poupelle: Yakusoku no Tokei-dai'
+      releaseYear: 2026
+      externalIds:
+        anilistId: 190668
+        anidbId: 19291
+      absoluteNumber: 2

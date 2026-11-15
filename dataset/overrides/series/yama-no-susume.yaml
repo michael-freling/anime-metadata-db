@@ -9,5 +9,11 @@ series:
   seasons:
     - id: yama-no-susume-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 14355 }
+    - id: yama-no-susume-s2
+      number: 2
+      externalIds: { anilistId: 131182 } # Yama no Susume: Next Summit (2022)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [yama-no-susume]

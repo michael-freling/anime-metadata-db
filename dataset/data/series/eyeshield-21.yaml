@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Eyeshield 21
   ordering: absolute
+  externalIds:
+    wikidataId: Q696941
   seasons:
     - id: eyeshield-21-s1
       number: 1

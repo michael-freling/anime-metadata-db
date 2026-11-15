@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kenkou Zenrakei Suiei-bu Umishou
   ordering: absolute
+  externalIds:
+    wikidataId: Q540497
   seasons:
     - id: kenkou-zenrakei-suiei-bu-umishou-s1
       number: 1

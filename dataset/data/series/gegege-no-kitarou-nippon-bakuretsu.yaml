@@ -4,8 +4,11 @@ series:
   titles:
     original: 劇場版 ゲゲゲの鬼太郎 日本爆裂!!
     translations:
+      en: 'Gekijô ban Gegege no Kitarô: Nippon bakuretsu'
       ja-Latn: 'Gegege no Kitarou: Nippon Bakuretsu'
   ordering: absolute
+  externalIds:
+    wikidataId: Q10899320
   movies:
     - id: gegege-no-kitarou-nippon-bakuretsu-film
       titles:

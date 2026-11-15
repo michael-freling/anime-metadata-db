@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hakozume-kouban-joshi-no-gyakushuu
+  titles:
+    original: ハコヅメ ～交番女子の逆襲～
+    translations: { ja-Latn: "Hakozume: Kouban Joshi no Gyakushuu" }
+  seasons:
+    - id: hakozume-kouban-joshi-no-gyakushuu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hakozume-kouban-joshi-no-gyakushuu]

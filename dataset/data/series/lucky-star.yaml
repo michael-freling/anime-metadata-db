@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Lucky☆Star
   ordering: absolute
+  externalIds:
+    wikidataId: Q839091
   seasons:
     - id: lucky-star-s1
       number: 1

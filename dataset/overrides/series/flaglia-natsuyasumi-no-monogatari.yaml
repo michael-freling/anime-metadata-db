@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: flaglia-natsuyasumi-no-monogatari
+  titles:
+    original: 『FLAGLIA』～なつやすみの物語～
+    translations: { ja-Latn: "Flaglia: Natsuyasumi no Monogatari" }
+  seasons:
+    - id: flaglia-natsuyasumi-no-monogatari-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [flaglia-natsuyasumi-no-monogatari]

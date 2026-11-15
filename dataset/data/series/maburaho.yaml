@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Maburaho
   ordering: absolute
+  externalIds:
+    wikidataId: Q1191206
   seasons:
     - id: maburaho-s1
       number: 1

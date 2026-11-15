@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: color-leon
+  titles:
+    original: カラーレオン
+    translations: { ja-Latn: Color Leon }
+  seasons:
+    - id: color-leon-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [color-leon]

@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: silver-bird-and-rainbow-fish
+  titles:
+    original: Silver Bird and Rainbow Fish
+    translations: { ja-Latn: Silver Bird and Rainbow Fish }
+  movies:
+    - id: silver-bird-and-rainbow-fish-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [silver-bird-and-rainbow-fish]

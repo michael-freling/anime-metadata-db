@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: on-chan-no-kyou-wa-donna-kanji
+  titles:
+    original: onちゃんのきょうはどんなかんじ？
+    translations: { ja-Latn: "On-chan no Kyou wa Donna Kanji?" }
+  seasons:
+    - id: on-chan-no-kyou-wa-donna-kanji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [on-chan-no-kyou-wa-donna-kanji]

@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pui-pui-molcar-the-movie-molmax
+  titles:
+    original: PUI PUI モルカー ザ・ムービー MOLMAX（モルマックス）
+    translations: { ja-Latn: "Pui Pui Molcar the Movie: MOLMAX" }
+  movies:
+    - id: pui-pui-molcar-the-movie-molmax-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pui-pui-molcar-the-movie-molmax]

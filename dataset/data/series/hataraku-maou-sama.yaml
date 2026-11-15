@@ -21,3 +21,14 @@ series:
       episodes:
         count: 13
         absoluteFrom: 1
+    - id: hataraku-maou-sama-s2
+      number: 2
+      releaseYear: 2022
+      releaseSeason: SUMMER
+      externalIds:
+        anilistId: 130592
+        anidbId: 16104
+        tvdbId: 267441
+      episodes:
+        count: 12
+        absoluteFrom: 14

@@ -17,7 +17,7 @@ series:
         tvdbId: 451479
       episodes:
         count: 12
-        absoluteFrom: 1
+        absoluteFrom: 2
     - id: ranma-1-2-2024-s2
       number: 2
       releaseYear: 2025
@@ -28,4 +28,17 @@ series:
         tvdbId: 451479
       episodes:
         count: 12
-        absoluteFrom: 13
+        absoluteFrom: 14
+  movies:
+    - id: ranma-1-2-2024-film
+      titles:
+        original: らんま1/2 決戦桃幻郷! 花嫁を奪りもどせ!!
+        translations:
+          ja: らんま1/2 決戦桃幻郷! 花嫁を奪りもどせ!!
+          ja-Latn: 'Ranma ½: Kessen Tougenkyou! Hanayome wo Torimodose!'
+      releaseYear: 1992
+      externalIds:
+        anilistId: 792
+        anidbId: 368
+        tvdbId: 76932
+      absoluteNumber: 1

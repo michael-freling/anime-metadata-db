@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zombie-ga-doeeo-beorin-naui-ttal
+  titles:
+    original: Zombie-ga Doeeo Beorin Naui Ttal
+    translations: { ja-Latn: Zombie-ga Doeeo Beorin Naui Ttal }
+  seasons:
+    - id: zombie-ga-doeeo-beorin-naui-ttal-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zombie-ga-doeeo-beorin-naui-ttal]

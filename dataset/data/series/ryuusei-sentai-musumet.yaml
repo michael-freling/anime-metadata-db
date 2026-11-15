@@ -4,8 +4,11 @@ series:
   titles:
     original: 流星戦隊ムスメット
     translations:
+      en: Musumet
       ja-Latn: Ryuusei Sentai Musumet
   ordering: absolute
+  externalIds:
+    wikidataId: Q3305088
   seasons:
     - id: ryuusei-sentai-musumet-s1
       number: 1

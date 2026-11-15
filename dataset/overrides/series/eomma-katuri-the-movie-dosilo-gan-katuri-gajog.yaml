@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: eomma-katuri-the-movie-dosilo-gan-katuri-gajog
+  titles:
+    original: "Eomma Katuri the Movie: Dosilo Gan Katuri Gajog"
+    translations: { ja-Latn: "Eomma Katuri the Movie: Dosilo Gan Katuri Gajog" }
+  movies:
+    - id: eomma-katuri-the-movie-dosilo-gan-katuri-gajog-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [eomma-katuri-the-movie-dosilo-gan-katuri-gajog]

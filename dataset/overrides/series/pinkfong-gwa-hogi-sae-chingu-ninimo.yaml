@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pinkfong-gwa-hogi-sae-chingu-ninimo
+  titles:
+    original: "Pinkfong-gwa Hogi: Sae Chingu Ninimo"
+    translations: { ja-Latn: "Pinkfong-gwa Hogi: Sae Chingu Ninimo" }
+  seasons:
+    - id: pinkfong-gwa-hogi-sae-chingu-ninimo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pinkfong-gwa-hogi-sae-chingu-ninimo]

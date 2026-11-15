@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: idolish7-live-4bit-beyond-the-period-day-1
+  titles:
+    original: アイドリッシュセブン LIVE 4bit BEYOND THE PERiOD DAY 1
+    translations: { ja-Latn: "IDOLiSH7: Live 4bit - Beyond the Period DAY 1" }
+  movies:
+    - id: idolish7-live-4bit-beyond-the-period-day-1-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [idolish7-live-4bit-beyond-the-period-day-1]

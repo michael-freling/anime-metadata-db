@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fuan-na-karada
+  titles:
+    original: 不安な体
+    translations: { ja-Latn: Fuan na Karada }
+  movies:
+    - id: fuan-na-karada-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fuan-na-karada]

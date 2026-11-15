@@ -11,5 +11,8 @@ series:
       number: 1
     - id: tsubasa-reservoir-chronicle-s2
       number: 2
+  movies:
+    - id: tsubasa-reservoir-chronicle-film
+      externalIds: { anilistId: 807 } # Tsubasa Chronicle: Torikago no Kuni no Himegimi (2005)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [tsubasa-reservoir-chronicle]

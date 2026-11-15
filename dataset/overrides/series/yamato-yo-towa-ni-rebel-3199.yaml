@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yamato-yo-towa-ni-rebel-3199
+  titles:
+    original: ヤマトよ永遠に REBEL3199 第四章 水色の乙女（サーシャ）
+    translations: { ja-Latn: "Yamato yo Towa ni: Rebel 3199" }
+  movies:
+    - id: yamato-yo-towa-ni-rebel-3199-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yamato-yo-towa-ni-rebel-3199]

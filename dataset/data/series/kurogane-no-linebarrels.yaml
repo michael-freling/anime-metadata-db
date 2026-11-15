@@ -4,8 +4,11 @@ series:
   titles:
     original: 鉄のラインバレル
     translations:
+      en: Linebarrels of Iron
       ja-Latn: Kurogane no Linebarrels
   ordering: absolute
+  externalIds:
+    wikidataId: Q2290128
   seasons:
     - id: kurogane-no-linebarrels-s1
       number: 1

@@ -18,3 +18,14 @@ series:
       episodes:
         count: 11
         absoluteFrom: 1
+    - id: bartender-s2
+      number: 2
+      releaseYear: 2024
+      releaseSeason: SPRING
+      externalIds:
+        anilistId: 155890
+        anidbId: 17673
+        tvdbId: 426262
+      episodes:
+        count: 12
+        absoluteFrom: 12

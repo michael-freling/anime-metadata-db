@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: i-chu-halfway-through-the-idol
+  titles:
+    original: アイ★チュウ HALFWAY THROUGH THE IDOL
+    translations: { ja-Latn: "I★Chu: Halfway Through the Idol" }
+  seasons:
+    - id: i-chu-halfway-through-the-idol-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [i-chu-halfway-through-the-idol]

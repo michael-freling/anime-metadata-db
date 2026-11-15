@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Mezzo DSA
   ordering: absolute
+  externalIds:
+    wikidataId: Q3307774
   seasons:
     - id: mezzo-dsa-s1
       number: 1

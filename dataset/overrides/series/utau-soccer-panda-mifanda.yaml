@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: utau-soccer-panda-mifanda
+  titles:
+    original: 歌うサッカーパンダ ミファンダ
+    translations: { ja-Latn: Utau Soccer Panda Mifanda }
+  seasons:
+    - id: utau-soccer-panda-mifanda-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [utau-soccer-panda-mifanda]

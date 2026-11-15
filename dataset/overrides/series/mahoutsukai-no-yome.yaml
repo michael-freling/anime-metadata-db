@@ -9,5 +9,11 @@ series:
   seasons:
     - id: mahoutsukai-no-yome-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 98436 }
+    - id: mahoutsukai-no-yome-s2
+      number: 2
+      externalIds: { anilistId: 154364 } # Mahoutsukai no Yome Season 2 (2023)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [mahoutsukai-no-yome]

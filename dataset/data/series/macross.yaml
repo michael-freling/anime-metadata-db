@@ -18,3 +18,15 @@ series:
       episodes:
         count: 26
         absoluteFrom: 1
+  movies:
+    - id: macross-film
+      titles:
+        original: 劇場版マクロスΔ
+        translations:
+          ja: 劇場版マクロスΔ
+          ja-Latn: 'Macross Δ Movie 2: Zettai Live!!!'
+      releaseYear: 2021
+      externalIds:
+        anilistId: 118126
+        anidbId: 14408
+      absoluteNumber: 27

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kage kara Mamoru!
   ordering: absolute
+  externalIds:
+    wikidataId: Q1136152
   seasons:
     - id: kage-kara-mamoru-s1
       number: 1

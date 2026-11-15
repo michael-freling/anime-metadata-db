@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: totonoe-sakuma-kun-by-sauna
+  titles:
+    original: ととのえ！さくまくん by &sauna
+    translations: { ja-Latn: Totonoe! Sakuma-kun by &sauna }
+  seasons:
+    - id: totonoe-sakuma-kun-by-sauna-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [totonoe-sakuma-kun-by-sauna]

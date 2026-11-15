@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shi-ga-utsukushii-nante-dare-ga-itta
+  titles:
+    original: 死が美しいなんて誰が言った
+    translations: { ja-Latn: Shi ga Utsukushii Nante dare ga Itta }
+  movies:
+    - id: shi-ga-utsukushii-nante-dare-ga-itta-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shi-ga-utsukushii-nante-dare-ga-itta]

@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lv2-kara-cheat-datta-motoyuusha-kouho-no-mattari-isekai-life
+  titles:
+    original: Lv2からチートだった元勇者候補のまったり異世界ライフ
+    translations: { ja-Latn: Lv2 kara Cheat datta Motoyuusha Kouho no Mattari Isekai Life }
+  seasons:
+    - id: lv2-kara-cheat-datta-motoyuusha-kouho-no-mattari-isekai-life-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lv2-kara-cheat-datta-motoyuusha-kouho-no-mattari-isekai-life]

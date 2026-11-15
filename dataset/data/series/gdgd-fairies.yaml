@@ -29,3 +29,16 @@ series:
       episodes:
         count: 12
         absoluteFrom: 13
+  movies:
+    - id: gdgd-fairies-film
+      titles:
+        original: gdgd妖精s っていう映画はどうかな...?
+        translations:
+          ja: gdgd妖精s っていう映画はどうかな...?
+          ja-Latn: 'gdgd Fairies Movie: tte Iu Eiga wa Dou kana...?'
+      releaseYear: 2014
+      externalIds:
+        anilistId: 20887
+        anidbId: 10621
+        tvdbId: 252808
+      absoluteNumber: 25

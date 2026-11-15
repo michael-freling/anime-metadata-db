@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: slow-loop
+  titles:
+    original: スローループ
+    translations: { ja-Latn: Slow Loop }
+  seasons:
+    - id: slow-loop-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [slow-loop]

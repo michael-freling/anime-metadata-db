@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Potemayo
   ordering: absolute
+  externalIds:
+    wikidataId: Q608499
   seasons:
     - id: potemayo-s1
       number: 1

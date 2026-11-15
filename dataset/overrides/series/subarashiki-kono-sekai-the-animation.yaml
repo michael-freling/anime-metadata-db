@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: subarashiki-kono-sekai-the-animation
+  titles:
+    original: すばらしきこのせかい The Animation
+    translations: { ja-Latn: Subarashiki Kono Sekai The Animation }
+  seasons:
+    - id: subarashiki-kono-sekai-the-animation-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [subarashiki-kono-sekai-the-animation]

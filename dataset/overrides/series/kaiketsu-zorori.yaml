@@ -11,5 +11,10 @@ series:
       number: 1
   movies:
     - id: kaiketsu-zorori-film
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 3659 }
+    - id: kaiketsu-zorori-film-2
+      externalIds: { anilistId: 15067 } # Kaiketsu Zorori Da-Da-Da-Daibouken! (2012)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [kaiketsu-zorori]

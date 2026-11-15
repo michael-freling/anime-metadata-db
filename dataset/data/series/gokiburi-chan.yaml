@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Gokiburi-chan
   ordering: absolute
+  externalIds:
+    wikidataId: Q11303524
   seasons:
     - id: gokiburi-chan-s1
       number: 1

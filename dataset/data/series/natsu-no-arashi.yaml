@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Natsu no Arashi!
   ordering: absolute
+  externalIds:
+    wikidataId: Q738819
   seasons:
     - id: natsu-no-arashi-s1
       number: 1

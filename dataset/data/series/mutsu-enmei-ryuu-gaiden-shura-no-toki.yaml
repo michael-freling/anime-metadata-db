@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Mutsu Enmei Ryuu Gaiden: Shura no Toki'
   ordering: absolute
+  externalIds:
+    wikidataId: Q711218
   seasons:
     - id: mutsu-enmei-ryuu-gaiden-shura-no-toki-s1
       number: 1

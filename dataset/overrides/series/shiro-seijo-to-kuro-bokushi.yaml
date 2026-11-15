@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shiro-seijo-to-kuro-bokushi
+  titles:
+    original: 白聖女と黒牧師
+    translations: { ja-Latn: Shiro Seijo to Kuro Bokushi }
+  seasons:
+    - id: shiro-seijo-to-kuro-bokushi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shiro-seijo-to-kuro-bokushi]

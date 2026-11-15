@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Getsumen to Heiki Mina
   ordering: absolute
+  externalIds:
+    wikidataId: Q2617126
   seasons:
     - id: getsumen-to-heiki-mina-s1
       number: 1

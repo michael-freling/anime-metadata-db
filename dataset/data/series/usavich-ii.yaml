@@ -16,3 +16,12 @@ series:
       episodes:
         count: 13
         absoluteFrom: 1
+    - id: usavich-ii-s2
+      number: 2
+      releaseYear: 2008
+      releaseSeason: FALL
+      externalIds:
+        anilistId: 5397
+      episodes:
+        count: 13
+        absoluteFrom: 14

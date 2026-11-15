@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hokkyokuguma-suggoku-hima
+  titles:
+    original: ホッキョクグマすっごくひま
+    translations: { ja-Latn: Hokkyokuguma Suggoku Hima }
+  movies:
+    - id: hokkyokuguma-suggoku-hima-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hokkyokuguma-suggoku-hima]

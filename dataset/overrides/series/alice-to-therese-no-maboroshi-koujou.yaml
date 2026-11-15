@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: alice-to-therese-no-maboroshi-koujou
+  titles:
+    original: アリスとテレスのまぼろし工場
+    translations: { ja-Latn: Alice to Therese no Maboroshi Koujou }
+  movies:
+    - id: alice-to-therese-no-maboroshi-koujou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [alice-to-therese-no-maboroshi-koujou]

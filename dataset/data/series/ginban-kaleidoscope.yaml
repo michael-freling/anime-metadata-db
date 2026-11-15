@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Ginban Kaleidoscope
   ordering: absolute
+  externalIds:
+    wikidataId: Q651849
   seasons:
     - id: ginban-kaleidoscope-s1
       number: 1

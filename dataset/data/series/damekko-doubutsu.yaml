@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Damekko Doubutsu
   ordering: absolute
+  externalIds:
+    wikidataId: Q1158339
   seasons:
     - id: damekko-doubutsu-s1
       number: 1

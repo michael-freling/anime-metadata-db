@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Futakoi Alternative
   ordering: absolute
+  externalIds:
+    wikidataId: Q6503143
   seasons:
     - id: futakoi-alternative-s1
       number: 1

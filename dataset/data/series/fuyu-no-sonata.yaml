@@ -4,8 +4,11 @@ series:
   titles:
     original: 冬のソナタ
     translations:
+      en: Winter Sonata
       ja-Latn: Fuyu no Sonata
   ordering: absolute
+  externalIds:
+    wikidataId: Q495410
   seasons:
     - id: fuyu-no-sonata-s1
       number: 1

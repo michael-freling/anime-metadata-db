@@ -4,8 +4,11 @@ series:
   titles:
     original: Cosmic Baton Girl コメットさん☆
     translations:
+      en: Cosmic Baton Girl Princess Comet
       ja-Latn: Cosmic Baton Girl Comet-san☆
   ordering: absolute
+  externalIds:
+    wikidataId: Q19820250
   seasons:
     - id: cosmic-baton-girl-comet-san-s1
       number: 1

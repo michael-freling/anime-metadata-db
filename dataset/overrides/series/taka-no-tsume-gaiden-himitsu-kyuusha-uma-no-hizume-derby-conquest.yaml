@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: taka-no-tsume-gaiden-himitsu-kyuusha-uma-no-hizume-derby-conquest
+  titles:
+    original: 鷹の爪外伝「秘密厩舎 馬の蹄 ダービーコンクエスト」
+    translations: { ja-Latn: "Taka no Tsume Gaiden \"Himitsu Kyuusha: Uma no Hizume - Derby Conquest\"" }
+  seasons:
+    - id: taka-no-tsume-gaiden-himitsu-kyuusha-uma-no-hizume-derby-conquest-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [taka-no-tsume-gaiden-himitsu-kyuusha-uma-no-hizume-derby-conquest]

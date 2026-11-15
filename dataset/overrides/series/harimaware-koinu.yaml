@@ -1,0 +1,15 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: harimaware-koinu
+  titles:
+    original: 貼りまわれ! こいぬ
+    translations: { ja-Latn: Harimaware! Koinu }
+  seasons:
+    - id: harimaware-koinu-s1
+      number: 1
+    - id: harimaware-koinu-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [harimaware-koinu]

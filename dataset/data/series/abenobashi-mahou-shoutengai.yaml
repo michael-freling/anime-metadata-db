@@ -4,8 +4,11 @@ series:
   titles:
     original: アベノ橋魔法☆商店街
     translations:
+      en: Magical Shopping Arcade Abenobashi
       ja-Latn: Abenobashi Mahou☆Shoutengai
   ordering: absolute
+  externalIds:
+    wikidataId: Q2465820
   seasons:
     - id: abenobashi-mahou-shoutengai-s1
       number: 1

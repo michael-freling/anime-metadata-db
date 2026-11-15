@@ -4,8 +4,11 @@ series:
   titles:
     original: 魔法少女隊アルス
     translations:
+      en: Tweeny Witches
       ja-Latn: Mahou Shoujo-tai Arusu
   ordering: absolute
+  externalIds:
+    wikidataId: Q1280574
   seasons:
     - id: mahou-shoujo-tai-arusu-s1
       number: 1

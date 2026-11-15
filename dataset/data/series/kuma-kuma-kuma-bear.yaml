@@ -18,3 +18,14 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
+    - id: kuma-kuma-kuma-bear-s2
+      number: 2
+      releaseYear: 2023
+      releaseSeason: SPRING
+      externalIds:
+        anilistId: 127550
+        anidbId: 15945
+        tvdbId: 386572
+      episodes:
+        count: 12
+        absoluteFrom: 13

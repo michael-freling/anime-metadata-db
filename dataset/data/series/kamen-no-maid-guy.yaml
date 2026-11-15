@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kamen no Maid Guy
   ordering: absolute
+  externalIds:
+    wikidataId: Q1750516
   seasons:
     - id: kamen-no-maid-guy-s1
       number: 1

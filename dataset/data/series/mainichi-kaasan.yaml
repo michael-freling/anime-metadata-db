@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Mainichi Kaasan
   ordering: absolute
+  externalIds:
+    wikidataId: Q6736651
   seasons:
     - id: mainichi-kaasan-s1
       number: 1

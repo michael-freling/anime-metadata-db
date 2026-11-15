@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jijou-wo-shiranai-tenkousei-ga-guigui-kuru
+  titles:
+    original: 事情を知らない転校生がグイグイくる.
+    translations: { ja-Latn: Jijou wo Shiranai Tenkousei ga Guigui Kuru. }
+  seasons:
+    - id: jijou-wo-shiranai-tenkousei-ga-guigui-kuru-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jijou-wo-shiranai-tenkousei-ga-guigui-kuru]

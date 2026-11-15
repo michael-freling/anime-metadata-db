@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: meirenyu-de-xiatian
+  titles:
+    original: Meirenyu de Xiatian
+    translations: { ja-Latn: Meirenyu de Xiatian }
+  movies:
+    - id: meirenyu-de-xiatian-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [meirenyu-de-xiatian]

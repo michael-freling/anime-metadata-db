@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tensei-kizoku-kantei-skill-de-nariagaru-2nd-season
+  titles:
+    original: 転生貴族、鑑定スキルで成り上がる 第2期
+    translations: { ja-Latn: "Tensei Kizoku, Kantei Skill de Nariagaru 2nd Season" }
+  seasons:
+    - id: tensei-kizoku-kantei-skill-de-nariagaru-2nd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tensei-kizoku-kantei-skill-de-nariagaru-2nd-season]

@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: toaru-ossan-no-vrmmo-katsudouki
+  titles:
+    original: とあるおっさんのVRMMO活動記
+    translations: { ja-Latn: Toaru Ossan no VRMMO Katsudouki }
+  seasons:
+    - id: toaru-ossan-no-vrmmo-katsudouki-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [toaru-ossan-no-vrmmo-katsudouki]

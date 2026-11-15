@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gensou-sangokushi-tengen-reishinki
+  titles:
+    original: "Gensou Sangokushi: Tengen Reishinki"
+    translations: { ja-Latn: "Gensou Sangokushi: Tengen Reishinki" }
+  seasons:
+    - id: gensou-sangokushi-tengen-reishinki-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gensou-sangokushi-tengen-reishinki]

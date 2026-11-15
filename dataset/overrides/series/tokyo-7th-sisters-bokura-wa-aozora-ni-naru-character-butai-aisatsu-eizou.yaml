@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tokyo-7th-sisters-bokura-wa-aozora-ni-naru-character-butai-aisatsu-eizou
+  titles:
+    original: 777☆SISTERS キャラクター舞台挨拶映像
+    translations: { ja-Latn: "Tokyo 7th Sisters: Bokura wa Aozora ni Naru: Character Butai Aisatsu Eizou" }
+  movies:
+    - id: tokyo-7th-sisters-bokura-wa-aozora-ni-naru-character-butai-aisatsu-eizou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tokyo-7th-sisters-bokura-wa-aozora-ni-naru-character-butai-aisatsu-eizou]

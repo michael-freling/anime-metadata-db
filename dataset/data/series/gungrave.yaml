@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Gungrave
   ordering: absolute
+  externalIds:
+    wikidataId: Q138130
   seasons:
     - id: gungrave-s1
       number: 1

@@ -18,3 +18,15 @@ series:
       episodes:
         count: 13
         absoluteFrom: 1
+  movies:
+    - id: dakaretai-otoko-1-i-ni-odosarete-imasu-film
+      titles:
+        original: 劇場版 抱かれたい男1位に脅されています. ~スペイン編~
+        translations:
+          ja: 劇場版 抱かれたい男1位に脅されています. ~スペイン編~
+          ja-Latn: 'Dakaretai Otoko 1-i ni Odosarete Imasu. Movie: Spain-hen'
+      releaseYear: 2021
+      externalIds:
+        anilistId: 132545
+        anidbId: 16271
+      absoluteNumber: 14

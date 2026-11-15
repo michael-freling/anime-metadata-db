@@ -4,8 +4,11 @@ series:
   titles:
     original: チャンス〜トライアングルセッション〜
     translations:
+      en: Chance Pop Session
       ja-Latn: Chance Triangle Session
   ordering: absolute
+  externalIds:
+    wikidataId: Q5070726
   seasons:
     - id: chance-triangle-session-s1
       number: 1

@@ -21,3 +21,14 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
+    - id: masamune-kun-no-revenge-s2
+      number: 2
+      releaseYear: 2023
+      releaseSeason: SUMMER
+      externalIds:
+        anilistId: 146953
+        anidbId: 17294
+        tvdbId: 318860
+      episodes:
+        count: 12
+        absoluteFrom: 13

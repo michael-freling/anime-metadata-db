@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: komada-jouryuujo-e-youkoso
+  titles:
+    original: 駒田蒸留所へようこそ
+    translations: { ja-Latn: Komada Jouryuujo e Youkoso }
+  movies:
+    - id: komada-jouryuujo-e-youkoso-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [komada-jouryuujo-e-youkoso]

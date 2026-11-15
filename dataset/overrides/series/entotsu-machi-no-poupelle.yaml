@@ -8,5 +8,10 @@ series:
     translations: { ja-Latn: Entotsu Machi no Poupelle }
   movies:
     - id: entotsu-machi-no-poupelle-film
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 98776 }
+    - id: entotsu-machi-no-poupelle-film-2
+      externalIds: { anilistId: 190668 } # Entotsu Machi no Poupelle: Yakusoku no Tokei-dai (2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [entotsu-machi-no-poupelle]

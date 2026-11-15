@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: maarui-kanojo-to-zannen-na-kareshi-2024
+  titles:
+    original: Maarui Kanojo to Zannen na Kareshi (2024)
+    translations: { ja-Latn: Maarui Kanojo to Zannen na Kareshi (2024) }
+  seasons:
+    - id: maarui-kanojo-to-zannen-na-kareshi-2024-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [maarui-kanojo-to-zannen-na-kareshi-2024]

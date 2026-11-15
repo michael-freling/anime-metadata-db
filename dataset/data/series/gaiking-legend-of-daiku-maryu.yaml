@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Gaiking: Legend of Daiku-Maryu'
   ordering: absolute
+  externalIds:
+    wikidataId: Q2284406
   seasons:
     - id: gaiking-legend-of-daiku-maryu-s1
       number: 1

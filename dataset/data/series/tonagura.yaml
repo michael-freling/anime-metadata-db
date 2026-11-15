@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tonagura!
   ordering: absolute
+  externalIds:
+    wikidataId: Q7820714
   seasons:
     - id: tonagura-s1
       number: 1

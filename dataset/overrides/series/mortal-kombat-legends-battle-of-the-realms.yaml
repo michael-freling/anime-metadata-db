@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mortal-kombat-legends-battle-of-the-realms
+  titles:
+    original: モータルコンバットレジェンド　レルムの戦い
+    translations: { ja-Latn: "Mortal Kombat Legends: Battle of the Realms" }
+  movies:
+    - id: mortal-kombat-legends-battle-of-the-realms-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mortal-kombat-legends-battle-of-the-realms]

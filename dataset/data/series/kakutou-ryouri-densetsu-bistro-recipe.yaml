@@ -4,8 +4,11 @@ series:
   titles:
     original: 格闘料理伝説ビストロレシピ
     translations:
+      en: Fighting Foodons
       ja-Latn: Kakutou Ryouri Densetsu Bistro Recipe
   ordering: absolute
+  externalIds:
+    wikidataId: Q873954
   seasons:
     - id: kakutou-ryouri-densetsu-bistro-recipe-s1
       number: 1

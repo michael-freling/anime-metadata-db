@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kanamemo
   ordering: absolute
+  externalIds:
+    wikidataId: Q1207316
   seasons:
     - id: kanamemo-s1
       number: 1

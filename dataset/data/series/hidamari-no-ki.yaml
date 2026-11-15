@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hidamari no Ki
   ordering: absolute
+  externalIds:
+    wikidataId: Q2082672
   seasons:
     - id: hidamari-no-ki-s1
       number: 1

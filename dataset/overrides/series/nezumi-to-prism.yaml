@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nezumi-to-prism
+  titles:
+    original: ネズミとプリズム
+    translations: { ja-Latn: Nezumi to Prism }
+  movies:
+    - id: nezumi-to-prism-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nezumi-to-prism]

@@ -9,5 +9,11 @@ series:
   seasons:
     - id: jashin-chan-dropkick-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 107294 }
+    - id: jashin-chan-dropkick-s2
+      number: 2
+      externalIds: { anilistId: 124641 } # Jashin-chan Dropkick X (2022)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [jashin-chan-dropkick]

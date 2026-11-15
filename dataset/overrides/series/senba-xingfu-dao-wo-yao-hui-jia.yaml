@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: senba-xingfu-dao-wo-yao-hui-jia
+  titles:
+    original: "Senba Xingfu Dao: Wo Yao Hui Jia"
+    translations: { ja-Latn: "Senba Xingfu Dao: Wo Yao Hui Jia" }
+  movies:
+    - id: senba-xingfu-dao-wo-yao-hui-jia-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [senba-xingfu-dao-wo-yao-hui-jia]

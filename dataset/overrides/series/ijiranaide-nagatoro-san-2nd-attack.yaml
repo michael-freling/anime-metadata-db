@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ijiranaide-nagatoro-san-2nd-attack
+  titles:
+    original: "イジらないで, 長瀞さん 2nd Attack"
+    translations: { ja-Latn: "Ijiranaide, Nagatoro-san 2nd Attack" }
+  seasons:
+    - id: ijiranaide-nagatoro-san-2nd-attack-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ijiranaide-nagatoro-san-2nd-attack]

@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: idol-bu-show-movie
+  titles:
+    original: Idol Bu Show Movie
+    translations: { ja-Latn: Idol Bu Show Movie }
+  movies:
+    - id: idol-bu-show-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [idol-bu-show-movie]

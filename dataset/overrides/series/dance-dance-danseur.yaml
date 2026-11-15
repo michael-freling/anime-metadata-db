@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dance-dance-danseur
+  titles:
+    original: ダンス・ダンス・ダンスール
+    translations: { ja-Latn: Dance Dance Danseur }
+  seasons:
+    - id: dance-dance-danseur-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dance-dance-danseur]

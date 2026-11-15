@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Wonder Bebil-kun
   ordering: absolute
+  externalIds:
+    wikidataId: Q4020754
   seasons:
     - id: wonder-bebil-kun-s1
       number: 1

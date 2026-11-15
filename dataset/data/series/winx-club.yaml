@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Winx Club
   ordering: absolute
+  externalIds:
+    wikidataId: Q77522
   seasons:
     - id: winx-club-s1
       number: 1

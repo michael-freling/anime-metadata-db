@@ -9,5 +9,8 @@ series:
   seasons:
     - id: sd-gundam-sangokuden-brave-battle-warriors-s1
       number: 1
+  movies:
+    - id: sd-gundam-sangokuden-brave-battle-warriors-film
+      externalIds: { anilistId: 8132 } # Chou Deneiban SD Gundam Sangokuden Brave Battle Warriors (2010)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [sd-gundam-sangokuden-brave-battle-warriors]

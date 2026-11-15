@@ -4,8 +4,11 @@ series:
   titles:
     original: 伯爵と妖精
     translations:
+      en: The Earl and the Fairy
       ja-Latn: Hakushaku to Yousei
   ordering: absolute
+  externalIds:
+    wikidataId: Q1343008
   seasons:
     - id: hakushaku-to-yousei-s1
       number: 1

@@ -18,3 +18,27 @@ series:
       episodes:
         count: 13
         absoluteFrom: 1
+    - id: hibike-euphonium-s2
+      number: 2
+      releaseYear: 2024
+      releaseSeason: SPRING
+      externalIds:
+        anilistId: 109731
+        anidbId: 14935
+        tvdbId: 289884
+      episodes:
+        count: 13
+        absoluteFrom: 15
+  movies:
+    - id: hibike-euphonium-film
+      titles:
+        original: 『響け！ユーフォニアム』アンサンブルコンテスト編
+        translations:
+          ja: 『響け！ユーフォニアム』アンサンブルコンテスト編
+          ja-Latn: 'Hibike! Euphonium: Ensemble Contest-hen'
+      releaseYear: 2023
+      externalIds:
+        anilistId: 150429
+        anidbId: 17441
+        tvdbId: 289884
+      absoluteNumber: 14

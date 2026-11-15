@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: koi-to-yobu-ni-wa-kimochi-warui
+  titles:
+    original: 恋と呼ぶには気持ち悪い
+    translations: { ja-Latn: Koi to Yobu ni wa Kimochi Warui }
+  seasons:
+    - id: koi-to-yobu-ni-wa-kimochi-warui-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [koi-to-yobu-ni-wa-kimochi-warui]

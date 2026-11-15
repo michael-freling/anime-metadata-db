@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Yume Tsukai
   ordering: absolute
+  externalIds:
+    wikidataId: Q866151
   seasons:
     - id: yume-tsukai-s1
       number: 1

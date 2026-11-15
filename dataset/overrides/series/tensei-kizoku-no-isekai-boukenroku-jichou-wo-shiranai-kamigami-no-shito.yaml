@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tensei-kizoku-no-isekai-boukenroku-jichou-wo-shiranai-kamigami-no-shito
+  titles:
+    original: 転生貴族の異世界冒険録 ～自重を知らない神々の使徒～ 转生贵族的异世界冒险录
+    translations: { ja-Latn: "Tensei Kizoku no Isekai Boukenroku: Jichou wo Shiranai Kamigami no Shito" }
+  seasons:
+    - id: tensei-kizoku-no-isekai-boukenroku-jichou-wo-shiranai-kamigami-no-shito-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tensei-kizoku-no-isekai-boukenroku-jichou-wo-shiranai-kamigami-no-shito]

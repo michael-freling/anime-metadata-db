@@ -11,5 +11,8 @@ series:
       number: 1
     - id: assassination-classroom-s2
       number: 2
+  movies:
+    - id: assassination-classroom-film
+      externalIds: { anilistId: 21864 } # Koro-sensei Q! (2016)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [assassination-classroom]

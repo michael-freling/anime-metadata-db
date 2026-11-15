@@ -9,5 +9,11 @@ series:
   seasons:
     - id: zhandou-wang-jufeng-zhan-hun-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 103425 }
+    - id: zhandou-wang-jufeng-zhan-hun-s2
+      number: 2
+      externalIds: { anilistId: 121384 } # Zhandou Wang: Jufeng Zhan Hun V (2018)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [zhandou-wang-jufeng-zhan-hun]

@@ -4,8 +4,11 @@ series:
   titles:
     original: エリア88
     translations:
+      en: Area 88
       ja-Latn: Area 88 (TV)
   ordering: absolute
+  externalIds:
+    wikidataId: Q1374090
   seasons:
     - id: area-88-tv-s1
       number: 1

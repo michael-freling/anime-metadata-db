@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yinhe-baobei
+  titles:
+    original: Yinhe Baobei
+    translations: { ja-Latn: Yinhe Baobei }
+  movies:
+    - id: yinhe-baobei-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yinhe-baobei]

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Ultra Maniac
   ordering: absolute
+  externalIds:
+    wikidataId: Q1028599
   seasons:
     - id: ultra-maniac-s1
       number: 1

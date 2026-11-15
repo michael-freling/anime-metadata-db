@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Nanami-chan
   ordering: absolute
+  externalIds:
+    wikidataId: Q6962407
   seasons:
     - id: nanami-chan-s1
       number: 1

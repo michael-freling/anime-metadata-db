@@ -4,8 +4,11 @@ series:
   titles:
     original: 天使な小生意気
     translations:
+      en: Cheeky Angel
       ja-Latn: Tenshi na Konamaiki
   ordering: absolute
+  externalIds:
+    wikidataId: Q509415
   seasons:
     - id: tenshi-na-konamaiki-s1
       number: 1

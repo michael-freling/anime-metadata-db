@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hametsu-no-oukoku
+  titles:
+    original: はめつのおうこく
+    translations: { ja-Latn: Hametsu no Oukoku }
+  seasons:
+    - id: hametsu-no-oukoku-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hametsu-no-oukoku]

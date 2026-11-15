@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shuumatsu-no-harem
+  titles:
+    original: 終末のハーレム
+    translations: { ja-Latn: Shuumatsu no Harem }
+  seasons:
+    - id: shuumatsu-no-harem-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shuumatsu-no-harem]

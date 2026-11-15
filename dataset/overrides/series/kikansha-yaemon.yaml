@@ -8,5 +8,10 @@ series:
     translations: { ja-Latn: Kikansha Yaemon }
   movies:
     - id: kikansha-yaemon-film
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 8492 }
+    - id: kikansha-yaemon-film-2
+      externalIds: { anilistId: 8494 } # Kikansha Yaemon: D51 no Daibouken (1974)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [kikansha-yaemon]

@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wanmei-zhi-cheng-zui-yonggan-de-xiaohai
+  titles:
+    original: "Wanmei Zhi Cheng: Zui Yonggan de Xiaohai"
+    translations: { ja-Latn: "Wanmei Zhi Cheng: Zui Yonggan de Xiaohai" }
+  movies:
+    - id: wanmei-zhi-cheng-zui-yonggan-de-xiaohai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wanmei-zhi-cheng-zui-yonggan-de-xiaohai]

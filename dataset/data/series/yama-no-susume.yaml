@@ -18,3 +18,14 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
+    - id: yama-no-susume-s2
+      number: 2
+      releaseYear: 2022
+      releaseSeason: FALL
+      externalIds:
+        anilistId: 131182
+        anidbId: 16138
+        tvdbId: 264523
+      episodes:
+        count: 12
+        absoluteFrom: 13

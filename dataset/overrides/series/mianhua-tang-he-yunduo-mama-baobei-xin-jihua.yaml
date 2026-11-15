@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mianhua-tang-he-yunduo-mama-baobei-xin-jihua
+  titles:
+    original: "Mianhua Tang He Yunduo Mama: Baobei Xin Jihua"
+    translations: { ja-Latn: "Mianhua Tang He Yunduo Mama: Baobei Xin Jihua" }
+  movies:
+    - id: mianhua-tang-he-yunduo-mama-baobei-xin-jihua-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mianhua-tang-he-yunduo-mama-baobei-xin-jihua]

@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mayi-chuanqi-liehuo-chongsheng
+  titles:
+    original: "Mayi Chuanqi: Liehuo Chongsheng"
+    translations: { ja-Latn: "Mayi Chuanqi: Liehuo Chongsheng" }
+  movies:
+    - id: mayi-chuanqi-liehuo-chongsheng-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mayi-chuanqi-liehuo-chongsheng]

@@ -18,6 +18,17 @@ series:
       episodes:
         count: 49
         absoluteFrom: 2
+    - id: ojamajo-doremi-s2
+      number: 2
+      releaseYear: 2002
+      releaseSeason: WINTER
+      externalIds:
+        anilistId: 353
+        anidbId: 1767
+        tvdbId: 82378
+      episodes:
+        count: 51
+        absoluteFrom: 51
   movies:
     - id: ojamajo-doremi-film
       titles:

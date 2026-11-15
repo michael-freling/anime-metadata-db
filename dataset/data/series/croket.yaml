@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Croket!
   ordering: absolute
+  externalIds:
+    wikidataId: Q5187540
   seasons:
     - id: croket-s1
       number: 1

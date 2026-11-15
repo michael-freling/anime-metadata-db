@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: touhai-ura-rate-mahjong-touhairoku
+  titles:
+    original: 凍牌 ～裏レート麻雀闘牌録～
+    translations: { ja-Latn: "Touhai: Ura Rate Mahjong Touhairoku" }
+  seasons:
+    - id: touhai-ura-rate-mahjong-touhairoku-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [touhai-ura-rate-mahjong-touhairoku]

@@ -4,8 +4,11 @@ series:
   titles:
     original: 精霊の守り人
     translations:
+      en: Moribito
       ja-Latn: Seirei no Moribito
   ordering: absolute
+  externalIds:
+    wikidataId: Q106705902
   seasons:
     - id: seirei-no-moribito-s1
       number: 1

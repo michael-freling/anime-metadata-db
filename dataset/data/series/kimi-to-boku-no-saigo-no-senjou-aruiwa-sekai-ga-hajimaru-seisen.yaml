@@ -18,3 +18,14 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
+    - id: kimi-to-boku-no-saigo-no-senjou-aruiwa-sekai-ga-hajimaru-seisen-s2
+      number: 2
+      releaseYear: 2024
+      releaseSeason: SUMMER
+      externalIds:
+        anilistId: 139825
+        anidbId: 16828
+        tvdbId: 387027
+      episodes:
+        count: 12
+        absoluteFrom: 13

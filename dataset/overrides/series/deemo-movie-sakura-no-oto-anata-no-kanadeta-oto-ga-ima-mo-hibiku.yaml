@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: deemo-movie-sakura-no-oto-anata-no-kanadeta-oto-ga-ima-mo-hibiku
+  titles:
+    original: "劇場版 DEEMO サクラノオト -あなたの奏でた音が, 今も響く-"
+    translations: { ja-Latn: "Deemo Movie: Sakura no Oto - Anata no Kanadeta Oto ga, Ima mo Hibiku" }
+  movies:
+    - id: deemo-movie-sakura-no-oto-anata-no-kanadeta-oto-ga-ima-mo-hibiku-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [deemo-movie-sakura-no-oto-anata-no-kanadeta-oto-ga-ima-mo-hibiku]

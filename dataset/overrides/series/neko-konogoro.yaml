@@ -15,5 +15,6 @@ series:
     - id: neko-konogoro-s2
       number: 2
       externalIds: { anilistId: 199486 } # Neko Konogoro: Tenka Toitsu-hen (Summer 2025)
-# One linear storyline: episodes carry a continuous absoluteNumber.
-numbered: [neko-konogoro]
+# No continuous absoluteNumber. The installments above are separate
+# adaptations of one work (2016, 2025), not one run, so numbering them
+# end to end would assert a continuity that does not exist.

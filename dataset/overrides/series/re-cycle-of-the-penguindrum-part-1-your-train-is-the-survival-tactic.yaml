@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: re-cycle-of-the-penguindrum-part-1-your-train-is-the-survival-tactic
+  titles:
+    original: "劇場版 RE:cycle of the PENGUINDRUM［前編］君の列車は生存戦略"
+    translations: { ja-Latn: "Re:cycle of the Penguindrum Part 1: Your Train is the Survival Tactic" }
+  movies:
+    - id: re-cycle-of-the-penguindrum-part-1-your-train-is-the-survival-tactic-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [re-cycle-of-the-penguindrum-part-1-your-train-is-the-survival-tactic]

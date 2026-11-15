@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Basquash!
   ordering: absolute
+  externalIds:
+    wikidataId: Q810437
   seasons:
     - id: basquash-s1
       number: 1

@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aki-no-kaze-fuku
+  titles:
+    original: 秋の風吹く
+    translations: { ja-Latn: Aki no Kaze Fuku }
+  movies:
+    - id: aki-no-kaze-fuku-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aki-no-kaze-fuku]

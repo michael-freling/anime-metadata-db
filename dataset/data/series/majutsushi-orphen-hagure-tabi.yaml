@@ -18,3 +18,14 @@ series:
       episodes:
         count: 13
         absoluteFrom: 1
+    - id: majutsushi-orphen-hagure-tabi-s2
+      number: 2
+      releaseYear: 2021
+      releaseSeason: WINTER
+      externalIds:
+        anilistId: 117085
+        anidbId: 15482
+        tvdbId: 372939
+      episodes:
+        count: 11
+        absoluteFrom: 14

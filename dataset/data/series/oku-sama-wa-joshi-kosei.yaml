@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Oku-sama wa Joshi Kōsei
   ordering: absolute
+  externalIds:
+    wikidataId: Q2618476
   seasons:
     - id: oku-sama-wa-joshi-kosei-s1
       number: 1

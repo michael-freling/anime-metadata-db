@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jiangtun-feng-shi-wu
+  titles:
+    original: "Jiangtun: Feng Shi Wu"
+    translations: { ja-Latn: "Jiangtun: Feng Shi Wu" }
+  movies:
+    - id: jiangtun-feng-shi-wu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jiangtun-feng-shi-wu]

@@ -20,3 +20,14 @@ series:
       episodes:
         count: 13
         absoluteFrom: 1
+    - id: bananya-s2
+      number: 2
+      releaseYear: 2019
+      releaseSeason: FALL
+      externalIds:
+        anilistId: 110881
+        anidbId: 15036
+        tvdbId: 313676
+      episodes:
+        count: 13
+        absoluteFrom: 14

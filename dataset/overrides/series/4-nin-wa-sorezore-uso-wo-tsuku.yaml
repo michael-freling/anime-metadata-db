@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 4-nin-wa-sorezore-uso-wo-tsuku
+  titles:
+    original: 4人はそれぞれウソをつく
+    translations: { ja-Latn: 4-nin wa Sorezore Uso wo Tsuku }
+  seasons:
+    - id: 4-nin-wa-sorezore-uso-wo-tsuku-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [4-nin-wa-sorezore-uso-wo-tsuku]

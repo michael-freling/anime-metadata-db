@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 30-sai-made-doutei-dato-mahoutsukai-ni-nareru-rashii
+  titles:
+    original: 30歳まで童貞だと魔法使いになれるらしい
+    translations: { ja-Latn: 30-sai made Doutei dato Mahoutsukai ni Nareru Rashii }
+  seasons:
+    - id: 30-sai-made-doutei-dato-mahoutsukai-ni-nareru-rashii-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [30-sai-made-doutei-dato-mahoutsukai-ni-nareru-rashii]

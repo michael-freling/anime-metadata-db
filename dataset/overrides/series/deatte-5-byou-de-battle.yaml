@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: deatte-5-byou-de-battle
+  titles:
+    original: 出会って5秒でバトル
+    translations: { ja-Latn: Deatte 5-byou de Battle }
+  seasons:
+    - id: deatte-5-byou-de-battle-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [deatte-5-byou-de-battle]

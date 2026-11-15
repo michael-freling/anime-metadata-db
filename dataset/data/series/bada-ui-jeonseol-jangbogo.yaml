@@ -4,8 +4,11 @@ series:
   titles:
     original: 海の伝説 張保皐
     translations:
+      en: The Legend of Blue
       ja-Latn: Bada-ui Jeonseol Jangbogo
   ordering: absolute
+  externalIds:
+    wikidataId: Q18700738
   seasons:
     - id: bada-ui-jeonseol-jangbogo-s1
       number: 1

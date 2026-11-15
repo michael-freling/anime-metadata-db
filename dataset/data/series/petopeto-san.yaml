@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: PetoPeto-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q840574
   seasons:
     - id: petopeto-san-s1
       number: 1

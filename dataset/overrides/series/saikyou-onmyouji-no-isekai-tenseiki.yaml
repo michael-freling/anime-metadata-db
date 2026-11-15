@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: saikyou-onmyouji-no-isekai-tenseiki
+  titles:
+    original: 最強陰陽師の異世界転生記
+    translations: { ja-Latn: Saikyou Onmyouji no Isekai Tenseiki }
+  seasons:
+    - id: saikyou-onmyouji-no-isekai-tenseiki-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [saikyou-onmyouji-no-isekai-tenseiki]

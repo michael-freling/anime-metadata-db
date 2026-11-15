@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tytania
   ordering: absolute
+  externalIds:
+    wikidataId: Q1413399
   seasons:
     - id: tytania-s1
       number: 1

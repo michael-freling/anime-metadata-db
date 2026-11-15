@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: spaceman-x-sugoi-uchu-daiboken
+  titles:
+    original: スペースマンX～すごい宇宙大冒険～
+    translations: { ja-Latn: Spaceman X ~Sugoi Uchū Daibōken~ }
+  movies:
+    - id: spaceman-x-sugoi-uchu-daiboken-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [spaceman-x-sugoi-uchu-daiboken]

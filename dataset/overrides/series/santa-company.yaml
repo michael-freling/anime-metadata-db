@@ -8,5 +8,10 @@ series:
     translations: { ja-Latn: Santa Company }
   movies:
     - id: santa-company-film
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 16381 }
+    - id: santa-company-film-2
+      externalIds: { anilistId: 129123 } # Santa Company: Manatsu no Merry Christmas (2021)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [santa-company]

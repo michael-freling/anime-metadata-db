@@ -4,8 +4,11 @@ series:
   titles:
     original: 超重神グラヴィオン
     translations:
+      en: Gravion
       ja-Latn: Choujuushin Gravion
   ordering: absolute
+  externalIds:
+    wikidataId: Q2641567
   seasons:
     - id: choujuushin-gravion-s1
       number: 1

@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: life-sounds
+  titles:
+    original: life sounds
+    translations: { ja-Latn: life sounds }
+  movies:
+    - id: life-sounds-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [life-sounds]

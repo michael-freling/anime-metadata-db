@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kenja-no-deshi-wo-nanoru-kenja
+  titles:
+    original: 賢者の弟子を名乗る賢者
+    translations: { ja-Latn: Kenja no Deshi wo Nanoru Kenja }
+  seasons:
+    - id: kenja-no-deshi-wo-nanoru-kenja-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kenja-no-deshi-wo-nanoru-kenja]

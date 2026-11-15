@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Mofu☆Mofu
   ordering: absolute
+  externalIds:
+    wikidataId: Q11344536
   seasons:
     - id: mofu-mofu-s1
       number: 1

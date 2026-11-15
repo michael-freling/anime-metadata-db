@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: maougun-saikyou-no-majutsushi-wa-ningen-datta
+  titles:
+    original: 魔王軍最強の魔術師は人間だった
+    translations: { ja-Latn: Maougun Saikyou no Majutsushi wa Ningen datta }
+  seasons:
+    - id: maougun-saikyou-no-majutsushi-wa-ningen-datta-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [maougun-saikyou-no-majutsushi-wa-ningen-datta]

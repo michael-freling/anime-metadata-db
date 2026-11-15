@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gal-gaku-ii-lucky-stars
+  titles:
+    original: ガル学。II～Lucky Stars～
+    translations: { ja-Latn: "Gal-gaku. II: Lucky Stars" }
+  seasons:
+    - id: gal-gaku-ii-lucky-stars-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gal-gaku-ii-lucky-stars]

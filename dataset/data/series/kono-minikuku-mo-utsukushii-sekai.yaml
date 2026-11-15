@@ -4,8 +4,11 @@ series:
   titles:
     original: この醜くも美しい世界
     translations:
+      en: This Ugly yet Beautiful World
       ja-Latn: Kono Minikuku mo Utsukushii Sekai
   ordering: absolute
+  externalIds:
+    wikidataId: Q1781846
   seasons:
     - id: kono-minikuku-mo-utsukushii-sekai-s1
       number: 1

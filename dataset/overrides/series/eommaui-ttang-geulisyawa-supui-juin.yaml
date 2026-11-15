@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: eommaui-ttang-geulisyawa-supui-juin
+  titles:
+    original: "Eommaui Ttang: Geulisyawa Supui Juin"
+    translations: { ja-Latn: "Eommaui Ttang: Geulisyawa Supui Juin" }
+  movies:
+    - id: eommaui-ttang-geulisyawa-supui-juin-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [eommaui-ttang-geulisyawa-supui-juin]

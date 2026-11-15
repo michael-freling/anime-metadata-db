@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Ai Yori Aoshi
   ordering: absolute
+  externalIds:
+    wikidataId: Q280619
   seasons:
     - id: ai-yori-aoshi-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: ナイトウィザード The ANIMATION
     translations:
+      en: Night Wizard The ANIMATION
       ja-Latn: Night Wizard
   ordering: absolute
+  externalIds:
+    wikidataId: Q141739460
   seasons:
     - id: night-wizard-s1
       number: 1

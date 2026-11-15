@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: majo-to-yajuu
+  titles:
+    original: 魔女と野獣
+    translations: { ja-Latn: Majo to Yajuu }
+  seasons:
+    - id: majo-to-yajuu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [majo-to-yajuu]

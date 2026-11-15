@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jaku-chara-tomozaki-kun-2nd-stage
+  titles:
+    original: 弱キャラ友崎くん 2nd STAGE
+    translations: { ja-Latn: Jaku-Chara Tomozaki-kun 2nd Stage }
+  seasons:
+    - id: jaku-chara-tomozaki-kun-2nd-stage-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jaku-chara-tomozaki-kun-2nd-stage]

@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hyper-positive-yogoremon
+  titles:
+    original: ハイパーボジティブよごれモン
+    translations: { ja-Latn: Hyper Positive Yogoremon }
+  seasons:
+    - id: hyper-positive-yogoremon-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hyper-positive-yogoremon]

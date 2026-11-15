@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Pugyuru
   ordering: absolute
+  externalIds:
+    wikidataId: Q7258983
   seasons:
     - id: pugyuru-s1
       number: 1

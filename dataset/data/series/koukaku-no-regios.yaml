@@ -4,8 +4,11 @@ series:
   titles:
     original: 鋼殻のレギオス
     translations:
+      en: Chrome Shelled Regios
       ja-Latn: Koukaku no Regios
   ordering: absolute
+  externalIds:
+    wikidataId: Q1087664
   seasons:
     - id: koukaku-no-regios-s1
       number: 1

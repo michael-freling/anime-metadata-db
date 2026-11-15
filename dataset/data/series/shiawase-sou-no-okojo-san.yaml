@@ -4,8 +4,11 @@ series:
   titles:
     original: しあわせソウのオコジョさん
     translations:
+      en: Okojo-san
       ja-Latn: Shiawase Sou no Okojo-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q900454
   seasons:
     - id: shiawase-sou-no-okojo-san-s1
       number: 1

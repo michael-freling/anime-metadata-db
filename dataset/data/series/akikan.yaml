@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Akikan!
   ordering: absolute
+  externalIds:
+    wikidataId: Q2584248
   seasons:
     - id: akikan-s1
       number: 1

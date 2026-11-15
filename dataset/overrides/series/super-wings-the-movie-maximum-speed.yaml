@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: super-wings-the-movie-maximum-speed
+  titles:
+    original: "Super Wings the Movie: Maximum Speed"
+    translations: { ja-Latn: "Super Wings the Movie: Maximum Speed" }
+  movies:
+    - id: super-wings-the-movie-maximum-speed-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [super-wings-the-movie-maximum-speed]

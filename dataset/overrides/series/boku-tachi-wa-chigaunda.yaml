@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: boku-tachi-wa-chigaunda
+  titles:
+    original: 僕たちは違うんだ
+    translations: { ja-Latn: Boku-tachi wa Chigaunda }
+  movies:
+    - id: boku-tachi-wa-chigaunda-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [boku-tachi-wa-chigaunda]

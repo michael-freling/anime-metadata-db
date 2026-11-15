@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Nabari no Ou
   ordering: absolute
+  externalIds:
+    wikidataId: Q1348627
   seasons:
     - id: nabari-no-ou-s1
       number: 1

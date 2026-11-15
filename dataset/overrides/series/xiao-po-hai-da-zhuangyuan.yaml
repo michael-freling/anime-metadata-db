@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-po-hai-da-zhuangyuan
+  titles:
+    original: Xiao Po Hai Da Zhuangyuan
+    translations: { ja-Latn: Xiao Po Hai Da Zhuangyuan }
+  movies:
+    - id: xiao-po-hai-da-zhuangyuan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-po-hai-da-zhuangyuan]

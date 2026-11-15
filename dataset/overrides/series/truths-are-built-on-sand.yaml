@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: truths-are-built-on-sand
+  titles:
+    original: Truths Are Built on Sand
+    translations: { ja-Latn: Truths Are Built on Sand }
+  movies:
+    - id: truths-are-built-on-sand-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [truths-are-built-on-sand]

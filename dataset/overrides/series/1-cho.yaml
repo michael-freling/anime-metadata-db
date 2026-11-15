@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 1-cho
+  titles:
+    original: 1 Cho
+    translations: { ja-Latn: 1 Cho }
+  seasons:
+    - id: 1-cho-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [1-cho]

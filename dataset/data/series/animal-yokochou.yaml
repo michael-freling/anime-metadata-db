@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Animal Yokochou
   ordering: absolute
+  externalIds:
+    wikidataId: Q496643
   seasons:
     - id: animal-yokochou-s1
       number: 1

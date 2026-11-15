@@ -4,8 +4,11 @@ series:
   titles:
     original: BRIGADOON まりんとメラン
     translations:
+      en: 'Brigadoon: Marin & Melan'
       ja-Latn: 'Brigadoon: Marin to Melan'
   ordering: absolute
+  externalIds:
+    wikidataId: Q2487170
   seasons:
     - id: brigadoon-marin-to-melan-s1
       number: 1

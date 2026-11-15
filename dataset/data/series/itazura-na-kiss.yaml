@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Itazura na Kiss
   ordering: absolute
+  externalIds:
+    wikidataId: Q699003
   seasons:
     - id: itazura-na-kiss-s1
       number: 1

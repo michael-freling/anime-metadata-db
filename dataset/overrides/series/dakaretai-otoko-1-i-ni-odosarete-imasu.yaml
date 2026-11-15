@@ -9,5 +9,8 @@ series:
   seasons:
     - id: dakaretai-otoko-1-i-ni-odosarete-imasu-s1
       number: 1
+  movies:
+    - id: dakaretai-otoko-1-i-ni-odosarete-imasu-film
+      externalIds: { anilistId: 132545 } # Dakaretai Otoko 1-i ni Odosarete Imasu. Movie: Spain-hen (2021)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [dakaretai-otoko-1-i-ni-odosarete-imasu]

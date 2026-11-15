@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Asura Cryin'
   ordering: absolute
+  externalIds:
+    wikidataId: Q752495
   seasons:
     - id: asura-cryin-s1
       number: 1

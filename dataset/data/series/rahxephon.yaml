@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: RahXephon
   ordering: absolute
+  externalIds:
+    wikidataId: Q95072
   seasons:
     - id: rahxephon-s1
       number: 1

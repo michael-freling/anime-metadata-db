@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Di Gi Charat Nyo
   ordering: absolute
+  externalIds:
+    wikidataId: Q2002590
   seasons:
     - id: di-gi-charat-nyo-s1
       number: 1

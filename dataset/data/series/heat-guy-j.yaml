@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Heat Guy J
   ordering: absolute
+  externalIds:
+    wikidataId: Q2539404
   seasons:
     - id: heat-guy-j-s1
       number: 1

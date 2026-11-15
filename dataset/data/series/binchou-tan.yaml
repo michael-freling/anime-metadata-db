@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Binchou-tan
   ordering: absolute
+  externalIds:
+    wikidataId: Q986192
   seasons:
     - id: binchou-tan-s1
       number: 1

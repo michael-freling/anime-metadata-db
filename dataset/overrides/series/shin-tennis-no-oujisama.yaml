@@ -9,5 +9,11 @@ series:
   seasons:
     - id: shin-tennis-no-oujisama-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 11371 }
+    - id: shin-tennis-no-oujisama-s2
+      number: 2
+      externalIds: { anilistId: 140187 } # Shin Tennis no Oujisama: U-17 World Cup (2022)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [shin-tennis-no-oujisama]

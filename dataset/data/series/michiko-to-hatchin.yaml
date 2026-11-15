@@ -4,8 +4,11 @@ series:
   titles:
     original: ミチコとハッチン
     translations:
+      en: Michiko & Hatchin
       ja-Latn: Michiko to Hatchin
   ordering: absolute
+  externalIds:
+    wikidataId: Q1631247
   seasons:
     - id: michiko-to-hatchin-s1
       number: 1

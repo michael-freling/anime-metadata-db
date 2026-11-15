@@ -4,8 +4,11 @@ series:
   titles:
     original: 陸上防衛隊まおちゃん
     translations:
+      en: Ground Defense Force! Mao-chan
       ja-Latn: Rikujou Bouei-tai Mao-chan
   ordering: absolute
+  externalIds:
+    wikidataId: Q711341
   seasons:
     - id: rikujou-bouei-tai-mao-chan-s1
       number: 1

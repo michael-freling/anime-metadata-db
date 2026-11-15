@@ -4,8 +4,11 @@ series:
   titles:
     original: 天体戦士サンレッド
     translations:
+      en: Astro Fighter Sunred
       ja-Latn: Tentai Senshi Sunred
   ordering: absolute
+  externalIds:
+    wikidataId: Q4811509
   seasons:
     - id: tentai-senshi-sunred-s1
       number: 1

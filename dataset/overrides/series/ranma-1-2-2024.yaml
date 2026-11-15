@@ -15,5 +15,8 @@ series:
     - id: ranma-1-2-2024-s2
       number: 2
       externalIds: { anilistId: 185731 } # Ranma ½ (2024) 2nd Season (Fall 2025)
+  movies:
+    - id: ranma-1-2-2024-film
+      externalIds: { anilistId: 792 } # Ranma ½: Kessen Tougenkyou! Hanayome wo Torimodose! (1992)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [ranma-1-2-2024]

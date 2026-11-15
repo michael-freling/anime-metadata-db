@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: youan-xiao-jing-de-gui
+  titles:
+    original: Youan Xiao Jing de Gui
+    translations: { ja-Latn: Youan Xiao Jing de Gui }
+  movies:
+    - id: youan-xiao-jing-de-gui-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [youan-xiao-jing-de-gui]

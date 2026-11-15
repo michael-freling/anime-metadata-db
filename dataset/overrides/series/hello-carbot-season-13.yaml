@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hello-carbot-season-13
+  titles:
+    original: Hello Carbot Season 13
+    translations: { ja-Latn: Hello Carbot Season 13 }
+  seasons:
+    - id: hello-carbot-season-13-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hello-carbot-season-13]

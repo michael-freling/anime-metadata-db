@@ -21,6 +21,17 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
+    - id: kantai-collection-kancolle-s2
+      number: 2
+      releaseYear: 2022
+      releaseSeason: FALL
+      externalIds:
+        anilistId: 21294
+        anidbId: 11161
+        tvdbId: 279533
+      episodes:
+        count: 8
+        absoluteFrom: 14
   movies:
     - id: kantai-collection-kancolle-film
       titles:

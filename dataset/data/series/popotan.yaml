@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Popotan
   ordering: absolute
+  externalIds:
+    wikidataId: Q1988293
   seasons:
     - id: popotan-s1
       number: 1

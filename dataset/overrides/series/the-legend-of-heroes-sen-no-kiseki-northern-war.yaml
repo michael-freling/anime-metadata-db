@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-legend-of-heroes-sen-no-kiseki-northern-war
+  titles:
+    original: "Eiyuu Densetsu: Sen no Kiseki (英雄伝説 閃の軌跡)"
+    translations: { ja-Latn: "The Legend of Heroes: Sen no Kiseki - Northern War" }
+  seasons:
+    - id: the-legend-of-heroes-sen-no-kiseki-northern-war-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-legend-of-heroes-sen-no-kiseki-northern-war]

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Sky Girls
   ordering: absolute
+  externalIds:
+    wikidataId: Q3107595
   seasons:
     - id: sky-girls-s1
       number: 1

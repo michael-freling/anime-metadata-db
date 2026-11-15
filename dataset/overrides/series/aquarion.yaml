@@ -9,6 +9,12 @@ series:
   seasons:
     - id: aquarion-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 478 }
+    - id: aquarion-s2
+      number: 2
+      externalIds: { anilistId: 10447 } # Aquarion Evol (2012)
   movies:
     - id: aquarion-film
 # One linear storyline: episodes carry a continuous absoluteNumber.

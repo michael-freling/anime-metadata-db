@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: huo-feng-zhong-tian
+  titles:
+    original: Huo Feng Zhong Tian
+    translations: { ja-Latn: Huo Feng Zhong Tian }
+  movies:
+    - id: huo-feng-zhong-tian-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [huo-feng-zhong-tian]

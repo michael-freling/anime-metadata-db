@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tokyo Magnitude 8.0
   ordering: absolute
+  externalIds:
+    wikidataId: Q714520
   seasons:
     - id: tokyo-magnitude-8-0-s1
       number: 1

@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: egumi-legacy
+  titles:
+    original: エグミレガシー
+    translations: { ja-Latn: Egumi Legacy }
+  seasons:
+    - id: egumi-legacy-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [egumi-legacy]

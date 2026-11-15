@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Revbahaf Wang-gug Jaegeon-soelgi
   ordering: absolute
+  externalIds:
+    wikidataId: Q493460
   seasons:
     - id: revbahaf-wang-gug-jaegeon-soelgi-s1
       number: 1

@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: idolls
+  titles:
+    original: アイドールズ! IDOL Survival
+    translations: { ja-Latn: Idolls! }
+  seasons:
+    - id: idolls-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [idolls]

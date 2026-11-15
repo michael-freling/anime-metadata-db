@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sayonara-watashi-no-cramer
+  titles:
+    original: さよなら私のクラマー
+    translations: { ja-Latn: Sayonara Watashi no Cramer }
+  seasons:
+    - id: sayonara-watashi-no-cramer-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sayonara-watashi-no-cramer]

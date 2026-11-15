@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mushoku-tensei-isekai-ittara-honki-dasu-part-2
+  titles:
+    original: 無職転生~異世界行ったら本気だす~ Part II
+    translations: { ja-Latn: "Mushoku Tensei: Isekai Ittara Honki Dasu Part 2" }
+  seasons:
+    - id: mushoku-tensei-isekai-ittara-honki-dasu-part-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mushoku-tensei-isekai-ittara-honki-dasu-part-2]

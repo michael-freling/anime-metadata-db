@@ -4,8 +4,11 @@ series:
   titles:
     original: おとぎストーリー 天使のしっぽ
     translations:
+      en: Angel Tales
       ja-Latn: Otogi Story Tenshi no Shippo
   ordering: absolute
+  externalIds:
+    wikidataId: Q712500
   seasons:
     - id: otogi-story-tenshi-no-shippo-s1
       number: 1

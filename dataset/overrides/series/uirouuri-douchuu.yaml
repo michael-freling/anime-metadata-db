@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: uirouuri-douchuu
+  titles:
+    original: Uirouuri Douchuu
+    translations: { ja-Latn: Uirouuri Douchuu }
+  movies:
+    - id: uirouuri-douchuu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [uirouuri-douchuu]

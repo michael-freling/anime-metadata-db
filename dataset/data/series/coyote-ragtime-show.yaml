@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Coyote Ragtime Show
   ordering: absolute
+  externalIds:
+    wikidataId: Q2069910
   seasons:
     - id: coyote-ragtime-show-s1
       number: 1

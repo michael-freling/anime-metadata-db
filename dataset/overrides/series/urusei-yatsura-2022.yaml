@@ -1,0 +1,21 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: urusei-yatsura-2022
+  titles:
+    original: うる星やつら
+    translations: { ja-Latn: Urusei Yatsura (2022) }
+  seasons:
+    - id: urusei-yatsura-2022-s1
+      number: 1
+    - id: urusei-yatsura-2022-s2
+      number: 2
+    - id: urusei-yatsura-2022-s3
+      number: 3
+  movies:
+    - id: urusei-yatsura-2022-film
+      externalIds: { anilistId: 1920 } # Urusei Yatsura Movie 1: Only You (1983)
+# No continuous absoluteNumber. The installments above are separate
+# adaptations of one work (1981, 2022, 2024), not one run, so numbering them
+# end to end would assert a continuity that does not exist.

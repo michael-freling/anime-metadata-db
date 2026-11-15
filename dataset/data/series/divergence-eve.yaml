@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Divergence Eve
   ordering: absolute
+  externalIds:
+    wikidataId: Q3711930
   seasons:
     - id: divergence-eve-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: ラブ★コン
     translations:
+      en: Love Com
       ja-Latn: Lovely★Complex
   ordering: absolute
+  externalIds:
+    wikidataId: Q696278
   seasons:
     - id: lovely-complex-s1
       number: 1

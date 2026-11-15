@@ -4,8 +4,11 @@ series:
   titles:
     original: 天才? Dr.ハマックス
     translations:
+      en: Genius? Dr. Hamax
       ja-Latn: Tensai? Dr. Hamax
   ordering: absolute
+  externalIds:
+    wikidataId: Q11442611
   seasons:
     - id: tensai-dr-hamax-s1
       number: 1

@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: atatakai-te
+  titles:
+    original: 温かい手
+    translations: { ja-Latn: Atatakai te }
+  movies:
+    - id: atatakai-te-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [atatakai-te]

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kick Off 2002
   ordering: absolute
+  externalIds:
+    wikidataId: Q11296752
   seasons:
     - id: kick-off-2002-s1
       number: 1

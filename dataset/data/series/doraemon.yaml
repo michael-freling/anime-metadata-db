@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Doraemon
   ordering: release
+  externalIds:
+    wikidataId: Q235311
   seasons:
     - id: doraemon-s1
       number: 1
@@ -48,4 +50,15 @@ series:
       externalIds:
         anilistId: 2651
         anidbId: 2692
+        tvdbId: 252696
+    - id: doraemon-film-2
+      titles:
+        original: ドラえもん のび太の恐竜
+        translations:
+          ja: ドラえもん のび太の恐竜
+          ja-Latn: 'Doraemon Movie 26: Nobita no Kyouryuu 2006'
+      releaseYear: 2006
+      externalIds:
+        anilistId: 2392
+        anidbId: 4757
         tvdbId: 252696

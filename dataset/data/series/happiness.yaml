@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Happiness!
   ordering: absolute
+  externalIds:
+    wikidataId: Q1151546
   seasons:
     - id: happiness-s1
       number: 1

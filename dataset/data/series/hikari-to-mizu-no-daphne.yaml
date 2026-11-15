@@ -4,8 +4,11 @@ series:
   titles:
     original: 光と水のダフネ
     translations:
+      en: Daphne in the Brilliant Blue
       ja-Latn: Hikari to Mizu no Daphne
   ordering: absolute
+  externalIds:
+    wikidataId: Q2985054
   seasons:
     - id: hikari-to-mizu-no-daphne-s1
       number: 1

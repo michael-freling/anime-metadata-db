@@ -9,5 +9,14 @@ series:
   seasons:
     - id: yasai-no-yosei-n-y-salad-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 10705 }
+    - id: yasai-no-yosei-n-y-salad-s2
+      number: 2
+      externalIds: { anilistId: 10706 } # Yasai no Yousei: N.Y.Salad 2nd Series (2008)
+  movies:
+    - id: yasai-no-yosei-n-y-salad-film
+      externalIds: { anilistId: 181832 } # Yasai no Yousei: N.Y. Salad The Movie (2010)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [yasai-no-yosei-n-y-salad]

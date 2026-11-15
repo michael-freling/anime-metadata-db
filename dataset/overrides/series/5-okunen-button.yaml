@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 5-okunen-button
+  titles:
+    original: 5億年ボタン～菅原そうたのショートショート～
+    translations: { ja-Latn: 5-Okunen Button }
+  seasons:
+    - id: 5-okunen-button-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [5-okunen-button]

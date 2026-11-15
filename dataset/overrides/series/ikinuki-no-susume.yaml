@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ikinuki-no-susume
+  titles:
+    original: 息抜きのすすめ
+    translations: { ja-Latn: Ikinuki no Susume }
+  movies:
+    - id: ikinuki-no-susume-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ikinuki-no-susume]

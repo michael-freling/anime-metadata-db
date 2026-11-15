@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Sayonara Zetsubou Sensei
   ordering: absolute
+  externalIds:
+    wikidataId: Q844599
   seasons:
     - id: sayonara-zetsubou-sensei-s1
       number: 1

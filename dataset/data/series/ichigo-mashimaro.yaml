@@ -4,8 +4,11 @@ series:
   titles:
     original: 苺ましまろ
     translations:
+      en: Strawberry Marshmallow
       ja-Latn: Ichigo Mashimaro
   ordering: absolute
+  externalIds:
+    wikidataId: Q1156204
   seasons:
     - id: ichigo-mashimaro-s1
       number: 1

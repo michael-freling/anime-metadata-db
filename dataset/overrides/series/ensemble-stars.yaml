@@ -9,5 +9,8 @@ series:
   seasons:
     - id: ensemble-stars-s1
       number: 1
+  movies:
+    - id: ensemble-stars-film
+      externalIds: { anilistId: 141907 } # Ensemble Stars!! Road to Show!! (2022)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [ensemble-stars]

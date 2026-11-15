@@ -1,0 +1,15 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: birdie-wing-golf-girls-story
+  titles:
+    original: バーディーウィング ゴルフ ガールズ ストーリー
+    translations: { ja-Latn: "Birdie Wing: Golf Girls' Story" }
+  seasons:
+    - id: birdie-wing-golf-girls-story-s1
+      number: 1
+    - id: birdie-wing-golf-girls-story-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [birdie-wing-golf-girls-story]

@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fuufu-ijou-koibito-miman
+  titles:
+    original: ふうこい
+    translations: { ja-Latn: "Fuufu Ijou, Koibito Miman." }
+  seasons:
+    - id: fuufu-ijou-koibito-miman-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fuufu-ijou-koibito-miman]

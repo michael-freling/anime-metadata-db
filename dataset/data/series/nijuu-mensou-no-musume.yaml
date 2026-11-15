@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Nijuu Mensou no Musume
   ordering: absolute
+  externalIds:
+    wikidataId: Q6134738
   seasons:
     - id: nijuu-mensou-no-musume-s1
       number: 1

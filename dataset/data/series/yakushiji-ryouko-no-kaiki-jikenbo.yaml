@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Yakushiji Ryouko no Kaiki Jikenbo
   ordering: absolute
+  externalIds:
+    wikidataId: Q8047252
   seasons:
     - id: yakushiji-ryouko-no-kaiki-jikenbo-s1
       number: 1

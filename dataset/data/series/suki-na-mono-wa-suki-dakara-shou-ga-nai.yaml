@@ -4,8 +4,11 @@ series:
   titles:
     original: 好きなものは好きだからしょうがない!!
     translations:
+      en: Sukisho
       ja-Latn: Suki na Mono wa Suki Dakara Shou ga Nai!!
   ordering: absolute
+  externalIds:
+    wikidataId: Q2339514
   seasons:
     - id: suki-na-mono-wa-suki-dakara-shou-ga-nai-s1
       number: 1

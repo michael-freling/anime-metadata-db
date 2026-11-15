@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: eiga-crayon-shin-chan-ora-tachi-no-kyoryu-nikki
+  titles:
+    original: 映画クレヨンしんちゃん オラたちの恐竜日記
+    translations: { ja-Latn: "Eiga Crayon Shin-chan: Ora-tachi no Kyōryū Nikki" }
+  movies:
+    - id: eiga-crayon-shin-chan-ora-tachi-no-kyoryu-nikki-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [eiga-crayon-shin-chan-ora-tachi-no-kyoryu-nikki]

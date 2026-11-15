@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: geomeongsupeul-jikyeola-birdy-friends
+  titles:
+    original: Geomeongsupeul Jikyeola! Birdy Friends
+    translations: { ja-Latn: Geomeongsupeul Jikyeola! Birdy Friends }
+  seasons:
+    - id: geomeongsupeul-jikyeola-birdy-friends-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [geomeongsupeul-jikyeola-birdy-friends]

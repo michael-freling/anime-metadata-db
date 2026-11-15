@@ -18,3 +18,16 @@ series:
       episodes:
         count: 1341
         absoluteFrom: 1
+  movies:
+    - id: shin-chan-film
+      titles:
+        original: クレヨンしんちゃん 嵐を呼ぶ 歌うケツだけ爆弾!
+        translations:
+          ja: クレヨンしんちゃん 嵐を呼ぶ 歌うケツだけ爆弾!
+          ja-Latn: 'Crayon Shin-chan Movie 15: Arashi wo Yobu Utau Ketsu dake Bakudan!'
+      releaseYear: 2007
+      externalIds:
+        anilistId: 2172
+        anidbId: 4910
+        tvdbId: 79654
+      absoluteNumber: 1342

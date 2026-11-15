@@ -4,8 +4,11 @@ series:
   titles:
     original: ラーゼフォン 多元変奏曲
     translations:
+      en: 'RahXephon: Pluralitas Concentio'
       ja-Latn: 'RahXephon: Tagen Hensoukyoku'
   ordering: absolute
+  externalIds:
+    wikidataId: Q7283274
   movies:
     - id: rahxephon-tagen-hensoukyoku-film
       titles:

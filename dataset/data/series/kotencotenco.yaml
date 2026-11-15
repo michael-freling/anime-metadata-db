@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kotencotenco
   ordering: absolute
+  externalIds:
+    wikidataId: Q845507
   seasons:
     - id: kotencotenco-s1
       number: 1

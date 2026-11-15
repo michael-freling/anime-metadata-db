@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tantei-wa-mou-shindeiru
+  titles:
+    original: "探偵はもう, 死んでいる."
+    translations: { ja-Latn: "Tantei wa Mou, Shindeiru." }
+  seasons:
+    - id: tantei-wa-mou-shindeiru-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tantei-wa-mou-shindeiru]

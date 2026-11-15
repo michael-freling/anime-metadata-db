@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: atasha-kawashiri-kodama-da-yo-dangerous-lifehacker-no-tadareta-seikatsu
+  titles:
+    original: あたしゃ川尻こだまだよ ~デンジャラスライフハッカーのただれた生活~
+    translations: { ja-Latn: "Atasha Kawashiri Kodama da yo: Dangerous Lifehacker no Tadareta Seikatsu" }
+  seasons:
+    - id: atasha-kawashiri-kodama-da-yo-dangerous-lifehacker-no-tadareta-seikatsu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [atasha-kawashiri-kodama-da-yo-dangerous-lifehacker-no-tadareta-seikatsu]

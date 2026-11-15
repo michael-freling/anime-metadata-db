@@ -18,3 +18,14 @@ series:
       episodes:
         count: 24
         absoluteFrom: 1
+    - id: mix-meisei-story-s2
+      number: 2
+      releaseYear: 2023
+      releaseSeason: SPRING
+      externalIds:
+        anilistId: 153344
+        anidbId: 17556
+        tvdbId: 360761
+      episodes:
+        count: 24
+        absoluteFrom: 25

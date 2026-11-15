@@ -30,7 +30,7 @@ series:
         tvdbId: 377543
       episodes:
         count: 23
-        absoluteFrom: 25
+        absoluteFrom: 26
     - id: jujutsu-kaisen-s3p1
       titles:
         original: 呪術廻戦 「死滅回游 前編」
@@ -47,7 +47,7 @@ series:
         tvdbId: 377543
       episodes:
         count: 12
-        absoluteFrom: 48
+        absoluteFrom: 49
   movies:
     - id: jujutsu-kaisen-kaigyoku-gyokusetsu-film
       titles:
@@ -72,6 +72,18 @@ series:
         anilistId: 204066
       alternateCutOf:
         seasonId: jujutsu-kaisen-s2
+    - id: jujutsu-kaisen-film
+      titles:
+        original: 剧场版 咒术回战 0
+        translations:
+          ja: 剧场版 咒术回战 0
+          ja-Latn: Jujutsu Kaisen 0 Movie
+      releaseYear: 2021
+      externalIds:
+        anilistId: 131573
+        anidbId: 16169
+        tvdbId: 377543
+      absoluteNumber: 25
   characters:
     - id: akari-nitta
       names:

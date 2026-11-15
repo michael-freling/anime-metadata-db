@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: can-t-dance-in-the-tank
+  titles:
+    original: 水槽では踊れない
+    translations: { ja-Latn: Can't dance in the tank }
+  movies:
+    - id: can-t-dance-in-the-tank-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [can-t-dance-in-the-tank]

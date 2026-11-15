@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Otogi Juushi Akazukin
   ordering: absolute
+  externalIds:
+    wikidataId: Q709574
   seasons:
     - id: otogi-juushi-akazukin-s1
       number: 1

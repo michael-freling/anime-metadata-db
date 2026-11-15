@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tonari-no-youkai-san
+  titles:
+    original: となりの妖怪さん
+    translations: { ja-Latn: Tonari no Youkai-san }
+  seasons:
+    - id: tonari-no-youkai-san-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tonari-no-youkai-san]

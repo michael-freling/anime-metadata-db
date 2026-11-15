@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Megas XLR
   ordering: absolute
+  externalIds:
+    wikidataId: Q922258
   seasons:
     - id: megas-xlr-s1
       number: 1

@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: potion-danomi-de-ikinobimasu
+  titles:
+    original: ポーション頼みで生き延びます!
+    translations: { ja-Latn: Potion-danomi de Ikinobimasu! }
+  seasons:
+    - id: potion-danomi-de-ikinobimasu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [potion-danomi-de-ikinobimasu]

@@ -4,8 +4,11 @@ series:
   titles:
     original: これが私の御主人様
     translations:
+      en: He Is My Master
       ja-Latn: Kore ga Watashi no Goshujinsama
   ordering: absolute
+  externalIds:
+    wikidataId: Q1592214
   seasons:
     - id: kore-ga-watashi-no-goshujinsama-s1
       number: 1

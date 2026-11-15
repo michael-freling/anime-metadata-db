@@ -9,5 +9,14 @@ series:
   seasons:
     - id: hibike-euphonium-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 20912 }
+    - id: hibike-euphonium-s2
+      number: 2
+      externalIds: { anilistId: 109731 } # Hibike! Euphonium 3 (2024)
+  movies:
+    - id: hibike-euphonium-film
+      externalIds: { anilistId: 150429 } # Hibike! Euphonium: Ensemble Contest-hen (2023)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [hibike-euphonium]

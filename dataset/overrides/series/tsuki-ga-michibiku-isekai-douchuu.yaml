@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tsuki-ga-michibiku-isekai-douchuu
+  titles:
+    original: 月が導く異世界道中
+    translations: { ja-Latn: Tsuki ga Michibiku Isekai Douchuu }
+  seasons:
+    - id: tsuki-ga-michibiku-isekai-douchuu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tsuki-ga-michibiku-isekai-douchuu]

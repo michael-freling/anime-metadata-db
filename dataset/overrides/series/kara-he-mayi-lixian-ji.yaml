@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kara-he-mayi-lixian-ji
+  titles:
+    original: Kara He Mayi Lixian Ji
+    translations: { ja-Latn: Kara He Mayi Lixian Ji }
+  movies:
+    - id: kara-he-mayi-lixian-ji-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kara-he-mayi-lixian-ji]

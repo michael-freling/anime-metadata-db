@@ -4,8 +4,11 @@ series:
   titles:
     original: 海のトリトン
     translations:
+      en: Triton of the Sea
       ja-Latn: Umi no Triton (2000)
   ordering: absolute
+  externalIds:
+    wikidataId: Q705184
   seasons:
     - id: umi-no-triton-2000-s1
       number: 1

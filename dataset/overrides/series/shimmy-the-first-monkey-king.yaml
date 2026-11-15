@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shimmy-the-first-monkey-king
+  titles:
+    original: "Shimmy: The First Monkey King"
+    translations: { ja-Latn: "Shimmy: The First Monkey King" }
+  movies:
+    - id: shimmy-the-first-monkey-king-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shimmy-the-first-monkey-king]

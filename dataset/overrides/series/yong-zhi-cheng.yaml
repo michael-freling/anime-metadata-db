@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yong-zhi-cheng
+  titles:
+    original: 兵馬俑の城
+    translations: { ja-Latn: Yong Zhi Cheng }
+  movies:
+    - id: yong-zhi-cheng-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yong-zhi-cheng]

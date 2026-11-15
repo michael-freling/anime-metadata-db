@@ -4,8 +4,11 @@ series:
   titles:
     original: ふたつのスピカ
     translations:
+      en: Twin Spica
       ja-Latn: Futatsu no Spica
   ordering: absolute
+  externalIds:
+    wikidataId: Q2511557
   seasons:
     - id: futatsu-no-spica-s1
       number: 1

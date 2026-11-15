@@ -42,7 +42,7 @@ series:
         tvdbId: 300989
       episodes:
         count: 25
-        absoluteFrom: 51
+        absoluteFrom: 52
     - id: osomatsu-san-s4
       number: 4
       releaseYear: 2025
@@ -53,4 +53,16 @@ series:
         tvdbId: 300989
       episodes:
         count: 12
-        absoluteFrom: 76
+        absoluteFrom: 77
+  movies:
+    - id: osomatsu-san-film
+      titles:
+        original: えいがのおそ松さん
+        translations:
+          ja: えいがのおそ松さん
+          ja-Latn: Osomatsu-san Movie
+      releaseYear: 2019
+      externalIds:
+        anilistId: 104213
+        anidbId: 14293
+      absoluteNumber: 51

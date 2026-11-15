@@ -4,8 +4,11 @@ series:
   titles:
     original: 少女チャングムの夢
     translations:
+      en: Jang Geum's Dream
       ja-Latn: 'Dae Jang Geum: Jang Geum''s Dream'
   ordering: absolute
+  externalIds:
+    wikidataId: Q494517
   seasons:
     - id: dae-jang-geum-jang-geum-s-dream-s1
       number: 1

@@ -18,3 +18,14 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
+  movies:
+    - id: aoki-hagane-no-arpeggio-ars-nova-film
+      titles:
+        original: 劇場版 蒼き鋼のアルペジオ
+        translations:
+          ja: 劇場版 蒼き鋼のアルペジオ
+          ja-Latn: 'Aoki Hagane no Arpeggio: Ars Nova Movie 2 - Cadenza'
+      releaseYear: 2015
+      externalIds:
+        anilistId: 20764
+      absoluteNumber: 13

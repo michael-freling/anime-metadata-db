@@ -4,8 +4,11 @@ series:
   titles:
     original: 僕等がいた
     translations:
+      en: We Were There
       ja-Latn: Bokura ga Ita
   ordering: absolute
+  externalIds:
+    wikidataId: Q891236
   seasons:
     - id: bokura-ga-ita-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Rental Magica
   ordering: absolute
+  externalIds:
+    wikidataId: Q2308684
   seasons:
     - id: rental-magica-s1
       number: 1

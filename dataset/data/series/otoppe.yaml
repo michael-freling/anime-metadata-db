@@ -19,3 +19,15 @@ series:
       episodes:
         count: 265
         absoluteFrom: 1
+  movies:
+    - id: otoppe-film
+      titles:
+        original: 劇場版 オトッペ パパ・ドント・クライ
+        translations:
+          ja: 劇場版 オトッペ パパ・ドント・クライ
+          ja-Latn: 'Otoppe Movie: Papa, Don''t Cry'
+      releaseYear: 2021
+      externalIds:
+        anilistId: 132300
+        anidbId: 16076
+      absoluteNumber: 266

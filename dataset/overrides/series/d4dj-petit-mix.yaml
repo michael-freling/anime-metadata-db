@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: d4dj-petit-mix
+  titles:
+    original: ぷっちみく♪ D4DJ Petit Mix
+    translations: { ja-Latn: D4DJ Petit Mix }
+  seasons:
+    - id: d4dj-petit-mix-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [d4dj-petit-mix]

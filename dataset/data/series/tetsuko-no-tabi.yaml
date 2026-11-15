@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tetsuko no Tabi
   ordering: absolute
+  externalIds:
+    wikidataId: Q7706879
   seasons:
     - id: tetsuko-no-tabi-s1
       number: 1

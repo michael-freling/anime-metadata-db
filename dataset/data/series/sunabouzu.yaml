@@ -4,8 +4,11 @@ series:
   titles:
     original: 砂ぼうず
     translations:
+      en: Desert Punk
       ja-Latn: Sunabouzu
   ordering: absolute
+  externalIds:
+    wikidataId: Q724048
   seasons:
     - id: sunabouzu-s1
       number: 1

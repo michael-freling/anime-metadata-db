@@ -9,5 +9,11 @@ series:
   seasons:
     - id: mix-meisei-story-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 103555 }
+    - id: mix-meisei-story-s2
+      number: 2
+      externalIds: { anilistId: 153344 } # Mix: Meisei Story 2nd Season - Nidome no Natsu, Sora no Mukou e (2023)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [mix-meisei-story]

@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kitarou-tanjou-gegege-no-nazo-shinsei-ban
+  titles:
+    original: 鬼太郎誕生 ゲゲゲの謎 真生版
+    translations: { ja-Latn: "Kitarou Tanjou: Gegege no Nazo Shinsei-ban" }
+  movies:
+    - id: kitarou-tanjou-gegege-no-nazo-shinsei-ban-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kitarou-tanjou-gegege-no-nazo-shinsei-ban]

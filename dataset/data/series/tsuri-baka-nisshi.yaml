@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tsuri Baka Nisshi
   ordering: absolute
+  externalIds:
+    wikidataId: Q4184355
   seasons:
     - id: tsuri-baka-nisshi-s1
       number: 1

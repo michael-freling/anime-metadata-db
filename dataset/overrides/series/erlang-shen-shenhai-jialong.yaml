@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: erlang-shen-shenhai-jialong
+  titles:
+    original: "Erlang Shen: Shenhai Jialong"
+    translations: { ja-Latn: "Erlang Shen: Shenhai Jialong" }
+  movies:
+    - id: erlang-shen-shenhai-jialong-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [erlang-shen-shenhai-jialong]

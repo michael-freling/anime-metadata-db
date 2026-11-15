@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Doki Doki School Hours
   ordering: absolute
+  externalIds:
+    wikidataId: Q1135110
   seasons:
     - id: doki-doki-school-hours-s1
       number: 1

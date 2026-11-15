@@ -1,0 +1,15 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mononogatari
+  titles:
+    original: もののがたり
+    translations: { ja-Latn: Mononogatari }
+  seasons:
+    - id: mononogatari-s1
+      number: 1
+    - id: mononogatari-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mononogatari]

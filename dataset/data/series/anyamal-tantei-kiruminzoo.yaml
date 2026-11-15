@@ -4,8 +4,11 @@ series:
   titles:
     original: あにゃまる探偵 キルミンずぅ
     translations:
+      en: Anyamaru Tantei Kiruminzuu
       ja-Latn: Anyamal Tantei Kiruminzoo
   ordering: absolute
+  externalIds:
+    wikidataId: Q493744
   seasons:
     - id: anyamal-tantei-kiruminzoo-s1
       number: 1

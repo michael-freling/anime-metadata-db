@@ -18,3 +18,14 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
+    - id: maou-sama-retry-s2
+      number: 2
+      releaseYear: 2024
+      releaseSeason: FALL
+      externalIds:
+        anilistId: 168500
+        anidbId: 18167
+        tvdbId: 361709
+      episodes:
+        count: 12
+        absoluteFrom: 13

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Element Hunters
   ordering: absolute
+  externalIds:
+    wikidataId: Q491585
   seasons:
     - id: element-hunters-s1
       number: 1

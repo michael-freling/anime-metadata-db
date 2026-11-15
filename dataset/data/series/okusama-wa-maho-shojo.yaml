@@ -4,8 +4,11 @@ series:
   titles:
     original: 奥さまは魔法少女
     translations:
+      en: 'Oku-sama wa Mahō Shōjo: Bewitched Agnes'
       ja-Latn: Okusama wa Maho Shojo
   ordering: absolute
+  externalIds:
+    wikidataId: Q3545926
   seasons:
     - id: okusama-wa-maho-shojo-s1
       number: 1

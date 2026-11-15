@@ -18,3 +18,14 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
+    - id: rail-romanesque-s2
+      number: 2
+      releaseYear: 2023
+      releaseSeason: FALL
+      externalIds:
+        anilistId: 127163
+        anidbId: 15921
+        tvdbId: 386577
+      episodes:
+        count: 13
+        absoluteFrom: 13

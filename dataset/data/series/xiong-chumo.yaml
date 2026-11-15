@@ -17,3 +17,14 @@ series:
       episodes:
         count: 104
         absoluteFrom: 1
+  movies:
+    - id: xiong-chumo-film
+      titles:
+        original: 熊出没·重返地球
+        translations:
+          ja: 熊出没·重返地球
+          ja-Latn: 'Xiong Chumo: Chong Fan Di Qiu'
+      releaseYear: 2022
+      externalIds:
+        anilistId: 151779
+      absoluteNumber: 105

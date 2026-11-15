@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Telepathy Shoujo Ran
   ordering: absolute
+  externalIds:
+    wikidataId: Q136259350
   seasons:
     - id: telepathy-shoujo-ran-s1
       number: 1

@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: umi-no-minwa-no-machi
+  titles:
+    original: 海ノ民話のまち
+    translations: { ja-Latn: Umi no Minwa no Machi }
+  seasons:
+    - id: umi-no-minwa-no-machi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [umi-no-minwa-no-machi]

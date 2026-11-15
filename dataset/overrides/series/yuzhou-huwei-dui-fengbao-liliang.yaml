@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yuzhou-huwei-dui-fengbao-liliang
+  titles:
+    original: "Yuzhou Huwei Dui: Fengbao Liliang"
+    translations: { ja-Latn: "Yuzhou Huwei Dui: Fengbao Liliang" }
+  movies:
+    - id: yuzhou-huwei-dui-fengbao-liliang-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yuzhou-huwei-dui-fengbao-liliang]

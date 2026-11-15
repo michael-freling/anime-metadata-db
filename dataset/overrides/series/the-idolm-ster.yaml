@@ -9,5 +9,8 @@ series:
   seasons:
     - id: the-idolm-ster-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 10278 }
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [the-idolm-ster]

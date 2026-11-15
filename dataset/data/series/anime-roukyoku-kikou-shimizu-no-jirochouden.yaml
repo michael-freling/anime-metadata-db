@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Anime Roukyoku Kikou Shimizu no Jirochouden
   ordering: absolute
+  externalIds:
+    wikidataId: Q11284405
   seasons:
     - id: anime-roukyoku-kikou-shimizu-no-jirochouden-s1
       number: 1

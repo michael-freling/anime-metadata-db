@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Planetes
   ordering: absolute
+  externalIds:
+    wikidataId: Q95063
   seasons:
     - id: planetes-s1
       number: 1

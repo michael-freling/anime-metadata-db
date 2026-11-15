@@ -42,7 +42,7 @@ series:
         tvdbId: 305074
       episodes:
         count: 25
-        absoluteFrom: 39
+        absoluteFrom: 40
     - id: boku-no-hero-academia-s4
       number: 4
       releaseYear: 2019
@@ -53,7 +53,7 @@ series:
         tvdbId: 305074
       episodes:
         count: 25
-        absoluteFrom: 64
+        absoluteFrom: 65
     - id: boku-no-hero-academia-s5
       number: 5
       releaseYear: 2021
@@ -64,7 +64,7 @@ series:
         tvdbId: 305074
       episodes:
         count: 25
-        absoluteFrom: 89
+        absoluteFrom: 90
     - id: boku-no-hero-academia-s6
       number: 6
       releaseYear: 2022
@@ -75,7 +75,7 @@ series:
         tvdbId: 305074
       episodes:
         count: 25
-        absoluteFrom: 114
+        absoluteFrom: 115
     - id: boku-no-hero-academia-s7
       number: 7
       releaseYear: 2024
@@ -86,7 +86,7 @@ series:
         tvdbId: 305074
       episodes:
         count: 21
-        absoluteFrom: 139
+        absoluteFrom: 140
     - id: boku-no-hero-academia-s8
       number: 8
       releaseYear: 2025
@@ -97,4 +97,17 @@ series:
         tvdbId: 305074
       episodes:
         count: 11
-        absoluteFrom: 160
+        absoluteFrom: 161
+  movies:
+    - id: boku-no-hero-academia-film
+      titles:
+        original: 僕のヒーローアカデミア THE MOVIE
+        translations:
+          ja: 僕のヒーローアカデミア THE MOVIE
+          ja-Latn: 'Boku no Hero Academia the Movie 1: Futari no Hero'
+      releaseYear: 2018
+      externalIds:
+        anilistId: 100723
+        anidbId: 13633
+        tvdbId: 305074
+      absoluteNumber: 39

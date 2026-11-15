@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Amatsuki
   ordering: absolute
+  externalIds:
+    wikidataId: Q1148856
   seasons:
     - id: amatsuki-s1
       number: 1

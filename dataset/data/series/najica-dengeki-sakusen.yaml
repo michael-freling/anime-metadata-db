@@ -4,8 +4,11 @@ series:
   titles:
     original: ナジカ電撃作戦
     translations:
+      en: Najica Blitz Tactics
       ja-Latn: Najica Dengeki Sakusen
   ordering: absolute
+  externalIds:
+    wikidataId: Q1120133
   seasons:
     - id: najica-dengeki-sakusen-s1
       number: 1

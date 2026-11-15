@@ -1,0 +1,17 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chickip-dancers
+  titles:
+    original: チキップダンサーズ
+    translations: { ja-Latn: Chickip Dancers }
+  seasons:
+    - id: chickip-dancers-s1
+      number: 1
+    - id: chickip-dancers-s2
+      number: 2
+    - id: chickip-dancers-s3
+      number: 3
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chickip-dancers]

@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: d4dj-all-mix
+  titles:
+    original: D4DJ All Mix
+    translations: { ja-Latn: D4DJ All Mix }
+  seasons:
+    - id: d4dj-all-mix-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [d4dj-all-mix]

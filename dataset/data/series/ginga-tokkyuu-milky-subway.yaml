@@ -21,3 +21,15 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
+  movies:
+    - id: ginga-tokkyuu-milky-subway-film
+      titles:
+        original: 劇場 銀河特急 ミルキー☆サブウェイ 各駅停車劇場行き
+        translations:
+          ja: 劇場 銀河特急 ミルキー☆サブウェイ 各駅停車劇場行き
+          ja-Latn: 'Ginga Tokkyuu Milky☆Subway Movie: Kakueki Teisha Gekijou Yuki'
+      releaseYear: 2026
+      externalIds:
+        anilistId: 204949
+        anidbId: 19807
+      absoluteNumber: 13

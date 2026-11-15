@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gyokou-no-nikuko-chan
+  titles:
+    original: 漁港の肉子ちゃん
+    translations: { ja-Latn: Gyokou no Nikuko-chan }
+  movies:
+    - id: gyokou-no-nikuko-chan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gyokou-no-nikuko-chan]

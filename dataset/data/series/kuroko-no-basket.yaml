@@ -43,3 +43,14 @@ series:
       episodes:
         count: 25
         absoluteFrom: 51
+  movies:
+    - id: kuroko-no-basket-film
+      titles:
+        original: 劇場版 黒子のバスケ ウインターカップ総集編 ～影と光～
+        translations:
+          ja: 劇場版 黒子のバスケ ウインターカップ総集編 ～影と光～
+          ja-Latn: 'Kuroko no Basket Movie 1: Winter Cup - Kage to Hikari'
+      releaseYear: 2016
+      externalIds:
+        anilistId: 102093
+      absoluteNumber: 76

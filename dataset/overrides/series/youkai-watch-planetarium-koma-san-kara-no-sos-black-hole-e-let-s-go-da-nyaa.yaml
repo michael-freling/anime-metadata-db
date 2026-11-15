@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: youkai-watch-planetarium-koma-san-kara-no-sos-black-hole-e-let-s-go-da-nyaa
+  titles:
+    original: 妖怪ウォッチ♪ プラネタリウム コマさんからのＳＯＳ！ ブラックホールへレッツゴーだニャン♪
+    translations: { ja-Latn: "Youkai Watch ♪ Planetarium: Koma-san kara no SOS! Black Hole e Let's Go da Nyaa ♪" }
+  movies:
+    - id: youkai-watch-planetarium-koma-san-kara-no-sos-black-hole-e-let-s-go-da-nyaa-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [youkai-watch-planetarium-koma-san-kara-no-sos-black-hole-e-let-s-go-da-nyaa]
