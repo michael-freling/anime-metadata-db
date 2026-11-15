@@ -7,6 +7,7 @@
 //	builder build [id...]        (re)build all overrides, or just the given ids
 //	builder refresh              update sources to latest + rebuild everything
 //	builder import --year YYYY   write override files for one year of upstream
+//	builder merge                attach works belonging to a series already here
 package main
 
 import (
@@ -107,6 +108,25 @@ func newRootCmd(fetcher builder.Fetcher) *cobra.Command {
 	imp.Flags().IntVar(&importYear, "year", 0, "airing year to import")
 	imp.Flags().BoolVar(&importDryRun, "dry-run", false, "report what would be written, write nothing")
 
+	var mergeDryRun bool
+	mrg := &cobra.Command{
+		Use:   "merge",
+		Short: "Attach the works import reported as belonging to a series already here",
+		Long: "Attach the works `builder import` reported as belonging to a series the " +
+			"catalogue already has.\n\n" +
+			"Writes the authored layer only and never builds. A work is attached only " +
+			"where the evidence settles it: it must carry an AniList id, upstream's " +
+			"links must name exactly one series the catalogue has, and a season is " +
+			"appended only when the work aired after every installment already there, " +
+			"so the claim stays \"a later installment\" rather than a position inside " +
+			"the run. Everything else is reported with the reason.",
+		Args: cobra.NoArgs,
+		RunE: func(cmd *cobra.Command, _ []string) error {
+			return newApp(cmd).Merge(mergeDryRun)
+		},
+	}
+	mrg.Flags().BoolVar(&mergeDryRun, "dry-run", false, "report what would be attached, write nothing")
+
 	var diffBase string
 	diff := &cobra.Command{
 		Use:   "diff",
@@ -138,6 +158,7 @@ func newRootCmd(fetcher builder.Fetcher) *cobra.Command {
 		build,
 		refresh,
 		diff,
+		mrg,
 		imp,
 	)
 	return root

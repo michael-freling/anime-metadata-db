@@ -439,3 +439,51 @@ func TestAnUnrelatedWorkIsStillReportedUnlinked(t *testing.T) {
 		t.Error("want a gating finding: 99 is in no relatedAnime of the chain")
 	}
 }
+
+// checkSameWork asks whether two installments of one series are the same work.
+// Nobody asked it across series, and 166 AniList ids turned out to be claimed
+// by two series each: a sequel given a series of its own while already being a
+// season of its parent, and one work listed under two titles differing only in
+// width or punctuation.
+func TestOneWorkCannotBelongToTwoSeries(t *testing.T) {
+	b := New(Sources{Offline: offlineFrom(t, chainDB)})
+	first := &model.Series{ID: "high-card",
+		Seasons: []model.Season{
+			season("high-card-s1", 1, 1, 2020, model.SeasonFall),
+			season("high-card-s2", 2, 2, 2022, model.SeasonSpring),
+		},
+	}
+	r1 := &Report{}
+	b.checkNotClaimedElsewhere(first, r1)
+	if g := r1.Gating(); len(g) != 0 {
+		t.Fatalf("the first series to claim an id is not the duplicate: %+v", g)
+	}
+
+	// The sequel, authored as its own series, declaring an id the parent holds.
+	second := &model.Series{ID: "high-card-season-2",
+		Seasons: []model.Season{season("high-card-season-2-s1", 1, 2, 2022, model.SeasonSpring)},
+	}
+	r2 := &Report{}
+	b.checkNotClaimedElsewhere(second, r2)
+
+	g := r2.Gating()
+	if len(g) != 1 {
+		t.Fatalf("gating = %+v, want one finding naming the other series", g)
+	}
+	if g[0].Code != CodeClaimedElsewhere || !strings.Contains(g[0].Message, `series "high-card"`) {
+		t.Errorf("finding = %+v, want %s naming high-card", g[0], CodeClaimedElsewhere)
+	}
+}
+
+// Rebuilding the same series must not make it a duplicate of itself.
+func TestRebuildingOneSeriesIsNotADuplicate(t *testing.T) {
+	b := New(Sources{Offline: offlineFrom(t, chainDB)})
+	s := &model.Series{ID: "x", Seasons: []model.Season{season("x-s1", 1, 1, 2020, model.SeasonFall)}}
+	for range 3 {
+		r := &Report{}
+		b.checkNotClaimedElsewhere(s, r)
+		if g := r.Gating(); len(g) != 0 {
+			t.Fatalf("gating = %+v on a repeat build of the same series", g)
+		}
+	}
+}

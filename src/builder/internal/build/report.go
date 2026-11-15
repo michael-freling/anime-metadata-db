@@ -18,11 +18,12 @@ type Code string
 // The finding kinds the anilistId checks produce. Notes that predate this
 // carry no code, which is why Code is omitempty rather than required.
 const (
-	CodeUnlinked       Code = "anilist-unlinked"
-	CodeWalkCapped     Code = "anilist-walk-capped"
-	CodeOutOfOrder     Code = "anilist-out-of-order"
-	CodeDuplicate      Code = "anilist-duplicate"
-	CodeTitleDisagrees Code = "anilist-title-disagrees"
+	CodeUnlinked         Code = "anilist-unlinked"
+	CodeWalkCapped       Code = "anilist-walk-capped"
+	CodeOutOfOrder       Code = "anilist-out-of-order"
+	CodeDuplicate        Code = "anilist-duplicate"
+	CodeClaimedElsewhere Code = "anilist-claimed-elsewhere"
+	CodeTitleDisagrees   Code = "anilist-title-disagrees"
 )
 
 // gating lists the codes CI fails on. It lives here, beside the checks that
@@ -36,9 +37,10 @@ const (
 // synonyms, which drifts — a gate on that is a gate that fails on someone
 // else's edit.
 var gating = map[Code]bool{
-	CodeUnlinked:   true,
-	CodeOutOfOrder: true,
-	CodeDuplicate:  true,
+	CodeUnlinked:         true,
+	CodeOutOfOrder:       true,
+	CodeDuplicate:        true,
+	CodeClaimedElsewhere: true,
 }
 
 // Note is one low-confidence decision the builder made (chiefly title-language

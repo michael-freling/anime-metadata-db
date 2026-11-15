@@ -31,6 +31,8 @@ import (
 	"strings"
 	"unicode"
 
+	"golang.org/x/text/unicode/norm"
+
 	"github.com/michael-freling/anime-metadata-db/src/builder/internal/sources/offlinedb"
 )
 
@@ -49,6 +51,19 @@ type Merge struct {
 	Title     string
 	AnilistID int
 	Into      []int // the already-known AniList ids it is linked to
+	// What the work is, so a merge can be decided without going back to the
+	// database: a film takes no number and a season does.
+	Type     offlinedb.MediaType
+	Year     int
+	Season   string
+	Episodes int
+	// Linked distinguishes the two ways a candidate is found. True means
+	// upstream links the work to an installment the catalogue already has.
+	// False means only that the work shares a title with one — which is also
+	// how two unrelated works sharing a name are found, so it is not evidence
+	// that they belong together: "Tokyo" (2017) and "Tokyo" (1999) are
+	// different shorts, and the build's own link check rejects the pairing.
+	Linked bool
 }
 
 // Unresolvable is a series this declines to write because the build could not
@@ -124,11 +139,7 @@ func Build(db *offlinedb.Database, year int, known map[int]bool, claimedTitles m
 			plan.Present = append(plan.Present, a.Title)
 			continue
 		case len(linkedKnown(db, a, known)) > 0:
-			plan.Merges = append(plan.Merges, Merge{
-				Title:     a.Title,
-				AnilistID: a.AnilistID(),
-				Into:      linkedKnown(db, a, known),
-			})
+			plan.Merges = append(plan.Merges, describe(a, linkedKnown(db, a, known), true))
 			continue
 		}
 		// A seed with no AniList id can still belong to a series the catalogue
@@ -145,16 +156,12 @@ func Build(db *offlinedb.Database, year int, known map[int]bool, claimedTitles m
 		// title resolves to, which is this same set, so there is nothing here
 		// to add — and adding it would be a second series claiming the same
 		// installments, which the build then rejects as duplicate ids.
-		if claimedTitles[original] {
+		if claimedTitles[FoldTitle(original)] {
 			plan.Present = append(plan.Present, a.Title)
 			continue
 		}
 		if ids := poolKnown(db, a, original, known); len(ids) > 0 {
-			plan.Merges = append(plan.Merges, Merge{
-				Title:     a.Title,
-				AnilistID: a.AnilistID(),
-				Into:      ids,
-			})
+			plan.Merges = append(plan.Merges, describe(a, ids, false))
 			continue
 		}
 
@@ -174,7 +181,7 @@ func Build(db *offlinedb.Database, year int, known map[int]bool, claimedTitles m
 		}
 		// Claimed for the rest of this run too, so two entries sharing a title
 		// within one year behave the same as across years.
-		claimedTitles[original] = true
+		claimedTitles[FoldTitle(original)] = true
 		plan.New = append(plan.New, s)
 	}
 	sort.Slice(plan.New, func(i, j int) bool { return plan.New[i].ID < plan.New[j].ID })
@@ -589,9 +596,19 @@ func preferLinked(pool, linked map[offlinedb.Key]offlinedb.Anime, t offlinedb.Me
 }
 
 // sameWork names an entry that another in the slice is indistinguishable from:
-// same type, same release window, same length. Entries that state neither when
-// they aired nor how long they ran are skipped, since they match each other on
-// absence rather than on evidence.
+// same type, same release window, same length, and no AniList id on either to
+// tell the two apart.
+//
+// Entries that state neither when they aired nor how long they ran are
+// skipped, since they match each other on absence rather than on evidence.
+//
+// The id condition is what keeps this from refusing real series. Two works can
+// coincide on all of it and still be two works: "Yuuki Yuuna wa Yuusha de Aru:
+// Washio Sumi no Shou" and "... Yuusha no Shou" are both six episodes of
+// autumn 2017 and are different arcs, and upstream says so by carrying a
+// merged record for each. Where only one side has an id, or neither does,
+// nothing upstream distinguishes them — which is the shape of one work listed
+// twice, as "Kokekko-san" and "Kokekkou-san" are.
 func sameWork(entries []offlinedb.Anime) string {
 	type work struct {
 		typ      offlinedb.MediaType
@@ -599,16 +616,60 @@ func sameWork(entries []offlinedb.Anime) string {
 		season   string
 		episodes int
 	}
-	seen := map[work]bool{}
+	seen := map[work]offlinedb.Anime{}
 	for _, a := range entries {
 		if a.AnimeSeason.Year == 0 || a.Episodes == 0 {
 			continue
 		}
 		w := work{a.Type, a.AnimeSeason.Year, a.AnimeSeason.Season, a.Episodes}
-		if seen[w] {
+		prev, ok := seen[w]
+		if !ok {
+			seen[w] = a
+			continue
+		}
+		if a.AnilistID() == 0 || prev.AnilistID() == 0 {
 			return a.Title
 		}
-		seen[w] = true
 	}
 	return ""
+}
+
+// FoldTitle is how two native titles are compared for "the catalogue already
+// declares this one".
+//
+// Literal comparison let one work become two series. Upstream lists some works
+// under titles that differ only in the width of a character or a space:
+// しまじろうのわお！ beside しまじろうのわお!, 下級生２ ～瞳の中の少女たち～
+// beside 下級生2 ~瞳の中の少女たち~, ギャラクシーエンジェル4th beside
+// ギャラクシーエンジェル 4th. Each pair produced two series records claiming
+// the same AniList id.
+//
+// NFKC settles the width, since it is exactly the mapping from the compatibility
+// forms to their canonical ones, and spaces and punctuation are then dropped
+// because that is the rest of what those pairs differ by. Folded only for the
+// comparison — the title written to the override is always the one upstream
+// carries.
+func FoldTitle(s string) string {
+	var b strings.Builder
+	for _, r := range norm.NFKC.String(s) {
+		if unicode.IsSpace(r) || unicode.IsPunct(r) || unicode.IsSymbol(r) {
+			continue
+		}
+		b.WriteRune(unicode.ToLower(r))
+	}
+	return b.String()
+}
+
+// describe records a merge candidate with everything deciding it needs.
+func describe(a offlinedb.Anime, into []int, linked bool) Merge {
+	return Merge{
+		Title:     a.Title,
+		AnilistID: a.AnilistID(),
+		Into:      into,
+		Type:      a.Type,
+		Year:      a.AnimeSeason.Year,
+		Season:    a.AnimeSeason.Season,
+		Episodes:  a.Episodes,
+		Linked:    linked,
+	}
 }

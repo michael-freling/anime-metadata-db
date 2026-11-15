@@ -795,3 +795,26 @@ func TestTwoIndistinguishableRecordsAreRefusedRatherThanSplit(t *testing.T) {
 		t.Errorf("Unresolvable = %+v, want one naming the repeated record", plan.Unresolvable)
 	}
 }
+
+// Two works can agree on type, quarter and length and still be two works.
+// "Washio Sumi no Shou" and "Yuusha no Shou" are both six episodes of autumn
+// 2017, and upstream carries a merged record for each — so refusing the series
+// would lose a real two-season show.
+func TestTwoMergedRecordsThatCoincideAreNotOneWork(t *testing.T) {
+	db := load(t,
+		entry{title: "Yuuki Yuuna wa Yuusha de Aru: Washio Sumi no Shou", typ: "TV", episodes: 6,
+			year: 2017, season: "FALL", status: "FINISHED", synonyms: []string{"結城友奈は勇者である -勇者の章-"},
+			sources: []string{al("100791")}, related: []string{al("97769")}},
+		entry{title: "Yuuki Yuuna wa Yuusha de Aru: Yuusha no Shou", typ: "TV", episodes: 6,
+			year: 2017, season: "FALL", status: "FINISHED", synonyms: []string{"結城友奈は勇者である -勇者の章-"},
+			sources: []string{al("97769")}, related: []string{al("100791")}},
+	)
+	plan := Build(db, 2017, map[int]bool{}, map[string]bool{})
+
+	if len(plan.New) != 1 {
+		t.Fatalf("New = %d, want the one series: %+v", len(plan.New), plan.Unresolvable)
+	}
+	if got := len(plan.New[0].Seasons); got != 2 {
+		t.Errorf("declared %d seasons, want 2 — these are different arcs", got)
+	}
+}

@@ -6,6 +6,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"strconv"
 	"strings"
 
 	"github.com/michael-freling/anime-metadata-db/src/builder/internal/importer"
@@ -59,6 +60,17 @@ func (a *App) Import(year int, dryRun bool) error {
 	claimedTitles, err := declaredTitles(filepath.Join(a.Dir, cfg.Settings.OverridesDir))
 	if err != nil {
 		return err
+	}
+
+	// Unioned in for the same reason the titles are read from the overrides:
+	// an id authored a moment ago by an earlier year of this run is already
+	// accounted for, and a second series for it is a duplicate.
+	authoredIDs, err := declaredAnilistIDs(filepath.Join(a.Dir, cfg.Settings.OverridesDir))
+	if err != nil {
+		return err
+	}
+	for id := range authoredIDs {
+		known[id] = true
 	}
 
 	plan := importer.Build(sources.Offline, year, known, claimedTitles)
@@ -140,6 +152,9 @@ var (
 	anilistLine  = regexp.MustCompile(`(?m)^\s*anilistId:\s*(\d+)\s*$`)
 	idLine       = regexp.MustCompile(`(?m)^\s*(?:-\s+)?id:\s*(\S+)\s*$`)
 	originalLine = regexp.MustCompile(`(?m)^\s*original:\s*(.+?)\s*$`)
+	// Looser than anilistLine, which reads generated records: an override
+	// writes the id inline, as `externalIds: { anilistId: 101922 } # note`.
+	anilistInline = regexp.MustCompile(`anilistId:\s*"?(\d+)"?`)
 )
 
 // existingIDs collects every id the authored layer declares, at any level.
@@ -191,7 +206,10 @@ func declaredTitles(overridesDir string) (map[string]bool, error) {
 		}
 		for _, m := range originalLine.FindAllSubmatch(body, -1) {
 			if t := unquoteYAML(string(m[1])); t != "" {
-				titles[t] = true
+				// Folded, because upstream lists some works under titles that
+				// differ only in the width of a character or a space and a
+				// literal key let each pair become two series.
+				titles[importer.FoldTitle(t)] = true
 			}
 		}
 		return nil
@@ -263,4 +281,39 @@ func trim(s string, n int) string {
 		return s
 	}
 	return s[:n-1] + "…"
+}
+
+// declaredAnilistIDs collects the AniList ids the authored layer already
+// accounts for.
+//
+// Read from the overrides rather than from data/, for the reason
+// declaredTitles exists: a run that imports several years before any build
+// cannot see what the earlier years authored. 125 series were created that way
+// — a sequel whose one work was already a season of the parent imported a
+// moment earlier, so "high-card-season-2" declared an id "high-card" already
+// held. The build now gates on that, and this stops it being written.
+func declaredAnilistIDs(overridesDir string) (map[int]bool, error) {
+	ids := map[int]bool{}
+	err := filepath.WalkDir(overridesDir, func(path string, d fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+		if d.IsDir() || filepath.Ext(path) != ".yaml" {
+			return nil
+		}
+		body, err := os.ReadFile(path)
+		if err != nil {
+			return err
+		}
+		for _, m := range anilistInline.FindAllSubmatch(body, -1) {
+			if n, err := strconv.Atoi(string(m[1])); err == nil && n > 0 {
+				ids[n] = true
+			}
+		}
+		return nil
+	})
+	if os.IsNotExist(err) {
+		return ids, nil
+	}
+	return ids, err
 }

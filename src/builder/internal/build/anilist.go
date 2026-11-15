@@ -325,3 +325,39 @@ func duplicates(ids []installment) map[int][]string {
 	}
 	return byID
 }
+
+// checkNotClaimedElsewhere reports an upstream work that a second series also
+// accounts for.
+//
+// checkSameWork asks this within one series — two installments of it cannot be
+// the same work — and nothing asked it across them, so 166 AniList ids were
+// claimed by two series each, over 315 of 9,711 series. Both shapes it found
+// are the same mistake. A sequel got a series of its own while already being a
+// season of its parent ("high-card" holds the id that "high-card-season-2"
+// also declared), and a work upstream lists under two titles that differ only
+// in width or punctuation became two series, because the import compares the
+// native titles it has already claimed literally: しまじろうのわお！ against
+// しまじろうのわお!.
+//
+// Gating, like the duplicate inside a series, and for the same reason: two
+// records answering for one work is an ambiguity the API cannot resolve, and
+// by the next import the second one looks like an ordinary series.
+func (b *Builder) checkNotClaimedElsewhere(s *model.Series, report *Report) {
+	if b.claimed == nil {
+		return
+	}
+	seen := map[int]bool{}
+	for _, x := range anilistIDs(s) {
+		if x.id == 0 || seen[x.id] {
+			continue
+		}
+		seen[x.id] = true
+		if first, ok := b.claimed[x.id]; ok && first != s.ID {
+			report.addCoded(CodeClaimedElsewhere, x.entity, "externalIds", fmt.Sprintf(
+				"anilistId %d is also accounted for by series %q; one upstream work cannot belong to two series, "+
+					"so one of them is a duplicate of the other", x.id, first))
+			continue
+		}
+		b.claimed[x.id] = s.ID
+	}
+}
