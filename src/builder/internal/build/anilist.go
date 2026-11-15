@@ -7,6 +7,7 @@ import (
 
 	"github.com/michael-freling/anime-metadata-db/src/animedb/model"
 	"github.com/michael-freling/anime-metadata-db/src/builder/internal/mapkeys"
+	"github.com/michael-freling/anime-metadata-db/src/builder/internal/sources/offlinedb"
 )
 
 // relatedWalkCap bounds the relatedAnime walk. Upstream's graph is tight — the
@@ -128,27 +129,41 @@ func (b *Builder) checkSameWork(s *model.Series, report *Report) {
 // franchise component would be reported as "not linked — check it names the
 // right entry" when the truth is that nobody looked far enough.
 func (b *Builder) reachesSibling(id int, ids map[int]string) (reached, capped bool) {
-	seen := map[int]bool{id: true}
-	queue := []int{id}
+	start, ok := b.sources.Offline.Lookup(id)
+	if !ok {
+		return false, false
+	}
+	// Walked over the database's own handles rather than AniList ids, and
+	// through Related, which resolves a relatedAnime URL whatever provider
+	// wrote it. Only 5.1% of upstream's 443,373 relatedAnime URLs are
+	// anilist.co ones, so following those alone saw almost none of the graph:
+	// Yuki no Joou's film and TV series name each other by their AniDB and
+	// MyAnimeList URLs and nothing else, and both were reported as unlinked
+	// while being each other's only neighbour. This is the same correction the
+	// title index already carries a note about — indexing by AniList id alone
+	// made the other half of upstream unreachable — applied to the edges.
+	//
+	// Walking handles also means an entry carrying no AniList id is a step on
+	// the way rather than a dead end.
+	seen := map[offlinedb.Key]bool{start.Key(): true}
+	queue := []offlinedb.Anime{start}
 	for len(queue) > 0 {
 		if len(seen) >= relatedWalkCap {
 			return false, true
 		}
 		cur := queue[0]
 		queue = queue[1:]
-		entry, ok := b.sources.Offline.Lookup(cur)
-		if !ok {
-			continue
-		}
-		for _, next := range entry.RelatedAnilistIDs() {
-			if seen[next] {
+		for _, rel := range b.sources.Offline.Related(cur) {
+			if seen[rel.Key()] {
 				continue
 			}
-			if _, sibling := ids[next]; sibling {
-				return true, false
+			if x := rel.AnilistID(); x != id && x != 0 {
+				if _, sibling := ids[x]; sibling {
+					return true, false
+				}
 			}
-			seen[next] = true
-			queue = append(queue, next)
+			seen[rel.Key()] = true
+			queue = append(queue, rel)
 		}
 	}
 	return false, false

@@ -2,7 +2,7 @@ sources:
     animeList:
         url: https://raw.githubusercontent.com/Anime-Lists/anime-lists/master/anime-list-master.xml
         version: master
-        sha256: 84d06e2fbb010a76778947b106dfe6c6c17f9ee2fc1950eda41a87d359b446e0
+        sha256: 69e951a72fdf5737bb89b4a50d4a70dcae8a7d2f1d13407d59db244a4a5a56be
         filename: anime-list.xml
     movieSetList:
         url: https://raw.githubusercontent.com/Anime-Lists/anime-lists/master/anime-movieset-list.xml

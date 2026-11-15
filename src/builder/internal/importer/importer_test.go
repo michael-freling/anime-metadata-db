@@ -717,3 +717,81 @@ func TestPoolKnownFindsAnInstallmentUnderEitherTitleForm(t *testing.T) {
 		t.Errorf("poolKnown = %v, want none", got)
 	}
 }
+
+// TestBuildRefusesATitleThatRomanisesToNothing covers the other way Slug can
+// produce something unusable. 熊野古道民話集 is a 2006 film upstream carries
+// only in Japanese; Slug keeps [a-z0-9] and that leaves an empty id, an empty
+// filename, and "-film" for its work. The first 2000-2009 import wrote exactly
+// that file and the build refused it with "series has no id".
+func TestBuildRefusesATitleThatRomanisesToNothing(t *testing.T) {
+	db := load(t, entry{title: "熊野古道民話集", typ: "MOVIE", episodes: 1, year: 2006,
+		season: "SPRING", status: "FINISHED", sources: []string{al("95")}})
+	plan := Build(db, 2006, map[int]bool{999: true}, map[string]bool{})
+
+	if len(plan.New) != 0 {
+		t.Errorf("New = %+v, want nothing: there is no id to give it", plan.New)
+	}
+	if len(plan.Unresolvable) != 1 || !strings.Contains(plan.Unresolvable[0].Reason, "romanises to nothing") {
+		t.Errorf("Unresolvable = %+v, want one explaining the empty id", plan.Unresolvable)
+	}
+}
+
+// Upstream lists some works twice: once as a merged record carrying an AniList
+// id, and once under the English title with no id, agreeing on type, quarter
+// and length. The build resolves against the merged half first, so a series
+// that declares a slot for each entry forces it down to the fallback and the
+// second record becomes a season of its own. 120 series in the catalogue carry
+// a phantom season that way.
+func TestASecondRecordOfOneWorkIsNotASecondSeason(t *testing.T) {
+	db := load(t,
+		entry{title: "Amaama to Inazuma", typ: "TV", episodes: 12, year: 2016,
+			season: "SUMMER", status: "FINISHED", synonyms: []string{"甘々と稲妻"},
+			sources: []string{al("21659")}},
+		entry{title: "Sweetness & Lightning", typ: "TV", episodes: 12, year: 2016,
+			season: "SUMMER", status: "FINISHED", synonyms: []string{"甘々と稲妻"},
+			sources: []string{"https://anime-planet.com/anime/sweetness-and-lightning"}},
+	)
+	plan := Build(db, 2016, map[int]bool{}, map[string]bool{})
+
+	if len(plan.New) != 1 {
+		t.Fatalf("New = %d series, want 1: the two entries are one work", len(plan.New))
+	}
+	if got := len(plan.New[0].Seasons); got != 1 {
+		t.Errorf("declared %d seasons, want 1 — the id-less record is upstream's second copy", got)
+	}
+}
+
+// The fallback has to stay reachable, or every work AniList does not carry
+// would stop being imported at all.
+func TestAWorkWithNoAnilistRecordStillGetsASeason(t *testing.T) {
+	db := load(t, entry{title: "Only Elsewhere", typ: "TV", episodes: 12, year: 2016,
+		season: "SUMMER", status: "FINISHED",
+		sources: []string{"https://anime-planet.com/anime/only-elsewhere"}})
+	plan := Build(db, 2016, map[int]bool{}, map[string]bool{})
+
+	if len(plan.New) != 1 || len(plan.New[0].Seasons) != 1 {
+		t.Fatalf("plan = %+v, want one series with one season", plan.New)
+	}
+}
+
+// Two id-less records of one work are the case the merged half cannot settle:
+// "Kokekko-san" and "Kokekkou-san" are one 26-episode 2009 series upstream
+// lists twice, and a slot each is a phantom season carrying a real count.
+func TestTwoIndistinguishableRecordsAreRefusedRatherThanSplit(t *testing.T) {
+	db := load(t,
+		entry{title: "Kokekko-san", typ: "TV", episodes: 26, year: 2009, season: "SPRING",
+			status: "FINISHED", synonyms: []string{"コケッコーさん"},
+			sources: []string{"https://anidb.net/anime/6500"}},
+		entry{title: "Kokekkou-san", typ: "TV", episodes: 26, year: 2009, season: "SPRING",
+			status: "FINISHED", synonyms: []string{"コケッコーさん"},
+			sources: []string{"https://anime-planet.com/anime/kokekkou-san"}},
+	)
+	plan := Build(db, 2009, map[int]bool{}, map[string]bool{})
+
+	if len(plan.New) != 0 {
+		t.Errorf("New = %+v, want nothing written", plan.New)
+	}
+	if len(plan.Unresolvable) != 1 || !strings.Contains(plan.Unresolvable[0].Reason, "twice under this title") {
+		t.Errorf("Unresolvable = %+v, want one naming the repeated record", plan.Unresolvable)
+	}
+}
