@@ -9,7 +9,5 @@ series:
   seasons:
     - id: shounen-hollywood-holly-stage-for-49-s1
       number: 1
-    - id: shounen-hollywood-holly-stage-for-49-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [shounen-hollywood-holly-stage-for-49]

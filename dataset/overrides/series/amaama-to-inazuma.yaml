@@ -9,7 +9,5 @@ series:
   seasons:
     - id: amaama-to-inazuma-s1
       number: 1
-    - id: amaama-to-inazuma-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [amaama-to-inazuma]

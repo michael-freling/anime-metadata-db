@@ -9,7 +9,5 @@ series:
   seasons:
     - id: dantalian-no-shoka-s1
       number: 1
-    - id: dantalian-no-shoka-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [dantalian-no-shoka]

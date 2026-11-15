@@ -9,7 +9,5 @@ series:
   seasons:
     - id: ano-natsu-de-matteru-s1
       number: 1
-    - id: ano-natsu-de-matteru-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [ano-natsu-de-matteru]

@@ -9,7 +9,5 @@ series:
   seasons:
     - id: say-i-love-you-s1
       number: 1
-    - id: say-i-love-you-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [say-i-love-you]

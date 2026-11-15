@@ -9,7 +9,5 @@ series:
   seasons:
     - id: tian-xin-ge-ge-s1
       number: 1
-    - id: tian-xin-ge-ge-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [tian-xin-ge-ge]

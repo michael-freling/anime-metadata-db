@@ -9,7 +9,5 @@ series:
   seasons:
     - id: beyblade-metal-fury-s1
       number: 1
-    - id: beyblade-metal-fury-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [beyblade-metal-fury]

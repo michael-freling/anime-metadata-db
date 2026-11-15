@@ -9,7 +9,5 @@ series:
   seasons:
     - id: sword-oratoria-is-it-wrong-to-try-to-pick-up-girls-in-a-dungeon-on-the-side-s1
       number: 1
-    - id: sword-oratoria-is-it-wrong-to-try-to-pick-up-girls-in-a-dungeon-on-the-side-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [sword-oratoria-is-it-wrong-to-try-to-pick-up-girls-in-a-dungeon-on-the-side]

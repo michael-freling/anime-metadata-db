@@ -9,7 +9,5 @@ series:
   seasons:
     - id: robocar-poli-s1
       number: 1
-    - id: robocar-poli-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [robocar-poli]

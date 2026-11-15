@@ -9,7 +9,5 @@ series:
   seasons:
     - id: the-world-god-only-knows-season-two-s1
       number: 1
-    - id: the-world-god-only-knows-season-two-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [the-world-god-only-knows-season-two]

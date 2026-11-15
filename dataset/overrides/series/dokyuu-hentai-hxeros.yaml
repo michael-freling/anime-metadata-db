@@ -9,7 +9,5 @@ series:
   seasons:
     - id: dokyuu-hentai-hxeros-s1
       number: 1
-    - id: dokyuu-hentai-hxeros-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [dokyuu-hentai-hxeros]

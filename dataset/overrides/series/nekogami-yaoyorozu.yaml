@@ -9,7 +9,5 @@ series:
   seasons:
     - id: nekogami-yaoyorozu-s1
       number: 1
-    - id: nekogami-yaoyorozu-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [nekogami-yaoyorozu]

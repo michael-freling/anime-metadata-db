@@ -9,7 +9,5 @@ series:
   seasons:
     - id: panpaka-pants-o-new-san-s1
       number: 1
-    - id: panpaka-pants-o-new-san-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [panpaka-pants-o-new-san]

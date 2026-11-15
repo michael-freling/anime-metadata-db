@@ -9,7 +9,5 @@ series:
   seasons:
     - id: bbk-brnk-the-gentle-giants-of-the-galaxy-s1
       number: 1
-    - id: bbk-brnk-the-gentle-giants-of-the-galaxy-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [bbk-brnk-the-gentle-giants-of-the-galaxy]

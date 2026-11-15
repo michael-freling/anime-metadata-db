@@ -11,9 +11,6 @@ series:
       number: 1
     - id: calimero-s2
       number: 2
-    - id: calimero-s3
-      number: 3
-    - id: calimero-s4
-      number: 4
-# One linear storyline: episodes carry a continuous absoluteNumber.
-numbered: [calimero]
+# No continuous absoluteNumber. The seasons above are separate adaptations of
+# one work (1974, 1992), not one run, so numbering them end to end would
+# assert a continuity that does not exist.

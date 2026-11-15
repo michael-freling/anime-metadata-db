@@ -9,7 +9,5 @@ series:
   seasons:
     - id: demi-chan-wa-kataritai-s1
       number: 1
-    - id: demi-chan-wa-kataritai-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [demi-chan-wa-kataritai]

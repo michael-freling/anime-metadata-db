@@ -9,7 +9,5 @@ series:
   seasons:
     - id: hybrid-x-heart-magias-academy-ataraxia-s1
       number: 1
-    - id: hybrid-x-heart-magias-academy-ataraxia-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [hybrid-x-heart-magias-academy-ataraxia]

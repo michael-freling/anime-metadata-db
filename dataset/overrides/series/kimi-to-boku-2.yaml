@@ -9,7 +9,5 @@ series:
   seasons:
     - id: kimi-to-boku-2-s1
       number: 1
-    - id: kimi-to-boku-2-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [kimi-to-boku-2]

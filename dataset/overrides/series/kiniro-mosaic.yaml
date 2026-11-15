@@ -9,7 +9,5 @@ series:
   seasons:
     - id: kiniro-mosaic-s1
       number: 1
-    - id: kiniro-mosaic-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [kiniro-mosaic]

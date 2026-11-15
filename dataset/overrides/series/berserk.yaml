@@ -13,5 +13,6 @@ series:
       number: 2
     - id: berserk-s3
       number: 3
-# One linear storyline: episodes carry a continuous absoluteNumber.
-numbered: [berserk]
+# No continuous absoluteNumber. The seasons above are separate adaptations of
+# one work (1997, 2016, 2017), not one run, so numbering them end to end would
+# assert a continuity that does not exist.

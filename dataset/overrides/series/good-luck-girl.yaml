@@ -9,7 +9,5 @@ series:
   seasons:
     - id: good-luck-girl-s1
       number: 1
-    - id: good-luck-girl-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [good-luck-girl]

@@ -9,7 +9,5 @@ series:
   seasons:
     - id: hibike-euphonium-s1
       number: 1
-    - id: hibike-euphonium-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [hibike-euphonium]

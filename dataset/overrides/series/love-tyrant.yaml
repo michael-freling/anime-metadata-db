@@ -9,7 +9,5 @@ series:
   seasons:
     - id: love-tyrant-s1
       number: 1
-    - id: love-tyrant-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [love-tyrant]

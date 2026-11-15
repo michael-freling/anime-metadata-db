@@ -9,7 +9,5 @@ series:
   seasons:
     - id: pikotaro-no-lullaby-lu-llaby-s1
       number: 1
-    - id: pikotaro-no-lullaby-lu-llaby-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [pikotaro-no-lullaby-lu-llaby]

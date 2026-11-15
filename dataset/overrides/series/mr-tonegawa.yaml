@@ -9,7 +9,5 @@ series:
   seasons:
     - id: mr-tonegawa-s1
       number: 1
-    - id: mr-tonegawa-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [mr-tonegawa]

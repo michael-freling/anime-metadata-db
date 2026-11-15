@@ -9,7 +9,5 @@ series:
   seasons:
     - id: driland-s1
       number: 1
-    - id: driland-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [driland]

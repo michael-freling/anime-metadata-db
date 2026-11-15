@@ -9,7 +9,5 @@ series:
   seasons:
     - id: fune-wo-amu-s1
       number: 1
-    - id: fune-wo-amu-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [fune-wo-amu]

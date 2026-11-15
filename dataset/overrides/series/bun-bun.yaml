@@ -11,5 +11,6 @@ series:
       number: 1
     - id: bun-bun-s2
       number: 2
-# One linear storyline: episodes carry a continuous absoluteNumber.
-numbered: [bun-bun]
+# No continuous absoluteNumber. The seasons above are separate adaptations of
+# one work (1980, 2011), not one run, so numbering them end to end would
+# assert a continuity that does not exist.

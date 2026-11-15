@@ -9,7 +9,5 @@ series:
   seasons:
     - id: mobile-suit-gundam-unicorn-re-0096-s1
       number: 1
-    - id: mobile-suit-gundam-unicorn-re-0096-s2
-      number: 2
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [mobile-suit-gundam-unicorn-re-0096]
