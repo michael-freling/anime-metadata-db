@@ -20,6 +20,106 @@ series:
       externalIds: { anilistId: 2651 }
     - id: doraemon-film-2
       externalIds: { anilistId: 2392 } # Doraemon Movie 26: Nobita no Kyouryuu 2006 (2006)
+    - id: doraemon-film-3
+      externalIds: { anilistId: 2393 } # Doraemon Movie 24: Nobita to Fushigi Kaze Tsukai (2003)
+    - id: doraemon-film-4
+      externalIds: { anilistId: 2633 } # The☆Doraemons: Dokidoki Kikansha Daibakusou! (2000)
+    - id: doraemon-film-5
+      externalIds: { anilistId: 2648 } # Doraemon: 2112-nen Doraemon Tanjou (1995)
+    - id: doraemon-film-6
+      externalIds: { anilistId: 2649 } # Doraemon: Obaachan no Omoide (2000)
+    - id: doraemon-film-7
+      externalIds: { anilistId: 2650 } # Doraemon Movie: Boku, Momotarou no Nanna no Sa (1981)
+    - id: doraemon-film-8
+      externalIds: { anilistId: 2652 } # Doraemon: The Day When I Was Born (2002)
+    - id: doraemon-film-9
+      externalIds: { anilistId: 2654 } # Doraemon Movie 22: Nobita to Tsubasa no Yuusha-tachi (2001)
+    - id: doraemon-film-10
+      externalIds: { anilistId: 2655 } # Doraemon Movie 23: Nobita to Robot Kingdom (2002)
+    - id: doraemon-film-11
+      externalIds: { anilistId: 2656 } # Doraemon Movie 25: Nobita no Wan Nyan Jikuuden (2004)
+    - id: doraemon-film-12
+      externalIds: { anilistId: 2657 } # Doraemon Movie 08: Nobita to Ryuu no Kishi (1987)
+    - id: doraemon-film-13
+      externalIds: { anilistId: 2658 } # Doraemon Movie 09: Nobita no Parallel Saiyuuki (1988)
+    - id: doraemon-film-14
+      externalIds: { anilistId: 2659 } # Doraemon Movie 14: Nobita to Buriki no Labyrinth (1993)
+    - id: doraemon-film-15
+      externalIds: { anilistId: 2660 } # Doraemon: Nobita's the Night Before a Wedding (1999)
+    - id: doraemon-film-16
+      externalIds: { anilistId: 2661 } # Doraemon Movie 13: Nobita to Kumo no Oukoku (1992)
+    - id: doraemon-film-17
+      externalIds: { anilistId: 2662 } # Doraemon Movie 02: Nobita no Uchuu Kaitakushi (1981)
+    - id: doraemon-film-18
+      externalIds: { anilistId: 2664 } # Doraemon Movie 19: Nobita no Nankai Daibouken (1998)
+    - id: doraemon-film-19
+      externalIds: { anilistId: 2665 } # Doraemon Movie 07: Nobita to Tetsujin Heidan (1986)
+    - id: doraemon-film-20
+      externalIds: { anilistId: 2666 } # Doraemon Movie 10: Nobita no Nippon Tanjou (1989)
+    - id: doraemon-film-21
+      externalIds: { anilistId: 2667 } # Doraemon Movie 04: Nobita no Kaitei Kiganjou (1983)
+    - id: doraemon-film-22
+      externalIds: { anilistId: 2668 } # Doraemon Movie 20: Nobita no Uchuu Hyouryuuki (1999)
+    - id: doraemon-film-23
+      externalIds: { anilistId: 2669 } # Doraemon Movie 06: Nobita no Little Star Wars (1985)
+    - id: doraemon-film-24
+      externalIds: { anilistId: 2670 } # Doraemon Movie 12: Nobita no Dorabian Nights (1991)
+    - id: doraemon-film-25
+      externalIds: { anilistId: 2671 } # Doraemon Movie 03: Nobita no Daimakyou (1982)
+    - id: doraemon-film-26
+      externalIds: { anilistId: 2672 } # Doraemon Movie 05: Nobita no Makai Daibouken (1984)
+    - id: doraemon-film-27
+      externalIds: { anilistId: 2673 } # Doraemon Movie 27: Nobita no Shin Makai Daibouken - 7-nin no Ma… (2007)
+    - id: doraemon-film-28
+      externalIds: { anilistId: 2674 } # Doraemon Movie 16: Nobita no Sousei Nikki (1995)
+    - id: doraemon-film-29
+      externalIds: { anilistId: 2675 } # Doraemon Movie 17: Nobita to Ginga Express (1996)
+    - id: doraemon-film-30
+      externalIds: { anilistId: 2676 } # Doraemon Movie 15: Nobita to Mugen Sankenshi (1994)
+    - id: doraemon-film-31
+      externalIds: { anilistId: 2677 } # Doraemon Movie 11: Nobita to Animal Planet (1990)
+    - id: doraemon-film-32
+      externalIds: { anilistId: 2678 } # Doraemon Movie 18: Nobita no Nejimaki City Boukenki (1997)
+    - id: doraemon-film-33
+      externalIds: { anilistId: 3727 } # Doraemon Movie 01: Nobita no Kyouryuu (1980)
+    - id: doraemon-film-34
+      externalIds: { anilistId: 5096 } # Doraemon Movie 28: Nobita to Midori no Kyojin Den (2008)
+    - id: doraemon-film-35
+      externalIds: { anilistId: 6988 } # Doraemon Movie 30: Nobita no Ningyo Daikaisen (2010)
+    - id: doraemon-film-36
+      externalIds: { anilistId: 7045 } # Doraemon Movie 21: Nobita no Taiyou Ou Densetsu (2000)
+    - id: doraemon-film-37
+      externalIds: { anilistId: 10534 } # Doraemon Movie 31: Shin Nobita to Tetsujin Heidan - Habatake Te… (2011)
+    - id: doraemon-film-38
+      externalIds: { anilistId: 11053 } # Doraemon Movie 32: Nobita to Kiseki no Shima - Animal Adventure (2012)
+    - id: doraemon-film-39
+      externalIds: { anilistId: 15925 } # Doraemon Movie 33: Nobita no Himitsu Dougu Museum (2013)
+    - id: doraemon-film-40
+      externalIds: { anilistId: 19645 } # Doraemon Movie 34: Shin Nobita no Daimakyou - Peko to 5-nin no … (2014)
+    - id: doraemon-film-41
+      externalIds: { anilistId: 20515 } # Stand By Me Doraemon (2014)
+    - id: doraemon-film-42
+      externalIds: { anilistId: 87438 } # Doraemon Movie 36: Shin Nobita no Nippon Tanjou (2016)
+    - id: doraemon-film-43
+      externalIds: { anilistId: 99084 } # Doraemon Movie 38: Nobita no Takarajima (2018)
+    - id: doraemon-film-44
+      externalIds: { anilistId: 99085 } # Doraemon Movie 37: Nobita no Nankyoku Kachikochi Daibouken (2017)
+    - id: doraemon-film-45
+      externalIds: { anilistId: 100291 } # Doraemon Movie 35: Nobita no Space Heroes (2015)
+    - id: doraemon-film-46
+      externalIds: { anilistId: 106493 } # Doraemon Movie 39: Nobita no Getsumen Tansaki (2019)
+    - id: doraemon-film-47
+      externalIds: { anilistId: 113669 } # Doraemon Movie 40: Nobita no Shin Kyouryuu (2020)
+    - id: doraemon-film-48
+      externalIds: { anilistId: 122575 } # Stand By Me Doraemon 2 (2020)
+    - id: doraemon-film-49
+      externalIds: { anilistId: 126783 } # Doraemon Movie 41: Nobita no Little Star Wars (2022)
+    - id: doraemon-film-50
+      externalIds: { anilistId: 151896 } # Doraemon Movie 42: Nobita to Sora no Utopia (2023)
+    - id: doraemon-film-51
+      externalIds: { anilistId: 166976 } # Doraemon Movie 43: Nobita no Chikyuu Symphony (2024)
+    - id: doraemon-film-52
+      externalIds: { anilistId: 198368 } # Doraemon Movie 45: Shin Nobita no Kaitei Kiganjou (2026)
 # No continuous absoluteNumber. The seasons above are separate adaptations of
 # one work (1973, 1979, 2005), not one run, so numbering them end to end would
 # assert a continuity that does not exist.

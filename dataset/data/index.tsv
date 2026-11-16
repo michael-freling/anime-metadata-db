@@ -1,5 +1,5 @@
 !anime-metadata-db-index	1
-!stats	franchises=1	series=9703	seasons=6821	episodes=220988	characters=727	staff=484	earliest=1969	latest=2027
+!stats	franchises=1	series=9703	seasons=6836	episodes=221312	characters=727	staff=484	earliest=1969	latest=2027
 !franchises	id	file	titles
 fate	fate.yaml	フェイト|en=Fate
 !series	id	file	franchise	titles
@@ -10071,7 +10071,7 @@ series	361	2011	2011	1
 series	362	2011	2011	1	13
 series	363	2004	2004	1	26
 series	364	2002	2002	1	13
-series	365	2005	2012	3	52
+series	365	2005	2015	4	78
 series	366	2019	2019	1	12
 series	367	2009	2009	1	26
 series	368	2018	2018	1	
@@ -10082,7 +10082,7 @@ series	372	2014	2014	1
 series	373	2012	2012	1	26
 series	374	2013	2013	1	12
 series	375	2012	2012	1	12
-series	376	2004	2004	1	12
+series	376	1985	2004	2	12
 series	377	2012	2012	1	37
 series	378	2001	2001	1	
 series	379	2000	2000	1	25
@@ -10131,7 +10131,7 @@ series	421	2019	2019	1
 series	422	2018	2018	1	12
 series	423	2010	2010	1	12
 series	424	2002	2002	1	52
-series	425	2015	2016	3	47
+series	425	2015	2026	4	47
 series	426	2019	2019	1	12
 series	427	2020	2020	2	20
 series	428	2014	2014	1	27
@@ -10566,7 +10566,7 @@ series	856	2016	2016	1	12
 series	857	2022	2022	1	
 series	858	2023	2023	1	
 series	859	2024	2024	1	
-series	860	2016	2025	9	170
+series	860	2016	2025	13	170
 series	861	2012	2013	2	24
 series	862	2017	2017	1	10
 series	863	2023	2026	3	25
@@ -10780,7 +10780,7 @@ series	1070	2004	2004	1	40
 series	1071	2019	2019	1	
 series	1072	2014	2014	1	25
 series	1073	1978	2013	2	42
-series	1074	1983	2023	4	271
+series	1074	1983	2023	8	271
 series	1075	2000	2000	1	
 series	1076	2025	2025	1	13
 series	1077	2025	2025	1	12
@@ -11511,7 +11511,7 @@ series	1801	2009	2009	1
 series	1802	2015	2015	1	
 series	1803	2018	2018	1	
 series	1804	2010	2010	1	
-series	1805	1973	2006	5	2650
+series	1805	1973	2026	55	2650
 series	1806	2018	2018	1	12
 series	1807	2024	2024	1	26
 series	1808	2020	2020	1	12
@@ -11605,7 +11605,7 @@ series	1895	2020	2020	1	47
 series	1896	2024	2024	1	4
 series	1897	2024	2024	1	4
 series	1898	2005	2005	1	39
-series	1899	2002	2018	4	128
+series	1899	2002	2023	7	257
 series	1900	2022	2022	1	
 series	1901	2019	2019	1	12
 series	1902	2015	2015	1	
@@ -12248,7 +12248,7 @@ series	2537	2025	2025	1
 series	2538	2017	2017	2	38
 series	2539	2015	2017	3	88
 series	2540	2018	2018	1	12
-series	2541	2010	2012	3	64
+series	2541	2010	2026	10	64
 series	2542	2006	2006	1	13
 series	2543	2004	2004	1	13
 series	2544	2014	2014	1	
@@ -12368,7 +12368,7 @@ series	2657	2000	2000	1	25
 series	2658	2004	2004	1	12
 series	2659	2020	2020	1	
 series	2660	2019	2019	1	12
-series	2661	2019	2025	2	13
+series	2661	2019	2025	3	13
 series	2662	2020	2020	1	80
 series	2663	2021	2021	1	
 series	2664	2002	2002	1	26
@@ -12618,7 +12618,7 @@ series	2907	2018	2018	1	4
 series	2908	2019	2019	1	12
 series	2909	2007	2007	1	50
 series	2910	2006	2006	1	11
-series	2911	2013	2022	2	25
+series	2911	2013	2023	3	37
 series	2912	2018	2018	1	11
 series	2913	2018	2018	1	12
 series	2914	2020	2021	2	8
@@ -13503,7 +13503,7 @@ series	3792	2020	2020	1	26
 series	3793	2019	2020	2	52
 series	3794	2012	2012	1	
 series	3795	2013	2013	1	
-series	3796	2004	2012	3	52
+series	3796	1993	2022	8	52
 series	3797	2023	2023	1	12
 series	3798	2008	2008	1	
 series	3799	2000	2000	1	26
@@ -13762,7 +13762,7 @@ series	4051	2006	2006	1	6
 series	4052	2008	2008	1	
 series	4053	2010	2010	1	
 series	4054	2010	2010	1	
-series	4055	2004	2014	3	381
+series	4055	2004	2026	7	381
 series	4056	2010	2010	1	44
 series	4057	2020	2020	1	
 series	4058	2015	2015	1	12
@@ -14511,7 +14511,7 @@ series	4800	2014	2014	1	13
 series	4801	2011	2011	1	
 series	4802	2007	2007	1	
 series	4803	2020	2020	1	
-series	4804	2017	2022	3	25
+series	4804	2017	2022	5	25
 series	4805	2004	2004	1	26
 series	4806	2023	2023	1	
 series	4807	2005	2005	1	
@@ -14607,7 +14607,7 @@ series	4896	2013	2013	1
 series	4897	2020	2020	1	25
 series	4898	2008	2008	1	
 series	4899	2026	2026	1	13
-series	4900	2020	2021	2	24
+series	4900	2020	2023	4	48
 series	4901	2003	2003	1	13
 series	4902	2013	2013	1	12
 series	4903	2006	2006	1	12
@@ -14672,7 +14672,7 @@ series	4961	2011	2011	1	26
 series	4962	2019	2019	1	26
 series	4963	2016	2016	1	52
 series	4964	2024	2024	1	12
-series	4965	2020	2023	2	25
+series	4965	2020	2024	3	37
 series	4966	2026	2026	1	12
 series	4967	2024	2024	1	12
 series	4968	2019	2024	2	24
@@ -14998,7 +14998,7 @@ series	5287	2004	2004	1
 series	5288	2012	2012	1	48
 series	5289	2014	2014	1	
 series	5290	2016	2016	1	22
-series	5291	2005	2006	2	
+series	5291	2005	2006	3	
 series	5292	2005	2005	1	
 series	5293	2013	2013	1	20
 series	5294	2014	2014	1	20
@@ -15269,7 +15269,7 @@ series	5558	2023	2023	1	15
 series	5559	2019	2019	1	24
 series	5560	2018	2018	1	
 series	5561	2016	2016	1	4
-series	5562	2014	2021	4	72
+series	5562	2014	2024	6	108
 series	5563	2016	2016	1	13
 series	5564	2014	2014	1	10
 series	5565	2019	2019	1	12
@@ -15716,9 +15716,9 @@ series	6005	2008	2008	1	6
 series	6006	2016	2016	1	12
 series	6007	2018	2018	1	26
 series	6008	2026	2026	1	12
-series	6009	2018	2025	13	137
+series	6009	2018	2025	17	137
 series	6010	2019	2019	1	
-series	6011	2015	2025	5	87
+series	6011	2015	2025	7	87
 series	6012	2018	2018	1	
 series	6013	2026	2026	1	12
 series	6014	2015	2015	1	
@@ -15963,7 +15963,7 @@ series	6252	2011	2011	1
 series	6253	2008	2008	1	
 series	6254	2006	2006	1	
 series	6255	2002	2002	1	
-series	6256	1997	2023	4	553
+series	6256	1997	2023	19	553
 series	6257	2012	2012	1	
 series	6258	2020	2020	1	
 series	6259	2000	2000	1	
@@ -16063,10 +16063,10 @@ series	6352	2020	2022	2	25
 series	6353	2009	2009	1	12
 series	6354	2006	2006	1	12
 series	6355	2025	2025	1	
-series	6356	2021	2021	2	
+series	6356	2021	2023	3	
 series	6357	2002	2002	1	38
 series	6358	2025	2025	1	48
-series	6359	2015	2017	2	102
+series	6359	2015	2018	3	102
 series	6360	2016	2016	1	51
 series	6361	2016	2016	1	
 series	6362	2017	2017	1	36
@@ -16223,7 +16223,7 @@ series	6512	2024	2027	2	12
 series	6513	2018	2018	1	12
 series	6514	2025	2025	1	
 series	6515	2011	2011	1	300
-series	6516	1992	2025	3	24
+series	6516	1991	2025	5	24
 series	6517	2015	2015	1	11
 series	6518	2001	2001	1	
 series	6519	2015	2015	1	52
@@ -16454,7 +16454,7 @@ series	6743	2018	2018	1	12
 series	6744	2007	2007	1	21
 series	6745	2006	2006	1	55
 series	6746	2004	2004	1	13
-series	6747	2001	2011	2	26
+series	6747	2001	2012	3	26
 series	6748	2025	2025	1	12
 series	6749	2014	2014	1	
 series	6750	2017	2017	1	
@@ -16752,7 +16752,7 @@ series	7041	2005	2005	1	26
 series	7042	2021	2022	2	25
 series	7043	2024	2024	1	1
 series	7044	2024	2024	1	1
-series	7045	2020	2022	2	98
+series	7045	2020	2024	4	146
 series	7046	2007	2007	1	30
 series	7047	2011	2011	1	24
 series	7048	2005	2007	2	24
@@ -16942,7 +16942,7 @@ series	7231	2023	2023	1
 series	7232	2015	2015	1	12
 series	7233	2004	2004	1	
 series	7234	2015	2015	1	26
-series	7235	1992	2007	2	1341
+series	7235	1992	2021	29	1341
 series	7236	2005	2005	1	26
 series	7237	2008	2008	1	26
 series	7238	2001	2001	1	26
@@ -16956,7 +16956,7 @@ series	7245	2020	2020	1	12
 series	7246	2025	2025	1	24
 series	7247	2023	2023	1	12
 series	7248	2007	2007	1	
-series	7249	2012	2022	2	26
+series	7249	2012	2024	3	39
 series	7250	2022	2022	1	12
 series	7251	2014	2014	1	12
 series	7252	2017	2017	1	24
@@ -17048,7 +17048,7 @@ series	7337	2017	2017	1	26
 series	7338	2016	2016	1	26
 series	7339	2011	2011	1	59
 series	7340	2016	2016	1	12
-series	7341	2016	2020	2	24
+series	7341	2016	2021	3	36
 series	7342	2011	2011	1	
 series	7343	2003	2003	1	52
 series	7344	2012	2012	1	26
@@ -17681,7 +17681,7 @@ series	7970	2023	2023	1	12
 series	7971	2024	2025	2	24
 series	7972	2026	2026	1	12
 series	7973	2022	2022	1	12
-series	7974	2018	2026	6	84
+series	7974	2018	2026	7	84
 series	7975	2002	2002	1	50
 series	7976	2017	2017	1	12
 series	7977	2003	2003	1	11
@@ -17893,7 +17893,7 @@ series	8182	2012	2012	1	50
 series	8183	2012	2012	1	
 series	8184	2014	2014	1	
 series	8185	2011	2011	1	25
-series	8186	2016	2016	1	38
+series	8186	1970	2016	2	38
 series	8187	2018	2018	1	
 series	8188	2016	2016	1	24
 series	8189	2017	2017	1	24
@@ -18038,7 +18038,7 @@ series	8327	2001	2001	1	156
 series	8328	2024	2024	1	
 series	8329	2003	2003	1	26
 series	8330	2023	2023	1	11
-series	8331	2000	2012	3	347
+series	8331	2000	2012	5	347
 series	8332	2002	2002	1	
 series	8333	2004	2004	1	
 series	8334	2009	2009	1	26
@@ -18299,7 +18299,7 @@ series	8588	2021	2021	1	12
 series	8589	2015	2022	2	24
 series	8590	2008	2008	1	
 series	8591	2017	2017	1	13
-series	8592	1981	2024	4	241
+series	8592	1981	2024	9	241
 series	8593	2020	2020	1	
 series	8594	2026	2026	1	12
 series	8595	2002	2002	1	
@@ -18346,7 +18346,7 @@ series	8635	2021	2021	1
 series	8636	2017	2017	1	12
 series	8637	2015	2015	1	6
 series	8638	2007	2007	1	12
-series	8639	2025	2025	1	
+series	8639	1990	2025	2	
 series	8640	2025	2025	1	
 series	8641	2007	2007	1	
 series	8642	2007	2007	1	104
@@ -19227,7 +19227,7 @@ series	9516	2024	2024	1	12
 series	9517	2017	2017	1	
 series	9518	2017	2017	1	
 series	9519	2017	2017	2	12
-series	9520	2014	2017	2	12
+series	9520	2014	2021	3	24
 series	9521	2021	2021	1	13
 series	9522	2022	2022	1	12
 series	9523	2023	2023	1	12
@@ -19811,6 +19811,7 @@ season	aqua-kids-s1	363	1		2004	SPRING		26		108750	1669		336452
 season	aquarian-age-sign-for-evolution-s1	364	1		2002	WINTER		13		1224	8		83584	
 season	aquarion-s1	365	1		2005	SPRING		26		478	2830		79886	
 season	aquarion-s2	365	2		2012	WINTER		26		10447	8299		79886	
+season	aquarion-s3	365	3		2015	SUMMER		26		21115	11150		79886	
 movie	aquarion-film	365			2007				アクエリオン|ja=アクエリオン|ja-Latn=Aquarion					
 season	araburu-kisetsu-no-otome-domo-yo-s1	366	1		2019	SUMMER		12		105932	14512		361705	
 season	arad-senki-slap-up-party-s1	367	1		2009	SPRING		26		4657	6226		88141	
@@ -19823,6 +19824,7 @@ season	arashi-no-yoru-ni-himitsu-no-tomodachi-s1	373	1		2012	SPRING		26		13029	8
 season	arata-kangatari-s1	374	1		2013	SPRING		12		16518	9551		268059	
 season	arcana-famiglia-s1	375	1		2012	SUMMER		12		12967	8971		259652	
 season	area-88-tv-s1	376	1		2004	WINTER		12		284	1306		81867	
+movie	area-88-tv-film	376			1985				エリア88 劇場版|ja=エリア88 劇場版|ja-Latn=Area 88 Movie	98129	7089		81867	
 season	area-no-kishi-s1	377	1		2012	WINTER		37		11697	8798		254660	
 movie	arete-hime-film	378			2001				アリーテ姫|ja=アリーテ姫|ja-Latn=Arete Hime	1028	1190			
 season	argento-soma-s1	379	1		2000	FALL		25		285	50		78910	
@@ -19879,6 +19881,7 @@ season	asobot-senki-gokuu-s1	424	1		2002	FALL		52		3193	1521		334014
 season	assassination-classroom-s1	425	1		2015	WINTER		22		20755	10702		283947	
 season	assassination-classroom-s2	425	2		2016	WINTER		25		21170	11203		283947	
 movie	assassination-classroom-film	425			2016				殺せんせーQ!|ja=殺せんせーQ!|ja-Latn=Koro-sensei Q!	21864	12244		321496	
+movie	assassination-classroom-film-2	425			2026				劇場版 暗殺教室 みんなの時間|ja=劇場版 暗殺教室 みんなの時間|ja-Latn=Ansatsu Kyoushitsu Movie: Minna no Jikan	198373	19567			
 season	assassins-pride-s1	426	1		2019	FALL		12		104722	14453		357431	
 season	assault-lily-bouquet-s1	427	1		2020	FALL		8						
 season	assault-lily-bouquet-s2	427	2		2020	FALL		12		112479	15156		371097	
@@ -20351,6 +20354,10 @@ season	boku-no-hero-academia-s6	860	6		2022	FALL		25		139630	16793		305074
 season	boku-no-hero-academia-s7	860	7		2024	SPRING		21		163139	17931		305074	
 season	boku-no-hero-academia-s8	860	8		2025	FALL		11		182896	18921		305074	
 movie	boku-no-hero-academia-film	860			2018				僕のヒーローアカデミア THE MOVIE|ja=僕のヒーローアカデミア THE MOVIE|ja-Latn=Boku no Hero Academia the Movie 1: Futari no Hero	100723	13633		305074	
+movie	boku-no-hero-academia-film-2	860			2019				僕のヒーローアカデミア THE MOVIE 2|ja=僕のヒーローアカデミア THE MOVIE 2|ja-Latn=Boku no Hero Academia the Movie 2: Heroes:Rising	108553	14776		305074	
+movie	boku-no-hero-academia-film-3	860			2021				僕のヒーローアカデミア THE MOVIE 3|ja=僕のヒーローアカデミア THE MOVIE 3|ja-Latn=Boku no Hero Academia the Movie 3: World Heroes' Mission	126659	15873		305074	
+movie	boku-no-hero-academia-film-4	860			2024				僕のヒーローアカデミア THE MOVIE|ja=僕のヒーローアカデミア THE MOVIE|ja-Latn=Boku no Hero Academia the Movie 4: You're Next	168013	18150		305074	
+movie	boku-no-hero-academia-film-5	860			2023				僕のヒーローアカデミア 雄英ヒーローズ・バトル|ja=僕のヒーローアカデミア 雄英ヒーローズ・バトル|ja-Latn=Boku no Hero Academia: UA Heroes Battle	169402	18199		305074	
 season	boku-no-imouto-wa-osaka-okan-s1	861	1		2012	FALL		12						
 season	boku-no-imouto-wa-osaka-okan-s2	861	2		2013	WINTER		12		16405	9522		264972	
 season	boku-no-kanojo-ga-majimesugiru-sho-bitch-na-ken-s1	862	1		2017	FALL		10		98951	13217		334706	
@@ -20586,6 +20593,10 @@ season	captain-tsubasa-2018-s1	1074	1		1983	FALL		128		2116	505		84045
 season	captain-tsubasa-2018-s2	1074	2		2001	FALL		52		1614	508		84045	
 season	captain-tsubasa-2018-s3	1074	3		2018	SPRING		52		100745	13655		339203	
 season	captain-tsubasa-2018-s4	1074	4		2023	FALL		39		163024	17930		339203	
+movie	captain-tsubasa-2018-film	1074			1985				キャプテン翼 ヨーロッパ大決戦|ja=キャプテン翼 ヨーロッパ大決戦|ja-Latn=Captain Tsubasa: Europe Daikessen	2118	2337		84045	
+movie	captain-tsubasa-2018-film-2	1074			1985				キャプテン翼 危うし! 全日本Jr.|ja=キャプテン翼 危うし! 全日本Jr.|ja-Latn=Captain Tsubasa: Ayaushi! Zen Nihon Jr.	2119	3560		84045	
+movie	captain-tsubasa-2018-film-3	1074			1986				キャプテン翼 明日に向って走れ!|ja=キャプテン翼 明日に向って走れ!|ja-Latn=Captain Tsubasa: Asu ni Mukatte Hashire!	2120	3399		84045	
+movie	captain-tsubasa-2018-film-4	1074			1986				キャプテン翼 世界大決戦!! Jr.ワールドカップ|ja=キャプテン翼 世界大決戦!! Jr.ワールドカップ|ja-Latn=Captain Tsubasa: Sekai Daikessen!! Jr. World Cup	2121	3561		84045	
 movie	cardcaptor-sakura-kero-chan-ni-omakase-film	1075			2000				カードキャプターさくら ケロちゃんにおまかせ！|ja=カードキャプターさくら ケロちゃんにおまかせ！|ja-Latn=Cardcaptor Sakura: Kero-chan ni Omakase!	1078				
 season	cardfight-vanguard-divinez-deluxe-hen-s1	1076	1		2025	WINTER		13		182920	19050		245821	
 season	cardfight-vanguard-divinez-deluxe-kesshou-hen-s1	1077	1		2025	SUMMER		12		191994	19352			
@@ -21356,6 +21367,56 @@ season	doraemon-s2	1805	2		1979	SPRING		1787		2471	1078		252696
 season	doraemon-s3	1805	3		2005	SPRING		837		8687	4635		281405	
 movie	doraemon-film	1805			1998				ドラえもん 帰ってきたドラえもん|ja=ドラえもん 帰ってきたドラえもん|ja-Latn=Doraemon: Kaette Kita Doraemon (Movie)	2651	2692		252696	
 movie	doraemon-film-2	1805			2006				ドラえもん のび太の恐竜|ja=ドラえもん のび太の恐竜|ja-Latn=Doraemon Movie 26: Nobita no Kyouryuu 2006	2392	4757		252696	
+movie	doraemon-film-3	1805			2003				ドラえもん のび太とふしぎ風使い|ja=ドラえもん のび太とふしぎ風使い|ja-Latn=Doraemon Movie 24: Nobita to Fushigi Kaze Tsukai	2393	2717		252696	
+movie	doraemon-film-4	1805			2000				ザ☆ドラえもんズ ドキドキ機関車大爆走!|ja=ザ☆ドラえもんズ ドキドキ機関車大爆走!|ja-Latn=The☆Doraemons: Dokidoki Kikansha Daibakusou!	2633	7765		75141	
+movie	doraemon-film-5	1805			1995				2112年 ドラえもん誕生|ja=2112年 ドラえもん誕生|ja-Latn=Doraemon: 2112-nen Doraemon Tanjou	2648	2691		252696	
+movie	doraemon-film-6	1805			2000				おばあちゃんの思い出|ja=おばあちゃんの思い出|ja-Latn=Doraemon: Obaachan no Omoide	2649	3314		252696	
+movie	doraemon-film-7	1805			1981				ドラえもん ぼく|ja=ドラえもん ぼく|ja-Latn=Doraemon Movie: Boku, Momotarou no Nanna no Sa	2650	3113		252696	
+movie	doraemon-film-8	1805			2002				ぼくの生まれた日|ja=ぼくの生まれた日|ja-Latn=Doraemon: The Day When I Was Born	2652	7014			
+movie	doraemon-film-9	1805			2001				ドラえもん のび太と翼の勇者たち|ja=ドラえもん のび太と翼の勇者たち|ja-Latn=Doraemon Movie 22: Nobita to Tsubasa no Yuusha-tachi	2654	4967		252696	
+movie	doraemon-film-10	1805			2002				ドラえもん のび太とロボット王国|ja=ドラえもん のび太とロボット王国|ja-Latn=Doraemon Movie 23: Nobita to Robot Kingdom	2655	6582		252696	
+movie	doraemon-film-11	1805			2004				ドラえもん のび太のワンニャン時空伝|ja=ドラえもん のび太のワンニャン時空伝|ja-Latn=Doraemon Movie 25: Nobita no Wan Nyan Jikuuden	2656	1951		252696	
+movie	doraemon-film-12	1805			1987				ドラえもん のび太と竜の騎士|ja=ドラえもん のび太と竜の騎士|ja-Latn=Doraemon Movie 08: Nobita to Ryuu no Kishi	2657	6593		252696	
+movie	doraemon-film-13	1805			1988				ドラえもん のび太のパラレル西遊記|ja=ドラえもん のび太のパラレル西遊記|ja-Latn=Doraemon Movie 09: Nobita no Parallel Saiyuuki	2658	6592		252696	
+movie	doraemon-film-14	1805			1993				ドラえもん のび太とブリキの迷宮|ja=ドラえもん のび太とブリキの迷宮|ja-Latn=Doraemon Movie 14: Nobita to Buriki no Labyrinth	2659	6587		252696	
+movie	doraemon-film-15	1805			1999				のび太の結婚前夜 The night before a wedding|ja=のび太の結婚前夜 The night before a wedding|ja-Latn=Doraemon: Nobita's the Night Before a Wedding	2660	4765		252696	
+movie	doraemon-film-16	1805			1992				ドラえもん のび太と雲の王国|ja=ドラえもん のび太と雲の王国|ja-Latn=Doraemon Movie 13: Nobita to Kumo no Oukoku	2661	6588		252696	
+movie	doraemon-film-17	1805			1981				のび太の宇宙開拓史|ja=のび太の宇宙開拓史|ja-Latn=Doraemon Movie 02: Nobita no Uchuu Kaitakushi	2662	6590		252696	
+movie	doraemon-film-18	1805			1998				ドラえもん のび太の南海大冒険|ja=ドラえもん のび太の南海大冒険|ja-Latn=Doraemon Movie 19: Nobita no Nankai Daibouken	2664	3315		252696	
+movie	doraemon-film-19	1805			1986				ドラえもん のび太と鉄人兵団|ja=ドラえもん のび太と鉄人兵団|ja-Latn=Doraemon Movie 07: Nobita to Tetsujin Heidan	2665	4674		252696	
+movie	doraemon-film-20	1805			1989				ドラえもん のび太の日本誕生|ja=ドラえもん のび太の日本誕生|ja-Latn=Doraemon Movie 10: Nobita no Nippon Tanjou	2666	6591		252696	
+movie	doraemon-film-21	1805			1983				ドラえもん のび太の海底鬼岩城|ja=ドラえもん のび太の海底鬼岩城|ja-Latn=Doraemon Movie 04: Nobita no Kaitei Kiganjou	2667	6596		252696	
+movie	doraemon-film-22	1805			1999				ドラえもん のび太の宇宙漂流記|ja=ドラえもん のび太の宇宙漂流記|ja-Latn=Doraemon Movie 20: Nobita no Uchuu Hyouryuuki	2668	6599		252696	
+movie	doraemon-film-23	1805			1985				ドラえもん のび太の宇宙小戦争|ja=ドラえもん のび太の宇宙小戦争|ja-Latn=Doraemon Movie 06: Nobita no Little Star Wars	2669	6594		252696	
+movie	doraemon-film-24	1805			1991				ドラえもん のび太のドラビアンナイト|ja=ドラえもん のび太のドラビアンナイト|ja-Latn=Doraemon Movie 12: Nobita no Dorabian Nights	2670	5047		252696	
+movie	doraemon-film-25	1805			1982				ドラえもん のび太の大魔境|ja=ドラえもん のび太の大魔境|ja-Latn=Doraemon Movie 03: Nobita no Daimakyou	2671	6597		252696	
+movie	doraemon-film-26	1805			1984				ドラえもん のび太の魔界大冒険|ja=ドラえもん のび太の魔界大冒険|ja-Latn=Doraemon Movie 05: Nobita no Makai Daibouken	2672	6595		252696	
+movie	doraemon-film-27	1805			2007				ドラえもん のび太の新魔界大冒険~7人の魔法使い~|ja=ドラえもん のび太の新魔界大冒険~7人の魔法使い~|ja-Latn=Doraemon Movie 27: Nobita no Shin Makai Daibouken - 7-nin no Mahoutsukai	2673	5432		252696	
+movie	doraemon-film-28	1805			1995				ドラえもん のび太の創世日記|ja=ドラえもん のび太の創世日記|ja-Latn=Doraemon Movie 16: Nobita no Sousei Nikki	2674	6585		252696	
+movie	doraemon-film-29	1805			1996				ドラえもん のび太と銀河超特急(エクスプレス)|ja=ドラえもん のび太と銀河超特急(エクスプレス)|ja-Latn=Doraemon Movie 17: Nobita to Ginga Express	2675	5046		252696	
+movie	doraemon-film-30	1805			1994				ドラえもん のび太と夢幻三剣士|ja=ドラえもん のび太と夢幻三剣士|ja-Latn=Doraemon Movie 15: Nobita to Mugen Sankenshi	2676	6586		252696	
+movie	doraemon-film-31	1805			1990				ドラえもん のび太とアニマル惑星|ja=ドラえもん のび太とアニマル惑星|ja-Latn=Doraemon Movie 11: Nobita to Animal Planet	2677	4673		252696	
+movie	doraemon-film-32	1805			1997				ドラえもん のび太のねじ巻き都市[シティー]冒険記|ja=ドラえもん のび太のねじ巻き都市[シティー]冒険記|ja-Latn=Doraemon Movie 18: Nobita no Nejimaki City Boukenki	2678	6584		252696	
+movie	doraemon-film-33	1805			1980				ドラえもん のび太の恐竜|ja=ドラえもん のび太の恐竜|ja-Latn=Doraemon Movie 01: Nobita no Kyouryuu	3727	3114		252696	
+movie	doraemon-film-34	1805			2008				ドラえもん のび太と緑の巨人伝|ja=ドラえもん のび太と緑の巨人伝|ja-Latn=Doraemon Movie 28: Nobita to Midori no Kyojin Den	5096	6382		252696	
+movie	doraemon-film-35	1805			2010				ドラえもん のび太の人魚大海戦|ja=ドラえもん のび太の人魚大海戦|ja-Latn=Doraemon Movie 30: Nobita no Ningyo Daikaisen	6988	6719		252696	
+movie	doraemon-film-36	1805			2000				ドラえもん のび太の太陽王伝説|ja=ドラえもん のび太の太陽王伝説|ja-Latn=Doraemon Movie 21: Nobita no Taiyou Ou Densetsu	7045	6583		252696	
+movie	doraemon-film-37	1805			2011				ドラえもん 新・のび太と鉄人兵団 ～はばたけ 天使たち～|ja=ドラえもん 新・のび太と鉄人兵団 ～はばたけ 天使たち～|ja-Latn=Doraemon Movie 31: Shin Nobita to Tetsujin Heidan - Habatake Tenshi-tachi	10534	7770		252696	
+movie	doraemon-film-38	1805			2012				ドラえもん のび太と奇跡の島 ～アニマル アドベンチャー～|ja=ドラえもん のび太と奇跡の島 ～アニマル アドベンチャー～|ja-Latn=Doraemon Movie 32: Nobita to Kiseki no Shima - Animal Adventure	11053	8542		252696	
+movie	doraemon-film-39	1805			2013				映画 ドラえもん のび太のひみつ道具博物館[ミュージアム]|ja=映画 ドラえもん のび太のひみつ道具博物館[ミュージアム]|ja-Latn=Doraemon Movie 33: Nobita no Himitsu Dougu Museum	15925	9316		252696	
+movie	doraemon-film-40	1805			2014				映画 ドラえもん 新・のび太の大魔境～ペコと5人の探検隊～|ja=映画 ドラえもん 新・のび太の大魔境～ペコと5人の探検隊～|ja-Latn=Doraemon Movie 34: Shin Nobita no Daimakyou - Peko to 5-nin no Tankentai	19645	9975		252696	
+movie	doraemon-film-41	1805			2014				STAND BY ME ドラえもん|ja=STAND BY ME ドラえもん|ja-Latn=Stand By Me Doraemon	20515	10253		252696	
+movie	doraemon-film-42	1805			2016				映画 ドラえもん 新・のび太の日本誕生|ja=映画 ドラえもん 新・のび太の日本誕生|ja-Latn=Doraemon Movie 36: Shin Nobita no Nippon Tanjou	87438	11353			
+movie	doraemon-film-43	1805			2018				哆啦A梦 大雄的金银岛|ja=哆啦A梦 大雄的金银岛|ja-Latn=Doraemon Movie 38: Nobita no Takarajima	99084	13228			
+movie	doraemon-film-44	1805			2017				ドラえもん のび太の南極カチコチ大冒険|ja=ドラえもん のび太の南極カチコチ大冒険|ja-Latn=Doraemon Movie 37: Nobita no Nankyoku Kachikochi Daibouken	99085	12275			
+movie	doraemon-film-45	1805			2015				ドラえもん のび太の宇宙英雄記|ja=ドラえもん のび太の宇宙英雄記|ja-Latn=Doraemon Movie 35: Nobita no Space Heroes	100291	10737			
+movie	doraemon-film-46	1805			2019				ドラえもん のび太の月面探査記|ja=ドラえもん のび太の月面探査記|ja-Latn=Doraemon Movie 39: Nobita no Getsumen Tansaki	106493	14446			
+movie	doraemon-film-47	1805			2020				哆啦A夢：大雄的新恐龍|ja=哆啦A夢：大雄的新恐龍|ja-Latn=Doraemon Movie 40: Nobita no Shin Kyouryuu	113669	14984			
+movie	doraemon-film-48	1805			2020				STAND BY ME ドラえもん 2|ja=STAND BY ME ドラえもん 2|ja-Latn=Stand By Me Doraemon 2	122575	15306			
+movie	doraemon-film-49	1805			2022				: 映画ドラえもん のび太の宇宙小戦争（リトルスターウォーズ） 2021|ja=: 映画ドラえもん のび太の宇宙小戦争（リトルスターウォーズ） 2021|ja-Latn=Doraemon Movie 41: Nobita no Little Star Wars	126783	15852			
+movie	doraemon-film-50	1805			2023				哆啦A梦：大雄与天空的理想乡|ja=哆啦A梦：大雄与天空的理想乡|ja-Latn=Doraemon Movie 42: Nobita to Sora no Utopia	151896	17500			
+movie	doraemon-film-51	1805			2024				哆啦A梦：大雄的地球交响乐|ja=哆啦A梦：大雄的地球交响乐|ja-Latn=Doraemon Movie 43: Nobita no Chikyuu Symphony	166976	18102			
+movie	doraemon-film-52	1805			2026				映画ドラえもん 新・のび太の海底鬼岩城|ja=映画ドラえもん 新・のび太の海底鬼岩城|ja-Latn=Doraemon Movie 45: Shin Nobita no Kaitei Kiganjou	198368	19711			
 season	dorei-ku-the-animation-s1	1806	1		2018	SPRING		12		100251	13505		342117	
 season	doremi-friends-s1	1807	1		2024	WINTER		26						
 season	dorohedoro-s1	1808	1		2020	WINTER		12		105228	14483		370761	
@@ -21460,6 +21521,9 @@ season	duel-masters-sacred-lands-s1	1898	1		2005	SPRING		39
 season	duel-masters-s1	1899	1		2002	FALL		26		1685	2910		261667	
 season	duel-masters-s2	1899	2		2017	SPRING		51		98378	12818		325374	
 season	duel-masters-s3	1899	3		2018	SPRING		51		101425	13914		325374	
+season	duel-masters-s4	1899	4		2019	SPRING		51		113242	14620			
+season	duel-masters-s5	1899	5		2022	FALL		29		153412	17515			
+season	duel-masters-s6	1899	6		2023	SPRING		49		163256	17921			
 movie	duel-masters-film	1899			2005				デュエル・マスターズ 闇の城の魔龍凰カース・オブ・ザ・デスフェニックス|ja=デュエル・マスターズ 闇の城の魔龍凰カース・オブ・ザ・デスフェニックス|ja-Latn=Duel Masters					
 movie	dueogsiniga-film	1900			2022				두억시니가|ko=두억시니가|ko-Latn=Dueogsiniga					
 season	dumbbell-nan-kilo-moteru-s1	1901	1		2019	SUMMER		12		107226	14603		360502	
@@ -22159,6 +22223,13 @@ season	gintama-shirogane-no-tamashii-hen-s1	2540	1		2018	WINTER		12		100784
 season	gintama-s1	2541	1		2011	SPRING		51		9969	8126		79895	
 season	gintama-s2	2541	2		2012	FALL		13						
 movie	gintama-film	2541			2010				劇場版 銀魂 新訳紅桜篇|ja=劇場版 銀魂 新訳紅桜篇|ja-Latn=Gintama Movie 1: Shinyaku Benizakura-hen	7472	7177		79895	
+movie	gintama-film-2	2541			2013				劇場版 銀魂 完結篇 万事屋よ永遠なれ|ja=劇場版 銀魂 完結篇 万事屋よ永遠なれ|ja-Latn=Gintama Movie 2: Kanketsu-hen - Yorozuya yo Eien Nare	15335	9384		79895	
+movie	gintama-film-3	2541			2012				よりぬき銀魂さんオンシアター2D|ja=よりぬき銀魂さんオンシアター2D|ja-Latn=Gintama: Yorinuki Gintama-san on Theater 2D	20760	10405		79895	
+movie	gintama-film-4	2541			2021				劇場版 銀魂|ja=劇場版 銀魂|ja-Latn=Gintama: The Final	114129	14719			
+movie	gintama-film-5	2541			2023				銀魂オンシアター2D バラガキ篇|ja=銀魂オンシアター2D バラガキ篇|ja-Latn=Gintama on Theater 2D: Baragaki-hen	169000	18180			
+movie	gintama-film-6	2541			2024				銀魂オンシアター2D 一国傾城篇|ja=銀魂オンシアター2D 一国傾城篇|ja-Latn=Gintama on Theater 2D: Ikkoku Keisei-hen	175573	18556			
+movie	gintama-film-7	2541			2024				銀魂オンシアター2D 金魂篇|ja=銀魂オンシアター2D 金魂篇|ja-Latn=Gintama on Theater 2D: Kintama-hen	178436				
+movie	gintama-film-8	2541			2026				新劇場版 銀魂 -吉原大炎上-|ja=新劇場版 銀魂 -吉原大炎上-|ja-Latn=Gintama Movie 3: Yoshiwara Daienjou	197474	19528			
 season	ginyuu-mokushiroku-meine-liebe-wieder-s1	2542	1		2006	WINTER		13		771	4120		85066	
 season	ginyuu-mokushiroku-meine-liebe-s1	2543	1		2004	FALL		13		336	2599		85066	
 movie	giovanni-no-shima-film	2544			2014				ジョバンニの島|ja=ジョバンニの島|ja-Latn=Giovanni no Shima	19115	9921			
@@ -22291,6 +22362,7 @@ movie	grey-zone-film	2659			2020				Grey Zone	169023
 season	grimms-notes-the-animation-s1	2660	1		2019	WINTER		12		103735	13745		355970	
 season	grisaia-phantom-trigger-s1	2661	1		2025	WINTER		13		145740	17220		447951	
 movie	grisaia-phantom-trigger-film	2661			2019				グリザイア: ファントムトリガー|ja=グリザイア: ファントムトリガー|ja-Latn=Grisaia: Phantom Trigger The Animation	99470	13273		447951	
+movie	grisaia-phantom-trigger-film-2	2661			2020				グリザイア：ファントムトリガー THE ANIMATION スターゲイザー|ja=グリザイア：ファントムトリガー THE ANIMATION スターゲイザー|ja-Latn=Grisaia: Phantom Trigger The Animation - Stargazer	120892				
 season	gu-de-bai-zhi-mengyou-jiadao-s1	2662	1		2020			80						
 movie	gu-film	2663			2021				蠱|ja=蠱|ja-Latn=Gu	148828				
 season	guai-cheng-s1	2664	1		2002	SPRING		26						
@@ -22554,6 +22626,7 @@ season	hatara-kids-mai-ham-gumi-s1	2909	1		2007	FALL		50		3251	6173
 season	hataraki-man-s1	2910	1		2006	FALL		11		1592	4555		79990	
 season	hataraku-maou-sama-s1	2911	1		2013	SPRING		13		15809	9466		267441	
 season	hataraku-maou-sama-s2	2911	2		2022	SUMMER		12		130592	16104		267441	
+season	hataraku-maou-sama-s3	2911	3		2023	SUMMER		12		155168	17649		267441	
 season	hataraku-oniisan-no-2-s1	2912	1		2018	SUMMER		11		101435	13995		340518	
 season	hataraku-oniisan-s1	2913	1		2018	WINTER		12		100873	13573		340518	
 season	hataraku-saibo-s1	2914	1		2021	WINTER		8		108631	14791		346931	
@@ -23502,6 +23575,11 @@ movie	kaiketsu-zorori-mamoru-ze-kyoryu-no-tamago-film	3795			2013				かいけ�
 season	kaiketsu-zorori-s1	3796	1		2004	WINTER		52		3638	1334		128411	
 movie	kaiketsu-zorori-film	3796			2006				まじめにふまじめ かいけつゾロリ なぞのお宝大さくせん|ja=まじめにふまじめ かいけつゾロリ なぞのお宝大さくせん|ja-Latn=Majime ni Fumajime Kaiketsu Zorori: Nazo no Otakara Daisakusen	3659	4319		128411	
 movie	kaiketsu-zorori-film-2	3796			2012				かいけつゾロリだ・だ・だ・だいぼうけん!|ja=かいけつゾロリだ・だ・だ・だいぼうけん!|ja-Latn=Kaiketsu Zorori Da-Da-Da-Daibouken!	15067	9194		128411	
+movie	kaiketsu-zorori-film-3	3796			1993				かいけつゾロリ まほう使いのでし 大かいぞくの宝さがし|ja=かいけつゾロリ まほう使いのでし 大かいぞくの宝さがし|ja-Latn=Kaiketsu Zorori: Mahoutsukai no Deshi/Dai Kaizoku no Takara Sagashi	6965	5997		128411	
+movie	kaiketsu-zorori-film-4	3796			2013				映画 かいけつゾロリ まもるぜ! きょうりゅうのたまご|ja=映画 かいけつゾロリ まもるぜ! きょうりゅうのたまご|ja-Latn=Kaiketsu Zorori: Mamoru ze! Kyouryuu no Tamago	19587	9970		128411	
+movie	kaiketsu-zorori-film-5	3796			2015				かいけつゾロリ うちゅうの勇者たち|ja=かいけつゾロリ うちゅうの勇者たち|ja-Latn=Kaiketsu Zorori Movie: Uchuu no Yuusha-tachi	21095	11133			
+movie	kaiketsu-zorori-film-6	3796			2017				かいけつゾロリ ZZのひみつ|ja=かいけつゾロリ ZZのひみつ|ja-Latn=Kaiketsu Zorori Movie: ZZ no Himitsu	120378	12953			
+movie	kaiketsu-zorori-film-7	3796			2022				かいけつゾロリ　ラララ♪スターたんじょう|ja=かいけつゾロリ　ラララ♪スターたんじょう|ja-Latn=Kaiketsu Zorori Movie: Lalala♪ Star Tanjou	169794	17329			
 season	kaiko-sareta-ankoku-heishi-30-dai-no-slow-na-second-life-s1	3797	1		2023	WINTER		12		152523	17517		422564	
 movie	kairaku-no-sono-film	3798			2008				快楽の園|ja=快楽の園|ja-Latn=Kairaku no Sono	102710				
 season	kaito-kiramekiman-s1	3799	1		2000	SPRING		26		5475	2551		405892	
@@ -23788,6 +23866,10 @@ movie	keroro-gunsou-movie-5-tanjou-kyuukyoku-keroro-kiseki-no-jikuu-jima-de-arim
 season	keroro-s1	4055	1		2004	SPRING		358		516	1552		75414	
 season	keroro-s2	4055	2		2014	SPRING		23		20543	10306			
 movie	keroro-film	4055			2006				劇場版 ケロロ軍曹|ja=劇場版 ケロロ軍曹|ja-Latn=Keroro Gunsou Movie 1	2407	3569		75414	
+movie	keroro-film-2	4055			2007				超剧场版 Keroro军曹2 深海的公主|ja=超剧场版 Keroro军曹2 深海的公主|ja-Latn=Keroro Gunsou Movie 2: Shinkai no Princess de Arimasu!	2408	4818		75414	
+movie	keroro-film-3	4055			2008				超剧场版 Keroro军曹3 Keroro 对 Keroro 天空大决战|ja=超剧场版 Keroro军曹3 Keroro 对 Keroro 天空大决战|ja-Latn=Keroro Gunsou Movie 3: Tenkuu Daikessen de Arimasu!	5290	5956		75414	
+movie	keroro-film-4	4055			2009				超剧场版 Keroro军曹 龙勇士的逆袭|ja=超剧场版 Keroro军曹 龙勇士的逆袭|ja-Latn=Keroro Gunsou Movie 4: Gekishin Dragon Warriors de Arimasu!	5710	6095		75414	
+movie	keroro-film-5	4055			2026				ケロロ軍曹|ja=ケロロ軍曹|ja-Latn=Keroro Gunsou Movie 6: Fukkatsu shite Sokkou Chikyuu Metsubou no Kiki de Arimasu!	176636	19432			
 season	keshikasu-kun-s1	4056	1		2010	WINTER		44		8244	10689			
 movie	kesshouban-eigakan-e-iku-film	4057			2020				はたらく細胞 血小板 映画館へ行く|ja=はたらく細胞 血小板 映画館へ行く|ja-Latn=Kesshouban: Eigakan e Iku	130939				
 season	ketsuekigata-kun-2-s1	4058	1		2015	WINTER		12		20929	10902		268588	
@@ -24604,6 +24686,8 @@ movie	made-in-abyss-movie-3-fukaki-tamashii-no-reimei-film	4803			2020				メイ
 season	made-in-abyss-s1	4804	1		2017	SUMMER		13		97986	12681		326109	
 season	made-in-abyss-s2	4804	2		2022	SUMMER		12		114745	15359		326109	
 movie	made-in-abyss-film	4804			2019				メイドインアビス 旅立ちの夜明け|ja=メイドインアビス 旅立ちの夜明け|ja-Latn=Made in Abyss Movie 1: Tabidachi no Yoake	101343				
+movie	made-in-abyss-film-2	4804			2019				メイドインアビス 放浪する黄昏|ja=メイドインアビス 放浪する黄昏|ja-Latn=Made in Abyss Movie 2: Hourou Suru Tasogare	101344				
+movie	made-in-abyss-film-3	4804			2020				マルルクちゃんの日常|ja=マルルクちゃんの日常|ja-Latn=Marulk-chan no Nichijou	114744				
 season	madlax-s1	4805	1		2004	SPRING		26		252	1654		75001	
 movie	madogiwa-no-totto-chan-film	4806			2023				映画 窓ぎわのトットちゃん|ja=映画 窓ぎわのトットちゃん|ja-Latn=Madogiwa no Totto-chan	162904	17922			
 movie	madonna-movie-film	4807			2005				マドンナの誘惑|ja=マドンナの誘惑|ja-Latn=Madonna (Movie)	102683				
@@ -24708,6 +24792,8 @@ movie	major-yujo-no-winning-shot-film	4898			2008				メジャー 友情の一�
 season	majutsushi-kunon-wa-mieteiru-s1	4899	1		2026	WINTER		13		186333	19131		459339	
 season	majutsushi-orphen-hagure-tabi-s1	4900	1		2020	WINTER		13		101367	13964		372939	
 season	majutsushi-orphen-hagure-tabi-s2	4900	2		2021	WINTER		11		117085	15482		372939	
+season	majutsushi-orphen-hagure-tabi-s3	4900	3		2023	WINTER		12		155068	17644		372939	
+season	majutsushi-orphen-hagure-tabi-s4	4900	4		2023	SPRING		12		163417	17912		372939	
 season	majuu-sensen-the-apocalypse-s1	4901	1		2003	WINTER		13		1708	709		259842	
 season	makai-ouji-devils-and-realist-s1	4902	1		2013	SUMMER		12		16890	9590		270066	
 season	makai-senki-disgaea-s1	4903	1		2006	SPRING		12		860	3444		80206	
@@ -24777,6 +24863,7 @@ season	maoshan-xiao-daoshi-s1	4963	1		2016			52
 season	maou-2099-s1	4964	1		2024	FALL		12		163135	17943		432847	
 season	maou-gakuin-no-futekigousha-shijou-saikyou-no-maou-no-shiso-tensei-shite-shison-tachi-no-gakkou-e-kayou-s1	4965	1		2020	SUMMER		13		112301	15131		375927	
 season	maou-gakuin-no-futekigousha-shijou-saikyou-no-maou-no-shiso-tensei-shite-shison-tachi-no-gakkou-e-kayou-s2	4965	2		2023	WINTER		12		130588	16101		375927	
+season	maou-gakuin-no-futekigousha-shijou-saikyou-no-maou-no-shiso-tensei-shite-shison-tachi-no-gakkou-e-kayou-s3	4965	3		2024	SPRING		12		130590	16102		375927	
 season	maou-no-musume-wa-yasashisugiru-s1	4966	1		2026	WINTER		12		194742	19398		464963	
 season	maou-no-ore-ga-dorei-elf-wo-yome-ni-shitanda-ga-dou-medereba-ii-s1	4967	1		2024	SPRING		12		156023	17686		426488	
 season	maou-sama-retry-s1	4968	1		2019	SUMMER		12		104252	14391		361709	
@@ -25128,6 +25215,7 @@ movie	mobile-suit-gundam-uc-neo-zeong-strikes-odaiba-film	5289			2014				機動�
 season	mobile-suit-gundam-unicorn-re-0096-s1	5290	1		2016	SPRING		22		21658	11977		142601	
 movie	mobile-suit-zeta-gundam-a-new-translation-film	5291			2006				机动战士Z高达 星的鼓动是爱|ja=机动战士Z高达 星的鼓动是爱|ja-Latn=Kidou Senshi Z Gundam III: Hoshi no Kodou wa Ai	1969	4095		71535	
 movie	mobile-suit-zeta-gundam-a-new-translation-film-2	5291			2005				机动战士Z高达 星之继承者|ja=机动战士Z高达 星之继承者|ja-Latn=Kidou Senshi Z Gundam I: Hoshi wo Tsugu Mono	1967	2187		71535	
+movie	mobile-suit-zeta-gundam-a-new-translation-film-3	5291			2005				机动战士Z高达 恋人们|ja=机动战士Z高达 恋人们|ja-Latn=Kidou Senshi Z Gundam II: Koibito-tachi	1968	3969		71535	
 movie	mochibei-film	5292			2005				餅兵衛|ja=餅兵衛|ja-Latn=Mochibei	102075	11625			
 season	modeng-senlin-conglin-de-huxi-s1	5293	1		2013			20						
 season	modeng-senlin-dadi-zhi-ge-s1	5294	1		2014			20						
@@ -25412,6 +25500,8 @@ season	nanatsu-no-taizai-seisen-no-shirushi-s1	5561	1		2016	SUMMER		4		21385	120
 season	nanatsu-no-taizai-s1	5562	1		2014	FALL		24		20789	10596		284131	
 season	nanatsu-no-taizai-s2	5562	2		2018	WINTER		24		99539	11646		284131	
 season	nanatsu-no-taizai-s3	5562	3		2021	WINTER		24		116752	15459		284131	
+season	nanatsu-no-taizai-s4	5562	4		2023	FALL		24		148862	17355		420018	
+season	nanatsu-no-taizai-s5	5562	5		2024	FALL		12		176292	18558		420018	
 movie	nanatsu-no-taizai-film	5562			2021				七つの大罪 光に呪われし者たち|ja=七つの大罪 光に呪われし者たち|ja-Latn=Nanatsu no Taizai Movie 2: Hikari ni Norowareshi Mono-tachi	128740	15997		284131	
 season	nanbaka-s1	5563	1		2016	FALL		13		21051	11075		315103	
 season	nandaka-velonica-s1	5564	1		2014	WINTER		10		20653	10423		279224	
@@ -25899,12 +25989,18 @@ season	oshiri-tantei-s10	6009	10		2025	SPRING		15		185645
 season	oshiri-tantei-s11p2	6009	11		2025	FALL		7		194832				
 movie	oshiri-tantei-film	6009			2025				おしりたんてい スター・アンド・ムーン|ja=おしりたんてい スター・アンド・ムーン|ja-Latn=Oshiri Tantei Movie 6: Star and Moon	185643	19059			
 movie	oshiri-tantei-film-2	6009			2020				映画おしりたんてい|ja=映画おしりたんてい|ja-Latn=Oshiri Tantei Movie 2: Tentoumushi Iseki no Nazo	116224	15310			
+movie	oshiri-tantei-film-3	6009			2019				映画 おしりたんてい カレーなる じけん|ja=映画 おしりたんてい カレーなる じけん|ja-Latn=Oshiri Tantei Movie 1: Curry Naru Jiken	116225	14712			
+movie	oshiri-tantei-film-4	6009			2021				映画おしりたんてい スフーレ島のひみつ|ja=映画おしりたんてい スフーレ島のひみつ|ja-Latn=Oshiri Tantei Movie 3: Sufure-tou no Himitsu	132698	16272			
+movie	oshiri-tantei-film-5	6009			2022				映画 おしりたんてい シリアーティ|ja=映画 おしりたんてい シリアーティ|ja-Latn=Oshiri Tantei Movie 4: Shiriarty	142806	16924			
+movie	oshiri-tantei-film-6	6009			2024				映画おしりたんてい さらば愛しき相棒(おしり)よ|ja=映画おしりたんてい さらば愛しき相棒(おしり)よ|ja-Latn=Oshiri Tantei Movie 5: Saraba Itoshiki Aibou (Oshiri) yo	172016	18520			
 movie	osomatsu-san-movie-zensetsu-gekijou-film	6010			2019				えいがのおそ松さん　前説劇場|ja=えいがのおそ松さん　前説劇場|ja-Latn=Osomatsu-san Movie: Zensetsu Gekijou					
 season	osomatsu-san-s1	6011	1		2015	FALL		25		21261	11347		300989	
 season	osomatsu-san-s2	6011	2		2017	FALL		25		98565	12944		300989	
 season	osomatsu-san-s3	6011	3		2020	FALL		25		120851	15627		300989	
 season	osomatsu-san-s4	6011	4		2025	SUMMER		12		177880	18673		300989	
 movie	osomatsu-san-film	6011			2019				えいがのおそ松さん|ja=えいがのおそ松さん|ja-Latn=Osomatsu-san Movie	104213	14293			
+movie	osomatsu-san-film-2	6011			2022				えいがのおそ松さん 1|ja=えいがのおそ松さん 1|ja-Latn=Osomatsu-san: Hipipo-Zoku to Kagayaku Kajitsu	135177	16369			
+movie	osomatsu-san-film-3	6011			2023				えいがのおそ松さん 2|ja=えいがのおそ松さん 2|ja-Latn=Osomatsu-san: Tamashii no Takoyaki Party to Densetsu no Otomarikai	135178	17247			
 movie	otaku-boy-film	6012			2018				ヲタクボーイ|ja=ヲタクボーイ|ja-Latn=Otaku Boy					
 season	otaku-ni-yasashii-gal-wa-inai-s1	6013	1		2026	SPRING		12		199588	19628		468761	
 movie	otanari-pool-film	6014			2015				おとなりプール|ja=おとなりプール|ja-Latn=Otanari Pool	140632				
@@ -26165,6 +26261,21 @@ season	pokemon-horizons-the-series-s1	6256	1		1997	SPRING		276		527	230		76703
 season	pokemon-horizons-the-series-s2	6256	2		2019	FALL		136		112153	15067		76703	
 season	pokemon-horizons-the-series-s3	6256	3		2023	SPRING		141		158871	17777		76703	
 movie	pokemon-horizons-the-series-film	6256			1998				ポケットモンスター ミュウツーの逆襲|ja=ポケットモンスター ミュウツーの逆襲|ja-Latn=Pokemon Movie 01: Mewtwo no Gyakushuu	528	990		76703	
+movie	pokemon-horizons-the-series-film-2	6256			1999				ポケットモンスター 幻のポケモンルギア爆誕|ja=ポケットモンスター 幻のポケモンルギア爆誕|ja-Latn=Pokemon Movie 02: Maboroshi no Pokemon Lugia Bakutan	1117	1020		76703	
+movie	pokemon-horizons-the-series-film-3	6256			2000				ポケットモンスター 結晶塔の帝王|ja=ポケットモンスター 結晶塔の帝王|ja-Latn=Pokemon Movie 03: Kesshoutou no Teiou Entei	1118	992		76703	
+movie	pokemon-horizons-the-series-film-4	6256			2001				ポケットモンスター セレビィ 時を超えた遭遇|ja=ポケットモンスター セレビィ 時を超えた遭遇|ja-Latn=Pokemon Movie 04: Celebi Toki wo Koeta Deai	1119	991		76703	
+movie	pokemon-horizons-the-series-film-5	6256			2003				ポケットモンスター アドバンスジェネレーション 七夜の願い星ジラーチ|ja=ポケットモンスター アドバンスジェネレーション 七夜の願い星ジラーチ|ja-Latn=Pokemon Movie 06: Nanayo no Negaiboshi Jirachi	1121	1804		76703	
+movie	pokemon-horizons-the-series-film-6	6256			2004				ポケットモンスター アドバンスジェネレーション 裂空の訪問者 デオキシス|ja=ポケットモンスター アドバンスジェネレーション 裂空の訪問者 デオキシス|ja-Latn=Pokemon Movie 07: Rekkuu no Houmonsha Deoxys	1122	2371		76703	
+movie	pokemon-horizons-the-series-film-7	6256			2005				ポケットモンスター アドバンスジェネレーション ミュウと波導の勇者ルカリオ|ja=ポケットモンスター アドバンスジェネレーション ミュウと波導の勇者ルカリオ|ja-Latn=Pokemon Movie 08: Mew to Hadou no Yuusha Lucario	1526	2848		76703	
+movie	pokemon-horizons-the-series-film-8	6256			2006				ポケットモンスター アドバンスジェネレーション ポケモンレンジャーと蒼海の王子マナフィ|ja=ポケットモンスター アドバンスジェネレーション ポケモンレンジャーと蒼海の王子マナフィ|ja-Latn=Pokemon Movie 09: Pokemon Ranger to Umi no Ouji Manaphy	2201	4199		76703	
+movie	pokemon-horizons-the-series-film-9	6256			2007				ポケットモンスター ダイヤモンド＆パール ディアルガVSパルキアVSダークライ|ja=ポケットモンスター ダイヤモンド＆パール ディアルガVSパルキアVSダークライ|ja-Latn=Pokemon Movie 10: Dialga vs. Palkia vs. Darkrai	2847	5048		76703	
+movie	pokemon-horizons-the-series-film-10	6256			2008				ポケットモンスター ダイヤモンド&パール ギラティナと氷空の花束 シェイミ|ja=ポケットモンスター ダイヤモンド&パール ギラティナと氷空の花束 シェイミ|ja-Latn=Pokemon Movie 11: Giratina to Sora no Hanataba Sheimi	4026	5772		76703	
+movie	pokemon-horizons-the-series-film-11	6256			2009				ポケットモンスター ダイヤモンド&パール アルセウス 超克の時空へ|ja=ポケットモンスター ダイヤモンド&パール アルセウス 超克の時空へ|ja-Latn=Pokemon Movie 12: Arceus Choukoku no Jikuu e	6178	6316		76703	
+movie	pokemon-horizons-the-series-film-12	6256			2010				ポケットモンスター ダイヤモンド&パール 幻影の覇者 ゾロアーク|ja=ポケットモンスター ダイヤモンド&パール 幻影の覇者 ゾロアーク|ja-Latn=Pokemon Movie 13: Genei no Hasha Zoroark	7695	7257		76703	
+movie	pokemon-horizons-the-series-film-13	6256			2011				ポケットモンスター ベストウィッシュ 「ビクティニと黒き英雄」|ja=ポケットモンスター ベストウィッシュ 「ビクティニと黒き英雄」|ja-Latn=Pokemon Movie 14 White: Victini to Kuroki Eiyuu Zekrom	9917	8012		76703	
+movie	pokemon-horizons-the-series-film-14	6256			2011				ポケットモンスター ベストウイッシュ「ビクティニと白き英雄 レシラム」|ja=ポケットモンスター ベストウイッシュ「ビクティニと白き英雄 レシラム」|ja-Latn=Pokemon Movie 14 Black: Victini to Shiroki Eiyuu Reshiram	10740	8269		76703	
+movie	pokemon-horizons-the-series-film-15	6256			2012				ポケットモンスター ベストウイッシュ キュレムVS聖剣士|ja=ポケットモンスター ベストウイッシュ キュレムVS聖剣士|ja-Latn=Pokemon Movie 15: Kyurem vs. Seikenshi	12671	8826		76703	
+movie	pokemon-horizons-the-series-film-16	6256			2014				ポケットモンスターXY 破壊の繭|ja=ポケットモンスターXY 破壊の繭|ja-Latn=Pokemon Movie 17: Hakai no Mayu to Diancie	20644	10318		76703	
 movie	pokemon-meloetta-no-kirakira-recital-film	6257			2012				メロエッタのキラキラリサイタル|ja=メロエッタのキラキラリサイタル|ja-Latn=Pokemon: Meloetta no Kirakira Recital	13799	9021		76703	
 movie	pokemon-movie-23-koko-film	6258			2020				ポケットモンスターココ|ja=ポケットモンスターココ|ja-Latn=Pokemon Movie 23: Koko	114564	14993			
 movie	pokemon-pichu-to-pikachu-film	6259			2000				ピチューとピカチュウ|ja=ピチューとピカチュウ|ja-Latn=Pokemon: Pichu to Pikachu	4793	6798		76703	
@@ -26270,10 +26381,12 @@ season	princess-princess-s1	6354	1		2006	SPRING		12		907	4238		84028
 movie	princess-principal-crown-handler-4-film	6355			2025				プリンセス・プリンシパル Crown Handler 第4章|ja=プリンセス・プリンシパル Crown Handler 第4章|ja-Latn=Princess Principal: Crown Handler 4	186716				
 movie	princess-principal-crown-handler-film	6356			2021				プリンセス・プリンシパル Crown Handler|ja=プリンセス・プリンシパル Crown Handler|ja-Latn=Princess Principal: Crown Handler 1	101595				
 movie	princess-principal-crown-handler-film-2	6356			2021				プリンセス・プリンシパル Crown Handler 第2章|ja=プリンセス・プリンシパル Crown Handler 第2章|ja-Latn=Princess Principal: Crown Handler 2	129759				
+movie	princess-principal-crown-handler-film-3	6356			2023				プリンセス・プリンシパル Crown Handler 第3章|ja=プリンセス・プリンシパル Crown Handler 第3章|ja-Latn=Princess Principal: Crown Handler 3	137612				
 season	princess-tutu-s1	6357	1		2002	SUMMER		38		721	516		76045	
 season	princession-orchestra-s1	6358	1		2025	SPRING		48		178052	18690		451206	
 season	pripara-2-s1	6359	1		2015	SPRING		51		20985				
 season	pripara-2-s2	6359	2		2017	SPRING		51		98107	12737		282059	
+movie	pripara-2-film	6359			2018				劇場版 プリパラ&キラッとプリ☆チャン ~きらきらメモリアルライブ~|ja=劇場版 プリパラ&キラッとプリ☆チャン ~きらきらメモリアルライブ~|ja-Latn=PriPara & Kiratto Pri☆chan Movie: Kirakira Memorial Live	107755	13847			
 season	pripara-3-s1	6360	1		2016	SPRING		51		21559				
 movie	pripara-mi-nna-no-akogare-let-s-go-pripari-film	6361			2016				プリパラ み～んなのあこがれ♪レッツゴー☆プリパリ|ja=プリパラ み～んなのあこがれ♪レッツゴー☆プリパリ|ja-Latn=PriPara Mi~nna no Akogare Let's Go PriPari					
 season	pripri-chii-chan-s1	6362	1		2017	SPRING		36		98228	12745		327037	
@@ -26444,6 +26557,8 @@ season	rang-xiangxiang-fei-s1	6515	1		2011			300
 season	ranma-1-2-2024-s1	6516	1		2024	FALL		12		178533	18700		451479	
 season	ranma-1-2-2024-s2	6516	2		2025	FALL		12		185731	19067		451479	
 movie	ranma-1-2-2024-film	6516			1992				らんま1/2 決戦桃幻郷! 花嫁を奪りもどせ!!|ja=らんま1/2 決戦桃幻郷! 花嫁を奪りもどせ!!|ja-Latn=Ranma ½: Kessen Tougenkyou! Hanayome wo Torimodose!	792	368		76932	
+movie	ranma-1-2-2024-film-2	6516			1991				らんま 1/2 中国寝崑崙大決戦! 掟やぶりの激闘編!!|ja=らんま 1/2 中国寝崑崙大決戦! 掟やぶりの激闘編!!|ja-Latn=Ranma ½: Chuugoku Nekonron Daikessen! Okite Yaburi no Gekitou-hen!!	418	367		76932	
+movie	ranma-1-2-2024-film-3	6516			1994				らんま1/2 超無差別決戦! 乱馬チームVS伝説の鳳凰|ja=らんま1/2 超無差別決戦! 乱馬チームVS伝説の鳳凰|ja-Latn=Ranma ½: Chou Musabetsu Kessen! Ranma Team vs. Densetsu no Houou	1010	2850		76932	
 season	ranpo-kitan-game-of-laplace-s1	6517	1		2015	SUMMER		11		21189	10949		295894	
 movie	ranputan-no-bouken-film	6518			2001				ランプータンの冒険|ja=ランプータンの冒険|ja-Latn=Ranputan no Bouken	177063				
 season	ranshao-de-shucai-jiayuan-baowei-zhan-s1	6519	1		2015			52						
@@ -26685,6 +26800,7 @@ season	ryuusei-no-rockman-s1	6745	1		2006	FALL		55		1835	4791		181701
 season	ryuusei-sentai-musumet-s1	6746	1		2004	FALL		13		1711	2263			
 season	s-cry-ed-s1	6747	1		2001	SUMMER		26		168	47		78953	
 movie	s-cry-ed-film	6747			2011				スクライド オルタレイション 前編 ＴＡＯ|ja=スクライド オルタレイション 前編 ＴＡＯ|ja-Latn=s.CRY.ed Alteration I: Tao	10592				
+movie	s-cry-ed-film-2	6747			2012				スクライド オルタレイション 後編 ＱＵＡＮ|ja=スクライド オルタレイション 後編 ＱＵＡＮ|ja-Latn=s.CRY.ed Alteration II: Quan	12223				
 season	s-rank-monster-no-behemoth-dakedo-neko-to-machigawarete-elf-s1	6748	1		2025	WINTER		12		176158	18541		447749	
 movie	s-the-birth-of-psycho-film	6749			2014				S -サイコの誕生|ja=S -サイコの誕生|ja-Latn=S - The Birth of Psycho	140721				
 movie	s-watch-film	6750			2017				에스워치|ko=에스워치|ko-Latn=S-Watch					
@@ -26998,6 +27114,8 @@ season	shadowverse-flame-arc-hen-tokubetsu-hen-4-s1	7043	1		2024	SPRING		1
 season	shadowverse-flame-tokubetsu-hen-3-s1	7044	1		2024	SPRING		1						
 season	shadowverse-s1	7045	1		2020	SPRING		48		112325	15134		378522	
 season	shadowverse-s2	7045	2		2022	SPRING		50		140085	16855		378522	
+season	shadowverse-s3	7045	3		2023	SUMMER		25		163136	17952			
+season	shadowverse-s4	7045	4		2024	SPRING		23		172187	18580			
 season	shajiabang-xin-chuan-s1	7046	1		2007			30						
 season	shakugan-no-shana-iii-final-s1	7047	1		2011	FALL		24		6773	8483		78962	
 season	shakugan-no-shana-s1	7048	1		2005	FALL		24		355	3408		78962	
@@ -27196,6 +27314,33 @@ movie	shin-angyo-onshi-film	7233			2004				新暗行御史|ja=新暗行御史|ja
 season	shin-atashin-chi-s1	7234	1		2015	FALL		26		21229	11198			
 season	shin-chan-s1	7235	1		1992	SPRING		1341		966	708		79654	
 movie	shin-chan-film	7235			2007				クレヨンしんちゃん 嵐を呼ぶ 歌うケツだけ爆弾!|ja=クレヨンしんちゃん 嵐を呼ぶ 歌うケツだけ爆弾!|ja-Latn=Crayon Shin-chan Movie 15: Arashi wo Yobu Utau Ketsu dake Bakudan!	2172	4910		79654	
+movie	shin-chan-film-2	7235			2001				クレヨンしんちゃん 嵐を呼ぶ モーレツ!オトナ帝国の逆襲|ja=クレヨンしんちゃん 嵐を呼ぶ モーレツ!オトナ帝国の逆襲|ja-Latn=Crayon Shin-chan Movie 09: Arashi wo Yobu Mouretsu! Otona Teikoku no Gyakushuu	2450	4622		79654	
+movie	shin-chan-film-3	7235			2002				クレヨンしんちゃん 嵐を呼ぶ アッパレ! 戦国大合戦|ja=クレヨンしんちゃん 嵐を呼ぶ アッパレ! 戦国大合戦|ja-Latn=Crayon Shin-chan Movie 10: Arashi wo Yobu Appare! Sengoku Daikassen	3744	3316		79654	
+movie	shin-chan-film-4	7235			1994				クレヨンしんちゃん ブリブリ王国の秘宝|ja=クレヨンしんちゃん ブリブリ王国の秘宝|ja-Latn=Crayon Shin-chan Movie 02: Buriburi Oukoku no Hihou	3745	4625		79654	
+movie	shin-chan-film-5	7235			1995				クレヨンしんちゃん 雲黒斎の野望|ja=クレヨンしんちゃん 雲黒斎の野望|ja-Latn=Crayon Shin-chan Movie 03: Unkokusai no Yabou	6217	4626		79654	
+movie	shin-chan-film-6	7235			1997				クレヨンしんちゃん 暗黒タマタマ大追跡|ja=クレヨンしんちゃん 暗黒タマタマ大追跡|ja-Latn=Crayon Shin-chan Movie 05: Ankoku Tamatama Daitsuiseki	6460	4704		79654	
+movie	shin-chan-film-7	7235			1993				クレヨンしんちゃん アクション仮面VSハイグレ魔王|ja=クレヨンしんちゃん アクション仮面VSハイグレ魔王|ja-Latn=Crayon Shin-chan Movie 01: Action Kamen vs. Haigure Maou	8358	4624		79654	
+movie	shin-chan-film-8	7235			1996				クレヨンしんちゃん ヘンダーランドの大冒険|ja=クレヨンしんちゃん ヘンダーランドの大冒険|ja-Latn=Crayon Shin-chan Movie 04: Henderland no Daibouken	8359	4703		79654	
+movie	shin-chan-film-9	7235			1998				クレヨンしんちゃん 電撃! ブタのヒヅメ大作戦|ja=クレヨンしんちゃん 電撃! ブタのヒヅメ大作戦|ja-Latn=Crayon Shin-chan Movie 06: Dengeki! Buta no Hizume Daisakusen	8360	4705		79654	
+movie	shin-chan-film-10	7235			1999				クレヨンしんちゃん 爆発! 温泉わくわく大決戦|ja=クレヨンしんちゃん 爆発! 温泉わくわく大決戦|ja-Latn=Crayon Shin-chan Movie 07: Bakuhatsu! Onsen Wakuwaku Daikessen	8361	4706		79654	
+movie	shin-chan-film-11	7235			2000				クレヨンしんちゃん 嵐を呼ぶジャングル|ja=クレヨンしんちゃん 嵐を呼ぶジャングル|ja-Latn=Crayon Shin-chan Movie 08: Arashi wo Yobu Jungle	8362	4707		79654	
+movie	shin-chan-film-12	7235			2003				クレヨンしんちゃん 嵐を呼ぶ 栄光のヤキニクロード|ja=クレヨンしんちゃん 嵐を呼ぶ 栄光のヤキニクロード|ja-Latn=Crayon Shin-chan Movie 11: Arashi wo Yobu Eikou no Yakiniku Road	8363	872		79654	
+movie	shin-chan-film-13	7235			2004				クレヨンしんちゃん 嵐を呼ぶ 夕陽のカスカベボーイズ|ja=クレヨンしんちゃん 嵐を呼ぶ 夕陽のカスカベボーイズ|ja-Latn=Crayon Shin-chan Movie 12: Arashi wo Yobu! Yuuhi no Kasukabe Boys	8364	3106		79654	
+movie	shin-chan-film-14	7235			2006				クレヨンしんちゃん 伝説を呼ぶ 踊れ！アミーゴ！|ja=クレヨンしんちゃん 伝説を呼ぶ 踊れ！アミーゴ！|ja-Latn=Crayon Shin-chan Movie 14: Densetsu wo Yobu Odore! Amigo!	8366	4627		79654	
+movie	shin-chan-film-15	7235			2008				クレヨンしんちゃん ちょ～嵐を呼ぶ 金矛の勇者|ja=クレヨンしんちゃん ちょ～嵐を呼ぶ 金矛の勇者|ja-Latn=Crayon Shin-chan Movie 16: Chou Arashi wo Yobu Kinpoko no Yuusha	8367	5858		79654	
+movie	shin-chan-film-16	7235			2009				クレヨンしんちゃん オタケベ!カスカベ野生王国|ja=クレヨンしんちゃん オタケベ!カスカベ野生王国|ja-Latn=Crayon Shin-chan Movie 17: Otakebe! Kasukabe Yasei Oukoku	8368	6550		79654	
+movie	shin-chan-film-17	7235			2010				クレヨンしんちゃん 超時空! 嵐を呼ぶオラの花嫁|ja=クレヨンしんちゃん 超時空! 嵐を呼ぶオラの花嫁|ja-Latn=Crayon Shin-chan Movie 18: Chou Jikuu! Arashi wo Yobu Ora no Hanayome	8369	7254		79654	
+movie	shin-chan-film-18	7235			2011				映画 クレヨンしんちゃん 嵐を呼ぶ黄金のスパイ大作戦|ja=映画 クレヨンしんちゃん 嵐を呼ぶ黄金のスパイ大作戦|ja-Latn=Crayon Shin-chan Movie 19: Arashi wo Yobu Ougon no Spy Daisakusen	10116	8115		79654	
+movie	shin-chan-film-19	7235			2012				映画 クレヨンしんちゃん 嵐を呼ぶ!オラと宇宙のプリンセス|ja=映画 クレヨンしんちゃん 嵐を呼ぶ!オラと宇宙のプリンセス|ja-Latn=Crayon Shin-chan Movie 20: Arashi wo Yobu! Ora to Uchuu no Princess	12499	8780		79654	
+movie	shin-chan-film-20	7235			2013				映画クレヨンしんちゃん バカうまっ! B級グルメサバイバル!!|ja=映画クレヨンしんちゃん バカうまっ! B級グルメサバイバル!!|ja-Latn=Crayon Shin-chan Movie 21: Bakauma! B-Kyuu Gourmet Survival Battle!!	17113	9542			
+movie	shin-chan-film-21	7235			2014				映画クレヨンしんちゃん ガチンコ! 逆襲のロボとーちゃん|ja=映画クレヨンしんちゃん ガチンコ! 逆襲のロボとーちゃん|ja-Latn=Crayon Shin-chan Movie 22: Gachinko! Gyakushuu no Robo To-chan	20535	10252			
+movie	shin-chan-film-22	7235			2015				クレヨンしんちゃん オラの引越し物語～サボテン大襲撃～|ja=クレヨンしんちゃん オラの引越し物語～サボテン大襲撃～|ja-Latn=Crayon Shin-chan Movie 23: Ora no Hikkoshi Monogatari - Saboten Daishuugeki	98744	10843		79654	
+movie	shin-chan-film-23	7235			2016				クレヨンしんちゃん 爆睡!ユメミーワールド大突撃|ja=クレヨンしんちゃん 爆睡!ユメミーワールド大突撃|ja-Latn=Crayon Shin-chan Movie 24: Bakusui! Yumemi World Dai Totsugeki	100289	11742		79654	
+movie	shin-chan-film-24	7235			2017				映画 クレヨンしんちゃん 襲来!!宇宙人シリリ|ja=映画 クレヨンしんちゃん 襲来!!宇宙人シリリ|ja-Latn=Crayon Shin-chan Movie 25: Shin-chan Shuurai! Uchuujin Shiriri	100290	12478			
+movie	shin-chan-film-25	7235			2018				クレヨンしんちゃん 爆盛!カンフーボーイズ～拉麺大乱～|ja=クレヨンしんちゃん 爆盛!カンフーボーイズ～拉麺大乱～|ja-Latn=Crayon Shin-chan Movie 26: Bakumori! Kung Fu Boys - Ramen Tairan	103690	13520			
+movie	shin-chan-film-26	7235			2019				映画クレヨンしんちゃん 新婚旅行ハリケーン ~失われたひろし~|ja=映画クレヨンしんちゃん 新婚旅行ハリケーン ~失われたひろし~|ja-Latn=Crayon Shin-chan Movie 27: Shinkon Ryokou Hurricane - Ushinawareta Hiroshi	109931	14474			
+movie	shin-chan-film-27	7235			2020				映画クレヨンしんちゃん 激突! ラクガキングダムとほぼ四人の勇者|ja=映画クレヨンしんちゃん 激突! ラクガキングダムとほぼ四人の勇者|ja-Latn=Crayon Shin-chan Movie 28: Gekitotsu! Rakuga Kingdom to Hobo Yonin no Yuusha	111312	15060			
+movie	shin-chan-film-28	7235			2021				映画クレヨンしんちゃん 謎メキ! 花の天カス学園|ja=映画クレヨンしんちゃん 謎メキ! 花の天カス学園|ja-Latn=Crayon Shin-chan Movie 29: Nazo Meki! Hana no Tenkasu Gakuen	127331	15923			
 season	shin-chou-kyou-ryo-condor-hero-ii-s1	7236	1		2005	WINTER		26		960	2907		79658	
 season	shin-chou-kyou-ryo-condor-hero-iii-s1	7237	1		2008	SPRING		26		5854	6376		79658	
 season	shin-chou-kyou-ryo-condor-hero-s1	7238	1		2001	SPRING		26		959	148		79658	
@@ -27212,6 +27357,7 @@ season	shin-shinka-no-mi-shiranai-uchi-ni-kachigumi-jinsei-s1	7247	1		2023	WINTE
 movie	shin-sos-dai-tokyo-tankentai-film	7248			2007				新SOS大东京探险队|ja=新SOS大东京探险队|ja-Latn=Shin SOS Dai Tokyo Tankentai	4471	5174			
 season	shin-tennis-no-oujisama-s1	7249	1		2012	WINTER		13		11371	8601		254899	
 season	shin-tennis-no-oujisama-s2	7249	2		2022	SUMMER		13		140187	16878		254899	
+season	shin-tennis-no-oujisama-s3	7249	3		2024	FALL		13		165810	18054		254899	
 season	shine-post-s1	7250	1		2022	SUMMER		12		140753	16937		411850	
 season	shingeki-no-bahamut-genesis-s1	7251	1		2014	FALL		12		20590	10373		284133	
 season	shingeki-no-bahamut-virgin-soul-s1	7252	1		2017	SPRING		24		21184	11223		284133	
@@ -27315,6 +27461,7 @@ season	shouwei-mayi-cun-s1	7339	1		2011	WINTER		59
 season	show-by-rock-short-s1	7340	1		2016	SUMMER		12		21477	11764		291726	
 season	show-by-rock-s1	7341	1		2016	FALL		12		21476	11763		291726	
 season	show-by-rock-s2	7341	2		2020	WINTER		12		113470	15281		372753	
+season	show-by-rock-s3	7341	3		2021	WINTER		12		113476	15467		389227	
 movie	shu-lao-san-jin-cheng-ji-film	7342			2011				鼠老三进城记|ja=鼠老三进城记|ja-Latn=Shu Lao San Jin Cheng Ji					
 season	shuai-gou-hei-pi-s1	7343	1		2003	FALL		52						
 season	shucai-jingling-da-maoxian-s1	7344	1		2012			26						
@@ -27993,6 +28140,7 @@ season	tensei-shitara-slime-datta-ken-s2p2	7974	2		2021	SUMMER		12		116742	15456
 season	tensei-shitara-slime-datta-ken-s3	7974	3		2024	SPRING		24		156822	17709		352408	
 season	tensei-shitara-slime-datta-ken-s4	7974	4		2026	SPRING		12		182205	18884		352408	
 movie	tensei-shitara-slime-datta-ken-film	7974			2022				剧场版 关于我转生变成史莱姆这档事 红莲之绊篇|ja=剧场版 关于我转生变成史莱姆这档事 红莲之绊篇|ja-Latn=Tensei shitara Slime Datta Ken Movie: Guren no Kizuna-hen	139498	16776		352408	
+movie	tensei-shitara-slime-datta-ken-film-2	7974			2026				劇場版 転生したらスライムだった件 蒼海の涙編|ja=劇場版 転生したらスライムだった件 蒼海の涙編|ja-Latn=Tensei shitara Slime Datta Ken Movie 2: Soukai no Namida-hen	182206	18885			
 season	tenshi-na-konamaiki-s1	7975	1		2002	SPRING		50		200	75		84011	
 season	tenshi-no-3p-s1	7976	1		2017	SUMMER		12		97683	12451		329826	
 season	tenshi-no-shippo-chu-s1	7977	1		2003	SPRING		11		684	680		180111	
@@ -28210,6 +28358,7 @@ movie	tiger-bunny-movie-1-the-beginning-film	8183			2012				劇場版 TIGER & BU
 movie	tiger-bunny-movie-2-the-rising-film	8184			2014				劇場版 TIGER & BUNNY -The Rising-|ja=劇場版 TIGER & BUNNY -The Rising-|ja-Latn=Tiger & Bunny Movie 2: The Rising	12017				
 season	tiger-bunny-s1	8185	1		2011	SPRING		25		9941	8101		246381	
 season	tiger-mask-w-s1	8186	1		2016	FALL		38		21682	11971		315091	
+movie	tiger-mask-w-film	8186			1970				タイガーマスク ふく面リーグ戦|ja=タイガーマスク ふく面リーグ戦|ja-Latn=Tiger Mask Fuku Men League Sen	18063	6971		115121	
 movie	time-autobahn-film	8187			2018				Time Autobahn	169756				
 season	time-bokan-24-s1	8188	1		2016	FALL		24		21755	12032		317820	
 season	time-bokan-gyakushuu-no-san-akunin-s1	8189	1		2017	FALL		24		98521	13039		317820	
@@ -28364,6 +28513,8 @@ season	totonoe-sakuma-kun-by-sauna-s1	8330	1		2023	FALL		11		172842
 season	tottoko-hamtaro-2012-s1	8331	1		2000	SUMMER		296		508	557		70817	
 season	tottoko-hamtaro-2012-s2	8331	2		2012	SPRING		51		118641	9163			
 movie	tottoko-hamtaro-2012-film	8331			2001				とっとこハム太郎 ハムハムランド大冒険|ja=とっとこハム太郎 ハムハムランド大冒険|ja-Latn=Tottoko Hamtarou Movie 1: Ham-Ham Land Daibouken	7329	2395		70817	
+movie	tottoko-hamtaro-2012-film-2	8331			2003				とっとこハム太郎公式サイト　ハムハムグランプリン　オーロラ谷の奇跡　〜リボンちゃん危機一髪！〜|ja=とっとこハム太郎公式サイト　ハムハムグランプリン　オーロラ谷の奇跡　〜リボンちゃん危機一髪！〜|ja-Latn=Tottoko Hamtarou Movie 3: Ham Ham Grand Prix Aurora Tani no Kiseki - Ribon-chan Kiki Ippatsu!	8108	2397		70817	
+movie	tottoko-hamtaro-2012-film-3	8331			2004				とっとこハム太郎 はむはむぱらだいちゅ！ ハム太郎とふしぎのオニの絵本塔|ja=とっとこハム太郎 はむはむぱらだいちゅ！ ハム太郎とふしぎのオニの絵本塔|ja-Latn=Tottoko Hamtarou Movie 4: Hamtarou to Fushigi no Oni no Emon Tou	8109	2398		70817	
 movie	tottoko-hamutaro-ham-ham-ham-jya-maboroshi-no-princess-film	8332			2002				とっとこハム太郎 ハムハムハムージャ！幻のプリンセス|ja=とっとこハム太郎 ハムハムハムージャ！幻のプリンセス|ja-Latn=Tottoko Hamtarou Movie 2: Ham-Ham Hamuuja! Maboroshi no Princess	7330	2396		70817	
 movie	tottoko-hamutaro-ham-ham-paradi-chu-hamutaro-to-fushigi-no-oni-no-ehonto-film	8333			2004				とっとこハム太郎はむはむぱらだいちゅ！ ハム太郎とふしぎのオニの絵本塔|ja=とっとこハム太郎はむはむぱらだいちゅ！ ハム太郎とふしぎのオニの絵本塔|ja-Latn=Tottoko Hamutaro: Ham Ham Paradi-chu! Hamutarō to Fushigi no Oni no Ehonto					
 season	tou-xing-jiu-yue-tian-tongnian-gushi-s1	8334	1		2009	FALL		26						
@@ -28646,6 +28797,11 @@ season	urusei-yatsura-2022-s1	8592	1		1981	FALL		195		1293	377		75113
 season	urusei-yatsura-2022-s2	8592	2		2022	FALL		23		143277	17096		414096	
 season	urusei-yatsura-2022-s3	8592	3		2024	WINTER		23		155645	17861		414096	
 movie	urusei-yatsura-2022-film	8592			1983				うる星やつら オンリーユー|ja=うる星やつら オンリーユー|ja-Latn=Urusei Yatsura Movie 1: Only You	1920	378		75113	
+movie	urusei-yatsura-2022-film-2	8592			1984				うる星やつら2 ビューティフ&#|ja=うる星やつら2 ビューティフ&#|ja-Latn=Urusei Yatsura 2: Beautiful Dreamer	1921	379		75113	
+movie	urusei-yatsura-2022-film-3	8592			1985				うる星やつら リメンバー・マイ・ラヴ|ja=うる星やつら リメンバー・マイ・ラヴ|ja-Latn=Urusei Yatsura Movie 3: Remember My Love	1922	380		75113	
+movie	urusei-yatsura-2022-film-4	8592			1986				うる星やつら ラム・ザ・フォーエバー|ja=うる星やつら ラム・ザ・フォーエバー|ja-Latn=Urusei Yatsura Movie 4: Lum The Forever	1923	381		75113	
+movie	urusei-yatsura-2022-film-5	8592			1988				うる星やつら 完結篇|ja=うる星やつら 完結篇|ja-Latn=Urusei Yatsura Movie 5: Kanketsu-hen	1924	382		75113	
+movie	urusei-yatsura-2022-film-6	8592			1991				うる星やつら いつだって・マイ・ダーリン|ja=うる星やつら いつだって・マイ・ダーリン|ja-Latn=Urusei Yatsura Movie 6: Itsudatte My Darling	1925	383		75113	
 movie	urutau-the-stargazer-film	8593			2020				URUTAU the stargazer	140915				
 season	uruwashi-no-yoi-no-tsuki-s1	8594	1		2026	WINTER		12		192507	19325		463481	
 movie	usagi-ga-kowai-film	8595			2002				兎ガ怕イ|ja=兎ガ怕イ|ja-Latn=Usagi ga Kowai	97593				
@@ -28698,6 +28854,7 @@ season	vatican-kiseki-chousakan-s1	8636	1		2017	SUMMER		12		97855	12542		329823
 season	venus-project-climax-s1	8637	1		2015	SUMMER		6		21086	11122		293999	
 season	venus-versus-virus-s1	8638	1		2007	WINTER		12		1607	4783		81415	
 movie	versailles-no-bara-film	8639			2025				ベルサイユのばら|ja=ベルサイユのばら|ja-Latn=Versailles no Bara	154392	17609			
+movie	versailles-no-bara-film-2	8639			1990				ベルサイユのばら 生命あるかぎり愛して|ja=ベルサイユのばら 生命あるかぎり愛して|ja-Latn=Versailles no Bara: Seimei Aru Kagiri Aishite	3868	3542		80504	
 movie	very-chubby-belly-film	8640			2025				ベリーチャビーベリー|ja=ベリーチャビーベリー|ja-Latn=Very Chubby Belly	207350				
 movie	vexille-2077-nihon-sakoku-film	8641			2007				VEXILLE日本鎖國|ja=VEXILLE日本鎖國|ja-Latn=Vexille: 2077 Nihon Sakoku	2746	5106			
 season	vicky-and-johnny-s1	8642	1		2007	WINTER		104						
@@ -29632,6 +29789,7 @@ movie	yuuki-yuuna-wa-yuusha-de-aru-washio-sumi-no-shou-2-tamashii-film	9518			20
 season	yuuki-yuuna-wa-yuusha-de-aru-yuusha-no-shou-s1	9519	1		2017	FALL		6		97769	12500		284263	
 season	yuuki-yuuna-wa-yuusha-de-aru-yuusha-no-shou-s2	9519	2		2017	FALL		6		100791	13728		284263	
 season	yuuki-yuuna-wa-yuusha-de-aru-s1	9520	1		2014	FALL		12		20800	10750		284263	
+season	yuuki-yuuna-wa-yuusha-de-aru-s3	9520	3		2021	FALL		12		122292	15665		284263	
 movie	yuuki-yuuna-wa-yuusha-de-aru-film	9520			2017				結城友奈は勇者である -鷲尾須美の章- 第3章 「やくそく」|ja=結城友奈は勇者である -鷲尾須美の章- 第3章 「やくそく」|ja-Latn=Yuuki Yuuna wa Yuusha de Aru: Washio Sumi no Shou 3 - Yakusoku	97860				
 season	yuukoku-no-moriarty-part-2-s1	9521	1		2021	SPRING		13		124858	15774		385542	
 season	yuurei-deco-s1	9522	1		2022	SUMMER		12		145468	17207		416802	

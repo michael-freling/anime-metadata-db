@@ -14,6 +14,10 @@ series:
   movies:
     - id: tottoko-hamtaro-2012-film
       externalIds: { anilistId: 7329 } # Tottoko Hamtarou Movie 1: Ham-Ham Land Daibouken (2001)
+    - id: tottoko-hamtaro-2012-film-2
+      externalIds: { anilistId: 8108 } # Tottoko Hamtarou Movie 3: Ham Ham Grand Prix Aurora Tani no Kis… (2003)
+    - id: tottoko-hamtaro-2012-film-3
+      externalIds: { anilistId: 8109 } # Tottoko Hamtarou Movie 4: Hamtarou to Fushigi no Oni no Emon Tou (2004)
 # No continuous absoluteNumber. The installments above are separate
 # adaptations of one work (2000, 2012), not one run, so numbering them
 # end to end would assert a continuity that does not exist.

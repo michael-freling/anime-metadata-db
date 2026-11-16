@@ -16,5 +16,15 @@ series:
       externalIds: { anilistId: 3659 }
     - id: kaiketsu-zorori-film-2
       externalIds: { anilistId: 15067 } # Kaiketsu Zorori Da-Da-Da-Daibouken! (2012)
+    - id: kaiketsu-zorori-film-3
+      externalIds: { anilistId: 6965 } # Kaiketsu Zorori: Mahoutsukai no Deshi/Dai Kaizoku no Takara Sag… (1993)
+    - id: kaiketsu-zorori-film-4
+      externalIds: { anilistId: 19587 } # Kaiketsu Zorori: Mamoru ze! Kyouryuu no Tamago (2013)
+    - id: kaiketsu-zorori-film-5
+      externalIds: { anilistId: 21095 } # Kaiketsu Zorori Movie: Uchuu no Yuusha-tachi (2015)
+    - id: kaiketsu-zorori-film-6
+      externalIds: { anilistId: 120378 } # Kaiketsu Zorori Movie: ZZ no Himitsu (2017)
+    - id: kaiketsu-zorori-film-7
+      externalIds: { anilistId: 169794 } # Kaiketsu Zorori Movie: Lalala♪ Star Tanjou (2022)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [kaiketsu-zorori]

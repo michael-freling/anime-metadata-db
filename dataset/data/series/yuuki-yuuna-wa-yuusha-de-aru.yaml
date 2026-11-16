@@ -21,6 +21,17 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
+    - id: yuuki-yuuna-wa-yuusha-de-aru-s3
+      number: 3
+      releaseYear: 2021
+      releaseSeason: FALL
+      externalIds:
+        anilistId: 122292
+        anidbId: 15665
+        tvdbId: 284263
+      episodes:
+        count: 12
+        absoluteFrom: 14
   movies:
     - id: yuuki-yuuna-wa-yuusha-de-aru-film
       titles:

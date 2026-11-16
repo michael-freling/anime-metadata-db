@@ -31,3 +31,13 @@ series:
       externalIds:
         anilistId: 10592
       absoluteNumber: 27
+    - id: s-cry-ed-film-2
+      titles:
+        original: スクライド オルタレイション 後編 ＱＵＡＮ
+        translations:
+          ja: スクライド オルタレイション 後編 ＱＵＡＮ
+          ja-Latn: 's.CRY.ed Alteration II: Quan'
+      releaseYear: 2012
+      externalIds:
+        anilistId: 12223
+      absoluteNumber: 28

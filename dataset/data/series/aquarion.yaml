@@ -29,6 +29,17 @@ series:
       episodes:
         count: 26
         absoluteFrom: 28
+    - id: aquarion-s3
+      number: 3
+      releaseYear: 2015
+      releaseSeason: SUMMER
+      externalIds:
+        anilistId: 21115
+        anidbId: 11150
+        tvdbId: 79886
+      episodes:
+        count: 26
+        absoluteFrom: 54
   movies:
     - id: aquarion-film
       titles:

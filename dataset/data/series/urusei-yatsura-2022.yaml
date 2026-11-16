@@ -49,3 +49,58 @@ series:
         anilistId: 1920
         anidbId: 378
         tvdbId: 75113
+    - id: urusei-yatsura-2022-film-2
+      titles:
+        original: うる星やつら2 ビューティフ&#
+        translations:
+          ja: うる星やつら2 ビューティフ&#
+          ja-Latn: 'Urusei Yatsura 2: Beautiful Dreamer'
+      releaseYear: 1984
+      externalIds:
+        anilistId: 1921
+        anidbId: 379
+        tvdbId: 75113
+    - id: urusei-yatsura-2022-film-3
+      titles:
+        original: うる星やつら リメンバー・マイ・ラヴ
+        translations:
+          ja: うる星やつら リメンバー・マイ・ラヴ
+          ja-Latn: 'Urusei Yatsura Movie 3: Remember My Love'
+      releaseYear: 1985
+      externalIds:
+        anilistId: 1922
+        anidbId: 380
+        tvdbId: 75113
+    - id: urusei-yatsura-2022-film-4
+      titles:
+        original: うる星やつら ラム・ザ・フォーエバー
+        translations:
+          ja: うる星やつら ラム・ザ・フォーエバー
+          ja-Latn: 'Urusei Yatsura Movie 4: Lum The Forever'
+      releaseYear: 1986
+      externalIds:
+        anilistId: 1923
+        anidbId: 381
+        tvdbId: 75113
+    - id: urusei-yatsura-2022-film-5
+      titles:
+        original: うる星やつら 完結篇
+        translations:
+          ja: うる星やつら 完結篇
+          ja-Latn: 'Urusei Yatsura Movie 5: Kanketsu-hen'
+      releaseYear: 1988
+      externalIds:
+        anilistId: 1924
+        anidbId: 382
+        tvdbId: 75113
+    - id: urusei-yatsura-2022-film-6
+      titles:
+        original: うる星やつら いつだって・マイ・ダーリン
+        translations:
+          ja: うる星やつら いつだって・マイ・ダーリン
+          ja-Latn: 'Urusei Yatsura Movie 6: Itsudatte My Darling'
+      releaseYear: 1991
+      externalIds:
+        anilistId: 1925
+        anidbId: 383
+        tvdbId: 75113

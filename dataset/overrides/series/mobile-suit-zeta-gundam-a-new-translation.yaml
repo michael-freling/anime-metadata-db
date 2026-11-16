@@ -13,5 +13,7 @@ series:
       externalIds: { anilistId: 1969 }
     - id: mobile-suit-zeta-gundam-a-new-translation-film-2
       externalIds: { anilistId: 1967 } # Kidou Senshi Z Gundam I: Hoshi wo Tsugu Mono (2005)
+    - id: mobile-suit-zeta-gundam-a-new-translation-film-3
+      externalIds: { anilistId: 1968 } # Kidou Senshi Z Gundam II: Koibito-tachi (2005)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [mobile-suit-zeta-gundam-a-new-translation]

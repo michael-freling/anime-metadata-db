@@ -66,7 +66,7 @@ series:
         tvdbId: 352408
       episodes:
         count: 12
-        absoluteFrom: 74
+        absoluteFrom: 75
   movies:
     - id: tensei-shitara-slime-datta-ken-film
       titles:
@@ -80,6 +80,17 @@ series:
         anidbId: 16776
         tvdbId: 352408
       absoluteNumber: 49
+    - id: tensei-shitara-slime-datta-ken-film-2
+      titles:
+        original: 劇場版 転生したらスライムだった件 蒼海の涙編
+        translations:
+          ja: 劇場版 転生したらスライムだった件 蒼海の涙編
+          ja-Latn: 'Tensei shitara Slime Datta Ken Movie 2: Soukai no Namida-hen'
+      releaseYear: 2026
+      externalIds:
+        anilistId: 182206
+        anidbId: 18885
+      absoluteNumber: 74
   characters:
     - id: abiru
       names:

@@ -62,3 +62,541 @@ series:
         anilistId: 2392
         anidbId: 4757
         tvdbId: 252696
+    - id: doraemon-film-3
+      titles:
+        original: ドラえもん のび太とふしぎ風使い
+        translations:
+          ja: ドラえもん のび太とふしぎ風使い
+          ja-Latn: 'Doraemon Movie 24: Nobita to Fushigi Kaze Tsukai'
+      releaseYear: 2003
+      externalIds:
+        anilistId: 2393
+        anidbId: 2717
+        tvdbId: 252696
+    - id: doraemon-film-4
+      titles:
+        original: ザ☆ドラえもんズ ドキドキ機関車大爆走!
+        translations:
+          ja: ザ☆ドラえもんズ ドキドキ機関車大爆走!
+          ja-Latn: 'The☆Doraemons: Dokidoki Kikansha Daibakusou!'
+      releaseYear: 2000
+      externalIds:
+        anilistId: 2633
+        anidbId: 7765
+        tvdbId: 75141
+    - id: doraemon-film-5
+      titles:
+        original: 2112年 ドラえもん誕生
+        translations:
+          ja: 2112年 ドラえもん誕生
+          ja-Latn: 'Doraemon: 2112-nen Doraemon Tanjou'
+      releaseYear: 1995
+      externalIds:
+        anilistId: 2648
+        anidbId: 2691
+        tvdbId: 252696
+    - id: doraemon-film-6
+      titles:
+        original: おばあちゃんの思い出
+        translations:
+          ja: おばあちゃんの思い出
+          ja-Latn: 'Doraemon: Obaachan no Omoide'
+      releaseYear: 2000
+      externalIds:
+        anilistId: 2649
+        anidbId: 3314
+        tvdbId: 252696
+    - id: doraemon-film-7
+      titles:
+        original: ドラえもん ぼく
+        translations:
+          ja: ドラえもん ぼく
+          ja-Latn: 'Doraemon Movie: Boku, Momotarou no Nanna no Sa'
+      releaseYear: 1981
+      externalIds:
+        anilistId: 2650
+        anidbId: 3113
+        tvdbId: 252696
+    - id: doraemon-film-8
+      titles:
+        original: ぼくの生まれた日
+        translations:
+          ja: ぼくの生まれた日
+          ja-Latn: 'Doraemon: The Day When I Was Born'
+      releaseYear: 2002
+      externalIds:
+        anilistId: 2652
+        anidbId: 7014
+    - id: doraemon-film-9
+      titles:
+        original: ドラえもん のび太と翼の勇者たち
+        translations:
+          ja: ドラえもん のび太と翼の勇者たち
+          ja-Latn: 'Doraemon Movie 22: Nobita to Tsubasa no Yuusha-tachi'
+      releaseYear: 2001
+      externalIds:
+        anilistId: 2654
+        anidbId: 4967
+        tvdbId: 252696
+    - id: doraemon-film-10
+      titles:
+        original: ドラえもん のび太とロボット王国
+        translations:
+          ja: ドラえもん のび太とロボット王国
+          ja-Latn: 'Doraemon Movie 23: Nobita to Robot Kingdom'
+      releaseYear: 2002
+      externalIds:
+        anilistId: 2655
+        anidbId: 6582
+        tvdbId: 252696
+    - id: doraemon-film-11
+      titles:
+        original: ドラえもん のび太のワンニャン時空伝
+        translations:
+          ja: ドラえもん のび太のワンニャン時空伝
+          ja-Latn: 'Doraemon Movie 25: Nobita no Wan Nyan Jikuuden'
+      releaseYear: 2004
+      externalIds:
+        anilistId: 2656
+        anidbId: 1951
+        tvdbId: 252696
+    - id: doraemon-film-12
+      titles:
+        original: ドラえもん のび太と竜の騎士
+        translations:
+          ja: ドラえもん のび太と竜の騎士
+          ja-Latn: 'Doraemon Movie 08: Nobita to Ryuu no Kishi'
+      releaseYear: 1987
+      externalIds:
+        anilistId: 2657
+        anidbId: 6593
+        tvdbId: 252696
+    - id: doraemon-film-13
+      titles:
+        original: ドラえもん のび太のパラレル西遊記
+        translations:
+          ja: ドラえもん のび太のパラレル西遊記
+          ja-Latn: 'Doraemon Movie 09: Nobita no Parallel Saiyuuki'
+      releaseYear: 1988
+      externalIds:
+        anilistId: 2658
+        anidbId: 6592
+        tvdbId: 252696
+    - id: doraemon-film-14
+      titles:
+        original: ドラえもん のび太とブリキの迷宮
+        translations:
+          ja: ドラえもん のび太とブリキの迷宮
+          ja-Latn: 'Doraemon Movie 14: Nobita to Buriki no Labyrinth'
+      releaseYear: 1993
+      externalIds:
+        anilistId: 2659
+        anidbId: 6587
+        tvdbId: 252696
+    - id: doraemon-film-15
+      titles:
+        original: のび太の結婚前夜 The night before a wedding
+        translations:
+          ja: のび太の結婚前夜 The night before a wedding
+          ja-Latn: 'Doraemon: Nobita''s the Night Before a Wedding'
+      releaseYear: 1999
+      externalIds:
+        anilistId: 2660
+        anidbId: 4765
+        tvdbId: 252696
+    - id: doraemon-film-16
+      titles:
+        original: ドラえもん のび太と雲の王国
+        translations:
+          ja: ドラえもん のび太と雲の王国
+          ja-Latn: 'Doraemon Movie 13: Nobita to Kumo no Oukoku'
+      releaseYear: 1992
+      externalIds:
+        anilistId: 2661
+        anidbId: 6588
+        tvdbId: 252696
+    - id: doraemon-film-17
+      titles:
+        original: のび太の宇宙開拓史
+        translations:
+          ja: のび太の宇宙開拓史
+          ja-Latn: 'Doraemon Movie 02: Nobita no Uchuu Kaitakushi'
+      releaseYear: 1981
+      externalIds:
+        anilistId: 2662
+        anidbId: 6590
+        tvdbId: 252696
+    - id: doraemon-film-18
+      titles:
+        original: ドラえもん のび太の南海大冒険
+        translations:
+          ja: ドラえもん のび太の南海大冒険
+          ja-Latn: 'Doraemon Movie 19: Nobita no Nankai Daibouken'
+      releaseYear: 1998
+      externalIds:
+        anilistId: 2664
+        anidbId: 3315
+        tvdbId: 252696
+    - id: doraemon-film-19
+      titles:
+        original: ドラえもん のび太と鉄人兵団
+        translations:
+          ja: ドラえもん のび太と鉄人兵団
+          ja-Latn: 'Doraemon Movie 07: Nobita to Tetsujin Heidan'
+      releaseYear: 1986
+      externalIds:
+        anilistId: 2665
+        anidbId: 4674
+        tvdbId: 252696
+    - id: doraemon-film-20
+      titles:
+        original: ドラえもん のび太の日本誕生
+        translations:
+          ja: ドラえもん のび太の日本誕生
+          ja-Latn: 'Doraemon Movie 10: Nobita no Nippon Tanjou'
+      releaseYear: 1989
+      externalIds:
+        anilistId: 2666
+        anidbId: 6591
+        tvdbId: 252696
+    - id: doraemon-film-21
+      titles:
+        original: ドラえもん のび太の海底鬼岩城
+        translations:
+          ja: ドラえもん のび太の海底鬼岩城
+          ja-Latn: 'Doraemon Movie 04: Nobita no Kaitei Kiganjou'
+      releaseYear: 1983
+      externalIds:
+        anilistId: 2667
+        anidbId: 6596
+        tvdbId: 252696
+    - id: doraemon-film-22
+      titles:
+        original: ドラえもん のび太の宇宙漂流記
+        translations:
+          ja: ドラえもん のび太の宇宙漂流記
+          ja-Latn: 'Doraemon Movie 20: Nobita no Uchuu Hyouryuuki'
+      releaseYear: 1999
+      externalIds:
+        anilistId: 2668
+        anidbId: 6599
+        tvdbId: 252696
+    - id: doraemon-film-23
+      titles:
+        original: ドラえもん のび太の宇宙小戦争
+        translations:
+          ja: ドラえもん のび太の宇宙小戦争
+          ja-Latn: 'Doraemon Movie 06: Nobita no Little Star Wars'
+      releaseYear: 1985
+      externalIds:
+        anilistId: 2669
+        anidbId: 6594
+        tvdbId: 252696
+    - id: doraemon-film-24
+      titles:
+        original: ドラえもん のび太のドラビアンナイト
+        translations:
+          ja: ドラえもん のび太のドラビアンナイト
+          ja-Latn: 'Doraemon Movie 12: Nobita no Dorabian Nights'
+      releaseYear: 1991
+      externalIds:
+        anilistId: 2670
+        anidbId: 5047
+        tvdbId: 252696
+    - id: doraemon-film-25
+      titles:
+        original: ドラえもん のび太の大魔境
+        translations:
+          ja: ドラえもん のび太の大魔境
+          ja-Latn: 'Doraemon Movie 03: Nobita no Daimakyou'
+      releaseYear: 1982
+      externalIds:
+        anilistId: 2671
+        anidbId: 6597
+        tvdbId: 252696
+    - id: doraemon-film-26
+      titles:
+        original: ドラえもん のび太の魔界大冒険
+        translations:
+          ja: ドラえもん のび太の魔界大冒険
+          ja-Latn: 'Doraemon Movie 05: Nobita no Makai Daibouken'
+      releaseYear: 1984
+      externalIds:
+        anilistId: 2672
+        anidbId: 6595
+        tvdbId: 252696
+    - id: doraemon-film-27
+      titles:
+        original: ドラえもん のび太の新魔界大冒険~7人の魔法使い~
+        translations:
+          ja: ドラえもん のび太の新魔界大冒険~7人の魔法使い~
+          ja-Latn: 'Doraemon Movie 27: Nobita no Shin Makai Daibouken - 7-nin no Mahoutsukai'
+      releaseYear: 2007
+      externalIds:
+        anilistId: 2673
+        anidbId: 5432
+        tvdbId: 252696
+    - id: doraemon-film-28
+      titles:
+        original: ドラえもん のび太の創世日記
+        translations:
+          ja: ドラえもん のび太の創世日記
+          ja-Latn: 'Doraemon Movie 16: Nobita no Sousei Nikki'
+      releaseYear: 1995
+      externalIds:
+        anilistId: 2674
+        anidbId: 6585
+        tvdbId: 252696
+    - id: doraemon-film-29
+      titles:
+        original: ドラえもん のび太と銀河超特急(エクスプレス)
+        translations:
+          ja: ドラえもん のび太と銀河超特急(エクスプレス)
+          ja-Latn: 'Doraemon Movie 17: Nobita to Ginga Express'
+      releaseYear: 1996
+      externalIds:
+        anilistId: 2675
+        anidbId: 5046
+        tvdbId: 252696
+    - id: doraemon-film-30
+      titles:
+        original: ドラえもん のび太と夢幻三剣士
+        translations:
+          ja: ドラえもん のび太と夢幻三剣士
+          ja-Latn: 'Doraemon Movie 15: Nobita to Mugen Sankenshi'
+      releaseYear: 1994
+      externalIds:
+        anilistId: 2676
+        anidbId: 6586
+        tvdbId: 252696
+    - id: doraemon-film-31
+      titles:
+        original: ドラえもん のび太とアニマル惑星
+        translations:
+          ja: ドラえもん のび太とアニマル惑星
+          ja-Latn: 'Doraemon Movie 11: Nobita to Animal Planet'
+      releaseYear: 1990
+      externalIds:
+        anilistId: 2677
+        anidbId: 4673
+        tvdbId: 252696
+    - id: doraemon-film-32
+      titles:
+        original: ドラえもん のび太のねじ巻き都市[シティー]冒険記
+        translations:
+          ja: ドラえもん のび太のねじ巻き都市[シティー]冒険記
+          ja-Latn: 'Doraemon Movie 18: Nobita no Nejimaki City Boukenki'
+      releaseYear: 1997
+      externalIds:
+        anilistId: 2678
+        anidbId: 6584
+        tvdbId: 252696
+    - id: doraemon-film-33
+      titles:
+        original: ドラえもん のび太の恐竜
+        translations:
+          ja: ドラえもん のび太の恐竜
+          ja-Latn: 'Doraemon Movie 01: Nobita no Kyouryuu'
+      releaseYear: 1980
+      externalIds:
+        anilistId: 3727
+        anidbId: 3114
+        tvdbId: 252696
+    - id: doraemon-film-34
+      titles:
+        original: ドラえもん のび太と緑の巨人伝
+        translations:
+          ja: ドラえもん のび太と緑の巨人伝
+          ja-Latn: 'Doraemon Movie 28: Nobita to Midori no Kyojin Den'
+      releaseYear: 2008
+      externalIds:
+        anilistId: 5096
+        anidbId: 6382
+        tvdbId: 252696
+    - id: doraemon-film-35
+      titles:
+        original: ドラえもん のび太の人魚大海戦
+        translations:
+          ja: ドラえもん のび太の人魚大海戦
+          ja-Latn: 'Doraemon Movie 30: Nobita no Ningyo Daikaisen'
+      releaseYear: 2010
+      externalIds:
+        anilistId: 6988
+        anidbId: 6719
+        tvdbId: 252696
+    - id: doraemon-film-36
+      titles:
+        original: ドラえもん のび太の太陽王伝説
+        translations:
+          ja: ドラえもん のび太の太陽王伝説
+          ja-Latn: 'Doraemon Movie 21: Nobita no Taiyou Ou Densetsu'
+      releaseYear: 2000
+      externalIds:
+        anilistId: 7045
+        anidbId: 6583
+        tvdbId: 252696
+    - id: doraemon-film-37
+      titles:
+        original: ドラえもん 新・のび太と鉄人兵団 ～はばたけ 天使たち～
+        translations:
+          ja: ドラえもん 新・のび太と鉄人兵団 ～はばたけ 天使たち～
+          ja-Latn: 'Doraemon Movie 31: Shin Nobita to Tetsujin Heidan - Habatake Tenshi-tachi'
+      releaseYear: 2011
+      externalIds:
+        anilistId: 10534
+        anidbId: 7770
+        tvdbId: 252696
+    - id: doraemon-film-38
+      titles:
+        original: ドラえもん のび太と奇跡の島 ～アニマル アドベンチャー～
+        translations:
+          ja: ドラえもん のび太と奇跡の島 ～アニマル アドベンチャー～
+          ja-Latn: 'Doraemon Movie 32: Nobita to Kiseki no Shima - Animal Adventure'
+      releaseYear: 2012
+      externalIds:
+        anilistId: 11053
+        anidbId: 8542
+        tvdbId: 252696
+    - id: doraemon-film-39
+      titles:
+        original: 映画 ドラえもん のび太のひみつ道具博物館[ミュージアム]
+        translations:
+          ja: 映画 ドラえもん のび太のひみつ道具博物館[ミュージアム]
+          ja-Latn: 'Doraemon Movie 33: Nobita no Himitsu Dougu Museum'
+      releaseYear: 2013
+      externalIds:
+        anilistId: 15925
+        anidbId: 9316
+        tvdbId: 252696
+    - id: doraemon-film-40
+      titles:
+        original: 映画 ドラえもん 新・のび太の大魔境～ペコと5人の探検隊～
+        translations:
+          ja: 映画 ドラえもん 新・のび太の大魔境～ペコと5人の探検隊～
+          ja-Latn: 'Doraemon Movie 34: Shin Nobita no Daimakyou - Peko to 5-nin no Tankentai'
+      releaseYear: 2014
+      externalIds:
+        anilistId: 19645
+        anidbId: 9975
+        tvdbId: 252696
+    - id: doraemon-film-41
+      titles:
+        original: STAND BY ME ドラえもん
+        translations:
+          ja: STAND BY ME ドラえもん
+          ja-Latn: Stand By Me Doraemon
+      releaseYear: 2014
+      externalIds:
+        anilistId: 20515
+        anidbId: 10253
+        tvdbId: 252696
+    - id: doraemon-film-42
+      titles:
+        original: 映画 ドラえもん 新・のび太の日本誕生
+        translations:
+          ja: 映画 ドラえもん 新・のび太の日本誕生
+          ja-Latn: 'Doraemon Movie 36: Shin Nobita no Nippon Tanjou'
+      releaseYear: 2016
+      externalIds:
+        anilistId: 87438
+        anidbId: 11353
+    - id: doraemon-film-43
+      titles:
+        original: 哆啦A梦 大雄的金银岛
+        translations:
+          ja: 哆啦A梦 大雄的金银岛
+          ja-Latn: 'Doraemon Movie 38: Nobita no Takarajima'
+      releaseYear: 2018
+      externalIds:
+        anilistId: 99084
+        anidbId: 13228
+    - id: doraemon-film-44
+      titles:
+        original: ドラえもん のび太の南極カチコチ大冒険
+        translations:
+          ja: ドラえもん のび太の南極カチコチ大冒険
+          ja-Latn: 'Doraemon Movie 37: Nobita no Nankyoku Kachikochi Daibouken'
+      releaseYear: 2017
+      externalIds:
+        anilistId: 99085
+        anidbId: 12275
+    - id: doraemon-film-45
+      titles:
+        original: ドラえもん のび太の宇宙英雄記
+        translations:
+          ja: ドラえもん のび太の宇宙英雄記
+          ja-Latn: 'Doraemon Movie 35: Nobita no Space Heroes'
+      releaseYear: 2015
+      externalIds:
+        anilistId: 100291
+        anidbId: 10737
+    - id: doraemon-film-46
+      titles:
+        original: ドラえもん のび太の月面探査記
+        translations:
+          ja: ドラえもん のび太の月面探査記
+          ja-Latn: 'Doraemon Movie 39: Nobita no Getsumen Tansaki'
+      releaseYear: 2019
+      externalIds:
+        anilistId: 106493
+        anidbId: 14446
+    - id: doraemon-film-47
+      titles:
+        original: 哆啦A夢：大雄的新恐龍
+        translations:
+          ja: 哆啦A夢：大雄的新恐龍
+          ja-Latn: 'Doraemon Movie 40: Nobita no Shin Kyouryuu'
+      releaseYear: 2020
+      externalIds:
+        anilistId: 113669
+        anidbId: 14984
+    - id: doraemon-film-48
+      titles:
+        original: STAND BY ME ドラえもん 2
+        translations:
+          ja: STAND BY ME ドラえもん 2
+          ja-Latn: Stand By Me Doraemon 2
+      releaseYear: 2020
+      externalIds:
+        anilistId: 122575
+        anidbId: 15306
+    - id: doraemon-film-49
+      titles:
+        original: ': 映画ドラえもん のび太の宇宙小戦争（リトルスターウォーズ） 2021'
+        translations:
+          ja: ': 映画ドラえもん のび太の宇宙小戦争（リトルスターウォーズ） 2021'
+          ja-Latn: 'Doraemon Movie 41: Nobita no Little Star Wars'
+      releaseYear: 2022
+      externalIds:
+        anilistId: 126783
+        anidbId: 15852
+    - id: doraemon-film-50
+      titles:
+        original: 哆啦A梦：大雄与天空的理想乡
+        translations:
+          ja: 哆啦A梦：大雄与天空的理想乡
+          ja-Latn: 'Doraemon Movie 42: Nobita to Sora no Utopia'
+      releaseYear: 2023
+      externalIds:
+        anilistId: 151896
+        anidbId: 17500
+    - id: doraemon-film-51
+      titles:
+        original: 哆啦A梦：大雄的地球交响乐
+        translations:
+          ja: 哆啦A梦：大雄的地球交响乐
+          ja-Latn: 'Doraemon Movie 43: Nobita no Chikyuu Symphony'
+      releaseYear: 2024
+      externalIds:
+        anilistId: 166976
+        anidbId: 18102
+    - id: doraemon-film-52
+      titles:
+        original: 映画ドラえもん 新・のび太の海底鬼岩城
+        translations:
+          ja: 映画ドラえもん 新・のび太の海底鬼岩城
+          ja-Latn: 'Doraemon Movie 45: Shin Nobita no Kaitei Kiganjou'
+      releaseYear: 2026
+      externalIds:
+        anilistId: 198368
+        anidbId: 19711

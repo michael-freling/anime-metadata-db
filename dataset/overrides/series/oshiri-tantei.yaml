@@ -48,5 +48,13 @@ series:
       externalIds: { anilistId: 185643 } # Oshiri Tantei Movie 6: Star and Moon (Winter 2025)
     - id: oshiri-tantei-film-2
       externalIds: { anilistId: 116224 } # Oshiri Tantei Movie 2: Tentoumushi Iseki no Nazo (2020)
+    - id: oshiri-tantei-film-3
+      externalIds: { anilistId: 116225 } # Oshiri Tantei Movie 1: Curry Naru Jiken (2019)
+    - id: oshiri-tantei-film-4
+      externalIds: { anilistId: 132698 } # Oshiri Tantei Movie 3: Sufure-tou no Himitsu (2021)
+    - id: oshiri-tantei-film-5
+      externalIds: { anilistId: 142806 } # Oshiri Tantei Movie 4: Shiriarty (2022)
+    - id: oshiri-tantei-film-6
+      externalIds: { anilistId: 172016 } # Oshiri Tantei Movie 5: Saraba Itoshiki Aibou (Oshiri) yo (2024)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [oshiri-tantei]

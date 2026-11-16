@@ -29,3 +29,23 @@ series:
       episodes:
         count: 50
         absoluteFrom: 49
+    - id: shadowverse-s3
+      number: 3
+      releaseYear: 2023
+      releaseSeason: SUMMER
+      externalIds:
+        anilistId: 163136
+        anidbId: 17952
+      episodes:
+        count: 25
+        absoluteFrom: 99
+    - id: shadowverse-s4
+      number: 4
+      releaseYear: 2024
+      releaseSeason: SPRING
+      externalIds:
+        anilistId: 172187
+        anidbId: 18580
+      episodes:
+        count: 23
+        absoluteFrom: 124

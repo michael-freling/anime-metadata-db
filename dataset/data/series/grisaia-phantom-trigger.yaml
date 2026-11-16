@@ -17,7 +17,7 @@ series:
         tvdbId: 447951
       episodes:
         count: 13
-        absoluteFrom: 2
+        absoluteFrom: 3
   movies:
     - id: grisaia-phantom-trigger-film
       titles:
@@ -31,3 +31,13 @@ series:
         anidbId: 13273
         tvdbId: 447951
       absoluteNumber: 1
+    - id: grisaia-phantom-trigger-film-2
+      titles:
+        original: グリザイア：ファントムトリガー THE ANIMATION スターゲイザー
+        translations:
+          ja: グリザイア：ファントムトリガー THE ANIMATION スターゲイザー
+          ja-Latn: 'Grisaia: Phantom Trigger The Animation - Stargazer'
+      releaseYear: 2020
+      externalIds:
+        anilistId: 120892
+      absoluteNumber: 2

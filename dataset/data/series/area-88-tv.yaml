@@ -20,4 +20,17 @@ series:
         tvdbId: 81867
       episodes:
         count: 12
-        absoluteFrom: 1
+        absoluteFrom: 2
+  movies:
+    - id: area-88-tv-film
+      titles:
+        original: エリア88 劇場版
+        translations:
+          ja: エリア88 劇場版
+          ja-Latn: Area 88 Movie
+      releaseYear: 1985
+      externalIds:
+        anilistId: 98129
+        anidbId: 7089
+        tvdbId: 81867
+      absoluteNumber: 1

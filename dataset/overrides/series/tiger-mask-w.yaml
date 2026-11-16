@@ -9,5 +9,8 @@ series:
   seasons:
     - id: tiger-mask-w-s1
       number: 1
+  movies:
+    - id: tiger-mask-w-film
+      externalIds: { anilistId: 18063 } # Tiger Mask Fuku Men League Sen (1970)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [tiger-mask-w]

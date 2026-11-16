@@ -15,6 +15,9 @@ series:
     - id: aquarion-s2
       number: 2
       externalIds: { anilistId: 10447 } # Aquarion Evol (2012)
+    - id: aquarion-s3
+      number: 3
+      externalIds: { anilistId: 21115 } # Aquarion Logos (2015)
   movies:
     - id: aquarion-film
 # One linear storyline: episodes carry a continuous absoluteNumber.

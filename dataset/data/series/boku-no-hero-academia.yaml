@@ -53,7 +53,7 @@ series:
         tvdbId: 305074
       episodes:
         count: 25
-        absoluteFrom: 65
+        absoluteFrom: 66
     - id: boku-no-hero-academia-s5
       number: 5
       releaseYear: 2021
@@ -64,7 +64,7 @@ series:
         tvdbId: 305074
       episodes:
         count: 25
-        absoluteFrom: 90
+        absoluteFrom: 92
     - id: boku-no-hero-academia-s6
       number: 6
       releaseYear: 2022
@@ -75,7 +75,7 @@ series:
         tvdbId: 305074
       episodes:
         count: 25
-        absoluteFrom: 115
+        absoluteFrom: 117
     - id: boku-no-hero-academia-s7
       number: 7
       releaseYear: 2024
@@ -86,7 +86,7 @@ series:
         tvdbId: 305074
       episodes:
         count: 21
-        absoluteFrom: 140
+        absoluteFrom: 144
     - id: boku-no-hero-academia-s8
       number: 8
       releaseYear: 2025
@@ -97,7 +97,7 @@ series:
         tvdbId: 305074
       episodes:
         count: 11
-        absoluteFrom: 161
+        absoluteFrom: 165
   movies:
     - id: boku-no-hero-academia-film
       titles:
@@ -111,3 +111,51 @@ series:
         anidbId: 13633
         tvdbId: 305074
       absoluteNumber: 39
+    - id: boku-no-hero-academia-film-2
+      titles:
+        original: 僕のヒーローアカデミア THE MOVIE 2
+        translations:
+          ja: 僕のヒーローアカデミア THE MOVIE 2
+          ja-Latn: 'Boku no Hero Academia the Movie 2: Heroes:Rising'
+      releaseYear: 2019
+      externalIds:
+        anilistId: 108553
+        anidbId: 14776
+        tvdbId: 305074
+      absoluteNumber: 65
+    - id: boku-no-hero-academia-film-3
+      titles:
+        original: 僕のヒーローアカデミア THE MOVIE 3
+        translations:
+          ja: 僕のヒーローアカデミア THE MOVIE 3
+          ja-Latn: 'Boku no Hero Academia the Movie 3: World Heroes'' Mission'
+      releaseYear: 2021
+      externalIds:
+        anilistId: 126659
+        anidbId: 15873
+        tvdbId: 305074
+      absoluteNumber: 91
+    - id: boku-no-hero-academia-film-4
+      titles:
+        original: 僕のヒーローアカデミア THE MOVIE
+        translations:
+          ja: 僕のヒーローアカデミア THE MOVIE
+          ja-Latn: 'Boku no Hero Academia the Movie 4: You''re Next'
+      releaseYear: 2024
+      externalIds:
+        anilistId: 168013
+        anidbId: 18150
+        tvdbId: 305074
+      absoluteNumber: 143
+    - id: boku-no-hero-academia-film-5
+      titles:
+        original: 僕のヒーローアカデミア 雄英ヒーローズ・バトル
+        translations:
+          ja: 僕のヒーローアカデミア 雄英ヒーローズ・バトル
+          ja-Latn: 'Boku no Hero Academia: UA Heroes Battle'
+      releaseYear: 2023
+      externalIds:
+        anilistId: 169402
+        anidbId: 18199
+        tvdbId: 305074
+      absoluteNumber: 142
