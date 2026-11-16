@@ -4,8 +4,11 @@ series:
   titles:
     original: 新米錬金術師の店舗経営
     translations:
+      en: Management of Novice Alchemist
       ja-Latn: Shinmai Renkinjutsushi no Tenpo Keiei
   ordering: absolute
+  externalIds:
+    wikidataId: Q108581756
   seasons:
     - id: shinmai-renkinjutsushi-no-tenpo-keiei-s1
       number: 1

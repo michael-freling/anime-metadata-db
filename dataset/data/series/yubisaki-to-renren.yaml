@@ -4,8 +4,11 @@ series:
   titles:
     original: ゆびさきと恋々
     translations:
+      en: A Sign of Affection
       ja-Latn: Yubisaki to Renren
   ordering: absolute
+  externalIds:
+    wikidataId: Q107197531
   seasons:
     - id: yubisaki-to-renren-s1
       number: 1

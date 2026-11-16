@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Deaimon
   ordering: absolute
+  externalIds:
+    wikidataId: Q106575078
   seasons:
     - id: deaimon-s1
       number: 1

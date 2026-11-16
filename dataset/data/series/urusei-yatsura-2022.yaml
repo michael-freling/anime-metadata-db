@@ -4,8 +4,11 @@ series:
   titles:
     original: うる星やつら
     translations:
+      en: Urusei Yatsura
       ja-Latn: Urusei Yatsura (2022)
   ordering: release
+  externalIds:
+    wikidataId: Q715723
   seasons:
     - id: urusei-yatsura-2022-s1
       number: 1

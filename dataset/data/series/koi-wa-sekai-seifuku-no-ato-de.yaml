@@ -4,8 +4,11 @@ series:
   titles:
     original: 恋は世界征服のあとで
     translations:
+      en: Love After World Domination
       ja-Latn: Koi wa Sekai Seifuku no Ato de
   ordering: absolute
+  externalIds:
+    wikidataId: Q106323045
   seasons:
     - id: koi-wa-sekai-seifuku-no-ato-de-s1
       number: 1

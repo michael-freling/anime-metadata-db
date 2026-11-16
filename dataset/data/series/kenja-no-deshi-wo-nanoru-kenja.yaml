@@ -4,8 +4,11 @@ series:
   titles:
     original: 賢者の弟子を名乗る賢者
     translations:
+      en: She Professed Herself Pupil of the Wise Man
       ja-Latn: Kenja no Deshi wo Nanoru Kenja
   ordering: absolute
+  externalIds:
+    wikidataId: Q60996787
   seasons:
     - id: kenja-no-deshi-wo-nanoru-kenja-s1
       number: 1

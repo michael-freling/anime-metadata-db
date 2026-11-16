@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kageki Shoujo!!
   ordering: absolute
+  externalIds:
+    wikidataId: Q100957206
   seasons:
     - id: kageki-shoujo-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Do It Yourself!!
   ordering: absolute
+  externalIds:
+    wikidataId: Q106189045
   seasons:
     - id: do-it-yourself-s1
       number: 1

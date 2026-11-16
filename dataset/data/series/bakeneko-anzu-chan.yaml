@@ -4,8 +4,11 @@ series:
   titles:
     original: 化け猫あんずちゃん
     translations:
+      en: Ghost Cat Anzu
       ja-Latn: Bakeneko Anzu-chan
   ordering: absolute
+  externalIds:
+    wikidataId: Q11400680
   movies:
     - id: bakeneko-anzu-chan-film
       titles:

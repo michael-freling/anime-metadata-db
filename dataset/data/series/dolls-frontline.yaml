@@ -4,8 +4,11 @@ series:
   titles:
     original: ドールズフロントライン
     translations:
+      en: Girls' Frontline
       ja-Latn: Dolls' Frontline
   ordering: absolute
+  externalIds:
+    wikidataId: Q24834490
   seasons:
     - id: dolls-frontline-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Youkai Watch ♪
   ordering: absolute
+  externalIds:
+    wikidataId: Q105703505
   seasons:
     - id: youkai-watch-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: レベル1だけどユニークスキルで最強です
     translations:
+      en: My Unique Skill Makes Me OP Even at Level 1
       ja-Latn: Level 1 dakedo Unique Skill de Saikyou desu
   ordering: absolute
+  externalIds:
+    wikidataId: Q111846496
   seasons:
     - id: level-1-dakedo-unique-skill-de-saikyou-desu-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Grendizer U
   ordering: absolute
+  externalIds:
+    wikidataId: Q121202632
   seasons:
     - id: grendizer-u-s1
       number: 1

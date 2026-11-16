@@ -4,8 +4,11 @@ series:
   titles:
     original: Fate/Grand Order -終局特異点 冠位時間神殿ソロモン-
     translations:
+      en: 'Fate/Grand Order: Final Singularity-Grand Temple of Time: Solomon'
       ja-Latn: 'Fate/Grand Order: Shuukyoku Tokuiten - Kani Jikan Shinden Solomon'
   ordering: absolute
+  externalIds:
+    wikidataId: Q113635260
   movies:
     - id: fate-grand-order-shuukyoku-tokuiten-kani-jikan-shinden-solomon-film
       titles:

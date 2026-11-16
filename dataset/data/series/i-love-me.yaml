@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: I Love Me
   ordering: absolute
+  externalIds:
+    wikidataId: Q140681803
   seasons:
     - id: i-love-me-s1
       number: 1

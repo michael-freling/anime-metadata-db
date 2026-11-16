@@ -4,8 +4,11 @@ series:
   titles:
     original: 平穏世代の韋駄天達
     translations:
+      en: The Idaten Deities Know Only Peace
       ja-Latn: Heion Sedai no Idaten-tachi
   ordering: absolute
+  externalIds:
+    wikidataId: Q101209152
   seasons:
     - id: heion-sedai-no-idaten-tachi-s1
       number: 1

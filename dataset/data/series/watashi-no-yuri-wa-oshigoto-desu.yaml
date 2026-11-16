@@ -4,8 +4,11 @@ series:
   titles:
     original: 私の百合はお仕事です!
     translations:
+      en: Yuri Is My Job!
       ja-Latn: Watashi no Yuri wa Oshigoto desu!
   ordering: absolute
+  externalIds:
+    wikidataId: Q48745638
   seasons:
     - id: watashi-no-yuri-wa-oshigoto-desu-s1
       number: 1

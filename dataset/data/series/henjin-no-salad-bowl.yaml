@@ -4,8 +4,11 @@ series:
   titles:
     original: 変人のサラダボウル
     translations:
+      en: A Salad Bowl of Eccentrics
       ja-Latn: Henjin no Salad Bowl
   ordering: absolute
+  externalIds:
+    wikidataId: Q120402098
   seasons:
     - id: henjin-no-salad-bowl-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hokkyoku Hyakkaten no Concierge-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q117841927
   movies:
     - id: hokkyoku-hyakkaten-no-concierge-san-film
       titles:

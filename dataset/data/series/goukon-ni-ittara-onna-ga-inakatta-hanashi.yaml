@@ -4,8 +4,11 @@ series:
   titles:
     original: 合コンに行ったら女がいなかった話
     translations:
+      en: How I Attended an All-Guy's Mixer
       ja-Latn: Goukon ni Ittara Onna ga Inakatta Hanashi
   ordering: absolute
+  externalIds:
+    wikidataId: Q111903516
   seasons:
     - id: goukon-ni-ittara-onna-ga-inakatta-hanashi-s1
       number: 1

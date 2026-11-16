@@ -4,8 +4,11 @@ series:
   titles:
     original: 陰の実力者になりたくて!
     translations:
+      en: The Eminence in Shadow
       ja-Latn: Kage no Jitsuryokusha ni Naritakute!
   ordering: absolute
+  externalIds:
+    wikidataId: Q97350479
   seasons:
     - id: kage-no-jitsuryokusha-ni-naritakute-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 継母の連れ子が元カノだった
     translations:
+      en: My Stepmom's Daughter Is My Ex
       ja-Latn: Mamahaha no Tsurego ga Motokano datta
   ordering: absolute
+  externalIds:
+    wikidataId: Q97576935
   seasons:
     - id: mamahaha-no-tsurego-ga-motokano-datta-s1
       number: 1

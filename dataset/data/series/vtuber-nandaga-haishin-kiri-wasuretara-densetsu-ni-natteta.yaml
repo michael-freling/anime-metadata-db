@@ -4,8 +4,11 @@ series:
   titles:
     original: VTuberなんだが配信切り忘れたら伝説になってた
     translations:
+      en: VTuber Legend
       ja-Latn: VTuber Nandaga Haishin Kiri Wasuretara Densetsu ni Natteta
   ordering: absolute
+  externalIds:
+    wikidataId: Q107122248
   seasons:
     - id: vtuber-nandaga-haishin-kiri-wasuretara-densetsu-ni-natteta-s1
       number: 1

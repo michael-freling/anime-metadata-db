@@ -4,8 +4,11 @@ series:
   titles:
     original: 夜は猫といっしょ
     translations:
+      en: Nights with a Cat
       ja-Latn: Yoru wa Neko to Issho
   ordering: absolute
+  externalIds:
+    wikidataId: Q111782517
   seasons:
     - id: yoru-wa-neko-to-issho-s1
       number: 1

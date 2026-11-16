@@ -4,8 +4,11 @@ series:
   titles:
     original: おとなりに銀河
     translations:
+      en: A Galaxy Next Door
       ja-Latn: Otonari ni Ginga
   ordering: absolute
+  externalIds:
+    wikidataId: Q107548123
   seasons:
     - id: otonari-ni-ginga-s1
       number: 1

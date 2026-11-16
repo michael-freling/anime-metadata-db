@@ -4,8 +4,11 @@ series:
   titles:
     original: ゴジラ S.P ＜シンギュラポイント＞
     translations:
+      en: Godzilla Singular Point
       ja-Latn: 'Godzilla: S.P'
   ordering: absolute
+  externalIds:
+    wikidataId: Q100977481
   seasons:
     - id: godzilla-s-p-s1
       number: 1

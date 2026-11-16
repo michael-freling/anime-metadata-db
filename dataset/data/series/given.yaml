@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Given
   ordering: release
+  externalIds:
+    wikidataId: Q62065509
   seasons:
     - id: given-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: トミカ絆合体 アースグランナー
     translations:
+      en: Tomica Bond Combination Earth Granner
       ja-Latn: 'Tomica Kizuna Gattai: Earth Granner'
   ordering: absolute
+  externalIds:
+    wikidataId: Q82685235
   seasons:
     - id: tomica-kizuna-gattai-earth-granner-s1
       number: 1

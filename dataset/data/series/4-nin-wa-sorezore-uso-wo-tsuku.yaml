@@ -4,8 +4,11 @@ series:
   titles:
     original: 4人はそれぞれウソをつく
     translations:
+      en: 4-Nin wa Sorezore Uso o Tsuku
       ja-Latn: 4-nin wa Sorezore Uso wo Tsuku
   ordering: absolute
+  externalIds:
+    wikidataId: Q111423065
   seasons:
     - id: 4-nin-wa-sorezore-uso-wo-tsuku-s1
       number: 1

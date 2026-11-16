@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Digimon Adventure:'
   ordering: absolute
+  externalIds:
+    wikidataId: Q83133117
   seasons:
     - id: digimon-adventure-s1
       number: 1

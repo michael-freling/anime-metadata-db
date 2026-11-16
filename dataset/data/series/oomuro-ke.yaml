@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Oomuro-ke
   ordering: release
+  externalIds:
+    wikidataId: Q15945046
   movies:
     - id: oomuro-ke-film
       titles:

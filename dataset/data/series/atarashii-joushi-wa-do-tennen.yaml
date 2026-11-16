@@ -4,8 +4,11 @@ series:
   titles:
     original: 新しい上司はど天然
     translations:
+      en: My New Boss Is Goofy
       ja-Latn: Atarashii Joushi wa Do Tennen
   ordering: absolute
+  externalIds:
+    wikidataId: Q86731082
   seasons:
     - id: atarashii-joushi-wa-do-tennen-s1
       number: 1

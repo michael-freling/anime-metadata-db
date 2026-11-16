@@ -4,8 +4,11 @@ series:
   titles:
     original: ジャヒー様はくじけない!
     translations:
+      en: The Great Jahy Will Not Be Defeated!
       ja-Latn: Jahy-sama wa Kujikenai!
   ordering: absolute
+  externalIds:
+    wikidataId: Q55523574
   seasons:
     - id: jahy-sama-wa-kujikenai-s1
       number: 1

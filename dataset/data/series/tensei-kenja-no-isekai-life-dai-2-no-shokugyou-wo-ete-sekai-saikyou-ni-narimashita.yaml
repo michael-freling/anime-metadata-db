@@ -4,8 +4,11 @@ series:
   titles:
     original: 転生賢者の異世界ライフ 〜第二の職業を得て、世界最強になりました〜
     translations:
+      en: My Isekai Life
       ja-Latn: 'Tensei Kenja no Isekai Life: Dai-2 no Shokugyou wo Ete, Sekai Saikyou ni Narimashita'
   ordering: absolute
+  externalIds:
+    wikidataId: Q105164595
   seasons:
     - id: tensei-kenja-no-isekai-life-dai-2-no-shokugyou-wo-ete-sekai-saikyou-ni-narimashita-s1
       number: 1

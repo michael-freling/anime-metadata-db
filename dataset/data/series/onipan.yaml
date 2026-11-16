@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Onipan!
   ordering: absolute
+  externalIds:
+    wikidataId: Q111040699
   seasons:
     - id: onipan-s1
       number: 1

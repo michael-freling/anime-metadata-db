@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Nintama Rantaro
   ordering: absolute
+  externalIds:
+    wikidataId: Q713975
   seasons:
     - id: nintama-rantaro-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 人間不信の冒険者たちが世界を救うようです
     translations:
+      en: Apparently, Disillusioned Adventurers Will Save the World
       ja-Latn: Ningen Fushin no Boukensha-tachi ga Sekai wo Sukuu you desu
   ordering: absolute
+  externalIds:
+    wikidataId: Q108106327
   seasons:
     - id: ningen-fushin-no-boukensha-tachi-ga-sekai-wo-sukuu-you-desu-s1
       number: 1

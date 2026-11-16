@@ -4,8 +4,11 @@ series:
   titles:
     original: 転生したら剣でした
     translations:
+      en: Reincarnated as a Sword
       ja-Latn: Tensei shitara Ken deshita
   ordering: absolute
+  externalIds:
+    wikidataId: Q55530425
   seasons:
     - id: tensei-shitara-ken-deshita-s1
       number: 1

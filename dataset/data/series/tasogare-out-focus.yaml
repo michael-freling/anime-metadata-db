@@ -4,8 +4,11 @@ series:
   titles:
     original: 黄昏アウトフォーカス
     translations:
+      en: Twilight Out of Focus
       ja-Latn: Tasogare Out Focus
   ordering: absolute
+  externalIds:
+    wikidataId: Q120402151
   seasons:
     - id: tasogare-out-focus-s1
       number: 1

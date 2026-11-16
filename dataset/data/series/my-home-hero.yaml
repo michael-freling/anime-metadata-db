@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: My Home Hero
   ordering: absolute
+  externalIds:
+    wikidataId: Q48744368
   seasons:
     - id: my-home-hero-s1
       number: 1

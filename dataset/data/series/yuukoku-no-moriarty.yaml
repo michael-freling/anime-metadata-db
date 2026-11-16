@@ -4,8 +4,11 @@ series:
   titles:
     original: 憂国のモリアーティ
     translations:
+      en: Moriarty the Patriot
       ja-Latn: Yuukoku no Moriarty
   ordering: absolute
+  externalIds:
+    wikidataId: Q28682812
   seasons:
     - id: yuukoku-no-moriarty-s1
       number: 1

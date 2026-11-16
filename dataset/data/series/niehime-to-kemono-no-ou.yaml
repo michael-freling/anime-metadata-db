@@ -4,8 +4,11 @@ series:
   titles:
     original: 贄姫と獣の王
     translations:
+      en: Sacrificial Princess and the King of Beasts
       ja-Latn: Niehime to Kemono no Ou
   ordering: absolute
+  externalIds:
+    wikidataId: Q58834569
   seasons:
     - id: niehime-to-kemono-no-ou-s1
       number: 1

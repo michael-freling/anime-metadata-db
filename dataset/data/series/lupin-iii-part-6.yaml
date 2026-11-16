@@ -4,8 +4,11 @@ series:
   titles:
     original: ルパン三世 PART6
     translations:
+      en: Lupin the 3rd Part 6
       ja-Latn: 'Lupin III: Part 6'
   ordering: absolute
+  externalIds:
+    wikidataId: Q106984390
   seasons:
     - id: lupin-iii-part-6-s1
       number: 1

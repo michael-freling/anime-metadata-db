@@ -4,8 +4,11 @@ series:
   titles:
     original: うたわれるもの 二人の白皇
     translations:
+      en: 'Utawarerumono: Mask of Truth'
       ja-Latn: 'Utawarerumono: Futari no Hakuoro'
   ordering: absolute
+  externalIds:
+    wikidataId: Q21663904
   seasons:
     - id: utawarerumono-futari-no-hakuoro-s1
       number: 1

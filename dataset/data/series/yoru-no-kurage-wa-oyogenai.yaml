@@ -4,8 +4,11 @@ series:
   titles:
     original: 夜のクラゲは泳げない
     translations:
+      en: Jellyfish Can't Swim in the Night
       ja-Latn: Yoru no Kurage wa Oyogenai
   ordering: absolute
+  externalIds:
+    wikidataId: Q117287200
   seasons:
     - id: yoru-no-kurage-wa-oyogenai-s1
       number: 1

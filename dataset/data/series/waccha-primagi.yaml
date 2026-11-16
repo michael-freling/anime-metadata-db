@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Waccha PriMagi!
   ordering: absolute
+  externalIds:
+    wikidataId: Q107342519
   seasons:
     - id: waccha-primagi-s1
       number: 1

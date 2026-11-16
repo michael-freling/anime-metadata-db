@@ -4,8 +4,11 @@ series:
   titles:
     original: 終末のハーレム
     translations:
+      en: World's End Harem
       ja-Latn: Shuumatsu no Harem
   ordering: absolute
+  externalIds:
+    wikidataId: Q28068103
   seasons:
     - id: shuumatsu-no-harem-s1
       number: 1

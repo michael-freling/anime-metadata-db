@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Blue Period
   ordering: absolute
+  externalIds:
+    wikidataId: Q74458180
   seasons:
     - id: blue-period-s1
       number: 1

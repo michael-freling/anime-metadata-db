@@ -4,8 +4,11 @@ series:
   titles:
     original: 名探偵コナン 犯人の犯沢さん
     translations:
+      en: 'Detective Conan: The Culprit Hanzawa'
       ja-Latn: 'Meitantei Conan: Hannin no Hanzawa-san'
   ordering: absolute
+  externalIds:
+    wikidataId: Q97220908
   seasons:
     - id: meitantei-conan-hannin-no-hanzawa-san-s1
       number: 1

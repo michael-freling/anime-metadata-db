@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Chainsaw Man
   ordering: absolute
+  externalIds:
+    wikidataId: Q65240543
   seasons:
     - id: chainsaw-man-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Getter Robo Arc
   ordering: absolute
+  externalIds:
+    wikidataId: Q3761511
   seasons:
     - id: getter-robo-arc-s1
       number: 1

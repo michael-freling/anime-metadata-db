@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tesla Note
   ordering: absolute
+  externalIds:
+    wikidataId: Q106401899
   seasons:
     - id: tesla-note-s1
       number: 1

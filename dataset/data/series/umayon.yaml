@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Umayon
   ordering: absolute
+  externalIds:
+    wikidataId: Q104336450
   seasons:
     - id: umayon-s1
       number: 1

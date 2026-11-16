@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Snack Basue
   ordering: absolute
+  externalIds:
+    wikidataId: Q55521478
   seasons:
     - id: snack-basue-s1
       number: 1

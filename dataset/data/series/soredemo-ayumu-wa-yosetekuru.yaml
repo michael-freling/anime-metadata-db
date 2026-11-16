@@ -4,8 +4,11 @@ series:
   titles:
     original: それでも歩は寄せてくる
     translations:
+      en: When Will Ayumu Make His Move?
       ja-Latn: Soredemo Ayumu wa Yosetekuru
   ordering: absolute
+  externalIds:
+    wikidataId: Q65235067
   seasons:
     - id: soredemo-ayumu-wa-yosetekuru-s1
       number: 1

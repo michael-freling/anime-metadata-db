@@ -4,8 +4,11 @@ series:
   titles:
     original: やり直し令嬢は竜帝陛下を攻略中
     translations:
+      en: The Do-Over Damsel Conquers the Dragon Emperor
       ja-Latn: Yarinaoshi Reijou wa Ryuutei Heika wo Kouryakuchuu
   ordering: absolute
+  externalIds:
+    wikidataId: Q117894818
   seasons:
     - id: yarinaoshi-reijou-wa-ryuutei-heika-wo-kouryakuchuu-s1
       number: 1

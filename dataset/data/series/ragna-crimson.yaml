@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Ragna Crimson
   ordering: absolute
+  externalIds:
+    wikidataId: Q102254282
   seasons:
     - id: ragna-crimson-s1
       number: 1

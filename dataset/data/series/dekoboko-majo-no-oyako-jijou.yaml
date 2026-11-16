@@ -4,8 +4,11 @@ series:
   titles:
     original: でこぼこ魔女の親子事情
     translations:
+      en: The Family Circumstances of the Irregular Witch
       ja-Latn: Dekoboko Majo no Oyako Jijou
   ordering: absolute
+  externalIds:
+    wikidataId: Q113860060
   seasons:
     - id: dekoboko-majo-no-oyako-jijou-s1
       number: 1

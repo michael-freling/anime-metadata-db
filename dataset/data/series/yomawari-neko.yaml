@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Yomawari Neko
   ordering: absolute
+  externalIds:
+    wikidataId: Q115426721
   seasons:
     - id: yomawari-neko-s1
       number: 1

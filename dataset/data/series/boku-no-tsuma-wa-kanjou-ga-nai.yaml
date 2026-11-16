@@ -4,8 +4,11 @@ series:
   titles:
     original: 僕の妻は感情がない
     translations:
+      en: My Wife Has No Emotion
       ja-Latn: Boku no Tsuma wa Kanjou ga Nai
   ordering: absolute
+  externalIds:
+    wikidataId: Q97220054
   seasons:
     - id: boku-no-tsuma-wa-kanjou-ga-nai-s1
       number: 1

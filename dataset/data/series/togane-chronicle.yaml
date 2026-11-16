@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tōgane! Chronicle
   ordering: absolute
+  externalIds:
+    wikidataId: Q132443443
   seasons:
     - id: togane-chronicle-s1
       number: 1

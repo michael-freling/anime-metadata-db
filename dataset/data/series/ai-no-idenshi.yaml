@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: AI no Idenshi
   ordering: absolute
+  externalIds:
+    wikidataId: Q38277876
   seasons:
     - id: ai-no-idenshi-s1
       number: 1

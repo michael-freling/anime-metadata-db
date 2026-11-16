@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Neko Jockey
   ordering: absolute
+  externalIds:
+    wikidataId: Q109598999
   seasons:
     - id: neko-jockey-s1
       number: 1

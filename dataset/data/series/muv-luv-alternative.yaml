@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Muv-Luv Alternative
   ordering: absolute
+  externalIds:
+    wikidataId: Q3868778
   seasons:
     - id: muv-luv-alternative-s1
       number: 1

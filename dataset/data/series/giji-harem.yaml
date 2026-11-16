@@ -4,8 +4,11 @@ series:
   titles:
     original: 疑似ハーレム
     translations:
+      en: Pseudo Harem
       ja-Latn: Giji Harem
   ordering: absolute
+  externalIds:
+    wikidataId: Q99543935
   seasons:
     - id: giji-harem-s1
       number: 1

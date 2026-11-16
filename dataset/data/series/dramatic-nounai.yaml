@@ -4,8 +4,11 @@ series:
   titles:
     original: ドラ馬チック脳内
     translations:
+      en: Doramachikku Nōnai
       ja-Latn: Dramatic Nounai
   ordering: absolute
+  externalIds:
+    wikidataId: Q114855561
   seasons:
     - id: dramatic-nounai-s1
       number: 1

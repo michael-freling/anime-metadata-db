@@ -4,8 +4,11 @@ series:
   titles:
     original: うらみちお兄さん
     translations:
+      en: Life Lessons with Uramichi Oniisan
       ja-Latn: Uramichi Oniisan
   ordering: absolute
+  externalIds:
+    wikidataId: Q72641970
   seasons:
     - id: uramichi-oniisan-s1
       number: 1

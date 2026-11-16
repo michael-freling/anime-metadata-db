@@ -4,8 +4,11 @@ series:
   titles:
     original: 大雪海のカイナ
     translations:
+      en: Kaina of the Great Snow Sea
       ja-Latn: Ooyukiumi no Kaina
   ordering: absolute
+  externalIds:
+    wikidataId: Q110640048
   seasons:
     - id: ooyukiumi-no-kaina-s1
       number: 1

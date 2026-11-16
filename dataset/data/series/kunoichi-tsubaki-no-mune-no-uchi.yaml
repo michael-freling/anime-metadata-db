@@ -4,8 +4,11 @@ series:
   titles:
     original: くノ一ツバキの胸の内
     translations:
+      en: In the Heart of Kunoichi Tsubaki
       ja-Latn: Kunoichi Tsubaki no Mune no Uchi
   ordering: absolute
+  externalIds:
+    wikidataId: Q85872642
   seasons:
     - id: kunoichi-tsubaki-no-mune-no-uchi-s1
       number: 1

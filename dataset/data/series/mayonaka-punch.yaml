@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Mayonaka Punch
   ordering: absolute
+  externalIds:
+    wikidataId: Q124359950
   seasons:
     - id: mayonaka-punch-s1
       number: 1

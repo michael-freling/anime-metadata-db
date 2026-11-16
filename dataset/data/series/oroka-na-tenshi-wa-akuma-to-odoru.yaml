@@ -4,8 +4,11 @@ series:
   titles:
     original: 愚かな天使は悪魔と踊る
     translations:
+      en: The Foolish Angel Dances with the Devil
       ja-Latn: Oroka na Tenshi wa Akuma to Odoru
   ordering: absolute
+  externalIds:
+    wikidataId: Q117314412
   seasons:
     - id: oroka-na-tenshi-wa-akuma-to-odoru-s1
       number: 1

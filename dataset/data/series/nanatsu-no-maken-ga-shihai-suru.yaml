@@ -4,8 +4,11 @@ series:
   titles:
     original: 七つの魔剣が支配する
     translations:
+      en: Reign of the Seven Spellblades
       ja-Latn: Nanatsu no Maken ga Shihai suru
   ordering: absolute
+  externalIds:
+    wikidataId: Q60996522
   seasons:
     - id: nanatsu-no-maken-ga-shihai-suru-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: The Summit of the Gods
   ordering: absolute
+  externalIds:
+    wikidataId: Q1526490
   movies:
     - id: the-summit-of-the-gods-film
       titles:

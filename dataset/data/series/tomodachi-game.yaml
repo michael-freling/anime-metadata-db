@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tomodachi Game
   ordering: absolute
+  externalIds:
+    wikidataId: Q22131394
   seasons:
     - id: tomodachi-game-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 彼女が公爵邸に行った理由
     translations:
+      en: Why Raeliana Ended Up at the Duke's Mansion
       ja-Latn: Kanojo ga Koushaku-tei ni Itta Riyuu
   ordering: absolute
+  externalIds:
+    wikidataId: Q97210865
   seasons:
     - id: kanojo-ga-koushaku-tei-ni-itta-riyuu-s1
       number: 1

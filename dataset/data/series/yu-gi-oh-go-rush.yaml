@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Yu☆Gi☆Oh! Go Rush!!
   ordering: absolute
+  externalIds:
+    wikidataId: Q111548990
   seasons:
     - id: yu-gi-oh-go-rush-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 俺だけ入れる隠しダンジョン 〜こっそり鍛えて世界最強〜
     translations:
+      en: The Hidden Dungeon Only I Can Enter
       ja-Latn: Ore dake Haireru Kakushi Dungeon
   ordering: absolute
+  externalIds:
+    wikidataId: Q61058189
   seasons:
     - id: ore-dake-haireru-kakushi-dungeon-s1
       number: 1

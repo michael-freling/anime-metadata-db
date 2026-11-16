@@ -4,8 +4,11 @@ series:
   titles:
     original: 恋は双子で割り切れない
     translations:
+      en: Love Is Indivisible by Twins
       ja-Latn: Koi wa Futago de Warikirenai
   ordering: absolute
+  externalIds:
+    wikidataId: Q120668515
   seasons:
     - id: koi-wa-futago-de-warikirenai-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tono to Inu
   ordering: absolute
+  externalIds:
+    wikidataId: Q124465964
   seasons:
     - id: tono-to-inu-s1
       number: 1

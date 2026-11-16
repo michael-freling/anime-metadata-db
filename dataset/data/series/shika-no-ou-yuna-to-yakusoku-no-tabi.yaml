@@ -4,8 +4,11 @@ series:
   titles:
     original: 鹿の王 ユナと約束の旅
     translations:
+      en: The Deer King
       ja-Latn: 'Shika no Ou: Yuna to Yakusoku no Tabi'
   ordering: absolute
+  externalIds:
+    wikidataId: Q106707387
   movies:
     - id: shika-no-ou-yuna-to-yakusoku-no-tabi-film
       titles:

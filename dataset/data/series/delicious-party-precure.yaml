@@ -4,8 +4,11 @@ series:
   titles:
     original: デリシャスパーティ♡プリキュア
     translations:
+      en: Delicious Party Pretty Cure
       ja-Latn: Delicious Party♡Precure
   ordering: absolute
+  externalIds:
+    wikidataId: Q109749083
   seasons:
     - id: delicious-party-precure-s1
       number: 1

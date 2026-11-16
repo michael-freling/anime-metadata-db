@@ -4,8 +4,11 @@ series:
   titles:
     original: 最近雇ったメイドが怪しい
     translations:
+      en: The Maid I Hired Recently Is Mysterious
       ja-Latn: Saikin Yatotta Maid ga Ayashii
   ordering: absolute
+  externalIds:
+    wikidataId: Q99330868
   seasons:
     - id: saikin-yatotta-maid-ga-ayashii-s1
       number: 1

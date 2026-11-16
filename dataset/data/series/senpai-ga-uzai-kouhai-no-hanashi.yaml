@@ -4,8 +4,11 @@ series:
   titles:
     original: 先輩がうざい後輩の話
     translations:
+      en: My Senpai Is Annoying
       ja-Latn: Senpai ga Uzai Kouhai no Hanashi
   ordering: absolute
+  externalIds:
+    wikidataId: Q60996007
   seasons:
     - id: senpai-ga-uzai-kouhai-no-hanashi-s1
       number: 1

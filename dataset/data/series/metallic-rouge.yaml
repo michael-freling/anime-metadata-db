@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Metallic Rouge
   ordering: absolute
+  externalIds:
+    wikidataId: Q117265081
   seasons:
     - id: metallic-rouge-s1
       number: 1

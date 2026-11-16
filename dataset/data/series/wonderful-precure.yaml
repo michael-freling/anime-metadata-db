@@ -4,8 +4,11 @@ series:
   titles:
     original: わんだふるぷりきゅあ!
     translations:
+      en: Wonderful Pretty Cure!
       ja-Latn: Wonderful Precure!
   ordering: absolute
+  externalIds:
+    wikidataId: Q124049279
   seasons:
     - id: wonderful-precure-s1
       number: 1

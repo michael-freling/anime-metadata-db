@@ -4,8 +4,11 @@ series:
   titles:
     original: 天地創造デザイン部
     translations:
+      en: Heaven's Design Team
       ja-Latn: Tenchi Souzou Design-bu
   ordering: absolute
+  externalIds:
+    wikidataId: Q55535748
   seasons:
     - id: tenchi-souzou-design-bu-s1
       number: 1

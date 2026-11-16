@@ -4,8 +4,11 @@ series:
   titles:
     original: 月が導く異世界道中
     translations:
+      en: Tsukimichi
       ja-Latn: Tsuki ga Michibiku Isekai Douchuu
   ordering: absolute
+  externalIds:
+    wikidataId: Q28685616
   seasons:
     - id: tsuki-ga-michibiku-isekai-douchuu-s1
       number: 1

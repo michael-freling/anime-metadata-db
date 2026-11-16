@@ -4,8 +4,11 @@ series:
   titles:
     original: うちの会社の小さい先輩の話
     translations:
+      en: My Tiny Senpai
       ja-Latn: Uchi no Kaisha no Chiisai Senpai no Hanashi
   ordering: absolute
+  externalIds:
+    wikidataId: Q104709894
   seasons:
     - id: uchi-no-kaisha-no-chiisai-senpai-no-hanashi-s1
       number: 1

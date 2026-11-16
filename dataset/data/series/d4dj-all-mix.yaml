@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: D4DJ All Mix
   ordering: absolute
+  externalIds:
+    wikidataId: Q115619988
   seasons:
     - id: d4dj-all-mix-s1
       number: 1

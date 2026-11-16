@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Bouken Tairiku Ania Kingdom
   ordering: absolute
+  externalIds:
+    wikidataId: Q121842714
   seasons:
     - id: bouken-tairiku-ania-kingdom-s1
       number: 1

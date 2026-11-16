@@ -4,8 +4,11 @@ series:
   titles:
     original: さんかく窓の外側は夜
     translations:
+      en: The Night Beyond the Tricornered Window
       ja-Latn: Sankaku Mado no Sotogawa wa Yoru
   ordering: absolute
+  externalIds:
+    wikidataId: Q85868964
   seasons:
     - id: sankaku-mado-no-sotogawa-wa-yoru-s1
       number: 1

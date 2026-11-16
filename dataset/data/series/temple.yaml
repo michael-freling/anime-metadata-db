@@ -4,8 +4,11 @@ series:
   titles:
     original: てんぷる
     translations:
+      en: TenPuru
       ja-Latn: Temple
   ordering: absolute
+  externalIds:
+    wikidataId: Q109258890
   seasons:
     - id: temple-s1
       number: 1

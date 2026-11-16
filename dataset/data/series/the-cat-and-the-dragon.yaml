@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: The Cat and the Dragon
   ordering: absolute
+  externalIds:
+    wikidataId: Q132245396
   seasons:
     - id: the-cat-and-the-dragon-s1
       number: 1

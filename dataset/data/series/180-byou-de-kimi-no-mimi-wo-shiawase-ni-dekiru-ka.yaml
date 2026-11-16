@@ -4,8 +4,11 @@ series:
   titles:
     original: 180秒で君の耳を幸せにできるか?
     translations:
+      en: 180-Byō de Kimi no Mimi o Shiwase ni Dekiru ka?
       ja-Latn: 180-byou de Kimi no Mimi wo Shiawase ni Dekiru ka?
   ordering: absolute
+  externalIds:
+    wikidataId: Q108535293
   seasons:
     - id: 180-byou-de-kimi-no-mimi-wo-shiawase-ni-dekiru-ka-s1
       number: 1

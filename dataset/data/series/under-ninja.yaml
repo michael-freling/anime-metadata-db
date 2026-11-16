@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Under Ninja
   ordering: absolute
+  externalIds:
+    wikidataId: Q60985374
   seasons:
     - id: under-ninja-s1
       number: 1

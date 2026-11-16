@@ -4,8 +4,11 @@ series:
   titles:
     original: 外科医エリーゼ
     translations:
+      en: Doctor Elise
       ja-Latn: Gekai Elise
   ordering: absolute
+  externalIds:
+    wikidataId: Q117100896
   seasons:
     - id: gekai-elise-s1
       number: 1

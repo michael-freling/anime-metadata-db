@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Digimon Ghost Game
   ordering: absolute
+  externalIds:
+    wikidataId: Q107746042
   seasons:
     - id: digimon-ghost-game-s1
       number: 1

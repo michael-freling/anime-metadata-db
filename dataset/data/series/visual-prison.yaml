@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Visual Prison
   ordering: absolute
+  externalIds:
+    wikidataId: Q106299335
   seasons:
     - id: visual-prison-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: サマータイムレンダ
     translations:
+      en: Summer Time Rendering
       ja-Latn: Summertime Render
   ordering: absolute
+  externalIds:
+    wikidataId: Q75130982
   seasons:
     - id: summertime-render-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 30歳まで童貞だと魔法使いになれるらしい
     translations:
+      en: Cherry Magic! Thirty Years of Virginity Can Make You a Wizard?!
       ja-Latn: 30-sai made Doutei dato Mahoutsukai ni Nareru Rashii
   ordering: absolute
+  externalIds:
+    wikidataId: Q98969631
   seasons:
     - id: 30-sai-made-doutei-dato-mahoutsukai-ni-nareru-rashii-s1
       number: 1

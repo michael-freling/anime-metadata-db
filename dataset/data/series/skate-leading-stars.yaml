@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Skate-Leading☆Stars
   ordering: absolute
+  externalIds:
+    wikidataId: Q83914246
   seasons:
     - id: skate-leading-stars-s1
       number: 1

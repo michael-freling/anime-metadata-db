@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kaginado
   ordering: absolute
+  externalIds:
+    wikidataId: Q106568090
   seasons:
     - id: kaginado-s1
       number: 1

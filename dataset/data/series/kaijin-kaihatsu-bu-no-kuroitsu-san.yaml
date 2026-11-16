@@ -4,8 +4,11 @@ series:
   titles:
     original: 怪人開発部の黒井津さん
     translations:
+      en: Miss Kuroitsu from the Monster Development Department
       ja-Latn: Kaijin Kaihatsu-bu no Kuroitsu-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q107445470
   seasons:
     - id: kaijin-kaihatsu-bu-no-kuroitsu-san-s1
       number: 1

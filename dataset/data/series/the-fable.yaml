@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: The Fable
   ordering: absolute
+  externalIds:
+    wikidataId: Q28684028
   seasons:
     - id: the-fable-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 異世界スーサイド・スクワッド
     translations:
+      en: Suicide Squad Isekai
       ja-Latn: Isekai Suicide Squad
   ordering: absolute
+  externalIds:
+    wikidataId: Q120253570
   seasons:
     - id: isekai-suicide-squad-s1
       number: 1

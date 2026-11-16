@@ -4,8 +4,11 @@ series:
   titles:
     original: 豚のレバーは加熱しろ
     translations:
+      en: 'Butareba: The Story of a Man Turned into a Pig'
       ja-Latn: Buta no Liver wa Kanetsu Shiro
   ordering: absolute
+  externalIds:
+    wikidataId: Q109258543
   seasons:
     - id: buta-no-liver-wa-kanetsu-shiro-s1
       number: 1

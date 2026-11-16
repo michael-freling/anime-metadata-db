@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Renai Flops
   ordering: absolute
+  externalIds:
+    wikidataId: Q111367751
   seasons:
     - id: renai-flops-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 天穂のサクナヒメ
     translations:
+      en: 'Sakuna: Of Rice and Ruin'
       ja-Latn: Tensui no Sakuna-hime
   ordering: absolute
+  externalIds:
+    wikidataId: Q97590136
   seasons:
     - id: tensui-no-sakuna-hime-s1
       number: 1

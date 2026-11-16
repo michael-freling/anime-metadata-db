@@ -4,8 +4,11 @@ series:
   titles:
     original: Lv2からチートだった元勇者候補のまったり異世界ライフ
     translations:
+      en: Chillin' in Another World with Level 2 Super Cheat Powers
       ja-Latn: Lv2 kara Cheat datta Motoyuusha Kouho no Mattari Isekai Life
   ordering: absolute
+  externalIds:
+    wikidataId: Q115824302
   seasons:
     - id: lv2-kara-cheat-datta-motoyuusha-kouho-no-mattari-isekai-life-s1
       number: 1

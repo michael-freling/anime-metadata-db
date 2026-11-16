@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Bucchigiri?!
   ordering: absolute
+  externalIds:
+    wikidataId: Q118733027
   seasons:
     - id: bucchigiri-s1
       number: 1

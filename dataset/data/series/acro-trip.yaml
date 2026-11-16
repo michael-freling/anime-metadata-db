@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Acro Trip
   ordering: absolute
+  externalIds:
+    wikidataId: Q115812198
   seasons:
     - id: acro-trip-s1
       number: 1

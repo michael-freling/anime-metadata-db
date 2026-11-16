@@ -4,8 +4,11 @@ series:
   titles:
     original: オチビサン
     translations:
+      en: The Diary of Ochibi-san
       ja-Latn: Ochibi-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q11292021
   seasons:
     - id: ochibi-san-s1
       number: 1

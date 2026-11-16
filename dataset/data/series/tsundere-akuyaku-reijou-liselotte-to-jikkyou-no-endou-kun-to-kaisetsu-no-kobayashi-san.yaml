@@ -4,8 +4,11 @@ series:
   titles:
     original: ツンデレ悪役令嬢リーゼロッテと実況の遠藤くんと解説の小林さん
     translations:
+      en: Endo and Kobayashi Live! The Latest on Tsundere Villainess Lieselotte
       ja-Latn: Tsundere Akuyaku Reijou Liselotte to Jikkyou no Endou-kun to Kaisetsu no Kobayashi-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q110254736
   seasons:
     - id: tsundere-akuyaku-reijou-liselotte-to-jikkyou-no-endou-kun-to-kaisetsu-no-kobayashi-san-s1
       number: 1

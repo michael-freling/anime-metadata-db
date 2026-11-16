@@ -4,8 +4,11 @@ series:
   titles:
     original: 魔女と野獣
     translations:
+      en: The Witch and the Beast
       ja-Latn: Majo to Yajuu
   ordering: absolute
+  externalIds:
+    wikidataId: Q97193682
   seasons:
     - id: majo-to-yajuu-s1
       number: 1

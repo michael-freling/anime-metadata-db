@@ -4,8 +4,11 @@ series:
   titles:
     original: アンドロイドは経験人数に入りますか??
     translations:
+      en: Does It Count If You Lose Your Virginity to an Android?
       ja-Latn: Android wa Keiken Ninzuu ni Hairimasu ka??
   ordering: absolute
+  externalIds:
+    wikidataId: Q114612973
   seasons:
     - id: android-wa-keiken-ninzuu-ni-hairimasu-ka-s1
       number: 1

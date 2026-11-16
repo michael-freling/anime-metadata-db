@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Good Bye, Dragon Life
   ordering: absolute
+  externalIds:
+    wikidataId: Q124852922
   seasons:
     - id: good-bye-dragon-life-s1
       number: 1

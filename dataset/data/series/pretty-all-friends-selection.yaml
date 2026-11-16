@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Pretty All Friends Selection
   ordering: absolute
+  externalIds:
+    wikidataId: Q106943954
   seasons:
     - id: pretty-all-friends-selection-s1
       number: 1
