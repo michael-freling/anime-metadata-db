@@ -22,5 +22,7 @@ series:
       externalIds: { anilistId: 135177 } # Osomatsu-san: Hipipo-Zoku to Kagayaku Kajitsu (2022)
     - id: osomatsu-san-film-3
       externalIds: { anilistId: 135178 } # Osomatsu-san: Tamashii no Takoyaki Party to Densetsu no Otomari… (2023)
+    - id: osomatsu-san-film-4
+      externalIds: { anidbId: 12935 } # Osomatsu-san: Haru no Zenkoku Dai Senbatsu Jouei-sai - Sentou Q… (2017)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [osomatsu-san]

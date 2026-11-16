@@ -5,7 +5,7 @@ series:
     original: バーテンダー
     translations:
       ja-Latn: Bartender
-  ordering: absolute
+  ordering: release
   seasons:
     - id: bartender-s1
       number: 1
@@ -17,7 +17,6 @@ series:
         tvdbId: 81091
       episodes:
         count: 11
-        absoluteFrom: 1
     - id: bartender-s2
       number: 2
       releaseYear: 2024
@@ -28,4 +27,3 @@ series:
         tvdbId: 426262
       episodes:
         count: 12
-        absoluteFrom: 12

@@ -56,5 +56,7 @@ series:
       externalIds: { anilistId: 142806 } # Oshiri Tantei Movie 4: Shiriarty (2022)
     - id: oshiri-tantei-film-6
       externalIds: { anilistId: 172016 } # Oshiri Tantei Movie 5: Saraba Itoshiki Aibou (Oshiri) yo (2024)
+    - id: oshiri-tantei-film-7
+      externalIds: { anidbId: 17054 } # Oshiri Tantei: Yume no Jumbo Sweet Potato Matsuri (2022)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [oshiri-tantei]

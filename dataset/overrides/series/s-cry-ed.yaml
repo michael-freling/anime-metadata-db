@@ -14,5 +14,7 @@ series:
       externalIds: { anilistId: 10592 } # s.CRY.ed Alteration I: Tao (2011)
     - id: s-cry-ed-film-2
       externalIds: { anilistId: 12223 } # s.CRY.ed Alteration II: Quan (2012)
+    - id: s-cry-ed-film-3
+      externalIds: { anidbId: 8342 } # Scryed Alteration (2011)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [s-cry-ed]

@@ -18,5 +18,7 @@ series:
   movies:
     - id: yuuki-yuuna-wa-yuusha-de-aru-film
       externalIds: { anilistId: 97860 } # Yuuki Yuuna wa Yuusha de Aru: Washio Sumi no Shou 3 - Yakusoku (2017)
+    - id: yuuki-yuuna-wa-yuusha-de-aru-film-2
+      externalIds: { anidbId: 12501 } # Yuuki Yuuna wa Yuusha de Aru: Washio Sumi no Shou (2017)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [yuuki-yuuna-wa-yuusha-de-aru]

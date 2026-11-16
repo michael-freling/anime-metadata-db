@@ -37,3 +37,12 @@ series:
       episodes:
         count: 39
         absoluteFrom: 66
+    - id: chibi-godzilla-no-gyakushuu-s4
+      number: 4
+      releaseYear: 2026
+      releaseSeason: SPRING
+      externalIds:
+        anidbId: 20149
+      episodes:
+        count: 1
+        absoluteFrom: 105

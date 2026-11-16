@@ -31,7 +31,7 @@ series:
         tvdbId: 284263
       episodes:
         count: 12
-        absoluteFrom: 14
+        absoluteFrom: 15
   movies:
     - id: yuuki-yuuna-wa-yuusha-de-aru-film
       titles:
@@ -43,3 +43,14 @@ series:
       externalIds:
         anilistId: 97860
       absoluteNumber: 13
+    - id: yuuki-yuuna-wa-yuusha-de-aru-film-2
+      titles:
+        original: 結城友奈は勇者である -鷲尾須美の章-
+        translations:
+          ja: 結城友奈は勇者である -鷲尾須美の章-
+          ja-Latn: 'Yuuki Yuuna wa Yuusha de Aru: Washio Sumi no Shou'
+      releaseYear: 2017
+      externalIds:
+        anidbId: 12501
+        tvdbId: 284263
+      absoluteNumber: 14

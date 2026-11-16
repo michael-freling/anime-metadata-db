@@ -40,4 +40,15 @@ series:
       releaseYear: 2012
       externalIds:
         anilistId: 12223
+      absoluteNumber: 29
+    - id: s-cry-ed-film-3
+      titles:
+        original: スクライドオルタレイション
+        translations:
+          ja: スクライドオルタレイション
+          ja-Latn: Scryed Alteration
+      releaseYear: 2011
+      externalIds:
+        anidbId: 8342
+        tvdbId: 78953
       absoluteNumber: 28

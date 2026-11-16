@@ -13,5 +13,10 @@ series:
       number: 2
   movies:
     - id: ajin-film
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anidbId: 11265 }
+    - id: ajin-film-2
+      externalIds: { anilistId: 21681 } # Ajin Part 3: Shougeki (2016)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [ajin]

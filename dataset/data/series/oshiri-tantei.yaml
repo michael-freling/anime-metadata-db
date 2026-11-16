@@ -67,7 +67,7 @@ series:
         anidbId: 16946
       episodes:
         count: 13
-        absoluteFrom: 70
+        absoluteFrom: 71
     - id: oshiri-tantei-s7
       number: 7
       releaseYear: 2023
@@ -77,7 +77,7 @@ series:
         anidbId: 17701
       episodes:
         count: 15
-        absoluteFrom: 83
+        absoluteFrom: 84
     - id: oshiri-tantei-s8
       number: 8
       releaseYear: 2023
@@ -86,7 +86,7 @@ series:
         anilistId: 179872
       episodes:
         count: 7
-        absoluteFrom: 98
+        absoluteFrom: 99
     - id: oshiri-tantei-s9
       number: 9
       releaseYear: 2024
@@ -95,7 +95,7 @@ series:
         anilistId: 185644
       episodes:
         count: 15
-        absoluteFrom: 106
+        absoluteFrom: 107
     - id: oshiri-tantei-s10
       number: 10
       releaseYear: 2025
@@ -104,7 +104,7 @@ series:
         anilistId: 185645
       episodes:
         count: 15
-        absoluteFrom: 122
+        absoluteFrom: 123
     - id: oshiri-tantei-s11p2
       number: 11
       part: 2
@@ -114,7 +114,7 @@ series:
         anilistId: 194832
       episodes:
         count: 7
-        absoluteFrom: 137
+        absoluteFrom: 138
   movies:
     - id: oshiri-tantei-film
       titles:
@@ -126,7 +126,7 @@ series:
       externalIds:
         anilistId: 185643
         anidbId: 19059
-      absoluteNumber: 121
+      absoluteNumber: 122
     - id: oshiri-tantei-film-2
       titles:
         original: 映画おしりたんてい
@@ -181,4 +181,14 @@ series:
       externalIds:
         anilistId: 172016
         anidbId: 18520
-      absoluteNumber: 105
+      absoluteNumber: 106
+    - id: oshiri-tantei-film-7
+      titles:
+        original: 映画おしりたんてい 夢のジャンボスイートポテトまつり
+        translations:
+          ja: 映画おしりたんてい 夢のジャンボスイートポテトまつり
+          ja-Latn: 'Oshiri Tantei: Yume no Jumbo Sweet Potato Matsuri'
+      releaseYear: 2022
+      externalIds:
+        anidbId: 17054
+      absoluteNumber: 70

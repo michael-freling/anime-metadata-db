@@ -13,5 +13,14 @@ series:
       number: 2
   movies:
     - id: free-film
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anidbId: 14415 }
+    - id: free-film-2
+      externalIds: { anilistId: 98496 } # Free! Movie 2: Timeless Medley - Yakusoku (2017)
+    - id: free-film-3
+      externalIds: { anilistId: 107203 } # Free! Movie 4: The Final Stroke - Zenpen (2021)
+    - id: free-film-4
+      externalIds: { anilistId: 133124 } # Free! Movie 5: The Final Stroke - Kouhen (2022)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [free]

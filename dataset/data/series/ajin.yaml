@@ -17,7 +17,7 @@ series:
         tvdbId: 300835
       episodes:
         count: 13
-        absoluteFrom: 2
+        absoluteFrom: 3
     - id: ajin-s2
       number: 2
       releaseYear: 2016
@@ -28,7 +28,7 @@ series:
         tvdbId: 300835
       episodes:
         count: 13
-        absoluteFrom: 15
+        absoluteFrom: 16
   movies:
     - id: ajin-film
       titles:
@@ -41,3 +41,13 @@ series:
         anidbId: 11265
         tvdbId: 300835
       absoluteNumber: 1
+    - id: ajin-film-2
+      titles:
+        original: 亜人 -衝戟-
+        translations:
+          ja: 亜人 -衝戟-
+          ja-Latn: 'Ajin Part 3: Shougeki'
+      releaseYear: 2016
+      externalIds:
+        anilistId: 21681
+      absoluteNumber: 2

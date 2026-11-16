@@ -9,20 +9,10 @@ series:
   seasons:
     - id: teekyuu-7-s1
       number: 1
-      releaseYear: 2015
-      releaseSeason: SPRING
-      externalIds:
-        anidbId: 10820
-        tvdbId: 262856
-      episodes:
-        count: 48
-        absoluteFrom: 1
-    - id: teekyuu-7-s2
-      number: 2
       releaseYear: 2016
       releaseSeason: WINTER
       externalIds:
         anilistId: 21513
       episodes:
         count: 12
-        absoluteFrom: 49
+        absoluteFrom: 1
