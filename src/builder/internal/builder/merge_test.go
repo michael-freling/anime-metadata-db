@@ -731,14 +731,41 @@ func TestPinningWalksEverySlotAndRefusesAMismatch(t *testing.T) {
 		t.Errorf("the already-authored slot was rewritten:\n%s", got)
 	}
 
-	// A record listing fewer films than the override declares.
+	// A record listing fewer films than the override declares is the shape a
+	// second attachment in one run produces: the record predates the first.
+	// The extra slot carries its own id, so the earlier ones still pair by
+	// position and this is accepted — refusing it cost 128 attachments.
 	short := strings.Replace(twoFilmRecord, `    - id: show-film-2
       releaseYear: 2022
       externalIds:
         anilistId: 201
 `, "", 1)
-	if _, why := plan(twoFilms, short, "show", film("300", "Show: The Third", 2030), map[string]bool{}); !strings.Contains(why, "do not line up") {
-		t.Errorf("why = %q, want the mismatch refusal", why)
+	got, why = plan(twoFilms, short, "show", film("300", "Show: The Third", 2030), map[string]bool{})
+	if why != "" {
+		t.Errorf("refused a second attachment: %s", why)
+	}
+	if !strings.Contains(got, "anilistId: 200") {
+		t.Errorf("the slot the record does account for was not pinned:\n%s", got)
+	}
+
+	// An extra slot that states no id cannot be paired with anything, and
+	// pinning the rest by position would be guessing which one it is.
+	bare := twoFilms + "    - id: show-film-3\n"
+	if _, why := plan(bare, short, "show", film("300", "Show: The Third", 2030), map[string]bool{}); !strings.Contains(why, "states no id") {
+		t.Errorf("why = %q, want the unpairable refusal", why)
+	}
+
+	// The other direction is genuinely unpairable: more resolved than declared.
+	oneFilm := `series:
+  id: show
+  seasons:
+    - id: show-s1
+      number: 1
+  movies:
+    - id: show-film
+`
+	if _, why := plan(oneFilm, twoFilmRecord, "show", film("300", "Show: The Third", 2030), map[string]bool{}); !strings.Contains(why, "fewer installments") {
+		t.Errorf("why = %q, want the fewer-than-resolved refusal", why)
 	}
 }
 
@@ -799,5 +826,82 @@ func TestImportYearsCountsOnlyWhatTheCatalogueCarries(t *testing.T) {
 	]}`)
 	if got := importYears(db); !slices.Equal(got, []int{2001}) {
 		t.Errorf("importYears = %v, want just 2001: an ONA is out of scope and an undated entry places nothing", got)
+	}
+}
+
+// A judgement call has to survive the next run. Removing an attachment by hand
+// does not: the tool is deterministic and proposes it again, which is how six
+// spin-offs came back after being read and removed.
+func TestADeclinedWorkIsNotProposedAgain(t *testing.T) {
+	const fixture = `{
+  "data": [
+    {
+      "sources": ["https://anilist.co/anime/101922"],
+      "title": "Kimetsu no Yaiba",
+      "type": "TV", "episodes": 26, "status": "FINISHED",
+      "animeSeason": { "season": "SPRING", "year": 2019 }
+    },
+    {
+      "sources": ["https://anilist.co/anime/900060"],
+      "title": "Kimetsu no Yaiba: A Chibi Short",
+      "type": "MOVIE", "episodes": 1, "status": "FINISHED",
+      "animeSeason": { "season": "SPRING", "year": 2030 },
+      "relatedAnime": ["https://anilist.co/anime/101922"]
+    }
+  ]
+}`
+	a, dir, out := mergeRepo(t)
+	if err := os.WriteFile(filepath.Join(dir, ".sources", "anime-offline-database.json"), []byte(fixture), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	// Without the decision recorded, it is attached.
+	if err := a.Merge(true); err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(out(), "1 attached") {
+		t.Fatalf("the fixture does not produce an attachment to decline: %q", out())
+	}
+
+	if err := os.WriteFile(filepath.Join(dir, declinedFile), []byte(`declined:
+  - anilistId: 900060
+    work: "Kimetsu no Yaiba: A Chibi Short"
+    proposedFor: demon-slayer
+    why: a chibi spin-off short, not an installment
+`), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := a.Merge(false); err != nil {
+		t.Fatalf("merge: %v", err)
+	}
+	got := out()
+	if !strings.Contains(got, "0 attached") {
+		t.Errorf("a declined work was attached anyway: %q", got)
+	}
+	if !strings.Contains(got, "declined by hand: a chibi spin-off short") {
+		t.Errorf("the decision was not reported with its reason: %q", got)
+	}
+}
+
+// An entry naming no work declines nothing, and silently ignoring it would let
+// a typo quietly re-propose something a person had ruled out.
+func TestADeclinedEntryWithNoIDIsAnError(t *testing.T) {
+	dir := t.TempDir()
+	path := filepath.Join(dir, declinedFile)
+	if err := os.WriteFile(path, []byte("declined:\n  - work: \"Something\"\n    why: because\n"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := declinedMerges(path); err == nil {
+		t.Error("want an error: an entry with no anilistId declines nothing")
+	}
+}
+
+// A repository that has never declined one has none, which is not an error.
+func TestDeclinedMergesOnAMissingFile(t *testing.T) {
+	got, err := declinedMerges(filepath.Join(t.TempDir(), "absent.yaml"))
+	if err != nil {
+		t.Fatalf("declinedMerges: %v", err)
+	}
+	if len(got) != 0 {
+		t.Errorf("got %v, want none", got)
 	}
 }

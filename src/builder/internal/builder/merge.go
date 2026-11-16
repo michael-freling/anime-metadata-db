@@ -10,6 +10,8 @@ import (
 	"strconv"
 	"strings"
 
+	"gopkg.in/yaml.v3"
+
 	"github.com/michael-freling/anime-metadata-db/src/builder/internal/importer"
 	"github.com/michael-freling/anime-metadata-db/src/builder/internal/sources/offlinedb"
 )
@@ -90,6 +92,10 @@ func (a *App) Merge(dryRun bool) error {
 	if err != nil {
 		return err
 	}
+	declined, err := declinedMerges(filepath.Join(a.Dir, cfg.Settings.DataDir, "..", declinedFile))
+	if err != nil {
+		return err
+	}
 
 	// Collected across every year before anything is written, because two
 	// candidates can land on one series and the second has to see what the
@@ -113,6 +119,13 @@ func (a *App) Merge(dryRun bool) error {
 				continue
 			}
 			seen[m.AnilistID] = true
+			if why, ok := declined[m.AnilistID]; ok {
+				// A person read this one and said no. The tool is
+				// deterministic, so without this it proposes it again every
+				// run and the reading has to be redone.
+				refused["declined by hand: "+why]++
+				continue
+			}
 			if !m.Linked {
 				// Found by sharing a title with something the catalogue has,
 				// which is also how two unrelated works of the same name are
@@ -160,6 +173,15 @@ func (a *App) Merge(dryRun bool) error {
 				refused["its title is not the title of any series upstream links it to, so whether it is an installment or just related is a judgement call"]++
 				continue
 			default:
+				// Every one of these is a parent series beside a sub-series
+				// the catalogue carries separately — "mob-psycho-100" with
+				// "mob-psycho-100-ii", "duel-masters" with
+				// "duel-masters-king". Taking the longest match would place
+				// them all, and would also entrench the sub-series: several
+				// are a sequel given a record of its own, which is the shape
+				// 125 deletions just undid. Which of the two should exist is a
+				// question about the franchise's structure, and that is the
+				// one question this tool is built not to answer.
 				refused["its title extends more than one linked series' title, so which one owns it is a judgement call"]++
 				continue
 			}
@@ -539,8 +561,25 @@ func seriesTitles(dataDir string) (map[string][]string, error) {
 // same list.
 func pinIDs(block string, resolved []int) (string, string) {
 	slots := nodeStart.FindAllStringIndex(block, -1)
-	if len(slots) != len(resolved) {
-		return "", "the override's installments and the resolved record's do not line up, so ids cannot be pinned"
+	switch {
+	case len(slots) < len(resolved):
+		return "", "the override declares fewer installments than the record resolved, so ids cannot be paired by position"
+	case len(slots) > len(resolved):
+		// More slots than the record accounts for means this run already
+		// attached to this kind: the record is the one built before any of it.
+		// Those slots were written with their id, so they need no pinning and
+		// the earlier ones still pair by position. Refusing here instead cost
+		// 128 attachments, every one of them a series with a second work to
+		// attach.
+		for i := len(resolved); i < len(slots); i++ {
+			end := len(block)
+			if i+1 < len(slots) {
+				end = slots[i+1][0]
+			}
+			if !strings.Contains(block[slots[i][0]:end], "anilistId") {
+				return "", "the override declares more installments than the record resolved, and one of the extra ones states no id"
+			}
+		}
 	}
 	var b strings.Builder
 	// Whatever sits before the first node — a comment recording why the kind
@@ -554,7 +593,7 @@ func pinIDs(block string, resolved []int) (string, string) {
 			end = slots[i+1][0]
 		}
 		node := block[at[0]:end]
-		if strings.Contains(node, "anilistId") {
+		if i >= len(resolved) || strings.Contains(node, "anilistId") {
 			b.WriteString(node)
 			continue
 		}
@@ -626,4 +665,40 @@ func editedOrRead(edited map[string]string, path string) (string, bool) {
 	}
 	edited[path] = string(body)
 	return string(body), true
+}
+
+// declinedFile is where the decisions a person made about proposed merges live,
+// relative to the dataset root.
+const declinedFile = "declined-merges.yaml"
+
+// declinedMerges reads the works a person has decided against attaching,
+// keyed by AniList id.
+//
+// Absent is not an error: a repository that has never declined one has none.
+func declinedMerges(path string) (map[int]string, error) {
+	body, err := os.ReadFile(path)
+	if os.IsNotExist(err) {
+		return map[int]string{}, nil
+	}
+	if err != nil {
+		return nil, err
+	}
+	var doc struct {
+		Declined []struct {
+			AnilistID int    `yaml:"anilistId"`
+			Work      string `yaml:"work"`
+			Why       string `yaml:"why"`
+		} `yaml:"declined"`
+	}
+	if err := yaml.Unmarshal(body, &doc); err != nil {
+		return nil, fmt.Errorf("parse %s: %w", path, err)
+	}
+	out := make(map[int]string, len(doc.Declined))
+	for _, d := range doc.Declined {
+		if d.AnilistID == 0 {
+			return nil, fmt.Errorf("%s: an entry states no anilistId, so nothing is declined by it", path)
+		}
+		out[d.AnilistID] = d.Why
+	}
+	return out, nil
 }
