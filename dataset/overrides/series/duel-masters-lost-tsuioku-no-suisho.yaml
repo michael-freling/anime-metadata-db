@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: duel-masters-lost-tsuioku-no-suisho
+  titles:
+    original: Duel Masters LOST ～追憶の水晶～
+    translations: { ja-Latn: Duel Masters LOST Tsuioku no Suishō }
+  seasons:
+    - id: duel-masters-lost-tsuioku-no-suisho-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [duel-masters-lost-tsuioku-no-suisho]

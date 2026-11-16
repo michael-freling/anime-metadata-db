@@ -12,5 +12,10 @@ series:
       titles:
         original: 罗小黑战记2
         translations: { zh-Latn: Luo Xiaohei Zhanji 2 }
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 166475 }
+    - id: luo-xiaohei-zhanji-2-film-2
+      externalIds: { anilistId: 112023 } # Luo Xiaohei Zhanji (Movie) (2019)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [luo-xiaohei-zhanji-2]

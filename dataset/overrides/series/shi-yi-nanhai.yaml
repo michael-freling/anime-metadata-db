@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shi-yi-nanhai
+  titles:
+    original: Shi Yi Nanhai
+    translations: { ja-Latn: Shi Yi Nanhai }
+  movies:
+    - id: shi-yi-nanhai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shi-yi-nanhai]

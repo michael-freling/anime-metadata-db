@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Gokujō!! Mecha Mote Iinchō
   ordering: absolute
+  externalIds:
+    wikidataId: Q704211
   seasons:
     - id: gokujo-mecha-mote-iincho-s1
       number: 1

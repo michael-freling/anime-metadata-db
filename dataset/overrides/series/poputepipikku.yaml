@@ -9,5 +9,11 @@ series:
   seasons:
     - id: poputepipikku-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 98549 }
+    - id: poputepipikku-s2
+      number: 2
+      externalIds: { anilistId: 143086 } # Poputepipikku 2nd Season (2022)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [poputepipikku]

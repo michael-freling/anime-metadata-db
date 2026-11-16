@@ -118,10 +118,33 @@ series carried a phantom season and 1,414 episodes were counted twice. Where
 neither copy carries an id there is nothing to prefer, and the series is
 refused.
 
+`builder merge` attaches the works that report names, and only where the
+evidence settles it: upstream must link the work to the series (sharing a title
+is not a link — that is also what a homonym does), the work's own title must be
+the series' title carried further, and a season is appended only when it aired
+after every installment already there, so the claim stays "a later installment"
+rather than a position inside the run. Attaching to a kind also pins the
+resolved ids of the slots already in it, because the build matches a kind by
+candidate count and a new slot changes it. Of 2,468 reported, 115 met all of
+that; the rest are still a person's work. Even then a spin-off can read as a
+sequel — six of 52 did, and were removed by hand after reading the list — so
+the attached seasons are worth reading rather than trusting.
+
 `relatedAnime` is not a grouping primitive. Followed transitively it puts 5,597
 entries in one component — Evangelion, Oshi no Ko and brand-collab shorts
 together — because promo specials bridge unrelated franchises. Series boundaries
 are authored here; grouping is by the title the build itself resolves against.
+
+**One upstream work belongs to one series.** `anilist-claimed-elsewhere` gates
+on that, and nothing asked it until 166 AniList ids turned out to be claimed by
+two series each, across 315 of 9,711 series. Both shapes were the same mistake:
+a sequel given a series of its own while already being a season of its parent,
+and a work upstream lists under two titles differing only in width or
+punctuation (しまじろうのわお！ against しまじろうのわお!). So the import folds
+titles before comparing them (`importer.FoldTitle`), and reads the ids the
+authored layer already accounts for as well as the built ones — a run that
+imports several years before any build cannot otherwise see what the earlier
+years claimed.
 
 ## Checks must fail differently from "nothing happened"
 

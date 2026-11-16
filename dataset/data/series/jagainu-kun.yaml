@@ -4,8 +4,11 @@ series:
   titles:
     original: じゃがいぬくん
     translations:
+      en: Dogtato
       ja-Latn: Jagainu-kun
   ordering: absolute
+  externalIds:
+    wikidataId: Q5288473
   seasons:
     - id: jagainu-kun-s1
       number: 1

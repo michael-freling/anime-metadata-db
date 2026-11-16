@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Koto Nakare Hero Gingerman
   ordering: absolute
+  externalIds:
+    wikidataId: Q11266484
   seasons:
     - id: koto-nakare-hero-gingerman-s1
       number: 1

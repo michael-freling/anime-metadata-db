@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: agisang-eo-ollie-wa-william
+  titles:
+    original: Agisang-eo Ollie wa William
+    translations: { ja-Latn: Agisang-eo Ollie wa William }
+  seasons:
+    - id: agisang-eo-ollie-wa-william-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [agisang-eo-ollie-wa-william]

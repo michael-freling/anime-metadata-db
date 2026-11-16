@@ -31,3 +31,15 @@ series:
         anidbId: 4319
         tvdbId: 128411
       absoluteNumber: 53
+    - id: kaiketsu-zorori-film-2
+      titles:
+        original: かいけつゾロリだ・だ・だ・だいぼうけん!
+        translations:
+          ja: かいけつゾロリだ・だ・だ・だいぼうけん!
+          ja-Latn: Kaiketsu Zorori Da-Da-Da-Daibouken!
+      releaseYear: 2012
+      externalIds:
+        anilistId: 15067
+        anidbId: 9194
+        tvdbId: 128411
+      absoluteNumber: 54

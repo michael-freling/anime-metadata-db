@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Shugo Chara!
   ordering: absolute
+  externalIds:
+    wikidataId: Q602721
   seasons:
     - id: shugo-chara-s1
       number: 1

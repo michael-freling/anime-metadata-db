@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Spheres
   ordering: absolute
+  externalIds:
+    wikidataId: Q482924
   seasons:
     - id: spheres-s1
       number: 1

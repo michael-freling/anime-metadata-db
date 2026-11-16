@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Himesama Goyoujin
   ordering: absolute
+  externalIds:
+    wikidataId: Q1139138
   seasons:
     - id: himesama-goyoujin-s1
       number: 1

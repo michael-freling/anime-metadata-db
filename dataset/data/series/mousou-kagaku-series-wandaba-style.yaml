@@ -4,8 +4,11 @@ series:
   titles:
     original: 妄想科学シリーズ ワンダバスタイル
     translations:
+      en: Wandaba Style
       ja-Latn: 'Mousou Kagaku Series: Wandaba Style'
   ordering: absolute
+  externalIds:
+    wikidataId: Q647568
   seasons:
     - id: mousou-kagaku-series-wandaba-style-s1
       number: 1

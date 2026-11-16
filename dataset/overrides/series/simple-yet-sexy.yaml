@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: simple-yet-sexy
+  titles:
+    original: じみへんっ!!～地味子を変えちゃう純異性交遊～
+    translations: { ja-Latn: Simple yet Sexy }
+  seasons:
+    - id: simple-yet-sexy-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [simple-yet-sexy]

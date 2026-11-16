@@ -27,6 +27,16 @@ series:
         tvdbId: 325374
       episodes:
         count: 51
+    - id: duel-masters-s3
+      number: 3
+      releaseYear: 2018
+      releaseSeason: SPRING
+      externalIds:
+        anilistId: 101425
+        anidbId: 13914
+        tvdbId: 325374
+      episodes:
+        count: 51
   movies:
     - id: duel-masters-film
       titles:

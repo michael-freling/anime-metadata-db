@@ -6,7 +6,7 @@ series:
     translations:
       en: Rozen Maiden
       ja-Latn: Rozen Maiden (2013)
-  ordering: absolute
+  ordering: release
   externalIds:
     wikidataId: Q865487
   seasons:
@@ -20,7 +20,6 @@ series:
         tvdbId: 75411
       episodes:
         count: 12
-        absoluteFrom: 1
     - id: rozen-maiden-2013-s2
       number: 2
       releaseYear: 2013
@@ -31,4 +30,3 @@ series:
         tvdbId: 271440
       episodes:
         count: 13
-        absoluteFrom: 13

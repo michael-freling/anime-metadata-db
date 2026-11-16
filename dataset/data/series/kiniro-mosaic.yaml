@@ -20,3 +20,16 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
+  movies:
+    - id: kiniro-mosaic-film
+      titles:
+        original: きんいろモザイク Thank you!!
+        translations:
+          ja: きんいろモザイク Thank you!!
+          ja-Latn: 'Kiniro Mosaic: Thank You!!'
+      releaseYear: 2021
+      externalIds:
+        anilistId: 116676
+        anidbId: 15450
+        tvdbId: 269872
+      absoluteNumber: 13

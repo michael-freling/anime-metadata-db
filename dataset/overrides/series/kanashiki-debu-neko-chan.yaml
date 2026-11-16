@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kanashiki-debu-neko-chan
+  titles:
+    original: かなしきデブ猫ちゃん
+    translations: { ja-Latn: Kanashiki Debu Neko-chan }
+  seasons:
+    - id: kanashiki-debu-neko-chan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kanashiki-debu-neko-chan]

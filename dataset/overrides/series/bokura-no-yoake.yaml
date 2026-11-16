@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bokura-no-yoake
+  titles:
+    original: ぼくらのよあけ
+    translations: { ja-Latn: Bokura no Yoake }
+  movies:
+    - id: bokura-no-yoake-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bokura-no-yoake]

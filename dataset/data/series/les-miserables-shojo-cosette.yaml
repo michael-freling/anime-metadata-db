@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Les Misérables - Shōjo Cosette
   ordering: absolute
+  externalIds:
+    wikidataId: Q1324552
   seasons:
     - id: les-miserables-shojo-cosette-s1
       number: 1

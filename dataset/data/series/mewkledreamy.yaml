@@ -19,3 +19,14 @@ series:
       episodes:
         count: 48
         absoluteFrom: 1
+    - id: mewkledreamy-s2
+      number: 2
+      releaseYear: 2021
+      releaseSeason: SPRING
+      externalIds:
+        anilistId: 130777
+        anidbId: 15901
+        tvdbId: 376043
+      episodes:
+        count: 37
+        absoluteFrom: 49

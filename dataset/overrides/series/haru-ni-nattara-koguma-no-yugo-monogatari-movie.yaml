@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: haru-ni-nattara-koguma-no-yugo-monogatari-movie
+  titles:
+    original: 春になったら こぐまのユーゴ物語
+    translations: { ja-Latn: Haru ni Nattara Koguma no Yugo Monogatari (Movie) }
+  movies:
+    - id: haru-ni-nattara-koguma-no-yugo-monogatari-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [haru-ni-nattara-koguma-no-yugo-monogatari-movie]

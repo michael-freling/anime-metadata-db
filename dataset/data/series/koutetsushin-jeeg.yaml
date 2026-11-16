@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Koutetsushin Jeeg
   ordering: absolute
+  externalIds:
+    wikidataId: Q1077672
   seasons:
     - id: koutetsushin-jeeg-s1
       number: 1

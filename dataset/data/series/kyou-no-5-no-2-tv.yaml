@@ -4,8 +4,11 @@ series:
   titles:
     original: 今日の5の2
     translations:
+      en: Kyō no Go no Ni
       ja-Latn: Kyou no 5 no 2 (TV)
   ordering: absolute
+  externalIds:
+    wikidataId: Q1191938
   seasons:
     - id: kyou-no-5-no-2-tv-s1
       number: 1

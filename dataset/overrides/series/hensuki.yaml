@@ -9,7 +9,10 @@ series:
   seasons:
     - id: hensuki-s1
       number: 1
-    - id: hensuki-s2
-      number: 2
+      # Authored: upstream carries this one show twice, as "Hensuki▽" and under
+      # its full title, both 12 episodes of summer 2019, so the second record
+      # became a season of its own. This names the full-title entry, which is
+      # the one the series' own native title belongs to.
+      externalIds: { anilistId: 107961 } # Kawaikereba Hentai demo Suki ni Natte Kuremasu ka?
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [hensuki]

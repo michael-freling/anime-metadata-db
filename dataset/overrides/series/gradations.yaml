@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gradations
+  titles:
+    original: Gradations
+    translations: { ja-Latn: Gradations }
+  movies:
+    - id: gradations-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gradations]

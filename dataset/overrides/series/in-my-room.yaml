@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: in-my-room
+  titles:
+    original: In My Room
+    translations: { ja-Latn: In My Room }
+  movies:
+    - id: in-my-room-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [in-my-room]

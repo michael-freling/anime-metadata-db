@@ -18,3 +18,14 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
+    - id: isekai-shokudou-s2
+      number: 2
+      releaseYear: 2021
+      releaseSeason: FALL
+      externalIds:
+        anilistId: 132806
+        anidbId: 16274
+        tvdbId: 329820
+      episodes:
+        count: 12
+        absoluteFrom: 13

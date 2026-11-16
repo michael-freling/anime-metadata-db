@@ -5,7 +5,7 @@ series:
     original: ☆ケロロ☆
     translations:
       ja-Latn: Keroro
-  ordering: absolute
+  ordering: release
   seasons:
     - id: keroro-s1
       number: 1
@@ -17,7 +17,6 @@ series:
         tvdbId: 75414
       episodes:
         count: 358
-        absoluteFrom: 1
     - id: keroro-s2
       number: 2
       releaseYear: 2014
@@ -27,4 +26,15 @@ series:
         anidbId: 10306
       episodes:
         count: 23
-        absoluteFrom: 359
+  movies:
+    - id: keroro-film
+      titles:
+        original: 劇場版 ケロロ軍曹
+        translations:
+          ja: 劇場版 ケロロ軍曹
+          ja-Latn: Keroro Gunsou Movie 1
+      releaseYear: 2006
+      externalIds:
+        anilistId: 2407
+        anidbId: 3569
+        tvdbId: 75414

@@ -53,9 +53,41 @@ func TestDeclaredTitlesRecoversWhateverRenderWrote(t *testing.T) {
 	if err != nil {
 		t.Fatalf("declaredTitles: %v", err)
 	}
+	// Compared folded, which is the key the importer looks the title up by:
+	// upstream lists some works under titles differing only in the width of a
+	// character, and a literal key let each pair become two series. The
+	// property is unchanged — whatever Render wrote must come back — and now
+	// holds under the comparison that actually decides.
 	for _, title := range titles {
-		if !got[title] {
+		if !got[importer.FoldTitle(title)] {
 			t.Errorf("declaredTitles did not recover %q; a second import would duplicate this series", title)
+		}
+	}
+}
+
+// The folding is only reached through declaredTitles, so the pairs that cost
+// 40 duplicate series are pinned here directly.
+func TestTitlesDifferingOnlyInWidthCompareEqual(t *testing.T) {
+	same := [][2]string{
+		{"しまじろうのわお！", "しまじろうのわお!"},
+		{"下級生２ ～瞳の中の少女たち～", "下級生2 ~瞳の中の少女たち~"},
+		{"ギャラクシーエンジェル4th", "ギャラクシーエンジェル 4th"},
+		{"筋肉番付 金剛くんの冒険！", "筋肉番付　金剛くんの冒険!"},
+	}
+	for _, p := range same {
+		if importer.FoldTitle(p[0]) != importer.FoldTitle(p[1]) {
+			t.Errorf("FoldTitle(%q) != FoldTitle(%q); these are one work and became two series", p[0], p[1])
+		}
+	}
+	// And it must still tell different works apart, or it would merge the
+	// catalogue rather than deduplicate it.
+	differ := [][2]string{
+		{"あかほり外道アワーらぶげ", "あかほり外道アワーらぶげ: 絶叫雑技団"},
+		{"ポケットモンスター", "ポケットモンスター サイドストーリー"},
+	}
+	for _, p := range differ {
+		if importer.FoldTitle(p[0]) == importer.FoldTitle(p[1]) {
+			t.Errorf("FoldTitle collapsed %q and %q, which are different works", p[0], p[1])
 		}
 	}
 }

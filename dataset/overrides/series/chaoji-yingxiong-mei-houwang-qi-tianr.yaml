@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chaoji-yingxiong-mei-houwang-qi-tianr
+  titles:
+    original: "Chaoji Yingxiong Mei Houwang: Qi Tianr"
+    translations: { ja-Latn: "Chaoji Yingxiong Mei Houwang: Qi Tianr" }
+  movies:
+    - id: chaoji-yingxiong-mei-houwang-qi-tianr-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chaoji-yingxiong-mei-houwang-qi-tianr]

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Noramimi
   ordering: absolute
+  externalIds:
+    wikidataId: Q11275243
   seasons:
     - id: noramimi-s1
       number: 1

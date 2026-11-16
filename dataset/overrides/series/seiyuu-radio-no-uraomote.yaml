@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: seiyuu-radio-no-uraomote
+  titles:
+    original: 声優ラジオのウラオモテ
+    translations: { ja-Latn: Seiyuu Radio no Uraomote }
+  seasons:
+    - id: seiyuu-radio-no-uraomote-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [seiyuu-radio-no-uraomote]

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Pachislo Kizoku Gin
   ordering: absolute
+  externalIds:
+    wikidataId: Q11328956
   seasons:
     - id: pachislo-kizoku-gin-s1
       number: 1

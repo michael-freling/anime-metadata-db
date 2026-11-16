@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hottest-tokyo
+  titles:
+    original: HOTTEST TOKYO
+    translations: { ja-Latn: HOTTEST TOKYO }
+  movies:
+    - id: hottest-tokyo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hottest-tokyo]

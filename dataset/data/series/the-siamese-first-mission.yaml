@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'The Siamese: First Mission'
   ordering: absolute
+  externalIds:
+    wikidataId: Q11307771
   movies:
     - id: the-siamese-first-mission-film
       titles:

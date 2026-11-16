@@ -16,5 +16,8 @@ series:
       number: 3
     - id: spy-x-family-s4
       number: 4
+  movies:
+    - id: spy-x-family-film
+      externalIds: { anilistId: 158928 } # Spy x Family Movie: Code: White (2023)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [spy-x-family]

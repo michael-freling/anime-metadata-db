@@ -1,0 +1,15 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kidou-senshi-gundam-suisei-no-majo
+  titles:
+    original: 機動戦士ガンダム 水星の魔女
+    translations: { ja-Latn: "Kidou Senshi Gundam: Suisei no Majo" }
+  seasons:
+    - id: kidou-senshi-gundam-suisei-no-majo-s1
+      number: 1
+    - id: kidou-senshi-gundam-suisei-no-majo-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kidou-senshi-gundam-suisei-no-majo]

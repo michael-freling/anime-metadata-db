@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Aqua Kids
   ordering: absolute
+  externalIds:
+    wikidataId: Q3621081
   seasons:
     - id: aqua-kids-s1
       number: 1

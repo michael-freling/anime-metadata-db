@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kawa-nagu-kasouba
+  titles:
+    original: 川凪ぐ火葬場
+    translations: { ja-Latn: Kawa Nagu Kasouba }
+  movies:
+    - id: kawa-nagu-kasouba-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kawa-nagu-kasouba]

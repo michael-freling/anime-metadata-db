@@ -4,8 +4,11 @@ series:
   titles:
     original: 学園戦記ムリョウ
     translations:
+      en: 'Shingu: Secret of the Stellar Wars'
       ja-Latn: Gakuen Senki Muryou
   ordering: absolute
+  externalIds:
+    wikidataId: Q7497499
   seasons:
     - id: gakuen-senki-muryou-s1
       number: 1

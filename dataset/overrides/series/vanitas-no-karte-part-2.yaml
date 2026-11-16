@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: vanitas-no-karte-part-2
+  titles:
+    original: ヴァニタスの手記 (2クール)
+    translations: { ja-Latn: Vanitas no Karte Part 2 }
+  seasons:
+    - id: vanitas-no-karte-part-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [vanitas-no-karte-part-2]

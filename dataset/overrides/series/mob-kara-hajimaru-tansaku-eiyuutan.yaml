@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mob-kara-hajimaru-tansaku-eiyuutan
+  titles:
+    original: モブから始まる探索英雄譚
+    translations: { ja-Latn: Mob kara Hajimaru Tansaku Eiyuutan }
+  seasons:
+    - id: mob-kara-hajimaru-tansaku-eiyuutan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mob-kara-hajimaru-tansaku-eiyuutan]

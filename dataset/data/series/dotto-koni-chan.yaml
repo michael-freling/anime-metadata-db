@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Dotto Koni-chan
   ordering: absolute
+  externalIds:
+    wikidataId: Q2056346
   seasons:
     - id: dotto-koni-chan-s1
       number: 1

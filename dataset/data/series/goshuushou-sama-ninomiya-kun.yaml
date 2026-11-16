@@ -4,8 +4,11 @@ series:
   titles:
     original: ご愁傷さま二ノ宮くん
     translations:
+      en: Good Luck! Ninomiya-kun
       ja-Latn: Goshuushou-sama Ninomiya-kun
   ordering: absolute
+  externalIds:
+    wikidataId: Q1051427
   seasons:
     - id: goshuushou-sama-ninomiya-kun-s1
       number: 1

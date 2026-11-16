@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Yami to Boushi to Hon no Tabibito
   ordering: absolute
+  externalIds:
+    wikidataId: Q1234084
   seasons:
     - id: yami-to-boushi-to-hon-no-tabibito-s1
       number: 1

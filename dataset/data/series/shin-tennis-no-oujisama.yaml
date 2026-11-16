@@ -18,3 +18,14 @@ series:
       episodes:
         count: 13
         absoluteFrom: 1
+    - id: shin-tennis-no-oujisama-s2
+      number: 2
+      releaseYear: 2022
+      releaseSeason: SUMMER
+      externalIds:
+        anilistId: 140187
+        anidbId: 16878
+        tvdbId: 254899
+      episodes:
+        count: 13
+        absoluteFrom: 14

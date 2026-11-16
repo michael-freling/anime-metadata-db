@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gekijouban-banana-no-kawa-de-subette-korobu-usagi
+  titles:
+    original: 劇場版バナナの皮で滑って転ぶうさぎ
+    translations: { ja-Latn: Gekijouban Banana no Kawa de Subette Korobu Usagi }
+  movies:
+    - id: gekijouban-banana-no-kawa-de-subette-korobu-usagi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gekijouban-banana-no-kawa-de-subette-korobu-usagi]

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Pecola
   ordering: absolute
+  externalIds:
+    wikidataId: Q6142459
   seasons:
     - id: pecola-s1
       number: 1

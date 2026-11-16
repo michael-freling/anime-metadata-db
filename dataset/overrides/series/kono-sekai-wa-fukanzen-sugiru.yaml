@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kono-sekai-wa-fukanzen-sugiru
+  titles:
+    original: この世界は不完全すぎる
+    translations: { ja-Latn: Kono Sekai wa Fukanzen Sugiru }
+  seasons:
+    - id: kono-sekai-wa-fukanzen-sugiru-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kono-sekai-wa-fukanzen-sugiru]

@@ -9,5 +9,8 @@ series:
   seasons:
     - id: hakuouki-s1
       number: 1
+  movies:
+    - id: hakuouki-film
+      externalIds: { anilistId: 13117 } # Hakuouki Movie 1: Kyoto Ranbu (2013)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [hakuouki]

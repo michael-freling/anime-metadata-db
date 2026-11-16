@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: vivy-fluorite-eye-s-song
+  titles:
+    original: Vivy -Fluorite Eye's Song- (ヴィヴィ -フローライトアイズソング-)
+    translations: { ja-Latn: "Vivy: Fluorite Eye's Song" }
+  seasons:
+    - id: vivy-fluorite-eye-s-song-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [vivy-fluorite-eye-s-song]

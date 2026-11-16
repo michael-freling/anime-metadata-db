@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: takano-kousaten
+  titles:
+    original: Takano Kousaten
+    translations: { ja-Latn: Takano Kousaten }
+  movies:
+    - id: takano-kousaten-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [takano-kousaten]

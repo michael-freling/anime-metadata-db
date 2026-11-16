@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fantasy-bishoujo-juniku-ojisan-to
+  titles:
+    original: ファンタジー美少女受肉おじさんと
+    translations: { ja-Latn: Fantasy Bishoujo Juniku Ojisan to }
+  seasons:
+    - id: fantasy-bishoujo-juniku-ojisan-to-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fantasy-bishoujo-juniku-ojisan-to]

@@ -4,8 +4,11 @@ series:
   titles:
     original: ぷちぷり*ユーシィ
     translations:
+      en: Petite Princess Yucie
       ja-Latn: Puchi Pri*Yucie
   ordering: absolute
+  externalIds:
+    wikidataId: Q1319444
   seasons:
     - id: puchi-pri-yucie-s1
       number: 1

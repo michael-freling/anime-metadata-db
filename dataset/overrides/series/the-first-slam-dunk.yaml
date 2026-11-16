@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-first-slam-dunk
+  titles:
+    original: ザ・ファーストスラムダンク
+    translations: { ja-Latn: The First Slam Dunk }
+  movies:
+    - id: the-first-slam-dunk-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-first-slam-dunk]

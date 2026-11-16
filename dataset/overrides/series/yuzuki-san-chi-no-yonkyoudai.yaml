@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yuzuki-san-chi-no-yonkyoudai
+  titles:
+    original: 柚木さんちの四兄弟.
+    translations: { ja-Latn: Yuzuki-san Chi no Yonkyoudai. }
+  seasons:
+    - id: yuzuki-san-chi-no-yonkyoudai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yuzuki-san-chi-no-yonkyoudai]

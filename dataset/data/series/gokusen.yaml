@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Gokusen
   ordering: absolute
+  externalIds:
+    wikidataId: Q699321
   seasons:
     - id: gokusen-s1
       number: 1

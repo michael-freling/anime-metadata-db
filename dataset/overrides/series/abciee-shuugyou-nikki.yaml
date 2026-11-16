@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: abciee-shuugyou-nikki
+  titles:
+    original: エビシー修業日記
+    translations: { ja-Latn: Abciee Shuugyou Nikki }
+  seasons:
+    - id: abciee-shuugyou-nikki-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [abciee-shuugyou-nikki]

@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: suisou
+  titles:
+    original: スイソウ
+    translations: { ja-Latn: Suisou }
+  movies:
+    - id: suisou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [suisou]

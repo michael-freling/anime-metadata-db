@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tekkon Kinkreet
   ordering: absolute
+  externalIds:
+    wikidataId: Q111988774
   movies:
     - id: tekkon-kinkreet-film
       titles:

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Yoshinaga-san Chi no Gargoyle
   ordering: absolute
+  externalIds:
+    wikidataId: Q854973
   seasons:
     - id: yoshinaga-san-chi-no-gargoyle-s1
       number: 1

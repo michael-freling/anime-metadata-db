@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Dead Space: Downfall'
   ordering: absolute
+  externalIds:
+    wikidataId: Q1120093
   movies:
     - id: dead-space-downfall-film
       titles:

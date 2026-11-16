@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sekai-ga-horobiru-mae-ni-kimi-ni-aitai
+  titles:
+    original: "#セカイが滅びる前にキミに会いたい"
+    translations: { ja-Latn: Sekai ga Horobiru Mae ni Kimi ni Aitai }
+  movies:
+    - id: sekai-ga-horobiru-mae-ni-kimi-ni-aitai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sekai-ga-horobiru-mae-ni-kimi-ni-aitai]

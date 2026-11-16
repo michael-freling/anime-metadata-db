@@ -17,4 +17,15 @@ series:
       externalIds:
         anilistId: 8492
         anidbId: 7456
+      absoluteNumber: 2
+    - id: kikansha-yaemon-film-2
+      titles:
+        original: D51の大冒険 きかんしゃやえもん
+        translations:
+          ja: D51の大冒険 きかんしゃやえもん
+          ja-Latn: 'Kikansha Yaemon: D51 no Daibouken'
+      releaseYear: 1974
+      externalIds:
+        anilistId: 8494
+        anidbId: 2219
       absoluteNumber: 1

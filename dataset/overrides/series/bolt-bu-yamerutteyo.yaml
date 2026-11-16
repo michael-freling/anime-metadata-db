@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bolt-bu-yamerutteyo
+  titles:
+    original: ボルト、部やめるってよ
+    translations: { ja-Latn: "Bolt, Bu Yamerutteyo" }
+  movies:
+    - id: bolt-bu-yamerutteyo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bolt-bu-yamerutteyo]

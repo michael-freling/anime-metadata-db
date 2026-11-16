@@ -11,5 +11,8 @@ series:
       number: 1
     - id: touken-ranbu-hanamaru-s2
       number: 2
+  movies:
+    - id: touken-ranbu-hanamaru-film
+      externalIds: { anilistId: 130305 } # Toku: Touken Ranbu - Hanamaru - Setsugetsuka (2022)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [touken-ranbu-hanamaru]

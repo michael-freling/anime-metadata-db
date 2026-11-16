@@ -21,3 +21,14 @@ series:
       episodes:
         count: 24
         absoluteFrom: 1
+    - id: mahoutsukai-no-yome-s2
+      number: 2
+      releaseYear: 2023
+      releaseSeason: SPRING
+      externalIds:
+        anilistId: 154364
+        anidbId: 17599
+        tvdbId: 316842
+      episodes:
+        count: 12
+        absoluteFrom: 25

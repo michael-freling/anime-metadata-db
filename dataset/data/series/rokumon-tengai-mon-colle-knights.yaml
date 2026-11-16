@@ -4,8 +4,11 @@ series:
   titles:
     original: 六門天外モンコレナイト
     translations:
+      en: Mon Colle Knights
       ja-Latn: Rokumon Tengai Mon Colle Knights
   ordering: absolute
+  externalIds:
+    wikidataId: Q134516636
   seasons:
     - id: rokumon-tengai-mon-colle-knights-s1
       number: 1

@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shine-post
+  titles:
+    original: シャインポスト　ねえ知ってた？私を絶対アイドルにするための、ごく普通で当たり前な、とびっきりの魔法
+    translations: { ja-Latn: Shine Post }
+  seasons:
+    - id: shine-post-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shine-post]

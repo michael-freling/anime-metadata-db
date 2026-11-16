@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bei-ken-xiong-huoxing-renwu
+  titles:
+    original: "Bei Ken Xiong: Huoxing Renwu"
+    translations: { ja-Latn: "Bei Ken Xiong: Huoxing Renwu" }
+  movies:
+    - id: bei-ken-xiong-huoxing-renwu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bei-ken-xiong-huoxing-renwu]

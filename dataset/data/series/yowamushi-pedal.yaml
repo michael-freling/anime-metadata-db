@@ -42,6 +42,17 @@ series:
       episodes:
         count: 25
         absoluteFrom: 65
+    - id: yowamushi-pedal-s4
+      number: 4
+      releaseYear: 2022
+      releaseSeason: FALL
+      externalIds:
+        anilistId: 142481
+        anidbId: 17024
+        tvdbId: 272309
+      episodes:
+        count: 25
+        absoluteFrom: 90
   movies:
     - id: yowamushi-pedal-film
       titles:

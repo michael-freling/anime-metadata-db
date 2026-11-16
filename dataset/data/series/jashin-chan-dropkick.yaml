@@ -18,3 +18,14 @@ series:
       episodes:
         count: 11
         absoluteFrom: 1
+    - id: jashin-chan-dropkick-s2
+      number: 2
+      releaseYear: 2022
+      releaseSeason: SUMMER
+      externalIds:
+        anilistId: 124641
+        anidbId: 15749
+        tvdbId: 347215
+      episodes:
+        count: 12
+        absoluteFrom: 12

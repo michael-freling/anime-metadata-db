@@ -9,5 +9,8 @@ series:
   seasons:
     - id: xing-you-ji-s1
       number: 1
+  movies:
+    - id: xing-you-ji-film
+      externalIds: { anilistId: 137602 } # Chong Chu Diqiu (2022)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [xing-you-ji]

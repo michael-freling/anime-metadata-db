@@ -4,8 +4,11 @@ series:
   titles:
     original: トゥルトゥルトゥ ナロンイ
     translations:
+      en: Nalong
       ja-Latn: Turuturutu Narongi
   ordering: absolute
+  externalIds:
+    wikidataId: Q624667
   seasons:
     - id: turuturutu-narongi-s1
       number: 1

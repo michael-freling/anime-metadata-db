@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ex-arm
+  titles:
+    original: EX-ARM エクスアーム
+    translations: { ja-Latn: Ex-Arm }
+  seasons:
+    - id: ex-arm-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ex-arm]

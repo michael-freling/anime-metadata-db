@@ -16,4 +16,14 @@ series:
       releaseYear: 2025
       externalIds:
         anilistId: 194706
+      absoluteNumber: 2
+    - id: bousei-no-volicia-dai-ni-shou-gunjou-film-2
+      titles:
+        original: 忘星のヴァリシア
+        translations:
+          ja: 忘星のヴァリシア
+          ja-Latn: Bousei no Volicia
+      releaseYear: 2023
+      externalIds:
+        anilistId: 169375
       absoluteNumber: 1

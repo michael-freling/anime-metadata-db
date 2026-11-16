@@ -32,3 +32,15 @@ series:
         anilistId: 21014
         anidbId: 10565
       absoluteNumber: 13
+    - id: tamako-market-film-2
+      titles:
+        original: たまこラブストーリー
+        translations:
+          ja: たまこラブストーリー
+          ja-Latn: Tamako Love Story
+      releaseYear: 2014
+      externalIds:
+        anilistId: 20519
+        anidbId: 10326
+        tvdbId: 264534
+      absoluteNumber: 14

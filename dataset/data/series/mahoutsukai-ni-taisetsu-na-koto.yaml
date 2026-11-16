@@ -4,8 +4,11 @@ series:
   titles:
     original: 魔法遣いに大切なこと
     translations:
+      en: Someday's Dreamers
       ja-Latn: Mahoutsukai ni Taisetsu na Koto
   ordering: absolute
+  externalIds:
+    wikidataId: Q485199
   seasons:
     - id: mahoutsukai-ni-taisetsu-na-koto-s1
       number: 1

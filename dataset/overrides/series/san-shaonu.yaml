@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: san-shaonu
+  titles:
+    original: San Shaonu
+    translations: { ja-Latn: San Shaonu }
+  movies:
+    - id: san-shaonu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [san-shaonu]

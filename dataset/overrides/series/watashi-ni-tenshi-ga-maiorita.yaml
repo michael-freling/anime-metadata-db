@@ -9,5 +9,8 @@ series:
   seasons:
     - id: watashi-ni-tenshi-ga-maiorita-s1
       number: 1
+  movies:
+    - id: watashi-ni-tenshi-ga-maiorita-film
+      externalIds: { anilistId: 126425 } # Watashi ni Tenshi ga Maiorita! Precious Friends (2022)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [watashi-ni-tenshi-ga-maiorita]

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Miami Guns
   ordering: absolute
+  externalIds:
+    wikidataId: Q1013881
   seasons:
     - id: miami-guns-s1
       number: 1

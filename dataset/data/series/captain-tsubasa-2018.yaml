@@ -40,3 +40,13 @@ series:
         tvdbId: 339203
       episodes:
         count: 52
+    - id: captain-tsubasa-2018-s4
+      number: 4
+      releaseYear: 2023
+      releaseSeason: FALL
+      externalIds:
+        anilistId: 163024
+        anidbId: 17930
+        tvdbId: 339203
+      episodes:
+        count: 39

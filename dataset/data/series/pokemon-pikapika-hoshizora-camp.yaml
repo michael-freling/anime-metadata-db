@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Pokemon: Pikapika Hoshizora Camp'
   ordering: absolute
+  externalIds:
+    wikidataId: Q11331407
   movies:
     - id: pokemon-pikapika-hoshizora-camp-film
       titles:

@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: cricket-pang
+  titles:
+    original: Cricket Pang
+    translations: { ja-Latn: Cricket Pang }
+  seasons:
+    - id: cricket-pang-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [cricket-pang]

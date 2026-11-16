@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hyouken-no-majutsushi-ga-sekai-wo-suberu
+  titles:
+    original: 冰剣の魔術師が世界を統べる〜世界最強の魔術師である少年は、魔術学院に入学する
+    translations: { ja-Latn: Hyouken no Majutsushi ga Sekai wo Suberu }
+  seasons:
+    - id: hyouken-no-majutsushi-ga-sekai-wo-suberu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hyouken-no-majutsushi-ga-sekai-wo-suberu]

@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ohayou-unko-sensei
+  titles:
+    original: おはよう! うんこ先生
+    translations: { ja-Latn: Ohayou! Unko-sensei }
+  seasons:
+    - id: ohayou-unko-sensei-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ohayou-unko-sensei]

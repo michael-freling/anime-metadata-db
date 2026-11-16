@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: haidi-xiao-zongdui-huoyan-zhi-huan
+  titles:
+    original: "Haidi Xiao Zongdui: Huoyan Zhi Huan"
+    translations: { ja-Latn: "Haidi Xiao Zongdui: Huoyan Zhi Huan" }
+  movies:
+    - id: haidi-xiao-zongdui-huoyan-zhi-huan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [haidi-xiao-zongdui-huoyan-zhi-huan]

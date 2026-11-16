@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nijiiro-no-mori
+  titles:
+    original: 虹いろの森
+    translations: { ja-Latn: Nijiiro no Mori }
+  movies:
+    - id: nijiiro-no-mori-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nijiiro-no-mori]

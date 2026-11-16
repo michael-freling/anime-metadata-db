@@ -31,3 +31,15 @@ series:
       episodes:
         count: 51
         absoluteFrom: 52
+  movies:
+    - id: himitsu-no-aipri-film
+      titles:
+        original: ひみつのアイプリ まんかいバズリウムライブ！
+        translations:
+          ja: ひみつのアイプリ まんかいバズリウムライブ！
+          ja-Latn: 'Himitsu no AiPri Movie: Mankai Buzzlume Live!'
+      releaseYear: 2026
+      externalIds:
+        anilistId: 203100
+        anidbId: 19749
+      absoluteNumber: 103

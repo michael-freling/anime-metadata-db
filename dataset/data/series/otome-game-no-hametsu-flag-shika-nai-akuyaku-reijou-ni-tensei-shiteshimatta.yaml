@@ -29,3 +29,16 @@ series:
       episodes:
         count: 12
         absoluteFrom: 13
+  movies:
+    - id: otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-film
+      titles:
+        original: 乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった…
+        translations:
+          ja: 乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった…
+          ja-Latn: Otome Game no Hametsu Flag shika Nai Akuyaku Reijou ni Tensei shiteshimatta... Movie
+      releaseYear: 2023
+      externalIds:
+        anilistId: 139359
+        anidbId: 16727
+        tvdbId: 371437
+      absoluteNumber: 25

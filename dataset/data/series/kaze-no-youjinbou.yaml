@@ -4,8 +4,11 @@ series:
   titles:
     original: 旋風の用心棒
     translations:
+      en: Kaze no Yojimbo
       ja-Latn: Kaze no Youjinbou
   ordering: absolute
+  externalIds:
+    wikidataId: Q3544419
   seasons:
     - id: kaze-no-youjinbou-s1
       number: 1

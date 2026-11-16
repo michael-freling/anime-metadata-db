@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kamaneko-no-kai-ka-iryokou
+  titles:
+    original: こまねこのかいがいりょこう
+    translations: { ja-Latn: Kamaneko no Kai ka Iryokou }
+  movies:
+    - id: kamaneko-no-kai-ka-iryokou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kamaneko-no-kai-ka-iryokou]

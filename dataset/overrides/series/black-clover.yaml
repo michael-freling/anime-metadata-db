@@ -11,6 +11,9 @@ series:
       number: 1
     - id: black-clover-s2
       number: 2
+  movies:
+    - id: black-clover-film
+      externalIds: { anilistId: 131680 } # Black Clover: Mahou Tei no Ken (2023)
   # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
   # the builder fills every name from the QID at build time.
   characters:

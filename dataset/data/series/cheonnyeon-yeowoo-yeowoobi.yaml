@@ -4,8 +4,11 @@ series:
   titles:
     original: 千年狐ヨウビ
     translations:
+      en: Yobi, the Five Tailed Fox
       ja-Latn: Cheonnyeon-yeowoo Yeowoobi
   ordering: absolute
+  externalIds:
+    wikidataId: Q562140
   movies:
     - id: cheonnyeon-yeowoo-yeowoobi-film
       titles:

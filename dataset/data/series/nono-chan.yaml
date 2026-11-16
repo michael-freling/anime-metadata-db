@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Nono-chan
   ordering: absolute
+  externalIds:
+    wikidataId: Q16164175
   seasons:
     - id: nono-chan-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Skip Beat!
   ordering: absolute
+  externalIds:
+    wikidataId: Q696202
   seasons:
     - id: skip-beat-s1
       number: 1

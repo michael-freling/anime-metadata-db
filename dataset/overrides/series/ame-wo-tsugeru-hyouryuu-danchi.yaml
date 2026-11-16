@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ame-wo-tsugeru-hyouryuu-danchi
+  titles:
+    original: 雨を告げる漂流団地
+    translations: { ja-Latn: Ame wo Tsugeru Hyouryuu Danchi }
+  movies:
+    - id: ame-wo-tsugeru-hyouryuu-danchi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ame-wo-tsugeru-hyouryuu-danchi]

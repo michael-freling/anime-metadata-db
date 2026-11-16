@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: seija-musou-salaryman-isekai-de-ikinokoru-tame-ni-ayumu-michi
+  titles:
+    original: "聖者無双 ~サラリーマン, 異世界で生き残るために歩む道~"
+    translations: { ja-Latn: "Seija Musou: Salaryman, Isekai de Ikinokoru Tame ni Ayumu Michi" }
+  seasons:
+    - id: seija-musou-salaryman-isekai-de-ikinokoru-tame-ni-ayumu-michi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [seija-musou-salaryman-isekai-de-ikinokoru-tame-ni-ayumu-michi]

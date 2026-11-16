@@ -4,8 +4,11 @@ series:
   titles:
     original: おもいっきり科学アドベンチャー そーなんだ!
     translations:
+      en: Full-Blast Science Adventure – So That's How It Is
       ja-Latn: Omoikkiri Kagaku Adventure Sou Nanda!
   ordering: absolute
+  externalIds:
+    wikidataId: Q5507962
   seasons:
     - id: omoikkiri-kagaku-adventure-sou-nanda-s1
       number: 1

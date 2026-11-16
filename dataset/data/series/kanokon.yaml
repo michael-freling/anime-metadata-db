@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kanokon
   ordering: absolute
+  externalIds:
+    wikidataId: Q494932
   seasons:
     - id: kanokon-s1
       number: 1

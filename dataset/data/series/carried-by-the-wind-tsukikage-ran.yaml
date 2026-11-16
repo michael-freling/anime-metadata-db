@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Carried by the Wind: Tsukikage Ran'
   ordering: absolute
+  externalIds:
+    wikidataId: Q2619119
   seasons:
     - id: carried-by-the-wind-tsukikage-ran-s1
       number: 1

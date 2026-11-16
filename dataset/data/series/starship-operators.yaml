@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Starship Operators
   ordering: absolute
+  externalIds:
+    wikidataId: Q2026481
   seasons:
     - id: starship-operators-s1
       number: 1

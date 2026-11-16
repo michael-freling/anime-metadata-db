@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Comic Party
   ordering: absolute
+  externalIds:
+    wikidataId: Q1114414
   seasons:
     - id: comic-party-s1
       number: 1

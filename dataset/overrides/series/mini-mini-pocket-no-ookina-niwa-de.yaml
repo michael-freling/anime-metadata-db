@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mini-mini-pocket-no-ookina-niwa-de
+  titles:
+    original: ミニミニポッケの大きな庭で
+    translations: { ja-Latn: Mini Mini Pocket no Ookina Niwa de }
+  movies:
+    - id: mini-mini-pocket-no-ookina-niwa-de-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mini-mini-pocket-no-ookina-niwa-de]

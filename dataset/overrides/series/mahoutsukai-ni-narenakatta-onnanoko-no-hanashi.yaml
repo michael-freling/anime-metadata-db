@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mahoutsukai-ni-narenakatta-onnanoko-no-hanashi
+  titles:
+    original: 魔法使いになれなかった女の子の話.
+    translations: { ja-Latn: Mahoutsukai ni Narenakatta Onnanoko no Hanashi }
+  seasons:
+    - id: mahoutsukai-ni-narenakatta-onnanoko-no-hanashi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mahoutsukai-ni-narenakatta-onnanoko-no-hanashi]

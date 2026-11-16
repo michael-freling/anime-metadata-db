@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: seven-knights-revolution-eiyuu-no-keishousha
+  titles:
+    original: SEVEN KNIGHTS REVOLUTION -英雄の継承者-
+    translations: { ja-Latn: "Seven Knights Revolution: Eiyuu no Keishousha" }
+  seasons:
+    - id: seven-knights-revolution-eiyuu-no-keishousha-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [seven-knights-revolution-eiyuu-no-keishousha]

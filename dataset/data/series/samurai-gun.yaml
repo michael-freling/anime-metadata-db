@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Samurai Gun
   ordering: absolute
+  externalIds:
+    wikidataId: Q825564
   seasons:
     - id: samurai-gun-s1
       number: 1

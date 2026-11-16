@@ -4,8 +4,11 @@ series:
   titles:
     original: あまえないでよっ!!
     translations:
+      en: Ah My Buddha
       ja-Latn: Amaenaide yo!!
   ordering: absolute
+  externalIds:
+    wikidataId: Q452374
   seasons:
     - id: amaenaide-yo-s1
       number: 1

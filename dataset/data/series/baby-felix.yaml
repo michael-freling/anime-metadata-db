@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Baby Felix
   ordering: absolute
+  externalIds:
+    wikidataId: Q1639257
   seasons:
     - id: baby-felix-s1
       number: 1

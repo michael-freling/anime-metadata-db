@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dramatic-nounai
+  titles:
+    original: ドラ馬チック脳内
+    translations: { ja-Latn: Dramatic Nounai }
+  seasons:
+    - id: dramatic-nounai-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dramatic-nounai]

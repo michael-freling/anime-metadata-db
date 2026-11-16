@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Live On Cardliver Kakeru
   ordering: absolute
+  externalIds:
+    wikidataId: Q5363626
   seasons:
     - id: live-on-cardliver-kakeru-s1
       number: 1

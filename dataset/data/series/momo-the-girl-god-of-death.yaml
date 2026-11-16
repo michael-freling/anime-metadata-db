@@ -4,8 +4,11 @@ series:
   titles:
     original: しにがみのバラッド。
     translations:
+      en: Ballad of a Shinigami
       ja-Latn: 'Momo: The Girl God of Death'
   ordering: absolute
+  externalIds:
+    wikidataId: Q495524
   seasons:
     - id: momo-the-girl-god-of-death-s1
       number: 1

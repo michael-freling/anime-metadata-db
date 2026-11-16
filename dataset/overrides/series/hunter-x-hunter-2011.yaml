@@ -11,5 +11,6 @@ series:
       number: 1
     - id: hunter-x-hunter-2011-s2
       number: 2
-# One linear storyline: episodes carry a continuous absoluteNumber.
-numbered: [hunter-x-hunter-2011]
+# No continuous absoluteNumber. The installments above are separate
+# adaptations of one work (1999, 2011), not one run, so numbering them
+# end to end would assert a continuity that does not exist.

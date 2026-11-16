@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Cross Game
   ordering: absolute
+  externalIds:
+    wikidataId: Q583368
   seasons:
     - id: cross-game-s1
       number: 1

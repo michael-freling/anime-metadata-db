@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Heroic Age
   ordering: absolute
+  externalIds:
+    wikidataId: Q1313797
   seasons:
     - id: heroic-age-s1
       number: 1

@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ultraman-rising
+  titles:
+    original: "ウルトラマン: ライジング"
+    translations: { ja-Latn: "Ultraman: Rising" }
+  movies:
+    - id: ultraman-rising-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ultraman-rising]

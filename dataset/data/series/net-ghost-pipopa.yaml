@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Net Ghost Pipopa
   ordering: absolute
+  externalIds:
+    wikidataId: Q540997
   seasons:
     - id: net-ghost-pipopa-s1
       number: 1

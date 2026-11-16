@@ -28,4 +28,17 @@ series:
         tvdbId: 283947
       episodes:
         count: 25
-        absoluteFrom: 23
+        absoluteFrom: 24
+  movies:
+    - id: assassination-classroom-film
+      titles:
+        original: 殺せんせーQ!
+        translations:
+          ja: 殺せんせーQ!
+          ja-Latn: Koro-sensei Q!
+      releaseYear: 2016
+      externalIds:
+        anilistId: 21864
+        anidbId: 12244
+        tvdbId: 321496
+      absoluteNumber: 23

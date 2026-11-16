@@ -18,3 +18,14 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
+    - id: poputepipikku-s2
+      number: 2
+      releaseYear: 2022
+      releaseSeason: FALL
+      externalIds:
+        anilistId: 143086
+        anidbId: 17079
+        tvdbId: 339278
+      episodes:
+        count: 11
+        absoluteFrom: 13

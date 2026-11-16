@@ -18,3 +18,14 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
+    - id: kyokou-suiri-s2
+      number: 2
+      releaseYear: 2023
+      releaseSeason: WINTER
+      externalIds:
+        anilistId: 126529
+        anidbId: 15876
+        tvdbId: 368565
+      episodes:
+        count: 12
+        absoluteFrom: 13

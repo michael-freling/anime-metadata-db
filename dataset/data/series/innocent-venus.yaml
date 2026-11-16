@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Innocent Venus
   ordering: absolute
+  externalIds:
+    wikidataId: Q2535197
   seasons:
     - id: innocent-venus-s1
       number: 1

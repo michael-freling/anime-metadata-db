@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Yomigaeru Sora: Rescue Wings'
   ordering: absolute
+  externalIds:
+    wikidataId: Q4022858
   seasons:
     - id: yomigaeru-sora-rescue-wings-s1
       number: 1

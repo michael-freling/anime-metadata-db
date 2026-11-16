@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiong-chumo-xiongxiong-bang-bang-tuan-3
+  titles:
+    original: "Xiong Chumo: Xiongxiong Bang Bang Tuan 3"
+    translations: { ja-Latn: "Xiong Chumo: Xiongxiong Bang Bang Tuan 3" }
+  seasons:
+    - id: xiong-chumo-xiongxiong-bang-bang-tuan-3-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiong-chumo-xiongxiong-bang-bang-tuan-3]

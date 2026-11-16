@@ -30,4 +30,16 @@ series:
         anilistId: 2175
         anidbId: 4939
         tvdbId: 79179
+      absoluteNumber: 15
+    - id: kino-no-tabi-the-beautiful-world-film-2
+      titles:
+        original: キノの旅 -The Beautiful World- 何かをするために -Life goes on-
+        translations:
+          ja: キノの旅 -The Beautiful World- 何かをするために -Life goes on-
+          ja-Latn: 'Kino no Tabi: The Beautiful World - Nanika wo Suru Tame ni - Life Goes On.'
+      releaseYear: 2005
+      externalIds:
+        anilistId: 1379
+        anidbId: 2651
+        tvdbId: 79179
       absoluteNumber: 14

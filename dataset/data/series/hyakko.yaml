@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hyakko
   ordering: absolute
+  externalIds:
+    wikidataId: Q2733846
   seasons:
     - id: hyakko-s1
       number: 1

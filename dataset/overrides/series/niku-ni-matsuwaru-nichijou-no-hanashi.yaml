@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: niku-ni-matsuwaru-nichijou-no-hanashi
+  titles:
+    original: 肉にまつわる日常の話
+    translations: { ja-Latn: Niku ni Matsuwaru Nichijou no Hanashi }
+  movies:
+    - id: niku-ni-matsuwaru-nichijou-no-hanashi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [niku-ni-matsuwaru-nichijou-no-hanashi]

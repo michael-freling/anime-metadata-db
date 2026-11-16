@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Fabre-sensei wa Meitantei
   ordering: absolute
+  externalIds:
+    wikidataId: Q11332350
   seasons:
     - id: fabre-sensei-wa-meitantei-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: バビル2世
     translations:
+      en: Babel II
       ja-Latn: Babel Nisei (2001)
   ordering: release
+  externalIds:
+    wikidataId: Q797626
   seasons:
     - id: babel-nisei-2001-s1
       number: 1

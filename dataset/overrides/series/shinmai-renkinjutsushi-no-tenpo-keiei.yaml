@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shinmai-renkinjutsushi-no-tenpo-keiei
+  titles:
+    original: 新米錬金術師の店舗経営
+    translations: { ja-Latn: Shinmai Renkinjutsushi no Tenpo Keiei }
+  seasons:
+    - id: shinmai-renkinjutsushi-no-tenpo-keiei-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shinmai-renkinjutsushi-no-tenpo-keiei]

@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nae-maeumeun-muji
+  titles:
+    original: Nae Maeumeun Muji
+    translations: { ja-Latn: Nae Maeumeun Muji }
+  seasons:
+    - id: nae-maeumeun-muji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nae-maeumeun-muji]

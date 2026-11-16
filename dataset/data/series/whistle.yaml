@@ -5,7 +5,7 @@ series:
     original: ホイッスル!
     translations:
       ja-Latn: Whistle!
-  ordering: absolute
+  ordering: release
   externalIds:
     wikidataId: Q699103
   seasons:
@@ -19,11 +19,9 @@ series:
         tvdbId: 84538
       episodes:
         count: 39
-        absoluteFrom: 1
     - id: whistle-s2
       number: 2
       releaseYear: 2016
       releaseSeason: FALL
       episodes:
         count: 1
-        absoluteFrom: 40

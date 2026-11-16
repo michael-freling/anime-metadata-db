@@ -9,5 +9,8 @@ series:
   seasons:
     - id: macross-s1
       number: 1
+  movies:
+    - id: macross-film
+      externalIds: { anilistId: 118126 } # Macross Δ Movie 2: Zettai Live!!! (2021)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [macross]

@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: adam-by-eve-a-live-in-animation
+  titles:
+    original: "Adam by Eve: A Live in Animation"
+    translations: { ja-Latn: "Adam by Eve: A Live in Animation" }
+  movies:
+    - id: adam-by-eve-a-live-in-animation-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [adam-by-eve-a-live-in-animation]

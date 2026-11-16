@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: delicious-party-precure-movie-yume-miru-oko-sama-lunch
+  titles:
+    original: 映画デリシャスパーティ♡プリキュア 夢みる♡お子さまランチ!
+    translations: { ja-Latn: "Delicious Party♡Precure Movie: Yume Miru Oko-sama Lunch!" }
+  movies:
+    - id: delicious-party-precure-movie-yume-miru-oko-sama-lunch-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [delicious-party-precure-movie-yume-miru-oko-sama-lunch]

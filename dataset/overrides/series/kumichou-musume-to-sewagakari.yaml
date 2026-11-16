@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kumichou-musume-to-sewagakari
+  titles:
+    original: 組長娘と世話係
+    translations: { ja-Latn: Kumichou Musume to Sewagakari }
+  seasons:
+    - id: kumichou-musume-to-sewagakari-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kumichou-musume-to-sewagakari]

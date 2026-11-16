@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kirarin☆Revolution
   ordering: absolute
+  externalIds:
+    wikidataId: Q484955
   seasons:
     - id: kirarin-revolution-s1
       number: 1

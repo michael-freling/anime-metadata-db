@@ -8,5 +8,10 @@ series:
     translations: { ja-Latn: Wo Shi Na Zha }
   movies:
     - id: wo-shi-na-zha-film
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 102511 }
+    - id: wo-shi-na-zha-film-2
+      externalIds: { anilistId: 146583 } # Wo Shi Na Zha 2: Yingxiong Guilai (2023)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [wo-shi-na-zha]

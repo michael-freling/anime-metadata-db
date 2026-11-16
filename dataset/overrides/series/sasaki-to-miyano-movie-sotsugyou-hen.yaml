@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sasaki-to-miyano-movie-sotsugyou-hen
+  titles:
+    original: 映画 佐々木と宮野 -卒業編-
+    translations: { ja-Latn: "Sasaki to Miyano Movie: Sotsugyou-hen" }
+  movies:
+    - id: sasaki-to-miyano-movie-sotsugyou-hen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sasaki-to-miyano-movie-sotsugyou-hen]

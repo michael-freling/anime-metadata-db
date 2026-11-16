@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: isekai-meikyuu-de-harem-wo
+  titles:
+    original: 異世界迷宮でハーレムを
+    translations: { ja-Latn: Isekai Meikyuu de Harem wo }
+  seasons:
+    - id: isekai-meikyuu-de-harem-wo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [isekai-meikyuu-de-harem-wo]

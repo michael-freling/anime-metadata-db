@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: charging-topspinner-bx
+  titles:
+    original: Charging Topspinner BX
+    translations: { ja-Latn: Charging Topspinner BX }
+  seasons:
+    - id: charging-topspinner-bx-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [charging-topspinner-bx]

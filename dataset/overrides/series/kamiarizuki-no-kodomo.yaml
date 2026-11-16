@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kamiarizuki-no-kodomo
+  titles:
+    original: 神在月のこども
+    translations: { ja-Latn: Kamiarizuki no Kodomo }
+  movies:
+    - id: kamiarizuki-no-kodomo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kamiarizuki-no-kodomo]

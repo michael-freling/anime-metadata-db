@@ -29,3 +29,27 @@ series:
       episodes:
         count: 24
         absoluteFrom: 25
+    - id: nanatsu-no-taizai-s3
+      number: 3
+      releaseYear: 2021
+      releaseSeason: WINTER
+      externalIds:
+        anilistId: 116752
+        anidbId: 15459
+        tvdbId: 284131
+      episodes:
+        count: 24
+        absoluteFrom: 50
+  movies:
+    - id: nanatsu-no-taizai-film
+      titles:
+        original: 七つの大罪 光に呪われし者たち
+        translations:
+          ja: 七つの大罪 光に呪われし者たち
+          ja-Latn: 'Nanatsu no Taizai Movie 2: Hikari ni Norowareshi Mono-tachi'
+      releaseYear: 2021
+      externalIds:
+        anilistId: 128740
+        anidbId: 15997
+        tvdbId: 284131
+      absoluteNumber: 49

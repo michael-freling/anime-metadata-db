@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: level-1-dakedo-unique-skill-de-saikyou-desu
+  titles:
+    original: レベル1だけどユニークスキルで最強です
+    translations: { ja-Latn: Level 1 dakedo Unique Skill de Saikyou desu }
+  seasons:
+    - id: level-1-dakedo-unique-skill-de-saikyou-desu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [level-1-dakedo-unique-skill-de-saikyou-desu]

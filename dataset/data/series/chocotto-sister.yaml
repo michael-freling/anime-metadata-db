@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Chocotto Sister
   ordering: absolute
+  externalIds:
+    wikidataId: Q1045285
   seasons:
     - id: chocotto-sister-s1
       number: 1

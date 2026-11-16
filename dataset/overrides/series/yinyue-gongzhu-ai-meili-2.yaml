@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yinyue-gongzhu-ai-meili-2
+  titles:
+    original: Yinyue Gongzhu Ai Meili 2
+    translations: { ja-Latn: Yinyue Gongzhu Ai Meili 2 }
+  seasons:
+    - id: yinyue-gongzhu-ai-meili-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yinyue-gongzhu-ai-meili-2]

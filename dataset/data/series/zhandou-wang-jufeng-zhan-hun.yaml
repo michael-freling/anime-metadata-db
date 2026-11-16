@@ -17,3 +17,13 @@ series:
       episodes:
         count: 52
         absoluteFrom: 1
+    - id: zhandou-wang-jufeng-zhan-hun-s2
+      number: 2
+      releaseYear: 2018
+      releaseSeason: FALL
+      externalIds:
+        anilistId: 121384
+        anidbId: 15265
+      episodes:
+        count: 26
+        absoluteFrom: 53

@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sankaku-mado-no-sotogawa-wa-yoru
+  titles:
+    original: さんかく窓の外側は夜
+    translations: { ja-Latn: Sankaku Mado no Sotogawa wa Yoru }
+  seasons:
+    - id: sankaku-mado-no-sotogawa-wa-yoru-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sankaku-mado-no-sotogawa-wa-yoru]

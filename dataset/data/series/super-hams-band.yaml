@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Super Hams Band
   ordering: absolute
+  externalIds:
+    wikidataId: Q624679
   seasons:
     - id: super-hams-band-s1
       number: 1

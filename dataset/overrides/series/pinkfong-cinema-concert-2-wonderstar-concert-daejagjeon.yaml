@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pinkfong-cinema-concert-2-wonderstar-concert-daejagjeon
+  titles:
+    original: "Pinkfong Cinema Concert 2: Wonderstar Concert Daejagjeon"
+    translations: { ja-Latn: "Pinkfong Cinema Concert 2: Wonderstar Concert Daejagjeon" }
+  movies:
+    - id: pinkfong-cinema-concert-2-wonderstar-concert-daejagjeon-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pinkfong-cinema-concert-2-wonderstar-concert-daejagjeon]

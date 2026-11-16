@@ -9,5 +9,11 @@ series:
   seasons:
     - id: peter-grill-to-kenja-no-jikan-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 111965 }
+    - id: peter-grill-to-kenja-no-jikan-s2
+      number: 2
+      externalIds: { anilistId: 141400 } # Peter Grill to Kenja no Jikan: Super Extra (2022)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [peter-grill-to-kenja-no-jikan]

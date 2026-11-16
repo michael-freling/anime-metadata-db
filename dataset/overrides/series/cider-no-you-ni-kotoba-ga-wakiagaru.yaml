@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: cider-no-you-ni-kotoba-ga-wakiagaru
+  titles:
+    original: サイダーのように言葉が湧き上がる
+    translations: { ja-Latn: Cider no You ni Kotoba ga Wakiagaru }
+  movies:
+    - id: cider-no-you-ni-kotoba-ga-wakiagaru-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [cider-no-you-ni-kotoba-ga-wakiagaru]

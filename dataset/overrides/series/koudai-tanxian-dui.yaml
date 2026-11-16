@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: koudai-tanxian-dui
+  titles:
+    original: Koudai Tanxian Dui
+    translations: { ja-Latn: Koudai Tanxian Dui }
+  seasons:
+    - id: koudai-tanxian-dui-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [koudai-tanxian-dui]

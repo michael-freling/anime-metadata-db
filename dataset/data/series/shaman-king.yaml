@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Shaman King
   ordering: release
+  externalIds:
+    wikidataId: Q219610
   seasons:
     - id: shaman-king-s1
       number: 1

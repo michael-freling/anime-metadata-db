@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Air Gear
   ordering: absolute
+  externalIds:
+    wikidataId: Q407275
   seasons:
     - id: air-gear-s1
       number: 1

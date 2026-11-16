@@ -1,0 +1,15 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gunma-chan
+  titles:
+    original: ぐんまちゃん
+    translations: { ja-Latn: Gunma-chan }
+  seasons:
+    - id: gunma-chan-s1
+      number: 1
+    - id: gunma-chan-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gunma-chan]

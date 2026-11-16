@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-marginal-service
+  titles:
+    original: THE MARGINAL SERVICE（ザ・マージナルサービス）
+    translations: { ja-Latn: The Marginal Service }
+  seasons:
+    - id: the-marginal-service-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-marginal-service]

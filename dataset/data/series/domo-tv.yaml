@@ -5,7 +5,7 @@ series:
     original: どーもくん
     translations:
       ja-Latn: Domo TV
-  ordering: absolute
+  ordering: release
   seasons:
     - id: domo-tv-s1
       number: 1
@@ -15,7 +15,6 @@ series:
         anilistId: 7643
       episodes:
         count: 37
-        absoluteFrom: 1
     - id: domo-tv-s2
       number: 2
       releaseYear: 2008
@@ -24,4 +23,3 @@ series:
         anilistId: 8815
       episodes:
         count: 26
-        absoluteFrom: 38

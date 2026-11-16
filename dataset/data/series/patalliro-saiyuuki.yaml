@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Patalliro Saiyuuki!
   ordering: absolute
+  externalIds:
+    wikidataId: Q11328906
   seasons:
     - id: patalliro-saiyuuki-s1
       number: 1

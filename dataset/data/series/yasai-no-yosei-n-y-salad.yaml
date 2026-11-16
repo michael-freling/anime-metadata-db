@@ -17,3 +17,25 @@ series:
       episodes:
         count: 26
         absoluteFrom: 1
+    - id: yasai-no-yosei-n-y-salad-s2
+      number: 2
+      releaseYear: 2008
+      releaseSeason: SPRING
+      externalIds:
+        anilistId: 10706
+        anidbId: 7077
+      episodes:
+        count: 26
+        absoluteFrom: 27
+  movies:
+    - id: yasai-no-yosei-n-y-salad-film
+      titles:
+        original: やさいのようせい N.Y.SALAD The Movie
+        translations:
+          ja: やさいのようせい N.Y.SALAD The Movie
+          ja-Latn: 'Yasai no Yousei: N.Y. Salad The Movie'
+      releaseYear: 2010
+      externalIds:
+        anilistId: 181832
+        anidbId: 7390
+      absoluteNumber: 53

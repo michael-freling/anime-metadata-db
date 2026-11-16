@@ -9,5 +9,11 @@ series:
   seasons:
     - id: maou-gakuin-no-futekigousha-shijou-saikyou-no-maou-no-shiso-tensei-shite-shison-tachi-no-gakkou-e-kayou-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 112301 }
+    - id: maou-gakuin-no-futekigousha-shijou-saikyou-no-maou-no-shiso-tensei-shite-shison-tachi-no-gakkou-e-kayou-s2
+      number: 2
+      externalIds: { anilistId: 130588 } # Maou Gakuin no Futekigousha II: Shijou Saikyou no Maou no Shiso… (2023)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [maou-gakuin-no-futekigousha-shijou-saikyou-no-maou-no-shiso-tensei-shite-shison-tachi-no-gakkou-e-kayou]

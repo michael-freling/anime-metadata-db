@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'GA: Geijutsuka Art Design Class'
   ordering: absolute
+  externalIds:
+    wikidataId: Q1074213
   seasons:
     - id: ga-geijutsuka-art-design-class-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Nagasarete Airantou
   ordering: absolute
+  externalIds:
+    wikidataId: Q1200040
   seasons:
     - id: nagasarete-airantou-s1
       number: 1

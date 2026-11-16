@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: cestvs-the-roman-fighter
+  titles:
+    original: セスタス -The Roman Fighter-
+    translations: { ja-Latn: "Cestvs: The Roman Fighter" }
+  seasons:
+    - id: cestvs-the-roman-fighter-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [cestvs-the-roman-fighter]

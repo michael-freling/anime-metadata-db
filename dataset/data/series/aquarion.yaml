@@ -18,6 +18,17 @@ series:
       episodes:
         count: 26
         absoluteFrom: 1
+    - id: aquarion-s2
+      number: 2
+      releaseYear: 2012
+      releaseSeason: WINTER
+      externalIds:
+        anilistId: 10447
+        anidbId: 8299
+        tvdbId: 79886
+      episodes:
+        count: 26
+        absoluteFrom: 28
   movies:
     - id: aquarion-film
       titles:

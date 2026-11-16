@@ -4,8 +4,11 @@ series:
   titles:
     original: 冒険遊記プラスターワールド
     translations:
+      en: Pluster World
       ja-Latn: Bouken Yuuki Pluster World
   ordering: absolute
+  externalIds:
+    wikidataId: Q646801
   seasons:
     - id: bouken-yuuki-pluster-world-s1
       number: 1

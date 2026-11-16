@@ -11,5 +11,8 @@ series:
       number: 1
     - id: gdgd-fairies-s2
       number: 2
+  movies:
+    - id: gdgd-fairies-film
+      externalIds: { anilistId: 20887 } # gdgd Fairies Movie: tte Iu Eiga wa Dou kana...? (2014)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [gdgd-fairies]

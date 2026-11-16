@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ai-no-utagoe-wo-kikasete
+  titles:
+    original: アイの歌声を聴かせて Sing a Bit of Harmony
+    translations: { ja-Latn: Ai no Utagoe wo Kikasete }
+  movies:
+    - id: ai-no-utagoe-wo-kikasete-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ai-no-utagoe-wo-kikasete]

@@ -4,8 +4,11 @@ series:
   titles:
     original: うちゅう人 田中太郎
     translations:
+      en: Taro the Space Alien
       ja-Latn: Uchuujin Tanaka Tarou
   ordering: absolute
+  externalIds:
+    wikidataId: Q7686517
   seasons:
     - id: uchuujin-tanaka-tarou-s1
       number: 1

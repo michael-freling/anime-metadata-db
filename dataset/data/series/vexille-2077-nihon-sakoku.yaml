@@ -4,8 +4,11 @@ series:
   titles:
     original: ベクシル 2077日本鎖国
     translations:
+      en: Vexille
       ja-Latn: 'Vexille: 2077 Nihon Sakoku'
   ordering: absolute
+  externalIds:
+    wikidataId: Q1141588
   movies:
     - id: vexille-2077-nihon-sakoku-film
       titles:

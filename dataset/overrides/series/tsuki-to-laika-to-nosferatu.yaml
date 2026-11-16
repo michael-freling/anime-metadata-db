@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tsuki-to-laika-to-nosferatu
+  titles:
+    original: 月とライカと吸血姫
+    translations: { ja-Latn: Tsuki to Laika to Nosferatu }
+  seasons:
+    - id: tsuki-to-laika-to-nosferatu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tsuki-to-laika-to-nosferatu]

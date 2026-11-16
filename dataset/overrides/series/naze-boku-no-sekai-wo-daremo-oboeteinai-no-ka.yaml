@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: naze-boku-no-sekai-wo-daremo-oboeteinai-no-ka
+  titles:
+    original: "なぜ僕の世界を誰も覚えていないのか?"
+    translations: { ja-Latn: "Naze Boku no Sekai wo Daremo Oboeteinai no ka?" }
+  seasons:
+    - id: naze-boku-no-sekai-wo-daremo-oboeteinai-no-ka-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [naze-boku-no-sekai-wo-daremo-oboeteinai-no-ka]

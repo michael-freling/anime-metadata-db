@@ -11,5 +11,9 @@ series:
       number: 1
     - id: keroro-s2
       number: 2
-# One linear storyline: episodes carry a continuous absoluteNumber.
-numbered: [keroro]
+  movies:
+    - id: keroro-film
+      externalIds: { anilistId: 2407 } # Keroro Gunsou Movie 1 (2006)
+# No continuous absoluteNumber. The installments above are separate
+# adaptations of one work (2004, 2014), not one run, so numbering them
+# end to end would assert a continuity that does not exist.

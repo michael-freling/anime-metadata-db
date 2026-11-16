@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hand Maid May
   ordering: absolute
+  externalIds:
+    wikidataId: Q1902786
   seasons:
     - id: hand-maid-may-s1
       number: 1

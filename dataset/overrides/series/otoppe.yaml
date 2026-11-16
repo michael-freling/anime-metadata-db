@@ -9,5 +9,8 @@ series:
   seasons:
     - id: otoppe-s1
       number: 1
+  movies:
+    - id: otoppe-film
+      externalIds: { anilistId: 132300 } # Otoppe Movie: Papa, Don't Cry (2021)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [otoppe]

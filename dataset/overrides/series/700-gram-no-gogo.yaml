@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 700-gram-no-gogo
+  titles:
+    original: 700グラムの午後
+    translations: { ja-Latn: 700 Gram no Gogo }
+  movies:
+    - id: 700-gram-no-gogo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [700-gram-no-gogo]

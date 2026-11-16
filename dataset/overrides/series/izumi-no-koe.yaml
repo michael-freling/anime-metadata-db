@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: izumi-no-koe
+  titles:
+    original: いずみのこえ
+    translations: { ja-Latn: Izumi no Koe }
+  movies:
+    - id: izumi-no-koe-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [izumi-no-koe]

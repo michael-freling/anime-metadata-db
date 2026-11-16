@@ -4,8 +4,11 @@ series:
   titles:
     original: ココロ図書館
     translations:
+      en: Kokoro Library
       ja-Latn: Kokoro Toshokan
   ordering: absolute
+  externalIds:
+    wikidataId: Q2988151
   seasons:
     - id: kokoro-toshokan-s1
       number: 1

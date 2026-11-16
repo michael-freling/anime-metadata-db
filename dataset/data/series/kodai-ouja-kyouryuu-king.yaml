@@ -4,8 +4,11 @@ series:
   titles:
     original: 古代王者 恐竜キング Dキッズ・アドベンチャー
     translations:
+      en: Dinosaur King
       ja-Latn: Kodai Ouja Kyouryuu King
   ordering: absolute
+  externalIds:
+    wikidataId: Q17221338
   seasons:
     - id: kodai-ouja-kyouryuu-king-s1
       number: 1

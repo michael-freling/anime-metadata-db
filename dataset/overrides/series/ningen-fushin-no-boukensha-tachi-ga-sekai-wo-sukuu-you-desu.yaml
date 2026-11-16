@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ningen-fushin-no-boukensha-tachi-ga-sekai-wo-sukuu-you-desu
+  titles:
+    original: 人間不信の冒険者たちが世界を救うようです
+    translations: { ja-Latn: Ningen Fushin no Boukensha-tachi ga Sekai wo Sukuu you desu }
+  seasons:
+    - id: ningen-fushin-no-boukensha-tachi-ga-sekai-wo-sukuu-you-desu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ningen-fushin-no-boukensha-tachi-ga-sekai-wo-sukuu-you-desu]

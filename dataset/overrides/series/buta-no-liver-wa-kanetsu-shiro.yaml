@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: buta-no-liver-wa-kanetsu-shiro
+  titles:
+    original: 豚のレバーは加熱しろ
+    translations: { ja-Latn: Buta no Liver wa Kanetsu Shiro }
+  seasons:
+    - id: buta-no-liver-wa-kanetsu-shiro-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [buta-no-liver-wa-kanetsu-shiro]

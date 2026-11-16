@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tactical Roar
   ordering: absolute
+  externalIds:
+    wikidataId: Q4118317
   seasons:
     - id: tactical-roar-s1
       number: 1

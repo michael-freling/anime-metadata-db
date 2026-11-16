@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Pumpkin Scissors
   ordering: absolute
+  externalIds:
+    wikidataId: Q664845
   seasons:
     - id: pumpkin-scissors-s1
       number: 1

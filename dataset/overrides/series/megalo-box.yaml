@@ -9,5 +9,11 @@ series:
   seasons:
     - id: megalo-box-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 100298 }
+    - id: megalo-box-s2
+      number: 2
+      externalIds: { anilistId: 113359 } # Nomad: Megalo Box 2 (2021)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [megalo-box]

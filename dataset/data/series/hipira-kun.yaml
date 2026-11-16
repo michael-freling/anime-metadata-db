@@ -4,8 +4,11 @@ series:
   titles:
     original: ヒピラくん
     translations:
+      en: Hipira
       ja-Latn: Hipira-kun
   ordering: absolute
+  externalIds:
+    wikidataId: Q5768128
   seasons:
     - id: hipira-kun-s1
       number: 1

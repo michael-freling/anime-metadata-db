@@ -17,7 +17,7 @@ series:
         tvdbId: 76023
       episodes:
         count: 26
-        absoluteFrom: 1
+        absoluteFrom: 2
     - id: tsubasa-reservoir-chronicle-s2
       number: 2
       releaseYear: 2006
@@ -28,4 +28,17 @@ series:
         tvdbId: 76023
       episodes:
         count: 26
-        absoluteFrom: 27
+        absoluteFrom: 28
+  movies:
+    - id: tsubasa-reservoir-chronicle-film
+      titles:
+        original: ツバサ・クロニクル 鳥カゴの国の姫君
+        translations:
+          ja: ツバサ・クロニクル 鳥カゴの国の姫君
+          ja-Latn: 'Tsubasa Chronicle: Torikago no Kuni no Himegimi'
+      releaseYear: 2005
+      externalIds:
+        anilistId: 807
+        anidbId: 3317
+        tvdbId: 76023
+      absoluteNumber: 1

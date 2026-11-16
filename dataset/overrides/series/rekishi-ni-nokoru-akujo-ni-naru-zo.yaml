@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rekishi-ni-nokoru-akujo-ni-naru-zo
+  titles:
+    original: "Rikishi ni Nokoru Akujo ni Naru zo: Akuyaku Reijou ni Naru hodo Ouji no Dekiai wa Kasoku Suru You desu! (歴史に残る悪女になるぞ 悪役令嬢になるほど王子の溺愛は加速するようです！)"
+    translations: { ja-Latn: Rekishi ni Nokoru Akujo ni Naru zo }
+  seasons:
+    - id: rekishi-ni-nokoru-akujo-ni-naru-zo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rekishi-ni-nokoru-akujo-ni-naru-zo]

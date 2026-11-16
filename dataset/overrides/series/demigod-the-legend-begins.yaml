@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: demigod-the-legend-begins
+  titles:
+    original: "Demigod: The Legend Begins"
+    translations: { ja-Latn: "Demigod: The Legend Begins" }
+  movies:
+    - id: demigod-the-legend-begins-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [demigod-the-legend-begins]

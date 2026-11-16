@@ -1,0 +1,15 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pui-pui-molcar
+  titles:
+    original: とびだせ！ならせ！ PUI PUI モルカー
+    translations: { ja-Latn: Pui Pui Molcar }
+  seasons:
+    - id: pui-pui-molcar-s1
+      number: 1
+  movies:
+    - id: pui-pui-molcar-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pui-pui-molcar]

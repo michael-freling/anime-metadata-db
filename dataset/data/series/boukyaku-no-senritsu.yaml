@@ -4,8 +4,11 @@ series:
   titles:
     original: 忘却の旋律
     translations:
+      en: Melody of Oblivion
       ja-Latn: Boukyaku no Senritsu
   ordering: absolute
+  externalIds:
+    wikidataId: Q708411
   seasons:
     - id: boukyaku-no-senritsu-s1
       number: 1

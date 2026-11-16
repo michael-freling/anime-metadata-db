@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jashin-chan-dropkick-x-mame-anime-hokkaidou-hen
+  titles:
+    original: 邪神ちゃんドロップキックXまめアニメ（北海道編）
+    translations: { ja-Latn: Jashin-chan Dropkick X Mame Anime (Hokkaidou-hen) }
+  seasons:
+    - id: jashin-chan-dropkick-x-mame-anime-hokkaidou-hen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jashin-chan-dropkick-x-mame-anime-hokkaidou-hen]

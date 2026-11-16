@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kiddy GiRL-AND
   ordering: absolute
+  externalIds:
+    wikidataId: Q1060950
   seasons:
     - id: kiddy-girl-and-s1
       number: 1

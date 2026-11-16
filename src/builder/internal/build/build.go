@@ -28,10 +28,15 @@ type Sources struct {
 // Builder runs the build pipeline against a fixed set of sources.
 type Builder struct {
 	sources Sources
+	// claimed records the series that first accounted for each AniList id, so
+	// a second series claiming the same upstream work is reported. Held on the
+	// Builder rather than passed per call because the question spans series
+	// and nothing else in the pipeline sees more than one at a time.
+	claimed map[int]string
 }
 
 // New returns a Builder bound to the given sources.
-func New(s Sources) *Builder { return &Builder{sources: s} }
+func New(s Sources) *Builder { return &Builder{sources: s, claimed: map[int]string{}} }
 
 // Build resolves one override into a dataset record and a report of
 // low-confidence decisions. It fails on any unknown id, dangling reference or
@@ -112,6 +117,7 @@ func (b *Builder) buildSeries(s *model.Series, numbered bool, report *Report) er
 	// season the authored ids actually produced rather than what the override
 	// happened to state.
 	b.checkAnilistIDs(s, report)
+	b.checkNotClaimedElsewhere(s, report)
 	return nil
 }
 

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Shinkyoku Soukai Polyphonica
   ordering: absolute
+  externalIds:
+    wikidataId: Q405448
   seasons:
     - id: shinkyoku-soukai-polyphonica-s1
       number: 1

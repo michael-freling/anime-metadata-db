@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kyuuketsuki-sugu-shinu
+  titles:
+    original: 吸血鬼すぐ死ぬ
+    translations: { ja-Latn: Kyuuketsuki Sugu Shinu }
+  seasons:
+    - id: kyuuketsuki-sugu-shinu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kyuuketsuki-sugu-shinu]

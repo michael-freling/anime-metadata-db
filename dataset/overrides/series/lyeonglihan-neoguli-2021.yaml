@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: lyeonglihan-neoguli-2021
+  titles:
+    original: Lyeonglihan Neoguli (2021)
+    translations: { ja-Latn: Lyeonglihan Neoguli (2021) }
+  seasons:
+    - id: lyeonglihan-neoguli-2021-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [lyeonglihan-neoguli-2021]

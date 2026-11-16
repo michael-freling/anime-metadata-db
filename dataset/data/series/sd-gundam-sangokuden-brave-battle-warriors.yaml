@@ -17,4 +17,17 @@ series:
         tvdbId: 156411
       episodes:
         count: 51
-        absoluteFrom: 1
+        absoluteFrom: 2
+  movies:
+    - id: sd-gundam-sangokuden-brave-battle-warriors-film
+      titles:
+        original: 超电影版 SD高达三国传
+        translations:
+          ja: 超电影版 SD高达三国传
+          ja-Latn: Chou Deneiban SD Gundam Sangokuden Brave Battle Warriors
+      releaseYear: 2010
+      externalIds:
+        anilistId: 8132
+        anidbId: 7245
+        tvdbId: 156411
+      absoluteNumber: 1

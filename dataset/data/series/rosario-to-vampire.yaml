@@ -4,8 +4,11 @@ series:
   titles:
     original: ロザリオとバンパイア
     translations:
+      en: Rosario + Vampire
       ja-Latn: Rosario to Vampire
   ordering: absolute
+  externalIds:
+    wikidataId: Q857261
   seasons:
     - id: rosario-to-vampire-s1
       number: 1

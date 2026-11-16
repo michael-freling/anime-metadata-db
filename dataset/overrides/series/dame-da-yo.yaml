@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dame-da-yo
+  titles:
+    original: "鬼太郎EXPO: 和田淳 - ダメだよ"
+    translations: { ja-Latn: Dame da yo }
+  movies:
+    - id: dame-da-yo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dame-da-yo]

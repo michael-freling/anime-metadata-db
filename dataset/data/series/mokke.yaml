@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Mokke
   ordering: absolute
+  externalIds:
+    wikidataId: Q905809
   seasons:
     - id: mokke-s1
       number: 1

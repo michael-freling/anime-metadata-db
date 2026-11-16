@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Gakuen Alice
   ordering: absolute
+  externalIds:
+    wikidataId: Q1050266
   seasons:
     - id: gakuen-alice-s1
       number: 1

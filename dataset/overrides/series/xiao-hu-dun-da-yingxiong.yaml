@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-hu-dun-da-yingxiong
+  titles:
+    original: Xiao Hu Dun Da Yingxiong
+    translations: { ja-Latn: Xiao Hu Dun Da Yingxiong }
+  movies:
+    - id: xiao-hu-dun-da-yingxiong-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-hu-dun-da-yingxiong]

@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tensei-oujo-to-tensai-reijou-no-mahou-kakumei
+  titles:
+    original: 転生王女と天才令嬢の魔法革命
+    translations: { ja-Latn: Tensei Oujo to Tensai Reijou no Mahou Kakumei }
+  seasons:
+    - id: tensei-oujo-to-tensai-reijou-no-mahou-kakumei-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tensei-oujo-to-tensai-reijou-no-mahou-kakumei]

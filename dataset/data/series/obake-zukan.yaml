@@ -17,3 +17,13 @@ series:
       episodes:
         count: 39
         absoluteFrom: 1
+    - id: obake-zukan-s2
+      number: 2
+      releaseYear: 2022
+      releaseSeason: FALL
+      externalIds:
+        anilistId: 158570
+        anidbId: 17499
+      episodes:
+        count: 13
+        absoluteFrom: 40

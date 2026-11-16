@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sun-xingzhe-chuan
+  titles:
+    original: Sun Xingzhe Chuan
+    translations: { ja-Latn: Sun Xingzhe Chuan }
+  movies:
+    - id: sun-xingzhe-chuan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sun-xingzhe-chuan]

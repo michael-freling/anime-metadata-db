@@ -4,8 +4,11 @@ series:
   titles:
     original: アガサ・クリスティーの名探偵ポワロとマープル
     translations:
+      en: Agatha Christie's Great Detectives Poirot and Marple
       ja-Latn: Agatha Christie no Meitantei Poirot to Marple
   ordering: absolute
+  externalIds:
+    wikidataId: Q2666340
   seasons:
     - id: agatha-christie-no-meitantei-poirot-to-marple-s1
       number: 1

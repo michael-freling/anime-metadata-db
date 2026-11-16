@@ -4,8 +4,11 @@ series:
   titles:
     original: 東京オンリーピック
     translations:
+      en: Tokyo Onlypic 2008
       ja-Latn: Tokyo Onlypic
   ordering: absolute
+  externalIds:
+    wikidataId: Q11524098
   movies:
     - id: tokyo-onlypic-film
       titles:

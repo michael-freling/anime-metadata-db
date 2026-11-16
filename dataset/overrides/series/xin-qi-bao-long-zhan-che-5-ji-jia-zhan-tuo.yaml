@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xin-qi-bao-long-zhan-che-5-ji-jia-zhan-tuo
+  titles:
+    original: "Xin Qi Bao Long Zhan Che 5: Ji Jia Zhan Tuo"
+    translations: { ja-Latn: "Xin Qi Bao Long Zhan Che 5: Ji Jia Zhan Tuo" }
+  seasons:
+    - id: xin-qi-bao-long-zhan-che-5-ji-jia-zhan-tuo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xin-qi-bao-long-zhan-che-5-ji-jia-zhan-tuo]

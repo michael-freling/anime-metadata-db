@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kitz-the-cat-s-supermoon-adventure
+  titles:
+    original: キッツと仲間たちのスーパームーンアドベンチャー
+    translations: { ja-Latn: Kitz the Cat's Supermoon Adventure }
+  movies:
+    - id: kitz-the-cat-s-supermoon-adventure-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kitz-the-cat-s-supermoon-adventure]

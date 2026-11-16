@@ -4,8 +4,11 @@ series:
   titles:
     original: シルクロード少年 ユート
     translations:
+      en: Silkroad Kids Yuto
       ja-Latn: Silk Road Kids
   ordering: absolute
+  externalIds:
+    wikidataId: Q11308358
   seasons:
     - id: silk-road-kids-s1
       number: 1

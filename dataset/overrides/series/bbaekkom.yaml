@@ -9,5 +9,8 @@ series:
   seasons:
     - id: bbaekkom-s1
       number: 1
+  movies:
+    - id: bbaekkom-film
+      externalIds: { anilistId: 102986 } # Backkom Meogeujan Yeohaeng (2007)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [bbaekkom]

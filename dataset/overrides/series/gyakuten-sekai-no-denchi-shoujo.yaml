@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gyakuten-sekai-no-denchi-shoujo
+  titles:
+    original: 逆転世界ノ電池少女
+    translations: { ja-Latn: Gyakuten Sekai no Denchi Shoujo }
+  seasons:
+    - id: gyakuten-sekai-no-denchi-shoujo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gyakuten-sekai-no-denchi-shoujo]

@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kami-no-tou-koubou-sen
+  titles:
+    original: "Kami no Tou: Koubou-sen"
+    translations: { ja-Latn: "Kami no Tou: Koubou-sen" }
+  seasons:
+    - id: kami-no-tou-koubou-sen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kami-no-tou-koubou-sen]

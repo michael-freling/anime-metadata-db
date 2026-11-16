@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: about-you
+  titles:
+    original: チェ ソヨン
+    translations: { ja-Latn: About You }
+  movies:
+    - id: about-you-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [about-you]

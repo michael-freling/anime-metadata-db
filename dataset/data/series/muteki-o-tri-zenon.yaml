@@ -4,8 +4,11 @@ series:
   titles:
     original: 無敵王トライゼノン
     translations:
+      en: Invincible King Tri-Zenon
       ja-Latn: Muteki Ō Tri-Zenon
   ordering: absolute
+  externalIds:
+    wikidataId: Q3538638
   seasons:
     - id: muteki-o-tri-zenon-s1
       number: 1

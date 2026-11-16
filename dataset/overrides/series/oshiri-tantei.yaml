@@ -46,5 +46,7 @@ series:
   movies:
     - id: oshiri-tantei-film
       externalIds: { anilistId: 185643 } # Oshiri Tantei Movie 6: Star and Moon (Winter 2025)
+    - id: oshiri-tantei-film-2
+      externalIds: { anilistId: 116224 } # Oshiri Tantei Movie 2: Tentoumushi Iseki no Nazo (2020)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [oshiri-tantei]

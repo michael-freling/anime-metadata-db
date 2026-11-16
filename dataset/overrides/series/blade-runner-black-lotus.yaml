@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: blade-runner-black-lotus
+  titles:
+    original: "ブレードランナー: ブラック・ロータス"
+    translations: { ja-Latn: "Blade Runner: Black Lotus" }
+  seasons:
+    - id: blade-runner-black-lotus-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [blade-runner-black-lotus]

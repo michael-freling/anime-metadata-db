@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Dragonaut: The Resonance'
   ordering: absolute
+  externalIds:
+    wikidataId: Q866943
   seasons:
     - id: dragonaut-the-resonance-s1
       number: 1

@@ -1,0 +1,15 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hikari-no-ou
+  titles:
+    original: 火狩りの王
+    translations: { ja-Latn: Hikari no Ou }
+  seasons:
+    - id: hikari-no-ou-s1
+      number: 1
+    - id: hikari-no-ou-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hikari-no-ou]

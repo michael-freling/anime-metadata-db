@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: something-like-a-shopping-list
+  titles:
+    original: 買い物のメモのようなもの
+    translations: { ja-Latn: Something Like a Shopping List }
+  movies:
+    - id: something-like-a-shopping-list-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [something-like-a-shopping-list]

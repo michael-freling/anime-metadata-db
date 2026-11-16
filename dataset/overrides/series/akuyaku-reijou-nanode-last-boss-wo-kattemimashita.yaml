@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: akuyaku-reijou-nanode-last-boss-wo-kattemimashita
+  titles:
+    original: 悪役令嬢なのでラスボスを飼ってみました
+    translations: { ja-Latn: Akuyaku Reijou nanode Last Boss wo Kattemimashita }
+  seasons:
+    - id: akuyaku-reijou-nanode-last-boss-wo-kattemimashita-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [akuyaku-reijou-nanode-last-boss-wo-kattemimashita]

@@ -4,8 +4,11 @@ series:
   titles:
     original: 電脳コイル
     translations:
+      en: Den-noh Coil
       ja-Latn: Dennou Coil
   ordering: absolute
+  externalIds:
+    wikidataId: Q1189698
   seasons:
     - id: dennou-coil-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Pants Pankurou
   ordering: absolute
+  externalIds:
+    wikidataId: Q7131928
   seasons:
     - id: pants-pankurou-s1
       number: 1

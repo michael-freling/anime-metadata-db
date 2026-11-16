@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yumemiru-danshi-wa-genjitsushugisha
+  titles:
+    original: 夢見る男子は現実主義者
+    translations: { ja-Latn: Yumemiru Danshi wa Genjitsushugisha }
+  seasons:
+    - id: yumemiru-danshi-wa-genjitsushugisha-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yumemiru-danshi-wa-genjitsushugisha]

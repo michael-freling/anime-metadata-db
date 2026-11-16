@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Pita Ten
   ordering: absolute
+  externalIds:
+    wikidataId: Q1143720
   seasons:
     - id: pita-ten-s1
       number: 1

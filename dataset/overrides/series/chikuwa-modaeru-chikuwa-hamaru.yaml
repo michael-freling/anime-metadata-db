@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chikuwa-modaeru-chikuwa-hamaru
+  titles:
+    original: ちくわ 悶える、ちくわ はまる
+    translations: { ja-Latn: "Chikuwa Modaeru, Chikuwa Hamaru" }
+  movies:
+    - id: chikuwa-modaeru-chikuwa-hamaru-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chikuwa-modaeru-chikuwa-hamaru]

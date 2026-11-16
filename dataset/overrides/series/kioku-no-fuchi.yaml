@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kioku-no-fuchi
+  titles:
+    original: 記憶の淵
+    translations: { ja-Latn: Kioku no Fuchi }
+  movies:
+    - id: kioku-no-fuchi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kioku-no-fuchi]

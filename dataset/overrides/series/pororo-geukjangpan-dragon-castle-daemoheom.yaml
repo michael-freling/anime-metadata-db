@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pororo-geukjangpan-dragon-castle-daemoheom
+  titles:
+    original: "Pororo Geukjangpan: Dragon Castle Daemoheom"
+    translations: { ja-Latn: "Pororo Geukjangpan: Dragon Castle Daemoheom" }
+  movies:
+    - id: pororo-geukjangpan-dragon-castle-daemoheom-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pororo-geukjangpan-dragon-castle-daemoheom]

@@ -5,7 +5,7 @@ series:
     original: 無限の住人-IMMORTAL-
     translations:
       ja-Latn: Blade of the Immortal
-  ordering: absolute
+  ordering: release
   seasons:
     - id: blade-of-the-immortal-s1
       number: 1
@@ -17,11 +17,9 @@ series:
         tvdbId: 82498
       episodes:
         count: 13
-        absoluteFrom: 1
     - id: blade-of-the-immortal-s2
       number: 2
       releaseYear: 2019
       releaseSeason: FALL
       episodes:
         count: 24
-        absoluteFrom: 14

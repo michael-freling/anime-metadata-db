@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: stories-ni-tsuika
+  titles:
+    original: ストーリーズに追加
+    translations: { ja-Latn: Stories ni Tsuika }
+  movies:
+    - id: stories-ni-tsuika-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [stories-ni-tsuika]

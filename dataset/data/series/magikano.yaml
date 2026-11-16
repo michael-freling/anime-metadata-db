@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Magikano
   ordering: absolute
+  externalIds:
+    wikidataId: Q2234128
   seasons:
     - id: magikano-s1
       number: 1

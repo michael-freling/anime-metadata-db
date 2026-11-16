@@ -4,8 +4,11 @@ series:
   titles:
     original: ジャングルはいつもハレのちグゥ
     translations:
+      en: Haré+Guu
       ja-Latn: Jungle wa Itsumo Hare nochi Guu
   ordering: absolute
+  externalIds:
+    wikidataId: Q1317129
   seasons:
     - id: jungle-wa-itsumo-hare-nochi-guu-s1
       number: 1

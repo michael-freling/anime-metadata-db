@@ -1,0 +1,15 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: megami-no-cafe-terrace
+  titles:
+    original: 女神のカフェテラス
+    translations: { ja-Latn: Megami no Café Terrace }
+  seasons:
+    - id: megami-no-cafe-terrace-s1
+      number: 1
+    - id: megami-no-cafe-terrace-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [megami-no-cafe-terrace]

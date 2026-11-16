@@ -21,3 +21,16 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
+  movies:
+    - id: watashi-ni-tenshi-ga-maiorita-film
+      titles:
+        original: 天使降临到了我身边！Precious Friends
+        translations:
+          ja: 天使降临到了我身边！Precious Friends
+          ja-Latn: Watashi ni Tenshi ga Maiorita! Precious Friends
+      releaseYear: 2022
+      externalIds:
+        anilistId: 126425
+        anidbId: 15869
+        tvdbId: 355969
+      absoluteNumber: 13

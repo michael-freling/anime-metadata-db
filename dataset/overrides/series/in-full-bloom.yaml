@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: in-full-bloom
+  titles:
+    original: In Full Bloom
+    translations: { ja-Latn: In Full Bloom }
+  movies:
+    - id: in-full-bloom-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [in-full-bloom]

@@ -55,7 +55,7 @@ series:
         tvdbId: 352408
       episodes:
         count: 24
-        absoluteFrom: 49
+        absoluteFrom: 50
     - id: tensei-shitara-slime-datta-ken-s4
       number: 4
       releaseYear: 2026
@@ -66,7 +66,20 @@ series:
         tvdbId: 352408
       episodes:
         count: 12
-        absoluteFrom: 73
+        absoluteFrom: 74
+  movies:
+    - id: tensei-shitara-slime-datta-ken-film
+      titles:
+        original: 剧场版 关于我转生变成史莱姆这档事 红莲之绊篇
+        translations:
+          ja: 剧场版 关于我转生变成史莱姆这档事 红莲之绊篇
+          ja-Latn: 'Tensei shitara Slime Datta Ken Movie: Guren no Kizuna-hen'
+      releaseYear: 2022
+      externalIds:
+        anilistId: 139498
+        anidbId: 16776
+        tvdbId: 352408
+      absoluteNumber: 49
   characters:
     - id: abiru
       names:

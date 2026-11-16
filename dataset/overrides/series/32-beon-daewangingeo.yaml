@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 32-beon-daewangingeo
+  titles:
+    original: 32 Beon Daewangingeo
+    translations: { ja-Latn: 32 Beon Daewangingeo }
+  movies:
+    - id: 32-beon-daewangingeo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [32-beon-daewangingeo]

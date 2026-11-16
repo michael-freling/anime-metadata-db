@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kidou-senshi-gundam-the-origin-movie-edition
+  titles:
+    original: 機動戦士ガンダム THE ORIGIN（movie edition）第一章 シャア・セイラ編
+    translations: { ja-Latn: "Kidou Senshi Gundam: The Origin - Movie Edition" }
+  movies:
+    - id: kidou-senshi-gundam-the-origin-movie-edition-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kidou-senshi-gundam-the-origin-movie-edition]

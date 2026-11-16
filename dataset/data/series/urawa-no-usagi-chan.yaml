@@ -20,3 +20,14 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
+    - id: urawa-no-usagi-chan-s2
+      number: 2
+      releaseYear: 2022
+      releaseSeason: SUMMER
+      externalIds:
+        anilistId: 98577
+        anidbId: 13070
+        tvdbId: 291724
+      episodes:
+        count: 12
+        absoluteFrom: 13

@@ -1,0 +1,15 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shuwawan
+  titles:
+    original: しゅわわん！
+    translations: { ja-Latn: Shuwawan! }
+  seasons:
+    - id: shuwawan-s1
+      number: 1
+    - id: shuwawan-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shuwawan]

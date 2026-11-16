@@ -4,8 +4,11 @@ series:
   titles:
     original: まんが日本昔ばなし
     translations:
+      en: Manga Nippon Mukashibanashi
       ja-Latn: Manga Nippon Mukashibanashi (2005)
   ordering: absolute
+  externalIds:
+    wikidataId: Q9164362
   seasons:
     - id: manga-nippon-mukashibanashi-2005-s1
       number: 1

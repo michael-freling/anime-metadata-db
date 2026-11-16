@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sekai-saikou-no-ansatsusha-isekai-kizoku-ni-tensei-suru
+  titles:
+    original: "世界最高の暗殺者, 異世界貴族に転生する"
+    translations: { ja-Latn: "Sekai Saikou no Ansatsusha, Isekai Kizoku ni Tensei suru" }
+  seasons:
+    - id: sekai-saikou-no-ansatsusha-isekai-kizoku-ni-tensei-suru-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sekai-saikou-no-ansatsusha-isekai-kizoku-ni-tensei-suru]

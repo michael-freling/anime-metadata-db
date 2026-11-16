@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: human-bug-daigaku
+  titles:
+    original: ヒューマンバグ大学 -不死学部不幸学科-
+    translations: { ja-Latn: Human Bug Daigaku }
+  seasons:
+    - id: human-bug-daigaku-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [human-bug-daigaku]

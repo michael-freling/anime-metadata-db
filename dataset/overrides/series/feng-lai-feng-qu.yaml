@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: feng-lai-feng-qu
+  titles:
+    original: Feng Lai Feng Qu
+    translations: { ja-Latn: Feng Lai Feng Qu }
+  movies:
+    - id: feng-lai-feng-qu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [feng-lai-feng-qu]

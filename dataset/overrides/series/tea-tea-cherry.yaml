@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tea-tea-cherry
+  titles:
+    original: Tea Tea Cherry
+    translations: { ja-Latn: Tea Tea Cherry }
+  seasons:
+    - id: tea-tea-cherry-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tea-tea-cherry]

@@ -1,0 +1,17 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: princess-principal-crown-handler
+  titles:
+    original: プリンセス・プリンシパル Crown Handler
+    translations: { ja-Latn: "Princess Principal: Crown Handler" }
+  movies:
+    - id: princess-principal-crown-handler-film
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 101595 }
+    - id: princess-principal-crown-handler-film-2
+      externalIds: { anilistId: 129759 } # Princess Principal: Crown Handler 2 (2021)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [princess-principal-crown-handler]

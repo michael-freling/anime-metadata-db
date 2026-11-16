@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: munch-munch
+  titles:
+    original: MUNCH MUNCH
+    translations: { ja-Latn: MUNCH MUNCH }
+  movies:
+    - id: munch-munch-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [munch-munch]

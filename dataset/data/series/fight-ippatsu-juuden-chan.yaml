@@ -4,8 +4,11 @@ series:
   titles:
     original: ファイト一発! 充電ちゃん!!
     translations:
+      en: Juden Chan
       ja-Latn: Fight Ippatsu! Juuden-chan!!
   ordering: absolute
+  externalIds:
+    wikidataId: Q1411883
   seasons:
     - id: fight-ippatsu-juuden-chan-s1
       number: 1

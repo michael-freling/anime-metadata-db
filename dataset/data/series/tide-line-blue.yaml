@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tide-Line Blue
   ordering: absolute
+  externalIds:
+    wikidataId: Q7800832
   seasons:
     - id: tide-line-blue-s1
       number: 1

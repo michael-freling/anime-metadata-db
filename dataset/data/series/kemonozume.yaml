@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kemonozume
   ordering: absolute
+  externalIds:
+    wikidataId: Q4042132
   seasons:
     - id: kemonozume-s1
       number: 1

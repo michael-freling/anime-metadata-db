@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hataraki Man
   ordering: absolute
+  externalIds:
+    wikidataId: Q1075090
   seasons:
     - id: hataraki-man-s1
       number: 1

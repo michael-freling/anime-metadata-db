@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pinkfong-cinema-concert-3-gingerbread-maneul-jabara
+  titles:
+    original: "Pinkfong Cinema Concert 3: Gingerbread Maneul Jabara"
+    translations: { ja-Latn: "Pinkfong Cinema Concert 3: Gingerbread Maneul Jabara" }
+  movies:
+    - id: pinkfong-cinema-concert-3-gingerbread-maneul-jabara-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pinkfong-cinema-concert-3-gingerbread-maneul-jabara]

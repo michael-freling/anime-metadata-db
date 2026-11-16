@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: beuledeu-ibalso-4-bakery-ppang-stars
+  titles:
+    original: "Beuledeu Ibalso 4: Bakery Ppang Stars"
+    translations: { ja-Latn: "Beuledeu Ibalso 4: Bakery Ppang Stars" }
+  seasons:
+    - id: beuledeu-ibalso-4-bakery-ppang-stars-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [beuledeu-ibalso-4-bakery-ppang-stars]

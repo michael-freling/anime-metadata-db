@@ -16,4 +16,15 @@ series:
       externalIds:
         anilistId: 166475
         anidbId: 19721
+      absoluteNumber: 2
+    - id: luo-xiaohei-zhanji-2-film-2
+      titles:
+        original: ロシャオヘイセンキ
+        translations:
+          ja: ロシャオヘイセンキ
+          ja-Latn: Luo Xiaohei Zhanji (Movie)
+      releaseYear: 2019
+      externalIds:
+        anilistId: 112023
+        anidbId: 15253
       absoluteNumber: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: デルトラ・クエスト
     translations:
+      en: Deltora Quest series
       ja-Latn: Deltora Quest
   ordering: absolute
+  externalIds:
+    wikidataId: Q2264470
   seasons:
     - id: deltora-quest-s1
       number: 1

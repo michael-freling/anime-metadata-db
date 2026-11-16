@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pipilu-he-luxixi-diqiu-zhi-zhong-qiyu-ji-3
+  titles:
+    original: Pipilu He Luxixi Diqiu Zhi Zhong Qiyu Ji 3
+    translations: { ja-Latn: Pipilu He Luxixi Diqiu Zhi Zhong Qiyu Ji 3 }
+  seasons:
+    - id: pipilu-he-luxixi-diqiu-zhi-zhong-qiyu-ji-3-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pipilu-he-luxixi-diqiu-zhi-zhong-qiyu-ji-3]

@@ -4,8 +4,11 @@ series:
   titles:
     original: クロノクルセイド
     translations:
+      en: Chrono Crusade
       ja-Latn: Chrno Crusade
   ordering: absolute
+  externalIds:
+    wikidataId: Q715519
   seasons:
     - id: chrno-crusade-s1
       number: 1

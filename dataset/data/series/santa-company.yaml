@@ -18,3 +18,14 @@ series:
         anilistId: 16381
         anidbId: 9516
       absoluteNumber: 1
+    - id: santa-company-film-2
+      titles:
+        original: サンタ・カンパニー ~真夏のメリークリスマス~
+        translations:
+          ja: サンタ・カンパニー ~真夏のメリークリスマス~
+          ja-Latn: 'Santa Company: Manatsu no Merry Christmas'
+      releaseYear: 2021
+      externalIds:
+        anilistId: 129123
+        anidbId: 16005
+      absoluteNumber: 2

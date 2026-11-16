@@ -17,3 +17,14 @@ series:
       episodes:
         count: 26
         absoluteFrom: 1
+  movies:
+    - id: xing-you-ji-film
+      titles:
+        original: 冲出地球
+        translations:
+          ja: 冲出地球
+          ja-Latn: Chong Chu Diqiu
+      releaseYear: 2022
+      externalIds:
+        anilistId: 137602
+      absoluteNumber: 27

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Princess Lover!
   ordering: absolute
+  externalIds:
+    wikidataId: Q1302197
   seasons:
     - id: princess-lover-s1
       number: 1

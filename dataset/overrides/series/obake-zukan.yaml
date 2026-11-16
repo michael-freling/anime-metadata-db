@@ -9,5 +9,11 @@ series:
   seasons:
     - id: obake-zukan-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 116259 }
+    - id: obake-zukan-s2
+      number: 2
+      externalIds: { anilistId: 158570 } # Obake Zukan! (2022)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [obake-zukan]

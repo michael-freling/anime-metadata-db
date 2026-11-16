@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiao-ling-mofa-shijie-xiaoyuan-qixiang-qu
+  titles:
+    original: Xiao Ling Mofa Shijie Xiaoyuan Qixiang Qu
+    translations: { ja-Latn: Xiao Ling Mofa Shijie Xiaoyuan Qixiang Qu }
+  seasons:
+    - id: xiao-ling-mofa-shijie-xiaoyuan-qixiang-qu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiao-ling-mofa-shijie-xiaoyuan-qixiang-qu]

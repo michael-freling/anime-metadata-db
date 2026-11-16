@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: collar-x-malice-movie-deep-cover
+  titles:
+    original: 劇場版 カラーxマリス -deep cover-
+    translations: { ja-Latn: "Collar x Malice Movie: Deep Cover" }
+  movies:
+    - id: collar-x-malice-movie-deep-cover-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [collar-x-malice-movie-deep-cover]

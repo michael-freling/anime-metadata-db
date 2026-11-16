@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Fantastic Children
   ordering: absolute
+  externalIds:
+    wikidataId: Q2498934
   seasons:
     - id: fantastic-children-s1
       number: 1

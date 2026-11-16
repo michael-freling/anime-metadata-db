@@ -9,5 +9,8 @@ series:
   seasons:
     - id: ginga-tokkyuu-milky-subway-s1
       number: 1
+  movies:
+    - id: ginga-tokkyuu-milky-subway-film
+      externalIds: { anilistId: 204949 } # Ginga Tokkyuu Milky☆Subway Movie: Kakueki Teisha Gekijou Yuki (2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [ginga-tokkyuu-milky-subway]

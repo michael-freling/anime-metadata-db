@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mayi-chuanqi-zhongji-yi-zhan
+  titles:
+    original: "Mayi Chuanqi: Zhongji Yi Zhan"
+    translations: { ja-Latn: "Mayi Chuanqi: Zhongji Yi Zhan" }
+  movies:
+    - id: mayi-chuanqi-zhongji-yi-zhan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mayi-chuanqi-zhongji-yi-zhan]

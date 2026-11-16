@@ -4,8 +4,11 @@ series:
   titles:
     original: 美鳥の日々
     translations:
+      en: Midori Days
       ja-Latn: Midori no Hibi
   ordering: absolute
+  externalIds:
+    wikidataId: Q696318
   seasons:
     - id: midori-no-hibi-s1
       number: 1

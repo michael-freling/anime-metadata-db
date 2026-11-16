@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: re-stars-mirai-e-tsunagu-2-tsu-no-kiraboshi
+  titles:
+    original: "Re:STARS 〜未来へ繋ぐ2つのきらぼし〜"
+    translations: { ja-Latn: "Re:STARS: Mirai e Tsunagu 2-tsu no Kiraboshi" }
+  movies:
+    - id: re-stars-mirai-e-tsunagu-2-tsu-no-kiraboshi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [re-stars-mirai-e-tsunagu-2-tsu-no-kiraboshi]

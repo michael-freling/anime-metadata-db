@@ -9,5 +9,11 @@ series:
   seasons:
     - id: mewkledreamy-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 111310 }
+    - id: mewkledreamy-s2
+      number: 2
+      externalIds: { anilistId: 130777 } # Mewkledreamy Mix! (2021)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [mewkledreamy]

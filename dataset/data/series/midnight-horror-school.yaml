@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Midnight Horror School
   ordering: absolute
+  externalIds:
+    wikidataId: Q1012762
   seasons:
     - id: midnight-horror-school-s1
       number: 1

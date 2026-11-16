@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: natsu-e-no-tunnel-sayonara-no-deguchi
+  titles:
+    original: "夏へのトンネル, さよならの出口"
+    translations: { ja-Latn: "Natsu e no Tunnel, Sayonara no Deguchi" }
+  movies:
+    - id: natsu-e-no-tunnel-sayonara-no-deguchi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [natsu-e-no-tunnel-sayonara-no-deguchi]

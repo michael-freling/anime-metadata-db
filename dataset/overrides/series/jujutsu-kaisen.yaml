@@ -36,6 +36,8 @@ series:
     - id: jujutsu-kaisen-shibuya-jihen-film
       externalIds: { anilistId: 204066 } # Jujutsu Kaisen Movie: Shibuya Jihen Tokubetsu Henshuu-ban x Shimetsu Kaiyuu Senkou Jouei (Fall 2025)
       alternateCutOf: { seasonId: jujutsu-kaisen-s2 }
+    - id: jujutsu-kaisen-film
+      externalIds: { anilistId: 131573 } # Jujutsu Kaisen 0 Movie (2021)
   # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
   # the builder fills every name from the QID at build time.
   characters:

@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: iseijin-no-fuyu
+  titles:
+    original: 異星人の冬
+    translations: { ja-Latn: Iseijin no Fuyu }
+  movies:
+    - id: iseijin-no-fuyu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [iseijin-no-fuyu]

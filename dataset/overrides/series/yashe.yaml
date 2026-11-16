@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yashe
+  titles:
+    original: Yashe
+    translations: { ja-Latn: Yashe }
+  movies:
+    - id: yashe-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yashe]

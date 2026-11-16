@@ -17,4 +17,17 @@ series:
         tvdbId: 447951
       episodes:
         count: 13
-        absoluteFrom: 1
+        absoluteFrom: 2
+  movies:
+    - id: grisaia-phantom-trigger-film
+      titles:
+        original: 'グリザイア: ファントムトリガー'
+        translations:
+          ja: 'グリザイア: ファントムトリガー'
+          ja-Latn: 'Grisaia: Phantom Trigger The Animation'
+      releaseYear: 2019
+      externalIds:
+        anilistId: 99470
+        anidbId: 13273
+        tvdbId: 447951
+      absoluteNumber: 1

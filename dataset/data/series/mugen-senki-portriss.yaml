@@ -4,8 +4,11 @@ series:
   titles:
     original: 無限戦記ポトリス
     translations:
+      en: Tank Knights Portriss
       ja-Latn: Mugen Senki Portriss
   ordering: absolute
+  externalIds:
+    wikidataId: Q484050
   seasons:
     - id: mugen-senki-portriss-s1
       number: 1

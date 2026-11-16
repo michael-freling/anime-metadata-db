@@ -4,8 +4,11 @@ series:
   titles:
     original: 成恵の世界
     translations:
+      en: The World of Narue
       ja-Latn: Narue no Sekai
   ordering: absolute
+  externalIds:
+    wikidataId: Q710451
   seasons:
     - id: narue-no-sekai-s1
       number: 1

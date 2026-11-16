@@ -4,8 +4,11 @@ series:
   titles:
     original: アリソンとリリア
     translations:
+      en: Allison & Lillia
       ja-Latn: Allison to Lillia
   ordering: absolute
+  externalIds:
+    wikidataId: Q1325093
   seasons:
     - id: allison-to-lillia-s1
       number: 1

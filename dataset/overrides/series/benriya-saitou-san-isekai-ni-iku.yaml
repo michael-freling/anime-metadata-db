@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: benriya-saitou-san-isekai-ni-iku
+  titles:
+    original: "便利屋斎藤さん, 異世界に行く"
+    translations: { ja-Latn: "Benriya Saitou-san, Isekai ni Iku" }
+  seasons:
+    - id: benriya-saitou-san-isekai-ni-iku-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [benriya-saitou-san-isekai-ni-iku]

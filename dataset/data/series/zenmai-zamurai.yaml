@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Zenmai Zamurai
   ordering: absolute
+  externalIds:
+    wikidataId: Q4024167
   seasons:
     - id: zenmai-zamurai-s1
       number: 1

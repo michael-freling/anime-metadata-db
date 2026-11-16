@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: raise-wa-tanin-ga-ii
+  titles:
+    original: 来世は他人がいい
+    translations: { ja-Latn: Raise wa Tanin ga Ii }
+  seasons:
+    - id: raise-wa-tanin-ga-ii-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [raise-wa-tanin-ga-ii]

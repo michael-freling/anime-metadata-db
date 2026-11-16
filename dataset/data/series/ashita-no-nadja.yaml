@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Ashita no Nadja
   ordering: absolute
+  externalIds:
+    wikidataId: Q1330757
   seasons:
     - id: ashita-no-nadja-s1
       number: 1

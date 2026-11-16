@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: longzhu-xun-youji
+  titles:
+    original: Longzhu Xun Youji
+    translations: { ja-Latn: Longzhu Xun Youji }
+  movies:
+    - id: longzhu-xun-youji-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [longzhu-xun-youji]

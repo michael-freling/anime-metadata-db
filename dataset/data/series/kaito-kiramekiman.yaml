@@ -4,8 +4,11 @@ series:
   titles:
     original: タイムボカン2000 怪盗きらめきマン
     translations:
+      en: 'Time Bokan 2000: Kaitou Kiramekiman'
       ja-Latn: Kaitō Kiramekiman
   ordering: absolute
+  externalIds:
+    wikidataId: Q3543727
   seasons:
     - id: kaito-kiramekiman-s1
       number: 1

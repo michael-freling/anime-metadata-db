@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: atomic-war-daichou-hen
+  titles:
+    original: アトミックウォー 大腸篇
+    translations: { ja-Latn: Atomic War Daichou-hen }
+  movies:
+    - id: atomic-war-daichou-hen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [atomic-war-daichou-hen]

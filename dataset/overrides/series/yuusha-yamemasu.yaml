@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yuusha-yamemasu
+  titles:
+    original: "勇者, 辞めます"
+    translations: { ja-Latn: "Yuusha, Yamemasu" }
+  seasons:
+    - id: yuusha-yamemasu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yuusha-yamemasu]

@@ -4,8 +4,11 @@ series:
   titles:
     original: マルセリーノ
     translations:
+      en: Marcelino Bread and Wine
       ja-Latn: Marcelino
   ordering: absolute
+  externalIds:
+    wikidataId: Q3289521
   seasons:
     - id: marcelino-s1
       number: 1

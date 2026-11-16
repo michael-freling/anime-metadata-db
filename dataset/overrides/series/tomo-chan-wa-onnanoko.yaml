@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tomo-chan-wa-onnanoko
+  titles:
+    original: トモちゃんは女の子!
+    translations: { ja-Latn: Tomo-chan wa Onnanoko! }
+  seasons:
+    - id: tomo-chan-wa-onnanoko-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tomo-chan-wa-onnanoko]

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Guin Saga
   ordering: absolute
+  externalIds:
+    wikidataId: Q1554117
   seasons:
     - id: guin-saga-s1
       number: 1

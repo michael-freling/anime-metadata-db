@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Shibawanko no Wa no Kokoro
   ordering: absolute
+  externalIds:
+    wikidataId: Q11268976
   seasons:
     - id: shibawanko-no-wa-no-kokoro-s1
       number: 1

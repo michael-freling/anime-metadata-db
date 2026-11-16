@@ -15,3 +15,15 @@ series:
       episodes:
         count: 156
         absoluteFrom: 1
+  movies:
+    - id: bbaekkom-film
+      titles:
+        original: 빼꼼 머그잔 여행
+        translations:
+          ko: 빼꼼 머그잔 여행
+          ko-Latn: Backkom Meogeujan Yeohaeng
+      releaseYear: 2007
+      externalIds:
+        anilistId: 102986
+        anidbId: 10322
+      absoluteNumber: 157

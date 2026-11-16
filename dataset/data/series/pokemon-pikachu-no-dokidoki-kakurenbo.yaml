@@ -4,8 +4,11 @@ series:
   titles:
     original: ピカチュウのドキドキかくれんぼ
     translations:
+      en: Pikachu's PikaBoo
       ja-Latn: 'Pokemon: Pikachu no Dokidoki Kakurenbo'
   ordering: absolute
+  externalIds:
+    wikidataId: Q11331391
   movies:
     - id: pokemon-pikachu-no-dokidoki-kakurenbo-film
       titles:

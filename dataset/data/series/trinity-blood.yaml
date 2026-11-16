@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Trinity Blood
   ordering: absolute
+  externalIds:
+    wikidataId: Q128338
   seasons:
     - id: trinity-blood-s1
       number: 1

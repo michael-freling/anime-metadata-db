@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Happy Happy Clover
   ordering: absolute
+  externalIds:
+    wikidataId: Q11275726
   seasons:
     - id: happy-happy-clover-s1
       number: 1

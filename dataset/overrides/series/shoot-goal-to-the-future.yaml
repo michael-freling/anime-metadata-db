@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shoot-goal-to-the-future
+  titles:
+    original: シュート! Goal to the Future
+    translations: { ja-Latn: Shoot! Goal to the Future }
+  seasons:
+    - id: shoot-goal-to-the-future-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shoot-goal-to-the-future]

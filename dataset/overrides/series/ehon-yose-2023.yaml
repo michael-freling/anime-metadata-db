@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ehon-yose-2023
+  titles:
+    original: Ehon Yose (2023)
+    translations: { ja-Latn: Ehon Yose (2023) }
+  seasons:
+    - id: ehon-yose-2023-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ehon-yose-2023]

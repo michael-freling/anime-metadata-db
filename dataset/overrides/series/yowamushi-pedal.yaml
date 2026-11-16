@@ -9,10 +9,22 @@ series:
   seasons:
     - id: yowamushi-pedal-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 18179 }
     - id: yowamushi-pedal-s2
       number: 2
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 21407 }
     - id: yowamushi-pedal-s3
       number: 3
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 99476 }
+    - id: yowamushi-pedal-s4
+      number: 4
+      externalIds: { anilistId: 142481 } # Yowamushi Pedal: Limit Break (2022)
   movies:
     - id: yowamushi-pedal-film
 # One linear storyline: episodes carry a continuous absoluteNumber.

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Nyan Koi!
   ordering: absolute
+  externalIds:
+    wikidataId: Q1353600
   seasons:
     - id: nyan-koi-s1
       number: 1

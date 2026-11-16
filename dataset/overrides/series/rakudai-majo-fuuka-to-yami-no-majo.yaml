@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rakudai-majo-fuuka-to-yami-no-majo
+  titles:
+    original: らくだい魔女 フウカと闇の魔女
+    translations: { ja-Latn: "Rakudai Majo: Fuuka to Yami no Majo" }
+  movies:
+    - id: rakudai-majo-fuuka-to-yami-no-majo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rakudai-majo-fuuka-to-yami-no-majo]

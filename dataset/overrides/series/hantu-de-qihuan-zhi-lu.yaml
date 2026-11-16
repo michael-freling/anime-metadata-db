@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hantu-de-qihuan-zhi-lu
+  titles:
+    original: Hantu de Qihuan Zhi Lu
+    translations: { ja-Latn: Hantu de Qihuan Zhi Lu }
+  movies:
+    - id: hantu-de-qihuan-zhi-lu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hantu-de-qihuan-zhi-lu]

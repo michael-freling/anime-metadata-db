@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: laoying-zhua-xiao-ji
+  titles:
+    original: Laoying Zhua Xiao Ji
+    translations: { ja-Latn: Laoying Zhua Xiao Ji }
+  movies:
+    - id: laoying-zhua-xiao-ji-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [laoying-zhua-xiao-ji]

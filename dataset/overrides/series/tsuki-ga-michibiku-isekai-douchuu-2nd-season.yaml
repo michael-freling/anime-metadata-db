@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tsuki-ga-michibiku-isekai-douchuu-2nd-season
+  titles:
+    original: Tsuki ga Michibiku Isekai Douchuu Dai 2 Maku (月が導く異世界道中 第2幕)
+    translations: { ja-Latn: Tsuki ga Michibiku Isekai Douchuu 2nd Season }
+  seasons:
+    - id: tsuki-ga-michibiku-isekai-douchuu-2nd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tsuki-ga-michibiku-isekai-douchuu-2nd-season]

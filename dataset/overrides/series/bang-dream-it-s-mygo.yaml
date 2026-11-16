@@ -1,0 +1,15 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bang-dream-it-s-mygo
+  titles:
+    original: "劇場版「BanG Dream! It's MyGO!!!!!」後編 : うたう、僕らになれるうた & FILM LIVE"
+    translations: { ja-Latn: BanG Dream! It's MyGo!!!!! }
+  seasons:
+    - id: bang-dream-it-s-mygo-s1
+      number: 1
+  movies:
+    - id: bang-dream-it-s-mygo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bang-dream-it-s-mygo]

@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yomoyama-tanpenshuu
+  titles:
+    original: よもやま短編集
+    translations: { ja-Latn: Yomoyama Tanpenshuu }
+  movies:
+    - id: yomoyama-tanpenshuu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yomoyama-tanpenshuu]

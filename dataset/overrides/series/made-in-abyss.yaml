@@ -9,5 +9,14 @@ series:
   seasons:
     - id: made-in-abyss-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 97986 }
+    - id: made-in-abyss-s2
+      number: 2
+      externalIds: { anilistId: 114745 } # Made in Abyss: Retsujitsu no Ougonkyou (2022)
+  movies:
+    - id: made-in-abyss-film
+      externalIds: { anilistId: 101343 } # Made in Abyss Movie 1: Tabidachi no Yoake (2019)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [made-in-abyss]

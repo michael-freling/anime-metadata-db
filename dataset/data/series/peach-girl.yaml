@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Peach Girl
   ordering: absolute
+  externalIds:
+    wikidataId: Q1446272
   seasons:
     - id: peach-girl-s1
       number: 1

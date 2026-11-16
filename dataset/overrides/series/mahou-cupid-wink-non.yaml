@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mahou-cupid-wink-non
+  titles:
+    original: 魔法のキューピット ウィンク・ノン
+    translations: { ja-Latn: Mahou Cupid Wink Non }
+  movies:
+    - id: mahou-cupid-wink-non-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mahou-cupid-wink-non]

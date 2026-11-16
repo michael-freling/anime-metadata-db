@@ -4,8 +4,11 @@ series:
   titles:
     original: F-ZERO ファルコン伝説
     translations:
+      en: 'F-Zero: GP Legend'
       ja-Latn: 'F-Zero: Falcon Densetsu'
   ordering: absolute
+  externalIds:
+    wikidataId: Q8133833
   seasons:
     - id: f-zero-falcon-densetsu-s1
       number: 1

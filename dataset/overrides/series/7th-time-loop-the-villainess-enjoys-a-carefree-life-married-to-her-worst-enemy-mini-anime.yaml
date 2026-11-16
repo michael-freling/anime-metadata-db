@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 7th-time-loop-the-villainess-enjoys-a-carefree-life-married-to-her-worst-enemy-mini-anime
+  titles:
+    original: ループ7回目の悪役令嬢は、元敵国で自由気ままな花嫁生活を満喫する ミニアニメ
+    translations: { ja-Latn: "7th Time Loop: The Villainess Enjoys a Carefree Life Married to Her Worst Enemy! Mini Anime" }
+  seasons:
+    - id: 7th-time-loop-the-villainess-enjoys-a-carefree-life-married-to-her-worst-enemy-mini-anime-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [7th-time-loop-the-villainess-enjoys-a-carefree-life-married-to-her-worst-enemy-mini-anime]

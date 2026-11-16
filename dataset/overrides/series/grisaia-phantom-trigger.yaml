@@ -9,5 +9,8 @@ series:
   seasons:
     - id: grisaia-phantom-trigger-s1
       number: 1
+  movies:
+    - id: grisaia-phantom-trigger-film
+      externalIds: { anilistId: 99470 } # Grisaia: Phantom Trigger The Animation (2019)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [grisaia-phantom-trigger]

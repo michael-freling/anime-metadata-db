@@ -4,8 +4,11 @@ series:
   titles:
     original: こどものじかん
     translations:
+      en: Kodomo no Jikan
       ja-Latn: Kodomo no Jikan (TV)
   ordering: absolute
+  externalIds:
+    wikidataId: Q1329424
   seasons:
     - id: kodomo-no-jikan-tv-s1
       number: 1

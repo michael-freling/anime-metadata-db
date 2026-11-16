@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Dennou Boukenki Webdiver
   ordering: absolute
+  externalIds:
+    wikidataId: Q701100
   seasons:
     - id: dennou-boukenki-webdiver-s1
       number: 1

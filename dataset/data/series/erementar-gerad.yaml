@@ -4,8 +4,11 @@ series:
   titles:
     original: エレメンタル ジェレイド
     translations:
+      en: Elemental Gelade
       ja-Latn: Erementar Gerad
   ordering: absolute
+  externalIds:
+    wikidataId: Q373565
   seasons:
     - id: erementar-gerad-s1
       number: 1

@@ -15,6 +15,11 @@ series:
       number: 3
   movies:
     - id: doraemon-film
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 2651 }
+    - id: doraemon-film-2
+      externalIds: { anilistId: 2392 } # Doraemon Movie 26: Nobita no Kyouryuu 2006 (2006)
 # No continuous absoluteNumber. The seasons above are separate adaptations of
 # one work (1973, 1979, 2005), not one run, so numbering them end to end would
 # assert a continuity that does not exist.

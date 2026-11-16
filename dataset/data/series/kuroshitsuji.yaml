@@ -60,3 +60,15 @@ series:
         tvdbId: 83996
       episodes:
         count: 13
+  movies:
+    - id: kuroshitsuji-film
+      titles:
+        original: 劇場版 黒執事
+        translations:
+          ja: 劇場版 黒執事
+          ja-Latn: 'Kuroshitsuji Movie: Book of the Atlantic'
+      releaseYear: 2017
+      externalIds:
+        anilistId: 21425
+        anidbId: 11696
+        tvdbId: 83996

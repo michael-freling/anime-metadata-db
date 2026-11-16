@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: my-adventures-with-superman-season-2
+  titles:
+    original: アドベンチャー・ウィズ・スーパーマン 2
+    translations: { ja-Latn: My Adventures with Superman Season 2 }
+  seasons:
+    - id: my-adventures-with-superman-season-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [my-adventures-with-superman-season-2]

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Sora no Manimani
   ordering: absolute
+  externalIds:
+    wikidataId: Q649846
   seasons:
     - id: sora-no-manimani-s1
       number: 1

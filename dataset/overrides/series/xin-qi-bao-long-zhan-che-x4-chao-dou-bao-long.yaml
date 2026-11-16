@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xin-qi-bao-long-zhan-che-x4-chao-dou-bao-long
+  titles:
+    original: "Xin Qi Bao Long Zhan Che X4: Chao Dou Bao Long"
+    translations: { ja-Latn: "Xin Qi Bao Long Zhan Che X4: Chao Dou Bao Long" }
+  seasons:
+    - id: xin-qi-bao-long-zhan-che-x4-chao-dou-bao-long-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xin-qi-bao-long-zhan-che-x4-chao-dou-bao-long]

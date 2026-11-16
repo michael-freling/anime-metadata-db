@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: make-heroine-ga-oosugiru
+  titles:
+    original: 負けヒロインが多すぎる!
+    translations: { ja-Latn: Make Heroine ga Oosugiru! }
+  seasons:
+    - id: make-heroine-ga-oosugiru-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [make-heroine-ga-oosugiru]

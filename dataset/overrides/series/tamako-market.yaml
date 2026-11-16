@@ -11,5 +11,10 @@ series:
       number: 1
   movies:
     - id: tamako-market-film
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 21014 }
+    - id: tamako-market-film-2
+      externalIds: { anilistId: 20519 } # Tamako Love Story (2014)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [tamako-market]

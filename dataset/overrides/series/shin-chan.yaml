@@ -9,5 +9,8 @@ series:
   seasons:
     - id: shin-chan-s1
       number: 1
+  movies:
+    - id: shin-chan-film
+      externalIds: { anilistId: 2172 } # Crayon Shin-chan Movie 15: Arashi wo Yobu Utau Ketsu dake Bakud… (2007)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [shin-chan]

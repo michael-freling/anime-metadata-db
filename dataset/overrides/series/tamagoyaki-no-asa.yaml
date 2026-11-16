@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tamagoyaki-no-asa
+  titles:
+    original: 卵焼きの朝
+    translations: { ja-Latn: Tamagoyaki no Asa }
+  movies:
+    - id: tamagoyaki-no-asa-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tamagoyaki-no-asa]

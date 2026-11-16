@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hai-jiao-tianya
+  titles:
+    original: Hai Jiao Tianya
+    translations: { ja-Latn: Hai Jiao Tianya }
+  movies:
+    - id: hai-jiao-tianya-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hai-jiao-tianya]

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Mushi-Uta
   ordering: absolute
+  externalIds:
+    wikidataId: Q6941258
   seasons:
     - id: mushi-uta-s1
       number: 1

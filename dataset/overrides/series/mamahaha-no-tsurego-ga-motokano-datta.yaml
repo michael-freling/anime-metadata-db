@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mamahaha-no-tsurego-ga-motokano-datta
+  titles:
+    original: 継母の連れ子が元カノだった
+    translations: { ja-Latn: Mamahaha no Tsurego ga Motokano datta }
+  seasons:
+    - id: mamahaha-no-tsurego-ga-motokano-datta-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mamahaha-no-tsurego-ga-motokano-datta]

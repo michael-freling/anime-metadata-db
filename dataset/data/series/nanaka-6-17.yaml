@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Nanaka 6/17
   ordering: absolute
+  externalIds:
+    wikidataId: Q1101127
   seasons:
     - id: nanaka-6-17-s1
       number: 1

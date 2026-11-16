@@ -6,7 +6,7 @@ series:
     translations:
       en: Hamtaro
       ja-Latn: Tottoko Hamtaro (2012)
-  ordering: absolute
+  ordering: release
   externalIds:
     wikidataId: Q696310
   seasons:
@@ -20,7 +20,6 @@ series:
         tvdbId: 70817
       episodes:
         count: 296
-        absoluteFrom: 1
     - id: tottoko-hamtaro-2012-s2
       number: 2
       releaseYear: 2012
@@ -30,4 +29,15 @@ series:
         anidbId: 9163
       episodes:
         count: 51
-        absoluteFrom: 297
+  movies:
+    - id: tottoko-hamtaro-2012-film
+      titles:
+        original: とっとこハム太郎 ハムハムランド大冒険
+        translations:
+          ja: とっとこハム太郎 ハムハムランド大冒険
+          ja-Latn: 'Tottoko Hamtarou Movie 1: Ham-Ham Land Daibouken'
+      releaseYear: 2001
+      externalIds:
+        anilistId: 7329
+        anidbId: 2395
+        tvdbId: 70817

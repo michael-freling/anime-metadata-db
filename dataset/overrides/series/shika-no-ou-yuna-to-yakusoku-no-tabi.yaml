@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shika-no-ou-yuna-to-yakusoku-no-tabi
+  titles:
+    original: 鹿の王 ユナと約束の旅
+    translations: { ja-Latn: "Shika no Ou: Yuna to Yakusoku no Tabi" }
+  movies:
+    - id: shika-no-ou-yuna-to-yakusoku-no-tabi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shika-no-ou-yuna-to-yakusoku-no-tabi]

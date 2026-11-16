@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pipilu-he-lu-xixi-309-anshi
+  titles:
+    original: "Pipilu He Lu Xixi: 309 Anshi"
+    translations: { ja-Latn: "Pipilu He Lu Xixi: 309 Anshi" }
+  movies:
+    - id: pipilu-he-lu-xixi-309-anshi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pipilu-he-lu-xixi-309-anshi]

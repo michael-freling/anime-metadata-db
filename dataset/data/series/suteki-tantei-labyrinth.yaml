@@ -4,8 +4,11 @@ series:
   titles:
     original: 素敵探偵☆ラビリンス
     translations:
+      en: Fantastic Detective Labyrinth
       ja-Latn: Suteki Tantei Labyrinth
   ordering: absolute
+  externalIds:
+    wikidataId: Q1058189
   seasons:
     - id: suteki-tantei-labyrinth-s1
       number: 1

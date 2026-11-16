@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hero Hero-kun
   ordering: absolute
+  externalIds:
+    wikidataId: Q11277616
   seasons:
     - id: hero-hero-kun-s1
       number: 1

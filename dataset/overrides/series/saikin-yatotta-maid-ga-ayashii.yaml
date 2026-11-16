@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: saikin-yatotta-maid-ga-ayashii
+  titles:
+    original: 最近雇ったメイドが怪しい
+    translations: { ja-Latn: Saikin Yatotta Maid ga Ayashii }
+  seasons:
+    - id: saikin-yatotta-maid-ga-ayashii-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [saikin-yatotta-maid-ga-ayashii]

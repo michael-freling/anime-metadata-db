@@ -24,5 +24,8 @@ series:
     - id: ao-no-exorcist-s5
       number: 5
       externalIds: { anilistId: 185880 } # Ao no Exorcist: Yosuga-hen (Winter 2025)
+  movies:
+    - id: ao-no-exorcist-film
+      externalIds: { anilistId: 11737 } # Ao no Exorcist Movie (2012)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [ao-no-exorcist]

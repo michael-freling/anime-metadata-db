@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Yumeria
   ordering: absolute
+  externalIds:
+    wikidataId: Q1761260
   seasons:
     - id: yumeria-s1
       number: 1

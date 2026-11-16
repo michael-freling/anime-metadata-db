@@ -18,3 +18,13 @@ series:
         anilistId: 102511
         anidbId: 13974
       absoluteNumber: 1
+    - id: wo-shi-na-zha-film-2
+      titles:
+        original: 我是哪吒2之大闹东海
+        translations:
+          ja: 我是哪吒2之大闹东海
+          ja-Latn: 'Wo Shi Na Zha 2: Yingxiong Guilai'
+      releaseYear: 2023
+      externalIds:
+        anilistId: 146583
+      absoluteNumber: 2

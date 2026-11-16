@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: School Rumble
   ordering: absolute
+  externalIds:
+    wikidataId: Q482472
   seasons:
     - id: school-rumble-s1
       number: 1

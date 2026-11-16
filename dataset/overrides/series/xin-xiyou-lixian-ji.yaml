@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xin-xiyou-lixian-ji
+  titles:
+    original: Xin Xiyou Lixian Ji
+    translations: { ja-Latn: Xin Xiyou Lixian Ji }
+  seasons:
+    - id: xin-xiyou-lixian-ji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xin-xiyou-lixian-ji]

@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chuushajou-de-ame-wo-tabete-ne
+  titles:
+    original: 駐車場でアメを食べたね
+    translations: { ja-Latn: Chuushajou de Ame wo Tabete ne }
+  movies:
+    - id: chuushajou-de-ame-wo-tabete-ne-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chuushajou-de-ame-wo-tabete-ne]

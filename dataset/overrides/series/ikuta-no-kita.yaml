@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ikuta-no-kita
+  titles:
+    original: 幾多の北
+    translations: { ja-Latn: Ikuta no Kita }
+  movies:
+    - id: ikuta-no-kita-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ikuta-no-kita]

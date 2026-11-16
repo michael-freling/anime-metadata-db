@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: katsute-mahou-shoujo-to-aku-wa-tekitai-shiteita
+  titles:
+    original: かつて魔法少女と悪は敵対して いた。
+    translations: { ja-Latn: Katsute Mahou Shoujo to Aku wa Tekitai shiteita. }
+  seasons:
+    - id: katsute-mahou-shoujo-to-aku-wa-tekitai-shiteita-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [katsute-mahou-shoujo-to-aku-wa-tekitai-shiteita]

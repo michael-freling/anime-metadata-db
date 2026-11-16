@@ -9,5 +9,8 @@ series:
   seasons:
     - id: argonavis-from-bang-dream-s1
       number: 1
+  movies:
+    - id: argonavis-from-bang-dream-film
+      externalIds: { anilistId: 128344 } # Argonavis Movie: Axia (2023)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [argonavis-from-bang-dream]

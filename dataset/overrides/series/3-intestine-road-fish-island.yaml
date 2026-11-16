@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 3-intestine-road-fish-island
+  titles:
+    original: サカナ島胃袋三腸目
+    translations: { ja-Latn: "3 Intestine Road, Fish Island" }
+  movies:
+    - id: 3-intestine-road-fish-island-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [3-intestine-road-fish-island]

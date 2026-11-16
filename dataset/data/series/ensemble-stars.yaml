@@ -18,3 +18,15 @@ series:
       episodes:
         count: 24
         absoluteFrom: 1
+  movies:
+    - id: ensemble-stars-film
+      titles:
+        original: あんさんぶるスターズ!! -Road to Show!!-
+        translations:
+          ja: あんさんぶるスターズ!! -Road to Show!!-
+          ja-Latn: Ensemble Stars!! Road to Show!!
+      releaseYear: 2022
+      externalIds:
+        anilistId: 141907
+        anidbId: 16985
+      absoluteNumber: 25

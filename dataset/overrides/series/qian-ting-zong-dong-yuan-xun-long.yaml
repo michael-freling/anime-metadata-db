@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: qian-ting-zong-dong-yuan-xun-long
+  titles:
+    original: "Qian Ting Zong Dong Yuan: Xun Long"
+    translations: { ja-Latn: "Qian Ting Zong Dong Yuan: Xun Long" }
+  movies:
+    - id: qian-ting-zong-dong-yuan-xun-long-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [qian-ting-zong-dong-yuan-xun-long]

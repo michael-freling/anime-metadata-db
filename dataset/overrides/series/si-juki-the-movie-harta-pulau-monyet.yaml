@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: si-juki-the-movie-harta-pulau-monyet
+  titles:
+    original: "Si Juki: The Movie - Harta Pulau Monyet"
+    translations: { ja-Latn: "Si Juki: The Movie - Harta Pulau Monyet" }
+  movies:
+    - id: si-juki-the-movie-harta-pulau-monyet-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [si-juki-the-movie-harta-pulau-monyet]

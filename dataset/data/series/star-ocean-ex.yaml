@@ -4,8 +4,11 @@ series:
   titles:
     original: スターオーシャンEX
     translations:
+      en: 'Star Ocean: The Second Story'
       ja-Latn: Star Ocean EX
   ordering: absolute
+  externalIds:
+    wikidataId: Q709954
   seasons:
     - id: star-ocean-ex-s1
       number: 1

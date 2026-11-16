@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: okashina-sabaku-no-suna-to-manu
+  titles:
+    original: おかしなさばくのスナとマヌ
+    translations: { ja-Latn: Okashina Sabaku no Suna to Manu }
+  seasons:
+    - id: okashina-sabaku-no-suna-to-manu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [okashina-sabaku-no-suna-to-manu]

@@ -17,3 +17,15 @@ series:
       episodes:
         count: 13
         absoluteFrom: 1
+  movies:
+    - id: argonavis-from-bang-dream-film
+      titles:
+        original: 剧场版ARGONAVIS AXIA
+        translations:
+          ja: 剧场版ARGONAVIS AXIA
+          ja-Latn: 'Argonavis Movie: Axia'
+      releaseYear: 2023
+      externalIds:
+        anilistId: 128344
+        anidbId: 15977
+      absoluteNumber: 14

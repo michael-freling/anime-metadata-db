@@ -9,5 +9,8 @@ series:
   seasons:
     - id: kakushigoto-s1
       number: 1
+  movies:
+    - id: kakushigoto-film
+      externalIds: { anilistId: 127227 } # Kakushigoto Movie (2021)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [kakushigoto]

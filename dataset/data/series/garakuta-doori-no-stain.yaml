@@ -4,8 +4,11 @@ series:
   titles:
     original: ガラクタ通りのステイン
     translations:
+      en: Mr. Stain on Junk Alley
       ja-Latn: Garakuta-doori no Stain
   ordering: absolute
+  externalIds:
+    wikidataId: Q1017097
   seasons:
     - id: garakuta-doori-no-stain-s1
       number: 1

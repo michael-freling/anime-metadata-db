@@ -18,12 +18,3 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
-    - id: hensuki-s2
-      number: 2
-      releaseYear: 2019
-      releaseSeason: SUMMER
-      externalIds:
-        anilistId: 121043
-      episodes:
-        count: 12
-        absoluteFrom: 13

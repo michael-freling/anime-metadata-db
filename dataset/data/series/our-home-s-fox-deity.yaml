@@ -4,8 +4,11 @@ series:
   titles:
     original: 我が家のお稲荷さま。
     translations:
+      en: Wagaya no Oinari-sama.
       ja-Latn: Our Home's Fox Deity
   ordering: absolute
+  externalIds:
+    wikidataId: Q484251
   seasons:
     - id: our-home-s-fox-deity-s1
       number: 1

@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: robocar-poli-5
+  titles:
+    original: Robocar Poli 5
+    translations: { ja-Latn: Robocar Poli 5 }
+  seasons:
+    - id: robocar-poli-5-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [robocar-poli-5]

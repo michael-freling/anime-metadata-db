@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sengoku-youko-senma-konton-hen
+  titles:
+    original: 戦国妖狐 2クール
+    translations: { ja-Latn: "Sengoku Youko: Senma Konton-hen" }
+  seasons:
+    - id: sengoku-youko-senma-konton-hen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sengoku-youko-senma-konton-hen]

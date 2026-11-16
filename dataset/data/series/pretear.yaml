@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Prétear
   ordering: absolute
+  externalIds:
+    wikidataId: Q702532
   seasons:
     - id: pretear-s1
       number: 1

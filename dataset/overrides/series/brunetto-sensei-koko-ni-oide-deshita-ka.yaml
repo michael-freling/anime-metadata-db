@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: brunetto-sensei-koko-ni-oide-deshita-ka
+  titles:
+    original: ブルネット先生、ここにおいででしたか？
+    translations: { ja-Latn: "Brunetto-sensei, Koko ni Oide deshita ka?" }
+  movies:
+    - id: brunetto-sensei-koko-ni-oide-deshita-ka-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [brunetto-sensei-koko-ni-oide-deshita-ka]

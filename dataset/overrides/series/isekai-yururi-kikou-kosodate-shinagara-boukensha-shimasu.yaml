@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: isekai-yururi-kikou-kosodate-shinagara-boukensha-shimasu
+  titles:
+    original: 異世界ゆるり紀行 ~子育てしながら冒険者します~
+    translations: { ja-Latn: "Isekai Yururi Kikou: Kosodate shinagara Boukensha shimasu" }
+  seasons:
+    - id: isekai-yururi-kikou-kosodate-shinagara-boukensha-shimasu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [isekai-yururi-kikou-kosodate-shinagara-boukensha-shimasu]

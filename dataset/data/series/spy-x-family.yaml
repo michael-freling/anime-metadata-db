@@ -40,7 +40,7 @@ series:
         tvdbId: 405920
       episodes:
         count: 12
-        absoluteFrom: 26
+        absoluteFrom: 27
     - id: spy-x-family-s4
       number: 4
       releaseYear: 2025
@@ -51,4 +51,17 @@ series:
         tvdbId: 405920
       episodes:
         count: 13
-        absoluteFrom: 38
+        absoluteFrom: 39
+  movies:
+    - id: spy-x-family-film
+      titles:
+        original: 'SPY×FAMILY 間諜家家酒 CODE: White'
+        translations:
+          ja: 'SPY×FAMILY 間諜家家酒 CODE: White'
+          ja-Latn: 'Spy x Family Movie: Code: White'
+      releaseYear: 2023
+      externalIds:
+        anilistId: 158928
+        anidbId: 17785
+        tvdbId: 405920
+      absoluteNumber: 26

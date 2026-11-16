@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: deep-insanity-the-lost-child
+  titles:
+    original: ディープインサニティ ザ・ロストチャイルド
+    translations: { ja-Latn: "Deep Insanity: The Lost Child" }
+  seasons:
+    - id: deep-insanity-the-lost-child-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [deep-insanity-the-lost-child]

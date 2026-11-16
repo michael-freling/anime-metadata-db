@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: running-man-revengers
+  titles:
+    original: "Running Man: Revengers"
+    translations: { ja-Latn: "Running Man: Revengers" }
+  movies:
+    - id: running-man-revengers-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [running-man-revengers]

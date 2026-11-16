@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tobot-v-ujusuhodae
+  titles:
+    original: "Tobot V: Ujusuhodae"
+    translations: { ja-Latn: "Tobot V: Ujusuhodae" }
+  seasons:
+    - id: tobot-v-ujusuhodae-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tobot-v-ujusuhodae]

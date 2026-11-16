@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-idolm-ster-cinderella-girls-u149-dai-1-wa-7-wa-soushuuhen
+  titles:
+    original: アイドルマスター シンデレラガールズ U149 第1話～7話総集編
+    translations: { ja-Latn: "The iDOLM@STER Cinderella Girls: U149 - Dai-1-Wa - 7-wa Soushuuhen" }
+  seasons:
+    - id: the-idolm-ster-cinderella-girls-u149-dai-1-wa-7-wa-soushuuhen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-idolm-ster-cinderella-girls-u149-dai-1-wa-7-wa-soushuuhen]

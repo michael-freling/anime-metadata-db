@@ -18,3 +18,25 @@ series:
       episodes:
         count: 13
         absoluteFrom: 1
+    - id: made-in-abyss-s2
+      number: 2
+      releaseYear: 2022
+      releaseSeason: SUMMER
+      externalIds:
+        anilistId: 114745
+        anidbId: 15359
+        tvdbId: 326109
+      episodes:
+        count: 12
+        absoluteFrom: 15
+  movies:
+    - id: made-in-abyss-film
+      titles:
+        original: メイドインアビス 旅立ちの夜明け
+        translations:
+          ja: メイドインアビス 旅立ちの夜明け
+          ja-Latn: 'Made in Abyss Movie 1: Tabidachi no Yoake'
+      releaseYear: 2019
+      externalIds:
+        anilistId: 101343
+      absoluteNumber: 14

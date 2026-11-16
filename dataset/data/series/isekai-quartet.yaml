@@ -41,4 +41,16 @@ series:
         tvdbId: 357471
       episodes:
         count: 11
-        absoluteFrom: 25
+        absoluteFrom: 26
+  movies:
+    - id: isekai-quartet-film
+      titles:
+        original: 劇場版 異世界かるてっと ~あなざーわーるど~
+        translations:
+          ja: 劇場版 異世界かるてっと ~あなざーわーるど~
+          ja-Latn: 'Isekai Quartet Movie: Another World'
+      releaseYear: 2022
+      externalIds:
+        anilistId: 117074
+        anidbId: 15481
+      absoluteNumber: 25

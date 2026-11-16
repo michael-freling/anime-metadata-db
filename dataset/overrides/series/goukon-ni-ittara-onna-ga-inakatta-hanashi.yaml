@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: goukon-ni-ittara-onna-ga-inakatta-hanashi
+  titles:
+    original: 合コンに行ったら女がいなかった話
+    translations: { ja-Latn: Goukon ni Ittara Onna ga Inakatta Hanashi }
+  seasons:
+    - id: goukon-ni-ittara-onna-ga-inakatta-hanashi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [goukon-ni-ittara-onna-ga-inakatta-hanashi]

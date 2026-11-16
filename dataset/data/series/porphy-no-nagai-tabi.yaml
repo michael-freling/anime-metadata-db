@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Porphy no Nagai Tabi
   ordering: absolute
+  externalIds:
+    wikidataId: Q2665488
   seasons:
     - id: porphy-no-nagai-tabi-s1
       number: 1

@@ -9,5 +9,8 @@ series:
   seasons:
     - id: s-cry-ed-s1
       number: 1
+  movies:
+    - id: s-cry-ed-film
+      externalIds: { anilistId: 10592 } # s.CRY.ed Alteration I: Tao (2011)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [s-cry-ed]

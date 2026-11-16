@@ -20,3 +20,13 @@ series:
       episodes:
         count: 13
         absoluteFrom: 1
+    - id: asatir-mirai-no-mukashi-banashi-s2
+      number: 2
+      releaseYear: 2024
+      releaseSeason: FALL
+      externalIds:
+        anilistId: 185541
+        anidbId: 18964
+      episodes:
+        count: 13
+        absoluteFrom: 14

@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tawamure-kobako
+  titles:
+    original: 戯れ子ばこ
+    translations: { ja-Latn: Tawamure Kobako }
+  movies:
+    - id: tawamure-kobako-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tawamure-kobako]

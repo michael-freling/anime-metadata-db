@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: raise-unicorn-no-kubisuji-ushiro-no-hokuro-ni-naritai
+  titles:
+    original: 来世 ユニコーンの首筋後ろのホクロになりたい
+    translations: { ja-Latn: Raise Unicorn no Kubisuji Ushiro no Hokuro ni Naritai }
+  movies:
+    - id: raise-unicorn-no-kubisuji-ushiro-no-hokuro-ni-naritai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [raise-unicorn-no-kubisuji-ushiro-no-hokuro-ni-naritai]

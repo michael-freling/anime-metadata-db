@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xiong-shi-shaonian
+  titles:
+    original: 雄獅少年／ライオン少年
+    translations: { ja-Latn: Xiong Shi Shaonian }
+  movies:
+    - id: xiong-shi-shaonian-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xiong-shi-shaonian]

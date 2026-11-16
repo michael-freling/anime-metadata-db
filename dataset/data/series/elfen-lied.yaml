@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Elfen Lied
   ordering: absolute
+  externalIds:
+    wikidataId: Q214771
   seasons:
     - id: elfen-lied-s1
       number: 1

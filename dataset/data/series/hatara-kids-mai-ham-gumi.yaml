@@ -4,8 +4,11 @@ series:
   titles:
     original: はたらキッズ マイハム組
     translations:
+      en: Hatara Kizzu Maihamu Gumi
       ja-Latn: Hatara Kids Mai Ham Gumi
   ordering: absolute
+  externalIds:
+    wikidataId: Q5238129
   seasons:
     - id: hatara-kids-mai-ham-gumi-s1
       number: 1

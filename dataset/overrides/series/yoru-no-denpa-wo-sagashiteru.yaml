@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yoru-no-denpa-wo-sagashiteru
+  titles:
+    original: 夜の電波を探してる
+    translations: { ja-Latn: Yoru no Denpa wo Sagashiteru }
+  movies:
+    - id: yoru-no-denpa-wo-sagashiteru-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yoru-no-denpa-wo-sagashiteru]

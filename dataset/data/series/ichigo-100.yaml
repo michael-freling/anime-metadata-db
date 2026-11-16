@@ -4,8 +4,11 @@ series:
   titles:
     original: いちご100%
     translations:
+      en: Strawberry 100%
       ja-Latn: Ichigo 100%
   ordering: absolute
+  externalIds:
+    wikidataId: Q1052908
   seasons:
     - id: ichigo-100-s1
       number: 1

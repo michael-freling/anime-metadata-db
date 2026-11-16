@@ -46,7 +46,7 @@ series:
         tvdbId: 358138
       episodes:
         count: 13
-        absoluteFrom: 40
+        absoluteFrom: 41
     - id: oshiri-tantei-s5
       number: 5
       releaseYear: 2021
@@ -57,7 +57,7 @@ series:
         tvdbId: 358138
       episodes:
         count: 13
-        absoluteFrom: 53
+        absoluteFrom: 54
     - id: oshiri-tantei-s6
       number: 6
       releaseYear: 2022
@@ -67,7 +67,7 @@ series:
         anidbId: 16946
       episodes:
         count: 13
-        absoluteFrom: 66
+        absoluteFrom: 67
     - id: oshiri-tantei-s7
       number: 7
       releaseYear: 2023
@@ -77,7 +77,7 @@ series:
         anidbId: 17701
       episodes:
         count: 15
-        absoluteFrom: 79
+        absoluteFrom: 80
     - id: oshiri-tantei-s8
       number: 8
       releaseYear: 2023
@@ -86,7 +86,7 @@ series:
         anilistId: 179872
       episodes:
         count: 7
-        absoluteFrom: 94
+        absoluteFrom: 95
     - id: oshiri-tantei-s9
       number: 9
       releaseYear: 2024
@@ -95,7 +95,7 @@ series:
         anilistId: 185644
       episodes:
         count: 15
-        absoluteFrom: 101
+        absoluteFrom: 102
     - id: oshiri-tantei-s10
       number: 10
       releaseYear: 2025
@@ -104,7 +104,7 @@ series:
         anilistId: 185645
       episodes:
         count: 15
-        absoluteFrom: 117
+        absoluteFrom: 118
     - id: oshiri-tantei-s11p2
       number: 11
       part: 2
@@ -114,7 +114,7 @@ series:
         anilistId: 194832
       episodes:
         count: 7
-        absoluteFrom: 132
+        absoluteFrom: 133
   movies:
     - id: oshiri-tantei-film
       titles:
@@ -126,4 +126,15 @@ series:
       externalIds:
         anilistId: 185643
         anidbId: 19059
-      absoluteNumber: 116
+      absoluteNumber: 117
+    - id: oshiri-tantei-film-2
+      titles:
+        original: 映画おしりたんてい
+        translations:
+          ja: 映画おしりたんてい
+          ja-Latn: 'Oshiri Tantei Movie 2: Tentoumushi Iseki no Nazo'
+      releaseYear: 2020
+      externalIds:
+        anilistId: 116224
+        anidbId: 15310
+      absoluteNumber: 40

@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: attack-on-titan-final-season-the-final-chapters
+  titles:
+    original: 進撃の巨人 The Final Season 完結編
+    translations: { ja-Latn: Attack on Titan Final Season THE FINAL CHAPTERS }
+  seasons:
+    - id: attack-on-titan-final-season-the-final-chapters-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [attack-on-titan-final-season-the-final-chapters]

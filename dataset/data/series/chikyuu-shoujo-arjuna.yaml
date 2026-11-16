@@ -4,8 +4,11 @@ series:
   titles:
     original: 地球少女アルジュナ
     translations:
+      en: Earth Maiden Arjuna
       ja-Latn: Chikyuu Shoujo Arjuna
   ordering: absolute
+  externalIds:
+    wikidataId: Q1931468
   seasons:
     - id: chikyuu-shoujo-arjuna-s1
       number: 1

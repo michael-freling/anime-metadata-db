@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Uta∽Kata
   ordering: absolute
+  externalIds:
+    wikidataId: Q2255505
   seasons:
     - id: uta-kata-s1
       number: 1

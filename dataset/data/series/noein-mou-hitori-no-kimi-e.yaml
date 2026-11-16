@@ -4,8 +4,11 @@ series:
   titles:
     original: ノエイン もうひとりの君へ
     translations:
+      en: Noein
       ja-Latn: 'Noein: Mou Hitori no Kimi e'
   ordering: absolute
+  externalIds:
+    wikidataId: Q431930
   seasons:
     - id: noein-mou-hitori-no-kimi-e-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 無人惑星サヴァイヴ
     translations:
+      en: Uninhabited Planet Survive!
       ja-Latn: Mujin Wakusei Survive
   ordering: absolute
+  externalIds:
+    wikidataId: Q384357
   seasons:
     - id: mujin-wakusei-survive-s1
       number: 1

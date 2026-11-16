@@ -4,8 +4,11 @@ series:
   titles:
     original: うえきの法則
     translations:
+      en: The Law of Ueki
       ja-Latn: Ueki no Housoku
   ordering: absolute
+  externalIds:
+    wikidataId: Q696519
   seasons:
     - id: ueki-no-housoku-s1
       number: 1

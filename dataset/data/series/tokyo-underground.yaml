@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tokyo Underground
   ordering: absolute
+  externalIds:
+    wikidataId: Q710369
   seasons:
     - id: tokyo-underground-s1
       number: 1

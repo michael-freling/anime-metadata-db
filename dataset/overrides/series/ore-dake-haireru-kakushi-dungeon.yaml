@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ore-dake-haireru-kakushi-dungeon
+  titles:
+    original: 俺だけ入れる隠しダンジョン 〜こっそり鍛えて世界最強〜
+    translations: { ja-Latn: Ore dake Haireru Kakushi Dungeon }
+  seasons:
+    - id: ore-dake-haireru-kakushi-dungeon-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ore-dake-haireru-kakushi-dungeon]

@@ -9,7 +9,19 @@ series:
   seasons:
     - id: nanatsu-no-taizai-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 20789 }
     - id: nanatsu-no-taizai-s2
       number: 2
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 99539 }
+    - id: nanatsu-no-taizai-s3
+      number: 3
+      externalIds: { anilistId: 116752 } # Nanatsu no Taizai: Funnu no Shinpan (2021)
+  movies:
+    - id: nanatsu-no-taizai-film
+      externalIds: { anilistId: 128740 } # Nanatsu no Taizai Movie 2: Hikari ni Norowareshi Mono-tachi (2021)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [nanatsu-no-taizai]

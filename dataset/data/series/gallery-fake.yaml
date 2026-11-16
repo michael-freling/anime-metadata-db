@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Gallery Fake
   ordering: absolute
+  externalIds:
+    wikidataId: Q898667
   seasons:
     - id: gallery-fake-s1
       number: 1

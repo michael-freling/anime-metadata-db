@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 86-eighty-six-semete-ningen-taran-to
+  titles:
+    original: ８６―エイティシックス― せめて人間たらんと
+    translations: { ja-Latn: "86: Eighty Six - Semete Ningen Taran to" }
+  seasons:
+    - id: 86-eighty-six-semete-ningen-taran-to-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [86-eighty-six-semete-ningen-taran-to]

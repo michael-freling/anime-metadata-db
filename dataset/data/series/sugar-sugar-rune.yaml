@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Sugar Sugar Rune
   ordering: absolute
+  externalIds:
+    wikidataId: Q865603
   seasons:
     - id: sugar-sugar-rune-s1
       number: 1

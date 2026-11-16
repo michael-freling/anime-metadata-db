@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Akaneiro ni Somaru Saka
   ordering: absolute
+  externalIds:
+    wikidataId: Q1205695
   seasons:
     - id: akaneiro-ni-somaru-saka-s1
       number: 1

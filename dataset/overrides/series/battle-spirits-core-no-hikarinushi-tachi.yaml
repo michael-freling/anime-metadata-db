@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: battle-spirits-core-no-hikarinushi-tachi
+  titles:
+    original: バトルスピリッツ-コアの光主たち-
+    translations: { ja-Latn: "Battle Spirits: Core no Hikarinushi-tachi" }
+  seasons:
+    - id: battle-spirits-core-no-hikarinushi-tachi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [battle-spirits-core-no-hikarinushi-tachi]

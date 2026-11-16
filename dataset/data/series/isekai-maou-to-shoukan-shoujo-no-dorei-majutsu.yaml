@@ -21,3 +21,14 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
+    - id: isekai-maou-to-shoukan-shoujo-no-dorei-majutsu-s2
+      number: 2
+      releaseYear: 2021
+      releaseSeason: SPRING
+      externalIds:
+        anilistId: 117448
+        anidbId: 15493
+        tvdbId: 347425
+      episodes:
+        count: 10
+        absoluteFrom: 13

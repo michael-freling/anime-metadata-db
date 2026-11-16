@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shakunetsu-kabaddi
+  titles:
+    original: 灼熱カバディ
+    translations: { ja-Latn: Shakunetsu Kabaddi }
+  seasons:
+    - id: shakunetsu-kabaddi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shakunetsu-kabaddi]

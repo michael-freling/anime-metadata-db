@@ -11,5 +11,8 @@ series:
       number: 1
     - id: otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-s2
       number: 2
+  movies:
+    - id: otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta-film
+      externalIds: { anilistId: 139359 } # Otome Game no Hametsu Flag shika Nai Akuyaku Reijou ni Tensei s… (2023)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [otome-game-no-hametsu-flag-shika-nai-akuyaku-reijou-ni-tensei-shiteshimatta]

@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rise-of-the-teenage-mutant-ninja-turtles-the-movie
+  titles:
+    original: "Rise of the Teenage Mutant Ninja Turtles: The Movie"
+    translations: { ja-Latn: "Rise of the Teenage Mutant Ninja Turtles: The Movie" }
+  movies:
+    - id: rise-of-the-teenage-mutant-ninja-turtles-the-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rise-of-the-teenage-mutant-ninja-turtles-the-movie]

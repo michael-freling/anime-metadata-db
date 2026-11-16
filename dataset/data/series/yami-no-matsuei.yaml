@@ -4,8 +4,11 @@ series:
   titles:
     original: 闇の末裔
     translations:
+      en: Descendants of Darkness
       ja-Latn: Yami no Matsuei
   ordering: absolute
+  externalIds:
+    wikidataId: Q696961
   seasons:
     - id: yami-no-matsuei-s1
       number: 1

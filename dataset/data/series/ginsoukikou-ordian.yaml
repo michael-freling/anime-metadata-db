@@ -4,8 +4,11 @@ series:
   titles:
     original: 銀装騎攻オーディアン
     translations:
+      en: Platinumhugen Ordian
       ja-Latn: Ginsoukikou Ordian
   ordering: absolute
+  externalIds:
+    wikidataId: Q7202394
   seasons:
     - id: ginsoukikou-ordian-s1
       number: 1

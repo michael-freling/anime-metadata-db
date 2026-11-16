@@ -9,5 +9,11 @@ series:
   seasons:
     - id: shin-chuuka-ichiban-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 107666 }
+    - id: shin-chuuka-ichiban-s2
+      number: 2
+      externalIds: { anilistId: 114304 } # Shin Chuuka Ichiban! 2nd Season (2021)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [shin-chuuka-ichiban]

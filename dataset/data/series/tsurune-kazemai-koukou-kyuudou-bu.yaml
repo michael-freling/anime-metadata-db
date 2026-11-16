@@ -21,3 +21,15 @@ series:
       episodes:
         count: 13
         absoluteFrom: 1
+  movies:
+    - id: tsurune-kazemai-koukou-kyuudou-bu-film
+      titles:
+        original: 劇場版 ツルネ -はじまりの一射-
+        translations:
+          ja: 劇場版 ツルネ -はじまりの一射-
+          ja-Latn: 'Tsurune Movie: Hajimari no Issha'
+      releaseYear: 2022
+      externalIds:
+        anilistId: 125261
+        anidbId: 15801
+      absoluteNumber: 14

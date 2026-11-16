@@ -4,8 +4,11 @@ series:
   titles:
     original: 灰土警部の事件簿 人喰山
     translations:
+      en: Man-Eater Mountain
       ja-Latn: 'Haido Keibu no Jikenbo: Hitokui-Yama'
   ordering: absolute
+  externalIds:
+    wikidataId: Q109363133
   movies:
     - id: haido-keibu-no-jikenbo-hitokui-yama-film
       titles:

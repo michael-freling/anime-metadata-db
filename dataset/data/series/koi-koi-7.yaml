@@ -4,8 +4,11 @@ series:
   titles:
     original: こいこい7
     translations:
+      en: Koi Koi Seven
       ja-Latn: Koi Koi 7
   ordering: absolute
+  externalIds:
+    wikidataId: Q1314517
   seasons:
     - id: koi-koi-7-s1
       number: 1

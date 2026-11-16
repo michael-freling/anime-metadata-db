@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kimi-no-iro
+  titles:
+    original: きみの色
+    translations: { ja-Latn: Kimi no Iro }
+  movies:
+    - id: kimi-no-iro-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kimi-no-iro]

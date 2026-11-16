@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tokyo Mew Mew
   ordering: absolute
+  externalIds:
+    wikidataId: Q392125
   seasons:
     - id: tokyo-mew-mew-s1
       number: 1

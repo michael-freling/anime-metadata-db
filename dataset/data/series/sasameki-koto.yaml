@@ -4,8 +4,11 @@ series:
   titles:
     original: ささめきこと
     translations:
+      en: Whispered Words
       ja-Latn: Sasameki Koto
   ordering: absolute
+  externalIds:
+    wikidataId: Q2607852
   seasons:
     - id: sasameki-koto-s1
       number: 1

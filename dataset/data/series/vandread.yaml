@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Vandread
   ordering: absolute
+  externalIds:
+    wikidataId: Q597380
   seasons:
     - id: vandread-s1
       number: 1

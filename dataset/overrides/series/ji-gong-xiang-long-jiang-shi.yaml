@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ji-gong-xiang-long-jiang-shi
+  titles:
+    original: "Ji Gong: Xiang Long Jiang Shi"
+    translations: { ja-Latn: "Ji Gong: Xiang Long Jiang Shi" }
+  movies:
+    - id: ji-gong-xiang-long-jiang-shi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ji-gong-xiang-long-jiang-shi]

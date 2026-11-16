@@ -11,5 +11,8 @@ series:
       number: 1
     - id: gintama-s2
       number: 2
+  movies:
+    - id: gintama-film
+      externalIds: { anilistId: 7472 } # Gintama Movie 1: Shinyaku Benizakura-hen (2010)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [gintama]

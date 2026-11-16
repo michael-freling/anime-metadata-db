@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Stratos 4
   ordering: absolute
+  externalIds:
+    wikidataId: Q3098248
   seasons:
     - id: stratos-4-s1
       number: 1

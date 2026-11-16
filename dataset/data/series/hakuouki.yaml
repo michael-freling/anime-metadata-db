@@ -18,3 +18,14 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
+  movies:
+    - id: hakuouki-film
+      titles:
+        original: 劇場版 薄桜鬼 京都乱舞
+        translations:
+          ja: 劇場版 薄桜鬼 京都乱舞
+          ja-Latn: 'Hakuouki Movie 1: Kyoto Ranbu'
+      releaseYear: 2013
+      externalIds:
+        anilistId: 13117
+      absoluteNumber: 13

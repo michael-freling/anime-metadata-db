@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: dayu
+  titles:
+    original: Dayu
+    translations: { ja-Latn: Dayu }
+  movies:
+    - id: dayu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [dayu]

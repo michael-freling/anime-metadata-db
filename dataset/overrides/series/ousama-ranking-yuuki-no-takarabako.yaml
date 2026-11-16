@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ousama-ranking-yuuki-no-takarabako
+  titles:
+    original: 王様ランキング 勇気の宝箱
+    translations: { ja-Latn: "Ousama Ranking: Yuuki no Takarabako" }
+  seasons:
+    - id: ousama-ranking-yuuki-no-takarabako-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ousama-ranking-yuuki-no-takarabako]

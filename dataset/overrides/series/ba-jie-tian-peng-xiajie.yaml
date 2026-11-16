@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ba-jie-tian-peng-xiajie
+  titles:
+    original: "Ba Jie: Tian Peng Xiajie"
+    translations: { ja-Latn: "Ba Jie: Tian Peng Xiajie" }
+  movies:
+    - id: ba-jie-tian-peng-xiajie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ba-jie-tian-peng-xiajie]

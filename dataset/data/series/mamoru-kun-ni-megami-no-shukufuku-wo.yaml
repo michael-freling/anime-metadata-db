@@ -4,8 +4,11 @@ series:
   titles:
     original: 護くんに女神の祝福を!
     translations:
+      en: Mamoru-kun ni Megami no Shukufuku o!
       ja-Latn: Mamoru-kun ni Megami no Shukufuku wo!
   ordering: absolute
+  externalIds:
+    wikidataId: Q3285048
   seasons:
     - id: mamoru-kun-ni-megami-no-shukufuku-wo-s1
       number: 1

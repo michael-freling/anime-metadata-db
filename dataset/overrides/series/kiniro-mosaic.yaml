@@ -9,5 +9,8 @@ series:
   seasons:
     - id: kiniro-mosaic-s1
       number: 1
+  movies:
+    - id: kiniro-mosaic-film
+      externalIds: { anilistId: 116676 } # Kiniro Mosaic: Thank You!! (2021)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [kiniro-mosaic]

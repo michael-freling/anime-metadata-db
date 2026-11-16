@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: watashi-no-yokotawaru-naizou
+  titles:
+    original: 私の横たわる内臓
+    translations: { ja-Latn: Watashi no Yokotawaru Naizou }
+  movies:
+    - id: watashi-no-yokotawaru-naizou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [watashi-no-yokotawaru-naizou]

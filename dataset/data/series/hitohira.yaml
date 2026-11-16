@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hitohira
   ordering: absolute
+  externalIds:
+    wikidataId: Q933589
   seasons:
     - id: hitohira-s1
       number: 1

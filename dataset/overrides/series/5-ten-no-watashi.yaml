@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 5-ten-no-watashi
+  titles:
+    original: 5点のわたし
+    translations: { ja-Latn: 5-ten no Watashi }
+  movies:
+    - id: 5-ten-no-watashi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [5-ten-no-watashi]

@@ -13,5 +13,8 @@ series:
       number: 2
     - id: kuroko-no-basket-s3
       number: 3
+  movies:
+    - id: kuroko-no-basket-film
+      externalIds: { anilistId: 102093 } # Kuroko no Basket Movie 1: Winter Cup - Kage to Hikari (2016)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [kuroko-no-basket]

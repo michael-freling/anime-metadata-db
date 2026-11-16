@@ -16,3 +16,14 @@ series:
       episodes:
         count: 51
         absoluteFrom: 1
+    - id: pripara-2-s2
+      number: 2
+      releaseYear: 2017
+      releaseSeason: SPRING
+      externalIds:
+        anilistId: 98107
+        anidbId: 12737
+        tvdbId: 282059
+      episodes:
+        count: 51
+        absoluteFrom: 52

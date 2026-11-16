@@ -4,8 +4,11 @@ series:
   titles:
     original: Get Ride! アムドライバー
     translations:
+      en: AM Driver
       ja-Latn: Get Ride! AMDriver
   ordering: absolute
+  externalIds:
+    wikidataId: Q4652778
   seasons:
     - id: get-ride-amdriver-s1
       number: 1

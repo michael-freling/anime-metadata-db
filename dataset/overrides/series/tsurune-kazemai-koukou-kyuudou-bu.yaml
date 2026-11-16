@@ -9,5 +9,8 @@ series:
   seasons:
     - id: tsurune-kazemai-koukou-kyuudou-bu-s1
       number: 1
+  movies:
+    - id: tsurune-kazemai-koukou-kyuudou-bu-film
+      externalIds: { anilistId: 125261 } # Tsurune Movie: Hajimari no Issha (2022)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [tsurune-kazemai-koukou-kyuudou-bu]

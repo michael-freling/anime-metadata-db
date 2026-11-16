@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: heion-sedai-no-idaten-tachi
+  titles:
+    original: 平穏世代の韋駄天達
+    translations: { ja-Latn: Heion Sedai no Idaten-tachi }
+  seasons:
+    - id: heion-sedai-no-idaten-tachi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [heion-sedai-no-idaten-tachi]

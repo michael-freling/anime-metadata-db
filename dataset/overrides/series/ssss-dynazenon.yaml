@@ -1,0 +1,15 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ssss-dynazenon
+  titles:
+    original: SSSS.Dynazenon
+    translations: { ja-Latn: SSSS.Dynazenon }
+  seasons:
+    - id: ssss-dynazenon-s1
+      number: 1
+  movies:
+    - id: ssss-dynazenon-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ssss-dynazenon]

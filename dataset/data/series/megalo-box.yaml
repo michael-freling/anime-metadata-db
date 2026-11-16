@@ -20,3 +20,14 @@ series:
       episodes:
         count: 13
         absoluteFrom: 1
+    - id: megalo-box-s2
+      number: 2
+      releaseYear: 2021
+      releaseSeason: SPRING
+      externalIds:
+        anilistId: 113359
+        anidbId: 15271
+        tvdbId: 341437
+      episodes:
+        count: 13
+        absoluteFrom: 14

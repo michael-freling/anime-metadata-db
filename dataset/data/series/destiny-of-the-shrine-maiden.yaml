@@ -4,8 +4,11 @@ series:
   titles:
     original: 神無月の巫女
     translations:
+      en: Kannazuki no Miko
       ja-Latn: Destiny of the Shrine Maiden
   ordering: absolute
+  externalIds:
+    wikidataId: Q696542
   seasons:
     - id: destiny-of-the-shrine-maiden-s1
       number: 1

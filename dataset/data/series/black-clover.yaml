@@ -28,7 +28,19 @@ series:
         tvdbId: 331753
       episodes:
         count: 12
-        absoluteFrom: 171
+        absoluteFrom: 172
+  movies:
+    - id: black-clover-film
+      titles:
+        original: ブラッククローバー 魔法帝の剣
+        translations:
+          ja: ブラッククローバー 魔法帝の剣
+          ja-Latn: 'Black Clover: Mahou Tei no Ken'
+      releaseYear: 2023
+      externalIds:
+        anilistId: 131680
+        anidbId: 16176
+      absoluteNumber: 171
   characters:
     - id: asta
       names:

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Monochrome Factor
   ordering: absolute
+  externalIds:
+    wikidataId: Q1816558
   seasons:
     - id: monochrome-factor-s1
       number: 1

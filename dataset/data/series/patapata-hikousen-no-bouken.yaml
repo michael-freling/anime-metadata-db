@@ -4,8 +4,11 @@ series:
   titles:
     original: パタパタ飛行船の冒険
     translations:
+      en: Secret of Cerulean Sand
       ja-Latn: Patapata Hikousen no Bouken
   ordering: absolute
+  externalIds:
+    wikidataId: Q488493
   seasons:
     - id: patapata-hikousen-no-bouken-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 花右京メイド隊
     translations:
+      en: Hanaukyo Maid Team
       ja-Latn: Hanaukyo Maid-tai
   ordering: absolute
+  externalIds:
+    wikidataId: Q1191955
   seasons:
     - id: hanaukyo-maid-tai-s1
       number: 1

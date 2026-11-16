@@ -18,4 +18,16 @@ series:
         anilistId: 1969
         anidbId: 4095
         tvdbId: 71535
+      absoluteNumber: 2
+    - id: mobile-suit-zeta-gundam-a-new-translation-film-2
+      titles:
+        original: 机动战士Z高达 星之继承者
+        translations:
+          ja: 机动战士Z高达 星之继承者
+          ja-Latn: 'Kidou Senshi Z Gundam I: Hoshi wo Tsugu Mono'
+      releaseYear: 2005
+      externalIds:
+        anilistId: 1967
+        anidbId: 2187
+        tvdbId: 71535
       absoluteNumber: 1

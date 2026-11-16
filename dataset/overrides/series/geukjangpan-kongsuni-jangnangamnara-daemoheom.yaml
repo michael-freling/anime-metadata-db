@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: geukjangpan-kongsuni-jangnangamnara-daemoheom
+  titles:
+    original: "Geukjangpan Kongsuni: Jangnangamnara Daemoheom"
+    translations: { ja-Latn: "Geukjangpan Kongsuni: Jangnangamnara Daemoheom" }
+  movies:
+    - id: geukjangpan-kongsuni-jangnangamnara-daemoheom-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [geukjangpan-kongsuni-jangnangamnara-daemoheom]

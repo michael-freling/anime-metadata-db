@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sk
+  titles:
+    original: SK8 エスケーエイト
+    translations: { ja-Latn: SK∞ }
+  seasons:
+    - id: sk-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sk]

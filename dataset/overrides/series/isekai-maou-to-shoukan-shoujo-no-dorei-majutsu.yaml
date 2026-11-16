@@ -9,5 +9,11 @@ series:
   seasons:
     - id: isekai-maou-to-shoukan-shoujo-no-dorei-majutsu-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 101004 }
+    - id: isekai-maou-to-shoukan-shoujo-no-dorei-majutsu-s2
+      number: 2
+      externalIds: { anilistId: 117448 } # Isekai Maou to Shoukan Shoujo no Dorei Majutsu Ω (2021)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [isekai-maou-to-shoukan-shoujo-no-dorei-majutsu]

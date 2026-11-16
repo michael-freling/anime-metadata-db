@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: isekai-shoukan-wa-nidome-desu
+  titles:
+    original: 異世界召喚は二度目です
+    translations: { ja-Latn: Isekai Shoukan wa Nidome desu }
+  seasons:
+    - id: isekai-shoukan-wa-nidome-desu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [isekai-shoukan-wa-nidome-desu]

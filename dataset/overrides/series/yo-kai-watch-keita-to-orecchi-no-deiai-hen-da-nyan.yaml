@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yo-kai-watch-keita-to-orecchi-no-deiai-hen-da-nyan
+  titles:
+    original: 妖怪ウォッチ♪ ケータとオレっちの出会い編だニャン♪ワ、ワタクシも～♪♪
+    translations: { ja-Latn: Yo-kai Watch ♪ Keita to Orecchi no Deiai-hen da Nyan ♪ }
+  movies:
+    - id: yo-kai-watch-keita-to-orecchi-no-deiai-hen-da-nyan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yo-kai-watch-keita-to-orecchi-no-deiai-hen-da-nyan]

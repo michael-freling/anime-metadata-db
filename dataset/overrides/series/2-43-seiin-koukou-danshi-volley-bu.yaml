@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 2-43-seiin-koukou-danshi-volley-bu
+  titles:
+    original: 2.43 清陰高校男子バレー部
+    translations: { ja-Latn: "2.43: Seiin Koukou Danshi Volley-bu" }
+  seasons:
+    - id: 2-43-seiin-koukou-danshi-volley-bu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [2-43-seiin-koukou-danshi-volley-bu]

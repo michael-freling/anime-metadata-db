@@ -4,8 +4,11 @@ series:
   titles:
     original: UG☆アルティメットガール
     translations:
+      en: Ultimate Girls
       ja-Latn: UG☆Ultimate Girls
   ordering: absolute
+  externalIds:
+    wikidataId: Q2260067
   seasons:
     - id: ug-ultimate-girls-s1
       number: 1

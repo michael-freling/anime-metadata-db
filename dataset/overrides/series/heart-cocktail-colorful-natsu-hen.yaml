@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: heart-cocktail-colorful-natsu-hen
+  titles:
+    original: ハートカクテル カラフル 夏編
+    translations: { ja-Latn: "Heart Cocktail Colorful: Natsu-hen" }
+  seasons:
+    - id: heart-cocktail-colorful-natsu-hen-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [heart-cocktail-colorful-natsu-hen]

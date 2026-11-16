@@ -4,8 +4,11 @@ series:
   titles:
     original: れいぞうこのくにのココモン
     translations:
+      en: Cocomong
       ja-Latn: Naengjang-go Nala Cocomong
   ordering: absolute
+  externalIds:
+    wikidataId: Q12590223
   seasons:
     - id: naengjang-go-nala-cocomong-s1
       number: 1

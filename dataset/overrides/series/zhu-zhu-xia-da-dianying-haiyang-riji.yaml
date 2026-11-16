@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhu-zhu-xia-da-dianying-haiyang-riji
+  titles:
+    original: Zhu Zhu Xia Da Dianying Haiyang Riji
+    translations: { ja-Latn: Zhu Zhu Xia Da Dianying Haiyang Riji }
+  movies:
+    - id: zhu-zhu-xia-da-dianying-haiyang-riji-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhu-zhu-xia-da-dianying-haiyang-riji]

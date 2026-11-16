@@ -9,6 +9,12 @@ series:
   seasons:
     - id: ojamajo-doremi-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 351 }
+    - id: ojamajo-doremi-s2
+      number: 2
+      externalIds: { anilistId: 353 } # Ojamajo Doremi Dokkaan! (2002)
   movies:
     - id: ojamajo-doremi-film
 # One linear storyline: episodes carry a continuous absoluteNumber.

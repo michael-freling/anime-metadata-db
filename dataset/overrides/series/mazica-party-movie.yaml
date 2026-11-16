@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mazica-party-movie
+  titles:
+    original: 劇場版 総集編 マジカパーティ
+    translations: { ja-Latn: Mazica Party Movie }
+  movies:
+    - id: mazica-party-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mazica-party-movie]

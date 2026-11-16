@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Neko Rahmen
   ordering: absolute
+  externalIds:
+    wikidataId: Q4187750
   seasons:
     - id: neko-rahmen-s1
       number: 1
