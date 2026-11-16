@@ -818,3 +818,85 @@ func TestTwoMergedRecordsThatCoincideAreNotOneWork(t *testing.T) {
 		t.Errorf("declared %d seasons, want 2 — these are different arcs", got)
 	}
 }
+
+// A work upstream links to a series the catalogue has is only that series'
+// installment if the series' own name accounts for it. Where none of the linked
+// series is named anything the work extends, it is a series in its own right —
+// and holding it for a merge nobody can make loses it. "Healin' Good♡Precure"
+// is a Precure season that links to other Precure; no series here is called
+// that, and 371 works between 2020 and 2026 were in the same position.
+func TestAWorkNoLinkedSeriesIsNamedAfterBecomesItsOwnSeries(t *testing.T) {
+	db := load(t,
+		entry{title: "Futari wa Precure", typ: "TV", episodes: 49, year: 2004, season: "WINTER",
+			status: "FINISHED", synonyms: []string{"ふたりはプリキュア"}, sources: []string{al("100")}},
+		entry{title: "Healin' Good Precure", typ: "TV", episodes: 45, year: 2020, season: "WINTER",
+			status: "FINISHED", synonyms: []string{"ヒーリングっど♥プリキュア"},
+			sources: []string{al("200")}, related: []string{al("100")}},
+	)
+	known := map[int]bool{100: true}
+	names := func(id int) []string {
+		if id == 100 {
+			return []string{"ふたりはプリキュア", "Futari wa Precure"}
+		}
+		return nil
+	}
+
+	plan := BuildWith(db, 2020, known, map[string]bool{}, names)
+	if len(plan.Merges) != 0 {
+		t.Errorf("Merges = %+v, want none: no series here is named after it", plan.Merges)
+	}
+	if len(plan.New) != 1 || plan.New[0].ID != "healin-good-precure" {
+		t.Fatalf("New = %+v, want the series written in its own right", plan.New)
+	}
+
+	// And where the linked series' name does account for it, it stays a merge:
+	// that is the duplicate nothing downstream can detect.
+	plan = BuildWith(db, 2020, known, map[string]bool{},
+		func(int) []string { return []string{"Healin' Good"} })
+	if len(plan.New) != 0 || len(plan.Merges) != 1 {
+		t.Errorf("New = %+v, Merges = %+v; want it held as a merge", plan.New, plan.Merges)
+	}
+
+	// nil names is the older behaviour: any link at all means a merge, so a
+	// caller that cannot supply them writes nothing a person has not seen.
+	plan = BuildWith(db, 2020, known, map[string]bool{}, nil)
+	if len(plan.New) != 0 || len(plan.Merges) != 1 {
+		t.Errorf("with no names: New = %+v, Merges = %+v; want the cautious path", plan.New, plan.Merges)
+	}
+}
+
+// Two guards that only bite on degenerate input, and would quietly widen what
+// gets written if they stopped working.
+func TestTheNameAndSameWorkGuardsIgnoreWhatProvesNothing(t *testing.T) {
+	// A one- or two-character series name matches most of the catalogue once
+	// folded, so it is not evidence that a work belongs to it.
+	db := load(t,
+		entry{title: "Ko", typ: "TV", episodes: 12, year: 2019, season: "FALL",
+			status: "FINISHED", sources: []string{al("100")}},
+		entry{title: "Kobayashi-san", typ: "TV", episodes: 12, year: 2020, season: "FALL",
+			status: "FINISHED", sources: []string{al("200")}, related: []string{al("100")}},
+	)
+	plan := BuildWith(db, 2020, map[int]bool{100: true}, map[string]bool{},
+		func(int) []string { return []string{"Ko"} })
+	if len(plan.Merges) != 0 {
+		t.Errorf("Merges = %+v; a two-character name is not evidence of membership", plan.Merges)
+	}
+
+	// An entry stating neither when it aired nor how long it ran matches every
+	// other such entry, which says nothing about either being a copy.
+	undated := load(t,
+		entry{title: "Mukei", typ: "TV", episodes: 0, year: 0, status: "FINISHED",
+			synonyms: []string{"無形"}, sources: []string{al("300")}},
+		entry{title: "Mukei Two", typ: "TV", episodes: 0, year: 0, status: "FINISHED",
+			synonyms: []string{"無形"}, sources: []string{al("301")}},
+	)
+	if got := sameWork(slicesOf(undated, "無形")); got != "" {
+		t.Errorf("sameWork = %q, want none: they match on absence, not evidence", got)
+	}
+}
+
+// slicesOf returns the in-scope entries a title reaches, for a guard that
+// takes them directly.
+func slicesOf(db *offlinedb.Database, title string) []offlinedb.Anime {
+	return db.Titled(title)
+}

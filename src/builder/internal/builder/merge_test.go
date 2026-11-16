@@ -1076,3 +1076,60 @@ func TestASeasonIsRefusedWhenTheOneBeforeItCannotBePinned(t *testing.T) {
 		t.Errorf("why = %q, want the unpinnable refusal from the season path", why)
 	}
 }
+
+// The two knobs the command exposes. `since` lets a backlog be worked
+// newest-first, and `list` turns the counts into something somebody can act on
+// — a count tells you how much is left, not which.
+func TestMergeCanBeNarrowedByYearAndListed(t *testing.T) {
+	const fixture = `{
+  "data": [
+    {
+      "sources": ["https://anilist.co/anime/101922"],
+      "title": "Kimetsu no Yaiba",
+      "type": "TV", "episodes": 26, "status": "FINISHED",
+      "animeSeason": { "season": "SPRING", "year": 2019 }
+    },
+    {
+      "sources": ["https://anilist.co/anime/900070"],
+      "title": "Kimetsu no Yaiba: An Old Film",
+      "type": "MOVIE", "episodes": 1, "status": "FINISHED",
+      "animeSeason": { "season": "SPRING", "year": 2005 },
+      "relatedAnime": ["https://anilist.co/anime/101922"]
+    }
+  ]
+}`
+	a, dir, out := mergeRepo(t)
+	if err := os.WriteFile(filepath.Join(dir, ".sources", "anime-offline-database.json"), []byte(fixture), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := a.MergeWith(true, 2020, true); err != nil {
+		t.Fatalf("merge: %v", err)
+	}
+	got := out()
+	if !strings.Contains(got, "released before 2020") {
+		t.Errorf("the year filter was not reported: %q", got)
+	}
+	// Listed with the year, the kind and the reason, so the list can be sorted
+	// and worked through.
+	if !strings.Contains(got, "LEFT\t2005\tMOVIE\tKimetsu no Yaiba: An Old Film") {
+		t.Errorf("the candidate was not listed: %q", got)
+	}
+}
+
+// A work upstream dates to nothing cannot be placed in a run, and a record
+// that states no years gives nothing to place it against. Both are reachable
+// through plan even though a candidate normally carries a year.
+func TestASeasonCannotBePlacedWithoutYears(t *testing.T) {
+	undated := importer.Merge{Title: "Show ?", AnilistID: 302, Type: offlinedb.TypeTV, Linked: true}
+	if _, why := plan(seriesWithComment, recordWithComment, "show", undated, map[string]bool{}); !strings.Contains(why, "no release year") {
+		t.Errorf("why = %q, want the undated refusal", why)
+	}
+
+	// Both of them: the record states a year on its season and on its film,
+	// and the check reads the whole record.
+	yearless := strings.ReplaceAll(recordWithComment, "      releaseYear: 2021\n", "")
+	later := importer.Merge{Title: "Show 2", AnilistID: 303, Type: offlinedb.TypeTV, Year: 2030, Linked: true}
+	if _, why := plan(seriesWithComment, yearless, "show", later, map[string]bool{}); !strings.Contains(why, "no release years") {
+		t.Errorf("why = %q, want the yearless-record refusal", why)
+	}
+}

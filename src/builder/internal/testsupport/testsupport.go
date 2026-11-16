@@ -84,6 +84,9 @@ const MovieSetXML = `<?xml version="1.0" encoding="UTF-8"?>
 // alternate-cut film (no number) and an original film (numbered, in a set).
 const DemonSlayerOverride = `series:
   id: demon-slayer
+  titles:
+    original: 鬼滅の刃
+    translations: { ja-Latn: Kimetsu no Yaiba }
   seasons:
     - id: ds-s1
       number: 1

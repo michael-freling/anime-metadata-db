@@ -103,6 +103,26 @@ type Plan struct {
 // Gin no Saji beside its second season, each pair declaring the same
 // installments under two ids.
 func Build(db *offlinedb.Database, year int, known map[int]bool, claimedTitles map[string]bool) Plan {
+	return BuildWith(db, year, known, claimedTitles, nil)
+}
+
+// BuildWith is Build with the names of the series the catalogue already has,
+// looked up by an AniList id one of their installments accounts for.
+//
+// Given them, a work upstream links to a known series is only reported as a
+// merge where that series' own title accounts for it. Where none of the linked
+// series' titles does, the work is not an installment of any of them — by the
+// catalogue's own rule, grouping is by the title the build resolves against —
+// so it is a series of its own, and refusing to write it loses it.
+//
+// That is what happened: "Healin' Good♡Precure" is a Precure season in its own
+// right and links to other Precure, "Digimon Adventure:" links to Digimon
+// Savers, "D4DJ First Mix" to a D4DJ short. Each was held for a merge nobody
+// could make, because no series here is called any of those things.
+//
+// nil restores the older behaviour, where any link at all means a merge.
+func BuildWith(db *offlinedb.Database, year int, known map[int]bool, claimedTitles map[string]bool,
+	seriesNames func(anilistID int) []string) Plan {
 	plan := Plan{Year: year}
 
 	var pool []offlinedb.Anime
@@ -142,8 +162,14 @@ func Build(db *offlinedb.Database, year int, known map[int]bool, claimedTitles m
 			plan.Present = append(plan.Present, a.Title)
 			continue
 		case len(linkedKnown(db, a, known)) > 0:
-			plan.Merges = append(plan.Merges, describe(a, linkedKnown(db, a, known), true))
-			continue
+			into := linkedKnown(db, a, known)
+			if accountedFor(a, into, seriesNames) {
+				plan.Merges = append(plan.Merges, describe(a, into, true))
+				continue
+			}
+			// No linked series is named anything this work extends, so it is
+			// not an installment of them. Falls through to be written as its
+			// own series, which is what it is.
 		}
 		// A seed with no AniList id can still belong to a series the catalogue
 		// already carries: `known` is keyed on ids, and a work resolved from
@@ -676,4 +702,34 @@ func describe(a offlinedb.Anime, into []int, linked bool) Merge {
 		Linked:    linked,
 		AnidbID:   a.AnidbID(),
 	}
+}
+
+// accountedFor reports whether any of the linked series' own names is this
+// work's name carried further — the same question a merge asks, asked before
+// one is proposed.
+//
+// True when nothing is known about the names, so a caller that cannot supply
+// them gets the older behaviour: every link is a merge, and nothing is written
+// that a person has not seen.
+func accountedFor(a offlinedb.Anime, into []int, seriesNames func(int) []string) bool {
+	if seriesNames == nil {
+		return true
+	}
+	names := append([]string{a.Title}, a.Synonyms...)
+	for _, id := range into {
+		for _, t := range seriesNames(id) {
+			folded := FoldTitle(t)
+			// A one- or two-character name matches most of the catalogue once
+			// folded and is not evidence of anything.
+			if len([]rune(folded)) < 3 {
+				continue
+			}
+			for _, n := range names {
+				if strings.HasPrefix(FoldTitle(n), folded) {
+					return true
+				}
+			}
+		}
+	}
+	return false
 }

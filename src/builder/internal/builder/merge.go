@@ -50,6 +50,19 @@ import (
 // does not link to the rest of the series fails `anilist-unlinked`, and one
 // that another series already accounts for fails `anilist-claimed-elsewhere`.
 func (a *App) Merge(dryRun bool) error {
+	return a.merge(dryRun, 0, false)
+}
+
+// MergeWith is Merge with the two knobs the command exposes: since drops
+// candidates released before a year, so a backlog can be worked newest-first,
+// and list prints each one left so the hand work is a list rather than a count.
+func (a *App) MergeWith(dryRun bool, since int, list bool) error {
+	return a.merge(dryRun, since, list)
+}
+
+// merge is Merge with the knobs the report needs: since drops candidates
+// released before a year, and list prints each one that is left.
+func (a *App) merge(dryRun bool, since int, list bool) error {
 	cfg, err := a.loadConfig()
 	if err != nil {
 		return err
@@ -123,11 +136,29 @@ func (a *App) Merge(dryRun bool) error {
 		series string
 	}
 	var apply []action
+	type left struct {
+		m      importer.Merge
+		series string
+		why    string
+	}
+	var remaining []left
 	refused := map[string]int{}
+	// Counted always, listed on request: the counts are what a run reports,
+	// and the list is what somebody works through by hand.
+	decline := func(m importer.Merge, series, why string) {
+		refused[why]++
+		if list {
+			remaining = append(remaining, left{m, series, why})
+		}
+	}
 	seen := map[string]bool{}
 	years := importYears(sources.Offline)
 	for _, y := range years {
 		for _, m := range importer.Build(sources.Offline, y, known, claimedTitles).Merges {
+			if since > 0 && m.Year < since {
+				decline(m, "", fmt.Sprintf("released before %d", since))
+				continue
+			}
 			if m.AnilistID == 0 && m.AnidbID != 0 && authoredAnidb[m.AnidbID] {
 				// Already attached, by the only handle it has. The candidate
 				// list is built from AniList ids, so nothing upstream of here
@@ -135,7 +166,7 @@ func (a *App) Merge(dryRun bool) error {
 				continue
 			}
 			if m.AnilistID == 0 && m.AnidbID == 0 {
-				refused["carries no id on any provider the model can name, so there is nothing to author"]++
+				decline(m, "", "carries no id on any provider the model can name, so there is nothing to author")
 				continue
 			}
 			if seen[key(m)] {
@@ -146,7 +177,7 @@ func (a *App) Merge(dryRun bool) error {
 				// A person read this one and said no. The tool is
 				// deterministic, so without this it proposes it again every
 				// run and the reading has to be redone.
-				refused["declined by hand: "+why]++
+				decline(m, "", "declined by hand: "+why)
 				continue
 			}
 			if !m.Linked {
@@ -154,7 +185,7 @@ func (a *App) Merge(dryRun bool) error {
 				// which is also how two unrelated works of the same name are
 				// found. The build rejects the pairing — it did, for "Tokyo"
 				// (2017) attached beside "Tokyo" (1999) — so it is not written.
-				refused["upstream does not link it to the series; it only shares a title, which is also what a homonym does"]++
+				decline(m, "", "upstream does not link it to the series; it only shares a title, which is also what a homonym does")
 				continue
 			}
 			// Upstream's links say the two are related; they do not say the
@@ -181,7 +212,7 @@ func (a *App) Merge(dryRun bool) error {
 				}
 			}
 			if len(into) == 0 {
-				refused["upstream's links name no series the catalogue has"]++
+				decline(m, "", "upstream's links name no series the catalogue has")
 				continue
 			}
 			var named []string
@@ -193,7 +224,7 @@ func (a *App) Merge(dryRun bool) error {
 			switch len(named) {
 			case 1:
 			case 0:
-				refused["its title is not the title of any series upstream links it to, so whether it is an installment or just related is a judgement call"]++
+				decline(m, strings.Join(into, " "), "its title is not the title of any series upstream links it to, so whether it is an installment or just related is a judgement call")
 				continue
 			default:
 				// Every one of these is a parent series beside a sub-series
@@ -205,7 +236,7 @@ func (a *App) Merge(dryRun bool) error {
 				// 125 deletions just undid. Which of the two should exist is a
 				// question about the franchise's structure, and that is the
 				// one question this tool is built not to answer.
-				refused["its title extends more than one linked series' title, so which one owns it is a judgement call"]++
+				decline(m, strings.Join(named, " "), "its title extends more than one linked series' title, so which one owns it is a judgement call")
 				continue
 			}
 			apply = append(apply, action{m: m, series: named[0]})
@@ -229,7 +260,7 @@ func (a *App) Merge(dryRun bool) error {
 		path := filepath.Join(overridesDir, "series", act.series+".yaml")
 		body, ok := editedOrRead(edited, path)
 		if !ok {
-			refused["the series has no override file"]++
+			decline(act.m, act.series, "the series has no override file")
 			continue
 		}
 		// The resolved record, not the override: the years a season has to be
@@ -246,7 +277,7 @@ func (a *App) Merge(dryRun bool) error {
 		}
 		next, why := plan(body, string(record), act.series, act.m, taken)
 		if why != "" {
-			refused[why]++
+			decline(act.m, act.series, why)
 			continue
 		}
 		edited[path] = next
@@ -261,6 +292,12 @@ func (a *App) Merge(dryRun bool) error {
 
 	fmt.Fprintf(a.Out, "merge: %d attached (%d films, %d seasons), %d left for a person\n",
 		merged, byKind["film"], byKind["season"], total(refused))
+	if list {
+		for _, r := range remaining {
+			fmt.Fprintf(a.Out, "LEFT\t%d\t%s\t%s\t%d\t%s\t%s\n",
+				r.m.Year, r.m.Type, r.m.Title, r.m.AnilistID, r.series, r.why)
+		}
+	}
 	for _, why := range sortedKeys(refused) {
 		fmt.Fprintf(a.Out, "  %5d  %s\n", refused[why], why)
 	}

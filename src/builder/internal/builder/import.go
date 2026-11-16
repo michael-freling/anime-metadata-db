@@ -73,7 +73,20 @@ func (a *App) Import(year int, dryRun bool) error {
 		known[id] = true
 	}
 
-	plan := importer.Build(sources.Offline, year, known, claimedTitles)
+	// The names of the series already here, so a work that links to one but
+	// that none of them is named after is written as its own series rather
+	// than held for a merge nobody can make.
+	owner, err := seriesByAnilistID(dataDir)
+	if err != nil {
+		return err
+	}
+	titlesOf, err := seriesTitles(dataDir)
+	if err != nil {
+		return err
+	}
+	names := func(anilistID int) []string { return titlesOf[owner[anilistID]] }
+
+	plan := importer.BuildWith(sources.Offline, year, known, claimedTitles, names)
 
 	fmt.Fprintf(a.Out, "import %d: %d new series, %d to merge by hand, %d unresolvable, %d already present, %d out of scope\n",
 		plan.Year, len(plan.New), len(plan.Merges), len(plan.Unresolvable), len(plan.Present), plan.Skipped)
