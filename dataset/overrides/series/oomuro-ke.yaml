@@ -1,0 +1,18 @@
+# Authored override. The catalogue carried only oomuro-ke-dear-sisters — a series named
+# after one of its own installments, because the import seeds on whichever
+# work it reaches first and that series' title accounts for nothing else.
+# The rest were held as merges nobody could make. Authored here as the one
+# series it is, under the name upstream gives the work.
+series:
+  id: oomuro-ke
+  titles:
+    original: 大室家
+    translations: { ja-Latn: "Oomuro-ke" }
+  movies:
+    - id: oomuro-ke-film
+      # Authored: upstream carries no kana synonym; this is its own English subtitle.
+      titles: { original: 大室家 dear sisters }
+      externalIds: { anilistId: 167984 } # Oomuro-ke: Dear Sisters (2024)
+    - id: oomuro-ke-film-2
+      titles: { original: 大室家 dear friends }
+      externalIds: { anilistId: 174383 } # Oomuro-ke: Dear Friends (2024)

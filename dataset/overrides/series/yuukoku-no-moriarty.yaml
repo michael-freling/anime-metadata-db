@@ -1,0 +1,19 @@
+# Authored override. The catalogue carried only yuukoku-no-moriarty-part-2 — a series named
+# after one of its own installments, because the import seeds on whichever
+# work it reaches first and that series' title accounts for nothing else.
+# The rest were held as merges nobody could make. Authored here as the one
+# series it is, under the name upstream gives the work.
+series:
+  id: yuukoku-no-moriarty
+  titles:
+    original: 憂国のモリアーティ
+    translations: { ja-Latn: "Yuukoku no Moriarty" }
+  seasons:
+    - id: yuukoku-no-moriarty-s1
+      number: 1
+      externalIds: { anilistId: 114124 } # Yuukoku no Moriarty (2020)
+    - id: yuukoku-no-moriarty-s2
+      number: 2
+      externalIds: { anilistId: 124858 } # Yuukoku no Moriarty Part 2 (2021)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yuukoku-no-moriarty]

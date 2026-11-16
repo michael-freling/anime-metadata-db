@@ -1,5 +1,5 @@
 !anime-metadata-db-index	1
-!stats	franchises=1	series=10031	seasons=7013	episodes=228234	characters=727	staff=484	earliest=1969	latest=2027
+!stats	franchises=1	series=10031	seasons=7016	episodes=228268	characters=727	staff=484	earliest=1969	latest=2027
 !franchises	id	file	titles
 fate	fate.yaml	フェイト|en=Fate
 !series	id	file	franchise	titles
@@ -2655,7 +2655,7 @@ girls-panzer-saishuushou-part-4	girls-panzer-saishuushou-part-4.yaml		『ガー�
 girls-und-panzer-ribon-no-musha	girls-und-panzer-ribon-no-musha.yaml		ガールズ＆パンツァー リボンの武者|ja-Latn=Girls und Panzer: Ribon no Musha
 girls-und-panzer-the-63rd-national-high-school-sensha-do-games	girls-und-panzer-the-63rd-national-high-school-sensha-do-games.yaml		Girls und Panzer: The 63rd National High School Sensha-do Games|ja-Latn=Girls und Panzer: The 63rd National High School Sensha-do Games
 girly-air-force	girly-air-force.yaml		ガーリー・エアフォース|ja-Latn=Girly Air Force
-given-movie-2-hiiragi-mix	given-movie-2-hiiragi-mix.yaml		映画 ギヴン 柊mix|ja-Latn=Given Movie 2: Hiiragi Mix
+given	given.yaml		ギヴン|ja-Latn=Given
 gj-bu	gj-bu.yaml		GJ-bu|ja-Latn=GJ-bu
 glamorous-heroes	glamorous-heroes.yaml		グラマラスヒーローズ|ja-Latn=Glamorous Heroes
 glass-and-kumo	glass-and-kumo.yaml		Glass and Kumo
@@ -6147,8 +6147,8 @@ ookami-to-koushinryou-ii	ookami-to-koushinryou-ii.yaml		狼と香辛料 II|ja-La
 ookamikakushi	ookamikakushi.yaml		おおかみかくし|ja-Latn=Ookamikakushi
 ookii-1-nensei-to-chiisana-2-nensei	ookii-1-nensei-to-chiisana-2-nensei.yaml		若手アニメーター育成プロジェクト 2014 2|ja-Latn=Ookii 1-nensei to Chiisana 2-nensei
 ookiku-furikabutte-natsu-no-taikai-hen	ookiku-furikabutte-natsu-no-taikai-hen.yaml		おおきく振りかぶって ～夏の大会編～|ja-Latn=Ookiku Furikabutte: Natsu no Taikai-hen
-oomuro-ke-dear-sisters	oomuro-ke-dear-sisters.yaml		Oomuro-ke: Dear Sisters|ja-Latn=Oomuro-ke: Dear Sisters
 oomuro-ke-movie-1-dear-sisters	oomuro-ke-movie-1-dear-sisters.yaml		Oomuro-ke Movie 1: Dear Sisters|ja-Latn=Oomuro-ke Movie 1: Dear Sisters
+oomuro-ke	oomuro-ke.yaml		大室家|ja-Latn=Oomuro-ke
 oow-zhihui-baodian	oow-zhihui-baodian.yaml		Oow: Zhihui Baodian|ja-Latn=Oow: Zhihui Baodian
 ooya-san-to-boku	ooya-san-to-boku.yaml		大家さんと僕|ja-Latn=Ooya-san to Boku
 ooya-san-wa-shishunki	ooya-san-wa-shishunki.yaml		大家さんは思春期!|ja-Latn=Ooya-san wa Shishunki!
@@ -8851,7 +8851,7 @@ under-ninja	under-ninja.yaml		アンダーニンジャ|ja-Latn=Under Ninja
 undercurrent	undercurrent.yaml		Undercurrent|ja-Latn=Undercurrent
 unicorn-warriors-eternal	unicorn-warriors-eternal.yaml		Unicorn: Warriors Eternal|ja-Latn=Unicorn: Warriors Eternal
 uniminipet	uniminipet.yaml		Uniminipet|ja-Latn=Uniminipet
-uniteup-uni-birth	uniteup-uni-birth.yaml		ユナイトアップ！-Uni:Birth|ja-Latn=UniteUp! Uni:Birth
+uniteup	uniteup.yaml		ユナイトアップ！|ja-Latn=UniteUp!
 unko-san-junjo-ha	unko-san-junjo-ha.yaml		うんこさん 純情派|ja-Latn=Unko-san Junjō-ha
 unko-san-tsuiteru-hito-ni-shika-mienai-yousei-junjou-ha	unko-san-tsuiteru-hito-ni-shika-mienai-yousei-junjou-ha.yaml		うんこさん ツイてる人にしか見えない妖精 純情派|ja-Latn=Unko-san: Tsuiteru Hito ni Shika Mienai Yousei Junjou Ha
 unmee-destiny	unmee-destiny.yaml		うんめぇ-destiny-|ja-Latn=Unmee: Destiny
@@ -9846,7 +9846,7 @@ yuuki-yuuna-wa-yuusha-de-aru-washio-sumi-no-shou-1-tomodachi	yuuki-yuuna-wa-yuus
 yuuki-yuuna-wa-yuusha-de-aru-washio-sumi-no-shou-2-tamashii	yuuki-yuuna-wa-yuusha-de-aru-washio-sumi-no-shou-2-tamashii.yaml		結城友奈は勇者である -鷲尾須美の章- 第2章 「たましい」|ja-Latn=Yuuki Yuuna wa Yuusha de Aru: Washio Sumi no Shou 2 - Tamashii
 yuuki-yuuna-wa-yuusha-de-aru-yuusha-no-shou	yuuki-yuuna-wa-yuusha-de-aru-yuusha-no-shou.yaml		結城友奈は勇者である -勇者の章-|ja-Latn=Yuuki Yuuna wa Yuusha de Aru: Yuusha no Shou
 yuuki-yuuna-wa-yuusha-de-aru	yuuki-yuuna-wa-yuusha-de-aru.yaml		結城友奈は勇者である|en=Yuki Yuna is a Hero|ja-Latn=Yuuki Yuuna wa Yuusha de Aru
-yuukoku-no-moriarty-part-2	yuukoku-no-moriarty-part-2.yaml		憂国のモリアーティ(2クール目)|ja-Latn=Yuukoku no Moriarty Part 2
+yuukoku-no-moriarty	yuukoku-no-moriarty.yaml		憂国のモリアーティ|ja-Latn=Yuukoku no Moriarty
 yuurei-deco	yuurei-deco.yaml		ユーレイデコ|ja-Latn=Yuurei Deco
 yuusha-ga-shinda	yuusha-ga-shinda.yaml		勇者が死んだ!|ja-Latn=Yuusha ga Shinda!
 yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku	yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku.yaml		勇者刑に処す 懲罰勇者9004隊刑務記録|en=Sentenced to Be a Hero|ja-Latn=Yuusha-kei ni Shosu: Choubatsu Yuusha 9004-tai Keimu Kiroku
@@ -12688,7 +12688,7 @@ series	2649	2023	2023	1
 series	2650	2026	2026	1	
 series	2651	2018	2018	1	
 series	2652	2019	2019	1	12
-series	2653	2024	2024	1	
+series	2653	2019	2024	4	11
 series	2654	2013	2013	1	12
 series	2655	2017	2017	1	10
 series	2656	2025	2025	1	
@@ -16181,7 +16181,7 @@ series	6142	2010	2010	1	12
 series	6143	2014	2014	1	
 series	6144	2010	2010	1	13
 series	6145	2024	2024	1	
-series	6146	2024	2024	1	
+series	6146	2024	2024	2	
 series	6147	2009	2009	1	100
 series	6148	2020	2021	3	15
 series	6149	2016	2016	1	12
@@ -18884,7 +18884,7 @@ series	8845	2023	2023	1	12
 series	8846	2001	2001	1	
 series	8847	2023	2023	1	10
 series	8848	2001	2001	1	26
-series	8849	2025	2025	1	12
+series	8849	2023	2025	2	24
 series	8850	2010	2010	1	13
 series	8851	2010	2010	1	13
 series	8852	2017	2017	1	
@@ -19879,7 +19879,7 @@ series	9840	2017	2017	1
 series	9841	2017	2017	1	
 series	9842	2017	2017	2	12
 series	9843	2014	2021	4	24
-series	9844	2021	2021	1	13
+series	9844	2020	2021	2	24
 series	9845	2022	2022	1	12
 series	9846	2023	2023	1	12
 series	9847	2026	2026	1	12
@@ -23015,7 +23015,10 @@ movie	girls-panzer-saishuushou-part-4-film	2649			2023				『ガールズ＆パ�
 movie	girls-und-panzer-ribon-no-musha-film	2650			2026				ガールズ＆パンツァー リボンの武者|ja=ガールズ＆パンツァー リボンの武者|ja-Latn=Girls und Panzer: Ribon no Musha					
 movie	girls-und-panzer-the-63rd-national-high-school-sensha-do-games-film	2651			2018				Girls und Panzer: The 63rd National High School Sensha-do Games					
 season	girly-air-force-s1	2652	1		2019	WINTER		12		101930	14113		354168	
-movie	given-movie-2-hiiragi-mix-film	2653			2024				ギヴン (続編)|ja=ギヴン (続編)|ja-Latn=Given Movie 2: Hiiragi Mix	162987	17929		361218	
+season	given-s1	2653	1		2019	SUMMER		11		108430	14756		361218	
+movie	given-film	2653			2020				映画 ギヴン|ja=GIVEN 被贈與的未來 劇場版|ja-Latn=Given Movie 1	111734	15102		361218	
+movie	given-film-2	2653			2024				ギヴン 柊mix|ja=ギヴン (続編)|ja-Latn=Given Movie 2: Hiiragi Mix	162987	17929		361218	
+movie	given-film-3	2653			2024				ギヴン 海へ|ja=ギヴン 海へ|ja-Latn=Given Movie 3: Umi e	175199				
 season	gj-bu-s1	2654	1		2013	WINTER		12		14811	9311		264055	
 season	glamorous-heroes-s1	2655	1		2017	FALL		10		100287	13431			
 movie	glass-and-kumo-film	2656			2025				Glass and Kumo	205844				
@@ -26801,8 +26804,9 @@ season	ookami-to-koushinryou-ii-s1	6141	1		2009	SUMMER		12		5341	6169		81178
 season	ookamikakushi-s1	6142	1		2010	WINTER		12		7079	7134		133451	
 movie	ookii-1-nensei-to-chiisana-2-nensei-film	6143			2014				ハロー張りネズミ 殺意の領分|ja=ハロー張りネズミ 殺意の領分|ja-Latn=Ookii 1-nensei to Chiisana 2-nensei	20504	10200		259863	
 season	ookiku-furikabutte-natsu-no-taikai-hen-s1	6144	1		2010	SPRING		13		7720	7291		81108	
-movie	oomuro-ke-dear-sisters-film	6145			2024				大室家|ja=大室家|ja-Latn=Oomuro-ke: Dear Sisters	167984	18146			
-movie	oomuro-ke-movie-1-dear-sisters-film	6146			2024				大室家|ja=大室家|ja-Latn=Oomuro-ke Movie 1: Dear Sisters					
+movie	oomuro-ke-movie-1-dear-sisters-film	6145			2024				大室家|ja=大室家|ja-Latn=Oomuro-ke Movie 1: Dear Sisters					
+movie	oomuro-ke-film	6146			2024				大室家 dear sisters|ja=大室家|ja-Latn=Oomuro-ke: Dear Sisters	167984	18146			
+movie	oomuro-ke-film-2	6146			2024				大室家 dear friends|ja=大室家|ja-Latn=Oomuro-ke: Dear Friends	174383				
 season	oow-zhihui-baodian-s1	6147	1		2009			100						
 season	ooya-san-to-boku-s1	6148	1		2020	WINTER		5		117280	15402			
 season	ooya-san-to-boku-s2	6148	2		2020	SPRING		5		149039				
@@ -29748,7 +29752,8 @@ season	under-ninja-s1	8845	1		2023	FALL		12		138788	16588		409650
 movie	undercurrent-film	8846			2001				Undercurrent					
 season	unicorn-warriors-eternal-s1	8847	1		2023	SPRING		10						
 season	uniminipet-s1	8848	1		2001	SUMMER		26						
-season	uniteup-uni-birth-s1	8849	1		2025	WINTER		12		167742	18141		426861	
+season	uniteup-s1	8849	1		2023	WINTER		12		154969	17639		426861	
+season	uniteup-s2	8849	2		2025	WINTER		12		167742	18141		426861	
 season	unko-san-junjo-ha-s1	8850	1		2010	WINTER		13						
 season	unko-san-tsuiteru-hito-ni-shika-mienai-yousei-junjou-ha-s1	8851	1		2010	WINTER		13		213096	9443			
 movie	unmee-destiny-film	8852			2017				うんめぇ-destiny-|ja=うんめぇ-destiny-|ja-Latn=Unmee: Destiny					
@@ -30821,7 +30826,8 @@ season	yuuki-yuuna-wa-yuusha-de-aru-s1	9843	1		2014	FALL		12		20800	10750		28426
 season	yuuki-yuuna-wa-yuusha-de-aru-s3	9843	3		2021	FALL		12		122292	15665		284263	
 movie	yuuki-yuuna-wa-yuusha-de-aru-film	9843			2017				結城友奈は勇者である -鷲尾須美の章- 第3章 「やくそく」|ja=結城友奈は勇者である -鷲尾須美の章- 第3章 「やくそく」|ja-Latn=Yuuki Yuuna wa Yuusha de Aru: Washio Sumi no Shou 3 - Yakusoku	97860				
 movie	yuuki-yuuna-wa-yuusha-de-aru-film-2	9843			2017				結城友奈は勇者である -鷲尾須美の章-|ja=結城友奈は勇者である -鷲尾須美の章-|ja-Latn=Yuuki Yuuna wa Yuusha de Aru: Washio Sumi no Shou		12501		284263	
-season	yuukoku-no-moriarty-part-2-s1	9844	1		2021	SPRING		13		124858	15774		385542	
+season	yuukoku-no-moriarty-s1	9844	1		2020	FALL		11		114124	15324		385542	
+season	yuukoku-no-moriarty-s2	9844	2		2021	SPRING		13		124858	15774		385542	
 season	yuurei-deco-s1	9845	1		2022	SUMMER		12		145468	17207		416802	
 season	yuusha-ga-shinda-s1	9846	1		2023	SPRING		12		148109	17340		419500	
 season	yuusha-kei-ni-shosu-choubatsu-yuusha-9004-tai-keimu-kiroku-s1	9847	1		2026	WINTER		12		167152	18124		437266	

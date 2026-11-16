@@ -1,0 +1,19 @@
+# Authored override. The catalogue carried only uniteup-uni-birth — a series named
+# after one of its own installments, because the import seeds on whichever
+# work it reaches first and that series' title accounts for nothing else.
+# The rest were held as merges nobody could make. Authored here as the one
+# series it is, under the name upstream gives the work.
+series:
+  id: uniteup
+  titles:
+    original: ユナイトアップ！
+    translations: { ja-Latn: "UniteUp!" }
+  seasons:
+    - id: uniteup-s1
+      number: 1
+      externalIds: { anilistId: 154969 } # UniteUp! (2023)
+    - id: uniteup-s2
+      number: 2
+      externalIds: { anilistId: 167742 } # UniteUp! Uni:Birth (2025)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [uniteup]
