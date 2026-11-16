@@ -64,6 +64,9 @@ type Merge struct {
 	// that they belong together: "Tokyo" (2017) and "Tokyo" (1999) are
 	// different shorts, and the build's own link check rejects the pairing.
 	Linked bool
+	// AnidbID is the handle left when upstream carries the work on no AniList
+	// page, which is true of 767 of these.
+	AnidbID int
 }
 
 // Unresolvable is a series this declines to write because the build could not
@@ -671,5 +674,6 @@ func describe(a offlinedb.Anime, into []int, linked bool) Merge {
 		Season:    a.AnimeSeason.Season,
 		Episodes:  a.Episodes,
 		Linked:    linked,
+		AnidbID:   a.AnidbID(),
 	}
 }

@@ -76,6 +76,23 @@ func (a *App) Merge(dryRun bool) error {
 	for id := range authored {
 		known[id] = true
 	}
+	// Works authored by their AniDB id, which `known` cannot hold: it is keyed
+	// on AniList ids and these have none. Kept as their own set and consulted
+	// where a candidate has no AniList id.
+	authoredAnidb, err := declaredAnidbIDs(overridesDir)
+	if err != nil {
+		return err
+	}
+	// And the ones the generated records account for, which is where most of
+	// them are: a record states every provider id its entry carries, whether
+	// or not anybody authored it.
+	builtAnidb, err := knownAnidbIDs(dataDir)
+	if err != nil {
+		return err
+	}
+	for id := range builtAnidb {
+		authoredAnidb[id] = true
+	}
 	owner, err := seriesByAnilistID(dataDir)
 	if err != nil {
 		return err
@@ -107,19 +124,25 @@ func (a *App) Merge(dryRun bool) error {
 	}
 	var apply []action
 	refused := map[string]int{}
-	seen := map[int]bool{}
+	seen := map[string]bool{}
 	years := importYears(sources.Offline)
 	for _, y := range years {
 		for _, m := range importer.Build(sources.Offline, y, known, claimedTitles).Merges {
-			if m.AnilistID == 0 {
-				refused["carries no AniList id, so there is nothing to author"]++
+			if m.AnilistID == 0 && m.AnidbID != 0 && authoredAnidb[m.AnidbID] {
+				// Already attached, by the only handle it has. The candidate
+				// list is built from AniList ids, so nothing upstream of here
+				// can tell.
 				continue
 			}
-			if seen[m.AnilistID] {
+			if m.AnilistID == 0 && m.AnidbID == 0 {
+				refused["carries no id on any provider the model can name, so there is nothing to author"]++
 				continue
 			}
-			seen[m.AnilistID] = true
-			if why, ok := declined[m.AnilistID]; ok {
+			if seen[key(m)] {
+				continue
+			}
+			seen[key(m)] = true
+			if why, ok := declined[m.AnilistID]; ok && m.AnilistID != 0 {
 				// A person read this one and said no. The tool is
 				// deterministic, so without this it proposes it again every
 				// run and the reading has to be redone.
@@ -304,8 +327,8 @@ func attachFilm(body, record, series string, m importer.Merge, taken map[string]
 	if !ok {
 		return "", "every film id this series could take is already in use"
 	}
-	node := fmt.Sprintf("    - id: %s\n      externalIds: { anilistId: %d } # %s (%d)\n",
-		id, m.AnilistID, comment(m.Title), m.Year)
+	node := fmt.Sprintf("    - id: %s\n      externalIds: { %s } # %s (%d)\n",
+		id, authoredID(m), comment(m.Title), m.Year)
 	if loc := moviesBlock.FindStringSubmatchIndex(body); loc != nil {
 		pinned, why := pinIDs(body[loc[2]:loc[3]], resolvedIDs(record, "movies"))
 		if why != "" {
@@ -369,8 +392,8 @@ func attachSeason(body, record, series string, m importer.Merge, taken map[strin
 	if why != "" {
 		return "", why
 	}
-	node := fmt.Sprintf("    - id: %s\n      number: %d\n      externalIds: { anilistId: %d } # %s (%d)\n",
-		id, last+1, m.AnilistID, comment(m.Title), m.Year)
+	node := fmt.Sprintf("    - id: %s\n      number: %d\n      externalIds: { %s } # %s (%d)\n",
+		id, last+1, authoredID(m), comment(m.Title), m.Year)
 	taken[id] = true
 	return body[:loc[2]] + pinned + node + body[loc[3]:], ""
 }
@@ -559,7 +582,7 @@ func seriesTitles(dataDir string) (map[string][]string, error) {
 // Refuses rather than guesses when the slots and the resolved nodes do not line
 // up one to one, since pairing them by position is only sound when they are the
 // same list.
-func pinIDs(block string, resolved []int) (string, string) {
+func pinIDs(block string, resolved []string) (string, string) {
 	slots := nodeStart.FindAllStringIndex(block, -1)
 	switch {
 	case len(slots) < len(resolved):
@@ -576,7 +599,7 @@ func pinIDs(block string, resolved []int) (string, string) {
 			if i+1 < len(slots) {
 				end = slots[i+1][0]
 			}
-			if !strings.Contains(block[slots[i][0]:end], "anilistId") {
+			if !statesAnID(block[slots[i][0]:end]) {
 				return "", "the override declares more installments than the record resolved, and one of the extra ones states no id"
 			}
 		}
@@ -593,17 +616,21 @@ func pinIDs(block string, resolved []int) (string, string) {
 			end = slots[i+1][0]
 		}
 		node := block[at[0]:end]
-		if i >= len(resolved) || strings.Contains(node, "anilistId") {
+		// Any id the model can name, not just an AniList one. Checking for
+		// that alone made a slot this had already pinned with an AniDB id
+		// look unpinned, so a third work attached to one series pinned it
+		// three times and the file stopped parsing on a repeated key.
+		if i >= len(resolved) || statesAnID(node) {
 			b.WriteString(node)
 			continue
 		}
-		if resolved[i] == 0 {
+		if resolved[i] == "" {
 			// Nothing to pin: this installment resolves to an upstream record
 			// that carries no AniList id, so it can only ever be reached by
 			// the title, and the count a new slot changes is the only thing
 			// holding it. "ajin" declares one film and upstream's record for
 			// it has no id at all.
-			return "", "an existing installment resolves to a record with no AniList id, " +
+			return "", "an existing installment resolves to a record carrying no id the model can name, " +
 				"so adding a slot beside it would leave it unresolvable"
 		}
 		// Appended after the node's own lines, so an authored title or comment
@@ -612,28 +639,37 @@ func pinIDs(block string, resolved []int) (string, string) {
 		b.WriteString(trimmed)
 		b.WriteString(fmt.Sprintf("\n      # Pinned when a later installment was attached: the build matches a\n"+
 			"      # kind by candidate count, and an added slot changes it.\n"+
-			"      externalIds: { anilistId: %d }\n", resolved[i]))
+			"      externalIds: { %s }\n", resolved[i]))
 	}
 	return b.String(), ""
 }
 
 // resolvedIDs reads the AniList ids a generated record carries for one kind,
 // in the order it lists them.
-func resolvedIDs(record, kind string) []int {
+func resolvedIDs(record, kind string) []string {
 	loc := kindBlock(record, kind)
 	if loc == nil {
 		return nil
 	}
 	block := record[loc[0]:loc[1]]
 	slots := nodeStart.FindAllStringIndex(block, -1)
-	out := make([]int, len(slots))
+	out := make([]string, len(slots))
 	for i, at := range slots {
 		end := len(block)
 		if i+1 < len(slots) {
 			end = slots[i+1][0]
 		}
-		if g := anilistInline.FindStringSubmatch(block[at[0]:end]); g != nil {
-			out[i], _ = strconv.Atoi(g[1])
+		node := block[at[0]:end]
+		// AniList first, since that is the join key the rest of the build
+		// uses. AniDB is what upstream leaves on the works it carries on no
+		// AniList page, and pinning it is the only way a slot holding one
+		// survives a sibling being added beside it.
+		if g := anilistInline.FindStringSubmatch(node); g != nil {
+			out[i] = "anilistId: " + g[1]
+			continue
+		}
+		if g := anidbInline.FindStringSubmatch(node); g != nil {
+			out[i] = "anidbId: " + g[1]
 		}
 	}
 	return out
@@ -701,4 +737,29 @@ func declinedMerges(path string) (map[int]string, error) {
 		out[d.AnilistID] = d.Why
 	}
 	return out, nil
+}
+
+// authoredID names the work by the handle it has. An AniList id is the join key
+// the rest of the build uses and is preferred wherever upstream gives one; an
+// AniDB id is what is left for the works it carries on no AniList page.
+func authoredID(m importer.Merge) string {
+	if m.AnilistID != 0 {
+		return fmt.Sprintf("anilistId: %d", m.AnilistID)
+	}
+	return fmt.Sprintf("anidbId: %d", m.AnidbID)
+}
+
+// key identifies a candidate across years by whichever handle it has, so one
+// work is considered once.
+func key(m importer.Merge) string {
+	if m.AnilistID != 0 {
+		return fmt.Sprintf("al%d", m.AnilistID)
+	}
+	return fmt.Sprintf("ad%d", m.AnidbID)
+}
+
+// statesAnID reports whether an installment already names the work itself,
+// by either handle the build can resolve.
+func statesAnID(node string) bool {
+	return anilistInline.MatchString(node) || anidbInline.MatchString(node)
 }

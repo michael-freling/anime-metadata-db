@@ -606,3 +606,36 @@ func TestBuildErrors(t *testing.T) {
 		}
 	})
 }
+
+// Upstream carries about half its catalogue on no AniList page, and a work
+// there that the series' own title does not reach can be named no other way:
+// 767 works linked to a series the catalogue has carry no AniList id, 188 of
+// them an AniDB one. Authoring that is the only handle left.
+func TestAnInstallmentIsResolvedByAnAuthoredAnidbID(t *testing.T) {
+	const doc = `{"data":[
+	 {"sources":["https://anidb.net/anime/7777","https://anime-planet.com/anime/x"],
+	  "title":"Only On AniDB","type":"MOVIE","episodes":1,
+	  "animeSeason":{"season":"SPRING","year":2010}}
+	]}`
+	db, err := offlinedb.Parse(strings.NewReader(doc))
+	if err != nil {
+		t.Fatal(err)
+	}
+	b := New(Sources{Offline: db})
+
+	got, err := b.lookup("movie x-film", &model.ExternalIDs{AnidbID: 7777}, resolution{})
+	if err != nil {
+		t.Fatalf("lookup: %v", err)
+	}
+	if got.Title != "Only On AniDB" {
+		t.Errorf("resolved %q, want the entry the AniDB id names", got.Title)
+	}
+
+	// And an id naming nothing is an error rather than a silent fall-through
+	// to "the title resolved nothing", which would send the reader to the
+	// wrong fix.
+	_, err = b.lookup("movie x-film", &model.ExternalIDs{AnidbID: 404}, resolution{})
+	if err == nil || !strings.Contains(err.Error(), "unknown AniDB id 404") {
+		t.Errorf("err = %v, want it to name the unknown AniDB id", err)
+	}
+}

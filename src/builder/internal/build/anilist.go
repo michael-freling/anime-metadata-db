@@ -346,18 +346,55 @@ func (b *Builder) checkNotClaimedElsewhere(s *model.Series, report *Report) {
 	if b.claimed == nil {
 		return
 	}
-	seen := map[int]bool{}
-	for _, x := range anilistIDs(s) {
-		if x.id == 0 || seen[x.id] {
+	seen := map[string]bool{}
+	for _, x := range joinKeys(s) {
+		if seen[x.key] {
 			continue
 		}
-		seen[x.id] = true
-		if first, ok := b.claimed[x.id]; ok && first != s.ID {
+		seen[x.key] = true
+		if first, ok := b.claimed[x.key]; ok && first != s.ID {
 			report.addCoded(CodeClaimedElsewhere, x.entity, "externalIds", fmt.Sprintf(
-				"anilistId %d is also accounted for by series %q; one upstream work cannot belong to two series, "+
-					"so one of them is a duplicate of the other", x.id, first))
+				"%s is also accounted for by series %q; one upstream work cannot belong to two series, "+
+					"so one of them is a duplicate of the other", x.key, first))
 			continue
 		}
-		b.claimed[x.id] = s.ID
+		b.claimed[x.key] = s.ID
 	}
+}
+
+// joinKey is one installment's claim on an upstream work, named by the field
+// that makes it.
+type joinKey struct {
+	key    string
+	entity string
+}
+
+// joinKeys returns every handle a series' installments name a work by.
+//
+// Both fields, not just the AniList one. A work upstream carries on no AniList
+// page is authored by its AniDB id, and a check keyed on AniList ids cannot see
+// it: 26 AniDB ids were claimed by two series each while the same question was
+// being answered for 166 AniList ones. The two are namespaced rather than
+// pooled, since the providers number their catalogues independently and an
+// AniDB 500 is not an AniList 500.
+func joinKeys(s *model.Series) []joinKey {
+	var out []joinKey
+	add := func(kind string, ids model.ExternalIDs, entity string) {
+		if ids.AnilistID != 0 {
+			out = append(out, joinKey{fmt.Sprintf("anilistId %d", ids.AnilistID), kind + " " + entity})
+		}
+		if ids.AnidbID != 0 {
+			out = append(out, joinKey{fmt.Sprintf("anidbId %d", ids.AnidbID), kind + " " + entity})
+		}
+	}
+	for _, x := range s.Seasons {
+		add("season", x.ExternalIDs, x.ID)
+	}
+	for _, x := range s.Movies {
+		add("movie", x.ExternalIDs, x.ID)
+	}
+	for _, x := range s.Specials {
+		add("special", x.ExternalIDs, x.ID)
+	}
+	return out
 }

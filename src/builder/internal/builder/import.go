@@ -150,11 +150,13 @@ func (a *App) Import(year int, dryRun bool) error {
 
 var (
 	anilistLine  = regexp.MustCompile(`(?m)^\s*anilistId:\s*(\d+)\s*$`)
+	anidbLine    = regexp.MustCompile(`(?m)^\s*anidbId:\s*(\d+)\s*$`)
 	idLine       = regexp.MustCompile(`(?m)^\s*(?:-\s+)?id:\s*(\S+)\s*$`)
 	originalLine = regexp.MustCompile(`(?m)^\s*original:\s*(.+?)\s*$`)
 	// Looser than anilistLine, which reads generated records: an override
 	// writes the id inline, as `externalIds: { anilistId: 101922 } # note`.
 	anilistInline = regexp.MustCompile(`anilistId:\s*"?(\d+)"?`)
+	anidbInline   = regexp.MustCompile(`anidbId:\s*"?(\d+)"?`)
 )
 
 // existingIDs collects every id the authored layer declares, at any level.
@@ -247,7 +249,18 @@ func firstTaken(taken map[string]bool, s importer.Series) string {
 // Read from data/ rather than from the overrides because the ids are resolved
 // by the build, not authored: an override usually carries none at all, so the
 // authored layer cannot answer what the catalogue already covers.
-func knownAnilistIDs(dataDir string) (map[int]bool, error) {
+// knownAnidbIDs collects the AniDB ids the generated records account for.
+//
+// Filled by the build rather than authored, for most of them: a record states
+// every provider id the entry it resolved to carries. So the authored layer
+// alone does not show that a work is already accounted for, and a merge that
+// only read the overrides attached one that another series had resolved —
+// "giga-tribe" took a film "giga-tribe-2008" already held.
+func knownAnidbIDs(dataDir string) (map[int]bool, error) {
+	return readRecordIDs(dataDir, anidbLine)
+}
+
+func readRecordIDs(dataDir string, field *regexp.Regexp) (map[int]bool, error) {
 	known := map[int]bool{}
 	entries, err := os.ReadDir(dataDir)
 	if os.IsNotExist(err) {
@@ -266,7 +279,7 @@ func knownAnilistIDs(dataDir string) (map[int]bool, error) {
 		}
 		// Matched by line rather than decoded: the ids are all that is wanted,
 		// and parsing every record costs seconds per run for nothing else.
-		for _, m := range anilistLine.FindAllSubmatch(body, -1) {
+		for _, m := range field.FindAllSubmatch(body, -1) {
 			var id int
 			if _, err := fmt.Sscanf(string(m[1]), "%d", &id); err == nil && id > 0 {
 				known[id] = true
@@ -276,6 +289,11 @@ func knownAnilistIDs(dataDir string) (map[int]bool, error) {
 	return known, nil
 }
 
+// knownAnilistIDs collects the AniList ids the generated records account for.
+func knownAnilistIDs(dataDir string) (map[int]bool, error) {
+	return readRecordIDs(dataDir, anilistLine)
+}
+
 func trim(s string, n int) string {
 	if len(s) <= n {
 		return s
@@ -283,16 +301,23 @@ func trim(s string, n int) string {
 	return s[:n-1] + "…"
 }
 
-// declaredAnilistIDs collects the AniList ids the authored layer already
-// accounts for.
+// declaredAnidbIDs collects the AniDB ids the authored layer accounts for.
 //
-// Read from the overrides rather than from data/, for the reason
-// declaredTitles exists: a run that imports several years before any build
-// cannot see what the earlier years authored. 125 series were created that way
-// — a sequel whose one work was already a season of the parent imported a
-// moment earlier, so "high-card-season-2" declared an id "high-card" already
-// held. The build now gates on that, and this stops it being written.
+// Needed for the same reason as the AniList ones and separately from them: a
+// work upstream carries on no AniList page is authored by its AniDB id, and
+// nothing keyed on AniList ids can see it. Without this the merge attached such
+// a work again on every run, which put one id on four installments of
+// "giga-tribe" before anything noticed.
+func declaredAnidbIDs(overridesDir string) (map[int]bool, error) {
+	return declaredIDs(overridesDir, anidbInline)
+}
+
+// declaredAnilistIDs collects the AniList ids the authored layer accounts for.
 func declaredAnilistIDs(overridesDir string) (map[int]bool, error) {
+	return declaredIDs(overridesDir, anilistInline)
+}
+
+func declaredIDs(overridesDir string, field *regexp.Regexp) (map[int]bool, error) {
 	ids := map[int]bool{}
 	err := filepath.WalkDir(overridesDir, func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
@@ -305,7 +330,7 @@ func declaredAnilistIDs(overridesDir string) (map[int]bool, error) {
 		if err != nil {
 			return err
 		}
-		for _, m := range anilistInline.FindAllSubmatch(body, -1) {
+		for _, m := range field.FindAllSubmatch(body, -1) {
 			if n, err := strconv.Atoi(string(m[1])); err == nil && n > 0 {
 				ids[n] = true
 			}

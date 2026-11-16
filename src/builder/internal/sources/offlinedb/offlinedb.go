@@ -325,3 +325,21 @@ func (d *Database) All() iter.Seq[Anime] {
 		}
 	}
 }
+
+// LookupAnidb returns the entry carrying an AniDB id, or false.
+//
+// Resolved through the source index rather than an index of its own: AniDB ids
+// are not a join key the dataset commits to, they are the fallback for a work
+// upstream lists on no AniList page. 767 works linked to a series the
+// catalogue has carry no AniList id, and 188 of them carry an AniDB one — the
+// only handle an override can name them by.
+func (d *Database) LookupAnidb(anidbID int) (Anime, bool) {
+	if anidbID == 0 {
+		return Anime{}, false
+	}
+	k, ok := d.bySource[fmt.Sprintf("https://anidb.net/anime/%d", anidbID)]
+	if !ok {
+		return Anime{}, false
+	}
+	return d.at(k), true
+}
