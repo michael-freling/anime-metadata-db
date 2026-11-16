@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: soukou-musume-senki
+  titles:
+    original: Soukou Musume Senki
+    translations: { ja-Latn: Soukou Musume Senki }
+  seasons:
+    - id: soukou-musume-senki-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [soukou-musume-senki]

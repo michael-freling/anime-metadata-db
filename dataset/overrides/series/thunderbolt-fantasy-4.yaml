@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: thunderbolt-fantasy-4
+  titles:
+    original: "Thunderbolt Fantasy 東離劍遊紀[とうりけんゆうき] 4"
+    translations: { ja-Latn: Thunderbolt Fantasy 4 }
+  seasons:
+    - id: thunderbolt-fantasy-4-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [thunderbolt-fantasy-4]

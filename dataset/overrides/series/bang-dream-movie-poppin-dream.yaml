@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bang-dream-movie-poppin-dream
+  titles:
+    original: 劇場版 BanG Dream! ぽっぴん'どりーむ!
+    translations: { ja-Latn: "BanG Dream! Movie: Poppin' Dream!" }
+  movies:
+    - id: bang-dream-movie-poppin-dream-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bang-dream-movie-poppin-dream]

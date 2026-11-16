@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: meitantei-conan-hannin-no-hanzawa-san
+  titles:
+    original: 名探偵コナン 犯人の犯沢さん
+    translations: { ja-Latn: "Meitantei Conan: Hannin no Hanzawa-san" }
+  seasons:
+    - id: meitantei-conan-hannin-no-hanzawa-san-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [meitantei-conan-hannin-no-hanzawa-san]

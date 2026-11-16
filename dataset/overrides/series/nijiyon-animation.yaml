@@ -1,0 +1,19 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nijiyon-animation
+  titles:
+    original: "Nijiyon: Love Live! Nijigasaki Gakuen School Idol Doukoukai Yonkoma (にじよん ～ラブライブ！虹ヶ咲学園スクールアイドル同好会 よんこま～)"
+    translations: { ja-Latn: Nijiyon Animation }
+  seasons:
+    - id: nijiyon-animation-s1
+      number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 154785 }
+    - id: nijiyon-animation-s2
+      number: 2
+      externalIds: { anilistId: 172242 } # Nijiyon Animation 2 (2024)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nijiyon-animation]

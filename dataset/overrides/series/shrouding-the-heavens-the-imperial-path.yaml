@@ -1,0 +1,12 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shrouding-the-heavens-the-imperial-path
+  titles:
+    original: "Shrouding the Heavens: The Imperial Path"
+    translations: { ja-Latn: "Shrouding the Heavens: The Imperial Path" }
+  movies:
+    - id: shrouding-the-heavens-the-imperial-path-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shrouding-the-heavens-the-imperial-path]

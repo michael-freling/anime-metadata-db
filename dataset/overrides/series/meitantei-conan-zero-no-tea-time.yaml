@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: meitantei-conan-zero-no-tea-time
+  titles:
+    original: 名探偵コナン ゼロの日常〈ティータイム〉
+    translations: { ja-Latn: "Meitantei Conan: Zero no Tea Time" }
+  seasons:
+    - id: meitantei-conan-zero-no-tea-time-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [meitantei-conan-zero-no-tea-time]

@@ -1,0 +1,12 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sinbi-apateu-10-junyeon-geugjangpan-han-beon-deo-sohwan
+  titles:
+    original: "Sinbi Apateu 10-junyeon Geugjangpan: Han Beon Deo, Sohwan"
+    translations: { ja-Latn: "Sinbi Apateu 10-junyeon Geugjangpan: Han Beon Deo, Sohwan" }
+  movies:
+    - id: sinbi-apateu-10-junyeon-geugjangpan-han-beon-deo-sohwan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sinbi-apateu-10-junyeon-geugjangpan-han-beon-deo-sohwan]

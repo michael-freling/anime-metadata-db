@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xi-yangyang-yu-hui-tailang-kuang-chu-weilai
+  titles:
+    original: "Xi Yangyang Yu Hui Tailang: Kuang Chu Weilai"
+    translations: { ja-Latn: "Xi Yangyang Yu Hui Tailang: Kuang Chu Weilai" }
+  movies:
+    - id: xi-yangyang-yu-hui-tailang-kuang-chu-weilai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xi-yangyang-yu-hui-tailang-kuang-chu-weilai]

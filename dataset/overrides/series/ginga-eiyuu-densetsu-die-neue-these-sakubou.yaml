@@ -1,0 +1,15 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ginga-eiyuu-densetsu-die-neue-these-sakubou
+  titles:
+    original: "Ginga Eiyuu Densetsu: Die Neue These - Sakubou"
+    translations: { ja-Latn: "Ginga Eiyuu Densetsu: Die Neue These - Sakubou" }
+  seasons:
+    - id: ginga-eiyuu-densetsu-die-neue-these-sakubou-s1
+      number: 1
+  movies:
+    - id: ginga-eiyuu-densetsu-die-neue-these-sakubou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ginga-eiyuu-densetsu-die-neue-these-sakubou]

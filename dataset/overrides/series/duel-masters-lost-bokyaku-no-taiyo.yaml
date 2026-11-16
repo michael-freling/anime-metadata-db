@@ -1,0 +1,13 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: duel-masters-lost-bokyaku-no-taiyo
+  titles:
+    original: Duel Masters LOST ～忘却の太陽～
+    translations: { ja-Latn: Duel Masters LOST ~Bōkyaku no Taiyō~ }
+  seasons:
+    - id: duel-masters-lost-bokyaku-no-taiyo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [duel-masters-lost-bokyaku-no-taiyo]

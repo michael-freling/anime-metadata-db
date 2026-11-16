@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: cardfight-vanguard-divinez
+  titles:
+    original: カードファイト!! ヴァンガード DivineZ
+    translations: { ja-Latn: "Cardfight!! Vanguard: Divinez" }
+  seasons:
+    - id: cardfight-vanguard-divinez-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [cardfight-vanguard-divinez]

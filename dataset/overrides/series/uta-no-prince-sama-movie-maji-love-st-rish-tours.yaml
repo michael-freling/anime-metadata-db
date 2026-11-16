@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: uta-no-prince-sama-movie-maji-love-st-rish-tours
+  titles:
+    original: 劇場版 うたの☆プリンスさまっ♪ マジLOVEスターリッシュツアーズ
+    translations: { ja-Latn: "Uta no☆Prince-sama♪ Movie: Maji Love ST☆RISH Tours" }
+  movies:
+    - id: uta-no-prince-sama-movie-maji-love-st-rish-tours-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [uta-no-prince-sama-movie-maji-love-st-rish-tours]

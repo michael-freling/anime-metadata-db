@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kuiba-v-chongtian-shuo
+  titles:
+    original: "Kuiba V: Chongtian Shuo"
+    translations: { ja-Latn: "Kuiba V: Chongtian Shuo" }
+  movies:
+    - id: kuiba-v-chongtian-shuo-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kuiba-v-chongtian-shuo]

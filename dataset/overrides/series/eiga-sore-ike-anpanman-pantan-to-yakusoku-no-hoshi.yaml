@@ -1,0 +1,12 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: eiga-sore-ike-anpanman-pantan-to-yakusoku-no-hoshi
+  titles:
+    original: えいがそれいけ! アンパンマン パンタンと約束の星
+    translations: { ja-Latn: "Eiga Sore Ike! Anpanman: Pantan to Yakusoku no Hoshi" }
+  movies:
+    - id: eiga-sore-ike-anpanman-pantan-to-yakusoku-no-hoshi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [eiga-sore-ike-anpanman-pantan-to-yakusoku-no-hoshi]

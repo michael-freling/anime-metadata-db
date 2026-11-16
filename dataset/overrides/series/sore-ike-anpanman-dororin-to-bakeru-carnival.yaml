@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sore-ike-anpanman-dororin-to-bakeru-carnival
+  titles:
+    original: えいがそれいけ! アンパンマン ドロリンとバケ~るカーニバル
+    translations: { ja-Latn: "Sore Ike! Anpanman: Dororin to Bakeru Carnival" }
+  movies:
+    - id: sore-ike-anpanman-dororin-to-bakeru-carnival-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sore-ike-anpanman-dororin-to-bakeru-carnival]

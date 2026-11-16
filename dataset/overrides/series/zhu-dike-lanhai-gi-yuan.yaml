@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zhu-dike-lanhai-gi-yuan
+  titles:
+    original: "Zhu Dike: Lanhai Gi Yuan"
+    translations: { ja-Latn: "Zhu Dike: Lanhai Gi Yuan" }
+  movies:
+    - id: zhu-dike-lanhai-gi-yuan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zhu-dike-lanhai-gi-yuan]

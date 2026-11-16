@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sore-ike-anpanman-movie-roboly-to-pokapoka-present
+  titles:
+    original: えいがそれいけ! アンパンマン ロボリィとぽかぽかプレゼント
+    translations: { ja-Latn: "Sore Ike! Anpanman Movie: Roboly to Pokapoka Present" }
+  movies:
+    - id: sore-ike-anpanman-movie-roboly-to-pokapoka-present-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sore-ike-anpanman-movie-roboly-to-pokapoka-present]

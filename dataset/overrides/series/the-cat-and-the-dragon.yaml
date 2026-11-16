@@ -1,0 +1,13 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: the-cat-and-the-dragon
+  titles:
+    original: 猫と竜
+    translations: { ja-Latn: The Cat and the Dragon }
+  seasons:
+    - id: the-cat-and-the-dragon-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [the-cat-and-the-dragon]

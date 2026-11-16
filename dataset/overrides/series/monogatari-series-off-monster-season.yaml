@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: monogatari-series-off-monster-season
+  titles:
+    original: 〈物語〉シリーズ オフ&モンスターシーズン
+    translations: { ja-Latn: "MONOGATARI Series: OFF & MONSTER Season" }
+  seasons:
+    - id: monogatari-series-off-monster-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [monogatari-series-off-monster-season]

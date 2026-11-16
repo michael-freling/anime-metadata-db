@@ -1,0 +1,12 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shuke-beita-weisuo-renlei
+  titles:
+    original: "Shuke Beita: Weisuo Renlei"
+    translations: { ja-Latn: "Shuke Beita: Weisuo Renlei" }
+  movies:
+    - id: shuke-beita-weisuo-renlei-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shuke-beita-weisuo-renlei]

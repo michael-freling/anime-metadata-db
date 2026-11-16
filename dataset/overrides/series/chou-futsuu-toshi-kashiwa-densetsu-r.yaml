@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: chou-futsuu-toshi-kashiwa-densetsu-r
+  titles:
+    original: 超普通都市カシワ伝説R The Legend of Super Normal City Kashiwa R
+    translations: { ja-Latn: Chou Futsuu Toshi Kashiwa Densetsu R }
+  seasons:
+    - id: chou-futsuu-toshi-kashiwa-densetsu-r-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [chou-futsuu-toshi-kashiwa-densetsu-r]

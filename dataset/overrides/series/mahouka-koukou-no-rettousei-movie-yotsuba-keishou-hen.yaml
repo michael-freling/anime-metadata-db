@@ -1,0 +1,12 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mahouka-koukou-no-rettousei-movie-yotsuba-keishou-hen
+  titles:
+    original: 劇場版「魔法科高校の劣等生 四葉継承編」
+    translations: { ja-Latn: "Mahouka Koukou no Rettousei Movie: Yotsuba Keishou-hen" }
+  movies:
+    - id: mahouka-koukou-no-rettousei-movie-yotsuba-keishou-hen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mahouka-koukou-no-rettousei-movie-yotsuba-keishou-hen]

@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mahouka-koukou-no-rettousei-3rd-season
+  titles:
+    original: 魔法科高校の劣等生 第3シーズン
+    translations: { ja-Latn: Mahouka Koukou no Rettousei 3rd Season }
+  seasons:
+    - id: mahouka-koukou-no-rettousei-3rd-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mahouka-koukou-no-rettousei-3rd-season]

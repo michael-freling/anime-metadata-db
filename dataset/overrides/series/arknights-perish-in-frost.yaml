@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: arknights-perish-in-frost
+  titles:
+    original: アークナイツ【冬隠帰路/PERISH IN FROST】
+    translations: { ja-Latn: "Arknights: Perish in Frost" }
+  seasons:
+    - id: arknights-perish-in-frost-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [arknights-perish-in-frost]

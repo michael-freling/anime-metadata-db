@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shimajirou-to-uzumasa-ninja-daisakusen
+  titles:
+    original: しまじろうと うずまさにんじゃ だいさくせん
+    translations: { ja-Latn: Shimajirou to Uzumasa Ninja Daisakusen }
+  movies:
+    - id: shimajirou-to-uzumasa-ninja-daisakusen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shimajirou-to-uzumasa-ninja-daisakusen]

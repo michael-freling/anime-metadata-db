@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: city-hunter-movie-tenshi-no-namida
+  titles:
+    original: 劇場版シティーハンター 天使の涙 (エンジェルダスト)
+    translations: { ja-Latn: "City Hunter Movie: Tenshi no Namida" }
+  movies:
+    - id: city-hunter-movie-tenshi-no-namida-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [city-hunter-movie-tenshi-no-namida]

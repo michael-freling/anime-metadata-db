@@ -1,0 +1,13 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: saioshi-no-gikei-o-mederu-tame-nagaiki-shimasu
+  titles:
+    original: "最推しの義兄を愛でるため, 長生きします!"
+    translations: { ja-Latn: "Saioshi no Gikei o Mederu Tame, Nagaiki Shimasu!" }
+  seasons:
+    - id: saioshi-no-gikei-o-mederu-tame-nagaiki-shimasu-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [saioshi-no-gikei-o-mederu-tame-nagaiki-shimasu]

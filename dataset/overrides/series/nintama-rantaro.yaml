@@ -1,0 +1,16 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: nintama-rantaro
+  titles:
+    original: 忍たま乱太郎
+    translations: { ja-Latn: Nintama Rantaro }
+  seasons:
+    - id: nintama-rantaro-s1
+      number: 1
+  movies:
+    - id: nintama-rantaro-film
+      externalIds: { anilistId: 2710 } # Nintama Rantarou Movie (1996)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [nintama-rantaro]

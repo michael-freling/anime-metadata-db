@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: pretty-guardian-sailor-moon-cosmos-movie-1
+  titles:
+    original: 劇場版「美少女戦士セーラームーン Cosmos」《前編》
+    translations: { ja-Latn: Pretty Guardian Sailor Moon Cosmos Movie 1 }
+  movies:
+    - id: pretty-guardian-sailor-moon-cosmos-movie-1-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [pretty-guardian-sailor-moon-cosmos-movie-1]

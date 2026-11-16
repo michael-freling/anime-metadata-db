@@ -1,0 +1,13 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: heroine-saint-no-i-m-an-all-works-maid-and-proud-of-it
+  titles:
+    original: ヒロイン？聖女？いいえ、オールワークスメイドです（誇）！
+    translations: { ja-Latn: "Heroine? Saint? No, I'm an All-Works Maid (And Proud of It)!" }
+  seasons:
+    - id: heroine-saint-no-i-m-an-all-works-maid-and-proud-of-it-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [heroine-saint-no-i-m-an-all-works-maid-and-proud-of-it]

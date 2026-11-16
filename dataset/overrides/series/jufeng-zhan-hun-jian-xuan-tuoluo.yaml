@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: jufeng-zhan-hun-jian-xuan-tuoluo
+  titles:
+    original: "Jufeng Zhan Hun: Jian Xuan Tuoluo"
+    translations: { ja-Latn: "Jufeng Zhan Hun: Jian Xuan Tuoluo" }
+  seasons:
+    - id: jufeng-zhan-hun-jian-xuan-tuoluo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [jufeng-zhan-hun-jian-xuan-tuoluo]

@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: washimo-9th-season
+  titles:
+    original: わしも-wasimo-(第9シリーズ)
+    translations: { ja-Latn: Washimo 9th Season }
+  seasons:
+    - id: washimo-9th-season-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [washimo-9th-season]

@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sore-ike-anpanman-movie-baikinman-to-ehon-no-lulun
+  titles:
+    original: えいがそれいけ! アンパンマン ばいきんまんとえほんのルルン
+    translations: { ja-Latn: "Sore Ike! Anpanman Movie: Baikinman to Ehon no Lulun" }
+  movies:
+    - id: sore-ike-anpanman-movie-baikinman-to-ehon-no-lulun-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sore-ike-anpanman-movie-baikinman-to-ehon-no-lulun]

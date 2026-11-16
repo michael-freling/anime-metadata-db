@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: meitantei-conan-shakunetsu-no-ginga-tetsudou
+  titles:
+    original: "Meitantei Conan: Shakunetsu no Galaxy Railroad (名探偵コナン 灼熱のギャラクシーレイルロード)"
+    translations: { ja-Latn: "Meitantei Conan: Shakunetsu no Ginga Tetsudou" }
+  movies:
+    - id: meitantei-conan-shakunetsu-no-ginga-tetsudou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [meitantei-conan-shakunetsu-no-ginga-tetsudou]

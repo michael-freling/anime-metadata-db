@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: koukaku-kidoutai-sac-2045-saigo-no-ningen
+  titles:
+    original: 攻殻機動隊 SAC_2045 最後の人間
+    translations: { ja-Latn: "Koukaku Kidoutai: SAC_2045 - Saigo no Ningen" }
+  movies:
+    - id: koukaku-kidoutai-sac-2045-saigo-no-ningen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [koukaku-kidoutai-sac-2045-saigo-no-ningen]

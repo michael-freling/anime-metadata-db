@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: night-head-2041
+  titles:
+    original: Night Head 2041
+    translations: { ja-Latn: Night Head 2041 }
+  seasons:
+    - id: night-head-2041-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [night-head-2041]

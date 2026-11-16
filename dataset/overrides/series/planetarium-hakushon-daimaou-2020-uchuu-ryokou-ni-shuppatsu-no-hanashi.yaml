@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: planetarium-hakushon-daimaou-2020-uchuu-ryokou-ni-shuppatsu-no-hanashi
+  titles:
+    original: プラネタリウム ハクション大魔王２０２０ 宇宙旅行に出発！の話
+    translations: { ja-Latn: "Planetarium Hakushon Daimaou 2020: Uchuu Ryokou ni Shuppatsu! No Hanashi" }
+  movies:
+    - id: planetarium-hakushon-daimaou-2020-uchuu-ryokou-ni-shuppatsu-no-hanashi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [planetarium-hakushon-daimaou-2020-uchuu-ryokou-ni-shuppatsu-no-hanashi]

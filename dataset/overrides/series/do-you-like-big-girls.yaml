@@ -1,0 +1,13 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: do-you-like-big-girls
+  titles:
+    original: 大きい女の子は好きですか？
+    translations: { ja-Latn: "Do You Like Big Girls?" }
+  seasons:
+    - id: do-you-like-big-girls-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [do-you-like-big-girls]
