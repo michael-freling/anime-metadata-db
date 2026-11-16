@@ -3,6 +3,7 @@ package fetch
 import (
 	"context"
 	"errors"
+	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"strings"
@@ -207,5 +208,54 @@ func TestGetStopsWhenTheContextEnds(t *testing.T) {
 	c := &Client{Sleep: func(time.Duration) { cancel() }}
 	if _, err := c.Get(ctx, srv.URL); !errors.Is(err, context.Canceled) {
 		t.Errorf("err = %v, want context.Canceled", err)
+	}
+}
+
+// A status that is not retried must not claim to have been. The count printed
+// was maxAttempts whatever happened, so a 414 — the request being wrong rather
+// than the moment — reported "gave up after 4 attempts", which reads as an
+// unreliable server and sends the reader to the wrong place entirely.
+func TestANonRetryableStatusSaysItWasNotRetried(t *testing.T) {
+	var calls int
+	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
+		calls++
+		w.WriteHeader(http.StatusRequestURITooLong)
+	}))
+	defer srv.Close()
+
+	var slept []time.Duration
+	c := &Client{Sleep: func(d time.Duration) { slept = append(slept, d) }}
+	_, err := c.Get(context.Background(), srv.URL)
+	if err == nil {
+		t.Fatal("want an error")
+	}
+	if calls != 1 {
+		t.Errorf("made %d requests, want 1: a 414 does not become valid by asking again", calls)
+	}
+	if len(slept) != 0 {
+		t.Errorf("waited %v before giving up on a 414", slept)
+	}
+	if !strings.Contains(err.Error(), "not retried") {
+		t.Errorf("err = %q, want it to say the request was not retried", err)
+	}
+	if strings.Contains(err.Error(), "4 attempts") {
+		t.Errorf("err = %q, still claims attempts it never made", err)
+	}
+}
+
+// And one that is retried reports what it actually did.
+func TestARetriedStatusReportsTheAttemptsItMade(t *testing.T) {
+	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
+		w.WriteHeader(http.StatusTooManyRequests)
+	}))
+	defer srv.Close()
+
+	c := &Client{Sleep: func(time.Duration) {}}
+	_, err := c.Get(context.Background(), srv.URL)
+	if err == nil {
+		t.Fatal("want an error")
+	}
+	if !strings.Contains(err.Error(), fmt.Sprintf("gave up after %d attempts", maxAttempts)) {
+		t.Errorf("err = %q, want the attempts it made", err)
 	}
 }
