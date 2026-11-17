@@ -180,6 +180,23 @@ works that were each other's only neighbour both failed a *gating* check against
 correct data. When a check walks someone else's graph, measure how much of it
 the walk can actually see.
 
+The same goes for a word list. Four series ended up named after a recut of
+themselves, because `NativeTitle` takes the longest kana synonym and
+劇場総集編ぼっち・ざ・ろっく！ Re:Re: is longer than ぼっち・ざ・ろっく！. The
+obvious fix — prefer a synonym carrying no 総集編/特別編集版/新編集版/完全版/
+ディレクターズカット — was measured before it was written, and it changes 11
+titles: about four improve, four move sideways, and **three get worse.**
+"HIGHLANDER ハイランダー 〜ディレクターズカット版〜" becomes ハイランダー,
+losing the subtitle, and "PSYCHO-PASS サイコパス 新編集版" becomes
+"PSYCHO-PASS サイコパス", which is already another series' name. 前編 and 後編
+are worse still: there the marker *is* the work's name, since the halves are
+different works.
+
+So the four were authored by hand (date-a-live, bocchi-the-rock,
+girls-band-cry, re-zero) and the rule was not written. A marker means "a recut
+of something" for one series and "this work's name" for the next, and nothing
+in the sources says which.
+
 And resist a threshold the data does not have. Twelve series numbered separate
 adaptations end to end — Doraemon across 1973, 1979 and 2005 — but no gap
 cutoff separates them from real continuations: Re:Zero pauses eight years and
