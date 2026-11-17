@@ -4,8 +4,11 @@ series:
   titles:
     original: 異世界召喚は二度目です
     translations:
+      en: Summoned to Another World... Again?
       ja-Latn: Isekai Shoukan wa Nidome desu
   ordering: absolute
+  externalIds:
+    wikidataId: Q109297684
   seasons:
     - id: isekai-shoukan-wa-nidome-desu-s1
       number: 1

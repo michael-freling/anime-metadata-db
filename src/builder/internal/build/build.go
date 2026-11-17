@@ -32,11 +32,11 @@ type Builder struct {
 	// a second series claiming the same upstream work is reported. Held on the
 	// Builder rather than passed per call because the question spans series
 	// and nothing else in the pipeline sees more than one at a time.
-	claimed map[int]string
+	claimed map[string]string
 }
 
 // New returns a Builder bound to the given sources.
-func New(s Sources) *Builder { return &Builder{sources: s, claimed: map[int]string{}} }
+func New(s Sources) *Builder { return &Builder{sources: s, claimed: map[string]string{}} }
 
 // Build resolves one override into a dataset record and a report of
 // low-confidence decisions. It fails on any unknown id, dangling reference or
@@ -145,11 +145,26 @@ func (b *Builder) lookup(entity string, ids *model.ExternalIDs, resolved resolut
 		if a, ok := resolved[ids]; ok {
 			return a, nil
 		}
+		// An authored AniDB id, which is the last handle left. Upstream lists
+		// about half its catalogue on no AniList page, and a work there that
+		// the series' own title does not reach can be named no other way: 767
+		// works linked to a series the catalogue has carry no AniList id.
+		// Consulted after the resolution rather than before it, so a series
+		// whose title already accounts for the installment resolves exactly as
+		// it did — this adds a way to reach a work, it does not change how any
+		// work is already reached.
+		if a, ok := b.sources.Offline.LookupAnidb(ids.AnidbID); ok {
+			return a, nil
+		}
+		if ids.AnidbID != 0 {
+			return offlinedb.Anime{}, fmt.Errorf("%s: unknown AniDB id %d", entity, ids.AnidbID)
+		}
 		return offlinedb.Anime{}, fmt.Errorf(
 			"%s: no externalIds.anilistId, and no upstream entry could be resolved from the series' title. "+
 				"Upstream may have stopped listing this installment under it. "+
 				"Check the series' own title against what upstream lists this installment under, "+
-				"or, if the work is on AniList, author `externalIds: { anilistId: N }` on this installment",
+				"or author `externalIds: { anilistId: N }` on this installment — "+
+				"or `anidbId` where upstream carries it on no AniList page",
 			entity)
 	}
 	a, ok := b.sources.Offline.Lookup(ids.AnilistID)

@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bai-she-ii-qing-she-jie-qi
+  titles:
+    original: "Bai She II: Qing She Jie Qi"
+    translations: { ja-Latn: "Bai She II: Qing She Jie Qi" }
+  movies:
+    - id: bai-she-ii-qing-she-jie-qi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bai-she-ii-qing-she-jie-qi]

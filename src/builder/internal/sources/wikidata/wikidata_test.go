@@ -3,6 +3,7 @@ package wikidata
 import (
 	"context"
 	"errors"
+	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
@@ -520,5 +521,81 @@ func TestResolveWorksReportsWhatItSaw(t *testing.T) {
 	}
 	if len(got[0].InstanceOf) != 1 || got[0].InstanceOf[0] != "Q64806863" {
 		t.Errorf("InstanceOf = %v, want the P31 it refused", got[0].InstanceOf)
+	}
+}
+
+// A batch is bounded by the URL it builds, not by a count of titles. Forty
+// QIDs are forty short strings; forty Japanese film titles percent-encode to
+// roughly nine bytes a character, and a batch of them built a URL Wikidata
+// answered 414 Request URI Too Long — which stopped every build that fetched
+// sources.
+func TestResolveBatchesStayWithinTheURLLimit(t *testing.T) {
+	const long = "映画 クレヨンしんちゃん 激突! ラクガキングダムとほぼ四人の勇者"
+	titles := make([]string, 0, 120)
+	for i := range 120 {
+		titles = append(titles, fmt.Sprintf("%s %d", long, i))
+	}
+
+	batches, err := chunkToURLBudget("https://www.wikidata.org/w/api.php", titles)
+	if err != nil {
+		t.Fatalf("chunkToURLBudget: %v", err)
+	}
+	if len(batches) < 2 {
+		t.Fatalf("got %d batch(es); titles this long cannot share one URL", len(batches))
+	}
+	seen := 0
+	for i, b := range batches {
+		seen += len(b)
+		if len(b) > resolveBatchSize {
+			t.Errorf("batch %d holds %d titles, over the %d the API accepts", i, len(b), resolveBatchSize)
+		}
+		u, err := buildResolveURL("https://www.wikidata.org/w/api.php", b)
+		if err != nil {
+			t.Fatal(err)
+		}
+		if len(u) > resolveURLBudget {
+			t.Errorf("batch %d builds a %d-byte URL, over the %d-byte budget", i, len(u), resolveURLBudget)
+		}
+	}
+	// Nothing may be dropped: a title not asked about resolves to nothing, and
+	// the build then reports it as absent from Wikidata rather than unasked.
+	if seen != len(titles) {
+		t.Errorf("batches cover %d of %d titles", seen, len(titles))
+	}
+}
+
+// Short titles must still batch up to the count the API accepts, or every
+// resolve would become one request per title.
+func TestShortTitlesStillFillABatch(t *testing.T) {
+	titles := make([]string, 0, 100)
+	for i := range 100 {
+		titles = append(titles, fmt.Sprintf("A%d", i))
+	}
+	batches, err := chunkToURLBudget("https://www.wikidata.org/w/api.php", titles)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(batches[0]) != resolveBatchSize {
+		t.Errorf("first batch holds %d titles, want the full %d", len(batches[0]), resolveBatchSize)
+	}
+}
+
+// One title too long to fit is still asked about on its own, rather than
+// dropped — the request fails and says which title it was.
+func TestATitleTooLongForTheBudgetIsStillSentAlone(t *testing.T) {
+	huge := strings.Repeat("長", resolveURLBudget)
+	batches, err := chunkToURLBudget("https://www.wikidata.org/w/api.php", []string{huge, "短"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(batches) != 2 || len(batches[0]) != 1 {
+		t.Fatalf("batches = %v lengths, want the long one alone then the short one",
+			func() []int {
+				var n []int
+				for _, b := range batches {
+					n = append(n, len(b))
+				}
+				return n
+			}())
 	}
 }

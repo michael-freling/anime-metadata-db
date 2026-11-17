@@ -9,7 +9,10 @@ series:
   seasons:
     - id: cardfight-vanguard-zoku-koukousei-hen-s1
       number: 1
-    - id: cardfight-vanguard-zoku-koukousei-hen-s2
-      number: 2
+      # Authored, and the only season declared. Upstream's other record for
+      # this title is an aggregate covering several seasons at once, and both
+      # this series and its sibling reach it, so each claimed it as a season of
+      # its own. This names the work upstream gives its own merged record.
+      externalIds: { anilistId: 109260 }
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [cardfight-vanguard-zoku-koukousei-hen]

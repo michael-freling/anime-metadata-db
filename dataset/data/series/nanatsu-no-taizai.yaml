@@ -40,6 +40,28 @@ series:
       episodes:
         count: 24
         absoluteFrom: 50
+    - id: nanatsu-no-taizai-s4
+      number: 4
+      releaseYear: 2023
+      releaseSeason: FALL
+      externalIds:
+        anilistId: 148862
+        anidbId: 17355
+        tvdbId: 420018
+      episodes:
+        count: 24
+        absoluteFrom: 74
+    - id: nanatsu-no-taizai-s5
+      number: 5
+      releaseYear: 2024
+      releaseSeason: FALL
+      externalIds:
+        anilistId: 176292
+        anidbId: 18558
+        tvdbId: 420018
+      episodes:
+        count: 12
+        absoluteFrom: 98
   movies:
     - id: nanatsu-no-taizai-film
       titles:

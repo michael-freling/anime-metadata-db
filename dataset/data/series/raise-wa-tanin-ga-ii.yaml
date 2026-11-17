@@ -4,8 +4,11 @@ series:
   titles:
     original: 来世は他人がいい
     translations:
+      en: Yakuza Fiancé
       ja-Latn: Raise wa Tanin ga Ii
   ordering: absolute
+  externalIds:
+    wikidataId: Q85881149
   seasons:
     - id: raise-wa-tanin-ga-ii-s1
       number: 1

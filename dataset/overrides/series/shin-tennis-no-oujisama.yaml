@@ -15,5 +15,8 @@ series:
     - id: shin-tennis-no-oujisama-s2
       number: 2
       externalIds: { anilistId: 140187 } # Shin Tennis no Oujisama: U-17 World Cup (2022)
+    - id: shin-tennis-no-oujisama-s3
+      number: 3
+      externalIds: { anilistId: 165810 } # Shin Tennis no Oujisama: U-17 World Cup Semifinal (2024)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [shin-tennis-no-oujisama]

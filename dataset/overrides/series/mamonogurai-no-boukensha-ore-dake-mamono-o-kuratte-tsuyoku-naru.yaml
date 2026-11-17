@@ -1,0 +1,13 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mamonogurai-no-boukensha-ore-dake-mamono-o-kuratte-tsuyoku-naru
+  titles:
+    original: 魔物喰らいの冒険者 ~俺だけ魔物を喰らって強くなる~
+    translations: { ja-Latn: "Mamonogurai no Boukensha: Ore dake Mamono o Kuratte Tsuyoku Naru" }
+  seasons:
+    - id: mamonogurai-no-boukensha-ore-dake-mamono-o-kuratte-tsuyoku-naru-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mamonogurai-no-boukensha-ore-dake-mamono-o-kuratte-tsuyoku-naru]

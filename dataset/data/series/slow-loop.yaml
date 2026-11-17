@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Slow Loop
   ordering: absolute
+  externalIds:
+    wikidataId: Q65240183
   seasons:
     - id: slow-loop-s1
       number: 1

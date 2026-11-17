@@ -4,8 +4,11 @@ series:
   titles:
     original: ぼくたちのリメイク
     translations:
+      en: Remake Our Life!
       ja-Latn: Bokutachi no Remake
   ordering: absolute
+  externalIds:
+    wikidataId: Q56347954
   seasons:
     - id: bokutachi-no-remake-s1
       number: 1

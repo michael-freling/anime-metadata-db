@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Trillion Game
   ordering: absolute
+  externalIds:
+    wikidataId: Q106575051
   seasons:
     - id: trillion-game-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 惑星のさみだれ
     translations:
+      en: Lucifer and the Biscuit Hammer
       ja-Latn: Hoshi no Samidare
   ordering: absolute
+  externalIds:
+    wikidataId: Q11243622
   seasons:
     - id: hoshi-no-samidare-s1
       number: 1

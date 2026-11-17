@@ -104,12 +104,13 @@ func TestASeasonThatDidNotAirLastIsRefused(t *testing.T) {
 }
 
 // Pinning is only sound where there is an id to pin. An installment that
-// resolves to an upstream record carrying none can only ever be reached by the
-// title, and a new slot beside it changes the count holding it.
+// resolves to an upstream record carrying neither an AniList nor an AniDB id
+// can only ever be reached by the title, and a new slot beside it changes the
+// count holding it.
 func TestASlotWithNoResolvableIDIsRefused(t *testing.T) {
 	record := strings.Replace(recordWithComment, "      externalIds:\n        anilistId: 200\n", "", 1)
 	_, why := plan(seriesWithComment, record, "show", film("300", "Show: The Movie 2", 2023), map[string]bool{})
-	if !strings.Contains(why, "no AniList id") {
+	if !strings.Contains(why, "no id the model can name") {
 		t.Errorf("why = %q, want the unpinnable refusal", why)
 	}
 }
@@ -407,6 +408,9 @@ func TestPlanGivesUpWhenEveryIDIsTaken(t *testing.T) {
 }
 
 // The two candidate shapes that are reported without ever reaching plan.
+// anime-planet alone is the shape with nothing to author: the model can name an
+// AniList or an AniDB id and neither is there. An AniDB id is attachable, which
+// is what this fixture used to carry.
 func TestMergeDeclinesCandidatesWithNothingToAuthorOrNoLink(t *testing.T) {
 	const fixture = `{
   "data": [
@@ -417,7 +421,7 @@ func TestMergeDeclinesCandidatesWithNothingToAuthorOrNoLink(t *testing.T) {
       "animeSeason": { "season": "SPRING", "year": 2019 }
     },
     {
-      "sources": ["https://anidb.net/anime/55555"],
+      "sources": ["https://anime-planet.com/anime/kimetsu-no-yaiba-nowhere-else"],
       "title": "Kimetsu no Yaiba: No Id At All",
       "type": "MOVIE", "episodes": 1, "status": "FINISHED",
       "animeSeason": { "season": "SPRING", "year": 2030 },
@@ -731,14 +735,41 @@ func TestPinningWalksEverySlotAndRefusesAMismatch(t *testing.T) {
 		t.Errorf("the already-authored slot was rewritten:\n%s", got)
 	}
 
-	// A record listing fewer films than the override declares.
+	// A record listing fewer films than the override declares is the shape a
+	// second attachment in one run produces: the record predates the first.
+	// The extra slot carries its own id, so the earlier ones still pair by
+	// position and this is accepted — refusing it cost 128 attachments.
 	short := strings.Replace(twoFilmRecord, `    - id: show-film-2
       releaseYear: 2022
       externalIds:
         anilistId: 201
 `, "", 1)
-	if _, why := plan(twoFilms, short, "show", film("300", "Show: The Third", 2030), map[string]bool{}); !strings.Contains(why, "do not line up") {
-		t.Errorf("why = %q, want the mismatch refusal", why)
+	got, why = plan(twoFilms, short, "show", film("300", "Show: The Third", 2030), map[string]bool{})
+	if why != "" {
+		t.Errorf("refused a second attachment: %s", why)
+	}
+	if !strings.Contains(got, "anilistId: 200") {
+		t.Errorf("the slot the record does account for was not pinned:\n%s", got)
+	}
+
+	// An extra slot that states no id cannot be paired with anything, and
+	// pinning the rest by position would be guessing which one it is.
+	bare := twoFilms + "    - id: show-film-3\n"
+	if _, why := plan(bare, short, "show", film("300", "Show: The Third", 2030), map[string]bool{}); !strings.Contains(why, "states no id") {
+		t.Errorf("why = %q, want the unpairable refusal", why)
+	}
+
+	// The other direction is genuinely unpairable: more resolved than declared.
+	oneFilm := `series:
+  id: show
+  seasons:
+    - id: show-s1
+      number: 1
+  movies:
+    - id: show-film
+`
+	if _, why := plan(oneFilm, twoFilmRecord, "show", film("300", "Show: The Third", 2030), map[string]bool{}); !strings.Contains(why, "fewer installments") {
+		t.Errorf("why = %q, want the fewer-than-resolved refusal", why)
 	}
 }
 
@@ -799,5 +830,306 @@ func TestImportYearsCountsOnlyWhatTheCatalogueCarries(t *testing.T) {
 	]}`)
 	if got := importYears(db); !slices.Equal(got, []int{2001}) {
 		t.Errorf("importYears = %v, want just 2001: an ONA is out of scope and an undated entry places nothing", got)
+	}
+}
+
+// A judgement call has to survive the next run. Removing an attachment by hand
+// does not: the tool is deterministic and proposes it again, which is how six
+// spin-offs came back after being read and removed.
+func TestADeclinedWorkIsNotProposedAgain(t *testing.T) {
+	const fixture = `{
+  "data": [
+    {
+      "sources": ["https://anilist.co/anime/101922"],
+      "title": "Kimetsu no Yaiba",
+      "type": "TV", "episodes": 26, "status": "FINISHED",
+      "animeSeason": { "season": "SPRING", "year": 2019 }
+    },
+    {
+      "sources": ["https://anilist.co/anime/900060"],
+      "title": "Kimetsu no Yaiba: A Chibi Short",
+      "type": "MOVIE", "episodes": 1, "status": "FINISHED",
+      "animeSeason": { "season": "SPRING", "year": 2030 },
+      "relatedAnime": ["https://anilist.co/anime/101922"]
+    }
+  ]
+}`
+	a, dir, out := mergeRepo(t)
+	if err := os.WriteFile(filepath.Join(dir, ".sources", "anime-offline-database.json"), []byte(fixture), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	// Without the decision recorded, it is attached.
+	if err := a.Merge(true); err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(out(), "1 attached") {
+		t.Fatalf("the fixture does not produce an attachment to decline: %q", out())
+	}
+
+	if err := os.WriteFile(filepath.Join(dir, declinedFile), []byte(`declined:
+  - anilistId: 900060
+    work: "Kimetsu no Yaiba: A Chibi Short"
+    proposedFor: demon-slayer
+    why: a chibi spin-off short, not an installment
+`), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := a.Merge(false); err != nil {
+		t.Fatalf("merge: %v", err)
+	}
+	got := out()
+	if !strings.Contains(got, "0 attached") {
+		t.Errorf("a declined work was attached anyway: %q", got)
+	}
+	if !strings.Contains(got, "declined by hand: a chibi spin-off short") {
+		t.Errorf("the decision was not reported with its reason: %q", got)
+	}
+}
+
+// An entry naming no work declines nothing, and silently ignoring it would let
+// a typo quietly re-propose something a person had ruled out.
+func TestADeclinedEntryWithNoIDIsAnError(t *testing.T) {
+	dir := t.TempDir()
+	path := filepath.Join(dir, declinedFile)
+	if err := os.WriteFile(path, []byte("declined:\n  - work: \"Something\"\n    why: because\n"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := declinedMerges(path); err == nil {
+		t.Error("want an error: an entry with no anilistId declines nothing")
+	}
+}
+
+// A repository that has never declined one has none, which is not an error.
+func TestDeclinedMergesOnAMissingFile(t *testing.T) {
+	got, err := declinedMerges(filepath.Join(t.TempDir(), "absent.yaml"))
+	if err != nil {
+		t.Fatalf("declinedMerges: %v", err)
+	}
+	if len(got) != 0 {
+		t.Errorf("got %v, want none", got)
+	}
+}
+
+// Three works attached to one series pin its existing slots once, not once per
+// attachment. Checking only for an AniList id made a slot already pinned with
+// an AniDB one look unpinned, and "free" ended up with three externalIds keys
+// on one installment, which YAML rejects.
+func TestPinningIsNotRepeatedWhenTheIDItWroteIsNotAnAniListOne(t *testing.T) {
+	body := `series:
+  id: free
+  seasons:
+    - id: free-s1
+      number: 1
+  movies:
+    - id: free-film
+`
+	record := `series:
+  id: free
+  seasons:
+    - id: free-s1
+      number: 1
+      releaseYear: 2013
+      externalIds:
+        anilistId: 100
+  movies:
+    - id: free-film
+      releaseYear: 2015
+      externalIds:
+        anidbId: 14415
+`
+	taken := map[string]bool{}
+	for i, m := range []importer.Merge{
+		{Title: "Free! Movie 2", AnilistID: 98496, Type: offlinedb.TypeMovie, Year: 2017, Linked: true},
+		{Title: "Free! Movie 3", AnilistID: 98497, Type: offlinedb.TypeMovie, Year: 2018, Linked: true},
+		{Title: "Free! Movie 4", AnilistID: 98498, Type: offlinedb.TypeMovie, Year: 2019, Linked: true},
+	} {
+		next, why := plan(body, record, "free", m, taken)
+		if why != "" {
+			t.Fatalf("attachment %d refused: %s", i+1, why)
+		}
+		body = next
+	}
+	if n := strings.Count(body, "externalIds"); n != 4 {
+		t.Errorf("the file states externalIds %d times, want 4 — one pinned slot and three attachments:\n%s", n, body)
+	}
+	if n := strings.Count(body, "anidbId: 14415"); n != 1 {
+		t.Errorf("the pinned AniDB id appears %d times, want 1:\n%s", n, body)
+	}
+}
+
+// A work upstream carries on no AniList page is named by its AniDB id, which
+// is the only handle it has. Both the field written and the key one work is
+// counted by have to follow whichever id that is.
+func TestAWorkWithOnlyAnAnidbIDIsAttachedByIt(t *testing.T) {
+	byAnidb := importer.Merge{Title: "Show: Only On AniDB", AnidbID: 7777,
+		Type: offlinedb.TypeMovie, Year: 2030, Linked: true}
+	got, why := plan(seriesWithComment, recordWithComment, "show", byAnidb, map[string]bool{})
+	if why != "" {
+		t.Fatalf("refused: %s", why)
+	}
+	if !strings.Contains(got, "anidbId: 7777") {
+		t.Errorf("the AniDB id was not authored:\n%s", got)
+	}
+	if strings.Contains(got, "anilistId: 0") {
+		t.Errorf("a zero AniList id was written:\n%s", got)
+	}
+
+	if f := authoredID(byAnidb); f != "anidbId: 7777" {
+		t.Errorf("authoredID = %q, want the AniDB field", f)
+	}
+	withBoth := importer.Merge{AnilistID: 5, AnidbID: 7777}
+	if f := authoredID(withBoth); f != "anilistId: 5" {
+		t.Errorf("authoredID = %q, want AniList preferred where upstream gives one", f)
+	}
+	// The two providers number their catalogues independently, so one work
+	// counted twice is exactly what an un-namespaced key would cause.
+	if key(byAnidb) == key(importer.Merge{AnilistID: 7777}) {
+		t.Error("an AniDB id and an AniList id of the same number share a key")
+	}
+}
+
+// A declined list that does not parse is an error. Carrying on would silently
+// re-propose everything a person had ruled out.
+func TestAMalformedDeclinedListIsAnError(t *testing.T) {
+	dir := t.TempDir()
+	path := filepath.Join(dir, declinedFile)
+	if err := os.WriteFile(path, []byte("declined: [this is: not: valid"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := declinedMerges(path); err == nil {
+		t.Error("want an error: a declined list that does not parse declines nothing")
+	}
+}
+
+// The two id readers, over the two layers. A record states every provider id
+// its entry carries, whether or not anybody authored it, so both have to be
+// consulted before a work counts as unaccounted for.
+func TestTheAnidbReadersSeeBothLayers(t *testing.T) {
+	dir := t.TempDir()
+	data := filepath.Join(dir, "data")
+	overrides := filepath.Join(dir, "overrides", "series")
+	for _, d := range []string{data, overrides} {
+		if err := os.MkdirAll(d, 0o755); err != nil {
+			t.Fatal(err)
+		}
+	}
+	// A generated record: ids on their own lines.
+	if err := os.WriteFile(filepath.Join(data, "a.yaml"), []byte(`series:
+  id: a
+  movies:
+    - id: a-film
+      externalIds:
+        anidbId: 4242
+        anilistId: 11
+`), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	// An override: ids inline, with a note after them.
+	if err := os.WriteFile(filepath.Join(overrides, "b.yaml"), []byte(`series:
+  id: b
+  movies:
+    - id: b-film
+      externalIds: { anidbId: 5353 } # Only On AniDB (2010)
+`), 0o644); err != nil {
+		t.Fatal(err)
+	}
+
+	built, err := knownAnidbIDs(data)
+	if err != nil {
+		t.Fatalf("knownAnidbIDs: %v", err)
+	}
+	if !built[4242] {
+		t.Errorf("knownAnidbIDs missed the id a record states: %v", built)
+	}
+	if built[11] {
+		t.Error("knownAnidbIDs returned an AniList id")
+	}
+
+	authored, err := declaredAnidbIDs(filepath.Join(dir, "overrides"))
+	if err != nil {
+		t.Fatalf("declaredAnidbIDs: %v", err)
+	}
+	if !authored[5353] {
+		t.Errorf("declaredAnidbIDs missed the inline id: %v", authored)
+	}
+}
+
+// The film path and the season path pin separately, so the refusal has to come
+// back from both. A season added beside one that resolves to a record naming no
+// id would leave that one unreachable once the count changes.
+func TestASeasonIsRefusedWhenTheOneBeforeItCannotBePinned(t *testing.T) {
+	body := `series:
+  id: show
+  seasons:
+    - id: show-s1
+      number: 1
+`
+	record := `series:
+  id: show
+  seasons:
+    - id: show-s1
+      number: 1
+      releaseYear: 2021
+`
+	later := importer.Merge{Title: "Show 2", AnilistID: 301, Type: offlinedb.TypeTV, Year: 2030, Linked: true}
+	if _, why := plan(body, record, "show", later, map[string]bool{}); !strings.Contains(why, "no id the model can name") {
+		t.Errorf("why = %q, want the unpinnable refusal from the season path", why)
+	}
+}
+
+// The two knobs the command exposes. `since` lets a backlog be worked
+// newest-first, and `list` turns the counts into something somebody can act on
+// — a count tells you how much is left, not which.
+func TestMergeCanBeNarrowedByYearAndListed(t *testing.T) {
+	const fixture = `{
+  "data": [
+    {
+      "sources": ["https://anilist.co/anime/101922"],
+      "title": "Kimetsu no Yaiba",
+      "type": "TV", "episodes": 26, "status": "FINISHED",
+      "animeSeason": { "season": "SPRING", "year": 2019 }
+    },
+    {
+      "sources": ["https://anilist.co/anime/900070"],
+      "title": "Kimetsu no Yaiba: An Old Film",
+      "type": "MOVIE", "episodes": 1, "status": "FINISHED",
+      "animeSeason": { "season": "SPRING", "year": 2005 },
+      "relatedAnime": ["https://anilist.co/anime/101922"]
+    }
+  ]
+}`
+	a, dir, out := mergeRepo(t)
+	if err := os.WriteFile(filepath.Join(dir, ".sources", "anime-offline-database.json"), []byte(fixture), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := a.MergeWith(true, 2020, true); err != nil {
+		t.Fatalf("merge: %v", err)
+	}
+	got := out()
+	if !strings.Contains(got, "released before 2020") {
+		t.Errorf("the year filter was not reported: %q", got)
+	}
+	// Listed with the year, the kind and the reason, so the list can be sorted
+	// and worked through.
+	if !strings.Contains(got, "LEFT\t2005\tMOVIE\tKimetsu no Yaiba: An Old Film") {
+		t.Errorf("the candidate was not listed: %q", got)
+	}
+}
+
+// A work upstream dates to nothing cannot be placed in a run, and a record
+// that states no years gives nothing to place it against. Both are reachable
+// through plan even though a candidate normally carries a year.
+func TestASeasonCannotBePlacedWithoutYears(t *testing.T) {
+	undated := importer.Merge{Title: "Show ?", AnilistID: 302, Type: offlinedb.TypeTV, Linked: true}
+	if _, why := plan(seriesWithComment, recordWithComment, "show", undated, map[string]bool{}); !strings.Contains(why, "no release year") {
+		t.Errorf("why = %q, want the undated refusal", why)
+	}
+
+	// Both of them: the record states a year on its season and on its film,
+	// and the check reads the whole record.
+	yearless := strings.ReplaceAll(recordWithComment, "      releaseYear: 2021\n", "")
+	later := importer.Merge{Title: "Show 2", AnilistID: 303, Type: offlinedb.TypeTV, Year: 2030, Linked: true}
+	if _, why := plan(seriesWithComment, yearless, "show", later, map[string]bool{}); !strings.Contains(why, "no release years") {
+		t.Errorf("why = %q, want the yearless-record refusal", why)
 	}
 }

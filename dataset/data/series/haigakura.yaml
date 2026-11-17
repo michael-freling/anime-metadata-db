@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Haigakura
   ordering: absolute
+  externalIds:
+    wikidataId: Q10957553
   seasons:
     - id: haigakura-s1
       number: 1

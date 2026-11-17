@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Chimimo
   ordering: absolute
+  externalIds:
+    wikidataId: Q112972851
   seasons:
     - id: chimimo-s1
       number: 1

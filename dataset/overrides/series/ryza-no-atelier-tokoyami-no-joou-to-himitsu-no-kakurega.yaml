@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ryza-no-atelier-tokoyami-no-joou-to-himitsu-no-kakurega
+  titles:
+    original: ライザのアトリエ 〜 常闇の女王と秘密の隠れ家 〜
+    translations: { ja-Latn: "Ryza no Atelier: Tokoyami no Joou to Himitsu no Kakurega" }
+  seasons:
+    - id: ryza-no-atelier-tokoyami-no-joou-to-himitsu-no-kakurega-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ryza-no-atelier-tokoyami-no-joou-to-himitsu-no-kakurega]

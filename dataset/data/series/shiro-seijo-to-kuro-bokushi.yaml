@@ -4,8 +4,11 @@ series:
   titles:
     original: 白聖女と黒牧師
     translations:
+      en: Saint Cecilia and Pastor Lawrence
       ja-Latn: Shiro Seijo to Kuro Bokushi
   ordering: absolute
+  externalIds:
+    wikidataId: Q84977934
   seasons:
     - id: shiro-seijo-to-kuro-bokushi-s1
       number: 1

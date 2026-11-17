@@ -4,8 +4,11 @@ series:
   titles:
     original: この世界は不完全すぎる
     translations:
+      en: Quality Assurance in Another World
       ja-Latn: Kono Sekai wa Fukanzen Sugiru
   ordering: absolute
+  externalIds:
+    wikidataId: Q113213531
   seasons:
     - id: kono-sekai-wa-fukanzen-sugiru-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 異世界おじさん
     translations:
+      en: Uncle From Another World
       ja-Latn: Isekai Ojisan
   ordering: absolute
+  externalIds:
+    wikidataId: Q65274182
   seasons:
     - id: isekai-ojisan-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 咲う アルスノトリア すんっ!
     translations:
+      en: Smile of the Arsnotoria the Animation
       ja-Latn: Warau Arsnotoria Sun!
   ordering: absolute
+  externalIds:
+    wikidataId: Q136750100
   seasons:
     - id: warau-arsnotoria-sun-s1
       number: 1

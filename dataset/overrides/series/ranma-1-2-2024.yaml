@@ -18,5 +18,9 @@ series:
   movies:
     - id: ranma-1-2-2024-film
       externalIds: { anilistId: 792 } # Ranma ½: Kessen Tougenkyou! Hanayome wo Torimodose! (1992)
+    - id: ranma-1-2-2024-film-2
+      externalIds: { anilistId: 418 } # Ranma ½: Chuugoku Nekonron Daikessen! Okite Yaburi no Gekitou-… (1991)
+    - id: ranma-1-2-2024-film-3
+      externalIds: { anilistId: 1010 } # Ranma ½: Chou Musabetsu Kessen! Ranma Team vs. Densetsu no Hou… (1994)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [ranma-1-2-2024]

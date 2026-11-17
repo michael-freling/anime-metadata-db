@@ -4,8 +4,11 @@ series:
   titles:
     original: ささやくように恋を唄う
     translations:
+      en: Whisper Me a Love Song
       ja-Latn: Sasayaku You ni Koi wo Utau
   ordering: absolute
+  externalIds:
+    wikidataId: Q85868900
   seasons:
     - id: sasayaku-you-ni-koi-wo-utau-s1
       number: 1

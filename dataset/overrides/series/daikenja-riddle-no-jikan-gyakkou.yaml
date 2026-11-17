@@ -1,0 +1,13 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: daikenja-riddle-no-jikan-gyakkou
+  titles:
+    original: 大賢者リドルの時間逆行
+    translations: { ja-Latn: Daikenja Riddle no Jikan Gyakkou }
+  seasons:
+    - id: daikenja-riddle-no-jikan-gyakkou-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [daikenja-riddle-no-jikan-gyakkou]

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Back Arrow
   ordering: absolute
+  externalIds:
+    wikidataId: Q88516883
   seasons:
     - id: back-arrow-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 弱キャラ友崎くん
     translations:
+      en: Bottom-tier Character Tomozaki
       ja-Latn: Jaku-Chara Tomozaki-kun
   ordering: absolute
+  externalIds:
+    wikidataId: Q48938269
   seasons:
     - id: jaku-chara-tomozaki-kun-s1
       number: 1

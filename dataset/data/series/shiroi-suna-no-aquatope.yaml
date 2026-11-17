@@ -4,8 +4,11 @@ series:
   titles:
     original: 白い砂のアクアトープ
     translations:
+      en: The Aquatope on White Sand
       ja-Latn: Shiroi Suna no Aquatope
   ordering: absolute
+  externalIds:
+    wikidataId: Q104843562
   seasons:
     - id: shiroi-suna-no-aquatope-s1
       number: 1

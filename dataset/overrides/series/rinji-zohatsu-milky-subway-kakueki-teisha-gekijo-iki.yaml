@@ -1,0 +1,12 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: rinji-zohatsu-milky-subway-kakueki-teisha-gekijo-iki
+  titles:
+    original: 臨時増発 ミルキー☆サブウェイ 各駅停車劇場行き
+    translations: { ja-Latn: Rinji Zōhatsu Milky☆Subway Kakueki Teisha Gekijō Iki }
+  movies:
+    - id: rinji-zohatsu-milky-subway-kakueki-teisha-gekijo-iki-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [rinji-zohatsu-milky-subway-kakueki-teisha-gekijo-iki]

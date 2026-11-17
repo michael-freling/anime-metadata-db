@@ -6,7 +6,7 @@ series:
     translations:
       en: Manga Nippon Mukashibanashi
       ja-Latn: Manga Nippon Mukashibanashi (2005)
-  ordering: absolute
+  ordering: release
   externalIds:
     wikidataId: Q9164362
   seasons:
@@ -19,7 +19,6 @@ series:
         anidbId: 3587
       episodes:
         count: 12
-        absoluteFrom: 1
     - id: manga-nippon-mukashibanashi-2005-s2
       number: 2
       releaseYear: 1976
@@ -29,7 +28,14 @@ series:
         anidbId: 3588
       episodes:
         count: 1471
-        absoluteFrom: 13
+    - id: manga-nippon-mukashibanashi-2005-s3
+      number: 3
+      releaseYear: 2005
+      releaseSeason: FALL
+      externalIds:
+        anidbId: 3590
+      episodes:
+        count: 37
   movies:
     - id: manga-nippon-mukashibanashi-2005-film
       titles:
@@ -41,4 +47,3 @@ series:
       externalIds:
         anilistId: 10285
         anidbId: 3589
-      absoluteNumber: 1484

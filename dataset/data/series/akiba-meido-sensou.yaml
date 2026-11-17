@@ -4,8 +4,11 @@ series:
   titles:
     original: アキバ冥途戦争
     translations:
+      en: Akiba Maid War
       ja-Latn: Akiba Meido Sensou
   ordering: absolute
+  externalIds:
+    wikidataId: Q112685445
   seasons:
     - id: akiba-meido-sensou-s1
       number: 1

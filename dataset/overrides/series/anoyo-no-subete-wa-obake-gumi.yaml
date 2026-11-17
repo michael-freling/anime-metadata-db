@@ -1,0 +1,13 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: anoyo-no-subete-wa-obake-gumi
+  titles:
+    original: "あの世のすべては, おばけぐみっ!"
+    translations: { ja-Latn: "Anoyo no Subete wa, Obake-gumi!" }
+  seasons:
+    - id: anoyo-no-subete-wa-obake-gumi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [anoyo-no-subete-wa-obake-gumi]

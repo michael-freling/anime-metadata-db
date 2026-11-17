@@ -9,9 +9,19 @@ series:
   seasons:
     - id: manga-nippon-mukashibanashi-2005-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 10282 }
     - id: manga-nippon-mukashibanashi-2005-s2
       number: 2
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 6277 }
+    - id: manga-nippon-mukashibanashi-2005-s3
+      number: 3
+      externalIds: { anidbId: 3590 } # Manga Nippon Mukashibanashi (2005) (2005)
   movies:
     - id: manga-nippon-mukashibanashi-2005-film
-# One linear storyline: episodes carry a continuous absoluteNumber.
-numbered: [manga-nippon-mukashibanashi-2005]
+# No continuous absoluteNumber. The installments above are separate
+# adaptations of one work (1975, 1976, 2005), not one run, so numbering them
+# end to end would assert a continuity that does not exist.

@@ -4,8 +4,11 @@ series:
   titles:
     original: はめつのおうこく
     translations:
+      en: The Kingdoms of Ruin
       ja-Latn: Hametsu no Oukoku
   ordering: absolute
+  externalIds:
+    wikidataId: Q86727075
   seasons:
     - id: hametsu-no-oukoku-s1
       number: 1

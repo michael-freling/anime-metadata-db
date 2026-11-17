@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Dance Dance Danseur
   ordering: absolute
+  externalIds:
+    wikidataId: Q106462991
   seasons:
     - id: dance-dance-danseur-s1
       number: 1

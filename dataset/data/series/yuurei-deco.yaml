@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Yuurei Deco
   ordering: absolute
+  externalIds:
+    wikidataId: Q111231823
   seasons:
     - id: yuurei-deco-s1
       number: 1

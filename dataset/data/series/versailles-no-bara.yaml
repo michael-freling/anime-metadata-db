@@ -20,4 +20,16 @@ series:
       externalIds:
         anilistId: 154392
         anidbId: 17609
+      absoluteNumber: 2
+    - id: versailles-no-bara-film-2
+      titles:
+        original: ベルサイユのばら 生命あるかぎり愛して
+        translations:
+          ja: ベルサイユのばら 生命あるかぎり愛して
+          ja-Latn: 'Versailles no Bara: Seimei Aru Kagiri Aishite'
+      releaseYear: 1990
+      externalIds:
+        anilistId: 3868
+        anidbId: 3542
+        tvdbId: 80504
       absoluteNumber: 1

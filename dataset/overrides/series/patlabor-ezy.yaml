@@ -1,0 +1,12 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: patlabor-ezy
+  titles:
+    original: 機動警察パトレイバー EZY
+    translations: { ja-Latn: Patlabor EZY }
+  movies:
+    - id: patlabor-ezy-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [patlabor-ezy]

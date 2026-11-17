@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tropical-rouge-precure-petit-tobikome-collaboration-dance-party
+  titles:
+    original: 映画トロピカル~ジュ! プリキュア プチ とびこめ! コラボ♡ダンスパーティ!
+    translations: { ja-Latn: Tropical-Rouge! Precure Petit Tobikome! Collaboration ♡ Dance Party! }
+  movies:
+    - id: tropical-rouge-precure-petit-tobikome-collaboration-dance-party-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tropical-rouge-precure-petit-tobikome-collaboration-dance-party]

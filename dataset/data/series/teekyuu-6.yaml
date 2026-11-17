@@ -10,19 +10,9 @@ series:
     - id: teekyuu-6-s1
       number: 1
       releaseYear: 2015
-      releaseSeason: SPRING
-      externalIds:
-        anidbId: 10820
-        tvdbId: 262856
-      episodes:
-        count: 48
-        absoluteFrom: 1
-    - id: teekyuu-6-s2
-      number: 2
-      releaseYear: 2015
       releaseSeason: FALL
       externalIds:
         anilistId: 21301
       episodes:
         count: 12
-        absoluteFrom: 49
+        absoluteFrom: 1

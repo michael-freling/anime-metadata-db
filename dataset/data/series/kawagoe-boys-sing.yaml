@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kawagoe Boys Sing
   ordering: absolute
+  externalIds:
+    wikidataId: Q121002567
   seasons:
     - id: kawagoe-boys-sing-s1
       number: 1

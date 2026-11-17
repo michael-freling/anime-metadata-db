@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Peach Boy Riverside
   ordering: absolute
+  externalIds:
+    wikidataId: Q11331777
   seasons:
     - id: peach-boy-riverside-s1
       number: 1

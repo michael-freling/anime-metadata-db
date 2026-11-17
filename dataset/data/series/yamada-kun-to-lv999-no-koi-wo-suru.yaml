@@ -4,8 +4,11 @@ series:
   titles:
     original: 山田くんとLv999の恋をする
     translations:
+      en: My Love Story with Yamada-kun at Lv999
       ja-Latn: Yamada-kun to Lv999 no Koi wo Suru
   ordering: absolute
+  externalIds:
+    wikidataId: Q109512122
   seasons:
     - id: yamada-kun-to-lv999-no-koi-wo-suru-s1
       number: 1

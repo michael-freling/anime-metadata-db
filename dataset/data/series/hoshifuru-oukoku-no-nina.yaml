@@ -4,8 +4,11 @@ series:
   titles:
     original: 星降る王国のニナ
     translations:
+      en: Nina the Starry Bride
       ja-Latn: Hoshifuru Oukoku no Nina
   ordering: absolute
+  externalIds:
+    wikidataId: Q110936716
   seasons:
     - id: hoshifuru-oukoku-no-nina-s1
       number: 1

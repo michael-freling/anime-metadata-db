@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Egumi Legacy
   ordering: absolute
+  externalIds:
+    wikidataId: Q127604306
   seasons:
     - id: egumi-legacy-s1
       number: 1

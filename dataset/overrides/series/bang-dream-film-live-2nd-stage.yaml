@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bang-dream-film-live-2nd-stage
+  titles:
+    original: BanG Dream! Film Live 2nd Stage
+    translations: { ja-Latn: BanG Dream! Film Live 2nd Stage }
+  movies:
+    - id: bang-dream-film-live-2nd-stage-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bang-dream-film-live-2nd-stage]

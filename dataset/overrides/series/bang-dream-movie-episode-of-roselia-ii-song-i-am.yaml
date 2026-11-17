@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bang-dream-movie-episode-of-roselia-ii-song-i-am
+  titles:
+    original: "BanG Dream! Movie: Episode of Roselia - II: Song I Am."
+    translations: { ja-Latn: "BanG Dream! Movie: Episode of Roselia - II: Song I Am." }
+  movies:
+    - id: bang-dream-movie-episode-of-roselia-ii-song-i-am-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bang-dream-movie-episode-of-roselia-ii-song-i-am]

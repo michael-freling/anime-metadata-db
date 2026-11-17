@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: renmei-kuugun-koukuu-mahou-ongakutai-luminous-witches
+  titles:
+    original: 連盟空軍航空魔法音楽隊 ルミナスウィッチーズ
+    translations: { ja-Latn: Renmei Kuugun Koukuu Mahou Ongakutai Luminous Witches }
+  seasons:
+    - id: renmei-kuugun-koukuu-mahou-ongakutai-luminous-witches-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [renmei-kuugun-koukuu-mahou-ongakutai-luminous-witches]

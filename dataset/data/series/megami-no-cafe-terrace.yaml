@@ -4,8 +4,11 @@ series:
   titles:
     original: 女神のカフェテラス
     translations:
+      en: The Café Terrace and Its Goddesses
       ja-Latn: Megami no Café Terrace
   ordering: absolute
+  externalIds:
+    wikidataId: Q106093781
   seasons:
     - id: megami-no-cafe-terrace-s1
       number: 1

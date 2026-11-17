@@ -15,5 +15,6 @@ series:
     - id: bartender-s2
       number: 2
       externalIds: { anilistId: 155890 } # Bartender: Kami no Glass (2024)
-# One linear storyline: episodes carry a continuous absoluteNumber.
-numbered: [bartender]
+# No continuous absoluteNumber. The installments above are separate
+# adaptations of one work (2006, 2024), not one run, so numbering them
+# end to end would assert a continuity that does not exist.

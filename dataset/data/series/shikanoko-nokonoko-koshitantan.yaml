@@ -4,8 +4,11 @@ series:
   titles:
     original: しかのこのこのここしたんたん
     translations:
+      en: My Deer Friend Nokotan
       ja-Latn: Shikanoko Nokonoko Koshitantan
   ordering: absolute
+  externalIds:
+    wikidataId: Q124811464
   seasons:
     - id: shikanoko-nokonoko-koshitantan-s1
       number: 1

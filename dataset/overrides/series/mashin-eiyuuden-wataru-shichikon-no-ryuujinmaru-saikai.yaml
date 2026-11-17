@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: mashin-eiyuuden-wataru-shichikon-no-ryuujinmaru-saikai
+  titles:
+    original: 魔神英雄伝ワタル 七魂の龍神丸 -再会-
+    translations: { ja-Latn: "Mashin Eiyuuden Wataru: Shichikon no Ryuujinmaru - Saikai" }
+  movies:
+    - id: mashin-eiyuuden-wataru-shichikon-no-ryuujinmaru-saikai-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [mashin-eiyuuden-wataru-shichikon-no-ryuujinmaru-saikai]

@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bishoujo-senshi-sailor-moon-eternal-movie-1
+  titles:
+    original: 「美少女戦士セーラームーン Crystal」第 4 期＜デッド・ムーン編＞
+    translations: { ja-Latn: Bishoujo Senshi Sailor Moon Eternal Movie 1 }
+  movies:
+    - id: bishoujo-senshi-sailor-moon-eternal-movie-1-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bishoujo-senshi-sailor-moon-eternal-movie-1]

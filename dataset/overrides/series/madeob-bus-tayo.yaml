@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: madeob-bus-tayo
+  titles:
+    original: Madeob Bus Tayo
+    translations: { ja-Latn: Madeob Bus Tayo }
+  seasons:
+    - id: madeob-bus-tayo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [madeob-bus-tayo]

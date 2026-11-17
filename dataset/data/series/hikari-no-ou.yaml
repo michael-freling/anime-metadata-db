@@ -4,8 +4,11 @@ series:
   titles:
     original: 火狩りの王
     translations:
+      en: The Fire Hunter
       ja-Latn: Hikari no Ou
   ordering: absolute
+  externalIds:
+    wikidataId: Q101231316
   seasons:
     - id: hikari-no-ou-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 吸血鬼すぐ死ぬ
     translations:
+      en: The Vampire Dies in No Time
       ja-Latn: Kyuuketsuki Sugu Shinu
   ordering: absolute
+  externalIds:
+    wikidataId: Q24866387
   seasons:
     - id: kyuuketsuki-sugu-shinu-s1
       number: 1

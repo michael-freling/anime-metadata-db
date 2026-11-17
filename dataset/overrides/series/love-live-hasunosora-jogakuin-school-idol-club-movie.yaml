@@ -1,0 +1,12 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: love-live-hasunosora-jogakuin-school-idol-club-movie
+  titles:
+    original: ラブライブ！蓮ノ空女学院スクールアイドルクラブ Bloom Garden Party
+    translations: { ja-Latn: Love Live! Hasunosora Jogakuin School Idol Club Movie }
+  movies:
+    - id: love-live-hasunosora-jogakuin-school-idol-club-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [love-live-hasunosora-jogakuin-school-idol-club-movie]

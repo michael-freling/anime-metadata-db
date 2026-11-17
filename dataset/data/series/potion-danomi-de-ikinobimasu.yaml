@@ -4,8 +4,11 @@ series:
   titles:
     original: ポーション頼みで生き延びます!
     translations:
+      en: I Shall Survive Using Potions!
       ja-Latn: Potion-danomi de Ikinobimasu!
   ordering: absolute
+  externalIds:
+    wikidataId: Q113549411
   seasons:
     - id: potion-danomi-de-ikinobimasu-s1
       number: 1

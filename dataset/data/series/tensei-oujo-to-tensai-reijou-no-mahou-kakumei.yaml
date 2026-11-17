@@ -4,8 +4,11 @@ series:
   titles:
     original: 転生王女と天才令嬢の魔法革命
     translations:
+      en: The Magical Revolution of the Reincarnated Princess and the Genius Young Lady
       ja-Latn: Tensei Oujo to Tensai Reijou no Mahou Kakumei
   ordering: absolute
+  externalIds:
+    wikidataId: Q109258665
   seasons:
     - id: tensei-oujo-to-tensai-reijou-no-mahou-kakumei-s1
       number: 1

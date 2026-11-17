@@ -29,3 +29,14 @@ series:
       episodes:
         count: 12
         absoluteFrom: 13
+    - id: show-by-rock-s3
+      number: 3
+      releaseYear: 2021
+      releaseSeason: WINTER
+      externalIds:
+        anilistId: 113476
+        anidbId: 15467
+        tvdbId: 389227
+      episodes:
+        count: 12
+        absoluteFrom: 25

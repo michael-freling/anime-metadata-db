@@ -4,8 +4,11 @@ series:
   titles:
     original: 月とライカと吸血姫
     translations:
+      en: 'Irina: The Vampire Cosmonaut'
       ja-Latn: Tsuki to Laika to Nosferatu
   ordering: absolute
+  externalIds:
+    wikidataId: Q55522655
   seasons:
     - id: tsuki-to-laika-to-nosferatu-s1
       number: 1

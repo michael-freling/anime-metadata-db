@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: eiga-precure-miracle-leap-minna-to-fushigi-na-1-nichi
+  titles:
+    original: 映画プリキュアミラクルリープ みんなとの不思議な1日
+    translations: { ja-Latn: "Eiga Precure Miracle Leap: Minna to Fushigi na 1-nichi" }
+  movies:
+    - id: eiga-precure-miracle-leap-minna-to-fushigi-na-1-nichi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [eiga-precure-miracle-leap-minna-to-fushigi-na-1-nichi]

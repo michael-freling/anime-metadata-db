@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: 'Adam by Eve: A Live in Animation'
   ordering: absolute
+  externalIds:
+    wikidataId: Q111253585
   movies:
     - id: adam-by-eve-a-live-in-animation-film
       titles:

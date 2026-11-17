@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Sabikui Bisco
   ordering: absolute
+  externalIds:
+    wikidataId: Q59673294
   seasons:
     - id: sabikui-bisco-s1
       number: 1

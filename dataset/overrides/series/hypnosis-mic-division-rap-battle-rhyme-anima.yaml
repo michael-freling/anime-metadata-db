@@ -1,0 +1,19 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: hypnosis-mic-division-rap-battle-rhyme-anima
+  titles:
+    original: 『ヒプノシスマイク -Division Rap Battle-』Rhyme Anima
+    translations: { ja-Latn: "Hypnosis Mic: Division Rap Battle - Rhyme Anima" }
+  seasons:
+    - id: hypnosis-mic-division-rap-battle-rhyme-anima-s1
+      number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 113652 }
+    - id: hypnosis-mic-division-rap-battle-rhyme-anima-s2
+      number: 2
+      externalIds: { anilistId: 163140 } # Hypnosis Mic: Division Rap Battle - Rhyme Anima + (2023)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [hypnosis-mic-division-rap-battle-rhyme-anima]

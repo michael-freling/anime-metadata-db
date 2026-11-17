@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Platinum End
   ordering: absolute
+  externalIds:
+    wikidataId: Q21775854
   seasons:
     - id: platinum-end-s1
       number: 1

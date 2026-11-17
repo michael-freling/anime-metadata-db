@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gekij-ban-otoppe-papa-don-t-cry
+  titles:
+    original: 劇場版オトッペ パパ ・ドント・クライ
+    translations: { ja-Latn: Gekijо̄ban Otoppe Papa Don't Cry }
+  movies:
+    - id: gekij-ban-otoppe-papa-don-t-cry-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gekij-ban-otoppe-papa-don-t-cry]

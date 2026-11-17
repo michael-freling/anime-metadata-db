@@ -1,0 +1,13 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: android-wa-keiken-ninzuu-ni-hairimasu-ka
+  titles:
+    original: "アンドロイドは経験人数に入りますか??"
+    translations: { ja-Latn: "Android wa Keiken Ninzuu ni Hairimasu ka??" }
+  seasons:
+    - id: android-wa-keiken-ninzuu-ni-hairimasu-ka-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [android-wa-keiken-ninzuu-ni-hairimasu-ka]

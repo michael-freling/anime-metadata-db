@@ -1,0 +1,26 @@
+# Authored override. The catalogue carried only given-movie-2-hiiragi-mix — a series named
+# after one of its own installments, because the import seeds on whichever
+# work it reaches first and that series' title accounts for nothing else.
+# The rest were held as merges nobody could make. Authored here as the one
+# series it is, under the name upstream gives the work.
+series:
+  id: given
+  titles:
+    original: ギヴン
+    translations: { ja-Latn: "Given" }
+  seasons:
+    - id: given-s1
+      number: 1
+      externalIds: { anilistId: 108430 } # Given (2019)
+  movies:
+    - id: given-film
+      # Authored: upstream also lists a Chinese synonym, which the title inference picked.
+      titles: { original: 映画 ギヴン }
+      externalIds: { anilistId: 111734 } # Given Movie 1 (2020)
+    - id: given-film-2
+      # Authored: upstream's other form is "(続編)", a disambiguator rather than a name.
+      titles: { original: ギヴン 柊mix }
+      externalIds: { anilistId: 162987 } # Given Movie 2: Hiiragi Mix (2024)
+    - id: given-film-3
+      titles: { original: ギヴン 海へ }
+      externalIds: { anilistId: 175199 } # Given Movie 3: Umi e (2024)

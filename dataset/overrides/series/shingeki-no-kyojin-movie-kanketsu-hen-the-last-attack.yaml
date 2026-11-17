@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shingeki-no-kyojin-movie-kanketsu-hen-the-last-attack
+  titles:
+    original: 劇場版「進撃の巨人」完結編 THE LAST ATTACK 特報
+    translations: { ja-Latn: "Shingeki no Kyojin Movie: Kanketsu-hen - The Last Attack" }
+  movies:
+    - id: shingeki-no-kyojin-movie-kanketsu-hen-the-last-attack-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shingeki-no-kyojin-movie-kanketsu-hen-the-last-attack]

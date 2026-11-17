@@ -1,0 +1,12 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: animejapan-awards-2026
+  titles:
+    original: AnimeJapan 新人クリエイター大賞 2026
+    translations: { ja-Latn: AnimeJapan Awards 2026 }
+  movies:
+    - id: animejapan-awards-2026-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [animejapan-awards-2026]

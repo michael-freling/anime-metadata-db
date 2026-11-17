@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: natsume-yuujinchou-ishi-okoshi-to-ayashiki-raihousha
+  titles:
+    original: 夏目友人帳 石起こしと怪しき来訪者
+    translations: { ja-Latn: "Natsume Yuujinchou: Ishi Okoshi to Ayashiki Raihousha" }
+  movies:
+    - id: natsume-yuujinchou-ishi-okoshi-to-ayashiki-raihousha-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [natsume-yuujinchou-ishi-okoshi-to-ayashiki-raihousha]

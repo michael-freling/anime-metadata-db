@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: haikyuu-movie-gomisuteba-no-kessen
+  titles:
+    original: ハイキュー!! 劇場版 ゴミ捨て場の決戦
+    translations: { ja-Latn: "Haikyuu!! Movie: Gomisuteba no Kessen" }
+  movies:
+    - id: haikyuu-movie-gomisuteba-no-kessen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [haikyuu-movie-gomisuteba-no-kessen]

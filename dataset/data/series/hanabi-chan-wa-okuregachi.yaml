@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hanabi-chan wa Okuregachi
   ordering: absolute
+  externalIds:
+    wikidataId: Q108040822
   seasons:
     - id: hanabi-chan-wa-okuregachi-s1
       number: 1

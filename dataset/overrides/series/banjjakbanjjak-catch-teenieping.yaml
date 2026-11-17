@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: banjjakbanjjak-catch-teenieping
+  titles:
+    original: Banjjakbanjjak Catch! Teenieping
+    translations: { ja-Latn: Banjjakbanjjak Catch! Teenieping }
+  seasons:
+    - id: banjjakbanjjak-catch-teenieping-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [banjjakbanjjak-catch-teenieping]

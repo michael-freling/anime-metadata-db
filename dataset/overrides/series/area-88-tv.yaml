@@ -9,5 +9,8 @@ series:
   seasons:
     - id: area-88-tv-s1
       number: 1
+  movies:
+    - id: area-88-tv-film
+      externalIds: { anilistId: 98129 } # Area 88 Movie (1985)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [area-88-tv]

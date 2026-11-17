@@ -29,3 +29,14 @@ series:
       episodes:
         count: 13
         absoluteFrom: 14
+    - id: shin-tennis-no-oujisama-s3
+      number: 3
+      releaseYear: 2024
+      releaseSeason: FALL
+      externalIds:
+        anilistId: 165810
+        anidbId: 18054
+        tvdbId: 254899
+      episodes:
+        count: 13
+        absoluteFrom: 27

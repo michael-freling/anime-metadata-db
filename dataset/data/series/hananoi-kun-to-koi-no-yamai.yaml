@@ -4,8 +4,11 @@ series:
   titles:
     original: 花野井くんと恋の病
     translations:
+      en: A Condition Called Love
       ja-Latn: Hananoi-kun to Koi no Yamai
   ordering: absolute
+  externalIds:
+    wikidataId: Q102244022
   seasons:
     - id: hananoi-kun-to-koi-no-yamai-s1
       number: 1

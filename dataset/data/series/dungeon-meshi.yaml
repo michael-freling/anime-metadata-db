@@ -4,8 +4,11 @@ series:
   titles:
     original: ダンジョン飯
     translations:
+      en: Delicious in Dungeon
       ja-Latn: Dungeon Meshi
   ordering: absolute
+  externalIds:
+    wikidataId: Q20016948
   seasons:
     - id: dungeon-meshi-s1
       number: 1

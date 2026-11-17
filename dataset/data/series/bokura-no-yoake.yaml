@@ -4,8 +4,11 @@ series:
   titles:
     original: ぼくらのよあけ
     translations:
+      en: Break of Dawn
       ja-Latn: Bokura no Yoake
   ordering: absolute
+  externalIds:
+    wikidataId: Q111420659
   movies:
     - id: bokura-no-yoake-film
       titles:

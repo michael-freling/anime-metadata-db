@@ -12,8 +12,13 @@ series:
       # Pinned when a later installment was attached: the build matches a
       # kind by candidate count, and an added slot changes it.
       externalIds: { anilistId: 20800 }
+    - id: yuuki-yuuna-wa-yuusha-de-aru-s3
+      number: 3
+      externalIds: { anilistId: 122292 } # Yuuki Yuuna wa Yuusha de Aru: Dai Mankai no Shou (2021)
   movies:
     - id: yuuki-yuuna-wa-yuusha-de-aru-film
       externalIds: { anilistId: 97860 } # Yuuki Yuuna wa Yuusha de Aru: Washio Sumi no Shou 3 - Yakusoku (2017)
+    - id: yuuki-yuuna-wa-yuusha-de-aru-film-2
+      externalIds: { anidbId: 12501 } # Yuuki Yuuna wa Yuusha de Aru: Washio Sumi no Shou (2017)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [yuuki-yuuna-wa-yuusha-de-aru]

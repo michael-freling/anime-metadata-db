@@ -1,0 +1,19 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kage-no-jitsuryokusha-ni-naritakute
+  titles:
+    original: 陰の実力者になりたくて!
+    translations: { ja-Latn: Kage no Jitsuryokusha ni Naritakute! }
+  seasons:
+    - id: kage-no-jitsuryokusha-ni-naritakute-s1
+      number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 130298 }
+    - id: kage-no-jitsuryokusha-ni-naritakute-s2
+      number: 2
+      externalIds: { anilistId: 161964 } # Kage no Jitsuryokusha ni Naritakute! 2nd Season (2023)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kage-no-jitsuryokusha-ni-naritakute]

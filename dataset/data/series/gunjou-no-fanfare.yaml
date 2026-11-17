@@ -4,8 +4,11 @@ series:
   titles:
     original: 群青のファンファーレ
     translations:
+      en: Fanfare of Adolescence
       ja-Latn: Gunjou no Fanfare
   ordering: absolute
+  externalIds:
+    wikidataId: Q108314623
   seasons:
     - id: gunjou-no-fanfare-s1
       number: 1

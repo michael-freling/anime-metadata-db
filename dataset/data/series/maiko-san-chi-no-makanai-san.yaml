@@ -4,8 +4,11 @@ series:
   titles:
     original: 舞妓さんちのまかないさん
     translations:
+      en: Kiyo in Kyoto
       ja-Latn: Maiko-san Chi no Makanai-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q60985335
   seasons:
     - id: maiko-san-chi-no-makanai-san-s1
       number: 1

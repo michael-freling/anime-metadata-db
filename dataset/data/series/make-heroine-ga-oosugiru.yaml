@@ -4,8 +4,11 @@ series:
   titles:
     original: 負けヒロインが多すぎる!
     translations:
+      en: Too Many Losing Heroines!
       ja-Latn: Make Heroine ga Oosugiru!
   ordering: absolute
+  externalIds:
+    wikidataId: Q111317616
   seasons:
     - id: make-heroine-ga-oosugiru-s1
       number: 1

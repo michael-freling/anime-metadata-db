@@ -1,0 +1,60 @@
+# Works `builder merge` keeps proposing that a person has decided against.
+#
+# The tool attaches a work only where upstream links it to the series, the
+# work's title is the series' title carried further, and it aired after
+# everything already there. That is enough to rule out most mistakes and not
+# enough to tell a sequel from a spin-off, a remake or another branch of a
+# franchise — nothing in the open sources distinguishes those, which is why the
+# attached seasons are meant to be read.
+#
+# Reading them is only worth doing once. Removing an attachment by hand does not
+# stick: the tool is deterministic, so the next run proposes it again. This is
+# where the decision lives instead.
+#
+# Each entry names the upstream work by its AniList id, the series it was
+# proposed for, and why it was declined. Removing an entry re-proposes it.
+declined:
+  - anilistId: 114473
+    work: "Azur Lane: Bisoku Zenshin!"
+    proposedFor: azur-lane
+    why: a chibi spin-off short, not a second season of the 2019 series
+
+  - anilistId: 119042
+    work: "Yuuki Yuuna wa Yuusha de Aru Churutto!"
+    proposedFor: yuuki-yuuna-wa-yuusha-de-aru
+    why: a chibi spin-off short. Dai Mankai no Shou, which is a real season, is attached
+
+  - anilistId: 120755
+    work: "The iDOLM@STER Million Live!"
+    proposedFor: the-idolm-ster
+    why: a separate iDOLM@STER series with its own cast, not the 2011 one continued
+
+  - anilistId: 162889
+    work: "The iDOLM@STER Shiny Colors"
+    proposedFor: the-idolm-ster
+    why: another separate branch of the franchise
+
+  - anilistId: 175533
+    work: "The iDOLM@STER Shiny Colors 2nd Season"
+    proposedFor: the-idolm-ster
+    why: the second season of that branch, so it belongs wherever Shiny Colors does
+
+  - anilistId: 117196
+    work: "Tokyo Mew Mew New"
+    proposedFor: tokyo-mew-mew
+    why: a 2022 remake of the 2002 series, not a sequel to it
+
+  - anilistId: 154876
+    work: "Tokyo Mew Mew New 2nd Season"
+    proposedFor: tokyo-mew-mew
+    why: the remake's second season, so it belongs wherever the remake does
+
+  - anilistId: 125909
+    work: "Tsukipro The Animation 2"
+    proposedFor: tsukiuta-the-animation-2
+    why: a different branch of the franchise under a different title
+
+  - anilistId: 133175
+    work: "Mahoutsukai Reimeiki"
+    proposedFor: zero-kara-hajimeru-mahou-no-sho
+    why: a different series in the same setting rather than a later installment

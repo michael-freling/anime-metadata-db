@@ -38,3 +38,46 @@ series:
         anilistId: 2407
         anidbId: 3569
         tvdbId: 75414
+    - id: keroro-film-2
+      titles:
+        original: 超剧场版 Keroro军曹2 深海的公主
+        translations:
+          ja: 超剧场版 Keroro军曹2 深海的公主
+          ja-Latn: 'Keroro Gunsou Movie 2: Shinkai no Princess de Arimasu!'
+      releaseYear: 2007
+      externalIds:
+        anilistId: 2408
+        anidbId: 4818
+        tvdbId: 75414
+    - id: keroro-film-3
+      titles:
+        original: 超剧场版 Keroro军曹3 Keroro 对 Keroro 天空大决战
+        translations:
+          ja: 超剧场版 Keroro军曹3 Keroro 对 Keroro 天空大决战
+          ja-Latn: 'Keroro Gunsou Movie 3: Tenkuu Daikessen de Arimasu!'
+      releaseYear: 2008
+      externalIds:
+        anilistId: 5290
+        anidbId: 5956
+        tvdbId: 75414
+    - id: keroro-film-4
+      titles:
+        original: 超剧场版 Keroro军曹 龙勇士的逆袭
+        translations:
+          ja: 超剧场版 Keroro军曹 龙勇士的逆袭
+          ja-Latn: 'Keroro Gunsou Movie 4: Gekishin Dragon Warriors de Arimasu!'
+      releaseYear: 2009
+      externalIds:
+        anilistId: 5710
+        anidbId: 6095
+        tvdbId: 75414
+    - id: keroro-film-5
+      titles:
+        original: ケロロ軍曹
+        translations:
+          ja: ケロロ軍曹
+          ja-Latn: 'Keroro Gunsou Movie 6: Fukkatsu shite Sokkou Chikyuu Metsubou no Kiki de Arimasu!'
+      releaseYear: 2026
+      externalIds:
+        anilistId: 176636
+        anidbId: 19432

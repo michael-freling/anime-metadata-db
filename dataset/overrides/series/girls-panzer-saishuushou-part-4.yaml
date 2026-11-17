@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: girls-panzer-saishuushou-part-4
+  titles:
+    original: 『ガールズ＆パンツァー 最終章』第4話
+    translations: { ja-Latn: "Girls & Panzer: Saishuushou Part 4" }
+  movies:
+    - id: girls-panzer-saishuushou-part-4-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [girls-panzer-saishuushou-part-4]

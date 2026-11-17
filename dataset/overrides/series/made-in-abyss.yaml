@@ -18,5 +18,9 @@ series:
   movies:
     - id: made-in-abyss-film
       externalIds: { anilistId: 101343 } # Made in Abyss Movie 1: Tabidachi no Yoake (2019)
+    - id: made-in-abyss-film-2
+      externalIds: { anilistId: 101344 } # Made in Abyss Movie 2: Hourou Suru Tasogare (2019)
+    - id: made-in-abyss-film-3
+      externalIds: { anilistId: 114744 } # Marulk-chan no Nichijou (2020)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [made-in-abyss]

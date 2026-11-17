@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Lycoris Recoil
   ordering: absolute
+  externalIds:
+    wikidataId: Q110361884
   seasons:
     - id: lycoris-recoil-s1
       number: 1

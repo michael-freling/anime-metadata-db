@@ -4,8 +4,11 @@ series:
   titles:
     original: 冒険者になりたいと都に出て行った娘がSランクになってた
     translations:
+      en: My Daughter Left the Nest and Returned an S-Rank Adventurer
       ja-Latn: Boukensha ni Naritai to Miyako ni Deteitta Musume ga S-Rank ni Natteta
   ordering: absolute
+  externalIds:
+    wikidataId: Q114977399
   seasons:
     - id: boukensha-ni-naritai-to-miyako-ni-deteitta-musume-ga-s-rank-ni-natteta-s1
       number: 1

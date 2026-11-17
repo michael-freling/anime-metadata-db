@@ -14,6 +14,14 @@ series:
   movies:
     - id: keroro-film
       externalIds: { anilistId: 2407 } # Keroro Gunsou Movie 1 (2006)
+    - id: keroro-film-2
+      externalIds: { anilistId: 2408 } # Keroro Gunsou Movie 2: Shinkai no Princess de Arimasu! (2007)
+    - id: keroro-film-3
+      externalIds: { anilistId: 5290 } # Keroro Gunsou Movie 3: Tenkuu Daikessen de Arimasu! (2008)
+    - id: keroro-film-4
+      externalIds: { anilistId: 5710 } # Keroro Gunsou Movie 4: Gekishin Dragon Warriors de Arimasu! (2009)
+    - id: keroro-film-5
+      externalIds: { anilistId: 176636 } # Keroro Gunsou Movie 6: Fukkatsu shite Sokkou Chikyuu Metsubou n… (2026)
 # No continuous absoluteNumber. The installments above are separate
 # adaptations of one work (2004, 2014), not one run, so numbering them
 # end to end would assert a continuity that does not exist.

@@ -4,8 +4,11 @@ series:
   titles:
     original: ひとりぼっちの異世界攻略
     translations:
+      en: Loner Life in Another World
       ja-Latn: Hitoribocchi no Isekai Kouryaku
   ordering: absolute
+  externalIds:
+    wikidataId: Q106955945
   seasons:
     - id: hitoribocchi-no-isekai-kouryaku-s1
       number: 1

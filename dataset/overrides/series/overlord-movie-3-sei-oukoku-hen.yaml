@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: overlord-movie-3-sei-oukoku-hen
+  titles:
+    original: 劇場版 オーバーロード 聖王国編
+    translations: { ja-Latn: "Overlord Movie 3: Sei Oukoku-hen" }
+  movies:
+    - id: overlord-movie-3-sei-oukoku-hen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [overlord-movie-3-sei-oukoku-hen]

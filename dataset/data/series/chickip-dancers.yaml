@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Chickip Dancers
   ordering: absolute
+  externalIds:
+    wikidataId: Q106394425
   seasons:
     - id: chickip-dancers-s1
       number: 1

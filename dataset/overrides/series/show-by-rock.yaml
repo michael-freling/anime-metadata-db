@@ -15,5 +15,8 @@ series:
     - id: show-by-rock-s2
       number: 2
       externalIds: { anilistId: 113470 } # Show By Rock!! Mashumairesh!! (2020)
+    - id: show-by-rock-s3
+      number: 3
+      externalIds: { anilistId: 113476 } # Show by Rock!! Stars!! (2021)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [show-by-rock]

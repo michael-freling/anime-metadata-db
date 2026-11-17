@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: qiao-hu-qihuan-wutai-lixian-ji
+  titles:
+    original: 映画しまじろう『しまじろうと ゆうきのうた』
+    translations: { ja-Latn: Qiao Hu Qihuan Wutai Lixian Ji }
+  movies:
+    - id: qiao-hu-qihuan-wutai-lixian-ji-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [qiao-hu-qihuan-wutai-lixian-ji]

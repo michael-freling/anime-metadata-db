@@ -27,3 +27,13 @@ series:
       externalIds:
         anilistId: 129759
       absoluteNumber: 2
+    - id: princess-principal-crown-handler-film-3
+      titles:
+        original: プリンセス・プリンシパル Crown Handler 第3章
+        translations:
+          ja: プリンセス・プリンシパル Crown Handler 第3章
+          ja-Latn: 'Princess Principal: Crown Handler 3'
+      releaseYear: 2023
+      externalIds:
+        anilistId: 137612
+      absoluteNumber: 3

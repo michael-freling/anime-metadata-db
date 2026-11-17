@@ -1,0 +1,12 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gekijouban-mononoke-dai-san-shou-hebigami
+  titles:
+    original: 劇場版モノノ怪 第三章 蛇神
+    translations: { ja-Latn: "Gekijouban Mononoke Dai San Shou: Hebigami" }
+  movies:
+    - id: gekijouban-mononoke-dai-san-shou-hebigami-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gekijouban-mononoke-dai-san-shou-hebigami]

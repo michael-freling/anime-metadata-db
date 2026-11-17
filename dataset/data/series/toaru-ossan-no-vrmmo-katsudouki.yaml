@@ -4,8 +4,11 @@ series:
   titles:
     original: とあるおっさんのVRMMO活動記
     translations:
+      en: A Playthrough of a Certain Dude's VRMMO Life
       ja-Latn: Toaru Ossan no VRMMO Katsudouki
   ordering: absolute
+  externalIds:
+    wikidataId: Q30944996
   seasons:
     - id: toaru-ossan-no-vrmmo-katsudouki-s1
       number: 1

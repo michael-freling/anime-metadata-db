@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tonari no Youkai-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q111938873
   seasons:
     - id: tonari-no-youkai-san-s1
       number: 1

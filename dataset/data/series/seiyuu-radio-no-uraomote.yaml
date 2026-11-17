@@ -4,8 +4,11 @@ series:
   titles:
     original: 声優ラジオのウラオモテ
     translations:
+      en: The Many Sides of Voice Actor Radio
       ja-Latn: Seiyuu Radio no Uraomote
   ordering: absolute
+  externalIds:
+    wikidataId: Q97636207
   seasons:
     - id: seiyuu-radio-no-uraomote-s1
       number: 1

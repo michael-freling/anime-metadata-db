@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: uchuu-no-hou-elohim-hen
+  titles:
+    original: 宇宙の法-エローヒム編-
+    translations: { ja-Latn: "Uchuu no Hou: Elohim-hen" }
+  movies:
+    - id: uchuu-no-hou-elohim-hen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [uchuu-no-hou-elohim-hen]

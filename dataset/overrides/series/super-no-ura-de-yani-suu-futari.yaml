@@ -1,0 +1,13 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: super-no-ura-de-yani-suu-futari
+  titles:
+    original: スーパーの裏でヤニ吸うふたり
+    translations: { ja-Latn: Super no Ura de Yani Suu Futari }
+  seasons:
+    - id: super-no-ura-de-yani-suu-futari-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [super-no-ura-de-yani-suu-futari]

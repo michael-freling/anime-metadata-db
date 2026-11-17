@@ -4,8 +4,11 @@ series:
   titles:
     original: 100日後に死ぬワニ
     translations:
+      en: 100 Nichi Go ni Shinu Wani
       ja-Latn: 100-nichikan Ikita Wani
   ordering: absolute
+  externalIds:
+    wikidataId: Q85590601
   movies:
     - id: 100-nichikan-ikita-wani-film
       titles:

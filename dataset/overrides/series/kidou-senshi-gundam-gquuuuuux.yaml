@@ -9,5 +9,8 @@ series:
   seasons:
     - id: kidou-senshi-gundam-gquuuuuux-s1
       number: 1
+  movies:
+    - id: kidou-senshi-gundam-gquuuuuux-film
+      externalIds: { anidbId: 19044 } # Kidou Senshi Gundam: GQuuuuuuX - Beginning (2025)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [kidou-senshi-gundam-gquuuuuux]

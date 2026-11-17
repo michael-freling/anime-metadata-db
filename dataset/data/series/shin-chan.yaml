@@ -30,4 +30,321 @@ series:
         anilistId: 2172
         anidbId: 4910
         tvdbId: 79654
+      absoluteNumber: 1355
+    - id: shin-chan-film-2
+      titles:
+        original: クレヨンしんちゃん 嵐を呼ぶ モーレツ!オトナ帝国の逆襲
+        translations:
+          ja: クレヨンしんちゃん 嵐を呼ぶ モーレツ!オトナ帝国の逆襲
+          ja-Latn: 'Crayon Shin-chan Movie 09: Arashi wo Yobu Mouretsu! Otona Teikoku no Gyakushuu'
+      releaseYear: 2001
+      externalIds:
+        anilistId: 2450
+        anidbId: 4622
+        tvdbId: 79654
+      absoluteNumber: 1350
+    - id: shin-chan-film-3
+      titles:
+        original: クレヨンしんちゃん 嵐を呼ぶ アッパレ! 戦国大合戦
+        translations:
+          ja: クレヨンしんちゃん 嵐を呼ぶ アッパレ! 戦国大合戦
+          ja-Latn: 'Crayon Shin-chan Movie 10: Arashi wo Yobu Appare! Sengoku Daikassen'
+      releaseYear: 2002
+      externalIds:
+        anilistId: 3744
+        anidbId: 3316
+        tvdbId: 79654
+      absoluteNumber: 1351
+    - id: shin-chan-film-4
+      titles:
+        original: クレヨンしんちゃん ブリブリ王国の秘宝
+        translations:
+          ja: クレヨンしんちゃん ブリブリ王国の秘宝
+          ja-Latn: 'Crayon Shin-chan Movie 02: Buriburi Oukoku no Hihou'
+      releaseYear: 1994
+      externalIds:
+        anilistId: 3745
+        anidbId: 4625
+        tvdbId: 79654
+      absoluteNumber: 1343
+    - id: shin-chan-film-5
+      titles:
+        original: クレヨンしんちゃん 雲黒斎の野望
+        translations:
+          ja: クレヨンしんちゃん 雲黒斎の野望
+          ja-Latn: 'Crayon Shin-chan Movie 03: Unkokusai no Yabou'
+      releaseYear: 1995
+      externalIds:
+        anilistId: 6217
+        anidbId: 4626
+        tvdbId: 79654
+      absoluteNumber: 1344
+    - id: shin-chan-film-6
+      titles:
+        original: クレヨンしんちゃん 暗黒タマタマ大追跡
+        translations:
+          ja: クレヨンしんちゃん 暗黒タマタマ大追跡
+          ja-Latn: 'Crayon Shin-chan Movie 05: Ankoku Tamatama Daitsuiseki'
+      releaseYear: 1997
+      externalIds:
+        anilistId: 6460
+        anidbId: 4704
+        tvdbId: 79654
+      absoluteNumber: 1346
+    - id: shin-chan-film-7
+      titles:
+        original: クレヨンしんちゃん アクション仮面VSハイグレ魔王
+        translations:
+          ja: クレヨンしんちゃん アクション仮面VSハイグレ魔王
+          ja-Latn: 'Crayon Shin-chan Movie 01: Action Kamen vs. Haigure Maou'
+      releaseYear: 1993
+      externalIds:
+        anilistId: 8358
+        anidbId: 4624
+        tvdbId: 79654
       absoluteNumber: 1342
+    - id: shin-chan-film-8
+      titles:
+        original: クレヨンしんちゃん ヘンダーランドの大冒険
+        translations:
+          ja: クレヨンしんちゃん ヘンダーランドの大冒険
+          ja-Latn: 'Crayon Shin-chan Movie 04: Henderland no Daibouken'
+      releaseYear: 1996
+      externalIds:
+        anilistId: 8359
+        anidbId: 4703
+        tvdbId: 79654
+      absoluteNumber: 1345
+    - id: shin-chan-film-9
+      titles:
+        original: クレヨンしんちゃん 電撃! ブタのヒヅメ大作戦
+        translations:
+          ja: クレヨンしんちゃん 電撃! ブタのヒヅメ大作戦
+          ja-Latn: 'Crayon Shin-chan Movie 06: Dengeki! Buta no Hizume Daisakusen'
+      releaseYear: 1998
+      externalIds:
+        anilistId: 8360
+        anidbId: 4705
+        tvdbId: 79654
+      absoluteNumber: 1347
+    - id: shin-chan-film-10
+      titles:
+        original: クレヨンしんちゃん 爆発! 温泉わくわく大決戦
+        translations:
+          ja: クレヨンしんちゃん 爆発! 温泉わくわく大決戦
+          ja-Latn: 'Crayon Shin-chan Movie 07: Bakuhatsu! Onsen Wakuwaku Daikessen'
+      releaseYear: 1999
+      externalIds:
+        anilistId: 8361
+        anidbId: 4706
+        tvdbId: 79654
+      absoluteNumber: 1348
+    - id: shin-chan-film-11
+      titles:
+        original: クレヨンしんちゃん 嵐を呼ぶジャングル
+        translations:
+          ja: クレヨンしんちゃん 嵐を呼ぶジャングル
+          ja-Latn: 'Crayon Shin-chan Movie 08: Arashi wo Yobu Jungle'
+      releaseYear: 2000
+      externalIds:
+        anilistId: 8362
+        anidbId: 4707
+        tvdbId: 79654
+      absoluteNumber: 1349
+    - id: shin-chan-film-12
+      titles:
+        original: クレヨンしんちゃん 嵐を呼ぶ 栄光のヤキニクロード
+        translations:
+          ja: クレヨンしんちゃん 嵐を呼ぶ 栄光のヤキニクロード
+          ja-Latn: 'Crayon Shin-chan Movie 11: Arashi wo Yobu Eikou no Yakiniku Road'
+      releaseYear: 2003
+      externalIds:
+        anilistId: 8363
+        anidbId: 872
+        tvdbId: 79654
+      absoluteNumber: 1352
+    - id: shin-chan-film-13
+      titles:
+        original: クレヨンしんちゃん 嵐を呼ぶ 夕陽のカスカベボーイズ
+        translations:
+          ja: クレヨンしんちゃん 嵐を呼ぶ 夕陽のカスカベボーイズ
+          ja-Latn: 'Crayon Shin-chan Movie 12: Arashi wo Yobu! Yuuhi no Kasukabe Boys'
+      releaseYear: 2004
+      externalIds:
+        anilistId: 8364
+        anidbId: 3106
+        tvdbId: 79654
+      absoluteNumber: 1353
+    - id: shin-chan-film-14
+      titles:
+        original: クレヨンしんちゃん 伝説を呼ぶ 踊れ！アミーゴ！
+        translations:
+          ja: クレヨンしんちゃん 伝説を呼ぶ 踊れ！アミーゴ！
+          ja-Latn: 'Crayon Shin-chan Movie 14: Densetsu wo Yobu Odore! Amigo!'
+      releaseYear: 2006
+      externalIds:
+        anilistId: 8366
+        anidbId: 4627
+        tvdbId: 79654
+      absoluteNumber: 1354
+    - id: shin-chan-film-15
+      titles:
+        original: クレヨンしんちゃん ちょ～嵐を呼ぶ 金矛の勇者
+        translations:
+          ja: クレヨンしんちゃん ちょ～嵐を呼ぶ 金矛の勇者
+          ja-Latn: 'Crayon Shin-chan Movie 16: Chou Arashi wo Yobu Kinpoko no Yuusha'
+      releaseYear: 2008
+      externalIds:
+        anilistId: 8367
+        anidbId: 5858
+        tvdbId: 79654
+      absoluteNumber: 1356
+    - id: shin-chan-film-16
+      titles:
+        original: クレヨンしんちゃん オタケベ!カスカベ野生王国
+        translations:
+          ja: クレヨンしんちゃん オタケベ!カスカベ野生王国
+          ja-Latn: 'Crayon Shin-chan Movie 17: Otakebe! Kasukabe Yasei Oukoku'
+      releaseYear: 2009
+      externalIds:
+        anilistId: 8368
+        anidbId: 6550
+        tvdbId: 79654
+      absoluteNumber: 1357
+    - id: shin-chan-film-17
+      titles:
+        original: クレヨンしんちゃん 超時空! 嵐を呼ぶオラの花嫁
+        translations:
+          ja: クレヨンしんちゃん 超時空! 嵐を呼ぶオラの花嫁
+          ja-Latn: 'Crayon Shin-chan Movie 18: Chou Jikuu! Arashi wo Yobu Ora no Hanayome'
+      releaseYear: 2010
+      externalIds:
+        anilistId: 8369
+        anidbId: 7254
+        tvdbId: 79654
+      absoluteNumber: 1358
+    - id: shin-chan-film-18
+      titles:
+        original: 映画 クレヨンしんちゃん 嵐を呼ぶ黄金のスパイ大作戦
+        translations:
+          ja: 映画 クレヨンしんちゃん 嵐を呼ぶ黄金のスパイ大作戦
+          ja-Latn: 'Crayon Shin-chan Movie 19: Arashi wo Yobu Ougon no Spy Daisakusen'
+      releaseYear: 2011
+      externalIds:
+        anilistId: 10116
+        anidbId: 8115
+        tvdbId: 79654
+      absoluteNumber: 1359
+    - id: shin-chan-film-19
+      titles:
+        original: 映画 クレヨンしんちゃん 嵐を呼ぶ!オラと宇宙のプリンセス
+        translations:
+          ja: 映画 クレヨンしんちゃん 嵐を呼ぶ!オラと宇宙のプリンセス
+          ja-Latn: 'Crayon Shin-chan Movie 20: Arashi wo Yobu! Ora to Uchuu no Princess'
+      releaseYear: 2012
+      externalIds:
+        anilistId: 12499
+        anidbId: 8780
+        tvdbId: 79654
+      absoluteNumber: 1360
+    - id: shin-chan-film-20
+      titles:
+        original: 映画クレヨンしんちゃん バカうまっ! B級グルメサバイバル!!
+        translations:
+          ja: 映画クレヨンしんちゃん バカうまっ! B級グルメサバイバル!!
+          ja-Latn: 'Crayon Shin-chan Movie 21: Bakauma! B-Kyuu Gourmet Survival Battle!!'
+      releaseYear: 2013
+      externalIds:
+        anilistId: 17113
+        anidbId: 9542
+      absoluteNumber: 1361
+    - id: shin-chan-film-21
+      titles:
+        original: 映画クレヨンしんちゃん ガチンコ! 逆襲のロボとーちゃん
+        translations:
+          ja: 映画クレヨンしんちゃん ガチンコ! 逆襲のロボとーちゃん
+          ja-Latn: 'Crayon Shin-chan Movie 22: Gachinko! Gyakushuu no Robo To-chan'
+      releaseYear: 2014
+      externalIds:
+        anilistId: 20535
+        anidbId: 10252
+      absoluteNumber: 1362
+    - id: shin-chan-film-22
+      titles:
+        original: クレヨンしんちゃん オラの引越し物語～サボテン大襲撃～
+        translations:
+          ja: クレヨンしんちゃん オラの引越し物語～サボテン大襲撃～
+          ja-Latn: 'Crayon Shin-chan Movie 23: Ora no Hikkoshi Monogatari - Saboten Daishuugeki'
+      releaseYear: 2015
+      externalIds:
+        anilistId: 98744
+        anidbId: 10843
+        tvdbId: 79654
+      absoluteNumber: 1363
+    - id: shin-chan-film-23
+      titles:
+        original: クレヨンしんちゃん 爆睡!ユメミーワールド大突撃
+        translations:
+          ja: クレヨンしんちゃん 爆睡!ユメミーワールド大突撃
+          ja-Latn: 'Crayon Shin-chan Movie 24: Bakusui! Yumemi World Dai Totsugeki'
+      releaseYear: 2016
+      externalIds:
+        anilistId: 100289
+        anidbId: 11742
+        tvdbId: 79654
+      absoluteNumber: 1364
+    - id: shin-chan-film-24
+      titles:
+        original: 映画 クレヨンしんちゃん 襲来!!宇宙人シリリ
+        translations:
+          ja: 映画 クレヨンしんちゃん 襲来!!宇宙人シリリ
+          ja-Latn: 'Crayon Shin-chan Movie 25: Shin-chan Shuurai! Uchuujin Shiriri'
+      releaseYear: 2017
+      externalIds:
+        anilistId: 100290
+        anidbId: 12478
+      absoluteNumber: 1365
+    - id: shin-chan-film-25
+      titles:
+        original: クレヨンしんちゃん 爆盛!カンフーボーイズ～拉麺大乱～
+        translations:
+          ja: クレヨンしんちゃん 爆盛!カンフーボーイズ～拉麺大乱～
+          ja-Latn: 'Crayon Shin-chan Movie 26: Bakumori! Kung Fu Boys - Ramen Tairan'
+      releaseYear: 2018
+      externalIds:
+        anilistId: 103690
+        anidbId: 13520
+      absoluteNumber: 1366
+    - id: shin-chan-film-26
+      titles:
+        original: 映画クレヨンしんちゃん 新婚旅行ハリケーン ~失われたひろし~
+        translations:
+          ja: 映画クレヨンしんちゃん 新婚旅行ハリケーン ~失われたひろし~
+          ja-Latn: 'Crayon Shin-chan Movie 27: Shinkon Ryokou Hurricane - Ushinawareta Hiroshi'
+      releaseYear: 2019
+      externalIds:
+        anilistId: 109931
+        anidbId: 14474
+      absoluteNumber: 1367
+    - id: shin-chan-film-27
+      titles:
+        original: 映画クレヨンしんちゃん 激突! ラクガキングダムとほぼ四人の勇者
+        translations:
+          ja: 映画クレヨンしんちゃん 激突! ラクガキングダムとほぼ四人の勇者
+          ja-Latn: 'Crayon Shin-chan Movie 28: Gekitotsu! Rakuga Kingdom to Hobo Yonin no Yuusha'
+      releaseYear: 2020
+      externalIds:
+        anilistId: 111312
+        anidbId: 15060
+      absoluteNumber: 1368
+    - id: shin-chan-film-28
+      titles:
+        original: 映画クレヨンしんちゃん 謎メキ! 花の天カス学園
+        translations:
+          ja: 映画クレヨンしんちゃん 謎メキ! 花の天カス学園
+          ja-Latn: 'Crayon Shin-chan Movie 29: Nazo Meki! Hana no Tenkasu Gakuen'
+      releaseYear: 2021
+      externalIds:
+        anilistId: 127331
+        anidbId: 15923
+      absoluteNumber: 1369

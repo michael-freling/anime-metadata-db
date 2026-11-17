@@ -4,8 +4,11 @@ series:
   titles:
     original: トモちゃんは女の子!
     translations:
+      en: Tomo-chan Is a Girl!
       ja-Latn: Tomo-chan wa Onnanoko!
   ordering: absolute
+  externalIds:
+    wikidataId: Q28685532
   seasons:
     - id: tomo-chan-wa-onnanoko-s1
       number: 1

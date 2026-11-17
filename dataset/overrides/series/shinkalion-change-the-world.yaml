@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shinkalion-change-the-world
+  titles:
+    original: 新幹線変形ロボ シンカリオン チェンジ ザ ワールド
+    translations: { ja-Latn: "Shinkalion: Change the World" }
+  seasons:
+    - id: shinkalion-change-the-world-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shinkalion-change-the-world]

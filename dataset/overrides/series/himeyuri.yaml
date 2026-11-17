@@ -8,5 +8,10 @@ series:
     translations: { ja-Latn: Himeyuri }
   movies:
     - id: himeyuri-film
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 20491 }
+    - id: himeyuri-film-2
+      externalIds: { anidbId: 13585 } # Himeyuri no Tou (1995)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [himeyuri]

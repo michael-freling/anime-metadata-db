@@ -4,8 +4,11 @@ series:
   titles:
     original: 出会って5秒でバトル
     translations:
+      en: Battle Game in 5 Seconds
       ja-Latn: Deatte 5-byou de Battle
   ordering: absolute
+  externalIds:
+    wikidataId: Q28693225
   seasons:
     - id: deatte-5-byou-de-battle-s1
       number: 1

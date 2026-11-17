@@ -12,5 +12,7 @@ series:
   movies:
     - id: donten-ni-warau-film
       externalIds: { anilistId: 98452 } # Donten ni Warau Gaiden: Ketsubetsu, Yamainu no Chikai (2017)
+    - id: donten-ni-warau-film-2
+      externalIds: { anidbId: 12968 } # Donten ni Warau Gaiden (2017)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [donten-ni-warau]

@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: xin-shen-bang-nezha-chongsheng
+  titles:
+    original: "Xin Shen Bang: Nezha Chongsheng"
+    translations: { ja-Latn: "Xin Shen Bang: Nezha Chongsheng" }
+  movies:
+    - id: xin-shen-bang-nezha-chongsheng-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [xin-shen-bang-nezha-chongsheng]

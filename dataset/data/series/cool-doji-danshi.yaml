@@ -4,8 +4,11 @@ series:
   titles:
     original: クールドジ男子
     translations:
+      en: Play It Cool, Guys
       ja-Latn: Cool Doji Danshi
   ordering: absolute
+  externalIds:
+    wikidataId: Q111693578
   seasons:
     - id: cool-doji-danshi-s1
       number: 1

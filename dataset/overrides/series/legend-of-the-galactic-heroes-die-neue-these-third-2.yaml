@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: legend-of-the-galactic-heroes-die-neue-these-third-2
+  titles:
+    original: "Legend of the Galactic Heroes: Die Neue These Third 2"
+    translations: { ja-Latn: "Legend of the Galactic Heroes: Die Neue These Third 2" }
+  movies:
+    - id: legend-of-the-galactic-heroes-die-neue-these-third-2-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [legend-of-the-galactic-heroes-die-neue-these-third-2]

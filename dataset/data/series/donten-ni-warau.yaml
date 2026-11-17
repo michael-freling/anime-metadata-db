@@ -32,3 +32,14 @@ series:
       externalIds:
         anilistId: 98452
       absoluteNumber: 13
+    - id: donten-ni-warau-film-2
+      titles:
+        original: 曇天に笑う 外伝
+        translations:
+          ja: 曇天に笑う 外伝
+          ja-Latn: Donten ni Warau Gaiden
+      releaseYear: 2017
+      externalIds:
+        anidbId: 12968
+        tvdbId: 284439
+      absoluteNumber: 14

@@ -4,8 +4,11 @@ series:
   titles:
     original: 不徳のギルド
     translations:
+      en: Immoral Guild
       ja-Latn: Futoku no Guild
   ordering: absolute
+  externalIds:
+    wikidataId: Q111187955
   seasons:
     - id: futoku-no-guild-s1
       number: 1

@@ -58,7 +58,9 @@ func NewClient(h *http.Client) *Client {
 // not with the code.
 func (c *Client) Get(ctx context.Context, url string) ([]byte, error) {
 	var last refusal
+	attempts := 0
 	for attempt := 1; ; attempt++ {
+		attempts = attempt
 		body, ref, err := c.get(ctx, url)
 		if err != nil {
 			return nil, err
@@ -75,8 +77,17 @@ func (c *Client) Get(ctx context.Context, url string) ([]byte, error) {
 			return nil, err
 		}
 	}
+	// The count is the number of attempts made, not the number allowed. It
+	// used to print maxAttempts either way, so a 414 — which is not retried at
+	// all, because the request is wrong rather than the moment — reported
+	// "gave up after 4 attempts". That reads as an unreliable server, and sent
+	// the search for a cause at upstream instead of at the URL being built.
+	if attempts == 1 {
+		return nil, fmt.Errorf("get %s: unexpected status %s (not retried: the request is wrong, not the moment)",
+			url, last.status)
+	}
 	return nil, fmt.Errorf("get %s: unexpected status %s (gave up after %d attempts)",
-		url, last.status, maxAttempts)
+		url, last.status, attempts)
 }
 
 // refusal is a non-2xx response: what the server said, and how long it asked

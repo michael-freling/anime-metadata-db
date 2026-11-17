@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Overtake!
   ordering: absolute
+  externalIds:
+    wikidataId: Q116272472
   seasons:
     - id: overtake-s1
       number: 1

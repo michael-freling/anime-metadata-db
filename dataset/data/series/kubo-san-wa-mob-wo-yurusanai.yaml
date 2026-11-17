@@ -4,8 +4,11 @@ series:
   titles:
     original: 久保さんは僕を許さない
     translations:
+      en: Kubo Won't Let Me Be Invisible
       ja-Latn: Kubo-san wa Mob wo Yurusanai
   ordering: absolute
+  externalIds:
+    wikidataId: Q102249010
   seasons:
     - id: kubo-san-wa-mob-wo-yurusanai-s1
       number: 1

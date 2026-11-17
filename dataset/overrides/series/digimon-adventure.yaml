@@ -1,0 +1,26 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: digimon-adventure
+  titles:
+    original: "デジモンアドベンチャー:"
+    translations: { ja-Latn: "Digimon Adventure:" }
+  seasons:
+    - id: digimon-adventure-s1
+      number: 1
+  movies:
+    - id: digimon-adventure-film
+      externalIds: { anidbId: 10764 } # Digimon Adventure tri. (2015)
+    - id: digimon-adventure-film-2
+      externalIds: { anilistId: 2397 } # Digimon Adventure: Bokura no War Game! (2000)
+    - id: digimon-adventure-film-3
+      externalIds: { anilistId: 2398 } # Digimon Adventure 02: Diablomon no Gyakushuu (2001)
+    - id: digimon-adventure-film-4
+      externalIds: { anilistId: 2961 } # Digimon Adventure Movie (1999)
+    - id: digimon-adventure-film-5
+      externalIds: { anilistId: 137310 } # Digimon Adventure 02: The Beginning (2023)
+    - id: digimon-adventure-film-6
+      externalIds: { anilistId: 20802 } # Digimon Adventure tri. 1: Saikai (2015)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [digimon-adventure]

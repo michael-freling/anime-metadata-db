@@ -4,8 +4,11 @@ series:
   titles:
     original: 逆転世界ノ電池少女
     translations:
+      en: Rumble Garanndoll
       ja-Latn: Gyakuten Sekai no Denchi Shoujo
   ordering: absolute
+  externalIds:
+    wikidataId: Q106652303
   seasons:
     - id: gyakuten-sekai-no-denchi-shoujo-s1
       number: 1

@@ -27,3 +27,15 @@ series:
       episodes:
         count: 51
         absoluteFrom: 52
+  movies:
+    - id: pripara-2-film
+      titles:
+        original: 劇場版 プリパラ&キラッとプリ☆チャン ~きらきらメモリアルライブ~
+        translations:
+          ja: 劇場版 プリパラ&キラッとプリ☆チャン ~きらきらメモリアルライブ~
+          ja-Latn: 'PriPara & Kiratto Pri☆chan Movie: Kirakira Memorial Live'
+      releaseYear: 2018
+      externalIds:
+        anilistId: 107755
+        anidbId: 13847
+      absoluteNumber: 103

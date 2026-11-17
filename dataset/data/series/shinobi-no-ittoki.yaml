@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Shinobi no Ittoki
   ordering: absolute
+  externalIds:
+    wikidataId: Q111007972
   seasons:
     - id: shinobi-no-ittoki-s1
       number: 1

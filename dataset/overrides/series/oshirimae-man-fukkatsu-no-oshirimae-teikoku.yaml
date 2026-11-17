@@ -1,0 +1,12 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: oshirimae-man-fukkatsu-no-oshirimae-teikoku
+  titles:
+    original: おしり前マン〜復活のおしり前帝国〜
+    translations: { ja-Latn: "Oshirimae Man: Fukkatsu no Oshirimae Teikoku" }
+  movies:
+    - id: oshirimae-man-fukkatsu-no-oshirimae-teikoku-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [oshirimae-man-fukkatsu-no-oshirimae-teikoku]

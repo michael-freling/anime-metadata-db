@@ -4,8 +4,11 @@ series:
   titles:
     original: 迷宮ブラックカンパニー
     translations:
+      en: The Dungeon of Black Company
       ja-Latn: Meikyuu Black Company
   ordering: absolute
+  externalIds:
+    wikidataId: Q97187670
   seasons:
     - id: meikyuu-black-company-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Deji Meets Girl
   ordering: absolute
+  externalIds:
+    wikidataId: Q107704661
   seasons:
     - id: deji-meets-girl-s1
       number: 1

@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: getter-robo-arc
+  titles:
+    original: ゲッターロボ アーク
+    translations: { ja-Latn: Getter Robo Arc }
+  seasons:
+    - id: getter-robo-arc-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [getter-robo-arc]

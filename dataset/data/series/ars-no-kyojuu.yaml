@@ -4,8 +4,11 @@ series:
   titles:
     original: アルスの巨獣
     translations:
+      en: Giant Beasts of Ars
       ja-Latn: Ars no Kyojuu
   ordering: absolute
+  externalIds:
+    wikidataId: Q114607905
   seasons:
     - id: ars-no-kyojuu-s1
       number: 1

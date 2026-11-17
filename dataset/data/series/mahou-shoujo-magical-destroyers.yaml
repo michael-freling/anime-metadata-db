@@ -4,8 +4,11 @@ series:
   titles:
     original: 魔法少女マジカルデストロイヤーズ
     translations:
+      en: Magical Destroyers
       ja-Latn: Mahou Shoujo Magical Destroyers
   ordering: absolute
+  externalIds:
+    wikidataId: Q111439075
   seasons:
     - id: mahou-shoujo-magical-destroyers-s1
       number: 1

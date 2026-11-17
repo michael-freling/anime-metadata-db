@@ -1,0 +1,12 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: saishuu-gakushou-hibike-euphonium-zenpen
+  titles:
+    original: 最終楽章 響け！ユーフォニアム 前編
+    translations: { ja-Latn: "Saishuu Gakushou Hibike! Euphonium: Zenpen" }
+  movies:
+    - id: saishuu-gakushou-hibike-euphonium-zenpen-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [saishuu-gakushou-hibike-euphonium-zenpen]

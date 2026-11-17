@@ -1,0 +1,12 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: running-man-light-shadow
+  titles:
+    original: "Running Man: Light & Shadow"
+    translations: { ja-Latn: "Running Man: Light & Shadow" }
+  movies:
+    - id: running-man-light-shadow-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [running-man-light-shadow]

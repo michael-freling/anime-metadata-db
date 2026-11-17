@@ -4,8 +4,11 @@ series:
   titles:
     original: ノケモノたちの夜
     translations:
+      en: The Tale of the Outcasts
       ja-Latn: Nokemono-tachi no Yoru
   ordering: absolute
+  externalIds:
+    wikidataId: Q104853358
   seasons:
     - id: nokemono-tachi-no-yoru-s1
       number: 1

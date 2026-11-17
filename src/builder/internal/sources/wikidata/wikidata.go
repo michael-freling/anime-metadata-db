@@ -26,6 +26,20 @@ const batchSize = 50
 // travels in the query string.
 const resolveBatchSize = 40
 
+// resolveURLBudget caps the request URL a batch may build, in bytes.
+//
+// A count alone is not enough. Forty QIDs are forty short strings; forty
+// Japanese film titles percent-encode to about nine bytes a character, and
+// upstream has titles like 映画 クレヨンしんちゃん 激突! ラクガキングダムとほぼ四人の勇者.
+// A batch of those built a URL Wikidata answered 414 Request URI Too Long,
+// which stopped every build that fetched sources — found only after 339 new
+// series brought enough long titles to cross the line.
+//
+// 7,000 leaves room under the 8 KiB a server commonly accepts, and the limit
+// is on the URL this code actually builds rather than on a guess about title
+// length.
+const resolveURLBudget = 7000
+
 // multilingualSiteKey is the wiki a series' native title is looked up in.
 // Japanese, because this is a catalogue of anime and the native title is the
 // Japanese one; a title in another script simply finds no article.
@@ -456,7 +470,11 @@ func (r Resolution) Resolved() bool { return r.QID != "" }
 func ResolveWorks(ctx context.Context, get Getter, apiURL string, titles []string) ([]Resolution, error) {
 	unique := dedupeSorted(titles)
 	found := make(map[string]Resolution, len(unique))
-	for _, batch := range chunk(unique, resolveBatchSize) {
+	batches, err := chunkToURLBudget(apiURL, unique)
+	if err != nil {
+		return nil, err
+	}
+	for _, batch := range batches {
 		reqURL, err := buildResolveURL(apiURL, batch)
 		if err != nil {
 			return nil, err
@@ -568,4 +586,38 @@ func buildResolveURL(apiURL string, titles []string) (string, error) {
 	q.Set("format", "json")
 	u.RawQuery = q.Encode()
 	return u.String(), nil
+}
+
+// chunkToURLBudget splits titles into batches whose request URL stays within
+// resolveURLBudget, and which never exceed resolveBatchSize titles.
+//
+// A title that does not fit on its own is still sent on its own: the request
+// will fail, and failing on the one title that cannot be asked about is a
+// better answer than silently not asking.
+func chunkToURLBudget(apiURL string, titles []string) ([][]string, error) {
+	var out [][]string
+	var cur []string
+	flush := func() {
+		if len(cur) > 0 {
+			out = append(out, cur)
+			cur = nil
+		}
+	}
+	for _, t := range titles {
+		candidate := make([]string, len(cur), len(cur)+1)
+		copy(candidate, cur)
+		candidate = append(candidate, t)
+		u, err := buildResolveURL(apiURL, candidate)
+		if err != nil {
+			return nil, err
+		}
+		if len(cur) > 0 && (len(u) > resolveURLBudget || len(candidate) > resolveBatchSize) {
+			flush()
+			cur = []string{t}
+			continue
+		}
+		cur = candidate
+	}
+	flush()
+	return out, nil
 }

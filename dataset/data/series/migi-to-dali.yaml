@@ -4,8 +4,11 @@ series:
   titles:
     original: ミギとダリ
     translations:
+      en: Migi & Dali
       ja-Latn: Migi to Dali
   ordering: absolute
+  externalIds:
+    wikidataId: Q110129624
   seasons:
     - id: migi-to-dali-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: きのこいぬ
     translations:
+      en: 'Kinokoinu: Mushroom Pup'
       ja-Latn: Kinoko Inu
   ordering: absolute
+  externalIds:
+    wikidataId: Q17228261
   seasons:
     - id: kinoko-inu-s1
       number: 1

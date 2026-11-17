@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Neko ni Tensei shita Ojisan
   ordering: absolute
+  externalIds:
+    wikidataId: Q124815487
   seasons:
     - id: neko-ni-tensei-shita-ojisan-s1
       number: 1

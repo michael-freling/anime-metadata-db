@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bei-ken-xiong-2-jinpai-tegong
+  titles:
+    original: "Bei Ken Xiong 2: Jinpai Tegong"
+    translations: { ja-Latn: "Bei Ken Xiong 2: Jinpai Tegong" }
+  movies:
+    - id: bei-ken-xiong-2-jinpai-tegong-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bei-ken-xiong-2-jinpai-tegong]

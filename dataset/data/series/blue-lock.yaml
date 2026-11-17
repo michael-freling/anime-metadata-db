@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Blue Lock
   ordering: absolute
+  externalIds:
+    wikidataId: Q62414782
   seasons:
     - id: blue-lock-s1
       number: 1

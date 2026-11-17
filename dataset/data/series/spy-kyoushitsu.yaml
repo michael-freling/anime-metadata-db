@@ -4,8 +4,11 @@ series:
   titles:
     original: スパイ教室
     translations:
+      en: Spy Classroom
       ja-Latn: Spy Kyoushitsu
   ordering: absolute
+  externalIds:
+    wikidataId: Q98867538
   seasons:
     - id: spy-kyoushitsu-s1
       number: 1

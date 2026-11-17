@@ -1,0 +1,12 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: paris-ni-saku-etoile
+  titles:
+    original: パリに咲くエトワール
+    translations: { ja-Latn: Paris ni Saku Etoile }
+  movies:
+    - id: paris-ni-saku-etoile-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [paris-ni-saku-etoile]

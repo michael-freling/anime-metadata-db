@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: meitantei-conan-movie-27-100-man-dollar-no-michishirube
+  titles:
+    original: 名探偵コナン 100万ドルの五稜星（みちしるべ）
+    translations: { ja-Latn: "Meitantei Conan Movie 27: 100-man Dollar no Michishirube" }
+  movies:
+    - id: meitantei-conan-movie-27-100-man-dollar-no-michishirube-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [meitantei-conan-movie-27-100-man-dollar-no-michishirube]

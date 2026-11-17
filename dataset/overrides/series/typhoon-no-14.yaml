@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: typhoon-no-14
+  titles:
+    original: たいふう14号
+    translations: { ja-Latn: Typhoon No.14 }
+  movies:
+    - id: typhoon-no-14-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [typhoon-no-14]

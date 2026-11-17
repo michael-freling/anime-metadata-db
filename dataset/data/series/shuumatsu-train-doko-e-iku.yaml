@@ -4,8 +4,11 @@ series:
   titles:
     original: 終末トレインどこへいく?
     translations:
+      en: Train to the End of the World
       ja-Latn: Shuumatsu Train Doko e Iku?
   ordering: absolute
+  externalIds:
+    wikidataId: Q115152124
   seasons:
     - id: shuumatsu-train-doko-e-iku-s1
       number: 1

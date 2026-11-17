@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: My Adventures with Superman
   ordering: absolute
+  externalIds:
+    wikidataId: Q119774569
   seasons:
     - id: my-adventures-with-superman-s1
       number: 1

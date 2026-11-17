@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: uma-musume-pretty-derby-shin-jidai-no-tobira
+  titles:
+    original: ウマ娘 プリティーダービー BEGINNING OF A NEW ERA
+    translations: { ja-Latn: "Uma Musume: Pretty Derby - Shin Jidai no Tobira" }
+  movies:
+    - id: uma-musume-pretty-derby-shin-jidai-no-tobira-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [uma-musume-pretty-derby-shin-jidai-no-tobira]

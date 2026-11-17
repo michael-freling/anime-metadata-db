@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Backflip!!
   ordering: absolute
+  externalIds:
+    wikidataId: Q101209749
   seasons:
     - id: backflip-s1
       number: 1

@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: meng-shu-da-maoxian
+  titles:
+    original: Meng Shu Da Maoxian
+    translations: { ja-Latn: Meng Shu Da Maoxian }
+  movies:
+    - id: meng-shu-da-maoxian-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [meng-shu-da-maoxian]

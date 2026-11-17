@@ -32,3 +32,14 @@ series:
       episodes:
         count: 12
         absoluteFrom: 14
+    - id: hataraku-maou-sama-s3
+      number: 3
+      releaseYear: 2023
+      releaseSeason: SUMMER
+      externalIds:
+        anilistId: 155168
+        anidbId: 17649
+        tvdbId: 267441
+      episodes:
+        count: 12
+        absoluteFrom: 26

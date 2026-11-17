@@ -1,0 +1,13 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: steel-ball-run-jojo-s-bizarre-adventure
+  titles:
+    original: スティール・ボール・ラン ジョジョの奇妙な冒険
+    translations: { ja-Latn: STEEL BALL RUN JoJo’s Bizarre Adventure }
+  seasons:
+    - id: steel-ball-run-jojo-s-bizarre-adventure-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [steel-ball-run-jojo-s-bizarre-adventure]

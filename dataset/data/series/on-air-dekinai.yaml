@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: On Air Dekinai!
   ordering: absolute
+  externalIds:
+    wikidataId: Q109405491
   seasons:
     - id: on-air-dekinai-s1
       number: 1

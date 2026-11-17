@@ -1,0 +1,16 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: animation-documentary-iwata-kunchi-no-obaa-chan
+  titles:
+    # Authored: upstream's own synonym is missing the leading ア, and
+    # NativeTitle takes the longest kana form it offers. Corrected here
+    # because an id and a title are what the catalogue publishes.
+    original: アニメーション・ドキュメンタリー いわたくんちのおばあちゃん
+    translations: { ja-Latn: "Animation Documentary: Iwata Kunchi no Obaa-chan" }
+  seasons:
+    - id: animation-documentary-iwata-kunchi-no-obaa-chan-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [animation-documentary-iwata-kunchi-no-obaa-chan]

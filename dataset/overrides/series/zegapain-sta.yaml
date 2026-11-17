@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zegapain-sta
+  titles:
+    original: ゼーガペイン エスティーエー
+    translations: { ja-Latn: "Zegapain: STA" }
+  movies:
+    - id: zegapain-sta-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zegapain-sta]

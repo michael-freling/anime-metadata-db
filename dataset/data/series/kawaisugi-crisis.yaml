@@ -4,8 +4,11 @@ series:
   titles:
     original: カワイスギクライシス
     translations:
+      en: Too Cute Crisis
       ja-Latn: Kawaisugi Crisis
   ordering: absolute
+  externalIds:
+    wikidataId: Q97376630
   seasons:
     - id: kawaisugi-crisis-s1
       number: 1

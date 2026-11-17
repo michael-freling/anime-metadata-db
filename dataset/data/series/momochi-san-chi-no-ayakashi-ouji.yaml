@@ -4,8 +4,11 @@ series:
   titles:
     original: 百千さん家のあやかし王子
     translations:
+      en: The Demon Prince of Momochi House
       ja-Latn: Momochi-san Chi no Ayakashi Ouji
   ordering: absolute
+  externalIds:
+    wikidataId: Q30017410
   seasons:
     - id: momochi-san-chi-no-ayakashi-ouji-s1
       number: 1
