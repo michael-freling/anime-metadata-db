@@ -20,3 +20,25 @@ series:
       episodes:
         count: 12
         absoluteFrom: 1
+    - id: mob-psycho-100-s2
+      number: 2
+      releaseYear: 2019
+      releaseSeason: WINTER
+      externalIds:
+        anilistId: 101338
+        anidbId: 13939
+        tvdbId: 307375
+      episodes:
+        count: 13
+        absoluteFrom: 13
+    - id: mob-psycho-100-s3
+      number: 3
+      releaseYear: 2022
+      releaseSeason: FALL
+      externalIds:
+        anilistId: 140439
+        anidbId: 16915
+        tvdbId: 307375
+      episodes:
+        count: 12
+        absoluteFrom: 26
