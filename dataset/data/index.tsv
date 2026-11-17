@@ -2643,7 +2643,7 @@ girlfriend-kari	girlfriend-kari.yaml		ガールフレンド(仮)|ja-Latn=Girlfri
 girls-and-panzer-motto-love-love-sakusen-desu	girls-and-panzer-motto-love-love-sakusen-desu.yaml		ガールズ＆パンツァー もっとらぶらぶ作戦です！|ja-Latn=Girls & Panzer: Motto Love Love Sakusen desu!
 girls-band-cry-movie	girls-band-cry-movie.yaml		総集編ガールズバンドクライ 青春狂走曲|ja-Latn=Girls Band Cry Movie
 girls-band-cry-naa-mirai	girls-band-cry-naa-mirai.yaml		ガールズバンドクライ なぁ、未来。|ja-Latn=GIRLS BAND CRY: Naa, Mirai.
-girls-band-cry	girls-band-cry.yaml		【後編】劇場版総集編『ガールズバンドクライ』なぁ、未来。|ja-Latn=Girls Band Cry
+girls-band-cry	girls-band-cry.yaml		ガールズバンドクライ|ja-Latn=Girls Band Cry
 girls-battle-aloe-megumi	girls-battle-aloe-megumi.yaml		GIRLS★BATTLE アロ恵|ja-Latn=Girls★Battle Aloe Megumi
 girls-bravo-first-season	girls-bravo-first-season.yaml		GIRLSブラボー First Season|ja-Latn=Girls Bravo: First Season
 girls-bravo-second-season	girls-bravo-second-season.yaml		GIRLSブラボー second season|ja-Latn=Girls Bravo: Second Season
@@ -11730,7 +11730,7 @@ series	1698	2007	2007	1	65
 series	1699	2006	2006	1	52
 series	1700	2017	2017	1	12
 series	1701	2022	2022	1	
-series	1702	2019	2025	7	63
+series	1702	2019	2025	11	63
 series	1703	2023	2023	1	12
 series	1704	2019	2019	1	
 series	1705	2016	2016	1	
@@ -21903,6 +21903,10 @@ season	demon-slayer-s4	1702	4		2023	SPRING		11	鬼滅の刃 刀鍛冶の里編|e
 season	demon-slayer-s5	1702	5		2024	SPRING		8	鬼滅の刃 柱稽古編|en=Hashira Training Arc|ja=鬼滅の刃 柱稽古編|ja-Latn=Kimetsu no Yaiba: Hashira Geiko-hen	166240	18067		348545	
 movie	demon-slayer-mugen-train-film	1702			2020				劇場版 鬼滅の刃 無限列車編|en=Mugen Train|ja=劇場版 鬼滅の刃 無限列車編|ja-Latn=Kimetsu no Yaiba Movie: Mugen Ressha-hen	112151	15113		348545	
 movie	demon-slayer-infinity-castle-1	1702			2025				劇場版 鬼滅の刃 無限城編|en=Infinity Castle|ja=劇場版 鬼滅の刃 無限城編|ja-Latn=Kimetsu no Yaiba Movie 1: Mugenjou-hen - Akaza Sairai	178788	18699		348545	
+movie	demon-slayer-natagumo-yama-film	1702			2020				鬼滅の刃 那田蜘蛛山編|en=Mount Natagumo Arc|ja=鬼滅の刃 那田蜘蛛山編|ja-Latn=Kimetsu no Yaiba: Natagumo Yama Hen		16259		348545	
+movie	demon-slayer-hashira-gou-kaigi-film	1702			2020				鬼滅の刃 柱合会議・蝶屋敷編|en=Hashira Meeting and Butterfly Mansion Arc|ja=鬼滅の刃 柱合会議・蝶屋敷編|ja-Latn=Kimetsu no Yaiba: Hashira Gou Kaigi - Chouyashiki Hen		16258		348545	
+movie	demon-slayer-katanakaji-no-sato-film	1702			2024				鬼滅の刃 刀鍛冶の里 敵襲編|en=Swordsmith Village Arc (special edition)|ja=鬼滅の刃 刀鍛冶の里 敵襲編|ja-Latn=Kimetsu no Yaiba: Katanakaji no Sato-hen - Tokubetsu Henshuu Ban		18529			
+movie	demon-slayer-hashira-geiko-film	1702			2025				鬼滅の刃 柱稽古 柱結集編|en=Hashira Training Arc (special edition)|ja=鬼滅の刃 柱稽古 柱結集編|ja-Latn=Kimetsu no Yaiba: Hashira Geiko Hen - Tokubetsu Henshuuban		19418			
 season	den-den-no-den-nou-densya-s1	1703	1		2023	SPRING		12		181863				
 movie	dengta-film	1704			2019				燈塔|ja=燈塔|ja-Latn=Dengta					
 movie	denki-100-film	1705			2016				電気 100%|ja=電気 100%|ja-Latn=Denki 100%	119534				
