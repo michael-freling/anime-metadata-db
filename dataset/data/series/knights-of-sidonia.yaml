@@ -5,7 +5,7 @@ series:
     original: シドニアの騎士
     translations:
       ja-Latn: Knights of Sidonia
-  ordering: absolute
+  ordering: release
   externalIds:
     wikidataId: Q3815924
   seasons:
@@ -19,13 +19,36 @@ series:
         tvdbId: 278154
       episodes:
         count: 12
-        absoluteFrom: 1
+    - id: knights-of-sidonia-s2
+      number: 2
+      releaseYear: 2015
+      releaseSeason: SPRING
+      externalIds:
+        anilistId: 20762
+        anidbId: 10713
+        tvdbId: 278154
+      episodes:
+        count: 12
   movies:
     - id: knights-of-sidonia-film
       titles:
-        original: シドニアの騎士
+        original: 劇場版 シドニアの騎士
         translations:
-          ja: シドニアの騎士
-          ja-Latn: Knights of Sidonia
+          ja: 劇場版 シドニアの騎士
+          ja-Latn: Sidonia no Kishi Movie
       releaseYear: 2015
-      absoluteNumber: 13
+      externalIds:
+        anilistId: 21154
+        anidbId: 10939
+        tvdbId: 278154
+    - id: knights-of-sidonia-film-2
+      titles:
+        original: シドニアの騎士 3
+        translations:
+          ja: シドニアの騎士 3
+          ja-Latn: 'Sidonia no Kishi: Ai Tsumugu Hoshi'
+      releaseYear: 2021
+      externalIds:
+        anilistId: 99730
+        anidbId: 13239
+        tvdbId: 278154

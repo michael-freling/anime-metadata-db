@@ -1,0 +1,16 @@
+# Authored override. The catalogue carried only "edens-zero-2nd-season", a second season given a
+# record of its own, so the first could attach to nothing.
+series:
+  id: edens-zero
+  titles:
+    original: エデンズゼロ
+    translations: { ja-Latn: "Edens Zero" }
+  seasons:
+    - id: edens-zero-s1
+      number: 1
+      externalIds: { anilistId: 119683 } # Edens Zero (2021)
+    - id: edens-zero-s2
+      number: 2
+      externalIds: { anilistId: 144932 } # Edens Zero 2nd Season (2023)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [edens-zero]

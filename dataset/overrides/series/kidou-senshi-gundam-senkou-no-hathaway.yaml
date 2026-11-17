@@ -1,0 +1,12 @@
+# Authored override. The catalogue carried only "...-circe-no-majo", the second film, so the
+# first had no series to belong to.
+series:
+  id: kidou-senshi-gundam-senkou-no-hathaway
+  titles:
+    original: 機動戦士ガンダム 閃光のハサウェイ
+    translations: { ja-Latn: "Kidou Senshi Gundam: Senkou no Hathaway" }
+  movies:
+    - id: kidou-senshi-gundam-senkou-no-hathaway-film
+      externalIds: { anilistId: 105595 } # Senkou no Hathaway (2021)
+    - id: kidou-senshi-gundam-senkou-no-hathaway-film-2
+      externalIds: { anilistId: 113971 } # Senkou no Hathaway: Circe no Majo (2026)

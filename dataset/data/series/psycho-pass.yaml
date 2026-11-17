@@ -5,7 +5,7 @@ series:
     original: サイコパス
     translations:
       ja-Latn: Psycho-Pass
-  ordering: absolute
+  ordering: release
   seasons:
     - id: psycho-pass-s1
       number: 1
@@ -17,13 +17,35 @@ series:
         tvdbId: 262090
       episodes:
         count: 22
-        absoluteFrom: 1
   movies:
     - id: psycho-pass-film
       titles:
-        original: サイコパス
+        original: PSYCHO-PASS心靈判官劇場版
         translations:
-          ja: サイコパス
-          ja-Latn: Psycho-Pass
-      releaseYear: 2014
-      absoluteNumber: 23
+          ja: PSYCHO-PASS心靈判官劇場版
+          ja-Latn: Psycho-Pass Movie 1
+      releaseYear: 2015
+      externalIds:
+        anilistId: 20514
+        anidbId: 10066
+        tvdbId: 262090
+    - id: psycho-pass-film-2
+      titles:
+        original: PSYCHO-PASS サイコパス PROVIDENCE
+        translations:
+          ja: PSYCHO-PASS サイコパス PROVIDENCE
+          ja-Latn: 'Psycho-Pass Movie 2: Providence'
+      releaseYear: 2023
+      externalIds:
+        anilistId: 153687
+        anidbId: 17573
+        tvdbId: 262090
+    - id: psycho-pass-film-3
+      titles:
+        original: PSYCHO-PASS サイコパス Sinners of the System Case.3 - 恩讐の彼方に____
+        translations:
+          ja: PSYCHO-PASS サイコパス Sinners of the System Case.3 - 恩讐の彼方に____
+          ja-Latn: 'Psycho-Pass: Sinners of the System Case.3 - Onshuu no Kanata ni＿＿'
+      releaseYear: 2019
+      externalIds:
+        anilistId: 104990

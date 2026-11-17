@@ -1,17 +1,18 @@
-# Authored override — 2017 catalogue import. Holds only the structure the
-# open sources cannot express; `builder build` fills the facts into data/.
-# Never hand-edit data/.
+# Authored override. "seitokai-yakuindomo-movie" was the first film given a record of its own.
 series:
   id: seitokai-yakuindomo
   titles:
     original: Seitokai Yakuindomo
-    translations: { ja-Latn: Seitokai Yakuindomo }
+    translations: { ja-Latn: "Seitokai Yakuindomo" }
   seasons:
     - id: seitokai-yakuindomo-s1
       number: 1
+      externalIds: { anilistId: 8675 } # Seitokai Yakuindomo (2010)
     - id: seitokai-yakuindomo-s2
       number: 2
+      externalIds: { anilistId: 20448 } # Seitokai Yakuindomo* (2014)
   movies:
     - id: seitokai-yakuindomo-film
-# One linear storyline: episodes carry a continuous absoluteNumber.
-numbered: [seitokai-yakuindomo]
+      externalIds: { anilistId: 98240 } # Seitokai Yakuindomo Movie (2017)
+    - id: seitokai-yakuindomo-film-2
+      externalIds: { anilistId: 113692 } # Seitokai Yakuindomo Movie 2 (2021)

@@ -5,7 +5,7 @@ series:
     original: Seitokai Yakuindomo
     translations:
       ja-Latn: Seitokai Yakuindomo
-  ordering: absolute
+  ordering: release
   seasons:
     - id: seitokai-yakuindomo-s1
       number: 1
@@ -17,7 +17,6 @@ series:
         tvdbId: 173271
       episodes:
         count: 13
-        absoluteFrom: 1
     - id: seitokai-yakuindomo-s2
       number: 2
       releaseYear: 2014
@@ -28,13 +27,26 @@ series:
         tvdbId: 173271
       episodes:
         count: 13
-        absoluteFrom: 14
   movies:
     - id: seitokai-yakuindomo-film
       titles:
-        original: 劇場版 生徒会役員共
+        original: 剧场版 妄想学生会
         translations:
-          ja: 劇場版 生徒会役員共
-          ja-Latn: Seitokai Yakuindomo
+          ja: 剧场版 妄想学生会
+          ja-Latn: Seitokai Yakuindomo Movie
       releaseYear: 2017
-      absoluteNumber: 27
+      externalIds:
+        anilistId: 98240
+        anidbId: 12618
+        tvdbId: 173271
+    - id: seitokai-yakuindomo-film-2
+      titles:
+        original: 剧场版 妄想学生会2
+        translations:
+          ja: 剧场版 妄想学生会2
+          ja-Latn: Seitokai Yakuindomo Movie 2
+      releaseYear: 2021
+      externalIds:
+        anilistId: 113692
+        anidbId: 15294
+        tvdbId: 173271
