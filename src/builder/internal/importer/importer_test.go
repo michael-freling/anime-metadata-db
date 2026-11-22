@@ -1,6 +1,7 @@
 package importer
 
 import (
+	"slices"
 	"strings"
 	"testing"
 
@@ -1114,5 +1115,45 @@ func TestARetitledSequelIsWrittenAsItsOwnSeriesWhichIsTheKnownFailureMode(t *tes
 		func(int) []string { return []string{"Mahou Tsukai Precure!"} })
 	if len(plan2.New) != 1 {
 		t.Errorf("New = %+v, want the new Precure season written as its own series", plan2.New)
+	}
+}
+
+// A work written as its own series although upstream links it to one the
+// catalogue already has is the judgement with no safety net behind it, so it
+// is listed rather than only counted. The six that had to be deleted by hand
+// from the 2020-2026 re-import were all of this shape.
+func TestAWorkWrittenDespiteALinkIsListed(t *testing.T) {
+	db := load(t,
+		entry{title: "Parent Show", typ: "TV", episodes: 12, year: 2019, season: "FALL",
+			status: "FINISHED", sources: []string{al("100")}},
+		entry{title: "Something Else Entirely", typ: "TV", episodes: 12, year: 2020, season: "FALL",
+			status: "FINISHED", sources: []string{al("200")}, related: []string{al("100")}},
+	)
+	plan := BuildKnown(db, 2020, Known{Anilist: map[int]bool{100: true}}, map[string]bool{},
+		func(int) []string { return []string{"Parent Show"} })
+
+	if len(plan.New) != 1 {
+		t.Fatalf("New = %+v, want the work written", plan.New)
+	}
+	if len(plan.DespiteLink) != 1 {
+		t.Fatalf("DespiteLink = %+v, want the one work written despite its link", plan.DespiteLink)
+	}
+	d := plan.DespiteLink[0]
+	if d.Title != "Something Else Entirely" || d.ID != plan.New[0].ID {
+		t.Errorf("DespiteLink = %+v, want it to name the work and the series written for it", d)
+	}
+	if !slices.Contains(d.Into, 100) {
+		t.Errorf("Into = %v, want the series it was linked to", d.Into)
+	}
+
+	// A work with no link at all is an ordinary new series and says nothing.
+	db2 := load(t, entry{title: "Unconnected", typ: "TV", episodes: 12, year: 2020,
+		season: "FALL", status: "FINISHED", sources: []string{al("300")}})
+	plan2 := BuildKnown(db2, 2020, Known{}, map[string]bool{}, func(int) []string { return nil })
+	if len(plan2.New) != 1 {
+		t.Fatalf("New = %+v, want the unconnected work written", plan2.New)
+	}
+	if len(plan2.DespiteLink) != 0 {
+		t.Errorf("DespiteLink = %+v, want none: nothing was overridden", plan2.DespiteLink)
 	}
 }

@@ -738,26 +738,90 @@ func TestPinningWalksEverySlotAndRefusesAMismatch(t *testing.T) {
 
 	// A record listing fewer films than the override declares is the shape a
 	// second attachment in one run produces: the record predates the first.
-	// The extra slot carries its own id, so the earlier ones still pair by
-	// position and this is accepted — refusing it cost 128 attachments.
+	// Accepted, because refusing it cost 128 attachments — but only in the
+	// shape this tool actually leaves behind, which is every slot carrying an
+	// id, since attaching pins each slot already there.
 	short := strings.Replace(twoFilmRecord, `    - id: show-film-2
       releaseYear: 2022
       externalIds:
         anilistId: 201
 `, "", 1)
-	got, why = plan(twoFilms, short, "show", film("300", "Show: The Third", 2030), map[string]bool{})
+	attached := `series:
+  id: show
+  seasons:
+    - id: show-s1
+      number: 1
+  movies:
+    - id: show-film
+      externalIds: { anilistId: 200 }
+    - id: show-film-2
+      externalIds: { anilistId: 201 }
+`
+	got, why = plan(attached, short, "show", film("300", "Show: The Third", 2030), map[string]bool{})
 	if why != "" {
-		t.Errorf("refused a second attachment: %s", why)
+		t.Fatalf("refused a second attachment: %s", why)
 	}
-	if !strings.Contains(got, "anilistId: 200") {
-		t.Errorf("the slot the record does account for was not pinned:\n%s", got)
+	// Both slots already named their work, so neither is pinned again — the
+	// repeated-key failure that made this check read every handle.
+	for _, id := range []string{"anilistId: 200", "anilistId: 201"} {
+		if strings.Count(got, id) != 1 {
+			t.Errorf("%s appears %d times, want once:\n%s", id, strings.Count(got, id), got)
+		}
+	}
+	if !strings.Contains(got, "show-film-3") {
+		t.Errorf("the third film was not appended:\n%s", got)
 	}
 
-	// An extra slot that states no id cannot be paired with anything, and
-	// pinning the rest by position would be guessing which one it is.
-	bare := twoFilms + "    - id: show-film-3\n"
-	if _, why := plan(bare, short, "show", film("300", "Show: The Third", 2030), map[string]bool{}); !strings.Contains(why, "states no id") {
-		t.Errorf("why = %q, want the unpairable refusal", why)
+	// The same counts, but a slot that names no work. Nothing establishes
+	// which record it is, and pinning the rest by position would be guessing.
+	// This is the shape a hand-inserted installment leaves, and it is not
+	// confined to the tail: an unstated slot anywhere shifts every slot after
+	// it onto its neighbour's id, which resolves to a real entry and so goes
+	// unnoticed.
+	for _, bad := range []string{
+		// unstated in the middle
+		`series:
+  id: show
+  seasons:
+    - id: show-s1
+      number: 1
+  movies:
+    - id: show-film
+      externalIds: { anilistId: 200 }
+    - id: show-inserted
+    - id: show-film-2
+      externalIds: { anilistId: 201 }
+`,
+		// unstated first
+		`series:
+  id: show
+  seasons:
+    - id: show-s1
+      number: 1
+  movies:
+    - id: show-inserted
+    - id: show-film
+      externalIds: { anilistId: 200 }
+    - id: show-film-2
+      externalIds: { anilistId: 201 }
+`,
+		// unstated at the tail
+		`series:
+  id: show
+  seasons:
+    - id: show-s1
+      number: 1
+  movies:
+    - id: show-film
+      externalIds: { anilistId: 200 }
+    - id: show-film-2
+      externalIds: { anilistId: 201 }
+    - id: show-film-3
+`,
+	} {
+		if _, why := plan(bad, short, "show", film("300", "Show: The Third", 2030), map[string]bool{}); !strings.Contains(why, "names no work") {
+			t.Errorf("why = %q, want a refusal; an unstated slot cannot be paired wherever it sits", why)
+		}
 	}
 
 	// The other direction is genuinely unpairable: more resolved than declared.
@@ -1277,6 +1341,7 @@ func TestPinningRefusesWhenTheListsHaveDriftedApart(t *testing.T) {
       number: 1
   movies:
     - id: show-film
+      externalIds: { anilistId: 200 }
     - id: show-inserted
       externalIds: { anilistId: 999 }
     - id: show-film-2

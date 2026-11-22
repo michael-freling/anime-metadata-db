@@ -674,17 +674,26 @@ func pinIDs(block string, resolved [][]string) (string, string) {
 	case len(slots) > len(resolved):
 		// More slots than the record accounts for means this run already
 		// attached to this kind: the record is the one built before any of it.
-		// Those slots were written with their id, so they need no pinning and
-		// the earlier ones still pair by position. Refusing here instead cost
-		// 128 attachments, every one of them a series with a second work to
-		// attach.
-		for i := len(resolved); i < len(slots); i++ {
+		// Refusing outright instead cost 128 attachments, every one of them a
+		// series with a second work to attach.
+		//
+		// Every slot has to name its work for that reading to hold, not just
+		// the surplus ones. When this tool attaches it pins each slot already
+		// there, so a kind it has touched has an id on all of them — and if
+		// any slot lacks one, the extra slots are not this run's tail and the
+		// list has some other shape. Checking only the tail let a hand-inserted
+		// slot with no id sit in the middle: it took its neighbour's id and
+		// shifted every slot after it, silently, because a wrong id still
+		// resolves to a real upstream entry.
+		for i := range slots {
 			end := len(block)
 			if i+1 < len(slots) {
 				end = slots[i+1][0]
 			}
 			if !statesAnID(block[slots[i][0]:end]) {
-				return "", "the override declares more installments than the record resolved, and one of the extra ones states no id"
+				return "", fmt.Sprintf("the override declares %d installments where the record resolved %d, "+
+					"and installment %d names no work — so which record each one is cannot be established "+
+					"by position", len(slots), len(resolved), i+1)
 			}
 		}
 	}

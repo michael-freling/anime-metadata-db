@@ -6,6 +6,8 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"slices"
+	"sort"
 	"strconv"
 	"strings"
 
@@ -108,6 +110,35 @@ func (a *App) Import(year int, dryRun bool) error {
 
 	fmt.Fprintf(a.Out, "import %d: %d new series, %d to merge by hand, %d unresolvable, %d already present, %d out of scope\n",
 		plan.Year, len(plan.New), len(plan.Merges), len(plan.Unresolvable), len(plan.Present), plan.Skipped)
+
+	// Listed, not just counted. These are the ones the rule decided were their
+	// own series although upstream links them to one the catalogue already
+	// has, and a wrong decision here is the duplicate nothing downstream can
+	// detect. Six of them had to be deleted by hand from the 2020-2026
+	// re-import; reading a list is how that happens, so the run prints one.
+	if len(plan.DespiteLink) > 0 {
+		owner, err := seriesByAnilistID(dataDir)
+		if err != nil {
+			return err
+		}
+		fmt.Fprintf(a.Out, "\nWRITTEN as their own series, although upstream links them to a series\n")
+		fmt.Fprintf(a.Out, "the catalogue already has. Read these — a wrong one is a duplicate no\n")
+		fmt.Fprintf(a.Out, "check can find:\n")
+		for _, d := range plan.DespiteLink {
+			var linked []string
+			for _, id := range d.Into {
+				// Deduplicated: several of a series' installments can each
+				// link to this work, and naming the series once per link
+				// makes a short list look like a long one.
+				if name, ok := owner[id]; ok && !slices.Contains(linked, name) {
+					linked = append(linked, name)
+				}
+			}
+			sort.Strings(linked)
+			fmt.Fprintf(a.Out, "  %-46s linked to %s\n", trim(d.Title, 46), strings.Join(linked, ", "))
+		}
+		fmt.Fprintln(a.Out)
+	}
 
 	if len(plan.Unresolvable) > 0 {
 		fmt.Fprintf(a.Out, "\nNOT written — the build could not have filled these. Author by hand:\n")

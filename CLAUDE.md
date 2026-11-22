@@ -118,6 +118,13 @@ It refuses more than it writes, on purpose:
   work the boundary was meant to is the link requirement: these are works
   upstream links to the series, not every work that shares a prefix.
 
+  **A work written despite a link is printed, not just counted.** That
+  judgement is the one with nothing behind it — `anilist-claimed-elsewhere`
+  compares ids and these are different works — so `import` lists each one with
+  the series upstream linked it to, under "WRITTEN as their own series". All
+  six duplicates that had to be deleted by hand from the 2020-2026 re-import
+  appear in that list, which is how reading it is meant to work.
+
   Being this conservative means the import proposes rather than writes some
   series that genuinely are their own — `hataraku-saibou-black` is a different
   manga from `hataraku-saibou`, and `cardfight-vanguard-will-dress` is its own

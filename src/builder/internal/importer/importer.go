@@ -84,9 +84,24 @@ type Plan struct {
 	Merges       []Merge
 	Unresolvable []Unresolvable
 	Present      []string // titles already in the catalogue, skipped
+	// DespiteLink is the works written as their own series although upstream
+	// links them to a series the catalogue already has. Each is a judgement
+	// `accountedFor` made on titles alone, and a wrong one is the duplicate
+	// nothing downstream detects — so they are listed for a person to read in
+	// the diff, rather than only counted. The six that had to be deleted by
+	// hand from the 2020-2026 re-import were all in this set.
+	DespiteLink []DespiteLink
 	// Skipped counts entries excluded by the catalogue's scope rule, so a run
 	// reports the size of what it declined rather than silently dropping it.
 	Skipped int
+}
+
+// DespiteLink is a work written as its own series although it is linked to one
+// the catalogue already has, with the series it was linked to.
+type DespiteLink struct {
+	Title string
+	ID    string
+	Into  []int
 }
 
 // Build plans the import of one year.
@@ -186,6 +201,11 @@ func BuildKnown(db *offlinedb.Database, year int, known Known, claimedTitles map
 		if claimed[a.Key()] {
 			continue
 		}
+		// The series upstream links this work to that the catalogue already
+		// has, where it is written as its own series anyway. Recorded so the
+		// judgement is readable in the run's output rather than only in the
+		// diff: a wrong one here is the duplicate nothing downstream detects.
+		var despite []int
 		switch {
 		case known.has(a):
 			plan.Present = append(plan.Present, a.Title)
@@ -196,9 +216,10 @@ func BuildKnown(db *offlinedb.Database, year int, known Known, claimedTitles map
 				plan.Merges = append(plan.Merges, describe(a, into, true))
 				continue
 			}
-			// No linked series is named anything this work extends, so it is
-			// not an installment of them. Falls through to be written as its
-			// own series, which is what it is.
+			// No linked series' name is a prefix of this work's, so it is not
+			// an installment of them. Falls through to be written as its own
+			// series, which is what it is — and is listed as such.
+			despite = into
 		}
 		// A seed with no AniList id can still belong to a series the catalogue
 		// already carries: `known` is keyed on ids, and a work resolved from
@@ -248,6 +269,9 @@ func BuildKnown(db *offlinedb.Database, year int, known Known, claimedTitles map
 		// within one year behave the same as across years.
 		claimedTitles[FoldTitle(original)] = true
 		plan.New = append(plan.New, s)
+		if len(despite) > 0 {
+			plan.DespiteLink = append(plan.DespiteLink, DespiteLink{Title: a.Title, ID: s.ID, Into: despite})
+		}
 	}
 	sort.Slice(plan.New, func(i, j int) bool { return plan.New[i].ID < plan.New[j].ID })
 	return plan
