@@ -284,6 +284,11 @@ func (a *App) Merge(opts MergeOptions) error {
 	}
 
 	merged, byKind := 0, map[string]int{}
+	// Attachments the build's linkage gate cannot check. `anilist-unlinked`
+	// seeds from an AniList id and matches one, so a work reached by its AniDB
+	// id alone passes through it untouched — not because the walk looked and
+	// found the link, but because it never looked.
+	unverifiable := 0
 	// Held in memory so a dry run sees what a real one would: two works can
 	// land on the same series, and the second has to read what the first
 	// added. Reading from disk in dry run reported 250 attachments where the
@@ -322,6 +327,9 @@ func (a *App) Merge(opts MergeOptions) error {
 		}
 		merged++
 		byKind[kindOf(act.m)]++
+		if act.m.AnilistID == 0 {
+			unverifiable++
+		}
 	}
 
 	fmt.Fprintf(a.Out, "merge: %d attached (%d films, %d seasons), %d left for a person\n",
@@ -339,6 +347,17 @@ func (a *App) Merge(opts MergeOptions) error {
 		fmt.Fprintln(a.Out, "\n(dry run — nothing written)")
 	} else {
 		fmt.Fprintln(a.Out, "\nRun `builder build` and then the index; the build gates on whether upstream\nactually links each attached work to the rest of its series.")
+		if unverifiable > 0 {
+			// Said rather than left implied. The line above promises a gate,
+			// and for these the gate does not run: `anilist-unlinked` is
+			// seeded from and matched on an AniList id, so a work carrying
+			// only an AniDB one goes through it unexamined. Reporting that as
+			// though it had passed is the failure this repository keeps
+			// finding in its own checks.
+			fmt.Fprintf(a.Out, "\n%d of them carry no AniList id, so that gate cannot see them: upstream's\n"+
+				"link is the only evidence they belong where they were put, and nothing\n"+
+				"downstream re-checks it. Worth reading.\n", unverifiable)
+		}
 	}
 	return nil
 }
