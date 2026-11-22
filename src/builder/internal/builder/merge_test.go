@@ -253,7 +253,7 @@ func mergeRepo(t *testing.T) (*App, string, func() string) {
 
 func TestMergeAttachesWhatTheEvidenceSettlesAndReportsTheRest(t *testing.T) {
 	a, dir, out := mergeRepo(t)
-	if err := a.Merge(false); err != nil {
+	if err := a.Merge(MergeOptions{DryRun: false}); err != nil {
 		t.Fatalf("merge: %v", err)
 	}
 	body, err := os.ReadFile(filepath.Join(dir, "config", "overrides", "series", "demon-slayer.yaml"))
@@ -289,7 +289,7 @@ func TestMergeDryRunWritesNothing(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if err := a.Merge(true); err != nil {
+	if err := a.Merge(MergeOptions{DryRun: true}); err != nil {
 		t.Fatalf("merge: %v", err)
 	}
 	after, err := os.ReadFile(path)
@@ -314,7 +314,7 @@ func TestMergeRefusesWithNoCatalogueToMergeInto(t *testing.T) {
 	if err := os.RemoveAll(filepath.Join(dir, "data", "series")); err != nil {
 		t.Fatal(err)
 	}
-	err := a.Merge(false)
+	err := a.Merge(MergeOptions{DryRun: false})
 	if err == nil {
 		t.Fatal("want an error: an empty catalogue has nothing to merge into")
 	}
@@ -440,7 +440,7 @@ func TestMergeDeclinesCandidatesWithNothingToAuthorOrNoLink(t *testing.T) {
 	if err := os.WriteFile(filepath.Join(dir, ".sources", "anime-offline-database.json"), []byte(fixture), 0o644); err != nil {
 		t.Fatal(err)
 	}
-	if err := a.Merge(false); err != nil {
+	if err := a.Merge(MergeOptions{DryRun: false}); err != nil {
 		t.Fatalf("merge: %v", err)
 	}
 	got := out()
@@ -486,7 +486,7 @@ func TestMergeDeclinesAWorkLinkedOnlyOutsideTheCatalogue(t *testing.T) {
 	if err := os.WriteFile(filepath.Join(dir, ".sources", "anime-offline-database.json"), []byte(fixture), 0o644); err != nil {
 		t.Fatal(err)
 	}
-	if err := a.Merge(false); err != nil {
+	if err := a.Merge(MergeOptions{DryRun: false}); err != nil {
 		t.Fatalf("merge: %v", err)
 	}
 	if got := out(); !strings.Contains(got, "0 attached") {
@@ -502,7 +502,7 @@ func TestMergeReportsASeriesWithNoOverride(t *testing.T) {
 	if err := os.Remove(filepath.Join(dir, "config", "overrides", "series", "demon-slayer.yaml")); err != nil {
 		t.Fatal(err)
 	}
-	if err := a.Merge(false); err != nil {
+	if err := a.Merge(MergeOptions{DryRun: false}); err != nil {
 		t.Fatalf("merge: %v", err)
 	}
 	if got := out(); !strings.Contains(got, "no override file") {
@@ -663,7 +663,7 @@ func TestMergeDeclinesAWorkTwoSeriesCouldBothOwn(t *testing.T) {
 	if err := os.WriteFile(filepath.Join(dir, ".sources", "anime-offline-database.json"), []byte(fixture), 0o644); err != nil {
 		t.Fatal(err)
 	}
-	if err := a.Merge(false); err != nil {
+	if err := a.Merge(MergeOptions{DryRun: false}); err != nil {
 		t.Fatalf("merge: %v", err)
 	}
 	got := out()
@@ -685,7 +685,7 @@ func TestMergeStopsWhenTheSourceCannotBeRead(t *testing.T) {
 	if err := os.WriteFile(path, []byte("{not json"), 0o644); err != nil {
 		t.Fatal(err)
 	}
-	if err := a.Merge(false); err == nil {
+	if err := a.Merge(MergeOptions{DryRun: false}); err == nil {
 		t.Error("want an error: a corrupt source cannot be merged from")
 	}
 }
@@ -860,7 +860,7 @@ func TestADeclinedWorkIsNotProposedAgain(t *testing.T) {
 		t.Fatal(err)
 	}
 	// Without the decision recorded, it is attached.
-	if err := a.Merge(true); err != nil {
+	if err := a.Merge(MergeOptions{DryRun: true}); err != nil {
 		t.Fatal(err)
 	}
 	if !strings.Contains(out(), "1 attached") {
@@ -875,7 +875,7 @@ func TestADeclinedWorkIsNotProposedAgain(t *testing.T) {
 `), 0o644); err != nil {
 		t.Fatal(err)
 	}
-	if err := a.Merge(false); err != nil {
+	if err := a.Merge(MergeOptions{DryRun: false}); err != nil {
 		t.Fatalf("merge: %v", err)
 	}
 	got := out()
@@ -949,7 +949,7 @@ func TestADeclineOfAWorkNoLongerProposedIsANoteNotAFailure(t *testing.T) {
 		[]byte("declined:\n  - anilistId: 101922\n    work: Already Here\n    why: obsolete\n"), 0o644); err != nil {
 		t.Fatal(err)
 	}
-	if err := a.Merge(true); err != nil {
+	if err := a.Merge(MergeOptions{DryRun: true}); err != nil {
 		t.Fatalf("a decline of a work upstream lists failed the run: %v", err)
 	}
 	got := out()
@@ -986,7 +986,7 @@ func TestADeclineNamingNoWorkAtAllFailsBeforeWritingAnything(t *testing.T) {
 		t.Fatal(err)
 	}
 	// Not a dry run: the point is that the writes did not happen.
-	err = a.Merge(false)
+	err = a.Merge(MergeOptions{DryRun: false})
 	if err == nil {
 		t.Fatal("want an error: that id names no work upstream")
 	}
@@ -1013,7 +1013,7 @@ func TestADeclineThatMatchedNoCandidateFailsTheRun(t *testing.T) {
 		[]byte("declined:\n  - anilistId: 999999\n    work: Nothing\n    why: stale\n"), 0o644); err != nil {
 		t.Fatal(err)
 	}
-	err := a.Merge(true)
+	err := a.Merge(MergeOptions{DryRun: true})
 	if err == nil {
 		t.Fatal("want an error: nothing matched that decline")
 	}
@@ -1023,7 +1023,7 @@ func TestADeclineThatMatchedNoCandidateFailsTheRun(t *testing.T) {
 
 	// --since drops candidates before the declines are consulted, so every
 	// entry outside the window would look stale. Suppressed there.
-	if err := a.MergeWith(true, 2020, false); err != nil {
+	if err := a.Merge(MergeOptions{DryRun: true, Since: 2020, List: false}); err != nil {
 		t.Errorf("--since reported a stale decline: %v", err)
 	}
 }
@@ -1231,7 +1231,7 @@ func TestMergeCanBeNarrowedByYearAndListed(t *testing.T) {
 	if err := os.WriteFile(filepath.Join(dir, ".sources", "anime-offline-database.json"), []byte(fixture), 0o644); err != nil {
 		t.Fatal(err)
 	}
-	if err := a.MergeWith(true, 2020, true); err != nil {
+	if err := a.Merge(MergeOptions{DryRun: true, Since: 2020, List: true}); err != nil {
 		t.Fatalf("merge: %v", err)
 	}
 	got := out()

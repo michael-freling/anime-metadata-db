@@ -20,6 +20,19 @@ import (
 	"github.com/michael-freling/anime-metadata-db/src/builder/internal/sources/offlinedb"
 )
 
+// MergeOptions are the knobs the command exposes.
+type MergeOptions struct {
+	// DryRun plans and reports without writing an override file.
+	DryRun bool
+	// Since drops candidates released before this year, so a backlog can be
+	// worked newest-first. It also suppresses the stale-decline check, which
+	// cannot tell an entry outside the window from one that matches nothing.
+	Since int
+	// List prints each candidate left rather than only counting them, so the
+	// hand work is a list somebody can read.
+	List bool
+}
+
 // Merge attaches the works `builder import` reported as belonging to a series
 // the catalogue already has.
 //
@@ -53,20 +66,11 @@ import (
 // order, and the build's own gates then check the membership: a work upstream
 // does not link to the rest of the series fails `anilist-unlinked`, and one
 // that another series already accounts for fails `anilist-claimed-elsewhere`.
-func (a *App) Merge(dryRun bool) error {
-	return a.merge(dryRun, 0, false)
-}
 
-// MergeWith is Merge with the two knobs the command exposes: since drops
-// candidates released before a year, so a backlog can be worked newest-first,
-// and list prints each one left so the hand work is a list rather than a count.
-func (a *App) MergeWith(dryRun bool, since int, list bool) error {
-	return a.merge(dryRun, since, list)
-}
-
-// merge is Merge with the knobs the report needs: since drops candidates
-// released before a year, and list prints each one that is left.
-func (a *App) merge(dryRun bool, since int, list bool) error {
+// Merge takes its options as a struct rather than as a positional wrapper per
+// knob: this was Merge, MergeWith and merge, three functions for one body, and
+// the next knob would have been a fourth.
+func (a *App) Merge(opts MergeOptions) error {
 	cfg, err := a.loadConfig()
 	if err != nil {
 		return err
@@ -161,7 +165,7 @@ func (a *App) merge(dryRun bool, since int, list bool) error {
 	// and the list is what somebody works through by hand.
 	decline := func(m importer.Merge, series, why string) {
 		refused[why]++
-		if list {
+		if opts.List {
 			remaining = append(remaining, left{m, series, why})
 		}
 	}
@@ -170,8 +174,8 @@ func (a *App) merge(dryRun bool, since int, list bool) error {
 	for _, y := range years {
 		for _, m := range importer.BuildKnown(sources.Offline, y,
 			importer.Known{Anilist: known, Anidb: authoredAnidb}, claimedTitles, names).Merges {
-			if since > 0 && m.Year < since {
-				decline(m, "", fmt.Sprintf("released before %d", since))
+			if opts.Since > 0 && m.Year < opts.Since {
+				decline(m, "", fmt.Sprintf("released before %d", opts.Since))
 				continue
 			}
 			// A work already attached by its AniDB id needs no check here: the
@@ -271,7 +275,7 @@ func (a *App) merge(dryRun bool, since int, list bool) error {
 	// candidates before the declines are consulted, so every entry outside the
 	// window would look unmatched.
 	var typos []string
-	if since == 0 {
+	if opts.Since == 0 {
 		for _, k := range mapkeys.Sorted(declined) {
 			if consulted[k] {
 				continue
@@ -324,7 +328,7 @@ func (a *App) merge(dryRun bool, since int, list bool) error {
 			continue
 		}
 		edited[path] = next
-		if !dryRun {
+		if !opts.DryRun {
 			if err := os.WriteFile(path, []byte(next), 0o644); err != nil {
 				return err
 			}
@@ -335,7 +339,7 @@ func (a *App) merge(dryRun bool, since int, list bool) error {
 
 	fmt.Fprintf(a.Out, "merge: %d attached (%d films, %d seasons), %d left for a person\n",
 		merged, byKind["film"], byKind["season"], total(refused))
-	if list {
+	if opts.List {
 		for _, r := range remaining {
 			fmt.Fprintf(a.Out, "LEFT\t%d\t%s\t%s\t%d\t%s\t%s\n",
 				r.m.Year, r.m.Type, r.m.Title, r.m.AnilistID, r.series, r.why)
@@ -344,7 +348,7 @@ func (a *App) merge(dryRun bool, since int, list bool) error {
 	for _, why := range sortedKeys(refused) {
 		fmt.Fprintf(a.Out, "  %5d  %s\n", refused[why], why)
 	}
-	if dryRun {
+	if opts.DryRun {
 		fmt.Fprintln(a.Out, "\n(dry run — nothing written)")
 	} else {
 		fmt.Fprintln(a.Out, "\nRun `builder build` and then the index; the build gates on whether upstream\nactually links each attached work to the rest of its series.")

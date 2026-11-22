@@ -123,7 +123,11 @@ func newRootCmd(fetcher builder.Fetcher) *cobra.Command {
 			"the run. Everything else is reported with the reason.",
 		Args: cobra.NoArgs,
 		RunE: func(cmd *cobra.Command, _ []string) error {
-			return newApp(cmd).MergeWith(mergeDryRun, mergeSince, mergeList)
+			return newApp(cmd).Merge(builder.MergeOptions{
+				DryRun: mergeDryRun,
+				Since:  mergeSince,
+				List:   mergeList,
+			})
 		},
 	}
 	mrg.Flags().BoolVar(&mergeDryRun, "dry-run", false, "report what would be attached, write nothing")
