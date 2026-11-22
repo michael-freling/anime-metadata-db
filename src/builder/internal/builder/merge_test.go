@@ -1654,3 +1654,52 @@ func TestADeclineByAnidbIDStillRulesOutAWorkWithBothIDs(t *testing.T) {
 		t.Errorf("the run called a decline that did apply harmless:\n%s", trim(got, 600))
 	}
 }
+
+// An id a slot only talks about is not an id the slot has. Reading one made an
+// unpinned installment look pinned: pinIDs left it alone while adding a slot
+// beside it, so the candidate count the build matches a kind by shifted, and
+// the guard that every slot must name its work passed for one that names none.
+func TestANoteAboutAnIDIsNotAnID(t *testing.T) {
+	mentions := `    - id: show-film
+      # was anilistId: 123 before upstream merged the two records
+      title: { en: A Film } # anidbId: 456 is the other half
+`
+	if statesAnID(mentions) {
+		t.Error("a slot that only mentions ids in comments read as naming its work")
+	}
+	if got := statedID(mentions); got != "" {
+		t.Errorf("statedID = %q, want none", got)
+	}
+
+	// The same slot once it really does name one.
+	named := mentions + "      externalIds: { anilistId: 789 }\n"
+	if !statesAnID(named) {
+		t.Error("a slot that states an id did not read as naming its work")
+	}
+	if got := statedID(named); got != "anilistId: 789" {
+		t.Errorf("statedID = %q, want the stated id rather than a mentioned one", got)
+	}
+
+	// And a record whose comments mention ids resolves only the real ones.
+	record := `series:
+  id: show
+  movies:
+    - id: show-film
+      # anilistId: 111 was wrong
+      externalIds:
+        anilistId: 222
+    - id: show-film-2
+      externalIds:
+        anidbId: 333 # not anidbId: 444
+`
+	got := resolvedIDs(record, "movies")
+	if len(got) != 2 {
+		t.Fatalf("resolvedIDs = %v, want two slots", got)
+	}
+	if !slices.Contains(got[0], "anilistId: 222") || slices.Contains(got[0], "anilistId: 111") {
+		t.Errorf("slot 1 = %v, want only the id it states", got[0])
+	}
+	if !slices.Contains(got[1], "anidbId: 333") || slices.Contains(got[1], "anidbId: 444") {
+		t.Errorf("slot 2 = %v, want only the id it states", got[1])
+	}
+}

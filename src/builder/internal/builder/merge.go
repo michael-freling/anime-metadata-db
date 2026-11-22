@@ -790,7 +790,7 @@ func resolvedIDs(record, kind string) [][]string {
 		if i+1 < len(slots) {
 			end = slots[i+1][0]
 		}
-		node := block[at[0]:end]
+		node := string(withoutComments([]byte(block[at[0]:end])))
 		// Every handle the record states for this slot, not only the preferred
 		// one. The record states all of them, and which one a person happened
 		// to pin a slot with is not a claim about a different work: an override
@@ -929,16 +929,23 @@ func key(m importer.Merge) string {
 // statesAnID reports whether an installment already names the work itself,
 // by either handle the build can resolve.
 func statesAnID(node string) bool {
-	return anilistInline.MatchString(node) || anidbInline.MatchString(node)
+	return statedID(node) != ""
 }
 
 // statedID returns the id an installment names itself by, in the form
 // resolvedIDs uses, or "" where it names none.
+//
+// Read past the comments, for the reason every other id reader here does. An
+// installment carrying no id but a note about one — "# was anilistId: 123,
+// see …" — otherwise read as already pinned: pinIDs left it unpinned while
+// adding a slot beside it, so the count the build resolves by shifted, and the
+// guard that every slot must name its work passed for a slot that names none.
 func statedID(node string) string {
-	if g := anilistInline.FindStringSubmatch(node); g != nil {
+	bare := string(withoutComments([]byte(node)))
+	if g := anilistInline.FindStringSubmatch(bare); g != nil {
 		return "anilistId: " + g[1]
 	}
-	if g := anidbInline.FindStringSubmatch(node); g != nil {
+	if g := anidbInline.FindStringSubmatch(bare); g != nil {
 		return "anidbId: " + g[1]
 	}
 	return ""
