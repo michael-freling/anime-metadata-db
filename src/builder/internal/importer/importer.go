@@ -756,13 +756,16 @@ func describe(a offlinedb.Anime, into []int, linked bool) Merge {
 	}
 }
 
-// accountedFor reports whether any of the linked series' own names is this
-// work's name carried further — the same question a merge asks, asked before
-// one is proposed.
+// accountedFor reports whether any of the linked series' own names is a prefix
+// of this work's — the same question a merge asks, asked before one is
+// proposed. False means the work is written as a series of its own.
 //
-// True when nothing is known about the names, so a caller that cannot supply
-// them gets the older behaviour: every link is a merge, and nothing is written
-// that a person has not seen.
+// Every uncertain case answers true, because the two answers do not cost the
+// same: a work wrongly reported costs a line somebody reads, and a work wrongly
+// written costs a duplicate series, which is the one import mistake nothing
+// downstream can detect. So it is true when the caller supplies no names at
+// all, when a linked series has none recorded yet, and when every name it has
+// is shorter than minAccountingName and so says nothing either way.
 func accountedFor(a offlinedb.Anime, into []int, seriesNames func(int) []string) bool {
 	if seriesNames == nil {
 		return true
