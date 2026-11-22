@@ -936,6 +936,73 @@ func TestAWorkWithOnlyAnAnidbIDCanBeDeclined(t *testing.T) {
 	}
 }
 
+// A decline naming a work upstream lists, but which is no longer proposed —
+// attached by hand since, or no longer linked to the series it was proposed
+// for — is obsolete, not wrong. Failing on it would fail every run from then
+// on, with nothing to do about it but edit a file the error did not explain.
+func TestADeclineOfAWorkNoLongerProposedIsANoteNotAFailure(t *testing.T) {
+	a, dir, out := mergeRepo(t)
+	// 101922 is the series itself: upstream lists it, and the catalogue already
+	// accounts for it, so it is present rather than a candidate.
+	if err := os.WriteFile(filepath.Join(dir, declinedFile),
+		[]byte("declined:\n  - anilistId: 101922\n    work: Already Here\n    why: obsolete\n"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := a.Merge(true); err != nil {
+		t.Fatalf("a decline of a work upstream lists failed the run: %v", err)
+	}
+	got := out()
+	if !strings.Contains(got, "no longer proposed") {
+		t.Errorf("the run said nothing about the obsolete entry:\n%s", trim(got, 600))
+	}
+	if !strings.Contains(got, "merge:") {
+		t.Errorf("the summary did not print, so the attachments read as having failed:\n%s", trim(got, 600))
+	}
+}
+
+// An id upstream does not list at all can only be a typo, and a typo lets the
+// work it was meant to rule out back in. That fails the run — but before
+// anything is written, so the failure cannot be mistaken for attachments that
+// did not take.
+func TestADeclineNamingNoWorkAtAllFailsBeforeWritingAnything(t *testing.T) {
+	a, dir, _ := mergeRepo(t)
+	overrides := filepath.Join(dir, "config", "overrides", "series")
+	before := map[string]string{}
+	entries, err := os.ReadDir(overrides)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, e := range entries {
+		b, err := os.ReadFile(filepath.Join(overrides, e.Name()))
+		if err != nil {
+			t.Fatal(err)
+		}
+		before[e.Name()] = string(b)
+	}
+
+	if err := os.WriteFile(filepath.Join(dir, declinedFile),
+		[]byte("declined:\n  - anilistId: 999999\n    work: Nothing\n    why: typo\n"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	// Not a dry run: the point is that the writes did not happen.
+	err = a.Merge(false)
+	if err == nil {
+		t.Fatal("want an error: that id names no work upstream")
+	}
+	if !strings.Contains(err.Error(), "Nothing has been written") {
+		t.Errorf("err = %q, want it to say the run wrote nothing", err)
+	}
+	for name, was := range before {
+		now, err := os.ReadFile(filepath.Join(overrides, name))
+		if err != nil {
+			t.Fatal(err)
+		}
+		if string(now) != was {
+			t.Errorf("%s was written despite the run failing on a bad decline", name)
+		}
+	}
+}
+
 // An id that matches nothing is a typo or an entry whose work has since been
 // attached. Either way the work it was meant to rule out comes back, so the
 // run says so instead of passing.

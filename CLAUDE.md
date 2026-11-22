@@ -111,6 +111,16 @@ It refuses more than it writes, on purpose:
   the two commands disagreed about what a candidate was: works `import` writes
   as their own series were still proposed as merges and then refused, which
   inflated the backlog figure from 643 to 2,290.
+
+  **The failure mode this leaves is a sequel retitled so that it shares no name
+  with its parent**, which is written as its own series. No title rule
+  separates that from a series in its own right that merely links to its
+  siblings, and `anilist-claimed-elsewhere` cannot see it because the two are
+  different works with different ids. It is asserted as deliberate in
+  `TestARetitledSequelIsWrittenAsItsOwnSeriesWhichIsTheKnownFailureMode`, and
+  what bounds it is that `import` builds nothing: the result is a reviewable
+  diff of the authored layer, which is the whole reason the command is split
+  from the build.
 - **A series the build could not fill is reported.** The build refuses a kind
   unless the number of upstream candidates equals the number of declared
   installments, so a series must declare exactly what its own title resolves

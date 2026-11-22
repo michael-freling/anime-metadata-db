@@ -16,6 +16,7 @@ import (
 	"gopkg.in/yaml.v3"
 
 	"github.com/michael-freling/anime-metadata-db/src/builder/internal/importer"
+	"github.com/michael-freling/anime-metadata-db/src/builder/internal/mapkeys"
 	"github.com/michael-freling/anime-metadata-db/src/builder/internal/sources/offlinedb"
 )
 
@@ -265,6 +266,41 @@ func (a *App) merge(dryRun bool, since int, list bool) error {
 		return apply[i].m.AnilistID < apply[j].m.AnilistID
 	})
 
+	// Checked here, before the first file is written. It used to run after the
+	// apply loop, which meant a typo'd entry failed a run whose attachments had
+	// already been made and whose summary never printed — the attachments read
+	// as having failed when they had not.
+	//
+	// And an entry is only a typo if nothing names that work at all. A decline
+	// whose work has since been attached by hand is obsolete, not wrong: the
+	// work stops being a candidate, so `consulted` never records it, and
+	// failing on that would have failed every run from then on with no way to
+	// clear it but editing a file the error did not explain. Those are said and
+	// the run continues. Suppressed entirely under --since, which drops
+	// candidates before the declines are consulted, so every entry outside the
+	// window would look unmatched.
+	var typos []string
+	if since == 0 {
+		for _, k := range mapkeys.Sorted(declined) {
+			if consulted[k] {
+				continue
+			}
+			if declinedWorkExists(k, sources.Offline) {
+				fmt.Fprintf(a.Out, "note: %s declines %s, which is no longer proposed — "+
+					"already attached, or no longer linked to the series it was proposed for. "+
+					"The entry is harmless and can be removed.\n", declinedFile, k)
+				continue
+			}
+			typos = append(typos, k)
+		}
+	}
+	if len(typos) > 0 {
+		return fmt.Errorf("%s declines %d work(s) upstream does not list at all (%s): an id naming no "+
+			"work cannot decline one, so the work it was meant to rule out would be proposed and attached. "+
+			"Nothing has been written",
+			declinedFile, len(typos), strings.Join(typos, ", "))
+	}
+
 	merged, byKind := 0, map[string]int{}
 	// Held in memory so a dry run sees what a real one would: two works can
 	// land on the same series, and the second has to read what the first
@@ -304,25 +340,6 @@ func (a *App) merge(dryRun bool, since int, list bool) error {
 		}
 		merged++
 		byKind[kindOf(act.m)]++
-	}
-
-	// A decline that matched nothing is reported, not ignored. Suppressed under
-	// --since, which drops candidates before the declines are consulted, so
-	// every entry outside the window would look stale.
-	if since == 0 {
-		var stale []string
-		for k := range declined {
-			if !consulted[k] {
-				stale = append(stale, k)
-			}
-		}
-		sort.Strings(stale)
-		if len(stale) > 0 {
-			return fmt.Errorf("%s declines %d work(s) that no candidate matched (%s): an id that matches "+
-				"nothing is a typo or an entry whose work has since been attached, and either way the work "+
-				"it was meant to rule out is proposed again",
-				declinedFile, len(stale), strings.Join(stale, ", "))
-		}
 	}
 
 	fmt.Fprintf(a.Out, "merge: %d attached (%d films, %d seasons), %d left for a person\n",
@@ -893,4 +910,25 @@ func statedID(node string) string {
 		return "anidbId: " + g[1]
 	}
 	return ""
+}
+
+// declinedWorkExists reports whether upstream lists the work a declined entry
+// names, which separates an entry that has merely gone stale from one whose id
+// is a typo.
+func declinedWorkExists(k string, db *offlinedb.Database) bool {
+	if db == nil {
+		// Cannot tell, so not called a typo. A check that could not look has
+		// to read differently from one that looked and found nothing.
+		return true
+	}
+	id, err := strconv.Atoi(strings.TrimLeft(k, "adl"))
+	if err != nil {
+		return false
+	}
+	if strings.HasPrefix(k, "ad") {
+		_, ok := db.LookupAnidb(id)
+		return ok
+	}
+	_, ok := db.Lookup(id)
+	return ok
 }

@@ -1039,3 +1039,52 @@ func TestKnownTreatsZeroAsAbsentRatherThanAsAKey(t *testing.T) {
 		t.Error("an id-less work read as already accounted for, because zero was treated as a key")
 	}
 }
+
+// The import rule's known failure mode, asserted so it is deliberate rather
+// than discovered.
+//
+// A work linked to a series the catalogue has is written as its own series
+// when no linked series' name is its name carried further. That is right for
+// "Healin' Good♡Precure", which links to other Precure and is a series in its
+// own right — and wrong for a sequel retitled so that it shares no name with
+// its parent, which is the one import mistake nothing downstream detects:
+// `anilist-claimed-elsewhere` compares ids, and these are different works
+// with different ids.
+//
+// There is no title rule that separates the two, which is why the catalogue's
+// merges are authored by hand and the import reports 596 candidates rather
+// than placing them. What keeps this bounded is that the written series are a
+// reviewable diff of the authored layer, which is the whole reason `import`
+// builds nothing.
+func TestARetitledSequelIsWrittenAsItsOwnSeriesWhichIsTheKnownFailureMode(t *testing.T) {
+	db := load(t,
+		entry{title: "Kaguya-sama wa Kokurasetai", typ: "TV", episodes: 12, year: 2019,
+			season: "WINTER", status: "FINISHED", sources: []string{al("100")}},
+		// A real sequel, retitled so that the parent's name is nowhere in it.
+		entry{title: "Ultra Romantic", typ: "TV", episodes: 13, year: 2022, season: "SPRING",
+			status: "FINISHED", sources: []string{al("200")}, related: []string{al("100")}},
+	)
+	plan := BuildKnown(db, 2022, Known{Anilist: map[int]bool{100: true}}, map[string]bool{},
+		func(int) []string { return []string{"Kaguya-sama wa Kokurasetai"} })
+
+	if len(plan.New) != 1 {
+		t.Fatalf("New = %+v, want the retitled sequel written as its own series — the documented failure mode", plan.New)
+	}
+	if len(plan.Merges) != 0 {
+		t.Errorf("Merges = %+v, want none; the title gives nothing to match on", plan.Merges)
+	}
+
+	// And the other half of the same rule, which is why it exists: a series in
+	// its own right that merely links to its siblings is not held back.
+	db2 := load(t,
+		entry{title: "Mahou Tsukai Precure!", typ: "TV", episodes: 50, year: 2016, season: "WINTER",
+			status: "FINISHED", sources: []string{al("300")}},
+		entry{title: "Healin' Good Precure", typ: "TV", episodes: 45, year: 2020, season: "WINTER",
+			status: "FINISHED", sources: []string{al("400")}, related: []string{al("300")}},
+	)
+	plan2 := BuildKnown(db2, 2020, Known{Anilist: map[int]bool{300: true}}, map[string]bool{},
+		func(int) []string { return []string{"Mahou Tsukai Precure!"} })
+	if len(plan2.New) != 1 {
+		t.Errorf("New = %+v, want the new Precure season written as its own series", plan2.New)
+	}
+}
