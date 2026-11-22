@@ -102,3 +102,99 @@ func TestDecodeCursorRejectsGarbage(t *testing.T) {
 func encodeRaw(s string) string {
 	return base64.RawURLEncoding.EncodeToString([]byte(s))
 }
+
+// Work answers "which series does this installment belong to, and which file
+// holds it" — the lookup a caller holding only an installment id needs before
+// it can read anything. Every kind resolves, and an id that is not an
+// installment's says so rather than returning a plausible-looking zero series.
+func TestWorkResolvesAnInstallmentToItsSeriesAndFile(t *testing.T) {
+	ix := mustIndex(t)
+
+	for _, tc := range []struct {
+		id, series string
+		kind       WorkKind
+	}{
+		{"aaa-s1", "aaa-main", WorkSeason},
+		{"aaa-s2", "aaa-main", WorkSeason},
+		{"aaa-movie", "aaa-main", WorkMovie},
+		{"aaa-ova", "aaa-side", WorkSpecial},
+		{"zzz-s1", "zzz", WorkSeason},
+	} {
+		series, file, kind, ok := ix.Work(tc.id)
+		if !ok {
+			t.Errorf("Work(%q) found nothing", tc.id)
+			continue
+		}
+		if series != tc.series {
+			t.Errorf("Work(%q) series = %q, want %q", tc.id, series, tc.series)
+		}
+		if kind != tc.kind {
+			t.Errorf("Work(%q) kind = %v, want %v", tc.id, kind, tc.kind)
+		}
+		if file == "" {
+			t.Errorf("Work(%q) named no file, so the caller cannot read the record", tc.id)
+		}
+	}
+
+	// A series id is not an installment id, and neither is a name nobody uses.
+	for _, id := range []string{"aaa-main", "nothing-by-this-name", ""} {
+		if _, _, _, ok := ix.Work(id); ok {
+			t.Errorf("Work(%q) claimed to resolve an id that is not an installment's", id)
+		}
+	}
+}
+
+// SeriesOf pages the series under one franchise. An unknown franchise is an
+// empty page rather than an error, since asking about a franchise that is not
+// there is a question, not a fault.
+func TestSeriesOfPagesAFranchiseAndIsEmptyForAnUnknownOne(t *testing.T) {
+	ix := mustIndex(t)
+
+	all, err := ix.SeriesOf("aaa", "", 50)
+	if err != nil {
+		t.Fatalf("SeriesOf: %v", err)
+	}
+	if len(all.Items) < 2 {
+		t.Fatalf("SeriesOf(aaa) = %d series, want the franchise's two or more", len(all.Items))
+	}
+	for _, r := range all.Items {
+		if r.ID == "" || r.File == "" {
+			t.Errorf("a returned ref is missing its id or file: %+v", r)
+		}
+	}
+	if all.NextToken != "" {
+		t.Errorf("NextToken = %q; a page holding every series has no next page", all.NextToken)
+	}
+
+	// Paged one at a time, the pages together are the whole franchise, and the
+	// paging stops because it ran out of series — not because a count matched.
+	var seen []string
+	token := ""
+	for pages := 0; ; pages++ {
+		if pages > len(all.Items)+1 {
+			t.Fatalf("paging did not terminate after %d pages", pages)
+		}
+		p, err := ix.SeriesOf("aaa", token, 1)
+		if err != nil {
+			t.Fatalf("SeriesOf page %d: %v", pages, err)
+		}
+		for _, r := range p.Items {
+			seen = append(seen, r.ID)
+		}
+		if p.NextToken == "" {
+			break
+		}
+		token = p.NextToken
+	}
+	if len(seen) != len(all.Items) {
+		t.Errorf("paging one at a time saw %d series, the single page saw %d", len(seen), len(all.Items))
+	}
+
+	none, err := ix.SeriesOf("no-such-franchise", "", 50)
+	if err != nil {
+		t.Errorf("SeriesOf(unknown) = error %v, want an empty page", err)
+	}
+	if len(none.Items) != 0 || none.NextToken != "" {
+		t.Errorf("SeriesOf(unknown) = %+v, want an empty page", none)
+	}
+}

@@ -1252,4 +1252,23 @@ func TestPinningRefusesWhenTheListsHaveDriftedApart(t *testing.T) {
 	if _, why := plan(ok, record, "show", film("300", "Show: The Third", 2030), map[string]bool{}); why != "" {
 		t.Errorf("refused a list that does agree: %s", why)
 	}
+
+	// A slot pinned by its AniDB id has to be read as pinned too. Reading only
+	// anilistId made such a slot look unpinned and pinned it again, until the
+	// file carried three externalIds keys on one node and stopped parsing.
+	byAnidb := `series:
+  id: show
+  seasons:
+    - id: show-s1
+      number: 1
+  movies:
+    - id: show-film
+      externalIds: { anidbId: 4242 }
+    - id: show-film-2
+      externalIds: { anilistId: 201 }
+`
+	_, why = plan(byAnidb, record, "show", film("300", "Show: The Third", 2030), map[string]bool{})
+	if !strings.Contains(why, "not the same list") {
+		t.Errorf("why = %q, want the AniDB pin read and compared against the record", why)
+	}
 }

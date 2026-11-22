@@ -177,12 +177,9 @@ func (a *App) merge(dryRun bool, since int, list bool) error {
 				decline(m, "", fmt.Sprintf("released before %d", since))
 				continue
 			}
-			if m.AnilistID == 0 && m.AnidbID != 0 && authoredAnidb[m.AnidbID] {
-				// Already attached, by the only handle it has. The candidate
-				// list is built from AniList ids, so nothing upstream of here
-				// can tell.
-				continue
-			}
+			// A work already attached by its AniDB id needs no check here: the
+			// same map is `Known.Anidb` above, so BuildKnown has already
+			// called it present and it never reaches this list.
 			if m.AnilistID == 0 && m.AnidbID == 0 {
 				decline(m, "", "carries no id on any provider the model can name, so there is nothing to author")
 				continue

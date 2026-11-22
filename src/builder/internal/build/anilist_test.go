@@ -521,6 +521,23 @@ func TestTheClaimGateCoversAnidbIDsAndKeepsThemSeparate(t *testing.T) {
 		t.Errorf("gating = %+v; AniDB 500 and AniList 500 are different works", g)
 	}
 
+	// Every kind a series can hold is claimed, specials included: an OVA
+	// authored onto a series by hand still holds its upstream work.
+	sixth := &model.Series{ID: "sixth",
+		Specials: []model.Special{{ID: "sixth-ova", ExternalIDs: model.ExternalIDs{AnidbID: 700}}}}
+	r6 := &Report{}
+	b.checkNotClaimedElsewhere(sixth, r6)
+	if g := r6.Gating(); len(g) != 0 {
+		t.Fatalf("gating = %+v, want none for the first claim", g)
+	}
+	seventh := &model.Series{ID: "seventh",
+		Movies: []model.Movie{{ID: "seventh-film", ExternalIDs: model.ExternalIDs{AnidbID: 700}}}}
+	r7 := &Report{}
+	b.checkNotClaimedElsewhere(seventh, r7)
+	if g := r7.Gating(); len(g) != 1 || !strings.Contains(g[0].Message, `series "sixth"`) {
+		t.Errorf("gating = %+v, want the series holding it as a special named as the first claimant", g)
+	}
+
 	// One installment stating both ids claims both, and neither collides with
 	// the other provider's number.
 	fourth := &model.Series{ID: "fourth",

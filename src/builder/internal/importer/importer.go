@@ -828,10 +828,9 @@ func extendsName(work, series string) bool {
 	if !strings.HasPrefix(work, series) {
 		return false
 	}
+	// Non-empty: an empty remainder would mean the two were equal, which
+	// returned above.
 	rest := []rune(work[len(series):])
-	if len(rest) == 0 {
-		return true
-	}
 	prev := []rune(series)
 	return boundary(prev[len(prev)-1], rest[0])
 }

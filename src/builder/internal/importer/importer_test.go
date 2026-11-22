@@ -961,6 +961,13 @@ func TestOneNameAccountsForAnotherOnlyAtABoundary(t *testing.T) {
 		{"Fat", "Fate/Grand Order", false, "the prefix lands mid-word"},
 		{"Gundam", "Gundamn", false, "and mid-word again"},
 		{"ガンダム", "ガンダムエース", false, "same script, no boundary"},
+		{"Gundam", "Gundam2", true, "a digit after a letter, with no space to help"},
+		{"ハイカード", "ハイカード2", true, "and after katakana"},
+		{"鬼滅", "鬼滅の刃", true, "kana after han starts a new token"},
+		{"ぼっち", "ぼっちざろっく", false, "hiragana after hiragana is one word"},
+		{"신비", "신비아파트", false, "hangul after hangul likewise"},
+		{"신비", "신비 아파트", true, "until a space separates them"},
+		{"2", "22", false, "digit after digit is one number"},
 	}
 	for _, c := range cases {
 		got := extendsName(accountFold(c.work), accountFold(c.series))
@@ -990,5 +997,45 @@ func TestAWorkIsReportedWhenTheLinkedSeriesNamesAreNotKnownYet(t *testing.T) {
 	}
 	if len(plan.Merges) != 1 {
 		t.Errorf("Merges = %+v, want the work reported", plan.Merges)
+	}
+}
+
+// A title that upstream carries only on entries the catalogue does not take —
+// specials, ONAs, OVAs — resolves to nothing importable. Refused with that as
+// the reason, rather than written as a series with no installments in it.
+func TestATitleCarriedOnlyByOutOfScopeEntriesIsRefused(t *testing.T) {
+	db := load(t,
+		entry{title: "Promo Only", typ: "SPECIAL", episodes: 1, year: 2020, season: "SPRING",
+			status: "FINISHED", sources: []string{al("300")}},
+		entry{title: "Promo Only", typ: "ONA", episodes: 1, year: 2020, season: "SPRING",
+			status: "FINISHED", sources: []string{al("301")}},
+	)
+	plan := BuildKnown(db, 2020, Known{}, map[string]bool{}, nil)
+	if len(plan.New) != 0 {
+		t.Errorf("New = %+v, want nothing written", plan.New)
+	}
+	// Out of scope entirely, so it is not even a candidate — counted, not
+	// reported as something a person should look at.
+	if plan.Skipped == 0 {
+		t.Error("Skipped = 0; the out-of-scope entries were not counted, so a zero here cannot be told from not having looked")
+	}
+}
+
+// The providers number their catalogues independently, and a zero means
+// "absent" rather than naming work number zero.
+func TestKnownTreatsZeroAsAbsentRatherThanAsAKey(t *testing.T) {
+	db := load(t, entry{title: "No Ids At All", typ: "TV", episodes: 12, year: 2020,
+		season: "SPRING", status: "FINISHED"})
+	var only offlinedb.Anime
+	for a := range db.All() {
+		only = a
+	}
+	if only.AnilistID() != 0 || only.AnidbID() != 0 {
+		t.Fatalf("fixture carries ids: %d/%d", only.AnilistID(), only.AnidbID())
+	}
+	// A map that happens to hold 0 must not make an id-less work "known".
+	k := Known{Anilist: map[int]bool{0: true}, Anidb: map[int]bool{0: true}}
+	if k.has(only) {
+		t.Error("an id-less work read as already accounted for, because zero was treated as a key")
 	}
 }
