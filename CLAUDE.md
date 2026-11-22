@@ -88,9 +88,29 @@ Then `make build-data` and `make index`.
 It refuses more than it writes, on purpose:
 
 - **A work related to a series the catalogue already has is reported, never
-  written.** Creating a second series for an installment of an existing one is
-  the only import mistake nothing downstream can detect — by the next run the
-  duplicate looks like an ordinary series. Author those merges by hand.
+  written — unless no series it is related to is named after it.** Creating a
+  second series for an installment of an existing one is the only import
+  mistake nothing downstream can detect, so this is the rule to be careful
+  with. But "related" is not "an installment of": "Healin' Good♡Precure" is a
+  Precure season in its own right and links to other Precure, and holding it
+  for a merge nobody could make lost it. 1,699 works were in that position.
+
+  So a link means a merge where one of the linked series' own names is this
+  work's name carried further, and otherwise the work is written as the series
+  it is. `accountedFor` asks that, and three things keep it honest: the
+  comparison keeps the spaces and punctuation `FoldTitle` drops, so a name only
+  accounts for a work at a boundary ("Free" accounts for "Free Fall", "Hero"
+  does not account for "Heroman"); the names are read from the authored layer
+  as well as the built records, since a run importing several years before a
+  build would otherwise see none for the years it just wrote; and where nothing
+  is known about a linked series' names the work is **reported**, because that
+  costs a line in a report somebody reads and the other direction costs a
+  duplicate nobody can find.
+
+  `builder merge` asks the same question with the same inputs. It did not, and
+  the two commands disagreed about what a candidate was: works `import` writes
+  as their own series were still proposed as merges and then refused, which
+  inflated the backlog figure from 643 to 2,290.
 - **A series the build could not fill is reported.** The build refuses a kind
   unless the number of upstream candidates equals the number of declared
   installments, so a series must declare exactly what its own title resolves

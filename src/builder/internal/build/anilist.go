@@ -396,5 +396,15 @@ func joinKeys(s *model.Series) []joinKey {
 	for _, x := range s.Specials {
 		add("special", x.ExternalIDs, x.ID)
 	}
+	// Sorted, as anilistIDs was. Which installment a finding names, where one
+	// series states the same id twice, would otherwise depend on declaration
+	// order — and the message quotes whichever series `claimed` saw first, so
+	// the report should at least be stable within a series.
+	sort.Slice(out, func(i, j int) bool {
+		if out[i].key != out[j].key {
+			return out[i].key < out[j].key
+		}
+		return out[i].entity < out[j].entity
+	})
 	return out
 }

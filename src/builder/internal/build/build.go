@@ -142,22 +142,28 @@ func (b *Builder) buildSeries(s *model.Series, numbered bool, report *Report) er
 // computed until it could not be.
 func (b *Builder) lookup(entity string, ids *model.ExternalIDs, resolved resolution) (offlinedb.Anime, error) {
 	if ids.AnilistID == 0 {
+		// An authored AniDB id decides, for the same reason an AniList one
+		// does: it is what somebody wrote down, and the resolution is a guess
+		// from a title. Consulted before `resolved` rather than after, which
+		// is where it was: a slot pinned with an AniDB id precisely so it
+		// survives a count change would have gone on resolving by title, and
+		// where the two disagreed the pin was silently ignored.
+		//
+		// Upstream lists about half its catalogue on no AniList page, and a
+		// work there that the series' own title does not reach can be named no
+		// other way — 767 works linked to a series the catalogue has are in
+		// that position.
+		if ids.AnidbID != 0 {
+			a, ok := b.sources.Offline.LookupAnidb(ids.AnidbID)
+			if !ok {
+				return offlinedb.Anime{}, fmt.Errorf("%s: unknown AniDB id %d "+
+					"(the database indexes anidb.net/anime/<id>; an entry upstream lists another way is not reachable by it)",
+					entity, ids.AnidbID)
+			}
+			return a, nil
+		}
 		if a, ok := resolved[ids]; ok {
 			return a, nil
-		}
-		// An authored AniDB id, which is the last handle left. Upstream lists
-		// about half its catalogue on no AniList page, and a work there that
-		// the series' own title does not reach can be named no other way: 767
-		// works linked to a series the catalogue has carry no AniList id.
-		// Consulted after the resolution rather than before it, so a series
-		// whose title already accounts for the installment resolves exactly as
-		// it did — this adds a way to reach a work, it does not change how any
-		// work is already reached.
-		if a, ok := b.sources.Offline.LookupAnidb(ids.AnidbID); ok {
-			return a, nil
-		}
-		if ids.AnidbID != 0 {
-			return offlinedb.Anime{}, fmt.Errorf("%s: unknown AniDB id %d", entity, ids.AnidbID)
 		}
 		return offlinedb.Anime{}, fmt.Errorf(
 			"%s: no externalIds.anilistId, and no upstream entry could be resolved from the series' title. "+

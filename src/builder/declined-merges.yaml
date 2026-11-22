@@ -1,5 +1,13 @@
 # Works `builder merge` keeps proposing that a person has decided against.
 #
+# This sits beside the builder, not under dataset/: it is not a record of an
+# anime, it is state for one command. Each entry names the work by whichever
+# handle upstream gives it — anilistId, or anidbId for the works upstream
+# carries on no AniList page — and must give a reason, since the reason is the
+# whole value of writing the decision down. An id that matches no candidate
+# fails the run rather than passing silently, because a typo there would let
+# the work back in.
+#
 # The tool attaches a work only where upstream links it to the series, the
 # work's title is the series' title carried further, and it aired after
 # everything already there. That is enough to rule out most mistakes and not
@@ -48,11 +56,6 @@ declined:
     work: "Tokyo Mew Mew New 2nd Season"
     proposedFor: tokyo-mew-mew
     why: the remake's second season, so it belongs wherever the remake does
-
-  - anilistId: 125909
-    work: "Tsukipro The Animation 2"
-    proposedFor: tsukiuta-the-animation-2
-    why: a different branch of the franchise under a different title
 
   - anilistId: 133175
     work: "Mahoutsukai Reimeiki"

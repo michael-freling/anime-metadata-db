@@ -487,3 +487,54 @@ func TestRebuildingOneSeriesIsNotADuplicate(t *testing.T) {
 		}
 	}
 }
+
+// The claim gate covers AniDB ids too, which the build fills from the resolved
+// entry — so it decides for every series, not only the ones naming an AniDB id
+// by hand. Two series naming one AniDB work must fail, and the two providers'
+// numbering must not be pooled: AniDB 500 is not AniList 500.
+func TestTheClaimGateCoversAnidbIDsAndKeepsThemSeparate(t *testing.T) {
+	b := New(Sources{Offline: offlineFrom(t, chainDB)})
+
+	first := &model.Series{ID: "first",
+		Movies: []model.Movie{{ID: "first-film", ExternalIDs: model.ExternalIDs{AnidbID: 500}}}}
+	r1 := &Report{}
+	b.checkNotClaimedElsewhere(first, r1)
+	if g := r1.Gating(); len(g) != 0 {
+		t.Fatalf("the first series to claim an id is not the duplicate: %+v", g)
+	}
+
+	second := &model.Series{ID: "second",
+		Movies: []model.Movie{{ID: "second-film", ExternalIDs: model.ExternalIDs{AnidbID: 500}}}}
+	r2 := &Report{}
+	b.checkNotClaimedElsewhere(second, r2)
+	g := r2.Gating()
+	if len(g) != 1 || !strings.Contains(g[0].Message, "anidbId 500") {
+		t.Fatalf("gating = %+v, want one finding naming anidbId 500", g)
+	}
+
+	// Same number, other provider: a different work, so no finding.
+	third := &model.Series{ID: "third",
+		Movies: []model.Movie{{ID: "third-film", ExternalIDs: model.ExternalIDs{AnilistID: 500}}}}
+	r3 := &Report{}
+	b.checkNotClaimedElsewhere(third, r3)
+	if g := r3.Gating(); len(g) != 0 {
+		t.Errorf("gating = %+v; AniDB 500 and AniList 500 are different works", g)
+	}
+
+	// One installment stating both ids claims both, and neither collides with
+	// the other provider's number.
+	fourth := &model.Series{ID: "fourth",
+		Movies: []model.Movie{{ID: "fourth-film", ExternalIDs: model.ExternalIDs{AnilistID: 900, AnidbID: 901}}}}
+	r4 := &Report{}
+	b.checkNotClaimedElsewhere(fourth, r4)
+	if g := r4.Gating(); len(g) != 0 {
+		t.Errorf("gating = %+v, want none", g)
+	}
+	fifth := &model.Series{ID: "fifth",
+		Movies: []model.Movie{{ID: "fifth-film", ExternalIDs: model.ExternalIDs{AnidbID: 901}}}}
+	r5 := &Report{}
+	b.checkNotClaimedElsewhere(fifth, r5)
+	if g := r5.Gating(); len(g) != 1 {
+		t.Errorf("gating = %+v, want the AniDB id reported as claimed", g)
+	}
+}

@@ -1,7 +1,10 @@
 package builder
 
 import (
+	"bytes"
+	"errors"
 	"fmt"
+	"io"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -114,6 +117,16 @@ func (a *App) merge(dryRun bool, since int, list bool) error {
 	if err != nil {
 		return err
 	}
+	// The same question `import` asks, asked with the same inputs. Calling
+	// importer.Build with no names here made the two commands disagree about
+	// what a candidate even is: works `import` writes as their own series were
+	// still proposed to `merge` and then refused as "its title is not the
+	// title of any series upstream links it to", so that figure counted works
+	// nobody was waiting on.
+	names, err := seriesNames(filepath.Join(overridesDir, "series"), dataDir)
+	if err != nil {
+		return err
+	}
 	taken, err := existingIDs(overridesDir)
 	if err != nil {
 		return err
@@ -122,7 +135,7 @@ func (a *App) merge(dryRun bool, since int, list bool) error {
 	if err != nil {
 		return err
 	}
-	declined, err := declinedMerges(filepath.Join(a.Dir, cfg.Settings.DataDir, "..", declinedFile))
+	declined, err := declinedMerges(filepath.Join(a.Dir, declinedFile))
 	if err != nil {
 		return err
 	}
@@ -142,6 +155,10 @@ func (a *App) merge(dryRun bool, since int, list bool) error {
 		why    string
 	}
 	var remaining []left
+	// Which declines actually matched something this run. An id that matches
+	// nothing is a typo or a stale entry, and either way the work it was meant
+	// to rule out is proposed again — the failure the file exists to prevent.
+	consulted := map[string]bool{}
 	refused := map[string]int{}
 	// Counted always, listed on request: the counts are what a run reports,
 	// and the list is what somebody works through by hand.
@@ -154,7 +171,8 @@ func (a *App) merge(dryRun bool, since int, list bool) error {
 	seen := map[string]bool{}
 	years := importYears(sources.Offline)
 	for _, y := range years {
-		for _, m := range importer.Build(sources.Offline, y, known, claimedTitles).Merges {
+		for _, m := range importer.BuildKnown(sources.Offline, y,
+			importer.Known{Anilist: known, Anidb: authoredAnidb}, claimedTitles, names).Merges {
 			if since > 0 && m.Year < since {
 				decline(m, "", fmt.Sprintf("released before %d", since))
 				continue
@@ -173,7 +191,8 @@ func (a *App) merge(dryRun bool, since int, list bool) error {
 				continue
 			}
 			seen[key(m)] = true
-			if why, ok := declined[m.AnilistID]; ok && m.AnilistID != 0 {
+			if why, ok := declined[key(m)]; ok {
+				consulted[key(m)] = true
 				// A person read this one and said no. The tool is
 				// deterministic, so without this it proposes it again every
 				// run and the reading has to be redone.
@@ -288,6 +307,25 @@ func (a *App) merge(dryRun bool, since int, list bool) error {
 		}
 		merged++
 		byKind[kindOf(act.m)]++
+	}
+
+	// A decline that matched nothing is reported, not ignored. Suppressed under
+	// --since, which drops candidates before the declines are consulted, so
+	// every entry outside the window would look stale.
+	if since == 0 {
+		var stale []string
+		for k := range declined {
+			if !consulted[k] {
+				stale = append(stale, k)
+			}
+		}
+		sort.Strings(stale)
+		if len(stale) > 0 {
+			return fmt.Errorf("%s declines %d work(s) that no candidate matched (%s): an id that matches "+
+				"nothing is a typo or an entry whose work has since been attached, and either way the work "+
+				"it was meant to rule out is proposed again",
+				declinedFile, len(stale), strings.Join(stale, ", "))
+		}
 	}
 
 	fmt.Fprintf(a.Out, "merge: %d attached (%d films, %d seasons), %d left for a person\n",
@@ -653,11 +691,27 @@ func pinIDs(block string, resolved []string) (string, string) {
 			end = slots[i+1][0]
 		}
 		node := block[at[0]:end]
-		// Any id the model can name, not just an AniList one. Checking for
-		// that alone made a slot this had already pinned with an AniDB id
-		// look unpinned, so a third work attached to one series pinned it
-		// three times and the file stopped parsing on a repeated key.
-		if i >= len(resolved) || statesAnID(node) {
+		if i >= len(resolved) {
+			b.WriteString(node)
+			continue
+		}
+		// A slot that already names a work is left alone — any id the model
+		// can name, not only an AniList one, since checking for that alone made
+		// a slot this had pinned with an AniDB id look unpinned and pinned it
+		// again until the file stopped parsing on a repeated key.
+		//
+		// But it also has to agree with the record, because the pairing is by
+		// position and nothing else establishes that the two lists are the same
+		// list. An installment inserted into the middle by hand, or a record
+		// stale against the override, shifts every slot after it and pins the
+		// wrong work onto each — silently, since a wrong id resolves to a real
+		// entry. Where a slot states an id, that id is the check.
+		if stated := statedID(node); stated != "" {
+			if stated != resolved[i] {
+				return "", fmt.Sprintf("installment %d states %s where the record resolved %s, "+
+					"so the two lists are not the same list and pairing by position would pin the wrong work",
+					i+1, stated, resolved[i])
+			}
 			b.WriteString(node)
 			continue
 		}
@@ -741,37 +795,68 @@ func editedOrRead(edited map[string]string, path string) (string, bool) {
 }
 
 // declinedFile is where the decisions a person made about proposed merges live,
-// relative to the dataset root.
+// relative to the repository root.
+//
+// Beside the builder rather than under dataset/, because it is not a record.
+// dataset/ is the product and carries the ODbL/DbCL licence; this is state for
+// one command, saying which proposals not to make again. It also has no schema
+// and Data lint does not see it, which would be wrong for anything published.
+//
+// It used to be derived as DataDir/.., which silently looked in the wrong place
+// if dataDir were ever configured as anything but a direct child of the dataset
+// root — and since an absent file is not an error, every decline would have
+// quietly stopped applying.
 const declinedFile = "declined-merges.yaml"
 
 // declinedMerges reads the works a person has decided against attaching,
 // keyed by AniList id.
 //
 // Absent is not an error: a repository that has never declined one has none.
-func declinedMerges(path string) (map[int]string, error) {
+func declinedMerges(path string) (map[string]string, error) {
 	body, err := os.ReadFile(path)
 	if os.IsNotExist(err) {
-		return map[int]string{}, nil
+		return map[string]string{}, nil
 	}
 	if err != nil {
 		return nil, err
 	}
 	var doc struct {
 		Declined []struct {
-			AnilistID int    `yaml:"anilistId"`
-			Work      string `yaml:"work"`
-			Why       string `yaml:"why"`
+			AnilistID   int    `yaml:"anilistId"`
+			AnidbID     int    `yaml:"anidbId"`
+			Work        string `yaml:"work"`
+			ProposedFor string `yaml:"proposedFor"`
+			Why         string `yaml:"why"`
 		} `yaml:"declined"`
 	}
-	if err := yaml.Unmarshal(body, &doc); err != nil {
+	dec := yaml.NewDecoder(bytes.NewReader(body))
+	// A misspelled field is a decision that silently does not apply, which is
+	// the same failure as a misspelled id.
+	dec.KnownFields(true)
+	if err := dec.Decode(&doc); err != nil && !errors.Is(err, io.EOF) {
 		return nil, fmt.Errorf("parse %s: %w", path, err)
 	}
-	out := make(map[int]string, len(doc.Declined))
-	for _, d := range doc.Declined {
-		if d.AnilistID == 0 {
-			return nil, fmt.Errorf("%s: an entry states no anilistId, so nothing is declined by it", path)
+	out := make(map[string]string, len(doc.Declined))
+	for i, d := range doc.Declined {
+		switch {
+		case d.AnilistID == 0 && d.AnidbID == 0:
+			return nil, fmt.Errorf("%s: entry %d names no work, so nothing is declined by it", path, i+1)
+		case d.AnilistID != 0 && d.AnidbID != 0:
+			return nil, fmt.Errorf("%s: entry %d names both an anilistId and an anidbId, "+
+				"so which work is declined is ambiguous", path, i+1)
+		case strings.TrimSpace(d.Why) == "":
+			return nil, fmt.Errorf("%s: entry %d gives no reason; the reason is the whole value of "+
+				"recording the decision, and without one the report reads \"declined by hand: \"", path, i+1)
 		}
-		out[d.AnilistID] = d.Why
+		k := "al" + strconv.Itoa(d.AnilistID)
+		if d.AnilistID == 0 {
+			k = "ad" + strconv.Itoa(d.AnidbID)
+		}
+		if prev, dup := out[k]; dup {
+			return nil, fmt.Errorf("%s: entry %d declines a work already declined (%q); "+
+				"the later reason would silently replace the earlier", path, i+1, prev)
+		}
+		out[k] = d.Why
 	}
 	return out, nil
 }
@@ -799,4 +884,16 @@ func key(m importer.Merge) string {
 // by either handle the build can resolve.
 func statesAnID(node string) bool {
 	return anilistInline.MatchString(node) || anidbInline.MatchString(node)
+}
+
+// statedID returns the id an installment names itself by, in the form
+// resolvedIDs uses, or "" where it names none.
+func statedID(node string) string {
+	if g := anilistInline.FindStringSubmatch(node); g != nil {
+		return "anilistId: " + g[1]
+	}
+	if g := anidbInline.FindStringSubmatch(node); g != nil {
+		return "anidbId: " + g[1]
+	}
+	return ""
 }

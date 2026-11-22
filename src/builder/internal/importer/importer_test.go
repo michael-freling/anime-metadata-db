@@ -710,11 +710,51 @@ func TestPoolKnownFindsAnInstallmentUnderEitherTitleForm(t *testing.T) {
 			seed = a
 		}
 	}
-	if got := poolKnown(db, seed, shared, map[int]bool{700: true}); len(got) != 1 || got[0] != 700 {
-		t.Errorf("poolKnown = %v, want [700]", got)
+	if got, held := poolKnown(db, seed, shared, map[int]bool{700: true}, nil); len(got) != 1 || got[0] != 700 || !held {
+		t.Errorf("poolKnown = %v, %v, want [700], true", got, held)
 	}
-	if got := poolKnown(db, seed, shared, map[int]bool{999: true}); len(got) != 0 {
-		t.Errorf("poolKnown = %v, want none", got)
+	if got, held := poolKnown(db, seed, shared, map[int]bool{999: true}, nil); len(got) != 0 || held {
+		t.Errorf("poolKnown = %v, %v, want none, false", got, held)
+	}
+}
+
+// Upstream lists some works twice and the two records need not carry the same
+// ids: one of this pair carries an AniDB id and the other carries nothing. A
+// seed on the id-less twin has to see the catalogue's own record for the work
+// through the pool, or it becomes a second series for a work already held —
+// and deleting that does not help, because the next import writes it again.
+func TestAnIDLessTwinSeesWhatTheCatalogueHoldsUnderAnAnidbID(t *testing.T) {
+	const (
+		idLess   = "Chaoji Fei Xia Wenhua Zhonghua"
+		carrying = "Super Wings: China Culture"
+		native   = "超级飞侠文化中华"
+	)
+	db := load(t,
+		entry{title: idLess, typ: "TV", episodes: 24, year: 2023, season: "SPRING",
+			status: "FINISHED", synonyms: []string{native}},
+		entry{title: carrying, typ: "TV", episodes: 24, year: 2023, season: "SPRING",
+			status: "FINISHED", synonyms: []string{idLess, native},
+			sources: []string{"https://anidb.net/anime/19664"}},
+	)
+
+	// Held under its AniDB id, which is how the catalogue reaches a work
+	// upstream lists on no AniList page.
+	plan := BuildKnown(db, 2023, Known{Anidb: map[int]bool{19664: true}}, map[string]bool{}, nil)
+	for _, s := range plan.New {
+		if strings.Contains(s.Romanized, "Chaoji") || strings.Contains(s.Romanized, "Super Wings") {
+			t.Errorf("wrote %q as its own series; the catalogue already holds that work", s.Romanized)
+		}
+	}
+
+	// Held under nothing, the pair is still two records of one work, and
+	// neither carries the AniList id the resolution prefers. Reported for a
+	// person rather than written — but reported, not dropped.
+	plan = BuildKnown(db, 2023, Known{}, map[string]bool{}, nil)
+	if len(plan.New) != 0 {
+		t.Errorf("New = %+v, want the un-merged pair refused rather than written", plan.New)
+	}
+	if len(plan.Unresolvable) == 0 {
+		t.Error("the pair was neither written nor reported, so it was silently dropped")
 	}
 }
 
@@ -899,4 +939,56 @@ func TestTheNameAndSameWorkGuardsIgnoreWhatProvesNothing(t *testing.T) {
 // takes them directly.
 func slicesOf(db *offlinedb.Database, title string) []offlinedb.Anime {
 	return db.Titled(title)
+}
+
+// The boundary cases the prefix test got wrong. Deciding a work is nobody's
+// installment writes it as a series of its own, and a wrong "no" there is the
+// one import mistake nothing downstream can detect — so this is where the rule
+// has to be exact.
+func TestOneNameAccountsForAnotherOnlyAtABoundary(t *testing.T) {
+	cases := []struct {
+		series, work string
+		want         bool
+		why          string
+	}{
+		{"Healin' Good", "Healin' Good Precure", true, "a space is a boundary"},
+		{"鬼滅の刃", "鬼滅の刃 柱合会議・蝶屋敷編", true, "so is a space between kana"},
+		{"Kimetsu no Yaiba", "Kimetsu no Yaiba: Hashira Geiko-hen", true, "and a colon"},
+		{"Bocchi the Rock!", "Bocchi the Rock!", true, "the same name accounts for itself"},
+		{"ハイカード", "ハイカード 2", true, "a digit after a space"},
+		{"Free", "Free Fall", true, "a space, even where the name is short"},
+		{"Hero", "Heroman", false, "one word, not a continuation"},
+		{"Fat", "Fate/Grand Order", false, "the prefix lands mid-word"},
+		{"Gundam", "Gundamn", false, "and mid-word again"},
+		{"ガンダム", "ガンダムエース", false, "same script, no boundary"},
+	}
+	for _, c := range cases {
+		got := extendsName(accountFold(c.work), accountFold(c.series))
+		if got != c.want {
+			t.Errorf("extendsName(%q, %q) = %v, want %v — %s", c.work, c.series, got, c.want, c.why)
+		}
+	}
+}
+
+// A linked series the catalogue has authored but not built yet has no known
+// names, because the names are read from the built records. The work must then
+// be reported, not written: a run that imports several years before a build
+// cannot see the earlier ones, and writing is the irreversible direction.
+func TestAWorkIsReportedWhenTheLinkedSeriesNamesAreNotKnownYet(t *testing.T) {
+	db := load(t,
+		entry{title: "Parent Show", typ: "TV", episodes: 12, year: 2019, season: "FALL",
+			status: "FINISHED", synonyms: []string{"ペアレント"}, sources: []string{al("100")}},
+		entry{title: "Something Else Entirely", typ: "TV", episodes: 12, year: 2020, season: "FALL",
+			status: "FINISHED", sources: []string{al("200")}, related: []string{al("100")}},
+	)
+	// Linked and known, but nothing is known about its names.
+	plan := BuildWith(db, 2020, map[int]bool{100: true}, map[string]bool{},
+		func(int) []string { return nil })
+
+	if len(plan.New) != 0 {
+		t.Errorf("New = %+v, want nothing written while the names are unknown", plan.New)
+	}
+	if len(plan.Merges) != 1 {
+		t.Errorf("Merges = %+v, want the work reported", plan.Merges)
+	}
 }

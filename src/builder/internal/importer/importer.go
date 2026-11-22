@@ -106,6 +106,29 @@ func Build(db *offlinedb.Database, year int, known map[int]bool, claimedTitles m
 	return BuildWith(db, year, known, claimedTitles, nil)
 }
 
+// Known is what the catalogue already accounts for, by each handle it can be
+// accounted for by.
+//
+// Two maps rather than one because the providers number their catalogues
+// independently. AniDB is not an afterthought here: a work upstream carries on
+// no AniList page is accounted for by its AniDB id alone, and reading only the
+// AniList ids made such a work look absent. It was then written as a second
+// series for a work another series already held — "chaoji-fei-xia-wenhua-
+// zhonghua" beside "super-wings-china-culture", the same work under its pinyin
+// and its English name — which `anilist-claimed-elsewhere` caught, but only
+// after the file was written, and deleting it did not help because the next
+// import wrote it again.
+type Known struct {
+	Anilist map[int]bool
+	Anidb   map[int]bool
+}
+
+// has reports whether the catalogue accounts for this work by any handle.
+func (k Known) has(a offlinedb.Anime) bool {
+	return k.Anilist[a.AnilistID()] && a.AnilistID() != 0 ||
+		k.Anidb[a.AnidbID()] && a.AnidbID() != 0
+}
+
 // BuildWith is Build with the names of the series the catalogue already has,
 // looked up by an AniList id one of their installments accounts for.
 //
@@ -122,6 +145,12 @@ func Build(db *offlinedb.Database, year int, known map[int]bool, claimedTitles m
 //
 // nil restores the older behaviour, where any link at all means a merge.
 func BuildWith(db *offlinedb.Database, year int, known map[int]bool, claimedTitles map[string]bool,
+	seriesNames func(anilistID int) []string) Plan {
+	return BuildKnown(db, year, Known{Anilist: known}, claimedTitles, seriesNames)
+}
+
+// BuildKnown is BuildWith taking every handle the catalogue is known by.
+func BuildKnown(db *offlinedb.Database, year int, known Known, claimedTitles map[string]bool,
 	seriesNames func(anilistID int) []string) Plan {
 	plan := Plan{Year: year}
 
@@ -158,11 +187,11 @@ func BuildWith(db *offlinedb.Database, year int, known map[int]bool, claimedTitl
 			continue
 		}
 		switch {
-		case known[a.AnilistID()]:
+		case known.has(a):
 			plan.Present = append(plan.Present, a.Title)
 			continue
-		case len(linkedKnown(db, a, known)) > 0:
-			into := linkedKnown(db, a, known)
+		case len(linkedKnown(db, a, known.Anilist)) > 0:
+			into := linkedKnown(db, a, known.Anilist)
 			if accountedFor(a, into, seriesNames) {
 				plan.Merges = append(plan.Merges, describe(a, into, true))
 				continue
@@ -189,8 +218,15 @@ func BuildWith(db *offlinedb.Database, year int, known map[int]bool, claimedTitl
 			plan.Present = append(plan.Present, a.Title)
 			continue
 		}
-		if ids := poolKnown(db, a, original, known); len(ids) > 0 {
-			plan.Merges = append(plan.Merges, describe(a, ids, false))
+		if ids, held := poolKnown(db, a, original, known.Anilist, known.Anidb); held {
+			// Named by AniList id where one is known, since that is what the
+			// report names a series by; where the work is held only under an
+			// AniDB id there is no series to name, and it is simply present.
+			if len(ids) > 0 {
+				plan.Merges = append(plan.Merges, describe(a, ids, false))
+			} else {
+				plan.Present = append(plan.Present, a.Title)
+			}
 			continue
 		}
 
@@ -251,12 +287,30 @@ func linkedKnown(db *offlinedb.Database, a offlinedb.Anime, known map[int]bool) 
 
 // poolKnown returns the known AniList ids carried by the entries sharing this
 // series' title — that is, the installments of it the catalogue already has.
-func poolKnown(db *offlinedb.Database, seed offlinedb.Anime, original string, known map[int]bool) []int {
+// poolKnown reports the AniList ids, among the records this seed's title
+// resolves against, that the catalogue already accounts for.
+//
+// The pool, not the seed, because upstream lists some works twice and the two
+// records need not agree about which ids they carry. "Super Wings: China
+// Culture" carries anidbId 19664 and "Chaoji Fei Xia Wenhua Zhonghua", listed
+// separately for the same 2023 series, carries nothing at all. Seeding on the
+// id-less twin, the catalogue's own record for the work is invisible: it was
+// written as a second series for the work the first one already held, and
+// deleting it did not help because the next import wrote it again.
+//
+// alsoKnown says the same for AniDB. It returns no ids of its own — the result
+// is a list of AniList ids, which is what the merge report names a series by —
+// but a work the catalogue holds under an AniDB id alone still has to stop the
+// seed becoming a series.
+func poolKnown(db *offlinedb.Database, seed offlinedb.Anime, original string, known, alsoKnown map[int]bool) (ids []int, held bool) {
 	seenID := map[int]bool{}
 	for _, name := range []string{original, seed.Title} {
 		for _, a := range db.Titled(name) {
 			if id := a.AnilistID(); id != 0 && known[id] {
 				seenID[id] = true
+			}
+			if id := a.AnidbID(); id != 0 && alsoKnown[id] {
+				held = true
 			}
 		}
 	}
@@ -265,7 +319,7 @@ func poolKnown(db *offlinedb.Database, seed offlinedb.Anime, original string, kn
 		out = append(out, id)
 	}
 	sort.Ints(out)
-	return out
+	return out, held || len(out) > 0
 }
 
 // series builds the override for the series named by original.
@@ -717,19 +771,97 @@ func accountedFor(a offlinedb.Anime, into []int, seriesNames func(int) []string)
 	}
 	names := append([]string{a.Title}, a.Synonyms...)
 	for _, id := range into {
-		for _, t := range seriesNames(id) {
-			folded := FoldTitle(t)
-			// A one- or two-character name matches most of the catalogue once
-			// folded and is not evidence of anything.
-			if len([]rune(folded)) < 3 {
+		known := seriesNames(id)
+		// Nothing known about this series' names, which happens when it was
+		// authored earlier in the same run and not built yet: `known` is
+		// unioned with the authored ids, so the link is seen, but the titles
+		// are read from the built records and are not there.
+		//
+		// Reported, not written. Getting this wrong in the other direction
+		// creates a second series for an installment of an existing one, which
+		// is the one import mistake nothing downstream can detect; getting it
+		// wrong this way costs a line in a report somebody reads.
+		if len(known) == 0 {
+			return true
+		}
+		for _, t := range known {
+			stem := accountFold(t)
+			if len([]rune(stem)) < minAccountingName {
 				continue
 			}
 			for _, n := range names {
-				if strings.HasPrefix(FoldTitle(n), folded) {
+				if extendsName(accountFold(n), stem) {
 					return true
 				}
 			}
 		}
 	}
 	return false
+}
+
+// minAccountingName is the shortest series name allowed to account for a work,
+// in runes of its accounting form. Short names match too much to be evidence.
+const minAccountingName = 3
+
+// accountFold is the form two names are compared in when deciding whether one
+// is the other carried further.
+//
+// Deliberately not FoldTitle. That one drops spaces and punctuation, which is
+// right for "is this the same work listed twice" — ギャラクシーエンジェル4th and
+// ギャラクシーエンジェル 4th are one series — but it destroys the only thing
+// that separates "Healin' Good" + "Precure", a real continuation, from "Hero" +
+// "man", which is one word. Width and case still fold, so ！ and ! agree.
+func accountFold(s string) string {
+	return strings.Join(strings.Fields(strings.ToLower(norm.NFKC.String(s))), " ")
+}
+
+// extendsName reports whether work is series' name carried further: the same
+// name, or that name followed by something a reader would see as separate.
+//
+// A bare prefix test has none of that and accepted "Heroman" for "Hero" and
+// "Fate/..." for "Fat". What counts as separate is a space, a punctuation mark,
+// or a change of script — the three ways these titles actually mark a boundary.
+func extendsName(work, series string) bool {
+	if work == series {
+		return true
+	}
+	if !strings.HasPrefix(work, series) {
+		return false
+	}
+	rest := []rune(work[len(series):])
+	if len(rest) == 0 {
+		return true
+	}
+	prev := []rune(series)
+	return boundary(prev[len(prev)-1], rest[0])
+}
+
+// boundary reports whether b begins something separate from a.
+func boundary(a, b rune) bool {
+	if unicode.IsSpace(b) || unicode.IsPunct(b) || unicode.IsSymbol(b) {
+		return true
+	}
+	if unicode.IsDigit(b) && !unicode.IsDigit(a) {
+		return true
+	}
+	return script(a) != script(b)
+}
+
+// script buckets a rune coarsely enough to tell "more of this word" from "the
+// start of another one".
+func script(r rune) string {
+	switch {
+	case unicode.IsDigit(r):
+		return "digit"
+	case unicode.Is(unicode.Hiragana, r):
+		return "hiragana"
+	case unicode.Is(unicode.Katakana, r):
+		return "katakana"
+	case unicode.Is(unicode.Han, r):
+		return "han"
+	case unicode.Is(unicode.Hangul, r):
+		return "hangul"
+	default:
+		return "latin"
+	}
 }

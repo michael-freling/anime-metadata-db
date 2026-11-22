@@ -76,17 +76,35 @@ func (a *App) Import(year int, dryRun bool) error {
 	// The names of the series already here, so a work that links to one but
 	// that none of them is named after is written as its own series rather
 	// than held for a merge nobody can make.
-	owner, err := seriesByAnilistID(dataDir)
+	//
+	// Read from both layers, for the reason the ids are. `known` is unioned
+	// with the authored ids so that a run importing several years before any
+	// build sees what the earlier years claimed; names read from the built
+	// records alone would then be empty for exactly those series, and the work
+	// would be written as a duplicate of one authored a moment ago. The
+	// authored layer answers first because it is the newer of the two.
+	names, err := seriesNames(filepath.Join(a.Dir, cfg.Settings.OverridesDir, "series"), dataDir)
 	if err != nil {
 		return err
 	}
-	titlesOf, err := seriesTitles(dataDir)
-	if err != nil {
-		return err
-	}
-	names := func(anilistID int) []string { return titlesOf[owner[anilistID]] }
 
-	plan := importer.BuildWith(sources.Offline, year, known, claimedTitles, names)
+	// Every handle, not only the AniList ones: a work upstream carries on no
+	// AniList page is accounted for by its AniDB id alone, and reading only the
+	// AniList ids wrote a second series for a work another series already held.
+	anidbKnown, err := knownAnidbIDs(dataDir)
+	if err != nil {
+		return err
+	}
+	authoredAnidb, err := declaredAnidbIDs(filepath.Join(a.Dir, cfg.Settings.OverridesDir))
+	if err != nil {
+		return err
+	}
+	for id := range authoredAnidb {
+		anidbKnown[id] = true
+	}
+
+	plan := importer.BuildKnown(sources.Offline, year,
+		importer.Known{Anilist: known, Anidb: anidbKnown}, claimedTitles, names)
 
 	fmt.Fprintf(a.Out, "import %d: %d new series, %d to merge by hand, %d unresolvable, %d already present, %d out of scope\n",
 		plan.Year, len(plan.New), len(plan.Merges), len(plan.Unresolvable), len(plan.Present), plan.Skipped)
@@ -257,11 +275,6 @@ func firstTaken(taken map[string]bool, s importer.Series) string {
 	return ""
 }
 
-// knownAnilistIDs collects every anilistId in the generated records.
-//
-// Read from data/ rather than from the overrides because the ids are resolved
-// by the build, not authored: an override usually carries none at all, so the
-// authored layer cannot answer what the catalogue already covers.
 // knownAnidbIDs collects the AniDB ids the generated records account for.
 //
 // Filled by the build rather than authored, for most of them: a record states
@@ -302,7 +315,11 @@ func readRecordIDs(dataDir string, field *regexp.Regexp) (map[int]bool, error) {
 	return known, nil
 }
 
-// knownAnilistIDs collects the AniList ids the generated records account for.
+// knownAnilistIDs collects every anilistId in the generated records.
+//
+// Read from data/ rather than from the overrides because the ids are resolved
+// by the build, not authored: an override usually carries none at all, so the
+// authored layer cannot answer what the catalogue already covers.
 func knownAnilistIDs(dataDir string) (map[int]bool, error) {
 	return readRecordIDs(dataDir, anilistLine)
 }
@@ -354,4 +371,38 @@ func declaredIDs(overridesDir string, field *regexp.Regexp) (map[int]bool, error
 		return ids, nil
 	}
 	return ids, err
+}
+
+// seriesNames returns the names each AniList id's series answers to, looking in
+// the authored layer before the generated one.
+func seriesNames(dirs ...string) (func(int) []string, error) {
+	type layer struct {
+		owner  map[int]string
+		titles map[string][]string
+	}
+	layers := make([]layer, 0, len(dirs))
+	for _, dir := range dirs {
+		owner, err := seriesByAnilistID(dir)
+		if err != nil {
+			if os.IsNotExist(err) {
+				continue
+			}
+			return nil, err
+		}
+		titles, err := seriesTitles(dir)
+		if err != nil {
+			return nil, err
+		}
+		layers = append(layers, layer{owner, titles})
+	}
+	return func(id int) []string {
+		for _, l := range layers {
+			if sid, ok := l.owner[id]; ok {
+				if t := l.titles[sid]; len(t) > 0 {
+					return t
+				}
+			}
+		}
+		return nil
+	}, nil
 }

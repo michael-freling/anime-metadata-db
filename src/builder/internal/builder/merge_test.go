@@ -886,16 +886,77 @@ func TestADeclinedWorkIsNotProposedAgain(t *testing.T) {
 	}
 }
 
-// An entry naming no work declines nothing, and silently ignoring it would let
-// a typo quietly re-propose something a person had ruled out.
-func TestADeclinedEntryWithNoIDIsAnError(t *testing.T) {
-	dir := t.TempDir()
-	path := filepath.Join(dir, declinedFile)
-	if err := os.WriteFile(path, []byte("declined:\n  - work: \"Something\"\n    why: because\n"), 0o644); err != nil {
+// Every way an entry can fail to decline what it meant to. Each one is silent
+// otherwise, and a decline that silently does not apply lets the work back in
+// — which is the whole thing this file exists to stop.
+func TestADeclineThatCannotApplyIsAnError(t *testing.T) {
+	cases := []struct{ name, body, want string }{
+		{"no id at all", "declined:\n  - work: X\n    why: because\n", "names no work"},
+		{"both ids", "declined:\n  - anilistId: 1\n    anidbId: 2\n    why: because\n", "ambiguous"},
+		{"no reason", "declined:\n  - anilistId: 1\n    why: \"  \"\n", "no reason"},
+		{"reason omitted", "declined:\n  - anilistId: 1\n", "no reason"},
+		{"the same work twice", "declined:\n  - anilistId: 1\n    why: first\n  - anilistId: 1\n    why: second\n", "already declined"},
+		{"a misspelled field", "declined:\n  - anilistId: 1\n    reason: because\n", "field"},
+		{"not yaml at all", "declined: [this is: not: valid", "parse"},
+	}
+	for _, c := range cases {
+		t.Run(c.name, func(t *testing.T) {
+			path := filepath.Join(t.TempDir(), declinedFile)
+			if err := os.WriteFile(path, []byte(c.body), 0o644); err != nil {
+				t.Fatal(err)
+			}
+			_, err := declinedMerges(path)
+			if err == nil {
+				t.Fatalf("want an error mentioning %q", c.want)
+			}
+			if !strings.Contains(err.Error(), c.want) {
+				t.Errorf("err = %q, want it to mention %q", err, c.want)
+			}
+		})
+	}
+}
+
+// A work upstream carries on no AniList page can be declined by its AniDB id,
+// since those are now attachable. Keyed on whichever handle the work has.
+func TestAWorkWithOnlyAnAnidbIDCanBeDeclined(t *testing.T) {
+	path := filepath.Join(t.TempDir(), declinedFile)
+	if err := os.WriteFile(path, []byte("declined:\n  - anidbId: 7777\n    work: X\n    why: a spin-off\n"), 0o644); err != nil {
 		t.Fatal(err)
 	}
-	if _, err := declinedMerges(path); err == nil {
-		t.Error("want an error: an entry with no anilistId declines nothing")
+	got, err := declinedMerges(path)
+	if err != nil {
+		t.Fatalf("declinedMerges: %v", err)
+	}
+	if got[key(importer.Merge{AnidbID: 7777})] != "a spin-off" {
+		t.Errorf("got %v, want it keyed where an AniDB-only candidate looks", got)
+	}
+	// And not confusable with the AniList id of the same number.
+	if _, ok := got[key(importer.Merge{AnilistID: 7777})]; ok {
+		t.Error("an AniDB decline also matched the AniList id of that number")
+	}
+}
+
+// An id that matches nothing is a typo or an entry whose work has since been
+// attached. Either way the work it was meant to rule out comes back, so the
+// run says so instead of passing.
+func TestADeclineThatMatchedNoCandidateFailsTheRun(t *testing.T) {
+	a, dir, _ := mergeRepo(t)
+	if err := os.WriteFile(filepath.Join(dir, declinedFile),
+		[]byte("declined:\n  - anilistId: 999999\n    work: Nothing\n    why: stale\n"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	err := a.Merge(true)
+	if err == nil {
+		t.Fatal("want an error: nothing matched that decline")
+	}
+	if !strings.Contains(err.Error(), "al999999") {
+		t.Errorf("err = %q, want it to name the entry that matched nothing", err)
+	}
+
+	// --since drops candidates before the declines are consulted, so every
+	// entry outside the window would look stale. Suppressed there.
+	if err := a.MergeWith(true, 2020, false); err != nil {
+		t.Errorf("--since reported a stale decline: %v", err)
 	}
 }
 
@@ -1131,5 +1192,64 @@ func TestASeasonCannotBePlacedWithoutYears(t *testing.T) {
 	later := importer.Merge{Title: "Show 2", AnilistID: 303, Type: offlinedb.TypeTV, Year: 2030, Linked: true}
 	if _, why := plan(seriesWithComment, yearless, "show", later, map[string]bool{}); !strings.Contains(why, "no release years") {
 		t.Errorf("why = %q, want the yearless-record refusal", why)
+	}
+}
+
+// Pairing by position only holds while the two lists are the same list. An
+// installment inserted mid-list by hand, or a record stale against the
+// override, shifts everything after it — and a wrong id resolves to a real
+// upstream entry, so it is wrong silently rather than refused.
+func TestPinningRefusesWhenTheListsHaveDriftedApart(t *testing.T) {
+	// The record knows two films. The override has three, with the authored one
+	// in the middle rather than at the tail.
+	body := `series:
+  id: show
+  seasons:
+    - id: show-s1
+      number: 1
+  movies:
+    - id: show-film
+    - id: show-inserted
+      externalIds: { anilistId: 999 }
+    - id: show-film-2
+      externalIds: { anilistId: 201 }
+`
+	record := `series:
+  id: show
+  seasons:
+    - id: show-s1
+      number: 1
+      releaseYear: 2021
+      externalIds:
+        anilistId: 100
+  movies:
+    - id: show-film
+      releaseYear: 2021
+      externalIds:
+        anilistId: 200
+    - id: show-film-2
+      releaseYear: 2022
+      externalIds:
+        anilistId: 201
+`
+	_, why := plan(body, record, "show", film("300", "Show: The Third", 2030), map[string]bool{})
+	if !strings.Contains(why, "not the same list") {
+		t.Errorf("why = %q, want a refusal naming the drift rather than pinning 201 onto show-inserted", why)
+	}
+
+	// And where the stated ids do agree with the record, it still goes through.
+	ok := `series:
+  id: show
+  seasons:
+    - id: show-s1
+      number: 1
+  movies:
+    - id: show-film
+      externalIds: { anilistId: 200 }
+    - id: show-film-2
+      externalIds: { anilistId: 201 }
+`
+	if _, why := plan(ok, record, "show", film("300", "Show: The Third", 2030), map[string]bool{}); why != "" {
+		t.Errorf("refused a list that does agree: %s", why)
 	}
 }
