@@ -336,7 +336,7 @@ func readRecordIDs(dataDir string, field *regexp.Regexp) (map[int]bool, error) {
 		}
 		// Matched by line rather than decoded: the ids are all that is wanted,
 		// and parsing every record costs seconds per run for nothing else.
-		for _, m := range field.FindAllSubmatch(body, -1) {
+		for _, m := range field.FindAllSubmatch(withoutComments(body), -1) {
 			var id int
 			if _, err := fmt.Sscanf(string(m[1]), "%d", &id); err == nil && id > 0 {
 				known[id] = true
@@ -391,7 +391,7 @@ func declaredIDs(overridesDir string, field *regexp.Regexp) (map[int]bool, error
 		if err != nil {
 			return err
 		}
-		for _, m := range field.FindAllSubmatch(body, -1) {
+		for _, m := range field.FindAllSubmatch(withoutComments(body), -1) {
 			if n, err := strconv.Atoi(string(m[1])); err == nil && n > 0 {
 				ids[n] = true
 			}
@@ -436,4 +436,34 @@ func seriesNames(dirs ...string) (func(int) []string, error) {
 		}
 		return nil
 	}, nil
+}
+
+// withoutComments blanks the comment tails in a YAML document, so a regex
+// looking for a field does not find one that is only being talked about.
+//
+// An id inside a comment counted as an id the catalogue accounts for, which
+// makes an unrelated work "already present" and drops it with nothing said.
+// The same mistake, in the other direction, made an e2e check compare the
+// build's id count against every occurrence of the string "anilistId",
+// comments included.
+//
+// YAML's own rule: a # starts a comment at the start of a line or after
+// whitespace, so "title: C#" keeps its sharp. Blanked rather than removed, so
+// byte offsets and line structure are unchanged for anything matching after.
+func withoutComments(body []byte) []byte {
+	out := make([]byte, len(body))
+	copy(out, body)
+	inComment := false
+	for i := 0; i < len(out); i++ {
+		switch {
+		case out[i] == '\n':
+			inComment = false
+		case inComment:
+			out[i] = ' '
+		case out[i] == '#' && (i == 0 || out[i-1] == ' ' || out[i-1] == '\t' || out[i-1] == '\n'):
+			inComment = true
+			out[i] = ' '
+		}
+	}
+	return out
 }

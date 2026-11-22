@@ -1593,3 +1593,64 @@ func TestSeriesNamesPrefersTheAuthoredLayerAndSkipsMissingOnes(t *testing.T) {
 		t.Errorf("names(100) = %v with one layer missing", got)
 	}
 }
+
+// A decline has to find its work by whichever handle it was written with. The
+// candidate key prefers the AniList id, so an entry written with an anidbId
+// matched nothing for a work carrying both — the work was attached on the next
+// run, and the staleness check then printed "no longer proposed ... harmless"
+// about the entry that had just failed to do its job.
+func TestADeclineFindsAWorkThatCarriesBothIDs(t *testing.T) {
+	both := importer.Merge{AnilistID: 500, AnidbID: 600, Title: "Both"}
+
+	for _, c := range []struct{ name, entry, want string }{
+		{"written with the AniList id", "al500", "al500"},
+		{"written with the AniDB id", "ad600", "ad600"},
+	} {
+		t.Run(c.name, func(t *testing.T) {
+			why, matched, ok := declinedFor(both, map[string]string{c.entry: "a spin-off"})
+			if !ok {
+				t.Fatalf("the decline filed under %s matched nothing", c.entry)
+			}
+			if why != "a spin-off" || matched != c.want {
+				t.Errorf("declinedFor = %q, %q; want %q, %q", why, matched, "a spin-off", c.want)
+			}
+		})
+	}
+
+	// And the numbers are not pooled: AniDB 500 is not this work.
+	if _, _, ok := declinedFor(both, map[string]string{"ad500": "wrong work"}); ok {
+		t.Error("an AniDB decline matched the AniList id of that number")
+	}
+	if _, _, ok := declinedFor(importer.Merge{AnilistID: 500}, map[string]string{"ad500": "x"}); ok {
+		t.Error("a work with only an AniList id matched an AniDB entry")
+	}
+}
+
+// The same failure end to end: a declined work that carries both ids must not
+// come back, and the run must not call the entry harmless.
+func TestADeclineByAnidbIDStillRulesOutAWorkWithBothIDs(t *testing.T) {
+	a, dir, out := mergeRepo(t)
+	// 900010 is a candidate film in this fixture. Declined by the AniDB id of
+	// the entry the build resolves it to.
+	if err := a.Merge(MergeOptions{DryRun: true}); err != nil {
+		t.Fatalf("baseline merge: %v", err)
+	}
+	if !strings.Contains(out(), "1 attached") && !strings.Contains(out(), "attached") {
+		t.Fatalf("fixture attaches nothing to decline:\n%s", trim(out(), 400))
+	}
+
+	if err := os.WriteFile(filepath.Join(dir, declinedFile),
+		[]byte("declined:\n  - anilistId: 900010\n    work: A Later Film\n    why: not a sequel\n"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := a.Merge(MergeOptions{DryRun: true}); err != nil {
+		t.Fatalf("merge: %v", err)
+	}
+	got := out()
+	if !strings.Contains(got, "declined by hand: not a sequel") {
+		t.Errorf("the decline did not apply:\n%s", trim(got, 600))
+	}
+	if strings.Contains(got, "no longer proposed") {
+		t.Errorf("the run called a decline that did apply harmless:\n%s", trim(got, 600))
+	}
+}

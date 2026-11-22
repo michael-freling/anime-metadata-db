@@ -220,3 +220,44 @@ func TestImportReportsASeriesTheBuildCouldNotFill(t *testing.T) {
 		t.Error("wrote a series the build could not have filled")
 	}
 }
+
+// An id inside a comment is an id being talked about, not one the catalogue
+// accounts for. Counting it makes an unrelated work "already present", and the
+// work is then dropped with nothing said.
+func TestIDsInCommentsDoNotCountAsAccountedFor(t *testing.T) {
+	body := []byte(`series:
+  id: show
+  # the 2019 series used to be anilistId: 111 before it was merged upstream
+  seasons:
+    - id: show-s1
+      externalIds: { anilistId: 222 } # Show (2019)
+    - id: show-s2
+      # anidbId: 333 was wrong, see the note in CLAUDE.md
+      externalIds: { anidbId: 444 }
+  titles:
+    original: "C#"
+`)
+	got := string(withoutComments(body))
+
+	for _, gone := range []string{"111", "333", "Show (2019)"} {
+		if strings.Contains(got, gone) {
+			t.Errorf("%q survived in a comment:\n%s", gone, got)
+		}
+	}
+	for _, kept := range []string{"anilistId: 222", "anidbId: 444", "id: show-s1"} {
+		if !strings.Contains(got, kept) {
+			t.Errorf("%q was lost:\n%s", kept, got)
+		}
+	}
+	// YAML's rule: a # only starts a comment at a line start or after
+	// whitespace, so a sharp inside a title stays.
+	if !strings.Contains(got, `original: "C#"`) {
+		t.Errorf("a # inside a value was treated as a comment:\n%s", got)
+	}
+	// Blanking rather than deleting keeps every offset and line break, so a
+	// caller matching line-anchored patterns sees the same shape.
+	if len(got) != len(body) || strings.Count(got, "\n") != strings.Count(string(body), "\n") {
+		t.Errorf("the document's shape changed: %d bytes and %d lines, want %d and %d",
+			len(got), strings.Count(got, "\n"), len(body), strings.Count(string(body), "\n"))
+	}
+}

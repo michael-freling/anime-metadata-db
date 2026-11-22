@@ -20,19 +20,6 @@ import (
 	"github.com/michael-freling/anime-metadata-db/src/builder/internal/sources/offlinedb"
 )
 
-// MergeOptions are the knobs the command exposes.
-type MergeOptions struct {
-	// DryRun plans and reports without writing an override file.
-	DryRun bool
-	// Since drops candidates released before this year, so a backlog can be
-	// worked newest-first. It also suppresses the stale-decline check, which
-	// cannot tell an entry outside the window from one that matches nothing.
-	Since int
-	// List prints each candidate left rather than only counting them, so the
-	// hand work is a list somebody can read.
-	List bool
-}
-
 // Merge attaches the works `builder import` reported as belonging to a series
 // the catalogue already has.
 //
@@ -66,10 +53,10 @@ type MergeOptions struct {
 // order, and the build's own gates then check the membership: a work upstream
 // does not link to the rest of the series fails `anilist-unlinked`, and one
 // that another series already accounts for fails `anilist-claimed-elsewhere`.
-
-// Merge takes its options as a struct rather than as a positional wrapper per
-// knob: this was Merge, MergeWith and merge, three functions for one body, and
-// the next knob would have been a fourth.
+//
+// The options come as a struct rather than as a positional wrapper per knob:
+// this was Merge, MergeWith and merge, three functions for one body, and the
+// next knob would have been a fourth.
 func (a *App) Merge(opts MergeOptions) error {
 	cfg, err := a.loadConfig()
 	if err != nil {
@@ -189,8 +176,8 @@ func (a *App) Merge(opts MergeOptions) error {
 				continue
 			}
 			seen[key(m)] = true
-			if why, ok := declined[key(m)]; ok {
-				consulted[key(m)] = true
+			if why, k, ok := declinedFor(m, declined); ok {
+				consulted[k] = true
 				// A person read this one and said no. The tool is
 				// deterministic, so without this it proposes it again every
 				// run and the reading has to be redone.
@@ -354,6 +341,19 @@ func (a *App) Merge(opts MergeOptions) error {
 		fmt.Fprintln(a.Out, "\nRun `builder build` and then the index; the build gates on whether upstream\nactually links each attached work to the rest of its series.")
 	}
 	return nil
+}
+
+// MergeOptions are the knobs the command exposes.
+type MergeOptions struct {
+	// DryRun plans and reports without writing an override file.
+	DryRun bool
+	// Since drops candidates released before this year, so a backlog can be
+	// worked newest-first. It also suppresses the stale-decline check, which
+	// cannot tell an entry outside the window from one that matches nothing.
+	Since int
+	// List prints each candidate left rather than only counting them, so the
+	// hand work is a list somebody can read.
+	List bool
 }
 
 // kindOf names the node a merge becomes.
@@ -524,7 +524,7 @@ func seriesByAnilistID(dataDir string) (map[int]string, error) {
 			return nil, err
 		}
 		series := strings.TrimSuffix(e.Name(), ".yaml")
-		for _, g := range anilistInline.FindAllSubmatch(body, -1) {
+		for _, g := range anilistInline.FindAllSubmatch(withoutComments(body), -1) {
 			if n, err := strconv.Atoi(string(g[1])); err == nil && n > 0 {
 				owner[n] = series
 			}
@@ -979,4 +979,35 @@ func beforeInApply(a, b action) bool {
 		return a.m.AnilistID < b.m.AnilistID
 	}
 	return key(a.m) < key(b.m)
+}
+
+// declinedFor finds the entry declining this candidate, under whichever handle
+// the entry was written with, and returns the key it matched under.
+//
+// Both handles, not key(m)'s preferred one. key prefers the AniList id, and an
+// entry written with an anidbId is filed under the AniDB key — so a decline of
+// a work that carries both ids matched nothing, the work was attached on the
+// next run, and the staleness check then found the work upstream and printed
+// "no longer proposed ... harmless" about the entry that had just failed to do
+// its job. A decline that silently does not apply is the thing this file
+// exists to prevent, and saying it is harmless is worse than saying nothing.
+func declinedFor(m importer.Merge, declined map[string]string) (why, matched string, ok bool) {
+	for _, k := range keys(m) {
+		if why, ok := declined[k]; ok {
+			return why, k, true
+		}
+	}
+	return "", "", false
+}
+
+// keys is every handle a candidate can be declined under.
+func keys(m importer.Merge) []string {
+	var out []string
+	if m.AnilistID != 0 {
+		out = append(out, fmt.Sprintf("al%d", m.AnilistID))
+	}
+	if m.AnidbID != 0 {
+		out = append(out, fmt.Sprintf("ad%d", m.AnidbID))
+	}
+	return out
 }
