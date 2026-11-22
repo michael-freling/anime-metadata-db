@@ -15,5 +15,11 @@ series:
     - id: majutsushi-orphen-hagure-tabi-s2
       number: 2
       externalIds: { anilistId: 117085 } # Majutsushi Orphen Hagure Tabi: Kimluck-hen (2021)
+    - id: majutsushi-orphen-hagure-tabi-s3
+      number: 3
+      externalIds: { anilistId: 155068 } # Majutsushi Orphen Hagure Tabi: Urbanrama-hen (2023)
+    - id: majutsushi-orphen-hagure-tabi-s4
+      number: 4
+      externalIds: { anilistId: 163417 } # Majutsushi Orphen Hagure Tabi: Seiiki-hen (2023)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [majutsushi-orphen-hagure-tabi]

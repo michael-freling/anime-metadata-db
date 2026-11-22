@@ -1,0 +1,12 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: inazuma-eleven-aratanaru-eiyuu-tachi-no-joshou
+  titles:
+    original: 劇場版 イナズマイレブン 新たなる英雄たちの序章
+    translations: { ja-Latn: "Inazuma Eleven: Aratanaru Eiyuu-tachi no Joshou" }
+  movies:
+    - id: inazuma-eleven-aratanaru-eiyuu-tachi-no-joshou-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [inazuma-eleven-aratanaru-eiyuu-tachi-no-joshou]

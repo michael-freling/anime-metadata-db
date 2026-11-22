@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: reiwa-no-di-gi-charat
+  titles:
+    original: 令和のデ・ジ・キャラット
+    translations: { ja-Latn: Reiwa no Di Gi Charat }
+  seasons:
+    - id: reiwa-no-di-gi-charat-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [reiwa-no-di-gi-charat]

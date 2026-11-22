@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: grendizer-u
+  titles:
+    original: グレンダイザーU
+    translations: { ja-Latn: Grendizer U }
+  seasons:
+    - id: grendizer-u-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [grendizer-u]

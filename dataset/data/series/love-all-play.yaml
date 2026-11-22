@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Love All Play
   ordering: absolute
+  externalIds:
+    wikidataId: Q108023612
   seasons:
     - id: love-all-play-s1
       number: 1

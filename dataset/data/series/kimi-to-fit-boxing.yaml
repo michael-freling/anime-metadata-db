@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kimi to Fit Boxing
   ordering: absolute
+  externalIds:
+    wikidataId: Q108325419
   seasons:
     - id: kimi-to-fit-boxing-s1
       number: 1

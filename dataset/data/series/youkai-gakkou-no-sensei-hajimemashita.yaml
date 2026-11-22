@@ -4,8 +4,11 @@ series:
   titles:
     original: 妖怪学校の先生はじめました!
     translations:
+      en: A Terrified Teacher at Ghoul School!
       ja-Latn: Youkai Gakkou no Sensei Hajimemashita!
   ordering: absolute
+  externalIds:
+    wikidataId: Q101100537
   seasons:
     - id: youkai-gakkou-no-sensei-hajimemashita-s1
       number: 1

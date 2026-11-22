@@ -4,8 +4,11 @@ series:
   titles:
     original: ネガポジアングラー
     translations:
+      en: Negative Positive Angler
       ja-Latn: NegaPosi Angler
   ordering: absolute
+  externalIds:
+    wikidataId: Q128108290
   seasons:
     - id: negaposi-angler-s1
       number: 1

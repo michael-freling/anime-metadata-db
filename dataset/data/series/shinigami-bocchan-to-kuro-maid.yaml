@@ -4,8 +4,11 @@ series:
   titles:
     original: 死神坊ちゃんと黒メイド
     translations:
+      en: The Duke of Death and His Maid
       ja-Latn: Shinigami Bocchan to Kuro Maid
   ordering: absolute
+  externalIds:
+    wikidataId: Q105226167
   seasons:
     - id: shinigami-bocchan-to-kuro-maid-s1
       number: 1

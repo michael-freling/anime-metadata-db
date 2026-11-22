@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shin-evangelion-movie
+  titles:
+    original: "シン・エヴァンゲリオン劇場版:||"
+    translations: { ja-Latn: "Shin Evangelion Movie:||" }
+  movies:
+    - id: shin-evangelion-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shin-evangelion-movie]

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Wonder Egg Priority
   ordering: absolute
+  externalIds:
+    wikidataId: Q100235430
   seasons:
     - id: wonder-egg-priority-s1
       number: 1

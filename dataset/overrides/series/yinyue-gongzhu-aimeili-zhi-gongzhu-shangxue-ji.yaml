@@ -1,0 +1,15 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: yinyue-gongzhu-aimeili-zhi-gongzhu-shangxue-ji
+  titles:
+    original: Yinyue Gongzhu Aimeili zhi Gongzhu Shangxue Ji
+    translations: { ja-Latn: Yinyue Gongzhu Aimeili zhi Gongzhu Shangxue Ji }
+  seasons:
+    - id: yinyue-gongzhu-aimeili-zhi-gongzhu-shangxue-ji-s1
+      number: 1
+    - id: yinyue-gongzhu-aimeili-zhi-gongzhu-shangxue-ji-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [yinyue-gongzhu-aimeili-zhi-gongzhu-shangxue-ji]

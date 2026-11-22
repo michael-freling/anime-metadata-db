@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Blue Archive the Animation
   ordering: absolute
+  externalIds:
+    wikidataId: Q116291369
   seasons:
     - id: blue-archive-the-animation-s1
       number: 1

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Shadows House
   ordering: absolute
+  externalIds:
+    wikidataId: Q60985608
   seasons:
     - id: shadows-house-s1
       number: 1

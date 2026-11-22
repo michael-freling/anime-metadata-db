@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Ex-Arm
   ordering: absolute
+  externalIds:
+    wikidataId: Q38277319
   seasons:
     - id: ex-arm-s1
       number: 1

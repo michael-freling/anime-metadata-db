@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: meitantei-conan-movie-25-halloween-no-hanayome
+  titles:
+    original: 劇場版 名探偵コナン ハロウィンの花嫁
+    translations: { ja-Latn: "Meitantei Conan Movie 25: Halloween no Hanayome" }
+  movies:
+    - id: meitantei-conan-movie-25-halloween-no-hanayome-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [meitantei-conan-movie-25-halloween-no-hanayome]

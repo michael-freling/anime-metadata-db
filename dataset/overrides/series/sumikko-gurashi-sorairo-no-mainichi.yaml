@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sumikko-gurashi-sorairo-no-mainichi
+  titles:
+    original: アニメ すみっコぐらし そらいろのまいにち
+    translations: { ja-Latn: "Sumikko Gurashi: Sorairo no Mainichi" }
+  seasons:
+    - id: sumikko-gurashi-sorairo-no-mainichi-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sumikko-gurashi-sorairo-no-mainichi]

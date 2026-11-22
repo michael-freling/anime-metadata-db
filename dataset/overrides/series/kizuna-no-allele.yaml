@@ -1,0 +1,15 @@
+# Authored override. The catalogue carried only "kizuna-no-allele-season-2".
+series:
+  id: kizuna-no-allele
+  titles:
+    original: 絆のアリル
+    translations: { ja-Latn: "Kizuna no Allele" }
+  seasons:
+    - id: kizuna-no-allele-s1
+      number: 1
+      externalIds: { anilistId: 156896 } # Kizuna no Allele (2023)
+    - id: kizuna-no-allele-s2
+      number: 2
+      externalIds: { anilistId: 166523 } # Kizuna no Allele Season 2 (2023)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kizuna-no-allele]

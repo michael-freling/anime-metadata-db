@@ -15,5 +15,8 @@ series:
     - id: hataraku-maou-sama-s2
       number: 2
       externalIds: { anilistId: 130592 } # Hataraku Maou-sama!! (2022)
+    - id: hataraku-maou-sama-s3
+      number: 3
+      externalIds: { anilistId: 155168 } # Hataraku Maou-sama!! 2nd Season (2023)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [hataraku-maou-sama]

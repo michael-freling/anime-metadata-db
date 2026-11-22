@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shoujo-kageki-revue-starlight-movie
+  titles:
+    original: 劇場版 少女☆歌劇 レヴュースタァライト
+    translations: { ja-Latn: Shoujo☆Kageki Revue Starlight Movie }
+  movies:
+    - id: shoujo-kageki-revue-starlight-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shoujo-kageki-revue-starlight-movie]

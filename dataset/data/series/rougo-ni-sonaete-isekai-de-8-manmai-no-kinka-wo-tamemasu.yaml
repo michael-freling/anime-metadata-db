@@ -4,8 +4,11 @@ series:
   titles:
     original: 老後に備えて異世界で8万枚の金貨を貯めます
     translations:
+      en: Saving 80,000 Gold in Another World for My Retirement
       ja-Latn: Rougo ni Sonaete Isekai de 8-manmai no Kinka wo Tamemasu
   ordering: absolute
+  externalIds:
+    wikidataId: Q113196208
   seasons:
     - id: rougo-ni-sonaete-isekai-de-8-manmai-no-kinka-wo-tamemasu-s1
       number: 1

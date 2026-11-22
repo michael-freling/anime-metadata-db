@@ -4,8 +4,11 @@ series:
   titles:
     original: お嬢と番犬くん
     translations:
+      en: A Girl & Her Guard Dog
       ja-Latn: Ojou to Banken-kun
   ordering: absolute
+  externalIds:
+    wikidataId: Q113988001
   seasons:
     - id: ojou-to-banken-kun-s1
       number: 1

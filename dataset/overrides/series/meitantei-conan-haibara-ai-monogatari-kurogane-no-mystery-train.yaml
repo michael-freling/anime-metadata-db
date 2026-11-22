@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: meitantei-conan-haibara-ai-monogatari-kurogane-no-mystery-train
+  titles:
+    original: 名探偵コナン 灰原哀物語～黒鉄（くろがね）のミステリートレイン～
+    translations: { ja-Latn: "Meitantei Conan: Haibara Ai Monogatari - Kurogane no Mystery Train" }
+  movies:
+    - id: meitantei-conan-haibara-ai-monogatari-kurogane-no-mystery-train-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [meitantei-conan-haibara-ai-monogatari-kurogane-no-mystery-train]

@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: qingwa-wangguo-jixian-yundong
+  titles:
+    original: "Qingwa Wangguo: Jixian Yundong"
+    translations: { ja-Latn: "Qingwa Wangguo: Jixian Yundong" }
+  movies:
+    - id: qingwa-wangguo-jixian-yundong-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [qingwa-wangguo-jixian-yundong]

@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: wasureta-furi-o-shite
+  titles:
+    original: 忘れたフリをして
+    translations: { ja-Latn: Wasureta Furi o Shite }
+  movies:
+    - id: wasureta-furi-o-shite-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [wasureta-furi-o-shite]

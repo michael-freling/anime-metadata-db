@@ -14,5 +14,7 @@ series:
   movies:
     - id: assassination-classroom-film
       externalIds: { anilistId: 21864 } # Koro-sensei Q! (2016)
+    - id: assassination-classroom-film-2
+      externalIds: { anilistId: 198373 } # Ansatsu Kyoushitsu Movie: Minna no Jikan (2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [assassination-classroom]

@@ -220,3 +220,122 @@ func TestImportReportsASeriesTheBuildCouldNotFill(t *testing.T) {
 		t.Error("wrote a series the build could not have filled")
 	}
 }
+
+// An id inside a comment is an id being talked about, not one the catalogue
+// accounts for. Counting it makes an unrelated work "already present", and the
+// work is then dropped with nothing said.
+func TestIDsInCommentsDoNotCountAsAccountedFor(t *testing.T) {
+	body := []byte(`series:
+  id: show
+  # the 2019 series used to be anilistId: 111 before it was merged upstream
+  seasons:
+    - id: show-s1
+      externalIds: { anilistId: 222 } # Show (2019)
+    - id: show-s2
+      # anidbId: 333 was wrong, see the note in CLAUDE.md
+      externalIds: { anidbId: 444 }
+  titles:
+    original: "C#"
+`)
+	got := string(withoutComments(body))
+
+	for _, gone := range []string{"111", "333", "Show (2019)"} {
+		if strings.Contains(got, gone) {
+			t.Errorf("%q survived in a comment:\n%s", gone, got)
+		}
+	}
+	for _, kept := range []string{"anilistId: 222", "anidbId: 444", "id: show-s1"} {
+		if !strings.Contains(got, kept) {
+			t.Errorf("%q was lost:\n%s", kept, got)
+		}
+	}
+	// YAML's rule: a # only starts a comment at a line start or after
+	// whitespace, so a sharp inside a title stays.
+	if !strings.Contains(got, `original: "C#"`) {
+		t.Errorf("a # inside a value was treated as a comment:\n%s", got)
+	}
+	// Blanking rather than deleting keeps every offset and line break, so a
+	// caller matching line-anchored patterns sees the same shape.
+	if len(got) != len(body) || strings.Count(got, "\n") != strings.Count(string(body), "\n") {
+		t.Errorf("the document's shape changed: %d bytes and %d lines, want %d and %d",
+			len(got), strings.Count(got, "\n"), len(body), strings.Count(string(body), "\n"))
+	}
+}
+
+// The "WRITTEN as their own series" list is the only safeguard for the one
+// import mistake nothing downstream can detect, so the printing path is tested
+// end to end. Without this a regression drops the list silently while the
+// writes still happen, which is strictly worse than not having the list.
+func TestImportListsTheWorksItWritesDespiteALink(t *testing.T) {
+	a, dir, output := builtRepo(t)
+
+	// A real sequel of a series the catalogue has, retitled so that the
+	// parent's name is nowhere in it. Linked upstream, so the only thing
+	// deciding it is not a merge is its title.
+	const retitled = `{
+  "data": [
+    {
+      "sources": ["https://anilist.co/anime/900020"],
+      "title": "Ultra Romantic",
+      "type": "TV", "episodes": 13, "status": "FINISHED",
+      "animeSeason": { "season": "SPRING", "year": 2020 },
+      "relatedAnime": ["https://anilist.co/anime/101922"]
+    }
+  ]
+}`
+	src := filepath.Join(dir, ".sources", "anime-offline-database.json")
+	if err := os.WriteFile(src, []byte(retitled), 0o644); err != nil {
+		t.Fatal(err)
+	}
+
+	if err := a.Import(2020, false); err != nil {
+		t.Fatalf("import: %v", err)
+	}
+	got := output()
+
+	if !strings.Contains(got, "WRITTEN as their own series") {
+		t.Fatalf("the work was written with no list naming it:\n%s", got)
+	}
+	if !strings.Contains(got, "Ultra Romantic") {
+		t.Errorf("the list does not name the work:\n%s", got)
+	}
+	// And the series it was linked to, which is what makes the line readable:
+	// without it there is nothing to check the judgement against.
+	if !strings.Contains(got, "linked to") || !strings.Contains(got, "demon-slayer") {
+		t.Errorf("the list does not name the series upstream linked it to:\n%s", got)
+	}
+	// It really was written, so the list is describing something that happened.
+	if _, err := os.Stat(filepath.Join(dir, "config", "overrides", "series", "ultra-romantic.yaml")); err != nil {
+		t.Errorf("listed as written but no override exists: %v", err)
+	}
+
+	// A work with no link at all is written without appearing in that list.
+	// The buffer accumulates across runs, so the test is that the section does
+	// not appear a second time.
+	const unlinked = `{
+  "data": [
+    {
+      "sources": ["https://anilist.co/anime/900021"],
+      "title": "Wholly Unconnected",
+      "type": "TV", "episodes": 12, "status": "FINISHED",
+      "animeSeason": { "season": "FALL", "year": 2021 }
+    }
+  ]
+}`
+	if err := os.WriteFile(src, []byte(unlinked), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := a.Import(2021, false); err != nil {
+		t.Fatalf("import: %v", err)
+	}
+	got = output()
+	if n := strings.Count(got, "WRITTEN as their own series"); n != 1 {
+		t.Errorf("the section appeared %d times, want once — a work with no link was listed:\n%s", n, got)
+	}
+	if strings.Contains(got, "Wholly Unconnected") && strings.Contains(got, "linked to") {
+		idx := strings.LastIndex(got, "WRITTEN as their own series")
+		if strings.Contains(got[idx:], "Wholly Unconnected") {
+			t.Errorf("a work with no link was named in the list:\n%s", got[idx:])
+		}
+	}
+}

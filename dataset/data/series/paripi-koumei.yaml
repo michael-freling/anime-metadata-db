@@ -4,8 +4,11 @@ series:
   titles:
     original: パリピ孔明
     translations:
+      en: Ya Boy Kongming!
       ja-Latn: Paripi Koumei
   ordering: absolute
+  externalIds:
+    wikidataId: Q97278000
   seasons:
     - id: paripi-koumei-s1
       number: 1

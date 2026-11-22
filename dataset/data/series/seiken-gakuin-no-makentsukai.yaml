@@ -4,8 +4,11 @@ series:
   titles:
     original: 聖剣学院の魔剣使い
     translations:
+      en: The Demon Sword Master of Excalibur Academy
       ja-Latn: Seiken Gakuin no Makentsukai
   ordering: absolute
+  externalIds:
+    wikidataId: Q106316762
   seasons:
     - id: seiken-gakuin-no-makentsukai-s1
       number: 1

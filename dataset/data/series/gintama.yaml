@@ -24,7 +24,7 @@ series:
       releaseSeason: FALL
       episodes:
         count: 13
-        absoluteFrom: 53
+        absoluteFrom: 54
   movies:
     - id: gintama-film
       titles:
@@ -38,3 +38,81 @@ series:
         anidbId: 7177
         tvdbId: 79895
       absoluteNumber: 1
+    - id: gintama-film-2
+      titles:
+        original: 劇場版 銀魂 完結篇 万事屋よ永遠なれ
+        translations:
+          ja: 劇場版 銀魂 完結篇 万事屋よ永遠なれ
+          ja-Latn: 'Gintama Movie 2: Kanketsu-hen - Yorozuya yo Eien Nare'
+      releaseYear: 2013
+      externalIds:
+        anilistId: 15335
+        anidbId: 9384
+        tvdbId: 79895
+      absoluteNumber: 67
+    - id: gintama-film-3
+      titles:
+        original: よりぬき銀魂さんオンシアター2D
+        translations:
+          ja: よりぬき銀魂さんオンシアター2D
+          ja-Latn: 'Gintama: Yorinuki Gintama-san on Theater 2D'
+      releaseYear: 2012
+      externalIds:
+        anilistId: 20760
+        anidbId: 10405
+        tvdbId: 79895
+      absoluteNumber: 53
+    - id: gintama-film-4
+      titles:
+        original: 劇場版 銀魂
+        translations:
+          ja: 劇場版 銀魂
+          ja-Latn: 'Gintama: The Final'
+      releaseYear: 2021
+      externalIds:
+        anilistId: 114129
+        anidbId: 14719
+      absoluteNumber: 68
+    - id: gintama-film-5
+      titles:
+        original: 銀魂オンシアター2D バラガキ篇
+        translations:
+          ja: 銀魂オンシアター2D バラガキ篇
+          ja-Latn: 'Gintama on Theater 2D: Baragaki-hen'
+      releaseYear: 2023
+      externalIds:
+        anilistId: 169000
+        anidbId: 18180
+      absoluteNumber: 69
+    - id: gintama-film-6
+      titles:
+        original: 銀魂オンシアター2D 一国傾城篇
+        translations:
+          ja: 銀魂オンシアター2D 一国傾城篇
+          ja-Latn: 'Gintama on Theater 2D: Ikkoku Keisei-hen'
+      releaseYear: 2024
+      externalIds:
+        anilistId: 175573
+        anidbId: 18556
+      absoluteNumber: 70
+    - id: gintama-film-7
+      titles:
+        original: 銀魂オンシアター2D 金魂篇
+        translations:
+          ja: 銀魂オンシアター2D 金魂篇
+          ja-Latn: 'Gintama on Theater 2D: Kintama-hen'
+      releaseYear: 2024
+      externalIds:
+        anilistId: 178436
+      absoluteNumber: 71
+    - id: gintama-film-8
+      titles:
+        original: 新劇場版 銀魂 -吉原大炎上-
+        translations:
+          ja: 新劇場版 銀魂 -吉原大炎上-
+          ja-Latn: 'Gintama Movie 3: Yoshiwara Daienjou'
+      releaseYear: 2026
+      externalIds:
+        anilistId: 197474
+        anidbId: 19528
+      absoluteNumber: 72

@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: argonavis-movie-ryuusei-no-obligato
+  titles:
+    original: 劇場版アルゴナビス 流星のオブリガート
+    translations: { ja-Latn: "Argonavis Movie: Ryuusei no Obligato" }
+  movies:
+    - id: argonavis-movie-ryuusei-no-obligato-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [argonavis-movie-ryuusei-no-obligato]

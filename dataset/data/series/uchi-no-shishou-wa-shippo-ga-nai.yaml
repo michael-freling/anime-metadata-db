@@ -4,8 +4,11 @@ series:
   titles:
     original: うちの師匠はしっぽがない
     translations:
+      en: My Master Has No Tail
       ja-Latn: Uchi no Shishou wa Shippo ga Nai
   ordering: absolute
+  externalIds:
+    wikidataId: Q101244679
   seasons:
     - id: uchi-no-shishou-wa-shippo-ga-nai-s1
       number: 1

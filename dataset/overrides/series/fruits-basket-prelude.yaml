@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fruits-basket-prelude
+  titles:
+    original: Kyouko to Katsuya no Monogatari (今日子と勝也の物語)
+    translations: { ja-Latn: "Fruits Basket: Prelude" }
+  movies:
+    - id: fruits-basket-prelude-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fruits-basket-prelude]

@@ -4,8 +4,11 @@ series:
   titles:
     original: 悪役令嬢なのでラスボスを飼ってみました
     translations:
+      en: I'm the Villainess, So I'm Taming the Final Boss
       ja-Latn: Akuyaku Reijou nanode Last Boss wo Kattemimashita
   ordering: absolute
+  externalIds:
+    wikidataId: Q108907301
   seasons:
     - id: akuyaku-reijou-nanode-last-boss-wo-kattemimashita-s1
       number: 1

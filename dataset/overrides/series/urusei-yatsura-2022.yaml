@@ -16,6 +16,16 @@ series:
   movies:
     - id: urusei-yatsura-2022-film
       externalIds: { anilistId: 1920 } # Urusei Yatsura Movie 1: Only You (1983)
+    - id: urusei-yatsura-2022-film-2
+      externalIds: { anilistId: 1921 } # Urusei Yatsura 2: Beautiful Dreamer (1984)
+    - id: urusei-yatsura-2022-film-3
+      externalIds: { anilistId: 1922 } # Urusei Yatsura Movie 3: Remember My Love (1985)
+    - id: urusei-yatsura-2022-film-4
+      externalIds: { anilistId: 1923 } # Urusei Yatsura Movie 4: Lum The Forever (1986)
+    - id: urusei-yatsura-2022-film-5
+      externalIds: { anilistId: 1924 } # Urusei Yatsura Movie 5: Kanketsu-hen (1988)
+    - id: urusei-yatsura-2022-film-6
+      externalIds: { anilistId: 1925 } # Urusei Yatsura Movie 6: Itsudatte My Darling (1991)
 # No continuous absoluteNumber. The installments above are separate
 # adaptations of one work (1981, 2022, 2024), not one run, so numbering them
 # end to end would assert a continuity that does not exist.

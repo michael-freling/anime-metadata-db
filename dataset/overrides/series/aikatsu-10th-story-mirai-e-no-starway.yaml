@@ -1,0 +1,17 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: aikatsu-10th-story-mirai-e-no-starway
+  titles:
+    original: アイカツ! 10th STORY ~未来へのSTARWAY~
+    translations: { ja-Latn: "Aikatsu! 10th Story: Mirai e no Starway" }
+  movies:
+    - id: aikatsu-10th-story-mirai-e-no-starway-film
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 148960 }
+    - id: aikatsu-10th-story-mirai-e-no-starway-film-2
+      externalIds: { anilistId: 155738 } # Aikatsu! 10th Story: Mirai e no Starway (2023) (2023)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [aikatsu-10th-story-mirai-e-no-starway]

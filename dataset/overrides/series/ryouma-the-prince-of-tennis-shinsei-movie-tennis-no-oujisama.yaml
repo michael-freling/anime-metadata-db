@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ryouma-the-prince-of-tennis-shinsei-movie-tennis-no-oujisama
+  titles:
+    original: リョーマ! The Prince of Tennis 新生劇場版テニスの王子様
+    translations: { ja-Latn: "Ryouma! The Prince of Tennis Shinsei Movie: Tennis no Oujisama" }
+  movies:
+    - id: ryouma-the-prince-of-tennis-shinsei-movie-tennis-no-oujisama-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ryouma-the-prince-of-tennis-shinsei-movie-tennis-no-oujisama]

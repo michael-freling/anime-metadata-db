@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kibou-no-chikara-otona-precure-23
+  titles:
+    original: キボウノチカラ~オトナプリキュア ‘23~
+    translations: { ja-Latn: "Kibou no Chikara: Otona Precure '23" }
+  seasons:
+    - id: kibou-no-chikara-otona-precure-23-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kibou-no-chikara-otona-precure-23]

@@ -1,0 +1,22 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bleach-sennen-kessen-hen
+  titles:
+    original: BLEACH - ブリーチ - 千年血戦篇
+    translations: { ja-Latn: "Bleach: Sennen Kessen-hen" }
+  seasons:
+    - id: bleach-sennen-kessen-hen-s1
+      number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 116674 }
+    - id: bleach-sennen-kessen-hen-s2
+      number: 2
+      externalIds: { anilistId: 159322 } # Bleach: Sennen Kessen-hen - Ketsubetsu-tan (2023)
+    - id: bleach-sennen-kessen-hen-s3
+      number: 3
+      externalIds: { anilistId: 169755 } # Bleach: Sennen Kessen-hen - Soukoku-tan (2024)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bleach-sennen-kessen-hen]

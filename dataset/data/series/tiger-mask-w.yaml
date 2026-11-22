@@ -17,4 +17,17 @@ series:
         tvdbId: 315091
       episodes:
         count: 38
-        absoluteFrom: 1
+        absoluteFrom: 2
+  movies:
+    - id: tiger-mask-w-film
+      titles:
+        original: タイガーマスク ふく面リーグ戦
+        translations:
+          ja: タイガーマスク ふく面リーグ戦
+          ja-Latn: Tiger Mask Fuku Men League Sen
+      releaseYear: 1970
+      externalIds:
+        anilistId: 18063
+        anidbId: 6971
+        tvdbId: 115121
+      absoluteNumber: 1

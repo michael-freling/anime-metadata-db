@@ -9,9 +9,21 @@ series:
   seasons:
     - id: chibi-godzilla-no-gyakushuu-s1
       number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 162312 }
     - id: chibi-godzilla-no-gyakushuu-s2
       number: 2
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 175869 }
     - id: chibi-godzilla-no-gyakushuu-s3
       number: 3
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 193883 }
+    - id: chibi-godzilla-no-gyakushuu-s4
+      number: 4
+      externalIds: { anidbId: 20149 } # Chibi Godzilla no Gyakushuu (2026) (2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [chibi-godzilla-no-gyakushuu]

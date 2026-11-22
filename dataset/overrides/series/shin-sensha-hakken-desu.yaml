@@ -1,0 +1,12 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shin-sensha-hakken-desu
+  titles:
+    original: 新戦車、発見です！
+    translations: { ja-Latn: "Shin Sensha, Hakken Desu!" }
+  movies:
+    - id: shin-sensha-hakken-desu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shin-sensha-hakken-desu]

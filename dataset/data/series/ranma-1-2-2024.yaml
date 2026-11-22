@@ -17,7 +17,7 @@ series:
         tvdbId: 451479
       episodes:
         count: 12
-        absoluteFrom: 2
+        absoluteFrom: 4
     - id: ranma-1-2-2024-s2
       number: 2
       releaseYear: 2025
@@ -28,7 +28,7 @@ series:
         tvdbId: 451479
       episodes:
         count: 12
-        absoluteFrom: 14
+        absoluteFrom: 16
   movies:
     - id: ranma-1-2-2024-film
       titles:
@@ -41,4 +41,28 @@ series:
         anilistId: 792
         anidbId: 368
         tvdbId: 76932
+      absoluteNumber: 2
+    - id: ranma-1-2-2024-film-2
+      titles:
+        original: らんま 1/2 中国寝崑崙大決戦! 掟やぶりの激闘編!!
+        translations:
+          ja: らんま 1/2 中国寝崑崙大決戦! 掟やぶりの激闘編!!
+          ja-Latn: 'Ranma ½: Chuugoku Nekonron Daikessen! Okite Yaburi no Gekitou-hen!!'
+      releaseYear: 1991
+      externalIds:
+        anilistId: 418
+        anidbId: 367
+        tvdbId: 76932
       absoluteNumber: 1
+    - id: ranma-1-2-2024-film-3
+      titles:
+        original: らんま1/2 超無差別決戦! 乱馬チームVS伝説の鳳凰
+        translations:
+          ja: らんま1/2 超無差別決戦! 乱馬チームVS伝説の鳳凰
+          ja-Latn: 'Ranma ½: Chou Musabetsu Kessen! Ranma Team vs. Densetsu no Houou'
+      releaseYear: 1994
+      externalIds:
+        anilistId: 1010
+        anidbId: 2850
+        tvdbId: 76932
+      absoluteNumber: 3

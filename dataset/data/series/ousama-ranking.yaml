@@ -4,8 +4,11 @@ series:
   titles:
     original: 王様ランキング
     translations:
+      en: Ranking of Kings
       ja-Latn: Ousama Ranking
   ordering: absolute
+  externalIds:
+    wikidataId: Q65273549
   seasons:
     - id: ousama-ranking-s1
       number: 1

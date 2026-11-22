@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: 16bit-sensation-another-layer
+  titles:
+    original: 16bitセンセーション ANOTHER LAYER
+    translations: { ja-Latn: "16bit Sensation: Another Layer" }
+  seasons:
+    - id: 16bit-sensation-another-layer-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [16bit-sensation-another-layer]

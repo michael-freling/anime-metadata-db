@@ -4,8 +4,11 @@ series:
   titles:
     original: 怪病医ラムネ
     translations:
+      en: 'Dr. Ramune: Mysterious Disease Specialist'
       ja-Latn: Kai Byoui Ramune
   ordering: absolute
+  externalIds:
+    wikidataId: Q98928496
   seasons:
     - id: kai-byoui-ramune-s1
       number: 1

@@ -14,5 +14,19 @@ series:
   movies:
     - id: gintama-film
       externalIds: { anilistId: 7472 } # Gintama Movie 1: Shinyaku Benizakura-hen (2010)
+    - id: gintama-film-2
+      externalIds: { anilistId: 15335 } # Gintama Movie 2: Kanketsu-hen - Yorozuya yo Eien Nare (2013)
+    - id: gintama-film-3
+      externalIds: { anilistId: 20760 } # Gintama: Yorinuki Gintama-san on Theater 2D (2012)
+    - id: gintama-film-4
+      externalIds: { anilistId: 114129 } # Gintama: The Final (2021)
+    - id: gintama-film-5
+      externalIds: { anilistId: 169000 } # Gintama on Theater 2D: Baragaki-hen (2023)
+    - id: gintama-film-6
+      externalIds: { anilistId: 175573 } # Gintama on Theater 2D: Ikkoku Keisei-hen (2024)
+    - id: gintama-film-7
+      externalIds: { anilistId: 178436 } # Gintama on Theater 2D: Kintama-hen (2024)
+    - id: gintama-film-8
+      externalIds: { anilistId: 197474 } # Gintama Movie 3: Yoshiwara Daienjou (2026)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [gintama]

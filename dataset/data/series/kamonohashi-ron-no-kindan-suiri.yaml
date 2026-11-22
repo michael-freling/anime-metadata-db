@@ -4,8 +4,11 @@ series:
   titles:
     original: 鴨乃橋ロンの禁断推理
     translations:
+      en: Ron Kamonohashi
       ja-Latn: Kamonohashi Ron no Kindan Suiri
   ordering: absolute
+  externalIds:
+    wikidataId: Q106392316
   seasons:
     - id: kamonohashi-ron-no-kindan-suiri-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: メガトン級ムサシ
     translations:
+      en: Megaton Musashi
       ja-Latn: Megaton-kyuu Musashi
   ordering: absolute
+  externalIds:
+    wikidataId: Q28683314
   seasons:
     - id: megaton-kyuu-musashi-s1
       number: 1

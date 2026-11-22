@@ -4,8 +4,11 @@ series:
   titles:
     original: 映画大好きポンポさん
     translations:
+      en: 'Pompo: The Cinéphile'
       ja-Latn: Eiga Daisuki Pompo-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q85793912
   movies:
     - id: eiga-daisuki-pompo-san-film
       titles:

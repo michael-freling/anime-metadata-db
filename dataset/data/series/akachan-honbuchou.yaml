@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Akachan Honbuchou
   ordering: absolute
+  externalIds:
+    wikidataId: Q106093811
   seasons:
     - id: akachan-honbuchou-s1
       number: 1

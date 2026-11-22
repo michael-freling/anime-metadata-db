@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: zombieland-saga-revenge
+  titles:
+    original: ゾンビランドサガ リベンジ
+    translations: { ja-Latn: Zombieland Saga Revenge }
+  seasons:
+    - id: zombieland-saga-revenge-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [zombieland-saga-revenge]

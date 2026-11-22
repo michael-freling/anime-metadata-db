@@ -4,7 +4,10 @@
 series:
   id: girls-band-cry
   titles:
-    original: 【後編】劇場版総集編『ガールズバンドクライ』なぁ、未来。
+    # Authored: upstream's longest kana synonym for this series is one of its
+    # recap films' titles, so the import took that. The series is named for
+    # the work, not for a compilation of it.
+    original: ガールズバンドクライ
     translations: { ja-Latn: Girls Band Cry }
   seasons:
     - id: girls-band-cry-s1

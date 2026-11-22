@@ -1,15 +1,23 @@
-# Authored override — 2024 catalogue import. Holds only the structure the
-# open sources cannot express; `builder build` fills the facts into data/.
-# Never hand-edit data/.
+# Authored override. The catalogue carried "bocchi-the-rock-movie" as a series
+# of its own, so the second recap film could attach to neither.
+#
+# The native title was the recap film's rather than the series': the import
+# takes the longest kana synonym, and 劇場総集編ぼっち・ざ・ろっく！ Re:Re: is
+# longer than ぼっち・ざ・ろっく！.
+#
+# Not numbered. Both films are compilations of the season above, so giving them
+# a slot in an absolute run would number the same episodes twice.
 series:
   id: bocchi-the-rock
   titles:
-    original: "劇場総集編ぼっち・ざ・ろっく！ Re:Re:"
-    translations: { ja-Latn: Bocchi the Rock! }
+    original: ぼっち・ざ・ろっく！
+    translations: { ja-Latn: "Bocchi the Rock!" }
   seasons:
     - id: bocchi-the-rock-s1
       number: 1
+      externalIds: { anilistId: 130003 } # Bocchi the Rock! (2022)
   movies:
     - id: bocchi-the-rock-film
-# One linear storyline: episodes carry a continuous absoluteNumber.
-numbered: [bocchi-the-rock]
+      externalIds: { anilistId: 165253 } # Bocchi the Rock! Movie, Re: (2024)
+    - id: bocchi-the-rock-film-2
+      externalIds: { anilistId: 171099 } # Bocchi the Rock! Re:Re: (2024)

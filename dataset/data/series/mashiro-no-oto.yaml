@@ -4,8 +4,11 @@ series:
   titles:
     original: ましろのおと
     translations:
+      en: Those Snow White Notes
       ja-Latn: Mashiro no Oto
   ordering: absolute
+  externalIds:
+    wikidataId: Q11278237
   seasons:
     - id: mashiro-no-oto-s1
       number: 1

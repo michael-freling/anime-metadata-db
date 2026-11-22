@@ -17,7 +17,7 @@ series:
         tvdbId: 456835
       episodes:
         count: 12
-        absoluteFrom: 1
+        absoluteFrom: 2
     - id: watashi-ga-koibito-ni-nareru-wake-naijan-murimuri-muri-ja-s2
       number: 2
       releaseYear: 2026
@@ -26,4 +26,15 @@ series:
         anilistId: 199112
       episodes:
         count: 5
-        absoluteFrom: 13
+        absoluteFrom: 14
+  movies:
+    - id: watashi-ga-koibito-ni-nareru-wake-naijan-murimuri-muri-ja-film
+      titles:
+        original: わたしが恋人になれるわけないじゃん, ムリムリ! (※ムリじゃなかった!?) ~ネクストシャイン!~
+        translations:
+          ja: わたしが恋人になれるわけないじゃん, ムリムリ! (※ムリじゃなかった!?) ~ネクストシャイン!~
+          ja-Latn: 'Watashi ga Koibito ni Nareru Wake Nai jan, Muri Muri! (*Muri ja Nakatta!?): Next Shine!'
+      releaseYear: 2025
+      externalIds:
+        anidbId: 19601
+      absoluteNumber: 1

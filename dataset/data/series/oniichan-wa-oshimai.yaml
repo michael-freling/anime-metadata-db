@@ -4,8 +4,11 @@ series:
   titles:
     original: お兄ちゃんはおしまい!
     translations:
+      en: Onimai
       ja-Latn: Oniichan wa Oshimai!
   ordering: absolute
+  externalIds:
+    wikidataId: Q55536517
   seasons:
     - id: oniichan-wa-oshimai-s1
       number: 1

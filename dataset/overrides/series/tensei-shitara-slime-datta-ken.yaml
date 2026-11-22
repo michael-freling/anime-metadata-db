@@ -29,6 +29,8 @@ series:
   movies:
     - id: tensei-shitara-slime-datta-ken-film
       externalIds: { anilistId: 139498 } # Tensei shitara Slime Datta Ken Movie: Guren no Kizuna-hen (2022)
+    - id: tensei-shitara-slime-datta-ken-film-2
+      externalIds: { anilistId: 182206 } # Tensei shitara Slime Datta Ken Movie 2: Soukai no Namida-hen (2026)
   # Cast (R2) discovered from Wikidata (CC0) and nested under the series;
   # the builder fills every name from the QID at build time.
   characters:

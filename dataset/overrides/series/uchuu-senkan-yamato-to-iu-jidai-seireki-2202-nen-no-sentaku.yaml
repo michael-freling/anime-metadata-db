@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: uchuu-senkan-yamato-to-iu-jidai-seireki-2202-nen-no-sentaku
+  titles:
+    original: 「宇宙戦艦ヤマト」という時代 西暦2202年の選択
+    translations: { ja-Latn: "\"Uchuu Senkan Yamato\" to Iu Jidai: Seireki 2202-nen no Sentaku" }
+  movies:
+    - id: uchuu-senkan-yamato-to-iu-jidai-seireki-2202-nen-no-sentaku-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [uchuu-senkan-yamato-to-iu-jidai-seireki-2202-nen-no-sentaku]

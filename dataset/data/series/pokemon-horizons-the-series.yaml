@@ -49,3 +49,168 @@ series:
         anilistId: 528
         anidbId: 990
         tvdbId: 76703
+    - id: pokemon-horizons-the-series-film-2
+      titles:
+        original: ポケットモンスター 幻のポケモンルギア爆誕
+        translations:
+          ja: ポケットモンスター 幻のポケモンルギア爆誕
+          ja-Latn: 'Pokemon Movie 02: Maboroshi no Pokemon Lugia Bakutan'
+      releaseYear: 1999
+      externalIds:
+        anilistId: 1117
+        anidbId: 1020
+        tvdbId: 76703
+    - id: pokemon-horizons-the-series-film-3
+      titles:
+        original: ポケットモンスター 結晶塔の帝王
+        translations:
+          ja: ポケットモンスター 結晶塔の帝王
+          ja-Latn: 'Pokemon Movie 03: Kesshoutou no Teiou Entei'
+      releaseYear: 2000
+      externalIds:
+        anilistId: 1118
+        anidbId: 992
+        tvdbId: 76703
+    - id: pokemon-horizons-the-series-film-4
+      titles:
+        original: ポケットモンスター セレビィ 時を超えた遭遇
+        translations:
+          ja: ポケットモンスター セレビィ 時を超えた遭遇
+          ja-Latn: 'Pokemon Movie 04: Celebi Toki wo Koeta Deai'
+      releaseYear: 2001
+      externalIds:
+        anilistId: 1119
+        anidbId: 991
+        tvdbId: 76703
+    - id: pokemon-horizons-the-series-film-5
+      titles:
+        original: ポケットモンスター アドバンスジェネレーション 七夜の願い星ジラーチ
+        translations:
+          ja: ポケットモンスター アドバンスジェネレーション 七夜の願い星ジラーチ
+          ja-Latn: 'Pokemon Movie 06: Nanayo no Negaiboshi Jirachi'
+      releaseYear: 2003
+      externalIds:
+        anilistId: 1121
+        anidbId: 1804
+        tvdbId: 76703
+    - id: pokemon-horizons-the-series-film-6
+      titles:
+        original: ポケットモンスター アドバンスジェネレーション 裂空の訪問者 デオキシス
+        translations:
+          ja: ポケットモンスター アドバンスジェネレーション 裂空の訪問者 デオキシス
+          ja-Latn: 'Pokemon Movie 07: Rekkuu no Houmonsha Deoxys'
+      releaseYear: 2004
+      externalIds:
+        anilistId: 1122
+        anidbId: 2371
+        tvdbId: 76703
+    - id: pokemon-horizons-the-series-film-7
+      titles:
+        original: ポケットモンスター アドバンスジェネレーション ミュウと波導の勇者ルカリオ
+        translations:
+          ja: ポケットモンスター アドバンスジェネレーション ミュウと波導の勇者ルカリオ
+          ja-Latn: 'Pokemon Movie 08: Mew to Hadou no Yuusha Lucario'
+      releaseYear: 2005
+      externalIds:
+        anilistId: 1526
+        anidbId: 2848
+        tvdbId: 76703
+    - id: pokemon-horizons-the-series-film-8
+      titles:
+        original: ポケットモンスター アドバンスジェネレーション ポケモンレンジャーと蒼海の王子マナフィ
+        translations:
+          ja: ポケットモンスター アドバンスジェネレーション ポケモンレンジャーと蒼海の王子マナフィ
+          ja-Latn: 'Pokemon Movie 09: Pokemon Ranger to Umi no Ouji Manaphy'
+      releaseYear: 2006
+      externalIds:
+        anilistId: 2201
+        anidbId: 4199
+        tvdbId: 76703
+    - id: pokemon-horizons-the-series-film-9
+      titles:
+        original: ポケットモンスター ダイヤモンド＆パール ディアルガVSパルキアVSダークライ
+        translations:
+          ja: ポケットモンスター ダイヤモンド＆パール ディアルガVSパルキアVSダークライ
+          ja-Latn: 'Pokemon Movie 10: Dialga vs. Palkia vs. Darkrai'
+      releaseYear: 2007
+      externalIds:
+        anilistId: 2847
+        anidbId: 5048
+        tvdbId: 76703
+    - id: pokemon-horizons-the-series-film-10
+      titles:
+        original: ポケットモンスター ダイヤモンド&パール ギラティナと氷空の花束 シェイミ
+        translations:
+          ja: ポケットモンスター ダイヤモンド&パール ギラティナと氷空の花束 シェイミ
+          ja-Latn: 'Pokemon Movie 11: Giratina to Sora no Hanataba Sheimi'
+      releaseYear: 2008
+      externalIds:
+        anilistId: 4026
+        anidbId: 5772
+        tvdbId: 76703
+    - id: pokemon-horizons-the-series-film-11
+      titles:
+        original: ポケットモンスター ダイヤモンド&パール アルセウス 超克の時空へ
+        translations:
+          ja: ポケットモンスター ダイヤモンド&パール アルセウス 超克の時空へ
+          ja-Latn: 'Pokemon Movie 12: Arceus Choukoku no Jikuu e'
+      releaseYear: 2009
+      externalIds:
+        anilistId: 6178
+        anidbId: 6316
+        tvdbId: 76703
+    - id: pokemon-horizons-the-series-film-12
+      titles:
+        original: ポケットモンスター ダイヤモンド&パール 幻影の覇者 ゾロアーク
+        translations:
+          ja: ポケットモンスター ダイヤモンド&パール 幻影の覇者 ゾロアーク
+          ja-Latn: 'Pokemon Movie 13: Genei no Hasha Zoroark'
+      releaseYear: 2010
+      externalIds:
+        anilistId: 7695
+        anidbId: 7257
+        tvdbId: 76703
+    - id: pokemon-horizons-the-series-film-13
+      titles:
+        original: ポケットモンスター ベストウィッシュ 「ビクティニと黒き英雄」
+        translations:
+          ja: ポケットモンスター ベストウィッシュ 「ビクティニと黒き英雄」
+          ja-Latn: 'Pokemon Movie 14 White: Victini to Kuroki Eiyuu Zekrom'
+      releaseYear: 2011
+      externalIds:
+        anilistId: 9917
+        anidbId: 8012
+        tvdbId: 76703
+    - id: pokemon-horizons-the-series-film-14
+      titles:
+        original: ポケットモンスター ベストウイッシュ「ビクティニと白き英雄 レシラム」
+        translations:
+          ja: ポケットモンスター ベストウイッシュ「ビクティニと白き英雄 レシラム」
+          ja-Latn: 'Pokemon Movie 14 Black: Victini to Shiroki Eiyuu Reshiram'
+      releaseYear: 2011
+      externalIds:
+        anilistId: 10740
+        anidbId: 8269
+        tvdbId: 76703
+    - id: pokemon-horizons-the-series-film-15
+      titles:
+        original: ポケットモンスター ベストウイッシュ キュレムVS聖剣士
+        translations:
+          ja: ポケットモンスター ベストウイッシュ キュレムVS聖剣士
+          ja-Latn: 'Pokemon Movie 15: Kyurem vs. Seikenshi'
+      releaseYear: 2012
+      externalIds:
+        anilistId: 12671
+        anidbId: 8826
+        tvdbId: 76703
+    - id: pokemon-horizons-the-series-film-16
+      titles:
+        original: ポケットモンスターXY 破壊の繭
+        translations:
+          ja: ポケットモンスターXY 破壊の繭
+          ja-Latn: 'Pokemon Movie 17: Hakai no Mayu to Diancie'
+      releaseYear: 2014
+      externalIds:
+        anilistId: 20644
+        anidbId: 10318
+        tvdbId: 76703

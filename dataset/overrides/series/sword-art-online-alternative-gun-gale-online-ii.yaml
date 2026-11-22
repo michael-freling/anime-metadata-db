@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sword-art-online-alternative-gun-gale-online-ii
+  titles:
+    original: ソードアート・オンライン オルタナティブ ガンゲイル・オンライン 第2期
+    translations: { ja-Latn: "Sword Art Online Alternative: Gun Gale Online II" }
+  seasons:
+    - id: sword-art-online-alternative-gun-gale-online-ii-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sword-art-online-alternative-gun-gale-online-ii]

@@ -4,8 +4,11 @@ series:
   titles:
     original: 菜なれ花なれ
     translations:
+      en: 'Narenare: Cheer for You!'
       ja-Latn: Na Nare Hana Nare
   ordering: absolute
+  externalIds:
+    wikidataId: Q123378755
   seasons:
     - id: na-nare-hana-nare-s1
       number: 1

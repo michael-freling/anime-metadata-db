@@ -4,8 +4,11 @@ series:
   titles:
     original: 君は放課後インソムニア
     translations:
+      en: Insomniacs After School
       ja-Latn: Kimi wa Houkago Insomnia
   ordering: absolute
+  externalIds:
+    wikidataId: Q97377083
   seasons:
     - id: kimi-wa-houkago-insomnia-s1
       number: 1

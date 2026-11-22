@@ -88,9 +88,63 @@ Then `make build-data` and `make index`.
 It refuses more than it writes, on purpose:
 
 - **A work related to a series the catalogue already has is reported, never
-  written.** Creating a second series for an installment of an existing one is
-  the only import mistake nothing downstream can detect — by the next run the
-  duplicate looks like an ordinary series. Author those merges by hand.
+  written — unless no series it is related to is named after it.** Creating a
+  second series for an installment of an existing one is the only import
+  mistake nothing downstream can detect, so this is the rule to be careful
+  with. But "related" is not "an installment of": "Healin' Good♡Precure" is a
+  Precure season in its own right and links to other Precure, and holding it
+  for a merge nobody could make lost it. 1,699 works were in that position.
+
+  So a link means a merge where one of the linked series' own names is a prefix
+  of this work's, and otherwise the work is written as the series it is.
+  `accountedFor` asks that, and **everything short of clear evidence against
+  comes out as a merge**, because the two answers do not cost the same: a work
+  wrongly reported costs a line somebody reads, and a work wrongly written
+  costs a duplicate nothing downstream can detect. So it reports where nothing
+  is known about a linked series' names at all, and where every name it has is
+  shorter than three characters and so is evidence of nothing either way.
+
+  The names are read from the authored layer as well as the built records,
+  since a run importing several years before a build would otherwise see none
+  for the years it just wrote and write a second series for each.
+
+  **A boundary after the prefix was tried and dropped.** The idea was that a
+  name should only account for a work where what follows reads as separate — a
+  space, punctuation, a digit, a change of script — so "Hero" would not account
+  for "Heroman". The scripts that write these titles without spaces have no
+  boundary to find: 鬼滅の刃 followed by 遊郭編 is Han after Han, so a real
+  continuation looked like one word and the work was written as a second
+  series. And the error it prevented was the recoverable one. What does the
+  work the boundary was meant to is the link requirement: these are works
+  upstream links to the series, not every work that shares a prefix.
+
+  **A work written despite a link is printed, not just counted.** That
+  judgement is the one with nothing behind it — `anilist-claimed-elsewhere`
+  compares ids and these are different works — so `import` lists each one with
+  the series upstream linked it to, under "WRITTEN as their own series". All
+  six duplicates that had to be deleted by hand from the 2020-2026 re-import
+  appear in that list, which is how reading it is meant to work.
+
+  Being this conservative means the import proposes rather than writes some
+  series that genuinely are their own — `hataraku-saibou-black` is a different
+  manga from `hataraku-saibou`, and `cardfight-vanguard-will-dress` is its own
+  series — so they live in the authored layer as hand decisions and a fresh
+  import would report them again. That is the direction to be wrong in.
+
+  `builder merge` asks the same question with the same inputs. It did not, and
+  the two commands disagreed about what a candidate was: works `import` writes
+  as their own series were still proposed as merges and then refused, which
+  inflated the backlog figure from 643 to 2,290.
+
+  **The failure mode this leaves is a sequel retitled so that it shares no name
+  with its parent**, which is written as its own series. No title rule
+  separates that from a series in its own right that merely links to its
+  siblings, and `anilist-claimed-elsewhere` cannot see it because the two are
+  different works with different ids. It is asserted as deliberate in
+  `TestARetitledSequelIsWrittenAsItsOwnSeriesWhichIsTheKnownFailureMode`, and
+  what bounds it is that `import` builds nothing: the result is a reviewable
+  diff of the authored layer, which is the whole reason the command is split
+  from the build.
 - **A series the build could not fill is reported.** The build refuses a kind
   unless the number of upstream candidates equals the number of declared
   installments, so a series must declare exactly what its own title resolves
@@ -179,6 +233,52 @@ rest name a neighbour by its AniDB, MyAnimeList or anime-planet URL, so two
 works that were each other's only neighbour both failed a *gating* check against
 correct data. When a check walks someone else's graph, measure how much of it
 the walk can actually see.
+
+The edges are fixed; the **endpoints** are still AniList ids. The walk steps
+through an entry carrying no AniList id, but it is seeded from one and matches
+one, so an installment the build reached by its `anidbId` alone — 385 of the
+9,280 carrying any id — is not something `anilist-unlinked` can check. That is
+said rather than hidden: the provenance line's fractions are all out of the
+6,688 AniList ids, and the installments with none are reported beside them as
+their own figure, so the denominator never quietly absorbs a population the
+check did not measure. Those installments are still gated by
+`anilist-claimed-elsewhere`, which keys on both providers.
+
+The same goes for a word list. Four series ended up named after a recut of
+themselves, because `NativeTitle` takes the longest kana synonym and
+劇場総集編ぼっち・ざ・ろっく！ Re:Re: is longer than ぼっち・ざ・ろっく！. The
+obvious fix — prefer a synonym carrying no 総集編/特別編集版/新編集版/完全版/
+ディレクターズカット — was measured before it was written, and it changes 11
+titles: about four improve, four move sideways, and **three get worse.**
+"HIGHLANDER ハイランダー 〜ディレクターズカット版〜" becomes ハイランダー,
+losing the subtitle, and "PSYCHO-PASS サイコパス 新編集版" becomes
+"PSYCHO-PASS サイコパス", which is already another series' name. 前編 and 後編
+are worse still: there the marker *is* the work's name, since the halves are
+different works.
+
+So the four were authored by hand (date-a-live, bocchi-the-rock,
+girls-band-cry, re-zero) and the rule was not written. A marker means "a recut
+of something" for one series and "this work's name" for the next, and nothing
+in the sources says which.
+
+A seed carrying no id is not a signal either. Of the nine series the 2020-2026
+re-import proposed, the three carrying an id on some provider were all genuine
+and the six carrying none were all wrong — a recap of One Punch Man's second
+season, the English-titled listing of the Sailor Moon Eternal films, a
+romanisation twin (`Sinbi Apartment: Ghost Ball Zero` beside the id-bearing
+`Sinbi Apateu: Ghost Ball ZERO`, which `FoldTitle` cannot pair because
+"Apartment" and "Apateu" are not the same string), two named parts of a trilogy
+upstream also lists as a merged three-episode record and as three un-merged
+ones, and a second season of a parent already here. A work carrying no id
+cannot be checked by `anilist-claimed-elsewhere` either, so writing it as a
+series is exactly the duplicate nothing downstream detects.
+
+Nine for nine, and still not a rule: **3,775 of 10,032 series carry no id
+anywhere in their record**, 37.6% of the catalogue. Upstream simply does not
+index much of what it lists — older titles, Chinese and Korean shows — so
+refusing an id-less seed would refuse a third of the catalogue to catch six
+duplicates. Those six were deleted by hand, and a later import will propose
+them again, because nothing in the sources separates them from the 3,775.
 
 And resist a threshold the data does not have. Twelve series numbered separate
 adaptations end to end — Doraemon across 1973, 1979 and 2005 — but no gap

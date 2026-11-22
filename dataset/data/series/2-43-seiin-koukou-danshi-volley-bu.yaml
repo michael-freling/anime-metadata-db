@@ -4,8 +4,11 @@ series:
   titles:
     original: 2.43 清陰高校男子バレー部
     translations:
+      en: '2.43: Seiin High School Boys Volleyball Team'
       ja-Latn: '2.43: Seiin Koukou Danshi Volley-bu'
   ordering: absolute
+  externalIds:
+    wikidataId: Q85727753
   seasons:
     - id: 2-43-seiin-koukou-danshi-volley-bu-s1
       number: 1

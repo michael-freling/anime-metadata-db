@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Astro Note
   ordering: absolute
+  externalIds:
+    wikidataId: Q123598800
   seasons:
     - id: astro-note-s1
       number: 1

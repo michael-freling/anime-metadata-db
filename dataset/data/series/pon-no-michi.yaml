@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Pon no Michi
   ordering: absolute
+  externalIds:
+    wikidataId: Q118612313
   seasons:
     - id: pon-no-michi-s1
       number: 1

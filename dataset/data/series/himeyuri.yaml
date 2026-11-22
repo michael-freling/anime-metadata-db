@@ -17,4 +17,14 @@ series:
       externalIds:
         anilistId: 20491
         anidbId: 9375
+      absoluteNumber: 2
+    - id: himeyuri-film-2
+      titles:
+        original: ひめゆりの塔
+        translations:
+          ja: ひめゆりの塔
+          ja-Latn: Himeyuri no Tou
+      releaseYear: 1995
+      externalIds:
+        anidbId: 13585
       absoluteNumber: 1

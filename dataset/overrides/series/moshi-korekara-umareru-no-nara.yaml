@@ -1,0 +1,12 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: moshi-korekara-umareru-no-nara
+  titles:
+    original: もし、これから生まれるのなら
+    translations: { ja-Latn: "Moshi, Korekara Umareru no Nara" }
+  movies:
+    - id: moshi-korekara-umareru-no-nara-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [moshi-korekara-umareru-no-nara]

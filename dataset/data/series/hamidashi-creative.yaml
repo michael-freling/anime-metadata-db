@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Hamidashi Creative
   ordering: absolute
+  externalIds:
+    wikidataId: Q109362373
   seasons:
     - id: hamidashi-creative-s1
       number: 1

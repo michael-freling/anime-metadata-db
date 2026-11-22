@@ -37,6 +37,33 @@ series:
         tvdbId: 325374
       episodes:
         count: 51
+    - id: duel-masters-s4
+      number: 4
+      releaseYear: 2019
+      releaseSeason: SPRING
+      externalIds:
+        anilistId: 113242
+        anidbId: 14620
+      episodes:
+        count: 51
+    - id: duel-masters-s5
+      number: 5
+      releaseYear: 2022
+      releaseSeason: FALL
+      externalIds:
+        anilistId: 153412
+        anidbId: 17515
+      episodes:
+        count: 29
+    - id: duel-masters-s6
+      number: 6
+      releaseYear: 2023
+      releaseSeason: SPRING
+      externalIds:
+        anilistId: 163256
+        anidbId: 17921
+      episodes:
+        count: 49
   movies:
     - id: duel-masters-film
       titles:

@@ -19,3 +19,14 @@ series:
         anidbId: 4527
         tvdbId: 81073
       absoluteNumber: 1
+    - id: gunbuster-movie-film-2
+      titles:
+        original: トップをねらえ!
+        translations:
+          ja: トップをねらえ!
+          ja-Latn: Gunbuster Movie
+      releaseYear: 2006
+      externalIds:
+        anidbId: 4526
+        tvdbId: 81073
+      absoluteNumber: 2

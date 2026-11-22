@@ -6,6 +6,8 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"slices"
+	"sort"
 	"strconv"
 	"strings"
 
@@ -73,10 +75,70 @@ func (a *App) Import(year int, dryRun bool) error {
 		known[id] = true
 	}
 
-	plan := importer.Build(sources.Offline, year, known, claimedTitles)
+	// The names of the series already here, so a work that links to one but
+	// that none of them is named after is written as its own series rather
+	// than held for a merge nobody can make.
+	//
+	// Read from both layers, for the reason the ids are. `known` is unioned
+	// with the authored ids so that a run importing several years before any
+	// build sees what the earlier years claimed; names read from the built
+	// records alone would then be empty for exactly those series, and the work
+	// would be written as a duplicate of one authored a moment ago. The
+	// authored layer answers first because it is the newer of the two.
+	names, err := seriesNames(filepath.Join(a.Dir, cfg.Settings.OverridesDir, "series"), dataDir)
+	if err != nil {
+		return err
+	}
+
+	// Every handle, not only the AniList ones: a work upstream carries on no
+	// AniList page is accounted for by its AniDB id alone, and reading only the
+	// AniList ids wrote a second series for a work another series already held.
+	anidbKnown, err := knownAnidbIDs(dataDir)
+	if err != nil {
+		return err
+	}
+	authoredAnidb, err := declaredAnidbIDs(filepath.Join(a.Dir, cfg.Settings.OverridesDir))
+	if err != nil {
+		return err
+	}
+	for id := range authoredAnidb {
+		anidbKnown[id] = true
+	}
+
+	plan := importer.BuildKnown(sources.Offline, year,
+		importer.Known{Anilist: known, Anidb: anidbKnown}, claimedTitles, names)
 
 	fmt.Fprintf(a.Out, "import %d: %d new series, %d to merge by hand, %d unresolvable, %d already present, %d out of scope\n",
 		plan.Year, len(plan.New), len(plan.Merges), len(plan.Unresolvable), len(plan.Present), plan.Skipped)
+
+	// Listed, not just counted. These are the ones the rule decided were their
+	// own series although upstream links them to one the catalogue already
+	// has, and a wrong decision here is the duplicate nothing downstream can
+	// detect. Six of them had to be deleted by hand from the 2020-2026
+	// re-import; reading a list is how that happens, so the run prints one.
+	if len(plan.DespiteLink) > 0 {
+		owner, err := seriesByAnilistID(dataDir)
+		if err != nil {
+			return err
+		}
+		fmt.Fprintf(a.Out, "\nWRITTEN as their own series, although upstream links them to a series\n")
+		fmt.Fprintf(a.Out, "the catalogue already has. Read these — a wrong one is a duplicate no\n")
+		fmt.Fprintf(a.Out, "check can find:\n")
+		for _, d := range plan.DespiteLink {
+			var linked []string
+			for _, id := range d.Into {
+				// Deduplicated: several of a series' installments can each
+				// link to this work, and naming the series once per link
+				// makes a short list look like a long one.
+				if name, ok := owner[id]; ok && !slices.Contains(linked, name) {
+					linked = append(linked, name)
+				}
+			}
+			sort.Strings(linked)
+			fmt.Fprintf(a.Out, "  %-46s linked to %s\n", trim(d.Title, 46), strings.Join(linked, ", "))
+		}
+		fmt.Fprintln(a.Out)
+	}
 
 	if len(plan.Unresolvable) > 0 {
 		fmt.Fprintf(a.Out, "\nNOT written — the build could not have filled these. Author by hand:\n")
@@ -150,11 +212,13 @@ func (a *App) Import(year int, dryRun bool) error {
 
 var (
 	anilistLine  = regexp.MustCompile(`(?m)^\s*anilistId:\s*(\d+)\s*$`)
+	anidbLine    = regexp.MustCompile(`(?m)^\s*anidbId:\s*(\d+)\s*$`)
 	idLine       = regexp.MustCompile(`(?m)^\s*(?:-\s+)?id:\s*(\S+)\s*$`)
 	originalLine = regexp.MustCompile(`(?m)^\s*original:\s*(.+?)\s*$`)
 	// Looser than anilistLine, which reads generated records: an override
 	// writes the id inline, as `externalIds: { anilistId: 101922 } # note`.
 	anilistInline = regexp.MustCompile(`anilistId:\s*"?(\d+)"?`)
+	anidbInline   = regexp.MustCompile(`anidbId:\s*"?(\d+)"?`)
 )
 
 // existingIDs collects every id the authored layer declares, at any level.
@@ -242,12 +306,18 @@ func firstTaken(taken map[string]bool, s importer.Series) string {
 	return ""
 }
 
-// knownAnilistIDs collects every anilistId in the generated records.
+// knownAnidbIDs collects the AniDB ids the generated records account for.
 //
-// Read from data/ rather than from the overrides because the ids are resolved
-// by the build, not authored: an override usually carries none at all, so the
-// authored layer cannot answer what the catalogue already covers.
-func knownAnilistIDs(dataDir string) (map[int]bool, error) {
+// Filled by the build rather than authored, for most of them: a record states
+// every provider id the entry it resolved to carries. So the authored layer
+// alone does not show that a work is already accounted for, and a merge that
+// only read the overrides attached one that another series had resolved —
+// "giga-tribe" took a film "giga-tribe-2008" already held.
+func knownAnidbIDs(dataDir string) (map[int]bool, error) {
+	return readRecordIDs(dataDir, anidbLine)
+}
+
+func readRecordIDs(dataDir string, field *regexp.Regexp) (map[int]bool, error) {
 	known := map[int]bool{}
 	entries, err := os.ReadDir(dataDir)
 	if os.IsNotExist(err) {
@@ -266,7 +336,7 @@ func knownAnilistIDs(dataDir string) (map[int]bool, error) {
 		}
 		// Matched by line rather than decoded: the ids are all that is wanted,
 		// and parsing every record costs seconds per run for nothing else.
-		for _, m := range anilistLine.FindAllSubmatch(body, -1) {
+		for _, m := range field.FindAllSubmatch(withoutComments(body), -1) {
 			var id int
 			if _, err := fmt.Sscanf(string(m[1]), "%d", &id); err == nil && id > 0 {
 				known[id] = true
@@ -276,6 +346,15 @@ func knownAnilistIDs(dataDir string) (map[int]bool, error) {
 	return known, nil
 }
 
+// knownAnilistIDs collects every anilistId in the generated records.
+//
+// Read from data/ rather than from the overrides because the ids are resolved
+// by the build, not authored: an override usually carries none at all, so the
+// authored layer cannot answer what the catalogue already covers.
+func knownAnilistIDs(dataDir string) (map[int]bool, error) {
+	return readRecordIDs(dataDir, anilistLine)
+}
+
 func trim(s string, n int) string {
 	if len(s) <= n {
 		return s
@@ -283,16 +362,23 @@ func trim(s string, n int) string {
 	return s[:n-1] + "…"
 }
 
-// declaredAnilistIDs collects the AniList ids the authored layer already
-// accounts for.
+// declaredAnidbIDs collects the AniDB ids the authored layer accounts for.
 //
-// Read from the overrides rather than from data/, for the reason
-// declaredTitles exists: a run that imports several years before any build
-// cannot see what the earlier years authored. 125 series were created that way
-// — a sequel whose one work was already a season of the parent imported a
-// moment earlier, so "high-card-season-2" declared an id "high-card" already
-// held. The build now gates on that, and this stops it being written.
+// Needed for the same reason as the AniList ones and separately from them: a
+// work upstream carries on no AniList page is authored by its AniDB id, and
+// nothing keyed on AniList ids can see it. Without this the merge attached such
+// a work again on every run, which put one id on four installments of
+// "giga-tribe" before anything noticed.
+func declaredAnidbIDs(overridesDir string) (map[int]bool, error) {
+	return declaredIDs(overridesDir, anidbInline)
+}
+
+// declaredAnilistIDs collects the AniList ids the authored layer accounts for.
 func declaredAnilistIDs(overridesDir string) (map[int]bool, error) {
+	return declaredIDs(overridesDir, anilistInline)
+}
+
+func declaredIDs(overridesDir string, field *regexp.Regexp) (map[int]bool, error) {
 	ids := map[int]bool{}
 	err := filepath.WalkDir(overridesDir, func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
@@ -305,7 +391,7 @@ func declaredAnilistIDs(overridesDir string) (map[int]bool, error) {
 		if err != nil {
 			return err
 		}
-		for _, m := range anilistInline.FindAllSubmatch(body, -1) {
+		for _, m := range field.FindAllSubmatch(withoutComments(body), -1) {
 			if n, err := strconv.Atoi(string(m[1])); err == nil && n > 0 {
 				ids[n] = true
 			}
@@ -316,4 +402,68 @@ func declaredAnilistIDs(overridesDir string) (map[int]bool, error) {
 		return ids, nil
 	}
 	return ids, err
+}
+
+// seriesNames returns the names each AniList id's series answers to, looking in
+// the authored layer before the generated one.
+func seriesNames(dirs ...string) (func(int) []string, error) {
+	type layer struct {
+		owner  map[int]string
+		titles map[string][]string
+	}
+	layers := make([]layer, 0, len(dirs))
+	for _, dir := range dirs {
+		owner, err := seriesByAnilistID(dir)
+		if err != nil {
+			if os.IsNotExist(err) {
+				continue
+			}
+			return nil, err
+		}
+		titles, err := seriesTitles(dir)
+		if err != nil {
+			return nil, err
+		}
+		layers = append(layers, layer{owner, titles})
+	}
+	return func(id int) []string {
+		for _, l := range layers {
+			if sid, ok := l.owner[id]; ok {
+				if t := l.titles[sid]; len(t) > 0 {
+					return t
+				}
+			}
+		}
+		return nil
+	}, nil
+}
+
+// withoutComments blanks the comment tails in a YAML document, so a regex
+// looking for a field does not find one that is only being talked about.
+//
+// An id inside a comment counted as an id the catalogue accounts for, which
+// makes an unrelated work "already present" and drops it with nothing said.
+// The same mistake, in the other direction, made an e2e check compare the
+// build's id count against every occurrence of the string "anilistId",
+// comments included.
+//
+// YAML's own rule: a # starts a comment at the start of a line or after
+// whitespace, so "title: C#" keeps its sharp. Blanked rather than removed, so
+// byte offsets and line structure are unchanged for anything matching after.
+func withoutComments(body []byte) []byte {
+	out := make([]byte, len(body))
+	copy(out, body)
+	inComment := false
+	for i := 0; i < len(out); i++ {
+		switch {
+		case out[i] == '\n':
+			inComment = false
+		case inComment:
+			out[i] = ' '
+		case out[i] == '#' && (i == 0 || out[i-1] == ' ' || out[i-1] == '\t' || out[i-1] == '\n'):
+			inComment = true
+			out[i] = ' '
+		}
+	}
+	return out
 }

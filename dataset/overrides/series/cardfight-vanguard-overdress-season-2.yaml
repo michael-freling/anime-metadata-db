@@ -1,0 +1,13 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: cardfight-vanguard-overdress-season-2
+  titles:
+    original: カードファイト!! ヴァンガード overDress Season2
+    translations: { ja-Latn: "Cardfight!! Vanguard: overDress Season 2" }
+  seasons:
+    - id: cardfight-vanguard-overdress-season-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [cardfight-vanguard-overdress-season-2]

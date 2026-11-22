@@ -116,6 +116,56 @@ series:
         anidbId: 18699
         tvdbId: 348545
       absoluteNumber: 64
+    - id: demon-slayer-natagumo-yama-film
+      titles:
+        original: 鬼滅の刃 那田蜘蛛山編
+        translations:
+          en: Mount Natagumo Arc
+          ja: 鬼滅の刃 那田蜘蛛山編
+          ja-Latn: 'Kimetsu no Yaiba: Natagumo Yama Hen'
+      releaseYear: 2020
+      externalIds:
+        anidbId: 16259
+        tvdbId: 348545
+      alternateCutOf:
+        seasonId: demon-slayer-s1
+    - id: demon-slayer-hashira-gou-kaigi-film
+      titles:
+        original: 鬼滅の刃 柱合会議・蝶屋敷編
+        translations:
+          en: Hashira Meeting and Butterfly Mansion Arc
+          ja: 鬼滅の刃 柱合会議・蝶屋敷編
+          ja-Latn: 'Kimetsu no Yaiba: Hashira Gou Kaigi - Chouyashiki Hen'
+      releaseYear: 2020
+      externalIds:
+        anidbId: 16258
+        tvdbId: 348545
+      alternateCutOf:
+        seasonId: demon-slayer-s1
+    - id: demon-slayer-katanakaji-no-sato-film
+      titles:
+        original: 鬼滅の刃 刀鍛冶の里 敵襲編
+        translations:
+          en: Swordsmith Village Arc (special edition)
+          ja: 鬼滅の刃 刀鍛冶の里 敵襲編
+          ja-Latn: 'Kimetsu no Yaiba: Katanakaji no Sato-hen - Tokubetsu Henshuu Ban'
+      releaseYear: 2024
+      externalIds:
+        anidbId: 18529
+      alternateCutOf:
+        seasonId: demon-slayer-s4
+    - id: demon-slayer-hashira-geiko-film
+      titles:
+        original: 鬼滅の刃 柱稽古 柱結集編
+        translations:
+          en: Hashira Training Arc (special edition)
+          ja: 鬼滅の刃 柱稽古 柱結集編
+          ja-Latn: 'Kimetsu no Yaiba: Hashira Geiko Hen - Tokubetsu Henshuuban'
+      releaseYear: 2025
+      externalIds:
+        anidbId: 19418
+      alternateCutOf:
+        seasonId: demon-slayer-s5
   characters:
     - id: tanjiro-kamado
       names:

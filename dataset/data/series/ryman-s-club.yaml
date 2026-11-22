@@ -4,8 +4,11 @@ series:
   titles:
     original: リーマンズクラブ
     translations:
+      en: Salaryman's Club
       ja-Latn: Ryman's Club
   ordering: absolute
+  externalIds:
+    wikidataId: Q109026316
   seasons:
     - id: ryman-s-club-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: 道産子ギャルはなまらめんこい
     translations:
+      en: Hokkaido Gals Are Super Adorable!
       ja-Latn: Dosanko Gal wa Namara Menkoi
   ordering: absolute
+  externalIds:
+    wikidataId: Q97184870
   seasons:
     - id: dosanko-gal-wa-namara-menkoi-s1
       number: 1

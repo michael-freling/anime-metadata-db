@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: king-of-prism-all-stars-prism-show-best-ten
+  titles:
+    original: KING OF PRISM ALL STARS -プリズムショー☆ベストテン-
+    translations: { ja-Latn: "King of Prism All Stars: Prism Show☆Best Ten" }
+  movies:
+    - id: king-of-prism-all-stars-prism-show-best-ten-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [king-of-prism-all-stars-prism-show-best-ten]

@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Kin no Kuni Mizu no Kuni
   ordering: absolute
+  externalIds:
+    wikidataId: Q106365659
   movies:
     - id: kin-no-kuni-mizu-no-kuni-film
       titles:

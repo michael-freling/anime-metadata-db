@@ -1,0 +1,12 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: evangelion-30th-anniversary-special
+  titles:
+    original: エヴァンゲリオン放送30周年記念特別興行
+    translations: { ja-Latn: Evangelion 30th Anniversary Special }
+  movies:
+    - id: evangelion-30th-anniversary-special-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [evangelion-30th-anniversary-special]

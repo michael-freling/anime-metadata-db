@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: tropical-rouge-precure-movie-yuki-no-princess-to-kiseki-no-yubiwa
+  titles:
+    original: 映画 トロピカル〜ジュ!プリキュア 雪のプリンセスと奇跡の指輪!
+    translations: { ja-Latn: "Tropical-Rouge! Precure Movie: Yuki no Princess to Kiseki no Yubiwa!" }
+  movies:
+    - id: tropical-rouge-precure-movie-yuki-no-princess-to-kiseki-no-yubiwa-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [tropical-rouge-precure-movie-yuki-no-princess-to-kiseki-no-yubiwa]

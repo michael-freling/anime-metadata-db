@@ -1,0 +1,12 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: monster-strike-the-movie-lucifer-zetsubou-no-yoake
+  titles:
+    original: モンスターストライク THE MOVIE ルシファー 絶望の夜明け
+    translations: { ja-Latn: "Monster Strike the Movie: Lucifer - Zetsubou no Yoake" }
+  movies:
+    - id: monster-strike-the-movie-lucifer-zetsubou-no-yoake-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [monster-strike-the-movie-lucifer-zetsubou-no-yoake]

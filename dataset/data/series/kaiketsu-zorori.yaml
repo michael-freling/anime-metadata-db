@@ -17,7 +17,7 @@ series:
         tvdbId: 128411
       episodes:
         count: 52
-        absoluteFrom: 1
+        absoluteFrom: 2
   movies:
     - id: kaiketsu-zorori-film
       titles:
@@ -30,7 +30,7 @@ series:
         anilistId: 3659
         anidbId: 4319
         tvdbId: 128411
-      absoluteNumber: 53
+      absoluteNumber: 54
     - id: kaiketsu-zorori-film-2
       titles:
         original: かいけつゾロリだ・だ・だ・だいぼうけん!
@@ -42,4 +42,61 @@ series:
         anilistId: 15067
         anidbId: 9194
         tvdbId: 128411
-      absoluteNumber: 54
+      absoluteNumber: 55
+    - id: kaiketsu-zorori-film-3
+      titles:
+        original: かいけつゾロリ まほう使いのでし 大かいぞくの宝さがし
+        translations:
+          ja: かいけつゾロリ まほう使いのでし 大かいぞくの宝さがし
+          ja-Latn: 'Kaiketsu Zorori: Mahoutsukai no Deshi/Dai Kaizoku no Takara Sagashi'
+      releaseYear: 1993
+      externalIds:
+        anilistId: 6965
+        anidbId: 5997
+        tvdbId: 128411
+      absoluteNumber: 1
+    - id: kaiketsu-zorori-film-4
+      titles:
+        original: 映画 かいけつゾロリ まもるぜ! きょうりゅうのたまご
+        translations:
+          ja: 映画 かいけつゾロリ まもるぜ! きょうりゅうのたまご
+          ja-Latn: 'Kaiketsu Zorori: Mamoru ze! Kyouryuu no Tamago'
+      releaseYear: 2013
+      externalIds:
+        anilistId: 19587
+        anidbId: 9970
+        tvdbId: 128411
+      absoluteNumber: 56
+    - id: kaiketsu-zorori-film-5
+      titles:
+        original: かいけつゾロリ うちゅうの勇者たち
+        translations:
+          ja: かいけつゾロリ うちゅうの勇者たち
+          ja-Latn: 'Kaiketsu Zorori Movie: Uchuu no Yuusha-tachi'
+      releaseYear: 2015
+      externalIds:
+        anilistId: 21095
+        anidbId: 11133
+      absoluteNumber: 57
+    - id: kaiketsu-zorori-film-6
+      titles:
+        original: かいけつゾロリ ZZのひみつ
+        translations:
+          ja: かいけつゾロリ ZZのひみつ
+          ja-Latn: 'Kaiketsu Zorori Movie: ZZ no Himitsu'
+      releaseYear: 2017
+      externalIds:
+        anilistId: 120378
+        anidbId: 12953
+      absoluteNumber: 58
+    - id: kaiketsu-zorori-film-7
+      titles:
+        original: かいけつゾロリ　ラララ♪スターたんじょう
+        translations:
+          ja: かいけつゾロリ　ラララ♪スターたんじょう
+          ja-Latn: 'Kaiketsu Zorori Movie: Lalala♪ Star Tanjou'
+      releaseYear: 2022
+      externalIds:
+        anilistId: 169794
+        anidbId: 17329
+      absoluteNumber: 59

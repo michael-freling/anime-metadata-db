@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: arknights-prelude-to-dawn
+  titles:
+    original: アークナイツ【黎明前奏/PRELUDE TO DAWN】
+    translations: { ja-Latn: "Arknights: Prelude to Dawn" }
+  seasons:
+    - id: arknights-prelude-to-dawn-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [arknights-prelude-to-dawn]

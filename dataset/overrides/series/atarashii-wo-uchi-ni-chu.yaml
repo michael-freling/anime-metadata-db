@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: atarashii-wo-uchi-ni-chu
+  titles:
+    original: 新しいおうちにチュ
+    translations: { ja-Latn: Atarashii wo Uchi ni Chu }
+  movies:
+    - id: atarashii-wo-uchi-ni-chu-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [atarashii-wo-uchi-ni-chu]

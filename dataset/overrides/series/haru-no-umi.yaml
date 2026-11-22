@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: haru-no-umi
+  titles:
+    original: 春の海
+    translations: { ja-Latn: Haru no Umi }
+  movies:
+    - id: haru-no-umi-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [haru-no-umi]

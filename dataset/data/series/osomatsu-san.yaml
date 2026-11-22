@@ -31,7 +31,7 @@ series:
         tvdbId: 300989
       episodes:
         count: 25
-        absoluteFrom: 26
+        absoluteFrom: 27
     - id: osomatsu-san-s3
       number: 3
       releaseYear: 2020
@@ -42,7 +42,7 @@ series:
         tvdbId: 300989
       episodes:
         count: 25
-        absoluteFrom: 52
+        absoluteFrom: 53
     - id: osomatsu-san-s4
       number: 4
       releaseYear: 2025
@@ -53,7 +53,7 @@ series:
         tvdbId: 300989
       episodes:
         count: 12
-        absoluteFrom: 77
+        absoluteFrom: 80
   movies:
     - id: osomatsu-san-film
       titles:
@@ -65,4 +65,36 @@ series:
       externalIds:
         anilistId: 104213
         anidbId: 14293
-      absoluteNumber: 51
+      absoluteNumber: 52
+    - id: osomatsu-san-film-2
+      titles:
+        original: えいがのおそ松さん 1
+        translations:
+          ja: えいがのおそ松さん 1
+          ja-Latn: 'Osomatsu-san: Hipipo-Zoku to Kagayaku Kajitsu'
+      releaseYear: 2022
+      externalIds:
+        anilistId: 135177
+        anidbId: 16369
+      absoluteNumber: 78
+    - id: osomatsu-san-film-3
+      titles:
+        original: えいがのおそ松さん 2
+        translations:
+          ja: えいがのおそ松さん 2
+          ja-Latn: 'Osomatsu-san: Tamashii no Takoyaki Party to Densetsu no Otomarikai'
+      releaseYear: 2023
+      externalIds:
+        anilistId: 135178
+        anidbId: 17247
+      absoluteNumber: 79
+    - id: osomatsu-san-film-4
+      titles:
+        original: おそ松さん
+        translations:
+          ja: おそ松さん
+          ja-Latn: 'Osomatsu-san: Haru no Zenkoku Dai Senbatsu Jouei-sai - Sentou Quiz 2'
+      releaseYear: 2017
+      externalIds:
+        anidbId: 12935
+      absoluteNumber: 26

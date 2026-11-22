@@ -12,5 +12,59 @@ series:
   movies:
     - id: shin-chan-film
       externalIds: { anilistId: 2172 } # Crayon Shin-chan Movie 15: Arashi wo Yobu Utau Ketsu dake Bakud… (2007)
+    - id: shin-chan-film-2
+      externalIds: { anilistId: 2450 } # Crayon Shin-chan Movie 09: Arashi wo Yobu Mouretsu! Otona Teiko… (2001)
+    - id: shin-chan-film-3
+      externalIds: { anilistId: 3744 } # Crayon Shin-chan Movie 10: Arashi wo Yobu Appare! Sengoku Daika… (2002)
+    - id: shin-chan-film-4
+      externalIds: { anilistId: 3745 } # Crayon Shin-chan Movie 02: Buriburi Oukoku no Hihou (1994)
+    - id: shin-chan-film-5
+      externalIds: { anilistId: 6217 } # Crayon Shin-chan Movie 03: Unkokusai no Yabou (1995)
+    - id: shin-chan-film-6
+      externalIds: { anilistId: 6460 } # Crayon Shin-chan Movie 05: Ankoku Tamatama Daitsuiseki (1997)
+    - id: shin-chan-film-7
+      externalIds: { anilistId: 8358 } # Crayon Shin-chan Movie 01: Action Kamen vs. Haigure Maou (1993)
+    - id: shin-chan-film-8
+      externalIds: { anilistId: 8359 } # Crayon Shin-chan Movie 04: Henderland no Daibouken (1996)
+    - id: shin-chan-film-9
+      externalIds: { anilistId: 8360 } # Crayon Shin-chan Movie 06: Dengeki! Buta no Hizume Daisakusen (1998)
+    - id: shin-chan-film-10
+      externalIds: { anilistId: 8361 } # Crayon Shin-chan Movie 07: Bakuhatsu! Onsen Wakuwaku Daikessen (1999)
+    - id: shin-chan-film-11
+      externalIds: { anilistId: 8362 } # Crayon Shin-chan Movie 08: Arashi wo Yobu Jungle (2000)
+    - id: shin-chan-film-12
+      externalIds: { anilistId: 8363 } # Crayon Shin-chan Movie 11: Arashi wo Yobu Eikou no Yakiniku Road (2003)
+    - id: shin-chan-film-13
+      externalIds: { anilistId: 8364 } # Crayon Shin-chan Movie 12: Arashi wo Yobu! Yuuhi no Kasukabe Bo… (2004)
+    - id: shin-chan-film-14
+      externalIds: { anilistId: 8366 } # Crayon Shin-chan Movie 14: Densetsu wo Yobu Odore! Amigo! (2006)
+    - id: shin-chan-film-15
+      externalIds: { anilistId: 8367 } # Crayon Shin-chan Movie 16: Chou Arashi wo Yobu Kinpoko no Yuusha (2008)
+    - id: shin-chan-film-16
+      externalIds: { anilistId: 8368 } # Crayon Shin-chan Movie 17: Otakebe! Kasukabe Yasei Oukoku (2009)
+    - id: shin-chan-film-17
+      externalIds: { anilistId: 8369 } # Crayon Shin-chan Movie 18: Chou Jikuu! Arashi wo Yobu Ora no Ha… (2010)
+    - id: shin-chan-film-18
+      externalIds: { anilistId: 10116 } # Crayon Shin-chan Movie 19: Arashi wo Yobu Ougon no Spy Daisakus… (2011)
+    - id: shin-chan-film-19
+      externalIds: { anilistId: 12499 } # Crayon Shin-chan Movie 20: Arashi wo Yobu! Ora to Uchuu no Prin… (2012)
+    - id: shin-chan-film-20
+      externalIds: { anilistId: 17113 } # Crayon Shin-chan Movie 21: Bakauma! B-Kyuu Gourmet Survival Bat… (2013)
+    - id: shin-chan-film-21
+      externalIds: { anilistId: 20535 } # Crayon Shin-chan Movie 22: Gachinko! Gyakushuu no Robo To-chan (2014)
+    - id: shin-chan-film-22
+      externalIds: { anilistId: 98744 } # Crayon Shin-chan Movie 23: Ora no Hikkoshi Monogatari - Saboten… (2015)
+    - id: shin-chan-film-23
+      externalIds: { anilistId: 100289 } # Crayon Shin-chan Movie 24: Bakusui! Yumemi World Dai Totsugeki (2016)
+    - id: shin-chan-film-24
+      externalIds: { anilistId: 100290 } # Crayon Shin-chan Movie 25: Shin-chan Shuurai! Uchuujin Shiriri (2017)
+    - id: shin-chan-film-25
+      externalIds: { anilistId: 103690 } # Crayon Shin-chan Movie 26: Bakumori! Kung Fu Boys - Ramen Tairan (2018)
+    - id: shin-chan-film-26
+      externalIds: { anilistId: 109931 } # Crayon Shin-chan Movie 27: Shinkon Ryokou Hurricane - Ushinawar… (2019)
+    - id: shin-chan-film-27
+      externalIds: { anilistId: 111312 } # Crayon Shin-chan Movie 28: Gekitotsu! Rakuga Kingdom to Hobo Yo… (2020)
+    - id: shin-chan-film-28
+      externalIds: { anilistId: 127331 } # Crayon Shin-chan Movie 29: Nazo Meki! Hana no Tenkasu Gakuen (2021)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [shin-chan]

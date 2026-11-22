@@ -4,8 +4,11 @@ series:
   titles:
     original: もののがたり
     translations:
+      en: Malevolent Spirits
       ja-Latn: Mononogatari
   ordering: absolute
+  externalIds:
+    wikidataId: Q24868877
   seasons:
     - id: mononogatari-s1
       number: 1

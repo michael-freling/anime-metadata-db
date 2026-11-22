@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: koukyoushihen-eureka-seven-hi-evolution-3-eureka
+  titles:
+    original: EUREKA／交響詩篇エウレカセブン ハイエボリューション
+    translations: { ja-Latn: "Koukyoushihen Eureka Seven Hi-Evolution 3: Eureka" }
+  movies:
+    - id: koukyoushihen-eureka-seven-hi-evolution-3-eureka-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [koukyoushihen-eureka-seven-hi-evolution-3-eureka]

@@ -1,0 +1,12 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: girls-und-panzer-ribon-no-musha
+  titles:
+    original: ガールズ＆パンツァー リボンの武者
+    translations: { ja-Latn: "Girls und Panzer: Ribon no Musha" }
+  movies:
+    - id: girls-und-panzer-ribon-no-musha-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [girls-und-panzer-ribon-no-musha]

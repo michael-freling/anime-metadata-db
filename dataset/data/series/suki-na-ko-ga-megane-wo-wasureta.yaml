@@ -4,8 +4,11 @@ series:
   titles:
     original: 好きな子がめがねを忘れた
     translations:
+      en: The Girl I Like Forgot Her Glasses
       ja-Latn: Suki na Ko ga Megane wo Wasureta
   ordering: absolute
+  externalIds:
+    wikidataId: Q105100021
   seasons:
     - id: suki-na-ko-ga-megane-wo-wasureta-s1
       number: 1

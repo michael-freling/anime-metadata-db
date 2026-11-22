@@ -28,7 +28,7 @@ series:
         tvdbId: 270065
       episodes:
         count: 12
-        absoluteFrom: 13
+        absoluteFrom: 14
   movies:
     - id: free-film
       titles:
@@ -39,4 +39,34 @@ series:
       releaseYear: 2021
       externalIds:
         anidbId: 14415
-      absoluteNumber: 25
+      absoluteNumber: 26
+    - id: free-film-2
+      titles:
+        original: 劇場版 Free!-Timeless Medley- 約束
+        translations:
+          ja: 劇場版 Free!-Timeless Medley- 約束
+          ja-Latn: 'Free! Movie 2: Timeless Medley - Yakusoku'
+      releaseYear: 2017
+      externalIds:
+        anilistId: 98496
+      absoluteNumber: 13
+    - id: free-film-3
+      titles:
+        original: 劇場版 Free!-the Final Stroke-
+        translations:
+          ja: 劇場版 Free!-the Final Stroke-
+          ja-Latn: 'Free! Movie 4: The Final Stroke - Zenpen'
+      releaseYear: 2021
+      externalIds:
+        anilistId: 107203
+      absoluteNumber: 27
+    - id: free-film-4
+      titles:
+        original: 劇場版 Free!-the Final Stroke-
+        translations:
+          ja: 劇場版 Free!-the Final Stroke-
+          ja-Latn: 'Free! Movie 5: The Final Stroke - Kouhen'
+      releaseYear: 2022
+      externalIds:
+        anilistId: 133124
+      absoluteNumber: 28

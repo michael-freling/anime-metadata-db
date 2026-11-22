@@ -4,8 +4,11 @@ series:
   titles:
     original: ひきこまり吸血姫の悶々
     translations:
+      en: The Vexations of a Shut-In Vampire Princess
       ja-Latn: Hikikomari Kyuuketsuki no Monmon
   ordering: absolute
+  externalIds:
+    wikidataId: Q97341843
   seasons:
     - id: hikikomari-kyuuketsuki-no-monmon-s1
       number: 1

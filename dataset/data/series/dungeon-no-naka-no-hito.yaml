@@ -4,8 +4,11 @@ series:
   titles:
     original: ダンジョンの中のひと
     translations:
+      en: Dungeon People
       ja-Latn: Dungeon no Naka no Hito
   ordering: absolute
+  externalIds:
+    wikidataId: Q121535868
   seasons:
     - id: dungeon-no-naka-no-hito-s1
       number: 1

@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: fate-grand-order-shuukyoku-tokuiten-kani-jikan-shinden-solomon
+  titles:
+    original: Fate/Grand Order -終局特異点 冠位時間神殿ソロモン-
+    translations: { ja-Latn: "Fate/Grand Order: Shuukyoku Tokuiten - Kani Jikan Shinden Solomon" }
+  movies:
+    - id: fate-grand-order-shuukyoku-tokuiten-kani-jikan-shinden-solomon-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [fate-grand-order-shuukyoku-tokuiten-kani-jikan-shinden-solomon]

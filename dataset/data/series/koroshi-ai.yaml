@@ -4,8 +4,11 @@ series:
   titles:
     original: 殺し愛
     translations:
+      en: Love of Kill
       ja-Latn: Koroshi Ai
   ordering: absolute
+  externalIds:
+    wikidataId: Q104418510
   seasons:
     - id: koroshi-ai-s1
       number: 1

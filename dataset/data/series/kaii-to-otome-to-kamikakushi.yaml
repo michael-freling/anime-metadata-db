@@ -4,8 +4,11 @@ series:
   titles:
     original: 怪異と乙女と神隠し
     translations:
+      en: Mysterious Disappearances
       ja-Latn: Kaii to Otome to Kamikakushi
   ordering: absolute
+  externalIds:
+    wikidataId: Q110516999
   seasons:
     - id: kaii-to-otome-to-kamikakushi-s1
       number: 1

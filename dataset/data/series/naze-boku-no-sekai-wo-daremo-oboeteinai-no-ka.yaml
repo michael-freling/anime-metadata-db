@@ -4,8 +4,11 @@ series:
   titles:
     original: なぜ僕の世界を誰も覚えていないのか?
     translations:
+      en: Why Does Nobody Remember Me in This World?
       ja-Latn: Naze Boku no Sekai wo Daremo Oboeteinai no ka?
   ordering: absolute
+  externalIds:
+    wikidataId: Q60990373
   seasons:
     - id: naze-boku-no-sekai-wo-daremo-oboeteinai-no-ka-s1
       number: 1

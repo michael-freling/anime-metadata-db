@@ -17,3 +17,24 @@ series:
       episodes:
         count: 47
         absoluteFrom: 1
+    - id: duel-masters-king-s2
+      number: 2
+      releaseYear: 2021
+      releaseSeason: SPRING
+      externalIds:
+        anilistId: 130584
+        anidbId: 16009
+        tvdbId: 325374
+      episodes:
+        count: 43
+        absoluteFrom: 48
+    - id: duel-masters-king-s3
+      number: 3
+      releaseYear: 2022
+      releaseSeason: SPRING
+      externalIds:
+        anilistId: 146865
+        anidbId: 17195
+      episodes:
+        count: 17
+        absoluteFrom: 91

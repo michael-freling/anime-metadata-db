@@ -4,8 +4,11 @@ series:
   titles:
     original: 勇者が死んだ!
     translations:
+      en: The Legendary Hero Is Dead!
       ja-Latn: Yuusha ga Shinda!
   ordering: absolute
+  externalIds:
+    wikidataId: Q30931184
   seasons:
     - id: yuusha-ga-shinda-s1
       number: 1

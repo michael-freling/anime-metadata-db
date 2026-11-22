@@ -4,8 +4,11 @@ series:
   titles:
     original: 僕らの雨いろプロトコル
     translations:
+      en: 'Protocol: Rain'
       ja-Latn: Bokura no Ame-iro Protocol
   ordering: absolute
+  externalIds:
+    wikidataId: Q120462069
   seasons:
     - id: bokura-no-ame-iro-protocol-s1
       number: 1

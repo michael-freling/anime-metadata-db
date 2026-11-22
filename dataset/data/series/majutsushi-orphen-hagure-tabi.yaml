@@ -29,3 +29,25 @@ series:
       episodes:
         count: 11
         absoluteFrom: 14
+    - id: majutsushi-orphen-hagure-tabi-s3
+      number: 3
+      releaseYear: 2023
+      releaseSeason: WINTER
+      externalIds:
+        anilistId: 155068
+        anidbId: 17644
+        tvdbId: 372939
+      episodes:
+        count: 12
+        absoluteFrom: 25
+    - id: majutsushi-orphen-hagure-tabi-s4
+      number: 4
+      releaseYear: 2023
+      releaseSeason: SPRING
+      externalIds:
+        anilistId: 163417
+        anidbId: 17912
+        tvdbId: 372939
+      episodes:
+        count: 12
+        absoluteFrom: 37

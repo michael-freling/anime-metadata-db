@@ -1,0 +1,19 @@
+# Authored override — 2020 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kaguya-sama-wa-kokurasetai-tensai-tachi-no-renai-zunousen
+  titles:
+    original: "かぐや様は告らせたい? ~天才たちの恋愛頭脳戦~"
+    translations: { ja-Latn: "Kaguya-sama wa Kokurasetai? Tensai-tachi no Renai Zunousen" }
+  seasons:
+    - id: kaguya-sama-wa-kokurasetai-tensai-tachi-no-renai-zunousen-s1
+      number: 1
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 112641 }
+    - id: kaguya-sama-wa-kokurasetai-tensai-tachi-no-renai-zunousen-s2
+      number: 2
+      externalIds: { anilistId: 125367 } # Kaguya-sama wa Kokurasetai: Ultra Romantic (2022)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kaguya-sama-wa-kokurasetai-tensai-tachi-no-renai-zunousen]

@@ -1,0 +1,12 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: swallowed-star-showdown-on-primeval-star
+  titles:
+    original: "Swallowed Star: Showdown on Primeval Star"
+    translations: { ja-Latn: "Swallowed Star: Showdown on Primeval Star" }
+  movies:
+    - id: swallowed-star-showdown-on-primeval-star-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [swallowed-star-showdown-on-primeval-star]

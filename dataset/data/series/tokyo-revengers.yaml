@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Tokyo Revengers
   ordering: absolute
+  externalIds:
+    wikidataId: Q63981675
   seasons:
     - id: tokyo-revengers-s1
       number: 1

@@ -1,0 +1,12 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: crayon-shin-chan-uchuu-kara-no-raihousha-kasukabe-dai-panic
+  titles:
+    original: クレヨンしんちゃん 宇宙からの来訪者 カスカベ大パニック
+    translations: { ja-Latn: "Crayon Shin-chan: Uchuu kara no Raihousha Kasukabe Dai Panic" }
+  movies:
+    - id: crayon-shin-chan-uchuu-kara-no-raihousha-kasukabe-dai-panic-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [crayon-shin-chan-uchuu-kara-no-raihousha-kasukabe-dai-panic]

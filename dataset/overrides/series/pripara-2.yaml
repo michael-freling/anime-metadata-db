@@ -15,5 +15,8 @@ series:
     - id: pripara-2-s2
       number: 2
       externalIds: { anilistId: 98107 } # Idol Time PriPara (2017)
+  movies:
+    - id: pripara-2-film
+      externalIds: { anilistId: 107755 } # PriPara & Kiratto Pri☆chan Movie: Kirakira Memorial Live (2018)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [pripara-2]

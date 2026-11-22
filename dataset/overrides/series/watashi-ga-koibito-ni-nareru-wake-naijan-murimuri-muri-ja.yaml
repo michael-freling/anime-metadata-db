@@ -19,5 +19,8 @@ series:
     - id: watashi-ga-koibito-ni-nareru-wake-naijan-murimuri-muri-ja-s2
       number: 2
       externalIds: { anilistId: 199112 } # ... : Next Shine! (Winter 2026)
+  movies:
+    - id: watashi-ga-koibito-ni-nareru-wake-naijan-murimuri-muri-ja-film
+      externalIds: { anidbId: 19601 } # Watashi ga Koibito ni Nareru Wake Nai jan, Muri Muri! (*Muri ja… (2025)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [watashi-ga-koibito-ni-nareru-wake-naijan-murimuri-muri-ja]

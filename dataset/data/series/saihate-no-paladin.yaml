@@ -4,8 +4,11 @@ series:
   titles:
     original: 最果てのパラディン
     translations:
+      en: The Faraway Paladin
       ja-Latn: Saihate no Paladin
   ordering: absolute
+  externalIds:
+    wikidataId: Q30936400
   seasons:
     - id: saihate-no-paladin-s1
       number: 1

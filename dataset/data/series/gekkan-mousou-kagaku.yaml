@@ -4,8 +4,11 @@ series:
   titles:
     original: 月刊モー想科学
     translations:
+      en: Delusional Monthly Magazine
       ja-Latn: Gekkan Mousou Kagaku
   ordering: absolute
+  externalIds:
+    wikidataId: Q122705545
   seasons:
     - id: gekkan-mousou-kagaku-s1
       number: 1

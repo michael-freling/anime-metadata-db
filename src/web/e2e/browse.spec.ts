@@ -442,7 +442,14 @@ test("detail pages describe the entry instead of printing its id", async ({
   page,
 }) => {
   await page.goto("/browse/demon-slayer");
-  await expect(page.getByText(/Series · 5 seasons · 2 films/)).toBeVisible();
+  // The shape, not the counts. This read `5 seasons · 2 films`, which is a
+  // figure the catalogue owns rather than the page: attaching four recuts to
+  // Demon Slayer made it six films and failed this test as though the summary
+  // line had broken. What the test is actually about is the line being a
+  // description at all, and the id not appearing.
+  await expect(
+    page.getByText(/Series · \d+ seasons? · \d+ films?/),
+  ).toBeVisible();
   await expect(page.getByText("demon-slayer", { exact: true })).toHaveCount(0);
 
   await page.goto("/characters/tanjiro-kamado");

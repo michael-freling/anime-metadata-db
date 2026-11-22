@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: bishoujo-senshi-sailor-moon-cosmos-movie
+  titles:
+    original: 劇場版 美少女戦士セーラームーンCosmos
+    translations: { ja-Latn: Bishoujo Senshi Sailor Moon Cosmos Movie }
+  movies:
+    - id: bishoujo-senshi-sailor-moon-cosmos-movie-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [bishoujo-senshi-sailor-moon-cosmos-movie]

@@ -4,8 +4,11 @@ series:
   titles:
     original: デキる猫は今日も憂鬱
     translations:
+      en: The Masterful Cat Is Depressed Again Today
       ja-Latn: Dekiru Neko wa Kyou mo Yuuutsu
   ordering: absolute
+  externalIds:
+    wikidataId: Q111948550
   seasons:
     - id: dekiru-neko-wa-kyou-mo-yuuutsu-s1
       number: 1

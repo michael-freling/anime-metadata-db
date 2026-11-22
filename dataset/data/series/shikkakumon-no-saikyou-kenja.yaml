@@ -4,8 +4,11 @@ series:
   titles:
     original: 失格紋の最強賢者
     translations:
+      en: The Strongest Sage With the Weakest Crest
       ja-Latn: Shikkakumon no Saikyou Kenja
   ordering: absolute
+  externalIds:
+    wikidataId: Q60996342
   seasons:
     - id: shikkakumon-no-saikyou-kenja-s1
       number: 1

@@ -13,5 +13,7 @@ series:
       externalIds: { anilistId: 101595 }
     - id: princess-principal-crown-handler-film-2
       externalIds: { anilistId: 129759 } # Princess Principal: Crown Handler 2 (2021)
+    - id: princess-principal-crown-handler-film-3
+      externalIds: { anilistId: 137612 } # Princess Principal: Crown Handler 3 (2023)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [princess-principal-crown-handler]

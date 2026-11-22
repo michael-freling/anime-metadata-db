@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Mechamato Movie
   ordering: absolute
+  externalIds:
+    wikidataId: Q115470582
   movies:
     - id: mechamato-movie-film
       titles:

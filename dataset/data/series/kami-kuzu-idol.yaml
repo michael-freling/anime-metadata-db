@@ -4,8 +4,11 @@ series:
   titles:
     original: 神クズ☆アイドル
     translations:
+      en: Phantom of the Idol
       ja-Latn: Kami Kuzu☆Idol
   ordering: absolute
+  externalIds:
+    wikidataId: Q109747744
   seasons:
     - id: kami-kuzu-idol-s1
       number: 1

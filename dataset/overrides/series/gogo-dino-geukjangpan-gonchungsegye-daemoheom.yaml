@@ -1,0 +1,12 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: gogo-dino-geukjangpan-gonchungsegye-daemoheom
+  titles:
+    original: "GoGo Dino Geukjangpan: Gonchungsegye Daemoheom"
+    translations: { ja-Latn: "GoGo Dino Geukjangpan: Gonchungsegye Daemoheom" }
+  movies:
+    - id: gogo-dino-geukjangpan-gonchungsegye-daemoheom-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [gogo-dino-geukjangpan-gonchungsegye-daemoheom]

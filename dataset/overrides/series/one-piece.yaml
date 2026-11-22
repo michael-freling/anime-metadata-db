@@ -1,0 +1,34 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: one-piece
+  titles:
+    original: One Piece
+    translations: { ja-Latn: One Piece }
+  seasons:
+    - id: one-piece-s1
+      number: 1
+  movies:
+    - id: one-piece-film
+      externalIds: { anilistId: 459 } # One Piece Movie 01 (2000)
+    - id: one-piece-film-2
+      externalIds: { anilistId: 460 } # One Piece Movie 02: Nejimaki-jima no Daibouken (2001)
+    - id: one-piece-film-3
+      externalIds: { anilistId: 461 } # One Piece Movie 03: Chinjuu-jima no Chopper Oukoku (2002)
+    - id: one-piece-film-4
+      externalIds: { anilistId: 462 } # One Piece Movie 04: Dead End no Bouken (2003)
+    - id: one-piece-film-5
+      externalIds: { anilistId: 463 } # One Piece Movie 05: Norowareta Seiken (2004)
+    - id: one-piece-film-6
+      externalIds: { anilistId: 464 } # One Piece Movie 06: Omatsuri Danshaku to Himitsu no Shima (2005)
+    - id: one-piece-film-7
+      externalIds: { anilistId: 465 } # One Piece Movie 07: Karakuri-jou no Mecha Kyohei (2006)
+    - id: one-piece-film-8
+      externalIds: { anilistId: 2107 } # One Piece Movie 08: Episode of Alabasta - Sabaku no Oujo to Kai… (2007)
+    - id: one-piece-film-9
+      externalIds: { anilistId: 3848 } # One Piece Movie 09: Episode of Chopper Plus - Fuyu ni Saku, Kis… (2008)
+    - id: one-piece-film-10
+      externalIds: { anilistId: 4155 } # One Piece Film: Strong World (2009)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [one-piece]

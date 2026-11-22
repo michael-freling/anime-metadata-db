@@ -4,8 +4,11 @@ series:
   titles:
     original: 黒の召喚士
     translations:
+      en: Black Summoner
       ja-Latn: Kuro no Shoukanshi
   ordering: absolute
+  externalIds:
+    wikidataId: Q110941604
   seasons:
     - id: kuro-no-shoukanshi-s1
       number: 1

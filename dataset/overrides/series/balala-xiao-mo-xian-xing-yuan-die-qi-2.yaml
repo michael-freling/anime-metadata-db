@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: balala-xiao-mo-xian-xing-yuan-die-qi-2
+  titles:
+    original: "Balala Xiao Mo Xian: Xing Yuan Die Qi 2"
+    translations: { ja-Latn: "Balala Xiao Mo Xian: Xing Yuan Die Qi 2" }
+  seasons:
+    - id: balala-xiao-mo-xian-xing-yuan-die-qi-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [balala-xiao-mo-xian-xing-yuan-die-qi-2]

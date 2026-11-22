@@ -30,3 +30,12 @@ series:
       episodes:
         count: 51
         absoluteFrom: 34
+    - id: zettai-zetsumei-dangerous-jiisan-2005-s3
+      number: 3
+      releaseYear: 2005
+      releaseSeason: SPRING
+      externalIds:
+        anidbId: 15091
+      episodes:
+        count: 19
+        absoluteFrom: 85

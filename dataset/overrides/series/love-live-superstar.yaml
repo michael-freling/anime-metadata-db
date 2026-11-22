@@ -1,0 +1,17 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: love-live-superstar
+  titles:
+    original: ラブライブ! (新シリーズプロジェクト)
+    translations: { ja-Latn: Love Live! Superstar!! }
+  seasons:
+    - id: love-live-superstar-s1
+      number: 1
+    - id: love-live-superstar-s2
+      number: 2
+    - id: love-live-superstar-s3
+      number: 3
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [love-live-superstar]

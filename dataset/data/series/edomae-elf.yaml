@@ -4,8 +4,11 @@ series:
   titles:
     original: 江戸前エルフ
     translations:
+      en: Otaku Elf
       ja-Latn: Edomae Elf
   ordering: absolute
+  externalIds:
+    wikidataId: Q112582120
   seasons:
     - id: edomae-elf-s1
       number: 1

@@ -64,6 +64,9 @@ type Merge struct {
 	// that they belong together: "Tokyo" (2017) and "Tokyo" (1999) are
 	// different shorts, and the build's own link check rejects the pairing.
 	Linked bool
+	// AnidbID is the handle left when upstream carries the work on no AniList
+	// page, which is true of 767 of these.
+	AnidbID int
 }
 
 // Unresolvable is a series this declines to write because the build could not
@@ -81,9 +84,24 @@ type Plan struct {
 	Merges       []Merge
 	Unresolvable []Unresolvable
 	Present      []string // titles already in the catalogue, skipped
+	// DespiteLink is the works written as their own series although upstream
+	// links them to a series the catalogue already has. Each is a judgement
+	// `accountedFor` made on titles alone, and a wrong one is the duplicate
+	// nothing downstream detects — so they are listed for a person to read in
+	// the diff, rather than only counted. The six that had to be deleted by
+	// hand from the 2020-2026 re-import were all in this set.
+	DespiteLink []DespiteLink
 	// Skipped counts entries excluded by the catalogue's scope rule, so a run
 	// reports the size of what it declined rather than silently dropping it.
 	Skipped int
+}
+
+// DespiteLink is a work written as its own series although it is linked to one
+// the catalogue already has, with the series it was linked to.
+type DespiteLink struct {
+	Title string
+	ID    string
+	Into  []int
 }
 
 // Build plans the import of one year.
@@ -100,6 +118,55 @@ type Plan struct {
 // Gin no Saji beside its second season, each pair declaring the same
 // installments under two ids.
 func Build(db *offlinedb.Database, year int, known map[int]bool, claimedTitles map[string]bool) Plan {
+	return BuildWith(db, year, known, claimedTitles, nil)
+}
+
+// Known is what the catalogue already accounts for, by each handle it can be
+// accounted for by.
+//
+// Two maps rather than one because the providers number their catalogues
+// independently. AniDB is not an afterthought here: a work upstream carries on
+// no AniList page is accounted for by its AniDB id alone, and reading only the
+// AniList ids made such a work look absent. It was then written as a second
+// series for a work another series already held — "chaoji-fei-xia-wenhua-
+// zhonghua" beside "super-wings-china-culture", the same work under its pinyin
+// and its English name — which `anilist-claimed-elsewhere` caught, but only
+// after the file was written, and deleting it did not help because the next
+// import wrote it again.
+type Known struct {
+	Anilist map[int]bool
+	Anidb   map[int]bool
+}
+
+// has reports whether the catalogue accounts for this work by any handle.
+func (k Known) has(a offlinedb.Anime) bool {
+	return k.Anilist[a.AnilistID()] && a.AnilistID() != 0 ||
+		k.Anidb[a.AnidbID()] && a.AnidbID() != 0
+}
+
+// BuildWith is Build with the names of the series the catalogue already has,
+// looked up by an AniList id one of their installments accounts for.
+//
+// Given them, a work upstream links to a known series is only reported as a
+// merge where that series' own title accounts for it. Where none of the linked
+// series' titles does, the work is not an installment of any of them — by the
+// catalogue's own rule, grouping is by the title the build resolves against —
+// so it is a series of its own, and refusing to write it loses it.
+//
+// That is what happened: "Healin' Good♡Precure" is a Precure season in its own
+// right and links to other Precure, "Digimon Adventure:" links to Digimon
+// Savers, "D4DJ First Mix" to a D4DJ short. Each was held for a merge nobody
+// could make, because no series here is called any of those things.
+//
+// nil restores the older behaviour, where any link at all means a merge.
+func BuildWith(db *offlinedb.Database, year int, known map[int]bool, claimedTitles map[string]bool,
+	seriesNames func(anilistID int) []string) Plan {
+	return BuildKnown(db, year, Known{Anilist: known}, claimedTitles, seriesNames)
+}
+
+// BuildKnown is BuildWith taking every handle the catalogue is known by.
+func BuildKnown(db *offlinedb.Database, year int, known Known, claimedTitles map[string]bool,
+	seriesNames func(anilistID int) []string) Plan {
 	plan := Plan{Year: year}
 
 	var pool []offlinedb.Anime
@@ -134,13 +201,25 @@ func Build(db *offlinedb.Database, year int, known map[int]bool, claimedTitles m
 		if claimed[a.Key()] {
 			continue
 		}
+		// The series upstream links this work to that the catalogue already
+		// has, where it is written as its own series anyway. Recorded so the
+		// judgement is readable in the run's output rather than only in the
+		// diff: a wrong one here is the duplicate nothing downstream detects.
+		var despite []int
 		switch {
-		case known[a.AnilistID()]:
+		case known.has(a):
 			plan.Present = append(plan.Present, a.Title)
 			continue
-		case len(linkedKnown(db, a, known)) > 0:
-			plan.Merges = append(plan.Merges, describe(a, linkedKnown(db, a, known), true))
-			continue
+		case len(linkedKnown(db, a, known.Anilist)) > 0:
+			into := linkedKnown(db, a, known.Anilist)
+			if accountedFor(a, into, seriesNames) {
+				plan.Merges = append(plan.Merges, describe(a, into, true))
+				continue
+			}
+			// No linked series' name is a prefix of this work's, so it is not
+			// an installment of them. Falls through to be written as its own
+			// series, which is what it is — and is listed as such.
+			despite = into
 		}
 		// A seed with no AniList id can still belong to a series the catalogue
 		// already carries: `known` is keyed on ids, and a work resolved from
@@ -160,7 +239,14 @@ func Build(db *offlinedb.Database, year int, known map[int]bool, claimedTitles m
 			plan.Present = append(plan.Present, a.Title)
 			continue
 		}
-		if ids := poolKnown(db, a, original, known); len(ids) > 0 {
+		if ids, held := poolKnown(db, a, original, known.Anilist, known.Anidb); held {
+			// Reported either way, never silently absorbed. Where an AniList id
+			// is known the report can name the series; where the pool matched
+			// only on an AniDB id it cannot, and the entry carries none — but
+			// `Titled` answers with homonyms too, so a distinct work that
+			// merely shares a title with one the catalogue holds would
+			// otherwise be counted present and disappear. "Tokyo" is two
+			// unrelated series eighteen years apart.
 			plan.Merges = append(plan.Merges, describe(a, ids, false))
 			continue
 		}
@@ -183,6 +269,9 @@ func Build(db *offlinedb.Database, year int, known map[int]bool, claimedTitles m
 		// within one year behave the same as across years.
 		claimedTitles[FoldTitle(original)] = true
 		plan.New = append(plan.New, s)
+		if len(despite) > 0 {
+			plan.DespiteLink = append(plan.DespiteLink, DespiteLink{Title: a.Title, ID: s.ID, Into: despite})
+		}
 	}
 	sort.Slice(plan.New, func(i, j int) bool { return plan.New[i].ID < plan.New[j].ID })
 	return plan
@@ -220,14 +309,30 @@ func linkedKnown(db *offlinedb.Database, a offlinedb.Anime, known map[int]bool) 
 	return out
 }
 
-// poolKnown returns the known AniList ids carried by the entries sharing this
-// series' title — that is, the installments of it the catalogue already has.
-func poolKnown(db *offlinedb.Database, seed offlinedb.Anime, original string, known map[int]bool) []int {
+// poolKnown reports the AniList ids, among the records this seed's title
+// resolves against, that the catalogue already accounts for.
+//
+// The pool, not the seed, because upstream lists some works twice and the two
+// records need not agree about which ids they carry. "Super Wings: China
+// Culture" carries anidbId 19664 and "Chaoji Fei Xia Wenhua Zhonghua", listed
+// separately for the same 2023 series, carries nothing at all. Seeding on the
+// id-less twin, the catalogue's own record for the work is invisible: it was
+// written as a second series for the work the first one already held, and
+// deleting it did not help because the next import wrote it again.
+//
+// alsoKnown says the same for AniDB. It returns no ids of its own — the result
+// is a list of AniList ids, which is what the merge report names a series by —
+// but a work the catalogue holds under an AniDB id alone still has to stop the
+// seed becoming a series.
+func poolKnown(db *offlinedb.Database, seed offlinedb.Anime, original string, known, alsoKnown map[int]bool) (ids []int, held bool) {
 	seenID := map[int]bool{}
 	for _, name := range []string{original, seed.Title} {
 		for _, a := range db.Titled(name) {
 			if id := a.AnilistID(); id != 0 && known[id] {
 				seenID[id] = true
+			}
+			if id := a.AnidbID(); id != 0 && alsoKnown[id] {
+				held = true
 			}
 		}
 	}
@@ -236,7 +341,7 @@ func poolKnown(db *offlinedb.Database, seed offlinedb.Anime, original string, kn
 		out = append(out, id)
 	}
 	sort.Ints(out)
-	return out
+	return out, held || len(out) > 0
 }
 
 // series builds the override for the series named by original.
@@ -671,5 +776,86 @@ func describe(a offlinedb.Anime, into []int, linked bool) Merge {
 		Season:    a.AnimeSeason.Season,
 		Episodes:  a.Episodes,
 		Linked:    linked,
+		AnidbID:   a.AnidbID(),
 	}
+}
+
+// accountedFor reports whether any of the linked series' own names is a prefix
+// of this work's — the same question a merge asks, asked before one is
+// proposed. False means the work is written as a series of its own.
+//
+// Every uncertain case answers true, because the two answers do not cost the
+// same: a work wrongly reported costs a line somebody reads, and a work wrongly
+// written costs a duplicate series, which is the one import mistake nothing
+// downstream can detect. So it is true when the caller supplies no names at
+// all, when a linked series has none recorded yet, and when every name it has
+// is shorter than minAccountingName and so says nothing either way.
+func accountedFor(a offlinedb.Anime, into []int, seriesNames func(int) []string) bool {
+	if seriesNames == nil {
+		return true
+	}
+	names := append([]string{a.Title}, a.Synonyms...)
+	for _, id := range into {
+		known := seriesNames(id)
+		// Nothing known about this series' names, which happens when it was
+		// authored earlier in the same run and not built yet: `known` is
+		// unioned with the authored ids, so the link is seen, but the titles
+		// are read from the built records and are not there.
+		if len(known) == 0 {
+			return true
+		}
+		judged := false
+		for _, t := range known {
+			stem := accountFold(t)
+			if len([]rune(stem)) < minAccountingName {
+				continue
+			}
+			judged = true
+			for _, n := range names {
+				if strings.HasPrefix(accountFold(n), stem) {
+					return true
+				}
+			}
+		}
+		// Every name this series has was too short to be evidence either way.
+		// That is "cannot tell", not "no", and the two have to come out
+		// differently — the whole reason this function exists is that one of
+		// its answers is recoverable and the other is not.
+		if !judged {
+			return true
+		}
+	}
+	return false
+}
+
+// minAccountingName is the shortest series name allowed to be evidence about a
+// work, in runes of its accounting form. Below it a name matches too much to
+// mean anything — and a series whose every name is that short is not evidence
+// against the work either, so accountedFor reports it rather than deciding.
+const minAccountingName = 3
+
+// accountFold is the form two names are compared in when deciding whether one
+// is the other carried further.
+//
+// Deliberately not FoldTitle. That one drops spaces and punctuation, which is
+// right for "is this the same work listed twice" — ギャラクシーエンジェル4th and
+// ギャラクシーエンジェル 4th are one series — but comparing names for
+// containment wants the separators kept. Width and case still fold, so ！ and !
+// agree.
+//
+// A prefix is all that is asked of it, and a boundary after the prefix was
+// tried and dropped. The idea was that a name should only account for a work
+// where what follows it reads as separate — a space, a punctuation mark, a
+// digit or a change of script — so that "Hero" would not account for "Heroman".
+// Two things were wrong with it. The scripts that write these titles without
+// spaces have no boundary to find: 鬼滅の刃 followed by 遊郭編 is Han after Han,
+// so a real continuation looked like one word and the work was written as a
+// second series. And the error it prevented is the cheap one. A name that
+// wrongly accounts for a work costs a line in a report somebody reads; a name
+// that wrongly does not costs a duplicate series, which is the one import
+// mistake nothing downstream can detect. The link requirement already does the
+// work the boundary was meant to: these are works upstream links to the series,
+// not every work that happens to share a prefix.
+func accountFold(s string) string {
+	return strings.Join(strings.Fields(strings.ToLower(norm.NFKC.String(s))), " ")
 }

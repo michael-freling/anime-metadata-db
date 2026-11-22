@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Undead Girl Murder Farce
   ordering: absolute
+  externalIds:
+    wikidataId: Q30922766
   seasons:
     - id: undead-girl-murder-farce-s1
       number: 1

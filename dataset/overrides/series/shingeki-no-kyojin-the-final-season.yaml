@@ -1,0 +1,15 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: shingeki-no-kyojin-the-final-season
+  titles:
+    original: 進撃の巨人 attack on titan The Final Season
+    translations: { ja-Latn: "Shingeki no Kyojin: The Final Season" }
+  seasons:
+    - id: shingeki-no-kyojin-the-final-season-s1
+      number: 1
+    - id: shingeki-no-kyojin-the-final-season-s2
+      number: 2
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [shingeki-no-kyojin-the-final-season]

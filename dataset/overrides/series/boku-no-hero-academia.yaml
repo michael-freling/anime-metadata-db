@@ -26,5 +26,13 @@ series:
   movies:
     - id: boku-no-hero-academia-film
       externalIds: { anilistId: 100723 } # Boku no Hero Academia the Movie 1: Futari no Hero (2018)
+    - id: boku-no-hero-academia-film-2
+      externalIds: { anilistId: 108553 } # Boku no Hero Academia the Movie 2: Heroes:Rising (2019)
+    - id: boku-no-hero-academia-film-3
+      externalIds: { anilistId: 126659 } # Boku no Hero Academia the Movie 3: World Heroes' Mission (2021)
+    - id: boku-no-hero-academia-film-4
+      externalIds: { anilistId: 168013 } # Boku no Hero Academia the Movie 4: You're Next (2024)
+    - id: boku-no-hero-academia-film-5
+      externalIds: { anilistId: 169402 } # Boku no Hero Academia: UA Heroes Battle (2023)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [boku-no-hero-academia]

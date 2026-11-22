@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sword-art-online-progressive-movie-hoshi-naki-yoru-no-aria
+  titles:
+    original: 劇場版 ソードアート・オンライン -プログレッシブ- 星なき夜のアリア
+    translations: { ja-Latn: "Sword Art Online: Progressive Movie - Hoshi Naki Yoru no Aria" }
+  movies:
+    - id: sword-art-online-progressive-movie-hoshi-naki-yoru-no-aria-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sword-art-online-progressive-movie-hoshi-naki-yoru-no-aria]

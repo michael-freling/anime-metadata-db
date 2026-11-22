@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Dinosaur Biyori
   ordering: absolute
+  externalIds:
+    wikidataId: Q107438105
   seasons:
     - id: dinosaur-biyori-s1
       number: 1

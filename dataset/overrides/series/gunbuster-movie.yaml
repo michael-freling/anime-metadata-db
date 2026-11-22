@@ -8,5 +8,10 @@ series:
     translations: { ja-Latn: Gunbuster Movie }
   movies:
     - id: gunbuster-movie-film
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 1911 }
+    - id: gunbuster-movie-film-2
+      externalIds: { anidbId: 4526 } # Gunbuster Movie (2006)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [gunbuster-movie]

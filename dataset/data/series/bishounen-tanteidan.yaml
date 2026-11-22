@@ -4,8 +4,11 @@ series:
   titles:
     original: 美少年シリーズ
     translations:
+      en: Pretty Boy Detective Club
       ja-Latn: Bishounen Tanteidan
   ordering: absolute
+  externalIds:
+    wikidataId: Q28685904
   seasons:
     - id: bishounen-tanteidan-s1
       number: 1

@@ -4,8 +4,11 @@ series:
   titles:
     original: リアデイルの大地にて
     translations:
+      en: In the Land of Leadale
       ja-Latn: Leadale no Daichi nite
   ordering: absolute
+  externalIds:
+    wikidataId: Q105627715
   seasons:
     - id: leadale-no-daichi-nite-s1
       number: 1

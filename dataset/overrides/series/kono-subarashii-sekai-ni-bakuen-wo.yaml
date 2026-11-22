@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: kono-subarashii-sekai-ni-bakuen-wo
+  titles:
+    original: この素晴らしい世界に祝福を！ スピンオフ この素晴らしい世界に爆焔を！
+    translations: { ja-Latn: Kono Subarashii Sekai ni Bakuen wo! }
+  seasons:
+    - id: kono-subarashii-sekai-ni-bakuen-wo-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [kono-subarashii-sekai-ni-bakuen-wo]

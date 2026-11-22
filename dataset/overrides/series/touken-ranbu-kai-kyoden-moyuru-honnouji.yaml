@@ -1,0 +1,13 @@
+# Authored override — 2024 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: touken-ranbu-kai-kyoden-moyuru-honnouji
+  titles:
+    original: 刀剣乱舞 廻 -虚伝 燃ゆる本能寺-
+    translations: { ja-Latn: "Touken Ranbu Kai: Kyoden Moyuru Honnouji" }
+  seasons:
+    - id: touken-ranbu-kai-kyoden-moyuru-honnouji-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [touken-ranbu-kai-kyoden-moyuru-honnouji]

@@ -4,8 +4,11 @@ series:
   titles:
     original: ブッチギレ!
     translations:
+      en: Shine On! Bakumatsu Boys
       ja-Latn: Bucchigire!
   ordering: absolute
+  externalIds:
+    wikidataId: Q111937097
   seasons:
     - id: bucchigire-s1
       number: 1

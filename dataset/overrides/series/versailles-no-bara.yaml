@@ -13,5 +13,10 @@ series:
       titles:
         original: ベルサイユのばら
         translations: { ja: "ベルサイユのばら", ja-Latn: Versailles no Bara }
+      # Pinned when a later installment was attached: the build matches a
+      # kind by candidate count, and an added slot changes it.
+      externalIds: { anilistId: 154392 }
+    - id: versailles-no-bara-film-2
+      externalIds: { anilistId: 3868 } # Versailles no Bara: Seimei Aru Kagiri Aishite (1990)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [versailles-no-bara]

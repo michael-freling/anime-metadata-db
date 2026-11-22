@@ -4,8 +4,11 @@ series:
   titles:
     original: 幼なじみが絶対に負けないラブコメ
     translations:
+      en: Osamake
       ja-Latn: Osananajimi ga Zettai ni Makenai Love Comedy
   ordering: absolute
+  externalIds:
+    wikidataId: Q89741227
   seasons:
     - id: osananajimi-ga-zettai-ni-makenai-love-comedy-s1
       number: 1

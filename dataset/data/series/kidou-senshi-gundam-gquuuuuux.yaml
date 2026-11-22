@@ -17,4 +17,15 @@ series:
         tvdbId: 457473
       episodes:
         count: 12
-        absoluteFrom: 1
+        absoluteFrom: 2
+  movies:
+    - id: kidou-senshi-gundam-gquuuuuux-film
+      titles:
+        original: 机动战士高达 GQuuuuuuX -Beginning-
+        translations:
+          ja: 机动战士高达 GQuuuuuuX -Beginning-
+          ja-Latn: 'Kidou Senshi Gundam: GQuuuuuuX - Beginning'
+      releaseYear: 2025
+      externalIds:
+        anidbId: 19044
+      absoluteNumber: 1

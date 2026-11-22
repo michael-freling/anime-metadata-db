@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Uchuu Nanchara Kotetsu-kun
   ordering: absolute
+  externalIds:
+    wikidataId: Q102248652
   seasons:
     - id: uchuu-nanchara-kotetsu-kun-s1
       number: 1

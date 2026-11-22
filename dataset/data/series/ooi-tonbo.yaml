@@ -4,8 +4,11 @@ series:
   titles:
     original: オーイ! とんぼ
     translations:
+      en: Tonbo!
       ja-Latn: Ooi! Tonbo
   ordering: absolute
+  externalIds:
+    wikidataId: Q97170965
   seasons:
     - id: ooi-tonbo-s1
       number: 1

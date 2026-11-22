@@ -606,3 +606,73 @@ func TestBuildErrors(t *testing.T) {
 		}
 	})
 }
+
+// Upstream carries about half its catalogue on no AniList page, and a work
+// there that the series' own title does not reach can be named no other way:
+// 767 works linked to a series the catalogue has carry no AniList id, 188 of
+// them an AniDB one. Authoring that is the only handle left.
+func TestAnInstallmentIsResolvedByAnAuthoredAnidbID(t *testing.T) {
+	const doc = `{"data":[
+	 {"sources":["https://anidb.net/anime/7777","https://anime-planet.com/anime/x"],
+	  "title":"Only On AniDB","type":"MOVIE","episodes":1,
+	  "animeSeason":{"season":"SPRING","year":2010}}
+	]}`
+	db, err := offlinedb.Parse(strings.NewReader(doc))
+	if err != nil {
+		t.Fatal(err)
+	}
+	b := New(Sources{Offline: db})
+
+	got, err := b.lookup("movie x-film", &model.ExternalIDs{AnidbID: 7777}, resolution{})
+	if err != nil {
+		t.Fatalf("lookup: %v", err)
+	}
+	if got.Title != "Only On AniDB" {
+		t.Errorf("resolved %q, want the entry the AniDB id names", got.Title)
+	}
+
+	// And an id naming nothing is an error rather than a silent fall-through
+	// to "the title resolved nothing", which would send the reader to the
+	// wrong fix.
+	_, err = b.lookup("movie x-film", &model.ExternalIDs{AnidbID: 404}, resolution{})
+	if err == nil || !strings.Contains(err.Error(), "unknown AniDB id 404") {
+		t.Errorf("err = %v, want it to name the unknown AniDB id", err)
+	}
+}
+
+// An authored id decides, whichever provider it names. This read `resolved`
+// first, so a slot pinned with an AniDB id — pinned precisely so it survives a
+// count change — went on resolving by title, and where the two disagreed the
+// pin was ignored without a word.
+func TestAnAuthoredAnidbIDBeatsTheTitleResolution(t *testing.T) {
+	const doc = `{"data":[
+	 {"sources":["https://anidb.net/anime/7777"],"title":"The Pinned One","type":"MOVIE","episodes":1,
+	  "animeSeason":{"season":"SPRING","year":2010}},
+	 {"sources":["https://anilist.co/anime/42"],"title":"The Resolved One","type":"MOVIE","episodes":1,
+	  "animeSeason":{"season":"SPRING","year":2011}}
+	]}`
+	db, err := offlinedb.Parse(strings.NewReader(doc))
+	if err != nil {
+		t.Fatal(err)
+	}
+	b := New(Sources{Offline: db})
+
+	ids := &model.ExternalIDs{AnidbID: 7777}
+	other, _ := db.Lookup(42)
+	got, err := b.lookup("movie x-film", ids, resolution{ids: other})
+	if err != nil {
+		t.Fatalf("lookup: %v", err)
+	}
+	if got.Title != "The Pinned One" {
+		t.Errorf("resolved %q, want the work the authored AniDB id names", got.Title)
+	}
+
+	// And an id naming nothing says so, rather than falling through to the
+	// resolution and looking like it worked.
+	_, err = b.lookup("movie x-film", &model.ExternalIDs{AnidbID: 404}, resolution{
+		&model.ExternalIDs{AnidbID: 404}: other,
+	})
+	if err == nil || !strings.Contains(err.Error(), "unknown AniDB id 404") {
+		t.Errorf("err = %v, want the unknown id reported", err)
+	}
+}

@@ -1,0 +1,12 @@
+# Authored override — 2025 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: ppororo-geukjangpan-the-sweet-castle-daemoheom
+  titles:
+    original: "Ppororo Geukjangpan: The Sweet Castle Daemoheom"
+    translations: { ja-Latn: "Ppororo Geukjangpan: The Sweet Castle Daemoheom" }
+  movies:
+    - id: ppororo-geukjangpan-the-sweet-castle-daemoheom-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [ppororo-geukjangpan-the-sweet-castle-daemoheom]

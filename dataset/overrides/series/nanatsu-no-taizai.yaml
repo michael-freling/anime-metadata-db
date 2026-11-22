@@ -20,6 +20,12 @@ series:
     - id: nanatsu-no-taizai-s3
       number: 3
       externalIds: { anilistId: 116752 } # Nanatsu no Taizai: Funnu no Shinpan (2021)
+    - id: nanatsu-no-taizai-s4
+      number: 4
+      externalIds: { anilistId: 148862 } # Nanatsu no Taizai: Mokushiroku no Yonkishi (2023)
+    - id: nanatsu-no-taizai-s5
+      number: 5
+      externalIds: { anilistId: 176292 } # Nanatsu no Taizai: Mokushiroku no Yonkishi 2nd Season (2024)
   movies:
     - id: nanatsu-no-taizai-film
       externalIds: { anilistId: 128740 } # Nanatsu no Taizai Movie 2: Hikari ni Norowareshi Mono-tachi (2021)

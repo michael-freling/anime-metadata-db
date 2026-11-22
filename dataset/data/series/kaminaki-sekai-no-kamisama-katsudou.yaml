@@ -4,8 +4,11 @@ series:
   titles:
     original: 神無き世界のカミサマ活動
     translations:
+      en: KamiKatsu
       ja-Latn: Kaminaki Sekai no Kamisama Katsudou
   ordering: absolute
+  externalIds:
+    wikidataId: Q111726913
   seasons:
     - id: kaminaki-sekai-no-kamisama-katsudou-s1
       number: 1

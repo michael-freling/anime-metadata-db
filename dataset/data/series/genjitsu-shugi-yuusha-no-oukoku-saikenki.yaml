@@ -4,8 +4,11 @@ series:
   titles:
     original: 現実主義勇者の王国再建記
     translations:
+      en: How a Realist Hero Rebuilt the Kingdom
       ja-Latn: Genjitsu Shugi Yuusha no Oukoku Saikenki
   ordering: absolute
+  externalIds:
+    wikidataId: Q41497704
   seasons:
     - id: genjitsu-shugi-yuusha-no-oukoku-saikenki-s1
       number: 1

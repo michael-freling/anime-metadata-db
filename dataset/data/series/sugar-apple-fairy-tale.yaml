@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Sugar Apple Fairy Tale
   ordering: absolute
+  externalIds:
+    wikidataId: Q11307958
   seasons:
     - id: sugar-apple-fairy-tale-s1
       number: 1

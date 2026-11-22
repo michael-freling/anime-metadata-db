@@ -4,8 +4,11 @@ series:
   titles:
     original: 薔薇王の葬列
     translations:
+      en: Requiem of the Rose King
       ja-Latn: Baraou no Souretsu
   ordering: absolute
+  externalIds:
+    wikidataId: Q18658417
   seasons:
     - id: baraou-no-souretsu-s1
       number: 1

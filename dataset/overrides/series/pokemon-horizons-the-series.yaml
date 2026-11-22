@@ -16,6 +16,36 @@ series:
   movies:
     - id: pokemon-horizons-the-series-film
       externalIds: { anilistId: 528 } # Pokemon Movie 01: Mewtwo no Gyakushuu (1998)
+    - id: pokemon-horizons-the-series-film-2
+      externalIds: { anilistId: 1117 } # Pokemon Movie 02: Maboroshi no Pokemon Lugia Bakutan (1999)
+    - id: pokemon-horizons-the-series-film-3
+      externalIds: { anilistId: 1118 } # Pokemon Movie 03: Kesshoutou no Teiou Entei (2000)
+    - id: pokemon-horizons-the-series-film-4
+      externalIds: { anilistId: 1119 } # Pokemon Movie 04: Celebi Toki wo Koeta Deai (2001)
+    - id: pokemon-horizons-the-series-film-5
+      externalIds: { anilistId: 1121 } # Pokemon Movie 06: Nanayo no Negaiboshi Jirachi (2003)
+    - id: pokemon-horizons-the-series-film-6
+      externalIds: { anilistId: 1122 } # Pokemon Movie 07: Rekkuu no Houmonsha Deoxys (2004)
+    - id: pokemon-horizons-the-series-film-7
+      externalIds: { anilistId: 1526 } # Pokemon Movie 08: Mew to Hadou no Yuusha Lucario (2005)
+    - id: pokemon-horizons-the-series-film-8
+      externalIds: { anilistId: 2201 } # Pokemon Movie 09: Pokemon Ranger to Umi no Ouji Manaphy (2006)
+    - id: pokemon-horizons-the-series-film-9
+      externalIds: { anilistId: 2847 } # Pokemon Movie 10: Dialga vs. Palkia vs. Darkrai (2007)
+    - id: pokemon-horizons-the-series-film-10
+      externalIds: { anilistId: 4026 } # Pokemon Movie 11: Giratina to Sora no Hanataba Sheimi (2008)
+    - id: pokemon-horizons-the-series-film-11
+      externalIds: { anilistId: 6178 } # Pokemon Movie 12: Arceus Choukoku no Jikuu e (2009)
+    - id: pokemon-horizons-the-series-film-12
+      externalIds: { anilistId: 7695 } # Pokemon Movie 13: Genei no Hasha Zoroark (2010)
+    - id: pokemon-horizons-the-series-film-13
+      externalIds: { anilistId: 9917 } # Pokemon Movie 14 White: Victini to Kuroki Eiyuu Zekrom (2011)
+    - id: pokemon-horizons-the-series-film-14
+      externalIds: { anilistId: 10740 } # Pokemon Movie 14 Black: Victini to Shiroki Eiyuu Reshiram (2011)
+    - id: pokemon-horizons-the-series-film-15
+      externalIds: { anilistId: 12671 } # Pokemon Movie 15: Kyurem vs. Seikenshi (2012)
+    - id: pokemon-horizons-the-series-film-16
+      externalIds: { anilistId: 20644 } # Pokemon Movie 17: Hakai no Mayu to Diancie (2014)
 # No continuous absoluteNumber. The installments above are separate
 # adaptations of one work (1997, 2019, 2023), not one run, so numbering them
 # end to end would assert a continuity that does not exist.

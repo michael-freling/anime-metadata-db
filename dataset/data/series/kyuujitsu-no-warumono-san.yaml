@@ -4,8 +4,11 @@ series:
   titles:
     original: 休日のわるものさん
     translations:
+      en: Mr. Villain's Day Off
       ja-Latn: Kyuujitsu no Warumono-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q116908965
   seasons:
     - id: kyuujitsu-no-warumono-san-s1
       number: 1

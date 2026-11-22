@@ -4,8 +4,11 @@ series:
   titles:
     original: 聖女の魔力は万能です
     translations:
+      en: The Saint's Magic Power Is Omnipotent
       ja-Latn: Seijo no Maryoku wa Bannou desu
   ordering: absolute
+  externalIds:
+    wikidataId: Q30923026
   seasons:
     - id: seijo-no-maryoku-wa-bannou-desu-s1
       number: 1

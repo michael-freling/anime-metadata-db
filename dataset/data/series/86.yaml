@@ -4,8 +4,11 @@ series:
   titles:
     original: 86-エイティシックス-
     translations:
+      en: 86--EIGHTY-SIX
       ja-Latn: "86"
   ordering: absolute
+  externalIds:
+    wikidataId: Q30942824
   seasons:
     - id: 86-s1
       number: 1

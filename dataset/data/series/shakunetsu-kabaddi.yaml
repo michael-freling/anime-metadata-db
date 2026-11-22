@@ -4,8 +4,11 @@ series:
   titles:
     original: 灼熱カバディ
     translations:
+      en: Burning Kabaddi
       ja-Latn: Shakunetsu Kabaddi
   ordering: absolute
+  externalIds:
+    wikidataId: Q55524596
   seasons:
     - id: shakunetsu-kabaddi-s1
       number: 1

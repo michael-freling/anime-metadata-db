@@ -12,5 +12,7 @@ series:
   movies:
     - id: grisaia-phantom-trigger-film
       externalIds: { anilistId: 99470 } # Grisaia: Phantom Trigger The Animation (2019)
+    - id: grisaia-phantom-trigger-film-2
+      externalIds: { anilistId: 120892 } # Grisaia: Phantom Trigger The Animation - Stargazer (2020)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [grisaia-phantom-trigger]

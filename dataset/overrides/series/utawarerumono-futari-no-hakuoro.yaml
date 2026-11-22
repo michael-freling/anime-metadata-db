@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: utawarerumono-futari-no-hakuoro
+  titles:
+    original: うたわれるもの 二人の白皇
+    translations: { ja-Latn: "Utawarerumono: Futari no Hakuoro" }
+  seasons:
+    - id: utawarerumono-futari-no-hakuoro-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [utawarerumono-futari-no-hakuoro]

@@ -18,7 +18,7 @@ series:
         anilistId: 1969
         anidbId: 4095
         tvdbId: 71535
-      absoluteNumber: 2
+      absoluteNumber: 3
     - id: mobile-suit-zeta-gundam-a-new-translation-film-2
       titles:
         original: 机动战士Z高达 星之继承者
@@ -31,3 +31,15 @@ series:
         anidbId: 2187
         tvdbId: 71535
       absoluteNumber: 1
+    - id: mobile-suit-zeta-gundam-a-new-translation-film-3
+      titles:
+        original: 机动战士Z高达 恋人们
+        translations:
+          ja: 机动战士Z高达 恋人们
+          ja-Latn: 'Kidou Senshi Z Gundam II: Koibito-tachi'
+      releaseYear: 2005
+      externalIds:
+        anilistId: 1968
+        anidbId: 3969
+        tvdbId: 71535
+      absoluteNumber: 2

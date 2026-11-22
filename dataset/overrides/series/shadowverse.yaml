@@ -15,5 +15,11 @@ series:
     - id: shadowverse-s2
       number: 2
       externalIds: { anilistId: 140085 } # Shadowverse Flame (2022)
+    - id: shadowverse-s3
+      number: 3
+      externalIds: { anilistId: 163136 } # Shadowverse Flame: Seven Shadows-hen (2023)
+    - id: shadowverse-s4
+      number: 4
+      externalIds: { anilistId: 172187 } # Shadowverse Flame: Arc-hen (2024)
 # One linear storyline: episodes carry a continuous absoluteNumber.
 numbered: [shadowverse]

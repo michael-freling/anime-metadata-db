@@ -1,0 +1,13 @@
+# Authored override — 2022 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: sylvanian-families-freya-no-happy-diary
+  titles:
+    original: シルバニアファミリー フレアのハッピーダイアリー
+    translations: { ja-Latn: "Sylvanian Families: Freya no Happy Diary" }
+  seasons:
+    - id: sylvanian-families-freya-no-happy-diary-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [sylvanian-families-freya-no-happy-diary]

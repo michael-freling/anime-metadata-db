@@ -4,8 +4,11 @@ series:
   titles:
     original: 佐々木と宮野
     translations:
+      en: Sasaki and Miyano
       ja-Latn: Sasaki to Miyano
   ordering: absolute
+  externalIds:
+    wikidataId: Q102166294
   seasons:
     - id: sasaki-to-miyano-s1
       number: 1

@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: girls-panzer-saishuushou-part-3
+  titles:
+    original: 『ガールズ＆パンツァー 最終章』第3話
+    translations: { ja-Latn: "Girls & Panzer: Saishuushou Part 3" }
+  movies:
+    - id: girls-panzer-saishuushou-part-3-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [girls-panzer-saishuushou-part-3]

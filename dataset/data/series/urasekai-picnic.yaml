@@ -4,8 +4,11 @@ series:
   titles:
     original: 裏世界ピクニック
     translations:
+      en: Otherside Picnic
       ja-Latn: Urasekai Picnic
   ordering: absolute
+  externalIds:
+    wikidataId: Q56115718
   seasons:
     - id: urasekai-picnic-s1
       number: 1

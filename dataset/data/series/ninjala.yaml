@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Ninjala
   ordering: absolute
+  externalIds:
+    wikidataId: Q55080327
   seasons:
     - id: ninjala-s1
       number: 1

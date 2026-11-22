@@ -2,10 +2,10 @@
 series:
   id: bocchi-the-rock
   titles:
-    original: '劇場総集編ぼっち・ざ・ろっく！ Re:Re:'
+    original: ぼっち・ざ・ろっく！
     translations:
       ja-Latn: Bocchi the Rock!
-  ordering: absolute
+  ordering: release
   seasons:
     - id: bocchi-the-rock-s1
       number: 1
@@ -17,13 +17,23 @@ series:
         tvdbId: 413522
       episodes:
         count: 12
-        absoluteFrom: 1
   movies:
     - id: bocchi-the-rock-film
       titles:
-        original: '劇場総集編ぼっち・ざ・ろっく！ Re:'
+        original: ぼっち・ざ・ろっく! 劇場総集編
         translations:
-          ja: '劇場総集編ぼっち・ざ・ろっく！ Re:'
-          ja-Latn: Bocchi the Rock!
+          ja: ぼっち・ざ・ろっく! 劇場総集編
+          ja-Latn: Bocchi the Rock! Movie
       releaseYear: 2024
-      absoluteNumber: 13
+      externalIds:
+        anilistId: 165253
+        anidbId: 18039
+    - id: bocchi-the-rock-film-2
+      titles:
+        original: ぼっち・ざ・ろっく！ Re:Re
+        translations:
+          ja: ぼっち・ざ・ろっく！ Re:Re
+          ja-Latn: 'Bocchi the Rock! Re:Re:'
+      releaseYear: 2024
+      externalIds:
+        anilistId: 171099

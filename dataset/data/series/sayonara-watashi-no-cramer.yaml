@@ -4,8 +4,11 @@ series:
   titles:
     original: さよなら私のクラマー
     translations:
+      en: Farewell, My Dear Cramer
       ja-Latn: Sayonara Watashi no Cramer
   ordering: absolute
+  externalIds:
+    wikidataId: Q28683483
   seasons:
     - id: sayonara-watashi-no-cramer-s1
       number: 1

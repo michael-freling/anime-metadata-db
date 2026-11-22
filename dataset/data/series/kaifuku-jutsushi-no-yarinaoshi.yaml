@@ -4,8 +4,11 @@ series:
   titles:
     original: 回復術士のやり直し
     translations:
+      en: Redo of Healer
       ja-Latn: Kaifuku Jutsushi no Yarinaoshi
   ordering: absolute
+  externalIds:
+    wikidataId: Q55530639
   seasons:
     - id: kaifuku-jutsushi-no-yarinaoshi-s1
       number: 1

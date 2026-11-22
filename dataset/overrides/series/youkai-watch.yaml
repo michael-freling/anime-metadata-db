@@ -1,0 +1,22 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: youkai-watch
+  titles:
+    original: 妖怪ウォッチ♪
+    translations: { ja-Latn: Youkai Watch ♪ }
+  seasons:
+    - id: youkai-watch-s1
+      number: 1
+  movies:
+    - id: youkai-watch-film
+      externalIds: { anilistId: 20936 } # Youkai Watch Movie 1: Tanjou no Himitsu da Nyan! (2014)
+    - id: youkai-watch-film-2
+      externalIds: { anilistId: 113273 } # Youkai Watch Movie 6: Youkai Gakuen Y - Neko wa Hero ni Nareru … (2019)
+    - id: youkai-watch-film-3
+      externalIds: { anilistId: 157638 } # Youkai Watch ♪ Movie 8: Jibanyan vs. Komasan - Monge Daikesse… (2023)
+    - id: youkai-watch-film-4
+      externalIds: { anilistId: 20937 } # Youkai Watch Movie 2: Enma Daiou to Itsutsu no Monogatari da Ny… (2015)
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [youkai-watch]

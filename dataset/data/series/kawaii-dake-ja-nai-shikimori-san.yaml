@@ -4,8 +4,11 @@ series:
   titles:
     original: 可愛いだけじゃない式守さん
     translations:
+      en: Shikimori's Not Just a Cutie
       ja-Latn: Kawaii dake ja Nai Shikimori-san
   ordering: absolute
+  externalIds:
+    wikidataId: Q101442924
   seasons:
     - id: kawaii-dake-ja-nai-shikimori-san-s1
       number: 1

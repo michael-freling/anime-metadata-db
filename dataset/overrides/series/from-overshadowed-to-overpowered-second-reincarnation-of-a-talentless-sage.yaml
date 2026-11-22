@@ -1,0 +1,13 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: from-overshadowed-to-overpowered-second-reincarnation-of-a-talentless-sage
+  titles:
+    original: 落第賢者の学院無双 ~二度目の転生
+    translations: { ja-Latn: "From Overshadowed to Overpowered: Second Reincarnation of a Talentless Sage" }
+  seasons:
+    - id: from-overshadowed-to-overpowered-second-reincarnation-of-a-talentless-sage-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [from-overshadowed-to-overpowered-second-reincarnation-of-a-talentless-sage]

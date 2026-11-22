@@ -4,8 +4,11 @@ series:
   titles:
     original: 夢見る男子は現実主義者
     translations:
+      en: The Dreaming Boy Is a Realist
       ja-Latn: Yumemiru Danshi wa Genjitsushugisha
   ordering: absolute
+  externalIds:
+    wikidataId: Q113159258
   seasons:
     - id: yumemiru-danshi-wa-genjitsushugisha-s1
       number: 1

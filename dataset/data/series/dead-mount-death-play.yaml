@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Dead Mount Death Play
   ordering: absolute
+  externalIds:
+    wikidataId: Q102254026
   seasons:
     - id: dead-mount-death-play-s1
       number: 1

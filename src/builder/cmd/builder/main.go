@@ -108,7 +108,8 @@ func newRootCmd(fetcher builder.Fetcher) *cobra.Command {
 	imp.Flags().IntVar(&importYear, "year", 0, "airing year to import")
 	imp.Flags().BoolVar(&importDryRun, "dry-run", false, "report what would be written, write nothing")
 
-	var mergeDryRun bool
+	var mergeDryRun, mergeList bool
+	var mergeSince int
 	mrg := &cobra.Command{
 		Use:   "merge",
 		Short: "Attach the works import reported as belonging to a series already here",
@@ -122,10 +123,16 @@ func newRootCmd(fetcher builder.Fetcher) *cobra.Command {
 			"the run. Everything else is reported with the reason.",
 		Args: cobra.NoArgs,
 		RunE: func(cmd *cobra.Command, _ []string) error {
-			return newApp(cmd).Merge(mergeDryRun)
+			return newApp(cmd).Merge(builder.MergeOptions{
+				DryRun: mergeDryRun,
+				Since:  mergeSince,
+				List:   mergeList,
+			})
 		},
 	}
 	mrg.Flags().BoolVar(&mergeDryRun, "dry-run", false, "report what would be attached, write nothing")
+	mrg.Flags().IntVar(&mergeSince, "since", 0, "ignore works released before this year")
+	mrg.Flags().BoolVar(&mergeList, "list", false, "print every candidate left for a person, with its reason")
 
 	var diffBase string
 	diff := &cobra.Command{

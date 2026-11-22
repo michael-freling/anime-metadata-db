@@ -4,8 +4,11 @@ series:
   titles:
     original: 機動戦士ガンダム 水星の魔女
     translations:
+      en: 'Mobile Suit Gundam: The Witch from Mercury'
       ja-Latn: 'Kidou Senshi Gundam: Suisei no Majo'
   ordering: absolute
+  externalIds:
+    wikidataId: Q109252646
   seasons:
     - id: kidou-senshi-gundam-suisei-no-majo-s1
       number: 1

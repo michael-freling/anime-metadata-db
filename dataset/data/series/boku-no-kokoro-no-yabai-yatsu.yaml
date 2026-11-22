@@ -4,8 +4,11 @@ series:
   titles:
     original: 僕の心のヤバイやつ
     translations:
+      en: The Dangers in My Heart
       ja-Latn: Boku no Kokoro no Yabai Yatsu
   ordering: absolute
+  externalIds:
+    wikidataId: Q85876636
   seasons:
     - id: boku-no-kokoro-no-yabai-yatsu-s1
       number: 1

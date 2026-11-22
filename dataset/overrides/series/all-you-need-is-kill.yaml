@@ -1,0 +1,12 @@
+# Authored override — 2026 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: all-you-need-is-kill
+  titles:
+    original: オール ユー ニード イズ キル
+    translations: { ja-Latn: All You Need Is Kill }
+  movies:
+    - id: all-you-need-is-kill-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [all-you-need-is-kill]

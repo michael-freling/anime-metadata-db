@@ -1,0 +1,12 @@
+# Authored override — 2021 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: meitantei-conan-movie-24-hiiro-no-dangan
+  titles:
+    original: 劇場版 名探偵コナン 緋色の弾丸
+    translations: { ja-Latn: "Meitantei Conan Movie 24: Hiiro no Dangan" }
+  movies:
+    - id: meitantei-conan-movie-24-hiiro-no-dangan-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [meitantei-conan-movie-24-hiiro-no-dangan]

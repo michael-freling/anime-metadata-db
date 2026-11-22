@@ -213,3 +213,38 @@ func TestTitledReturnsEveryMatchInUpstreamOrder(t *testing.T) {
 		t.Errorf("an unknown name finds nothing, got %+v", none)
 	}
 }
+
+// LookupAnidb resolves through the source index rather than an index of its
+// own, so the key it builds has to match how bySource is actually keyed.
+func TestLookupAnidbResolvesThroughTheSourceIndex(t *testing.T) {
+	const doc = `{"data":[
+	 {"sources":["https://anidb.net/anime/7777","https://anime-planet.com/anime/x"],
+	  "title":"Only On AniDB","type":"MOVIE","episodes":1,
+	  "animeSeason":{"season":"SPRING","year":2010}},
+	 {"sources":["https://anilist.co/anime/7777"],"title":"A Different Work","type":"TV","episodes":12,
+	  "animeSeason":{"season":"SPRING","year":2011}}
+	]}`
+	db, err := Parse(strings.NewReader(doc))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	got, ok := db.LookupAnidb(7777)
+	if !ok {
+		t.Fatal("LookupAnidb(7777) found nothing; the key it builds does not match bySource")
+	}
+	if got.Title != "Only On AniDB" {
+		t.Errorf("resolved %q, want the AniDB entry", got.Title)
+	}
+	// The providers number their catalogues independently, so AniDB 7777 and
+	// AniList 7777 are different works and must not be confused.
+	if al, ok := db.Lookup(7777); !ok || al.Title != "A Different Work" {
+		t.Errorf("Lookup(7777) = %q, want the AniList entry", al.Title)
+	}
+	if _, ok := db.LookupAnidb(404); ok {
+		t.Error("LookupAnidb(404) found something")
+	}
+	if _, ok := db.LookupAnidb(0); ok {
+		t.Error("LookupAnidb(0) found something; zero is absent, not a key")
+	}
+}

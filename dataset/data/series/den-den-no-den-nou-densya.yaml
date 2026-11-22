@@ -4,8 +4,11 @@ series:
   titles:
     original: でんでんの電脳電車
     translations:
+      en: Denden no Dennō Densha
       ja-Latn: Den Den no Den Nou Densya
   ordering: absolute
+  externalIds:
+    wikidataId: Q124049971
   seasons:
     - id: den-den-no-den-nou-densya-s1
       number: 1

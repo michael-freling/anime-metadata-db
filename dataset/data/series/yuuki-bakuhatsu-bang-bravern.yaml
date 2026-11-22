@@ -4,8 +4,11 @@ series:
   titles:
     original: 勇気爆発バーンブレイバーン
     translations:
+      en: Brave Bang Bravern!
       ja-Latn: Yuuki Bakuhatsu Bang Bravern
   ordering: absolute
+  externalIds:
+    wikidataId: Q118868959
   seasons:
     - id: yuuki-bakuhatsu-bang-bravern-s1
       number: 1

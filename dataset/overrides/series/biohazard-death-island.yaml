@@ -1,0 +1,12 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: biohazard-death-island
+  titles:
+    original: "バイオハザード: デスアイランド"
+    translations: { ja-Latn: "Biohazard: Death Island" }
+  movies:
+    - id: biohazard-death-island-film
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [biohazard-death-island]

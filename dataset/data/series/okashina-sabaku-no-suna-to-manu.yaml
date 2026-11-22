@@ -6,6 +6,8 @@ series:
     translations:
       ja-Latn: Okashina Sabaku no Suna to Manu
   ordering: absolute
+  externalIds:
+    wikidataId: Q104630012
   seasons:
     - id: okashina-sabaku-no-suna-to-manu-s1
       number: 1

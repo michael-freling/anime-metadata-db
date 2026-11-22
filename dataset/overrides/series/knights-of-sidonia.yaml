@@ -1,15 +1,19 @@
-# Authored override — 2015 catalogue import. Holds only the structure the
-# open sources cannot express; `builder build` fills the facts into data/.
-# Never hand-edit data/.
+# Authored override. "sidonia-no-kishi-movie" was the film given a record of its own. The second
+# season was in neither.
 series:
   id: knights-of-sidonia
   titles:
     original: シドニアの騎士
-    translations: { ja-Latn: Knights of Sidonia }
+    translations: { ja-Latn: "Knights of Sidonia" }
   seasons:
     - id: knights-of-sidonia-s1
       number: 1
+      externalIds: { anilistId: 19775 } # Sidonia no Kishi (2014)
+    - id: knights-of-sidonia-s2
+      number: 2
+      externalIds: { anilistId: 20762 } # Sidonia no Kishi: Daikyuu Wakusei Seneki (2015)
   movies:
     - id: knights-of-sidonia-film
-# One linear storyline: episodes carry a continuous absoluteNumber.
-numbered: [knights-of-sidonia]
+      externalIds: { anilistId: 21154 } # Sidonia no Kishi Movie (2015)
+    - id: knights-of-sidonia-film-2
+      externalIds: { anilistId: 99730 } # Sidonia no Kishi: Ai Tsumugu Hoshi (2021)

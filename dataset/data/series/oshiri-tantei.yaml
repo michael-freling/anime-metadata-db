@@ -24,7 +24,7 @@ series:
         anilistId: 132694
       episodes:
         count: 16
-        absoluteFrom: 11
+        absoluteFrom: 12
     - id: oshiri-tantei-s3
       number: 3
       releaseYear: 2019
@@ -35,7 +35,7 @@ series:
         tvdbId: 358138
       episodes:
         count: 13
-        absoluteFrom: 27
+        absoluteFrom: 28
     - id: oshiri-tantei-s4
       number: 4
       releaseYear: 2020
@@ -46,7 +46,7 @@ series:
         tvdbId: 358138
       episodes:
         count: 13
-        absoluteFrom: 41
+        absoluteFrom: 42
     - id: oshiri-tantei-s5
       number: 5
       releaseYear: 2021
@@ -57,7 +57,7 @@ series:
         tvdbId: 358138
       episodes:
         count: 13
-        absoluteFrom: 54
+        absoluteFrom: 56
     - id: oshiri-tantei-s6
       number: 6
       releaseYear: 2022
@@ -67,7 +67,7 @@ series:
         anidbId: 16946
       episodes:
         count: 13
-        absoluteFrom: 67
+        absoluteFrom: 71
     - id: oshiri-tantei-s7
       number: 7
       releaseYear: 2023
@@ -77,7 +77,7 @@ series:
         anidbId: 17701
       episodes:
         count: 15
-        absoluteFrom: 80
+        absoluteFrom: 84
     - id: oshiri-tantei-s8
       number: 8
       releaseYear: 2023
@@ -86,7 +86,7 @@ series:
         anilistId: 179872
       episodes:
         count: 7
-        absoluteFrom: 95
+        absoluteFrom: 99
     - id: oshiri-tantei-s9
       number: 9
       releaseYear: 2024
@@ -95,7 +95,7 @@ series:
         anilistId: 185644
       episodes:
         count: 15
-        absoluteFrom: 102
+        absoluteFrom: 107
     - id: oshiri-tantei-s10
       number: 10
       releaseYear: 2025
@@ -104,7 +104,7 @@ series:
         anilistId: 185645
       episodes:
         count: 15
-        absoluteFrom: 118
+        absoluteFrom: 123
     - id: oshiri-tantei-s11p2
       number: 11
       part: 2
@@ -114,7 +114,7 @@ series:
         anilistId: 194832
       episodes:
         count: 7
-        absoluteFrom: 133
+        absoluteFrom: 138
   movies:
     - id: oshiri-tantei-film
       titles:
@@ -126,7 +126,7 @@ series:
       externalIds:
         anilistId: 185643
         anidbId: 19059
-      absoluteNumber: 117
+      absoluteNumber: 122
     - id: oshiri-tantei-film-2
       titles:
         original: 映画おしりたんてい
@@ -137,4 +137,58 @@ series:
       externalIds:
         anilistId: 116224
         anidbId: 15310
-      absoluteNumber: 40
+      absoluteNumber: 41
+    - id: oshiri-tantei-film-3
+      titles:
+        original: 映画 おしりたんてい カレーなる じけん
+        translations:
+          ja: 映画 おしりたんてい カレーなる じけん
+          ja-Latn: 'Oshiri Tantei Movie 1: Curry Naru Jiken'
+      releaseYear: 2019
+      externalIds:
+        anilistId: 116225
+        anidbId: 14712
+      absoluteNumber: 11
+    - id: oshiri-tantei-film-4
+      titles:
+        original: 映画おしりたんてい スフーレ島のひみつ
+        translations:
+          ja: 映画おしりたんてい スフーレ島のひみつ
+          ja-Latn: 'Oshiri Tantei Movie 3: Sufure-tou no Himitsu'
+      releaseYear: 2021
+      externalIds:
+        anilistId: 132698
+        anidbId: 16272
+      absoluteNumber: 55
+    - id: oshiri-tantei-film-5
+      titles:
+        original: 映画 おしりたんてい シリアーティ
+        translations:
+          ja: 映画 おしりたんてい シリアーティ
+          ja-Latn: 'Oshiri Tantei Movie 4: Shiriarty'
+      releaseYear: 2022
+      externalIds:
+        anilistId: 142806
+        anidbId: 16924
+      absoluteNumber: 69
+    - id: oshiri-tantei-film-6
+      titles:
+        original: 映画おしりたんてい さらば愛しき相棒(おしり)よ
+        translations:
+          ja: 映画おしりたんてい さらば愛しき相棒(おしり)よ
+          ja-Latn: 'Oshiri Tantei Movie 5: Saraba Itoshiki Aibou (Oshiri) yo'
+      releaseYear: 2024
+      externalIds:
+        anilistId: 172016
+        anidbId: 18520
+      absoluteNumber: 106
+    - id: oshiri-tantei-film-7
+      titles:
+        original: 映画おしりたんてい 夢のジャンボスイートポテトまつり
+        translations:
+          ja: 映画おしりたんてい 夢のジャンボスイートポテトまつり
+          ja-Latn: 'Oshiri Tantei: Yume no Jumbo Sweet Potato Matsuri'
+      releaseYear: 2022
+      externalIds:
+        anidbId: 17054
+      absoluteNumber: 70

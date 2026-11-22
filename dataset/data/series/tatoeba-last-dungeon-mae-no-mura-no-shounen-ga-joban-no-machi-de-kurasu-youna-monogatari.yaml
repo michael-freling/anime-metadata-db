@@ -4,8 +4,11 @@ series:
   titles:
     original: たとえばラストダンジョン前の村の少年が序盤の街で暮らすような物語
     translations:
+      en: Suppose a Kid From the Last Dungeon Boonies Moved to a Starter Town
       ja-Latn: Tatoeba Last Dungeon Mae no Mura no Shounen ga Joban no Machi de Kurasu Youna Monogatari
   ordering: absolute
+  externalIds:
+    wikidataId: Q48758953
   seasons:
     - id: tatoeba-last-dungeon-mae-no-mura-no-shounen-ga-joban-no-machi-de-kurasu-youna-monogatari-s1
       number: 1

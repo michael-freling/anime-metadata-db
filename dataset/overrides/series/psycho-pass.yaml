@@ -1,15 +1,18 @@
-# Authored override — 2014 catalogue import. Holds only the structure the
-# open sources cannot express; `builder build` fills the facts into data/.
-# Never hand-edit data/.
+# Authored override. "psycho-pass-movie-1" was the first film given a record of its own, which
+# left the second unable to attach to either.
 series:
   id: psycho-pass
   titles:
     original: サイコパス
-    translations: { ja-Latn: Psycho-Pass }
+    translations: { ja-Latn: "Psycho-Pass" }
   seasons:
     - id: psycho-pass-s1
       number: 1
+      externalIds: { anilistId: 13601 } # Psycho-Pass (2012)
   movies:
     - id: psycho-pass-film
-# One linear storyline: episodes carry a continuous absoluteNumber.
-numbered: [psycho-pass]
+      externalIds: { anilistId: 20514 } # Psycho-Pass Movie 1 (2015)
+    - id: psycho-pass-film-2
+      externalIds: { anilistId: 153687 } # Psycho-Pass Movie 2: Providence (2023)
+    - id: psycho-pass-film-3
+      externalIds: { anilistId: 104990 } # Psycho-Pass: Sinners of the System Case.3 - Onshuu no Kanata ni… (2019)

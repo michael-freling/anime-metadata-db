@@ -4,8 +4,11 @@ series:
   titles:
     original: 逃走中 グレートミッション
     translations:
+      en: 'Run for Money: The Great Mission'
       ja-Latn: 'Tousouchuu: Great Mission'
   ordering: absolute
+  externalIds:
+    wikidataId: Q124656790
   seasons:
     - id: tousouchuu-great-mission-s1
       number: 1

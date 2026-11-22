@@ -4,8 +4,11 @@ series:
   titles:
     original: 虫かぶり姫
     translations:
+      en: Bibliophile Princess
       ja-Latn: Mushikaburi-hime
   ordering: absolute
+  externalIds:
+    wikidataId: Q110732263
   seasons:
     - id: mushikaburi-hime-s1
       number: 1

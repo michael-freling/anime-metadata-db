@@ -29,3 +29,14 @@ series:
       episodes:
         count: 12
         absoluteFrom: 14
+    - id: maou-gakuin-no-futekigousha-shijou-saikyou-no-maou-no-shiso-tensei-shite-shison-tachi-no-gakkou-e-kayou-s3
+      number: 3
+      releaseYear: 2024
+      releaseSeason: SPRING
+      externalIds:
+        anilistId: 130590
+        anidbId: 16102
+        tvdbId: 375927
+      episodes:
+        count: 12
+        absoluteFrom: 26
