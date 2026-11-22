@@ -1,0 +1,13 @@
+# Authored override — 2023 catalogue import. Holds only the structure the
+# open sources cannot express; `builder build` fills the facts into data/.
+# Never hand-edit data/.
+series:
+  id: cardfight-vanguard-will-dress-season-2
+  titles:
+    original: 「カードファイト!! ヴァンガード will+Dress」Season2
+    translations: { ja-Latn: "Cardfight!! Vanguard: will+Dress Season 2" }
+  seasons:
+    - id: cardfight-vanguard-will-dress-season-2-s1
+      number: 1
+# One linear storyline: episodes carry a continuous absoluteNumber.
+numbered: [cardfight-vanguard-will-dress-season-2]

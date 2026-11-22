@@ -217,6 +217,25 @@ girls-band-cry, re-zero) and the rule was not written. A marker means "a recut
 of something" for one series and "this work's name" for the next, and nothing
 in the sources says which.
 
+A seed carrying no id is not a signal either. Of the nine series the 2020-2026
+re-import proposed, the three carrying an id on some provider were all genuine
+and the six carrying none were all wrong — a recap of One Punch Man's second
+season, the English-titled listing of the Sailor Moon Eternal films, a
+romanisation twin (`Sinbi Apartment: Ghost Ball Zero` beside the id-bearing
+`Sinbi Apateu: Ghost Ball ZERO`, which `FoldTitle` cannot pair because
+"Apartment" and "Apateu" are not the same string), two named parts of a trilogy
+upstream also lists as a merged three-episode record and as three un-merged
+ones, and a second season of a parent already here. A work carrying no id
+cannot be checked by `anilist-claimed-elsewhere` either, so writing it as a
+series is exactly the duplicate nothing downstream detects.
+
+Nine for nine, and still not a rule: **3,775 of 10,032 series carry no id
+anywhere in their record**, 37.6% of the catalogue. Upstream simply does not
+index much of what it lists — older titles, Chinese and Korean shows — so
+refusing an id-less seed would refuse a third of the catalogue to catch six
+duplicates. Those six were deleted by hand, and a later import will propose
+them again, because nothing in the sources separates them from the 3,775.
+
 And resist a threshold the data does not have. Twelve series numbered separate
 adaptations end to end — Doraemon across 1973, 1979 and 2005 — but no gap
 cutoff separates them from real continuations: Re:Zero pauses eight years and
