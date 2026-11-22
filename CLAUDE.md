@@ -200,6 +200,16 @@ works that were each other's only neighbour both failed a *gating* check against
 correct data. When a check walks someone else's graph, measure how much of it
 the walk can actually see.
 
+The edges are fixed; the **endpoints** are still AniList ids. The walk steps
+through an entry carrying no AniList id, but it is seeded from one and matches
+one, so an installment the build reached by its `anidbId` alone — 385 of the
+9,280 carrying any id — is not something `anilist-unlinked` can check. That is
+said rather than hidden: the provenance line's fractions are all out of the
+6,688 AniList ids, and the installments with none are reported beside them as
+their own figure, so the denominator never quietly absorbs a population the
+check did not measure. Those installments are still gated by
+`anilist-claimed-elsewhere`, which keys on both providers.
+
 The same goes for a word list. Four series ended up named after a recut of
 themselves, because `NativeTitle` takes the longest kana synonym and
 劇場総集編ぼっち・ざ・ろっく！ Re:Re: is longer than ぼっち・ざ・ろっく！. The
