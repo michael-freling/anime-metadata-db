@@ -219,14 +219,14 @@ func BuildKnown(db *offlinedb.Database, year int, known Known, claimedTitles map
 			continue
 		}
 		if ids, held := poolKnown(db, a, original, known.Anilist, known.Anidb); held {
-			// Named by AniList id where one is known, since that is what the
-			// report names a series by; where the work is held only under an
-			// AniDB id there is no series to name, and it is simply present.
-			if len(ids) > 0 {
-				plan.Merges = append(plan.Merges, describe(a, ids, false))
-			} else {
-				plan.Present = append(plan.Present, a.Title)
-			}
+			// Reported either way, never silently absorbed. Where an AniList id
+			// is known the report can name the series; where the pool matched
+			// only on an AniDB id it cannot, and the entry carries none — but
+			// `Titled` answers with homonyms too, so a distinct work that
+			// merely shares a title with one the catalogue holds would
+			// otherwise be counted present and disappear. "Tokyo" is two
+			// unrelated series eighteen years apart.
+			plan.Merges = append(plan.Merges, describe(a, ids, false))
 			continue
 		}
 
@@ -285,8 +285,6 @@ func linkedKnown(db *offlinedb.Database, a offlinedb.Anime, known map[int]bool) 
 	return out
 }
 
-// poolKnown returns the known AniList ids carried by the entries sharing this
-// series' title — that is, the installments of it the catalogue already has.
 // poolKnown reports the AniList ids, among the records this seed's title
 // resolves against, that the catalogue already accounts for.
 //
@@ -776,31 +774,37 @@ func accountedFor(a offlinedb.Anime, into []int, seriesNames func(int) []string)
 		// authored earlier in the same run and not built yet: `known` is
 		// unioned with the authored ids, so the link is seen, but the titles
 		// are read from the built records and are not there.
-		//
-		// Reported, not written. Getting this wrong in the other direction
-		// creates a second series for an installment of an existing one, which
-		// is the one import mistake nothing downstream can detect; getting it
-		// wrong this way costs a line in a report somebody reads.
 		if len(known) == 0 {
 			return true
 		}
+		judged := false
 		for _, t := range known {
 			stem := accountFold(t)
 			if len([]rune(stem)) < minAccountingName {
 				continue
 			}
+			judged = true
 			for _, n := range names {
-				if extendsName(accountFold(n), stem) {
+				if strings.HasPrefix(accountFold(n), stem) {
 					return true
 				}
 			}
+		}
+		// Every name this series has was too short to be evidence either way.
+		// That is "cannot tell", not "no", and the two have to come out
+		// differently — the whole reason this function exists is that one of
+		// its answers is recoverable and the other is not.
+		if !judged {
+			return true
 		}
 	}
 	return false
 }
 
-// minAccountingName is the shortest series name allowed to account for a work,
-// in runes of its accounting form. Short names match too much to be evidence.
+// minAccountingName is the shortest series name allowed to be evidence about a
+// work, in runes of its accounting form. Below it a name matches too much to
+// mean anything — and a series whose every name is that short is not evidence
+// against the work either, so accountedFor reports it rather than deciding.
 const minAccountingName = 3
 
 // accountFold is the form two names are compared in when deciding whether one
@@ -808,59 +812,23 @@ const minAccountingName = 3
 //
 // Deliberately not FoldTitle. That one drops spaces and punctuation, which is
 // right for "is this the same work listed twice" — ギャラクシーエンジェル4th and
-// ギャラクシーエンジェル 4th are one series — but it destroys the only thing
-// that separates "Healin' Good" + "Precure", a real continuation, from "Hero" +
-// "man", which is one word. Width and case still fold, so ！ and ! agree.
+// ギャラクシーエンジェル 4th are one series — but comparing names for
+// containment wants the separators kept. Width and case still fold, so ！ and !
+// agree.
+//
+// A prefix is all that is asked of it, and a boundary after the prefix was
+// tried and dropped. The idea was that a name should only account for a work
+// where what follows it reads as separate — a space, a punctuation mark, a
+// digit or a change of script — so that "Hero" would not account for "Heroman".
+// Two things were wrong with it. The scripts that write these titles without
+// spaces have no boundary to find: 鬼滅の刃 followed by 遊郭編 is Han after Han,
+// so a real continuation looked like one word and the work was written as a
+// second series. And the error it prevented is the cheap one. A name that
+// wrongly accounts for a work costs a line in a report somebody reads; a name
+// that wrongly does not costs a duplicate series, which is the one import
+// mistake nothing downstream can detect. The link requirement already does the
+// work the boundary was meant to: these are works upstream links to the series,
+// not every work that happens to share a prefix.
 func accountFold(s string) string {
 	return strings.Join(strings.Fields(strings.ToLower(norm.NFKC.String(s))), " ")
-}
-
-// extendsName reports whether work is series' name carried further: the same
-// name, or that name followed by something a reader would see as separate.
-//
-// A bare prefix test has none of that and accepted "Heroman" for "Hero" and
-// "Fate/..." for "Fat". What counts as separate is a space, a punctuation mark,
-// or a change of script — the three ways these titles actually mark a boundary.
-func extendsName(work, series string) bool {
-	if work == series {
-		return true
-	}
-	if !strings.HasPrefix(work, series) {
-		return false
-	}
-	// Non-empty: an empty remainder would mean the two were equal, which
-	// returned above.
-	rest := []rune(work[len(series):])
-	prev := []rune(series)
-	return boundary(prev[len(prev)-1], rest[0])
-}
-
-// boundary reports whether b begins something separate from a.
-func boundary(a, b rune) bool {
-	if unicode.IsSpace(b) || unicode.IsPunct(b) || unicode.IsSymbol(b) {
-		return true
-	}
-	if unicode.IsDigit(b) && !unicode.IsDigit(a) {
-		return true
-	}
-	return script(a) != script(b)
-}
-
-// script buckets a rune coarsely enough to tell "more of this word" from "the
-// start of another one".
-func script(r rune) string {
-	switch {
-	case unicode.IsDigit(r):
-		return "digit"
-	case unicode.Is(unicode.Hiragana, r):
-		return "hiragana"
-	case unicode.Is(unicode.Katakana, r):
-		return "katakana"
-	case unicode.Is(unicode.Han, r):
-		return "han"
-	case unicode.Is(unicode.Hangul, r):
-		return "hangul"
-	default:
-		return "latin"
-	}
 }

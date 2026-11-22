@@ -1429,3 +1429,102 @@ func TestTwoCandidatesThatCompareEqualStillSortDeterministically(t *testing.T) {
 		t.Error("the series name no longer orders ahead of the ids")
 	}
 }
+
+// The typo-versus-stale split asks upstream, so it has to ask by whichever
+// handle the entry used — and say so when it cannot ask at all.
+func TestWhetherADeclinedWorkExistsIsAskedByTheHandleTheEntryUsed(t *testing.T) {
+	db, err := offlinedb.Parse(strings.NewReader(`{"data":[
+	  {"sources":["https://anilist.co/anime/4242"],"title":"On AniList","type":"TV","episodes":12,
+	   "animeSeason":{"season":"SPRING","year":2020}},
+	  {"sources":["https://anidb.net/anime/7777"],"title":"On AniDB","type":"MOVIE","episodes":1,
+	   "animeSeason":{"season":"SPRING","year":2021}}
+	]}`))
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	for _, c := range []struct {
+		key  string
+		want bool
+		why  string
+	}{
+		{"al4242", true, "upstream lists it on AniList"},
+		{"ad7777", true, "and this one on AniDB"},
+		{"al7777", false, "the providers number independently; AniList has no 7777 here"},
+		{"ad4242", false, "nor AniDB a 4242"},
+		{"al999999", false, "nothing by that id"},
+		{"nonsense", false, "not a key this can parse, so not a work it can find"},
+	} {
+		if got := declinedWorkExists(c.key, db); got != c.want {
+			t.Errorf("declinedWorkExists(%q) = %v, want %v — %s", c.key, got, c.want, c.why)
+		}
+	}
+
+	// With no sources there is nothing to ask, and "I could not look" must not
+	// come out as "I looked and it is a typo" — that would fail the run over
+	// an entry that is probably fine.
+	if !declinedWorkExists("al999999", nil) {
+		t.Error("called an id a typo without any sources to check it against")
+	}
+}
+
+// A refusal naming what the record resolved has to name something, including
+// where the record resolved nothing at all.
+func TestDescribeIDsAlwaysNamesSomething(t *testing.T) {
+	if got := describeIDs(nil); got != "no id at all" {
+		t.Errorf("describeIDs(nil) = %q, want it to say there was none", got)
+	}
+	if got := describeIDs([]string{"anilistId: 1"}); got != "anilistId: 1" {
+		t.Errorf("describeIDs(one) = %q", got)
+	}
+	if got := describeIDs([]string{"anilistId: 1", "anidbId: 2"}); !strings.Contains(got, "anilistId: 1") ||
+		!strings.Contains(got, "anidbId: 2") {
+		t.Errorf("describeIDs(both) = %q, want both handles named", got)
+	}
+}
+
+// Names come from the authored layer before the generated one, and a layer
+// that is not there yet is skipped rather than being an error — a fresh
+// repository has no data/ at all.
+func TestSeriesNamesPrefersTheAuthoredLayerAndSkipsMissingOnes(t *testing.T) {
+	dir := t.TempDir()
+	authored := filepath.Join(dir, "overrides")
+	generated := filepath.Join(dir, "data")
+	for _, d := range []string{authored, generated} {
+		if err := os.MkdirAll(d, 0o755); err != nil {
+			t.Fatal(err)
+		}
+	}
+	write := func(d, name, body string) {
+		if err := os.WriteFile(filepath.Join(d, name), []byte(body), 0o644); err != nil {
+			t.Fatal(err)
+		}
+	}
+	// The same series, named differently in each layer.
+	write(generated, "show.yaml", "series:\n  id: show\n  titles:\n    original: Stale Name\n"+
+		"  seasons:\n    - id: show-s1\n      externalIds:\n        anilistId: 100\n")
+	write(authored, "show.yaml", "series:\n  id: show\n  titles:\n    original: Authored Name\n"+
+		"  seasons:\n    - id: show-s1\n      externalIds: { anilistId: 100 }\n")
+
+	names, err := seriesNames(authored, generated)
+	if err != nil {
+		t.Fatalf("seriesNames: %v", err)
+	}
+	got := names(100)
+	if !slices.Contains(got, "Authored Name") {
+		t.Errorf("names(100) = %v, want the authored layer to answer first", got)
+	}
+	if names(999) != nil {
+		t.Errorf("names(999) = %v, want nothing for an id no layer knows", names(999))
+	}
+
+	// A layer that does not exist is skipped, not an error: a repository that
+	// has never been built has no data/ directory.
+	names, err = seriesNames(authored, filepath.Join(dir, "never-built"))
+	if err != nil {
+		t.Fatalf("a missing layer was an error: %v", err)
+	}
+	if got := names(100); !slices.Contains(got, "Authored Name") {
+		t.Errorf("names(100) = %v with one layer missing", got)
+	}
+}

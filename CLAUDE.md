@@ -95,17 +95,34 @@ It refuses more than it writes, on purpose:
   Precure season in its own right and links to other Precure, and holding it
   for a merge nobody could make lost it. 1,699 works were in that position.
 
-  So a link means a merge where one of the linked series' own names is this
-  work's name carried further, and otherwise the work is written as the series
-  it is. `accountedFor` asks that, and three things keep it honest: the
-  comparison keeps the spaces and punctuation `FoldTitle` drops, so a name only
-  accounts for a work at a boundary ("Free" accounts for "Free Fall", "Hero"
-  does not account for "Heroman"); the names are read from the authored layer
-  as well as the built records, since a run importing several years before a
-  build would otherwise see none for the years it just wrote; and where nothing
-  is known about a linked series' names the work is **reported**, because that
-  costs a line in a report somebody reads and the other direction costs a
-  duplicate nobody can find.
+  So a link means a merge where one of the linked series' own names is a prefix
+  of this work's, and otherwise the work is written as the series it is.
+  `accountedFor` asks that, and **everything short of clear evidence against
+  comes out as a merge**, because the two answers do not cost the same: a work
+  wrongly reported costs a line somebody reads, and a work wrongly written
+  costs a duplicate nothing downstream can detect. So it reports where nothing
+  is known about a linked series' names at all, and where every name it has is
+  shorter than three characters and so is evidence of nothing either way.
+
+  The names are read from the authored layer as well as the built records,
+  since a run importing several years before a build would otherwise see none
+  for the years it just wrote and write a second series for each.
+
+  **A boundary after the prefix was tried and dropped.** The idea was that a
+  name should only account for a work where what follows reads as separate — a
+  space, punctuation, a digit, a change of script — so "Hero" would not account
+  for "Heroman". The scripts that write these titles without spaces have no
+  boundary to find: 鬼滅の刃 followed by 遊郭編 is Han after Han, so a real
+  continuation looked like one word and the work was written as a second
+  series. And the error it prevented was the recoverable one. What does the
+  work the boundary was meant to is the link requirement: these are works
+  upstream links to the series, not every work that shares a prefix.
+
+  Being this conservative means the import proposes rather than writes some
+  series that genuinely are their own — `hataraku-saibou-black` is a different
+  manga from `hataraku-saibou`, and `cardfight-vanguard-will-dress` is its own
+  series — so they live in the authored layer as hand decisions and a fresh
+  import would report them again. That is the direction to be wrong in.
 
   `builder merge` asks the same question with the same inputs. It did not, and
   the two commands disagreed about what a candidate was: works `import` writes

@@ -745,6 +745,12 @@ func TestAnIDLessTwinSeesWhatTheCatalogueHoldsUnderAnAnidbID(t *testing.T) {
 			t.Errorf("wrote %q as its own series; the catalogue already holds that work", s.Romanized)
 		}
 	}
+	// Reported rather than counted present: the pool is matched by title, and
+	// a title match is also what a homonym is, so a work that disappears into
+	// "already here" on that evidence alone is a work nobody can check.
+	if len(plan.Merges) == 0 {
+		t.Error("the work was neither written nor reported, so it was silently dropped")
+	}
 
 	// Held under nothing, the pair is still two records of one work, and
 	// neither carries the AniList id the resolution prefers. Reported for a
@@ -909,7 +915,10 @@ func TestAWorkNoLinkedSeriesIsNamedAfterBecomesItsOwnSeries(t *testing.T) {
 // gets written if they stopped working.
 func TestTheNameAndSameWorkGuardsIgnoreWhatProvesNothing(t *testing.T) {
 	// A one- or two-character series name matches most of the catalogue once
-	// folded, so it is not evidence that a work belongs to it.
+	// folded, so it is not evidence that a work belongs to it — and it is not
+	// evidence that the work is its own series either. The work is reported,
+	// which is the answer somebody can act on, rather than written, which is
+	// the answer nothing downstream can detect being wrong.
 	db := load(t,
 		entry{title: "Ko", typ: "TV", episodes: 12, year: 2019, season: "FALL",
 			status: "FINISHED", sources: []string{al("100")}},
@@ -918,8 +927,11 @@ func TestTheNameAndSameWorkGuardsIgnoreWhatProvesNothing(t *testing.T) {
 	)
 	plan := BuildWith(db, 2020, map[int]bool{100: true}, map[string]bool{},
 		func(int) []string { return []string{"Ko"} })
-	if len(plan.Merges) != 0 {
-		t.Errorf("Merges = %+v; a two-character name is not evidence of membership", plan.Merges)
+	if len(plan.New) != 0 {
+		t.Errorf("New = %+v; a two-character name is not grounds for writing a second series", plan.New)
+	}
+	if len(plan.Merges) != 1 {
+		t.Errorf("Merges = %+v, want the work reported for a person", plan.Merges)
 	}
 
 	// An entry stating neither when it aired nor how long it ran matches every
@@ -941,39 +953,55 @@ func slicesOf(db *offlinedb.Database, title string) []offlinedb.Anime {
 	return db.Titled(title)
 }
 
-// The boundary cases the prefix test got wrong. Deciding a work is nobody's
-// installment writes it as a series of its own, and a wrong "no" there is the
-// one import mistake nothing downstream can detect — so this is where the rule
-// has to be exact.
-func TestOneNameAccountsForAnotherOnlyAtABoundary(t *testing.T) {
+// Which way each answer fails is the whole point here. "Accounted for" sends
+// the work to a report somebody reads; "not accounted for" writes it as a
+// series of its own, which is the one import mistake nothing downstream can
+// detect. So anything short of clear evidence against has to come out as
+// accounted.
+func TestANameAccountsForAWorkWheneverItCouldBeItsOwn(t *testing.T) {
 	cases := []struct {
 		series, work string
 		want         bool
 		why          string
 	}{
-		{"Healin' Good", "Healin' Good Precure", true, "a space is a boundary"},
-		{"鬼滅の刃", "鬼滅の刃 柱合会議・蝶屋敷編", true, "so is a space between kana"},
-		{"Kimetsu no Yaiba", "Kimetsu no Yaiba: Hashira Geiko-hen", true, "and a colon"},
-		{"Bocchi the Rock!", "Bocchi the Rock!", true, "the same name accounts for itself"},
-		{"ハイカード", "ハイカード 2", true, "a digit after a space"},
-		{"Free", "Free Fall", true, "a space, even where the name is short"},
-		{"Hero", "Heroman", false, "one word, not a continuation"},
-		{"Fat", "Fate/Grand Order", false, "the prefix lands mid-word"},
-		{"Gundam", "Gundamn", false, "and mid-word again"},
-		{"ガンダム", "ガンダムエース", false, "same script, no boundary"},
-		{"Gundam", "Gundam2", true, "a digit after a letter, with no space to help"},
-		{"ハイカード", "ハイカード2", true, "and after katakana"},
-		{"鬼滅", "鬼滅の刃", true, "kana after han starts a new token"},
-		{"ぼっち", "ぼっちざろっく", false, "hiragana after hiragana is one word"},
-		{"신비", "신비아파트", false, "hangul after hangul likewise"},
-		{"신비", "신비 아파트", true, "until a space separates them"},
-		{"2", "22", false, "digit after digit is one number"},
+		{"Healin' Good", "Healin' Good Precure", true, "the series' name carried further"},
+		{"鬼滅の刃", "鬼滅の刃 遊郭編", true, "the same, with a space"},
+		{"鬼滅の刃", "鬼滅の刃遊郭編", true, "and without one — Han has no spaces to find a boundary in"},
+		{"Kimetsu no Yaiba", "Kimetsu no Yaiba: Hashira Geiko-hen", true, "a subtitle"},
+		{"Bocchi the Rock!", "Bocchi the Rock!", true, "a name accounts for itself"},
+		{"ハイカード", "ハイカード 2", true, "a numbered sequel"},
+		{"Hero", "Heroman", true, "mid-word, so not evidence of a continuation — but not evidence against one either, and this error is the recoverable one"},
+		// What actually has to be false: the cases that cost 1,699 works.
+		{"Mahou Tsukai Precure!", "Healin' Good Precure", false, "a sibling season, not an installment of this one"},
+		{"Kaguya-sama wa Kokurasetai", "Ultra Romantic", false, "shares no name with it at all"},
+		{"Gundam", "Mobile Suit Gundam SEED", false, "the name is in it, but not at the front"},
 	}
 	for _, c := range cases {
-		got := extendsName(accountFold(c.work), accountFold(c.series))
+		got := strings.HasPrefix(accountFold(c.work), accountFold(c.series))
 		if got != c.want {
-			t.Errorf("extendsName(%q, %q) = %v, want %v — %s", c.work, c.series, got, c.want, c.why)
+			t.Errorf("%q accounting for %q = %v, want %v — %s", c.series, c.work, got, c.want, c.why)
 		}
+	}
+}
+
+// A series every one of whose names is too short to be evidence is not
+// evidence against the work either. "Cannot tell" has to come out differently
+// from "no", because only one of those two is recoverable.
+func TestASeriesWithOnlyShortNamesIsReportedNotDecided(t *testing.T) {
+	db := load(t,
+		entry{title: "Up", typ: "TV", episodes: 12, year: 2019, season: "FALL",
+			status: "FINISHED", sources: []string{al("100")}},
+		entry{title: "Something Unrelated", typ: "TV", episodes: 12, year: 2020, season: "FALL",
+			status: "FINISHED", sources: []string{al("200")}, related: []string{al("100")}},
+	)
+	plan := BuildKnown(db, 2020, Known{Anilist: map[int]bool{100: true}}, map[string]bool{},
+		func(int) []string { return []string{"Up"} })
+
+	if len(plan.New) != 0 {
+		t.Errorf("New = %+v, want nothing written on the strength of a two-letter name", plan.New)
+	}
+	if len(plan.Merges) != 1 {
+		t.Errorf("Merges = %+v, want the work reported", plan.Merges)
 	}
 }
 
