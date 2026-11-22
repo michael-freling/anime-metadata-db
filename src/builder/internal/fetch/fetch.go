@@ -79,12 +79,20 @@ func (c *Client) Get(ctx context.Context, url string) ([]byte, error) {
 	}
 	// The count is the number of attempts made, not the number allowed. It
 	// used to print maxAttempts either way, so a 414 — which is not retried at
-	// all, because the request is wrong rather than the moment — reported
-	// "gave up after 4 attempts". That reads as an unreliable server, and sent
-	// the search for a cause at upstream instead of at the URL being built.
+	// all — reported "gave up after 4 attempts". That reads as an unreliable
+	// server, and sent the search for a cause at upstream instead of at the
+	// URL being built.
+	//
+	// What a single attempt means depends on the status, and only the 4xx half
+	// says the request itself is wrong. backoff declines to retry a 500, 502
+	// and 504 as well, and calling those a bad request would be the same
+	// misdirection pointing the other way.
 	if attempts == 1 {
-		return nil, fmt.Errorf("get %s: unexpected status %s (not retried: the request is wrong, not the moment)",
-			url, last.status)
+		why := "not retried: this status is not one a later attempt would change"
+		if last.code >= 400 && last.code < 500 {
+			why = "not retried: the request is wrong, not the moment"
+		}
+		return nil, fmt.Errorf("get %s: unexpected status %s (%s)", url, last.status, why)
 	}
 	return nil, fmt.Errorf("get %s: unexpected status %s (gave up after %d attempts)",
 		url, last.status, attempts)

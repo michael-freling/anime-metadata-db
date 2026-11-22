@@ -6,6 +6,7 @@ import (
 	"os"
 	"path/filepath"
 	"slices"
+	"sort"
 	"strings"
 	"testing"
 
@@ -1337,5 +1338,94 @@ func TestPinningRefusesWhenTheListsHaveDriftedApart(t *testing.T) {
 	_, why = plan(byAnidb, record, "show", film("300", "Show: The Third", 2030), map[string]bool{})
 	if !strings.Contains(why, "not the same list") {
 		t.Errorf("why = %q, want the AniDB pin read and compared against the record", why)
+	}
+}
+
+// A slot pinned by one provider's id, for an entry the record states under
+// both, names the same work either way. Refusing it as "not the same list"
+// was a false refusal, and the slot was then never attached to again.
+func TestAPinnedSlotAgreesWithTheRecordWhicheverProviderNamedIt(t *testing.T) {
+	// The record states both handles for the first film.
+	record := `series:
+  id: show
+  seasons:
+    - id: show-s1
+      number: 1
+      releaseYear: 2021
+      externalIds:
+        anilistId: 100
+  movies:
+    - id: show-film
+      releaseYear: 2021
+      externalIds:
+        anilistId: 200
+        anidbId: 4242
+`
+	// The override pinned it by its AniDB id — which is what happens to a work
+	// attached before it gained an AniList page.
+	body := `series:
+  id: show
+  seasons:
+    - id: show-s1
+      number: 1
+  movies:
+    - id: show-film
+      externalIds: { anidbId: 4242 }
+`
+	next, why := plan(body, record, "show", film("300", "Show: The Second", 2030), map[string]bool{})
+	if why != "" {
+		t.Fatalf("refused a slot that names the same work by its other handle: %s", why)
+	}
+	if !strings.Contains(next, "anidbId: 4242") {
+		t.Error("the pin the override already carried was dropped")
+	}
+
+	// And a slot naming a work the record does not state at all is still
+	// refused, naming both handles so the reader can see the disagreement.
+	wrong := strings.Replace(body, "anidbId: 4242", "anidbId: 9999", 1)
+	_, why = plan(wrong, record, "show", film("300", "Show: The Second", 2030), map[string]bool{})
+	if !strings.Contains(why, "not the same list") {
+		t.Errorf("why = %q, want a refusal", why)
+	}
+	if !strings.Contains(why, "anilistId: 200") || !strings.Contains(why, "anidbId: 4242") {
+		t.Errorf("why = %q, want it to name every id the record resolved", why)
+	}
+}
+
+// What gets written to the authored layer cannot depend on map iteration
+// order. The order decides what each attachment is named — a film takes the
+// next free id, a season the next number — and sort.Slice is not stable, so a
+// tie had to be broken on something every candidate has exactly one of. Every
+// AniDB-only candidate carries an AniList id of zero, so two of them on one
+// series compared equal.
+func TestTwoCandidatesThatCompareEqualStillSortDeterministically(t *testing.T) {
+	mk := func(anidb int, title string) action {
+		return action{series: "show", m: importer.Merge{
+			AnidbID: anidb, Title: title, Type: "MOVIE", Year: 2030}}
+	}
+	a, b := mk(7001, "Second Film"), mk(7002, "Third Film")
+
+	if beforeInApply(a, b) == beforeInApply(b, a) {
+		t.Errorf("neither candidate sorts before the other, so their order is whatever the map yielded")
+	}
+	// And the order is the same whichever way round they arrive.
+	order := func(in ...action) []string {
+		xs := append([]action(nil), in...)
+		sort.Slice(xs, func(i, j int) bool { return beforeInApply(xs[i], xs[j]) })
+		out := make([]string, len(xs))
+		for i, x := range xs {
+			out[i] = key(x.m)
+		}
+		return out
+	}
+	if forward, backward := order(a, b), order(b, a); !slices.Equal(forward, backward) {
+		t.Errorf("sorted to %v one way round and %v the other", forward, backward)
+	}
+
+	// A series name still decides first, whatever the ids say.
+	x := mk(7002, "Third Film")
+	x.series = "aaa"
+	if !beforeInApply(x, a) {
+		t.Error("the series name no longer orders ahead of the ids")
 	}
 }

@@ -145,10 +145,6 @@ func (a *App) merge(dryRun bool, since int, list bool) error {
 	// candidates can land on one series and the second has to see what the
 	// first added — otherwise both take the same node id and the build refuses
 	// the pair as duplicates.
-	type action struct {
-		m      importer.Merge
-		series string
-	}
 	var apply []action
 	type left struct {
 		m      importer.Merge
@@ -259,12 +255,7 @@ func (a *App) merge(dryRun bool, since int, list bool) error {
 			apply = append(apply, action{m: m, series: named[0]})
 		}
 	}
-	sort.Slice(apply, func(i, j int) bool {
-		if apply[i].series != apply[j].series {
-			return apply[i].series < apply[j].series
-		}
-		return apply[i].m.AnilistID < apply[j].m.AnilistID
-	})
+	sort.Slice(apply, func(i, j int) bool { return beforeInApply(apply[i], apply[j]) })
 
 	// Checked here, before the first file is written. It used to run after the
 	// apply loop, which meant a typo'd entry failed a run whose attachments had
@@ -671,7 +662,7 @@ func seriesTitles(dataDir string) (map[string][]string, error) {
 // Refuses rather than guesses when the slots and the resolved nodes do not line
 // up one to one, since pairing them by position is only sound when they are the
 // same list.
-func pinIDs(block string, resolved []string) (string, string) {
+func pinIDs(block string, resolved [][]string) (string, string) {
 	slots := nodeStart.FindAllStringIndex(block, -1)
 	switch {
 	case len(slots) < len(resolved):
@@ -721,15 +712,18 @@ func pinIDs(block string, resolved []string) (string, string) {
 		// wrong work onto each — silently, since a wrong id resolves to a real
 		// entry. Where a slot states an id, that id is the check.
 		if stated := statedID(node); stated != "" {
-			if stated != resolved[i] {
+			// Any of the handles the record states for this slot, since they
+			// name one work. Comparing against the preferred one alone refused
+			// a slot pinned by anidbId whose entry also had an AniList page.
+			if !slices.Contains(resolved[i], stated) {
 				return "", fmt.Sprintf("installment %d states %s where the record resolved %s, "+
 					"so the two lists are not the same list and pairing by position would pin the wrong work",
-					i+1, stated, resolved[i])
+					i+1, stated, describeIDs(resolved[i]))
 			}
 			b.WriteString(node)
 			continue
 		}
-		if resolved[i] == "" {
+		if len(resolved[i]) == 0 {
 			// Nothing to pin: this installment resolves to an upstream record
 			// that carries no AniList id, so it can only ever be reached by
 			// the title, and the count a new slot changes is the only thing
@@ -744,38 +738,44 @@ func pinIDs(block string, resolved []string) (string, string) {
 		b.WriteString(trimmed)
 		b.WriteString(fmt.Sprintf("\n      # Pinned when a later installment was attached: the build matches a\n"+
 			"      # kind by candidate count, and an added slot changes it.\n"+
-			"      externalIds: { %s }\n", resolved[i]))
+			"      externalIds: { %s }\n", resolved[i][0]))
 	}
 	return b.String(), ""
 }
 
 // resolvedIDs reads the AniList ids a generated record carries for one kind,
 // in the order it lists them.
-func resolvedIDs(record, kind string) []string {
+func resolvedIDs(record, kind string) [][]string {
 	loc := kindBlock(record, kind)
 	if loc == nil {
 		return nil
 	}
 	block := record[loc[0]:loc[1]]
 	slots := nodeStart.FindAllStringIndex(block, -1)
-	out := make([]string, len(slots))
+	out := make([][]string, len(slots))
 	for i, at := range slots {
 		end := len(block)
 		if i+1 < len(slots) {
 			end = slots[i+1][0]
 		}
 		node := block[at[0]:end]
-		// AniList first, since that is the join key the rest of the build
-		// uses. AniDB is what upstream leaves on the works it carries on no
-		// AniList page, and pinning it is the only way a slot holding one
-		// survives a sibling being added beside it.
+		// Every handle the record states for this slot, not only the preferred
+		// one. The record states all of them, and which one a person happened
+		// to pin a slot with is not a claim about a different work: an override
+		// pinned by anidbId, for an entry that also carries an AniList page,
+		// was refused as "the two lists are not the same list" when they were
+		// the same list named two ways.
+		//
+		// AniList first within a slot, since that is the join key the rest of
+		// the build uses and the first is what gets written when pinning.
+		var ids []string
 		if g := anilistInline.FindStringSubmatch(node); g != nil {
-			out[i] = "anilistId: " + g[1]
-			continue
+			ids = append(ids, "anilistId: "+g[1])
 		}
 		if g := anidbInline.FindStringSubmatch(node); g != nil {
-			out[i] = "anidbId: " + g[1]
+			ids = append(ids, "anidbId: "+g[1])
 		}
+		out[i] = ids
 	}
 	return out
 }
@@ -931,4 +931,39 @@ func declinedWorkExists(k string, db *offlinedb.Database) bool {
 	}
 	_, ok := db.Lookup(id)
 	return ok
+}
+
+// describeIDs names what a record resolved a slot to, for a refusal somebody
+// has to act on.
+func describeIDs(ids []string) string {
+	if len(ids) == 0 {
+		return "no id at all"
+	}
+	return strings.Join(ids, " / ")
+}
+
+// action is one attachment this run will make: the work, and the series it
+// goes onto.
+type action struct {
+	m      importer.Merge
+	series string
+}
+
+// beforeInApply orders the attachments, which decides what each one is named:
+// a film takes the next free id and a season the next number, so the order is
+// part of the output rather than a detail of how it is produced.
+//
+// Total, not just "good enough". sort.Slice is not stable and every AniDB-only
+// candidate carries an AniList id of zero, so two of them landing on one series
+// compared equal — and which took which id came out of whatever order the
+// candidates happened to arrive in. The key breaks every remaining tie, because
+// one work has exactly one.
+func beforeInApply(a, b action) bool {
+	if a.series != b.series {
+		return a.series < b.series
+	}
+	if a.m.AnilistID != b.m.AnilistID {
+		return a.m.AnilistID < b.m.AnilistID
+	}
+	return key(a.m) < key(b.m)
 }
